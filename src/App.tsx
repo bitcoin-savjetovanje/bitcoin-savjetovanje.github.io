@@ -24,7 +24,7 @@ import {
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 
-const CALENDLY_URL = "https://cal.com/btcpavao/meeting"
+const CALENDLY_URL = "https://cal.com/btcpavao/uvodni-poziv"
 const EMAIL = "pavao@hey.com"
 const PRACTICAL_BITCOIN_STANDARD_URL =
   "https://btcpavao.gitbook.io/practical-bitcoin-standard/"
@@ -334,7 +334,7 @@ export function App() {
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/86 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <a className="font-display text-base font-semibold" href="#top">
-            Pavao Pahljina
+            Bitcoin Savjetovanje
           </a>
 
           <nav className="hidden items-center gap-6 md:flex">
@@ -721,7 +721,7 @@ export function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    cal.com/btcpavao/meeting
+                    cal.com/btcpavao/uvodni-poziv
                   </a>
                 </p>
                 <p>

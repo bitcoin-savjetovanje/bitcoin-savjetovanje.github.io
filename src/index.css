@@ -223,8 +223,8 @@
   }
 
   .money-system__segment--money {
-    left: 75%;
-    top: 54%;
+    left: 67%;
+    top: 38%;
     transform: translate(-50%, -50%);
   }
 
@@ -271,14 +271,15 @@
 
   .money-system__segment--money .money-system__icons {
     @apply relative block;
-    height: 15.5rem;
-    width: 15.5rem;
+    height: 14.5rem;
+    width: 14.5rem;
+    transform: translate(-50%, -50%);
   }
 
   .money-system__bitcoin-logo {
     @apply absolute inset-0 overflow-hidden border-transparent bg-transparent p-0;
-    height: 15.5rem;
-    width: 15.5rem;
+    height: 14.5rem;
+    width: 14.5rem;
   }
 
   .money-system__bitcoin-logo img {
@@ -287,8 +288,8 @@
 
   .money-system__euro-mark {
     @apply absolute grid place-items-center;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1.65rem;
+    right: 1.65rem;
     height: 0.85rem;
     width: 0.85rem;
   }
@@ -487,8 +488,8 @@
   }
 
   .money-system__segment--money {
-    left: 74%;
-    top: 54%;
+    left: 67%;
+    top: 38%;
   }
 
   .money-system__segment--capital {
@@ -526,18 +527,19 @@
   }
 
   .money-system__bitcoin-logo {
-    height: 9.8rem;
-    width: 9.8rem;
+    height: 8.7rem;
+    width: 8.7rem;
   }
 
   .money-system__segment--money .money-system__icons {
-    height: 9.8rem;
-    width: 9.8rem;
+    height: 8.7rem;
+    width: 8.7rem;
+    transform: translate(-50%, -50%);
   }
 
   .money-system__euro-mark {
-    bottom: 1.2rem;
-    right: 1.2rem;
+    bottom: 1rem;
+    right: 1rem;
     height: 0.7rem;
     width: 0.7rem;
   }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { type FormEvent, useEffect, useState } from "react"
 import {
   ArrowUp,
   ArrowUpRight,
@@ -278,6 +278,27 @@ function MoneySystemVisual() {
 export function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
+
+  function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const subject = "Upit za Bitcoin savjetovanje"
+    const body = [
+      `Ime i prezime: ${formData.get("ime_i_prezime") ?? ""}`,
+      `Email: ${formData.get("email") ?? ""}`,
+      "",
+      "Gdje sam trenutno s Bitcoinom:",
+      `${formData.get("trenutno_s_bitcoinom") ?? ""}`,
+      "",
+      "Najveća nejasnoća:",
+      `${formData.get("najveca_nejasnoca") ?? ""}`,
+      "",
+      `Želim uvodni poziv: ${formData.get("uvodni_poziv") ?? ""}`,
+    ].join("\n")
+
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
 
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
@@ -711,9 +732,7 @@ export function App() {
 
             <form
               className="contact-form"
-              action={`mailto:${EMAIL}`}
-              method="post"
-              encType="text/plain"
+              onSubmit={handleContactSubmit}
             >
               <label>
                 <span>Ime i prezime</span>

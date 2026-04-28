@@ -275,13 +275,13 @@
     width: 15rem;
   }
 
-  .money-system__bitcoin-logo {
+  .money-system__segment--money .money-system__bitcoin-logo {
     @apply absolute inset-0 overflow-hidden border-transparent bg-transparent p-0;
     height: 15rem;
     width: 15rem;
   }
 
-  .money-system__bitcoin-logo img {
+  .money-system__segment--money .money-system__bitcoin-logo img {
     @apply size-full object-cover;
   }
 
@@ -525,7 +525,7 @@
     width: 0.875rem;
   }
 
-  .money-system__bitcoin-logo {
+  .money-system__segment--money .money-system__bitcoin-logo {
     height: 9rem;
     width: 9rem;
   }

@@ -7,7 +7,11 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.GITHUB_PAGES === "true" ? "/bitcoin-savjetovanje.github.io/" : "/",
+  base:
+    process.env.GITHUB_PAGES === "true" &&
+    process.env.GITHUB_REPOSITORY !== "bitcoin-savjetovanje/bitcoin-savjetovanje.github.io"
+      ? "/bitcoin-savjetovanje.github.io/"
+      : "/",
   plugins: [motionwind() as unknown as Plugin, react(), tailwindcss()],
   resolve: {
     alias: {

@@ -46,7 +46,7 @@ const navLinks = [
 const trustItems = [
   "U Bitcoinu od 2014.",
   "10.000+ sati rada i proučavanja",
-  "6+ godina profesionalnog rada u Bitcoin industriji",
+  "6+ godina profesionalnog rada u Bitcoin prostoru",
   "Život na Bitcoin standardu od 2020.",
 ]
 
@@ -131,6 +131,11 @@ const faqs = [
   {
     question: "Radite li s drugim kriptovalutama?",
     answer: "Ne. Fokus je isključivo na Bitcoinu.",
+  },
+  {
+    question: "Radite li s poduzetnicima i tvrtkama?",
+    answer:
+      "Da, ako je cilj razumjeti Bitcoin u kontekstu osobne ili poslovne financijske slike. Uvodni razgovor služi tome da utvrdimo je li riječ o temi koju mogu kvalitetno obraditi ili je potrebno uključiti poreznog, pravnog ili računovodstvenog stručnjaka.",
   },
   {
     question: "Je li razgovor povjerljiv?",
@@ -440,7 +445,7 @@ export function App() {
                   className="h-12 rounded-full border-border/80 bg-background/70 px-6 text-base"
                 >
                   <a href={`mailto:${EMAIL}`}>
-                    Pošaljite pitanje
+                    Pišite mi izravno
                     <ArrowUpRight className="size-4" />
                   </a>
                 </Button>
@@ -464,8 +469,8 @@ export function App() {
         <section id="za-koga" className="section-shell">
           <div className="grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-start">
             <SectionHeader
-              title="Ovo je za vas ako..."
-              copy="Savjetovanje ima najviše smisla kada već osjećate da je tema važna, ali vam nedostaje osobni okvir za mirne i konkretne odluke."
+              title="Za koga je ovo?"
+              copy="Ova usluga je za ljude koji već osjećaju da je Bitcoin važna tema, ali žele ozbiljniji osobni okvir prije nego što donesu veće odluke."
             />
             <div className="grid gap-3">
               <p className="mb-2 text-base leading-7 text-muted-foreground">
@@ -533,7 +538,7 @@ export function App() {
 
         <section className="section-shell section-muted">
           <SectionHeader
-            title="Što dobivate kroz savjetovanje"
+            title="Što dobivate?"
             copy="Ne odlazite s još jednim mišljenjem, nego s okvirom kroz koji možete donositi odluke i kada cijena raste, i kada pada, i kada okolina šalje proturječne signale."
             align="center"
           />
@@ -561,7 +566,7 @@ export function App() {
         >
           <SectionHeader
             title="Proces i cijene"
-            copy="Rad je strukturiran u jasne korake. Cijene su prikazane otvoreno jer ozbiljno savjetovanje ne treba skrivati iza agresivne prodaje."
+            copy="Proces je namjerno jednostavan. Prvo provjeravamo postoji li stvarna potreba, zatim kroz plaćeni razgovor postavljamo početni okvir, a za dublju provedbu postoji strukturirani program."
           />
 
           <div className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -579,7 +584,8 @@ export function App() {
         </section>
 
         <section id="o-meni" className="section-shell section-muted">
-          <div className="grid gap-12 lg:grid-cols-[320px_1fr] lg:items-start">
+          <SectionHeader title="Zašto mogu pomoći?" />
+          <div className="mt-12 grid gap-12 lg:grid-cols-[320px_1fr] lg:items-start">
             <aside className="profile-panel">
               <img
                 src="https://avatars.githubusercontent.com/u/109140795?v=4"
@@ -607,12 +613,11 @@ export function App() {
             </aside>
 
             <div>
-              <SectionHeader title="Zašto mogu pomoći?" />
-              <div className="mt-7 space-y-5 text-lg leading-8 text-muted-foreground">
+              <div className="space-y-5 text-lg leading-8 text-muted-foreground">
                 <p>
                   U Bitcoinu sam od 2014. godine. Iza mene je više od 10.000
                   sati rada i proučavanja, više od šest godina profesionalnog
-                  rada u Bitcoin industriji, rad sa Saifedeanom Ammousom te
+                  rada u Bitcoin prostoru, rad sa Saifedeanom Ammousom te
                   dugogodišnji rad kroz DvadesetJedan.
                 </p>
                 <p>
@@ -666,7 +671,7 @@ export function App() {
                 </a>
               </Button>
               <a className="final-cta__email" href={`mailto:${EMAIL}`}>
-                {EMAIL}
+                Pišite mi izravno
               </a>
             </div>
           </div>

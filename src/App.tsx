@@ -1,16 +1,20 @@
-import { type FormEvent, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import {
   ArrowUp,
   ArrowUpRight,
+  Briefcase,
   CalendarDays,
   Car,
   Check,
-  CheckCircle2,
   CircleDollarSign,
   Compass,
+  Calculator,
+  DollarSign,
   Euro,
+  Factory,
+  Gamepad2,
+  Guitar,
   House,
-  Mail,
   Menu,
   MoonStar,
   Motorbike,
@@ -18,134 +22,125 @@ import {
   Ship,
   ShieldCheck,
   SunMedium,
+  Wrench,
   X,
 } from "lucide-react"
 
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 
-const CALENDLY_URL = "https://cal.com/btcpavao/uvodni-poziv"
+const CALENDLY_URL = "https://cal.com/btcpavao/meeting"
 const EMAIL = "pavao@hey.com"
 const PRACTICAL_BITCOIN_STANDARD_URL =
   "https://btcpavao.gitbook.io/practical-bitcoin-standard/"
 const DVADESCET_JEDAN_URL = "https://dvadesetjedan.com"
 
 const navLinks = [
-  { label: "Za koga", href: "#za-koga" },
-  { label: "Proces", href: "#proces" },
-  { label: "O meni", href: "#o-pavlu" },
-  { label: "Pitanja", href: "#pitanja" },
+  { label: "Za koga je ovo?", href: "#za-koga" },
+  { label: "Što ovo nije?", href: "#sto-nije" },
+  { label: "Proces i cijene", href: "#proces" },
+  { label: "O meni", href: "#o-meni" },
+  { label: "Česta Pitanja", href: "#pitanja" },
+]
+
+const trustItems = [
+  "U Bitcoinu od 2014.",
+  "10.000+ sati rada i proučavanja",
+  "6+ godina profesionalnog rada u Bitcoin prostoru",
+  "Život na Bitcoin standardu od 2020.",
 ]
 
 const audienceItems = [
-  "već imaš Bitcoin, ali nisi siguran imaš li jasan plan",
-  "kupuješ kad ima viška, ali nemaš okvir koliko i kada",
-  "imaš kapital i razmišljaš o ulasku u Bitcoin",
-  "stalno istražuješ, ali odgađaš konkretnu odluku",
-  "želiš razumjeti kako Bitcoin uklopiti u ostatak svoje imovine",
-  "ne želiš donositi odluke po osjećaju",
+  "već imate Bitcoin, ali niste sigurni imate li jasan dugoročni plan",
+  "imate kapital i razmišljate o ulasku, ali ne želite djelovati impulzivno",
+  "već dugo čitate i istražujete, ali odluka se stalno odgađa",
+  "niste sigurni koliki udio vaše imovine ima smisla izložiti Bitcoinu",
+  "želite urediti sigurnost, skrbništvo i pravila ponašanja kroz vrijeme",
+  "želite Bitcoin uklopiti u širu financijsku sliku, a ne promatrati ga izolirano",
 ]
 
-const problemQuestions = [
-  "koliko uopće ima smisla imati?",
-  "kada kupovati?",
-  "što ako cijena padne?",
-  "što ako cijena poraste?",
-  "treba li još kupovati ili stati?",
-  "kako to uklopiti u ostatak financija?",
+const notForItems = [
+  "Neću vas nagovarati da kupite Bitcoin.",
+  "Neću predviđati kratkoročnu cijenu.",
+  "Neću vam dati univerzalni postotak koji vrijedi za sve.",
+  "Neću glumiti poreznog ili pravnog savjetnika.",
+  "Neću od vašeg života napraviti ideološki projekt.",
+  "Moj posao je pomoći vam da mirnije i jasnije odlučujete.",
 ]
 
 const outcomes = [
   {
-    title: "Jasan okvir",
+    title: "Osobni okvir odlučivanja",
     icon: Compass,
-    copy: "Više ne donosiš odluke po osjećaju. Znaš kako razmišljati o Bitcoinu u kontekstu svoje imovine, prihoda i ciljeva.",
+    copy: "Razumijete kako razmišljati o Bitcoinu u odnosu na vlastitu imovinu, prihode, obveze, vremenski okvir i razinu rizika koju možete mirno nositi.",
   },
   {
-    title: "Plan djelovanja",
-    icon: CheckCircle2,
-    copy: "Dobivaš konkretan pristup: što raditi sada, što kasnije i kako reagirati u različitim tržišnim okolnostima.",
+    title: "Jasna pravila za djelovanje",
+    icon: Check,
+    copy: "Umjesto donošenja odluka prema raspoloženju tržišta, postavljate pravila za kupnju, čekanje, sigurnost i ponašanje kroz različite okolnosti.",
   },
   {
-    title: "Mir u odlukama",
+    title: "Uređen odnos prema riziku",
     icon: ShieldCheck,
-    copy: "Cilj nije pogoditi svaki pokret cijene. Cilj je imati sustav zbog kojeg ne moraš stalno preispitivati svaku odluku.",
+    copy: "Razdvajamo stvarne rizike od buke: cijenu, skrbništvo, likvidnost, sigurnost, dugove, novčani tok i emocionalnu podnošljivost odluke.",
   },
   {
-    title: "Integracija s osobnim financijama",
+    title: "Bitcoin u kontekstu cijele imovine",
     icon: CircleDollarSign,
-    copy: "Bitcoin ne promatramo izolirano, nego kao dio ukupne financijske slike: novac, kapital, dug, potrošnja i dugoročna neto imovina.",
+    copy: "Bitcoin ne promatramo izolirano, nego u odnosu na novac, kapital, potrošnju, obveze, sigurnosnu rezervu i dugoročnu neto imovinu.",
   },
 ]
 
 const processSteps = [
   {
     step: "01",
-    title: "Kratki uvodni poziv",
-    price: "Besplatno",
-    copy: "15 minuta. Prolazimo gdje si trenutno, što te najviše muči i ima li smisla dalje razgovarati.",
+    title: "Uvodni razgovor",
+    price: "bez naknade",
+    copy: "Uvodni razgovor traje oko 15 minuta. Cilj nije da u njemu riješimo cijelu situaciju, nego da razumijem gdje se nalazite, što pokušavate odlučiti i ima li smisla nastaviti u detaljniji savjetodavni razgovor. Ako vidim da vam ne mogu pomoći ili da ovo nije pravi trenutak, reći ću vam to izravno.",
   },
   {
     step: "02",
-    title: "Plaćeni 1:1 razgovor",
+    title: "Plaćeni savjetodavni razgovor",
     price: "200 €",
-    copy: "Detaljno prolazimo tvoju situaciju i postavljamo prvi jasan okvir.",
+    copy: "Plaćeni savjetodavni razgovor traje 60-90 minuta. U njemu prolazimo vašu stvarnu situaciju: sadašnje razumijevanje Bitcoina, postojeću izloženost, odnos prema riziku, novčani tok, ostatak imovine, vremenski okvir i glavne točke neodlučnosti. Cilj je da nakon razgovora imate jasniji okvir za donošenje odluka i da znate koji bi sljedeći koraci imali smisla.",
   },
   {
     step: "03",
     title: "Strukturirani program",
     price: "od 1.500 €",
-    copy: "Ako ima smisla nastaviti, radimo nekoliko tjedana 1:1 na konkretnom planu i primjeni. Program uključuje više razgovora, jasne korake i praćenje.",
+    copy: "Program nije produženi razgovor, nego vođeni proces kroz više odluka: udio, ritam, sigurnost, pravila ponašanja i integracija s ostatkom imovine.",
   },
-]
-
-const approachItems = [
-  "budžet i kontrolu novčanog toka",
-  "razduživanje i financijsku stabilnost",
-  "dugoročno razmišljanje o neto imovini",
-  "Bitcoin kao primarni oblik novca",
-  "odnos između novca, kapitala i potrošnje",
-]
-
-const notForItems = [
-  "nije savjetovanje za kratkoročno trgovanje",
-  "nije pogađanje kratkoročne cijene",
-  "nije savjetovanje o drugim digitalnim imovinama",
-  "nije obećanje prinosa",
-  "nije financijski proizvod",
-  "nije zamjena za porezni ili pravni savjet",
 ]
 
 const faqs = [
   {
+    question: "Je li ovo financijsko savjetovanje?",
+    answer:
+      "Ne. Ovo nije licencirano investicijsko, porezno ili pravno savjetovanje. Rad je usmjeren na osobni okvir odlučivanja, razumijevanje Bitcoina, organizaciju sigurnosti i jasniji pristup vlastitoj situaciji. Za porezna i pravna pitanja treba se obratiti odgovarajućim stručnjacima.",
+  },
+  {
     question: "Moram li već imati Bitcoin?",
     answer:
-      "Ne. Možeš biti u fazi razmišljanja ili već imati Bitcoin. Bitno je da želiš ozbiljno posložiti pristup.",
+      "Ne morate. Usluga je korisna i za ljude koji tek razmišljaju o ulasku i za ljude koji već imaju Bitcoin, ali nemaju jasan plan.",
   },
   {
-    question: "Je li ovo za početnike?",
+    question: "Hoćete li mi reći koliko Bitcoina trebam kupiti?",
     answer:
-      "Može biti, ali nije osnovna edukacija. Najviše koristi imaju ljudi koji već znaju da je Bitcoin važan, ali nemaju jasan plan.",
+      "Ne dajem univerzalne recepte ni naredbe. Cilj je pomoći vam izgraditi okvir kroz koji možete donijeti vlastitu odluku u skladu s vašom situacijom, vremenskim okvirom i odnosom prema riziku.",
   },
   {
-    question: "Hoćeš li mi reći točno koliko Bitcoina trebam kupiti?",
-    answer:
-      "Ne dajem univerzalne recepte. Radimo kroz tvoju situaciju i postavljamo okvir donošenja odluka.",
+    question: "Radite li s drugim kriptovalutama?",
+    answer: "Ne. Fokus je isključivo na Bitcoinu.",
   },
   {
-    question: "Radiš li kratkoročno trgovanje ili prognoze cijene?",
+    question: "Što ako nakon uvodnog razgovora nema smisla nastaviti?",
     answer:
-      "Ne. Fokus je na dugoročnom pristupu, osobnim financijama i donošenju boljih odluka.",
+      "Reći ću vam to izravno. Uvodni razgovor služi upravo tome da vidimo postoji li stvarna potreba i odgovara li ovaj oblik rada vašoj situaciji.",
   },
   {
     question: "Koliko košta?",
     answer:
-      "Kratki uvodni poziv je besplatan. Detaljni 1:1 razgovor je 200 €. Strukturirani program kreće od 1.500 €.",
-  },
-  {
-    question: "Kako se dogovara poziv?",
-    answer:
-      "Putem obrasca ili poveznice za rezervaciju termina. Prvi korak je kratak uvodni razgovor.",
+      "Uvodni razgovor je bez naknade. Plaćeni savjetodavni razgovor je 200 €. Strukturirani program kreće od 1.500 €.",
   },
 ]
 
@@ -233,8 +228,11 @@ function MoneySystemVisual() {
           <span className="money-system__bitcoin-logo">
             <img src="/bitcoin-logo.png" alt="" />
           </span>
-          <span className="money-system__euro-mark">
+          <span className="money-system__currency-mark money-system__currency-mark--euro">
             <Euro className="size-5" />
+          </span>
+          <span className="money-system__currency-mark money-system__currency-mark--dollar">
+            <DollarSign className="size-5" />
           </span>
         </div>
       </article>
@@ -250,24 +248,42 @@ function MoneySystemVisual() {
             <span />
           </div>
         </div>
+        <span className="money-system__capital-symbol money-system__capital-symbol--factory">
+          <Factory className="size-4" />
+        </span>
+        <span className="money-system__capital-symbol money-system__capital-symbol--wrench">
+          <Wrench className="size-4" />
+        </span>
+        <span className="money-system__capital-symbol money-system__capital-symbol--calculator">
+          <Calculator className="size-4" />
+        </span>
+        <span className="money-system__capital-symbol money-system__capital-symbol--briefcase">
+          <Briefcase className="size-4" />
+        </span>
       </article>
 
       <article className="money-system__segment money-system__segment--spending">
         <div className="money-system__icons">
-          <span>
+          <span className="money-system__spending-icon money-system__spending-icon--home">
             <House className="size-4" />
           </span>
-          <span>
+          <span className="money-system__spending-icon money-system__spending-icon--car">
             <Car className="size-4" />
           </span>
-          <span>
+          <span className="money-system__spending-icon money-system__spending-icon--bike">
             <Motorbike className="size-4" />
           </span>
-          <span>
+          <span className="money-system__spending-icon money-system__spending-icon--plane">
             <Plane className="size-4" />
           </span>
-          <span>
+          <span className="money-system__spending-icon money-system__spending-icon--ship">
             <Ship className="size-4" />
+          </span>
+          <span className="money-system__spending-icon money-system__spending-icon--guitar">
+            <Guitar className="size-4" />
+          </span>
+          <span className="money-system__spending-icon money-system__spending-icon--gamepad">
+            <Gamepad2 className="size-4" />
           </span>
         </div>
       </article>
@@ -279,27 +295,6 @@ export function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
 
-  function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-
-    const formData = new FormData(event.currentTarget)
-    const subject = "Upit za Bitcoin savjetovanje"
-    const body = [
-      `Ime i prezime: ${formData.get("ime_i_prezime") ?? ""}`,
-      `Email: ${formData.get("email") ?? ""}`,
-      "",
-      "Gdje sam trenutno s Bitcoinom:",
-      `${formData.get("trenutno_s_bitcoinom") ?? ""}`,
-      "",
-      "Najveća nejasnoća:",
-      `${formData.get("najveca_nejasnoca") ?? ""}`,
-      "",
-      `Želim uvodni poziv: ${formData.get("uvodni_poziv") ?? ""}`,
-    ].join("\n")
-
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  }
-
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -308,7 +303,7 @@ export function App() {
     }
 
     function handleResize() {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1280) {
         setMobileMenuOpen(false)
       }
     }
@@ -333,16 +328,19 @@ export function App() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border/70 bg-background/86 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <a className="font-display text-base font-semibold" href="#top">
+          <a
+            className="font-display text-base font-semibold whitespace-nowrap"
+            href="#top"
+          >
             Bitcoin Savjetovanje
           </a>
 
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-6 xl:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="whitespace-nowrap text-sm text-muted-foreground hover:text-foreground"
               >
                 {link.label}
               </a>
@@ -353,17 +351,17 @@ export function App() {
             <Button
               asChild
               size="lg"
-              className="hidden rounded-full px-5 md:inline-flex"
+              className="hidden rounded-full px-5 xl:inline-flex"
             >
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Uvodni poziv
+                Dogovorite uvodni razgovor
               </a>
             </Button>
             <ThemeToggle />
             <Button
               variant="outline"
               size="icon"
-              className="size-10 rounded-full border-border/80 bg-background/80 md:hidden"
+              className="size-10 rounded-full border-border/80 bg-background/80 xl:hidden"
               onClick={() => setMobileMenuOpen((open) => !open)}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-nav"
@@ -381,7 +379,7 @@ export function App() {
         {mobileMenuOpen ? (
           <nav
             id="mobile-nav"
-            className="mx-auto grid max-w-7xl gap-2 px-4 pb-4 md:hidden"
+            className="mx-auto grid max-w-7xl gap-2 px-4 pb-4 xl:hidden"
           >
             {navLinks.map((link) => (
               <a
@@ -399,15 +397,20 @@ export function App() {
 
       <main id="top">
         <section className="hero-section border-b border-border/70">
-          <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.75fr)] lg:items-center lg:px-8 lg:py-24">
-            <div className="max-w-4xl">
-              <h1 className="font-display text-5xl leading-none font-semibold text-foreground sm:text-6xl lg:text-7xl">
-                Bitcoin bez kaosa i neodlučnosti
+          <div className="hero-shell">
+            <div className="hero-copy">
+              <h1 className="hero-title">
+                Uklonite neodlučnost i donesite jasne odluke oko Bitcoina.
               </h1>
-              <p className="mt-7 max-w-2xl text-xl leading-9 text-muted-foreground">
-                Ako imaš kapital i razmišljaš o Bitcoinu, ali nemaš jasan plan,
-                pomažem ti posložiti konkretan pristup kroz tvoju financijsku
-                situaciju.
+              <p className="hero-subtitle">
+                Pomažem ljudima s kapitalom koji već osjećaju da je Bitcoin
+                važan, ali nemaju miran, osoban i provediv okvir za odluku:
+                koliko imati, kako pristupiti kupnji, kako organizirati
+                sigurnost i kako Bitcoin uklopiti u širu financijsku sliku.
+              </p>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
+                Bez kratkoročnog trgovanja. Bez predviđanja cijene. Bez buke.
+                Samo miran, strukturiran razgovor o vašoj stvarnoj situaciji.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -422,7 +425,7 @@ export function App() {
                     rel="noopener noreferrer"
                   >
                     <CalendarDays className="size-4" />
-                    Dogovori kratki uvodni poziv
+                    Dogovorite uvodni razgovor
                   </a>
                 </Button>
                 <Button
@@ -431,37 +434,11 @@ export function App() {
                   size="lg"
                   className="h-12 rounded-full border-border/80 bg-background/70 px-6 text-base"
                 >
-                  <a href="#kontakt">
-                    Pošalji pitanje
+                  <a href={`mailto:${EMAIL}`}>
+                    Pošaljite pitanje
                     <ArrowUpRight className="size-4" />
                   </a>
                 </Button>
-              </div>
-
-              <p className="mt-4 max-w-xl text-sm leading-6 text-muted-foreground">
-                15 minuta. Bez obveze. Cilj je vidjeti ima li smisla dalje
-                razgovarati.
-              </p>
-
-              <div className="mt-12 grid gap-4 border-t border-border/70 pt-8 sm:grid-cols-3">
-                <div>
-                  <p className="text-2xl font-semibold">2014.</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    u Bitcoinu od rane faze tržišta
-                  </p>
-                </div>
-                <div>
-                  <p className="text-2xl font-semibold">10.000+</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    sati proučavanja i rada u Bitcoin prostoru
-                  </p>
-                </div>
-                <div>
-                  <p className="text-2xl font-semibold">2020.</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                    osobni život na Bitcoin standardu
-                  </p>
-                </div>
               </div>
             </div>
 
@@ -469,65 +446,77 @@ export function App() {
           </div>
         </section>
 
-        <section id="za-koga" className="section-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-start">
-            <SectionHeader
-              title="Ovo je za tebe ako..."
-              copy="Bitcoin savjetovanje ima najviše smisla kada već osjećaš da je tema važna, ali ti nedostaje okvir za mirne i konkretne odluke."
-            />
-            <div>
-              <div className="grid gap-3">
-                {audienceItems.map((item) => (
-                  <div key={item} className="check-row">
-                    <Check className="mt-1 size-4 text-primary" />
-                    <p>{item}</p>
-                  </div>
-                ))}
+        <section className="trust-strip" aria-label="Sažetak iskustva">
+          <div className="mx-auto grid max-w-7xl gap-3 px-4 py-6 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+            {trustItems.map((item) => (
+              <div key={item} className="trust-strip__item">
+                {item}
               </div>
-              <p className="mt-8 border-l-2 border-primary pl-5 text-base leading-8 text-muted-foreground">
-                Ovo nije za ljude koji traže brze rezultate, signale za
-                kratkoročne pozicije ili špekulacije drugim digitalnim
-                imovinama. Fokus je na dugoročnom, mirnom i strukturiranom
-                pristupu Bitcoinu.
-              </p>
-            </div>
+            ))}
           </div>
         </section>
 
-        <section className="section-shell section-muted">
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.88fr] lg:items-start">
-            <div>
-              <SectionHeader title="Većina ljudi ne zapne na Bitcoinu. Zapne na odlukama." />
-              <div className="mt-7 space-y-5 text-lg leading-8 text-muted-foreground">
-                <p>
-                  Problem danas nije nedostatak informacija. Informacija ima
-                  previše.
-                </p>
-                <p>
-                  Većina ljudi zna da je Bitcoin važan. Čitali su, slušali,
-                  pratili rasprave i možda već nešto kupili. Ali kad dođe
-                  trenutak za konkretnu odluku, nastane nejasnoća.
-                </p>
-                <p>
-                  Bez jasnog okvira, svaka odluka postaje stres. Zato je
-                  potreban Bitcoin plan koji povezuje kapital, osobne financije
-                  i dugoročni pristup Bitcoinu.
-                </p>
-              </div>
-            </div>
-
-            <div className="question-panel">
-              {problemQuestions.map((question) => (
-                <p key={question}>{question}</p>
+        <section id="za-koga" className="section-shell">
+          <div className="grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-start">
+            <SectionHeader
+              title="Ovo je za vas ako..."
+              copy="Savjetovanje ima najviše smisla kada već osjećate da je tema važna, ali vam nedostaje osobni okvir za mirne i konkretne odluke."
+            />
+            <div className="grid gap-3">
+              {audienceItems.map((item) => (
+                <div key={item} className="check-row">
+                  <Check className="mt-1 size-4 text-primary" />
+                  <p>{item}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section-shell">
+        <section className="section-shell section-muted">
+          <div className="pattern-panel">
+            <SectionHeader title="Prepoznajete li ovaj obrazac?" />
+            <div className="mt-7 space-y-5 text-lg leading-8 text-muted-foreground">
+              <p>
+                Već neko vrijeme znate da je Bitcoin važan. Možda ste nešto već
+                kupili, možda godinama pratite temu, ali i dalje nemate jasan
+                osobni okvir. Ne znate koliki udio imovine ima smisla izložiti
+                Bitcoinu. Niste sigurni treba li kupovati odmah, postupno ili
+                uopće ne još. Ne želite se oslanjati na tuđa mišljenja, objave i
+                tržišno raspoloženje.
+              </p>
+              <p>
+                Ne želite donijeti impulzivnu odluku, ali ne želite ni još
+                godinama ostati u istom krugu razmišljanja.
+              </p>
+              <p className="text-foreground">
+                U tom trenutku problem više nije informacija. Problem je okvir.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="sto-nije" className="section-shell">
+          <div className="grid gap-12 lg:grid-cols-[0.88fr_1fr] lg:items-start">
+            <SectionHeader
+              title="Ovo nije još jedna stranica o brzom bogaćenju."
+              copy="Ne bavim se kratkoročnim trgovanjem, drugim digitalnim imovinama ni obećanjima prinosa. Rad je usmjeren na dugoročni okvir odlučivanja, osobnu/poslovnu financijsku sliku, sigurnost i provedbu."
+            />
+            <div className="grid gap-3">
+              {notForItems.map((item) => (
+                <div key={item} className="not-for-row">
+                  <X className="size-4" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section-shell section-muted">
           <SectionHeader
-            title="Što dobivaš kroz savjetovanje"
-            copy="Radimo na okviru koji možeš stvarno koristiti, u stvarnom životu, s kapitalom koji već imaš i odlukama koje te čekaju."
+            title="Što dobivate kroz savjetovanje"
+            copy="Ne odlazite s još jednim mišljenjem, nego s okvirom kroz koji možete donositi odluke i kada cijena raste, i kada pada, i kada okolina šalje proturječne signale."
             align="center"
           />
 
@@ -553,8 +542,8 @@ export function App() {
           className="section-shell border-y border-border/70"
         >
           <SectionHeader
-            title="Kako izgleda proces"
-            copy="Cijene su prikazane jasno jer ozbiljan razgovor ne treba skrivati iza agresivne prodaje."
+            title="Proces i cijene"
+            copy="Rad je strukturiran u jasne korake. Cijene su prikazane otvoreno jer ozbiljno savjetovanje ne treba skrivati iza agresivne prodaje."
           />
 
           <div className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -571,34 +560,7 @@ export function App() {
           </div>
         </section>
 
-        <section className="section-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.95fr_1fr] lg:items-start">
-            <SectionHeader
-              title="Pristup nije teorijski. Pristup je praktičan."
-              copy="Moj rad se temelji na praktičnom iskustvu života na Bitcoin standardu."
-            />
-            <div className="space-y-7">
-              <p className="text-lg leading-8 text-muted-foreground">
-                Od 2020. godine primam, držim i trošim Bitcoin kroz različite
-                faze tržišta. Kroz to sam razvio okvir koji spaja:
-              </p>
-              <div className="grid gap-3">
-                {approachItems.map((item) => (
-                  <div key={item} className="check-row">
-                    <Check className="mt-1 size-4 text-primary" />
-                    <p>{item}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-lg leading-8 text-muted-foreground">
-                Cilj nije da dobiješ još jednu teoriju. Cilj je da znaš što
-                konkretno napraviti u svojoj situaciji.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="o-pavlu" className="section-shell section-muted">
+        <section id="o-meni" className="section-shell section-muted">
           <div className="grid gap-12 lg:grid-cols-[320px_1fr] lg:items-start">
             <aside className="profile-panel">
               <img
@@ -606,7 +568,7 @@ export function App() {
                 alt="Pavao Pahljina"
               />
               <h3>Pavao Pahljina</h3>
-              <p>Bitcoin savjetovanje, Hrvatska</p>
+              <p>Bitcoin savjetnik · u Bitcoinu od 2014.</p>
               <div className="mt-6 grid gap-2 text-sm">
                 <a
                   href={PRACTICAL_BITCOIN_STANDARD_URL}
@@ -620,58 +582,33 @@ export function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  YouTube / DvadesetJedan
+                  DvadesetJedan
                 </a>
                 <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </div>
             </aside>
 
             <div>
-              <SectionHeader title="O meni" />
+              <SectionHeader title="Zašto mogu pomoći?" />
               <div className="mt-7 space-y-5 text-lg leading-8 text-muted-foreground">
-                <p>U Bitcoin sam ušao 2014. godine.</p>
                 <p>
-                  Zadnjih više od 6 godina profesionalno radim u Bitcoin
-                  prostoru, uključujući operativni rad sa Saifedeanom Ammousom,
-                  autorom knjige Bitcoin Standard.
+                  U Bitcoinu sam od 2014. godine. Iza mene je više od 10.000
+                  sati rada i proučavanja, više od šest godina profesionalnog
+                  rada u Bitcoin prostoru, rad sa Saifedeanom Ammousom te
+                  dugogodišnji rad kroz DvadesetJedan.
                 </p>
                 <p>
-                  Proveo sam više od 10.000 sati proučavajući Bitcoin, ali ono
-                  što najviše razlikuje moj pristup nije samo teorijsko znanje,
-                  nego praktično iskustvo.
-                </p>
-                <p>
-                  Od 2020. godine živim na Bitcoin standardu: primam prihod u
-                  Bitcoinu, trošim Bitcoin i koristim ga kao primarni novac kroz
-                  različite tržišne uvjete.
-                </p>
-                <p>
-                  Danas radim s ljudima koji žele prestati nagađati i posložiti
-                  svoj Bitcoin pristup na miran, konkretan i dugoročan način.
+                  Od 2020. živim na Bitcoin standardu: primam, držim i trošim
+                  Bitcoin kroz različite tržišne uvjete. Zbog toga moj pristup
+                  nije teorijsko uvjeravanje, nego praktično poslagivanje odluka
+                  koje osoba stvarno mora donijeti.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section-shell">
-          <div className="grid gap-12 lg:grid-cols-[0.85fr_1fr] lg:items-start">
-            <SectionHeader
-              title="Ovo nije za svakoga"
-              copy="Ovo je savjetovanje za ljude koji žele donijeti bolje odluke oko Bitcoina u kontekstu vlastitog života i financija."
-            />
-            <div className="grid gap-3 sm:grid-cols-2">
-              {notForItems.map((item) => (
-                <div key={item} className="not-for-row">
-                  <X className="size-4" />
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="pitanja" className="section-shell section-muted">
+        <section id="pitanja" className="section-shell">
           <SectionHeader title="Česta pitanja" align="center" />
           <div className="mx-auto mt-12 max-w-4xl divide-y divide-border/70 border-y border-border/70">
             {faqs.map((faq) => (
@@ -687,103 +624,40 @@ export function App() {
           <div className="final-cta">
             <div>
               <h2>
-                Ako već neko vrijeme razmišljaš o Bitcoinu, ali nemaš jasan
-                plan, krenimo od razgovora.
+                Ako već neko vrijeme razmišljate o Bitcoinu, ali nemate jasan
+                okvir, krenimo od razgovora.
               </h2>
               <p>
-                Kratki uvodni poziv služi da vidimo gdje si trenutno, što
-                pokušavaš riješiti i ima li smisla nastaviti.
+                Uvodni razgovor služi da vidimo gdje se trenutno nalazite, što
+                pokušavate odlučiti i ima li smisla nastaviti.
               </p>
             </div>
-            <Button
-              asChild
-              size="lg"
-              className="h-12 rounded-full px-6 text-base"
-            >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                <CalendarDays className="size-4" />
-                Dogovori uvodni poziv
-              </a>
-            </Button>
-          </div>
-
-          <div className="mt-12 grid gap-12 lg:grid-cols-[0.75fr_1fr] lg:items-start">
-            <div>
-              <SectionHeader
-                title="Kontakt forma"
-                copy="Ovo može ostati jednostavan početni obrazac ili se kasnije spojiti na pravi sustav za slanje upita."
-              />
-              <div className="mt-8 space-y-3 text-sm text-muted-foreground">
-                <p>
-                  Mjesto za Calendly link:{" "}
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    cal.com/btcpavao/uvodni-poziv
-                  </a>
-                </p>
-                <p>
-                  Mjesto za email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                </p>
-              </div>
-            </div>
-
-            <form
-              className="contact-form"
-              onSubmit={handleContactSubmit}
-            >
-              <label>
-                <span>Ime i prezime</span>
-                <input
-                  name="ime_i_prezime"
-                  type="text"
-                  autoComplete="name"
-                  required
-                />
-              </label>
-              <label>
-                <span>Email</span>
-                <input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                />
-              </label>
-              <label>
-                <span>Kratko: gdje si trenutno s Bitcoinom?</span>
-                <textarea name="trenutno_s_bitcoinom" rows={4} required />
-              </label>
-              <label>
-                <span>Što ti je najveća nejasnoća?</span>
-                <textarea name="najveca_nejasnoca" rows={4} required />
-              </label>
-              <label>
-                <span>Želiš li uvodni poziv?</span>
-                <select name="uvodni_poziv" defaultValue="Da">
-                  <option>Da</option>
-                  <option>Još nisam siguran</option>
-                  <option>Samo šaljem pitanje</option>
-                </select>
-              </label>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button
-                type="submit"
+                asChild
                 size="lg"
-                className="h-12 rounded-full text-base"
+                className="h-12 rounded-full px-6 text-base"
               >
-                <Mail className="size-4" />
-                Pošalji upit
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <CalendarDays className="size-4" />
+                  Dogovorite uvodni razgovor
+                </a>
               </Button>
-            </form>
+              <a className="final-cta__email" href={`mailto:${EMAIL}`}>
+                {EMAIL}
+              </a>
+            </div>
           </div>
         </section>
       </main>
 
       <footer className="border-t border-border/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-sm text-muted-foreground sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <p>Bitcoin savjetovanje | Pavao Pahljina</p>
+          <p>Bitcoin Savjetovanje | Pavao Pahljina</p>
           <div className="flex flex-wrap gap-4">
             <a
               href={PRACTICAL_BITCOIN_STANDARD_URL}

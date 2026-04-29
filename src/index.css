@@ -13,7 +13,7 @@
   --popover: oklch(0.997 0.002 95);
   --popover-foreground: oklch(0.17 0.004 80);
   --primary: oklch(0.7 0.16 68);
-  --primary-foreground: oklch(0.13 0.004 80);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.94 0.003 95);
   --secondary-foreground: oklch(0.2 0.004 80);
   --muted: oklch(0.94 0.003 95);
@@ -33,7 +33,7 @@
   --sidebar: oklch(0.997 0.002 95);
   --sidebar-foreground: oklch(0.17 0.004 80);
   --sidebar-primary: oklch(0.7 0.16 68);
-  --sidebar-primary-foreground: oklch(0.13 0.004 80);
+  --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.94 0.003 95);
   --sidebar-accent-foreground: oklch(0.2 0.004 80);
   --sidebar-border: oklch(0.88 0.003 95);
@@ -48,7 +48,7 @@
   --popover: oklch(0.19 0.004 80);
   --popover-foreground: oklch(0.96 0.003 95);
   --primary: oklch(0.76 0.15 68);
-  --primary-foreground: oklch(0.13 0.004 80);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.24 0.004 80);
   --secondary-foreground: oklch(0.96 0.003 95);
   --muted: oklch(0.24 0.004 80);
@@ -62,7 +62,7 @@
   --sidebar: oklch(0.19 0.004 80);
   --sidebar-foreground: oklch(0.96 0.003 95);
   --sidebar-primary: oklch(0.76 0.15 68);
-  --sidebar-primary-foreground: oklch(0.13 0.004 80);
+  --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.24 0.004 80);
   --sidebar-accent-foreground: oklch(0.96 0.003 95);
   --sidebar-border: oklch(1 0 0 / 12%);
@@ -162,8 +162,24 @@
       );
   }
 
+  .hero-shell {
+    @apply mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-22 lg:px-8 xl:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] xl:items-center xl:py-28;
+  }
+
+  .hero-copy {
+    @apply max-w-4xl xl:max-w-3xl;
+  }
+
+  .hero-title {
+    @apply font-display text-4xl leading-[1.04] font-semibold tracking-[-0.035em] text-foreground sm:text-5xl lg:text-6xl xl:text-[4.15rem];
+  }
+
+  .hero-subtitle {
+    @apply mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9;
+  }
+
   .section-shell {
-    @apply mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8;
+    @apply mx-auto max-w-7xl px-4 py-22 sm:px-6 sm:py-28 lg:px-8;
   }
 
   .section-muted {
@@ -171,6 +187,14 @@
     box-shadow:
       100vw 0 0 hsl(var(--muted) / 0.35),
       -100vw 0 0 hsl(var(--muted) / 0.35);
+  }
+
+  .trust-strip {
+    @apply border-b border-border/70 bg-card/70;
+  }
+
+  .trust-strip__item {
+    @apply rounded-lg border border-border/75 bg-background/76 px-4 py-3 text-sm leading-6 font-medium text-foreground shadow-sm;
   }
 
   .money-system {
@@ -205,21 +229,22 @@
 
   .money-system__label {
     @apply absolute z-20 text-base font-semibold text-foreground;
+    transform: translate(-50%, -50%);
   }
 
   .money-system__label--money {
-    right: -9%;
-    top: 47%;
+    left: 99%;
+    top: 64%;
   }
 
   .money-system__label--capital {
-    bottom: 24%;
-    left: -8%;
+    left: -1%;
+    top: 58%;
   }
 
   .money-system__label--spending {
-    left: 0;
-    top: 8%;
+    left: 27%;
+    top: 5%;
   }
 
   .money-system__segment--money {
@@ -230,15 +255,17 @@
 
   .money-system__segment--capital {
     left: 25%;
-    top: 62%;
+    top: 51%;
     transform: translate(-50%, -50%);
   }
 
   .money-system__segment--spending {
     left: 36%;
-    top: 26%;
-    max-width: 72px;
+    top: 25.8%;
+    height: 5rem;
+    max-width: none;
     transform: translate(-50%, -50%);
+    width: 6.75rem;
   }
 
   .money-system__icons,
@@ -247,7 +274,9 @@
   }
 
   .money-system__segment--spending .money-system__icons {
-    @apply grid grid-cols-3 gap-1;
+    @apply relative block;
+    height: 100%;
+    width: 100%;
   }
 
   .money-system__icons span {
@@ -260,13 +289,70 @@
   }
 
   .money-system__segment--spending .money-system__icons span {
-    height: 1.35rem;
-    width: 1.35rem;
+    @apply absolute;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    height: 1.3rem !important;
+    width: 1.3rem !important;
   }
 
   .money-system__segment--spending .money-system__icons svg {
-    height: 0.9rem;
-    width: 0.9rem;
+    height: 0.9rem !important;
+    width: 0.9rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--home {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    height: 3.75rem !important;
+    left: 0.05rem;
+    overflow: visible;
+    top: 0.2rem;
+    width: 3.75rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--car {
+    height: 2.45rem !important;
+    left: 3.25rem;
+    top: 0.55rem;
+    width: 2.45rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--car svg {
+    height: 1.7rem !important;
+    width: 1.7rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--bike {
+    left: 5.05rem;
+    top: 0.28rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--plane {
+    left: 1.85rem;
+    top: 3.35rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--ship {
+    left: 4.05rem;
+    top: 3.42rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--guitar {
+    left: 3.05rem;
+    top: 2.35rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--gamepad {
+    left: 5.1rem;
+    top: 2.05rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--home svg {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
   }
 
   .money-system__segment--money .money-system__icons {
@@ -278,6 +364,7 @@
   .money-system__segment--money .money-system__bitcoin-logo {
     @apply absolute inset-0 overflow-hidden border-transparent bg-transparent p-0;
     height: 9rem;
+    left: 0.45rem;
     width: 9rem;
   }
 
@@ -285,18 +372,31 @@
     @apply size-full object-cover;
   }
 
-  .money-system__euro-mark {
+  .money-system__currency-mark {
     @apply absolute grid place-items-center;
-    bottom: -1.65rem;
-    left: -1.45rem;
-    height: 0.85rem;
-    width: 0.85rem;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: oklch(0.17 0.004 80);
+    height: 0.58rem;
+    width: 0.58rem;
   }
 
-  .money-system__euro-mark svg {
-    height: 0.7rem;
-    width: 0.7rem;
+  .money-system__currency-mark svg {
+    height: 0.58rem;
+    width: 0.58rem;
   }
+
+  .money-system__currency-mark--euro {
+    bottom: -3.85rem;
+    left: -1.45rem;
+  }
+
+  .money-system__currency-mark--dollar {
+    bottom: -2.95rem;
+    left: 1.15rem;
+  }
+
 
   .money-system__capital-chart {
     @apply relative rounded-lg border px-3 py-2.5 shadow-sm;
@@ -305,6 +405,39 @@
     color: oklch(0.17 0.004 80);
     width: 5.2rem;
   }
+
+  .money-system__capital-symbol {
+    @apply absolute grid place-items-center;
+    color: oklch(0.17 0.004 80);
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+
+  .money-system__capital-symbol svg {
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+
+  .money-system__capital-symbol--factory {
+    left: -1.65rem;
+    top: 1.95rem;
+  }
+
+  .money-system__capital-symbol--wrench {
+    left: 1.75rem;
+    top: -1.6rem;
+  }
+
+  .money-system__capital-symbol--calculator {
+    left: 1.75rem;
+    top: 5.15rem;
+  }
+
+  .money-system__capital-symbol--briefcase {
+    left: 5.45rem;
+    top: 1.95rem;
+  }
+
 
   .money-system__capital-bitcoin {
     @apply absolute -top-1.5 -right-1.5 grid place-items-center overflow-hidden rounded-full border shadow-sm;
@@ -354,6 +487,10 @@
 
   .question-panel {
     @apply rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
+  }
+
+  .pattern-panel {
+    @apply rounded-2xl border border-border/80 bg-card/82 p-6 shadow-sm sm:p-8 lg:p-10;
   }
 
   .question-panel p {
@@ -435,6 +572,10 @@
     @apply mt-4 max-w-2xl text-base leading-8 text-background/72;
   }
 
+  .final-cta__email {
+    @apply text-sm font-medium text-background underline underline-offset-4 hover:text-primary;
+  }
+
   .contact-form {
     @apply grid gap-4 rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
   }
@@ -472,18 +613,18 @@
   }
 
   .money-system__label--money {
-    right: -4%;
-    top: 47%;
+    left: 99%;
+    top: 64%;
   }
 
   .money-system__label--capital {
-    bottom: 24%;
-    left: -3%;
+    left: 1%;
+    top: 58%;
   }
 
   .money-system__label--spending {
-    left: 0;
-    top: 7%;
+    left: 27%;
+    top: 5%;
   }
 
   .money-system__segment--money {
@@ -493,13 +634,15 @@
 
   .money-system__segment--capital {
     left: 25%;
-    top: 62%;
+    top: 51%;
   }
 
   .money-system__segment--spending {
     left: 36%;
-    top: 26%;
-    max-width: 58px;
+    top: 25.8%;
+    height: 4.15rem;
+    max-width: none;
+    width: 5.65rem;
   }
 
   .money-system__icons span {
@@ -507,13 +650,69 @@
   }
 
   .money-system__segment--spending .money-system__icons span {
-    height: 1.1rem;
-    width: 1.1rem;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    height: 1rem !important;
+    width: 1rem !important;
   }
 
   .money-system__segment--spending .money-system__icons svg {
-    height: 0.72rem;
-    width: 0.72rem;
+    height: 0.72rem !important;
+    width: 0.72rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--home {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    height: 3rem !important;
+    left: 0.05rem;
+    overflow: visible;
+    top: 0.18rem;
+    width: 3rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--car {
+    height: 1.95rem !important;
+    left: 2.65rem;
+    top: 0.45rem;
+    width: 1.95rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--car svg {
+    height: 1.32rem !important;
+    width: 1.32rem !important;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--bike {
+    left: 4.15rem;
+    top: 0.22rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--plane {
+    left: 1.42rem;
+    top: 2.78rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--ship {
+    left: 3.35rem;
+    top: 2.88rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--guitar {
+    left: 2.45rem;
+    top: 1.95rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--gamepad {
+    left: 4.18rem;
+    top: 1.7rem;
+  }
+
+  .money-system__segment--spending .money-system__spending-icon--home svg {
+    height: 2rem !important;
+    width: 2rem !important;
   }
 
   .money-system__bars {
@@ -527,6 +726,7 @@
 
   .money-system__segment--money .money-system__bitcoin-logo {
     height: 5.8rem;
+    left: 0.3rem;
     width: 5.8rem;
   }
 
@@ -535,21 +735,53 @@
     width: 5.8rem;
   }
 
-  .money-system__euro-mark {
-    bottom: -1.05rem;
-    left: -0.95rem;
-    height: 0.7rem;
-    width: 0.7rem;
+  .money-system__currency-mark,
+  .money-system__currency-mark svg {
+    height: 0.42rem;
+    width: 0.42rem;
   }
 
-  .money-system__euro-mark svg {
-    height: 0.55rem;
-    width: 0.55rem;
+  .money-system__currency-mark--euro {
+    bottom: -2.55rem;
+    left: -0.95rem;
   }
+
+  .money-system__currency-mark--dollar {
+    bottom: -1.95rem;
+    left: 0.75rem;
+  }
+
 
   .money-system__capital-chart {
     width: 4.35rem;
   }
+
+  .money-system__capital-symbol,
+  .money-system__capital-symbol svg {
+    height: 1.65rem;
+    width: 1.65rem;
+  }
+
+  .money-system__capital-symbol--factory {
+    left: -1.25rem;
+    top: 1.55rem;
+  }
+
+  .money-system__capital-symbol--wrench {
+    left: 1.45rem;
+    top: -1.2rem;
+  }
+
+  .money-system__capital-symbol--calculator {
+    left: 1.45rem;
+    top: 4.25rem;
+  }
+
+  .money-system__capital-symbol--briefcase {
+    left: 4.45rem;
+    top: 1.55rem;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

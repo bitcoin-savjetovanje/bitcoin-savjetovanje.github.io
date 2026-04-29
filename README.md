@@ -1,21 +1,11 @@
-# React + TypeScript + Vite + shadcn/ui
+# Bitcoin Savjetovanje
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+Bitcoin Savjetovanje – osobna stranica za savjetodavnu uslugu usmjerenu na ljude s kapitalom koji žele jasnije donositi odluke oko Bitcoina.
 
-## Adding components
-
-To add components to your app, run the following command:
+## Naredbe
 
 ```bash
-npx shadcn@latest add button
-```
-
-This will place the ui components in the `src/components` directory.
-
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button"
+npm install
+npm run dev
+npm run build
 ```

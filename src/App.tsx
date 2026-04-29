@@ -607,9 +607,8 @@ export function App() {
           <SectionHeader title="Zašto mogu pomoći?" />
           <div className="credibility-grid">
             <aside className="profile-panel">
-              {/* TODO: Replace with a professional, approachable portrait photo. */}
               <img
-                src="https://avatars.githubusercontent.com/u/109140795?v=4"
+                src="/pavao-pahljina.jpg"
                 alt="Pavao Pahljina"
               />
               <h3>Pavao Pahljina</h3>
@@ -638,18 +637,17 @@ export function App() {
                 <p>
                   U Bitcoinu sam od 2014. godine. Iza mene je više od 10.000
                   sati rada i proučavanja, više od šest godina profesionalnog
-                  rada u Bitcoin prostoru, rad sa Saifedeanom Ammousom te
-                  dugogodišnji rad kroz DvadesetJedan.
+                  rada u Bitcoin prostoru, direktan rad sa Saifedeanom
+                  Ammousom, autorom svjetskog bestsellera The Bitcoin Standard,
+                  te rad na gradnji regionalne zajednice DvadesetJedan od 2022.
+                  godine.
                 </p>
                 <p>
                   Od 2020. živim na Bitcoin standardu: primam, držim i trošim
-                  Bitcoin kroz različite tržišne uvjete.
-                </p>
-                <p>
-                  Ne savjetujem iz pozicije teorije, nego iz prakse. Godinama
-                  donosim iste vrste odluka koje klijenti pokušavaju posložiti:
-                  kupnja, čuvanje, trošenje, rizik, oportunitetni trošak, neto
-                  imovina i život s Bitcoinom kao primarnim novcem.
+                  Bitcoin te ga koristim i investiram kroz različite tržišne
+                  uvjete. Ne savjetujem iz pozicije teorije, nego iz prakse:
+                  kupnja, čuvanje, trošenje, rizik, oportunitetni trošak i
+                  život s Bitcoinom kao primarnim novcem.
                 </p>
               </div>
             </div>

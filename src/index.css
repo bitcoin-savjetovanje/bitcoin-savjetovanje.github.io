@@ -24,11 +24,11 @@
   --border: oklch(0.88 0.003 95);
   --input: oklch(0.88 0.003 95);
   --ring: oklch(0.7 0.16 68);
-  --cta-green: oklch(0.81 0.095 143);
-  --cta-green-foreground: oklch(0.16 0.025 145);
-  --cta-green-hover: oklch(0.76 0.11 143);
-  --negative-red: oklch(0.4 0.12 28);
-  --negative-red-muted: oklch(0.45 0.1 28 / 10%);
+  --cta-green: oklch(0.78 0.14 142);
+  --cta-green-foreground: oklch(0.13 0.025 145);
+  --cta-green-hover: oklch(0.72 0.15 142);
+  --negative-red: #cc0000;
+  --negative-red-muted: rgb(204 0 0 / 10%);
   --chart-1: oklch(0.7 0.16 68);
   --chart-2: oklch(0.48 0.01 80);
   --chart-3: oklch(0.32 0.006 80);
@@ -64,11 +64,11 @@
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 14%);
   --ring: oklch(0.76 0.15 68);
-  --cta-green: oklch(0.82 0.095 143);
+  --cta-green: oklch(0.78 0.14 142);
   --cta-green-foreground: oklch(0.13 0.025 145);
-  --cta-green-hover: oklch(0.77 0.11 143);
-  --negative-red: oklch(0.68 0.11 28);
-  --negative-red-muted: oklch(0.6 0.1 28 / 14%);
+  --cta-green-hover: oklch(0.72 0.15 142);
+  --negative-red: #ff4d4d;
+  --negative-red-muted: rgb(255 77 77 / 14%);
   --sidebar: oklch(0.19 0.004 80);
   --sidebar-foreground: oklch(0.96 0.003 95);
   --sidebar-primary: oklch(0.76 0.15 68);
@@ -225,6 +225,7 @@
 
   .negative-icon {
     color: var(--negative-red);
+    stroke-width: 3;
   }
 
   .hero-benefit {
@@ -616,19 +617,19 @@
   }
 
   .credibility-grid {
-    @apply mx-auto mt-8 grid max-w-5xl gap-8 lg:grid-cols-[260px_1fr] lg:items-start;
+    @apply mt-8 grid gap-8 lg:grid-cols-[340px_1fr] lg:items-start;
   }
 
   .profile-panel {
-    @apply rounded-xl border border-border/80 bg-card p-5 shadow-sm;
+    @apply rounded-xl border border-border/80 bg-card p-7 shadow-sm;
   }
 
   .profile-panel img {
-    @apply size-20 rounded-full border border-border object-cover;
+    @apply size-28 rounded-full border border-border object-cover;
   }
 
   .profile-panel h3 {
-    @apply mt-5 text-lg font-semibold;
+    @apply mt-6 text-xl font-semibold;
   }
 
   .profile-panel p {

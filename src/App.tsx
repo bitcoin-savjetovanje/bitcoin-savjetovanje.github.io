@@ -123,7 +123,7 @@ const processSteps = [
   {
     step: "03",
     title: "Strukturirani program",
-    price: "Od 1.500 €",
+    price: "1.500 €",
     copy: "Program nije produženi razgovor, nego vođeni proces kroz više odluka: udio, ritam kupnje, sigurnost, pravila ponašanja, odnos prema ostatku imovine i praktična provedba.",
   },
 ]
@@ -184,6 +184,55 @@ const programExclusions = [
   "ne bavim se drugim digitalnim imovinama, trgovanjem ni kratkoročnim signalima",
 ]
 
+const personalPlanItems = [
+  {
+    title: "Ciljani raspon izloženosti",
+    copy: "Koliki udio neto imovine ima smisla držati u Bitcoinu s obzirom na vašu situaciju, vremenski okvir i podnošljivost rizika.",
+  },
+  {
+    title: "Pravila kupnje i dodatne akumulacije",
+    copy: "Kada kupujete odmah, kada postupno, kada čekate i pod kojim uvjetima se odluka mijenja.",
+  },
+  {
+    title: "Pravila kada se ništa ne dira",
+    copy: "Koji dio Bitcoina je dugoročna štednja i pod kojim okolnostima se ne dira bez obzira na tržišnu buku.",
+  },
+  {
+    title: "Uvjeti za preispitivanje plana",
+    copy: "Koje promjene u životu, prihodima, obvezama ili tržištu traže novu procjenu.",
+  },
+  {
+    title: "Način čuvanja i pristupa Bitcoinu",
+    copy: "Kako se Bitcoin čuva, tko ima pristup, gdje su sigurnosne kopije i koje su slabosti trenutnog sustava.",
+  },
+  {
+    title: "Sigurnosne i nasljedne procedure",
+    copy: "Kako smanjiti rizik gubitka pristupa i kako omogućiti obitelji pristup ako vam se nešto dogodi.",
+  },
+  {
+    title: "Odnos prema novcu, kapitalu i potrošnji",
+    copy: "Kako Bitcoin stoji u odnosu na sigurnosnu rezervu, ulaganja, dugove, troškove i dugoročnu neto imovinu.",
+  },
+]
+
+const commonMistakes = [
+  "prevelik udio Bitcoina koji osoba emocionalno ne može nositi",
+  "premalen udio koji ne odgovara vlastitom uvjerenju i vremenskom okviru",
+  "držanje previše sredstava na burzi",
+  "kupnja bez plana i prodaja pod pritiskom",
+  "sigurnost koja ovisi o jednoj točki neuspjeha",
+  "nepostojanje nasljednog plana",
+  "miješanje Bitcoina s trgovanjem i drugim digitalnim imovinama",
+]
+
+const goodFitItems = [
+  "Bitcoin vam je važna tema, ali odluke i dalje odgađate",
+  "imate kapital, ali nemate jasna pravila izloženosti",
+  "sigurnost i skrbništvo nisu uređeni do razine na kojoj ste mirni",
+  "ne tražite signal, nego okvir",
+  "želite odluku koju možete objasniti sebi i obitelji",
+]
+
 const faqs = [
   {
     question: "Je li ovo financijsko savjetovanje?",
@@ -225,9 +274,19 @@ const faqs = [
       "Tada je savjetovanje često još korisnije. U tom slučaju ne krećemo od pitanja “trebam li kupiti Bitcoin?”, nego od pitanja imate li jasan plan: koliki udio držati, kako čuvati, kada kupovati dodatno, što ne dirati i kako Bitcoin uklopiti u ostatak imovine.",
   },
   {
+    question: "Zašto ne samo kupiti i držati?",
+    answer:
+      "Kupiti i držati može biti dobra odluka, ali samo ako znate koliko držite, zašto baš toliko, gdje ga čuvate, što radite u velikom padu, što radite u velikom rastu i kako obitelj pristupa sredstvima ako vam se nešto dogodi. Problem najčešće nije ideja dugoročnog držanja, nego izostanak osobnih pravila.",
+  },
+  {
+    question: "Kako izgleda rezultat programa?",
+    answer:
+      "Rezultat programa je osobni Bitcoin plan: sažetak odluka, pravila i sigurnosnih postupaka koje možete koristiti kroz vrijeme. Plan uključuje okvirni raspon izloženosti, pravila kupnje i držanja, uvjete za preispitivanje plana, sigurnosni model i odnos Bitcoina prema ostatku vaše imovine.",
+  },
+  {
     question: "Koliko košta?",
     answer:
-      "Uvodni razgovor je bez naknade. Plaćeni savjetodavni razgovor je 200 €. Strukturirani program kreće od 1.500 €.",
+      "Uvodni razgovor je bez naknade. Plaćeni savjetodavni razgovor je 200 €. Strukturirani program je 1.500 €.",
   },
 ]
 
@@ -782,6 +841,39 @@ export function App() {
           </p>
         </section>
 
+        <section id="osobni-plan" className="section-shell">
+          <SectionHeader
+            title="Kako izgleda osobni Bitcoin plan?"
+            copy="Plan nije predviđanje cijene niti naredba što morate napraviti. To je kratak operativni dokument koji definira vaša pravila za Bitcoin u odnosu na ostatak života, kapitala i obveza."
+            align="center"
+          />
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {personalPlanItems.map((item) => (
+              <article key={item.title} className="program-card">
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section-shell section-muted">
+          <SectionHeader
+            title="Najčešće greške koje pokušavamo izbjeći"
+            copy="Dobar Bitcoin plan ne služi tome da pronađe savršeni trenutak za kupnju. Služi tome da smanji broj velikih pogrešaka koje nastaju iz žurbe, straha, pohlepe ili neuređene sigurnosti."
+          />
+
+          <div className="mt-10 grid gap-3 md:grid-cols-2">
+            {commonMistakes.map((item) => (
+              <div key={item} className="not-for-row">
+                <X className="size-4" />
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section id="program-granice" className="section-shell">
           <div className="grid gap-12 lg:grid-cols-[0.88fr_1fr] lg:items-start">
             <SectionHeader
@@ -863,16 +955,34 @@ export function App() {
           </div>
         </section>
 
+        <section className="section-shell section-muted">
+          <div className="grid gap-12 lg:grid-cols-[0.88fr_1fr] lg:items-start">
+            <SectionHeader
+              title="Dobar znak da ima smisla razgovarati"
+              copy="Uvodni razgovor ima smisla ako već osjećate da Bitcoin zaslužuje ozbiljniji osobni okvir, ali ne želite donositi odluke prema emocijama, tržišnoj buci ili tuđim mišljenjima."
+            />
+            <div className="grid gap-3">
+              {goodFitItems.map((item) => (
+                <div key={item} className="check-row">
+                  <Check className="mt-1 size-4 text-primary" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="kontakt" className="section-shell">
           <div className="final-cta">
             <div>
               <h2>
-                Ako već neko vrijeme razmišljate o Bitcoinu, ali i dalje nemate
-                miran osobni okvir, krenimo od uvodnog razgovora.
+                Ako želite osobni Bitcoin plan koji možete stvarno koristiti,
+                krenimo od uvodnog razgovora.
               </h2>
               <p>
-                Cilj nije da sve riješimo u 15 minuta, nego da vidimo gdje se
-                nalazite, što pokušavate odlučiti i ima li smisla nastaviti.
+                U 15 minuta vidimo gdje ste, koju odluku pokušavate donijeti i
+                ima li smisla nastaviti u plaćeni razgovor ili strukturirani
+                program.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">

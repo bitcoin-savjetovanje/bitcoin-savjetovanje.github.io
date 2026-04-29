@@ -493,7 +493,8 @@
     @apply rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
   }
 
-  .pattern-panel {
+  .pattern-panel,
+  .case-panel {
     @apply rounded-2xl border border-border/80 bg-card/82 p-6 shadow-sm sm:p-8 lg:p-10;
   }
 
@@ -502,7 +503,8 @@
   }
 
   .value-card,
-  .process-card {
+  .process-card,
+  .program-card {
     @apply rounded-xl border border-border/80 bg-card p-6 shadow-sm;
   }
 
@@ -511,12 +513,14 @@
   }
 
   .value-card h3,
-  .process-card h3 {
+  .process-card h3,
+  .program-card h3 {
     @apply text-xl leading-tight font-semibold;
   }
 
   .value-card p,
-  .process-card p {
+  .process-card p,
+  .program-card p {
     @apply mt-4 text-base leading-8 text-muted-foreground;
   }
 

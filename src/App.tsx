@@ -38,6 +38,7 @@ const DVADESET_JEDAN_URL = "https://dvadesetjedan.com"
 const navLinks = [
   { label: "Za koga je ovo?", href: "#za-koga" },
   { label: "Što ovo nije?", href: "#sto-nije" },
+  { label: "Što dobivate?", href: "#sto-dobivate" },
   { label: "Proces i cijene", href: "#proces" },
   { label: "O meni", href: "#o-meni" },
   { label: "Česta pitanja", href: "#pitanja" },
@@ -51,33 +52,35 @@ const trustItems = [
 ]
 
 const audienceItems = [
-  "već imate Bitcoin, ali niste sigurni imate li jasan dugoročni plan",
-  "imate kapital i razmišljate o ulasku, ali ne želite djelovati impulzivno",
-  "već dugo čitate i istražujete, ali odluka se stalno odgađa",
-  "niste sigurni koliki udio vaše imovine ima smisla izložiti Bitcoinu",
-  "želite urediti sigurnost, skrbništvo i pravila ponašanja kroz vrijeme",
-  "želite Bitcoin uklopiti u širu financijsku sliku, a ne promatrati ga izolirano",
+  "već imate Bitcoin, ali nemate jasan dugoročni plan",
+  "imate kapital i razmišljate o ozbiljnijoj izloženosti Bitcoinu",
+  "niste sigurni koliki udio vaše imovine ima smisla držati u Bitcoinu",
+  "želite znati kupovati odmah, postupno ili uopće ne još",
+  "želite urediti sigurnost, skrbništvo i nasljeđivanje",
+  "želite Bitcoin uklopiti u širu sliku: prihode, obveze, dugove, kapital i potrošnju",
+  "ne želite odluke donositi prema objavama, emocijama i tržišnoj buci",
 ]
 
 const notForItems = [
-  "Neću vas nagovarati da kupite Bitcoin.",
-  "Neću predviđati kratkoročnu cijenu.",
-  "Neću vam dati univerzalni postotak koji vrijedi za sve.",
-  "Neću glumiti poreznog ili pravnog savjetnika.",
-  "Neću od vašeg života napraviti ideološki projekt.",
-  "Moj posao je pomoći vam da mirnije i jasnije odlučujete.",
+  "Ne radim kratkoročno trgovanje.",
+  "Ne predviđam cijenu.",
+  "Ne bavim se drugim digitalnim imovinama.",
+  "Ne obećavam prinos.",
+  "Ne dajem porezne ni pravne savjete.",
+  "Ne donosim odluku umjesto vas.",
+  "Ne prodajem vam potvrdu za odluku koju ste već donijeli.",
 ]
 
 const outcomes = [
   {
     title: "Osobni okvir odlučivanja",
     icon: Compass,
-    copy: "Razumijete kako razmišljati o Bitcoinu u odnosu na vlastitu imovinu, prihode, obveze, vremenski okvir i razinu rizika koju možete mirno nositi.",
+    copy: "Razumijete kako gledati Bitcoin u odnosu na svoju imovinu, prihode, obveze, vremenski okvir i rizik koji možete mirno nositi.",
   },
   {
-    title: "Jasna pravila za djelovanje",
+    title: "Pravila za djelovanje",
     icon: Check,
-    copy: "Umjesto donošenja odluka prema raspoloženju tržišta, postavljate pravila za kupnju, čekanje, sigurnost i ponašanje kroz različite okolnosti.",
+    copy: "Postavljate pravila za kupnju, čekanje, sigurnost, rebalansiranje i ponašanje kroz različite tržišne uvjete.",
   },
   {
     title: "Uređen odnos prema riziku",
@@ -96,19 +99,57 @@ const processSteps = [
     step: "01",
     title: "Uvodni razgovor",
     price: "Bez naknade",
-    copy: "Uvodni razgovor traje oko 15 minuta. Cilj nije da u njemu riješimo cijelu situaciju, nego da razumijem gdje se nalazite, što pokušavate odlučiti i ima li smisla nastaviti u detaljniji savjetodavni razgovor. Ako vidim da vam ne mogu pomoći ili da ovo nije pravi trenutak, reći ću vam to izravno.",
+    copy: "Uvodni razgovor traje oko 15 minuta. Cilj nije riješiti cijelu situaciju, nego razumjeti gdje se nalazite, što pokušavate odlučiti i ima li smisla nastaviti. Ako vidim da vam ne mogu pomoći ili da ovo nije pravi trenutak, reći ću vam to izravno.",
   },
   {
     step: "02",
     title: "Plaćeni savjetodavni razgovor",
     price: "200 €",
-    copy: "Plaćeni savjetodavni razgovor traje 60–90 minuta. U njemu prolazimo vašu stvarnu situaciju: sadašnje razumijevanje Bitcoina, postojeću izloženost, odnos prema riziku, novčani tok, ostatak imovine, vremenski okvir i glavne točke neodlučnosti. Cilj je da nakon razgovora imate jasniji okvir za donošenje odluka i da znate koji bi sljedeći koraci imali smisla.",
+    copy: "Razgovor traje 60–90 minuta. Prolazimo vašu stvarnu situaciju: postojeću izloženost Bitcoinu, novčani tok, ostatak imovine, obveze, vremenski okvir, odnos prema riziku i glavne točke neodlučnosti.",
+    bullets: [
+      "jasniju sliku gdje ste trenutno",
+      "glavne rizike koje treba riješiti",
+      "okvirni smjer za udio Bitcoina u imovini",
+      "preporuku ima li smisla nastaviti u strukturirani program",
+      "popis sljedećih odluka koje ne treba odgađati",
+    ],
   },
   {
     step: "03",
     title: "Strukturirani program",
     price: "Od 1.500 €",
-    copy: "Program nije produženi razgovor, nego vođeni proces kroz više odluka: udio, ritam, sigurnost, pravila ponašanja i integracija s ostatkom imovine.",
+    copy: "Program nije produženi razgovor, nego vođeni proces kroz više odluka: udio, ritam kupnje, sigurnost, pravila ponašanja, odnos prema ostatku imovine i praktična provedba.",
+  },
+]
+
+const programItems = [
+  {
+    title: "Osobnu Bitcoin bilancu",
+    copy: "Pregled novca, kapitala, potrošnje, dugova, obveza, prihoda i sigurnosne rezerve.",
+  },
+  {
+    title: "Ciljani raspon izloženosti",
+    copy: "Okvir za to koliki udio neto imovine ima smisla držati u Bitcoinu s obzirom na vašu situaciju.",
+  },
+  {
+    title: "Pravila kupnje",
+    copy: "Odgovor na pitanje ima li smisla kupovati odmah, postupno, uvjetno ili ne još.",
+  },
+  {
+    title: "Pravila držanja i rebalansiranja",
+    copy: "Kada se Bitcoin ne dira, kada se preispituje pozicija i pod kojim uvjetima se mijenja plan.",
+  },
+  {
+    title: "Plan skrbništva",
+    copy: "Praktičan okvir za čuvanje Bitcoina: burza, hardverski novčanik, multisig, nasljeđivanje i operativna sigurnost.",
+  },
+  {
+    title: "Osobni dokument s pravilima",
+    copy: "Sažetak odluka, kriterija i ponašanja kroz tržišne cikluse.",
+  },
+  {
+    title: "Završni pregled plana",
+    copy: "Pregled svega što je dogovoreno i korekcija slabih točaka prije provedbe.",
   },
 ]
 
@@ -126,7 +167,7 @@ const faqs = [
   {
     question: "Hoćete li mi reći koliko Bitcoina trebam kupiti?",
     answer:
-      "Ne dajem univerzalne recepte ni naredbe. Cilj je pomoći vam izgraditi okvir kroz koji možete donijeti vlastitu odluku u skladu s vašom situacijom, vremenskim okvirom i odnosom prema riziku.",
+      "Ne na način univerzalne naredbe. Cilj nije da preuzmem odluku umjesto vas, nego da zajedno izgradimo okvir kroz koji možete donijeti vlastitu odluku u skladu s vašom situacijom, vremenskim okvirom i odnosom prema riziku.",
   },
   {
     question: "Radite li s drugim kriptovalutama?",
@@ -146,6 +187,11 @@ const faqs = [
     question: "Što ako nakon uvodnog razgovora nema smisla nastaviti?",
     answer:
       "Reći ću vam to izravno. Uvodni razgovor služi upravo tome da vidimo postoji li stvarna potreba i odgovara li ovaj oblik rada vašoj situaciji.",
+  },
+  {
+    question: "Što ako već imam Bitcoin?",
+    answer:
+      "Tada je savjetovanje često još korisnije. U tom slučaju ne krećemo od pitanja “trebam li kupiti Bitcoin?”, nego od pitanja imate li jasan plan: koliki udio držati, kako čuvati, kada kupovati dodatno, što ne dirati i kako Bitcoin uklopiti u ostatak imovine.",
   },
   {
     question: "Koliko košta?",
@@ -410,17 +456,17 @@ export function App() {
           <div className="hero-shell">
             <div className="hero-copy">
               <h1 className="hero-title">
-                Uklonite neodlučnost i donesite jasne odluke oko Bitcoina.
+                Bitcoin plan za ljude koji ne žele više pogađati.
               </h1>
               <p className="hero-subtitle">
-                Pomažem ljudima s kapitalom koji već osjećaju da je Bitcoin
-                važan, ali nemaju miran i provediv okvir za odluku: koliko
-                imati, kako pristupiti kupnji, kako urediti sigurnost i kako
-                Bitcoin uklopiti u širu financijsku sliku.
+                Pomažem vam odrediti koliki udio imovine držati u Bitcoinu,
+                kako kupovati, kako čuvati, kada ne dirati ništa i kako Bitcoin
+                uklopiti u ostatak života i kapitala.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-                Bez trgovanja. Bez predviđanja cijene. Bez buke. Samo miran,
-                strukturiran razgovor o vašoj stvarnoj situaciji.
+                Bez trgovanja. Bez predviđanja cijene. Bez drugih digitalnih
+                imovina. Samo miran, strukturiran razgovor o vašoj stvarnoj
+                situaciji.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -470,13 +516,11 @@ export function App() {
           <div className="grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-start">
             <SectionHeader
               title="Za koga je ovo?"
-              copy="Ova usluga je za ljude koji već osjećaju da je Bitcoin važna tema, ali žele ozbiljniji osobni okvir prije nego što donesu veće odluke."
+              copy="Ova usluga je za ljude koji već osjećaju da je Bitcoin važan, ali nemaju osobni plan za odluke koje se tiču kapitala, sigurnosti i dugoročnog ponašanja."
             />
             <div className="grid gap-3">
               <p className="mb-2 text-base leading-7 text-muted-foreground">
-                Ovo nije zamišljeno za potpune početnike koji samo žele opći
-                uvod u Bitcoin, nego za ljude koji osjećaju da je tema već
-                dovoljno važna da zaslužuje ozbiljniji osobni okvir.
+                Ovo je za vas ako:
               </p>
               {audienceItems.map((item) => (
                 <div key={item} className="check-row">
@@ -515,11 +559,35 @@ export function App() {
           </div>
         </section>
 
-        <section id="sto-nije" className="section-shell">
+        <section id="primjer-situacije" className="section-shell">
+          <div className="case-panel">
+            <SectionHeader title="Primjer situacije" />
+            <div className="mt-7 space-y-5 text-lg leading-8 text-muted-foreground">
+              <p>
+                Imate 150.000 € likvidne imovine, nešto Bitcoina, dobar prihod
+                i možda nekretninu. Već godinama pratite Bitcoin, ali niste
+                sigurni treba li povećati izloženost, ostaviti postojeće stanje
+                ili čekati pad.
+              </p>
+              <p className="font-semibold text-foreground">
+                Problem više nije nedostatak informacija. Problem je što nemate
+                osobna pravila.
+              </p>
+              <p>
+                U takvoj situaciji savjetovanje ne služi tome da vam netko kaže
+                što morate napraviti, nego da zajedno posložimo okvir za odluke
+                koje možete mirno nositi i za godinu, i za pet, i za deset
+                godina.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="sto-nije" className="section-shell section-muted">
           <div className="grid gap-12 lg:grid-cols-[0.88fr_1fr] lg:items-start">
             <SectionHeader
               title="Ovo nije još jedna stranica o brzom bogaćenju."
-              copy="Ne bavim se kratkoročnim trgovanjem, drugim digitalnim imovinama ni obećanjima prinosa. Rad je usmjeren na dugoročni okvir odlučivanja, osobnu/poslovnu financijsku sliku, sigurnost i provedbu."
+              copy="Ne bavim se kratkoročnim trgovanjem, drugim digitalnim imovinama ni obećanjima prinosa. Rad je usmjeren na dugoročni okvir odlučivanja, širu financijsku sliku, sigurnost i provedbu."
             />
             <div className="grid gap-3">
               <p className="mb-2 text-base leading-7 text-muted-foreground">
@@ -532,14 +600,19 @@ export function App() {
                   <p>{item}</p>
                 </div>
               ))}
+              <p className="mt-4 rounded-xl border border-primary/20 bg-primary/10 p-5 text-base leading-7 font-semibold text-foreground">
+                Ovo nije za vas ako tražite signal, garanciju prinosa, potvrdu
+                već donesene odluke ili nekoga tko će preuzeti odgovornost
+                umjesto vas.
+              </p>
             </div>
           </div>
         </section>
 
-        <section className="section-shell section-muted">
+        <section id="sto-dobivate" className="section-shell">
           <SectionHeader
-            title="Što dobivate?"
-            copy="Ne odlazite s još jednim mišljenjem, nego s okvirom kroz koji možete donositi odluke i kada cijena raste, i kada pada, i kada okolina šalje proturječne signale."
+            title="Što konkretno dobivate?"
+            copy="Ne dobivate još jedno mišljenje, nego osobni okvir odlučivanja kroz koji možete donositi odluke i kada cijena raste, i kada pada, i kada okolina šalje proturječne signale."
             align="center"
           />
 
@@ -578,12 +651,44 @@ export function App() {
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.copy}</p>
+                {item.bullets ? (
+                  <div className="mt-5">
+                    <p className="text-sm font-semibold text-foreground">
+                      Nakon razgovora trebate imati:
+                    </p>
+                    <ul className="mt-3 space-y-2 text-sm leading-6 text-muted-foreground">
+                      {item.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-2">
+                          <Check className="mt-1 size-3.5 shrink-0 text-primary" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </article>
             ))}
           </div>
         </section>
 
-        <section id="o-meni" className="section-shell section-muted">
+        <section id="program" className="section-shell section-muted">
+          <SectionHeader
+            title="Što točno dobijete u programu?"
+            copy="Program je namijenjen ljudima koji ne žele samo razgovor, nego žele dovršiti osobni Bitcoin plan i imati jasna pravila za provedbu."
+            align="center"
+          />
+
+          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {programItems.map((item) => (
+              <article key={item.title} className="program-card">
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="o-meni" className="section-shell">
           <SectionHeader title="Zašto mogu pomoći?" />
           <div className="mt-12 grid gap-12 lg:grid-cols-[320px_1fr] lg:items-start">
             <aside className="profile-panel">
@@ -622,9 +727,13 @@ export function App() {
                 </p>
                 <p>
                   Od 2020. živim na Bitcoin standardu: primam, držim i trošim
-                  Bitcoin kroz različite tržišne uvjete. Zbog toga moj pristup
-                  nije teorijsko uvjeravanje, nego praktično poslagivanje odluka
-                  koje osoba stvarno mora donijeti.
+                  Bitcoin kroz različite tržišne uvjete.
+                </p>
+                <p>
+                  Ne savjetujem iz pozicije teorije, nego iz prakse. Godinama
+                  donosim iste vrste odluka koje klijenti pokušavaju posložiti:
+                  kupnja, čuvanje, trošenje, rizik, oportunitetni trošak, neto
+                  imovina i život s Bitcoinom kao primarnim novcem.
                 </p>
               </div>
             </div>
@@ -679,8 +788,15 @@ export function App() {
       </main>
 
       <footer className="border-t border-border/70">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-sm text-muted-foreground sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <p>Bitcoin Savjetovanje | Pavao Pahljina</p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-sm text-muted-foreground sm:px-6 md:flex-row md:items-start md:justify-between lg:px-8">
+          <div className="max-w-2xl">
+            <p>Bitcoin Savjetovanje | Pavao Pahljina</p>
+            <p className="mt-2 text-xs leading-6">
+              Ovo nije investicijsko, porezno ni pravno savjetovanje. Rad je
+              edukativan i savjetodavan u području osobnog okvira odlučivanja o
+              Bitcoinu.
+            </p>
+          </div>
           <div className="flex flex-wrap gap-4">
             <a
               href={PRACTICAL_BITCOIN_STANDARD_URL}

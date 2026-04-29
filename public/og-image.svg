@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Bitcoin Savjetovanje</title>
+  <desc id="desc">Osobni Bitcoin plan za dugoročne odluke, Pavao Pahljina.</desc>
+  <rect width="1200" height="630" fill="#f7f5ef"/>
+  <path d="M0 506h1200v124H0z" fill="#191816"/>
+  <circle cx="986" cy="156" r="76" fill="#f7931a"/>
+  <circle cx="986" cy="156" r="50" fill="none" stroke="#f7f5ef" stroke-width="10"/>
+  <path d="M969 112v88M994 112v88M951 132h53c17 0 27 8 27 22 0 11-6 18-17 21 14 3 22 12 22 25 0 16-12 26-31 26h-54" fill="none" stroke="#f7f5ef" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130 120h560" stroke="#ded7cb" stroke-width="2"/>
+  <text x="130" y="185" fill="#191816" font-family="Geist, Inter, Arial, sans-serif" font-size="34" font-weight="600" letter-spacing=".08em">BITCOIN SAVJETOVANJE</text>
+  <text x="130" y="298" fill="#191816" font-family="Geist, Inter, Arial, sans-serif" font-size="74" font-weight="700">Osobni Bitcoin plan</text>
+  <text x="130" y="384" fill="#191816" font-family="Geist, Inter, Arial, sans-serif" font-size="74" font-weight="700">za dugoročne odluke</text>
+  <text x="130" y="530" fill="#f7f5ef" font-family="Geist, Inter, Arial, sans-serif" font-size="34" font-weight="500">Pavao Pahljina</text>
+  <text x="130" y="572" fill="#cfc7ba" font-family="Geist, Inter, Arial, sans-serif" font-size="24">Bitcoin edukacija, skrbništvo i osobni okvir odlučivanja</text>
+  <rect x="130" y="430" width="244" height="44" rx="22" fill="#fffaf0" stroke="#e4d8c7"/>
+  <text x="154" y="459" fill="#6f4d16" font-family="Geist, Inter, Arial, sans-serif" font-size="20" font-weight="600">bez trgovanja</text>
+  <rect x="394" y="430" width="320" height="44" rx="22" fill="#fffaf0" stroke="#e4d8c7"/>
+  <text x="418" y="459" fill="#6f4d16" font-family="Geist, Inter, Arial, sans-serif" font-size="20" font-weight="600">bez predviđanja cijene</text>
+</svg>

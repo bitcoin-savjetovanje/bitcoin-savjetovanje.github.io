@@ -197,6 +197,10 @@
     @apply rounded-lg border border-border/75 bg-background/76 px-4 py-3 text-sm leading-6 font-medium text-foreground shadow-sm;
   }
 
+  .hero-benefit {
+    @apply rounded-full border border-border/75 bg-background/76 px-3 py-1.5 text-xs leading-5 font-medium text-muted-foreground shadow-sm;
+  }
+
   .money-system {
     @apply relative mx-auto aspect-square w-full max-w-[460px] overflow-visible;
   }
@@ -502,9 +506,14 @@
     @apply border-b border-border/70 py-4 text-base font-medium last:border-b-0;
   }
 
+  .case-card {
+    @apply space-y-5 rounded-xl border border-border/80 bg-background/70 p-5 text-base leading-8 text-muted-foreground shadow-sm sm:p-6;
+  }
+
   .value-card,
   .process-card,
-  .program-card {
+  .program-card,
+  .comparison-card {
     @apply rounded-xl border border-border/80 bg-card p-6 shadow-sm;
   }
 
@@ -514,7 +523,8 @@
 
   .value-card h3,
   .process-card h3,
-  .program-card h3 {
+  .program-card h3,
+  .comparison-card h3 {
     @apply text-xl leading-tight font-semibold;
   }
 
@@ -522,6 +532,22 @@
   .process-card p,
   .program-card p {
     @apply mt-4 text-base leading-8 text-muted-foreground;
+  }
+
+  .comparison-card ul {
+    @apply mt-6 grid gap-3 text-base leading-7 text-muted-foreground;
+  }
+
+  .comparison-card li {
+    @apply flex gap-3;
+  }
+
+  .comparison-card--after {
+    @apply border-primary/20 bg-primary/5;
+  }
+
+  .program-summary {
+    @apply mx-auto mt-10 max-w-4xl rounded-xl border border-primary/20 bg-primary/10 p-5 text-base leading-8 font-semibold text-foreground shadow-sm sm:p-6;
   }
 
   .process-card span {
@@ -584,27 +610,6 @@
     @apply text-sm font-medium text-background underline underline-offset-4 hover:text-primary;
   }
 
-  .contact-form {
-    @apply grid gap-4 rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
-  }
-
-  .contact-form label {
-    @apply grid gap-2;
-  }
-
-  .contact-form span {
-    @apply text-sm font-medium text-foreground;
-  }
-
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form select {
-    @apply w-full rounded-lg border border-input bg-background px-4 py-3 text-base text-foreground shadow-sm transition outline-none focus:border-primary focus:ring-3 focus:ring-primary/20;
-  }
-
-  .contact-form textarea {
-    @apply resize-y;
-  }
 }
 
 @media (max-width: 640px) {

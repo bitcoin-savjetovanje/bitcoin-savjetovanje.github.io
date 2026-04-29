@@ -283,7 +283,7 @@
     @apply grid place-items-center rounded-full border shadow-sm;
     background: oklch(0.985 0.003 95);
     border-color: oklch(0.88 0.003 95);
-    color: oklch(0.17 0.004 80);
+    color: oklch(0.48 0.13 58);
     height: 3.25rem;
     width: 3.25rem;
   }
@@ -299,6 +299,8 @@
 
   .money-system__segment--spending .money-system__icons svg {
     height: 0.9rem !important;
+    transform: scale(1.05);
+    transform-origin: center;
     width: 0.9rem !important;
   }
 
@@ -377,13 +379,15 @@
     background: transparent !important;
     border-color: transparent !important;
     box-shadow: none !important;
-    color: oklch(0.17 0.004 80);
+    color: oklch(0.48 0.13 58);
     height: 0.58rem;
     width: 0.58rem;
   }
 
   .money-system__currency-mark svg {
     height: 0.58rem;
+    transform: scale(1.05);
+    transform-origin: center;
     width: 0.58rem;
   }
 
@@ -397,7 +401,6 @@
     left: 1.15rem;
   }
 
-
   .money-system__capital-chart {
     @apply relative rounded-lg border px-3 py-2.5 shadow-sm;
     background: oklch(0.985 0.003 95);
@@ -408,13 +411,15 @@
 
   .money-system__capital-symbol {
     @apply absolute grid place-items-center;
-    color: oklch(0.17 0.004 80);
+    color: oklch(0.48 0.13 58);
     height: 2.1rem;
     width: 2.1rem;
   }
 
   .money-system__capital-symbol svg {
     height: 2.1rem;
+    transform: scale(1.05);
+    transform-origin: center;
     width: 2.1rem;
   }
 
@@ -437,7 +442,6 @@
     left: 5.45rem;
     top: 1.95rem;
   }
-
 
   .money-system__capital-bitcoin {
     @apply absolute -top-1.5 -right-1.5 grid place-items-center overflow-hidden rounded-full border shadow-sm;
@@ -659,6 +663,8 @@
 
   .money-system__segment--spending .money-system__icons svg {
     height: 0.72rem !important;
+    transform: scale(1.05);
+    transform-origin: center;
     width: 0.72rem !important;
   }
 
@@ -741,6 +747,11 @@
     width: 0.42rem;
   }
 
+  .money-system__currency-mark svg {
+    transform: scale(1.05);
+    transform-origin: center;
+  }
+
   .money-system__currency-mark--euro {
     bottom: -2.55rem;
     left: -0.95rem;
@@ -751,7 +762,6 @@
     left: 0.75rem;
   }
 
-
   .money-system__capital-chart {
     width: 4.35rem;
   }
@@ -760,6 +770,11 @@
   .money-system__capital-symbol svg {
     height: 1.65rem;
     width: 1.65rem;
+  }
+
+  .money-system__capital-symbol svg {
+    transform: scale(1.05);
+    transform-origin: center;
   }
 
   .money-system__capital-symbol--factory {
@@ -781,7 +796,6 @@
     left: 4.45rem;
     top: 1.55rem;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {

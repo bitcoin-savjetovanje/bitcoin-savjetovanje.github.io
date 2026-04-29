@@ -33,20 +33,20 @@ const CALENDLY_URL = "https://cal.com/btcpavao/meeting"
 const EMAIL = "pavao@hey.com"
 const PRACTICAL_BITCOIN_STANDARD_URL =
   "https://btcpavao.gitbook.io/practical-bitcoin-standard/"
-const DVADESCET_JEDAN_URL = "https://dvadesetjedan.com"
+const DVADESET_JEDAN_URL = "https://dvadesetjedan.com"
 
 const navLinks = [
   { label: "Za koga je ovo?", href: "#za-koga" },
   { label: "Što ovo nije?", href: "#sto-nije" },
   { label: "Proces i cijene", href: "#proces" },
   { label: "O meni", href: "#o-meni" },
-  { label: "Česta Pitanja", href: "#pitanja" },
+  { label: "Česta pitanja", href: "#pitanja" },
 ]
 
 const trustItems = [
   "U Bitcoinu od 2014.",
   "10.000+ sati rada i proučavanja",
-  "6+ godina profesionalnog rada u Bitcoin prostoru",
+  "6+ godina profesionalnog rada u Bitcoin industriji",
   "Život na Bitcoin standardu od 2020.",
 ]
 
@@ -95,19 +95,19 @@ const processSteps = [
   {
     step: "01",
     title: "Uvodni razgovor",
-    price: "bez naknade",
+    price: "Bez naknade",
     copy: "Uvodni razgovor traje oko 15 minuta. Cilj nije da u njemu riješimo cijelu situaciju, nego da razumijem gdje se nalazite, što pokušavate odlučiti i ima li smisla nastaviti u detaljniji savjetodavni razgovor. Ako vidim da vam ne mogu pomoći ili da ovo nije pravi trenutak, reći ću vam to izravno.",
   },
   {
     step: "02",
     title: "Plaćeni savjetodavni razgovor",
     price: "200 €",
-    copy: "Plaćeni savjetodavni razgovor traje 60-90 minuta. U njemu prolazimo vašu stvarnu situaciju: sadašnje razumijevanje Bitcoina, postojeću izloženost, odnos prema riziku, novčani tok, ostatak imovine, vremenski okvir i glavne točke neodlučnosti. Cilj je da nakon razgovora imate jasniji okvir za donošenje odluka i da znate koji bi sljedeći koraci imali smisla.",
+    copy: "Plaćeni savjetodavni razgovor traje 60–90 minuta. U njemu prolazimo vašu stvarnu situaciju: sadašnje razumijevanje Bitcoina, postojeću izloženost, odnos prema riziku, novčani tok, ostatak imovine, vremenski okvir i glavne točke neodlučnosti. Cilj je da nakon razgovora imate jasniji okvir za donošenje odluka i da znate koji bi sljedeći koraci imali smisla.",
   },
   {
     step: "03",
     title: "Strukturirani program",
-    price: "od 1.500 €",
+    price: "Od 1.500 €",
     copy: "Program nije produženi razgovor, nego vođeni proces kroz više odluka: udio, ritam, sigurnost, pravila ponašanja i integracija s ostatkom imovine.",
   },
 ]
@@ -116,7 +116,7 @@ const faqs = [
   {
     question: "Je li ovo financijsko savjetovanje?",
     answer:
-      "Ne. Ovo nije licencirano investicijsko, porezno ili pravno savjetovanje. Rad je usmjeren na osobni okvir odlučivanja, razumijevanje Bitcoina, organizaciju sigurnosti i jasniji pristup vlastitoj situaciji. Za porezna i pravna pitanja treba se obratiti odgovarajućim stručnjacima.",
+      "Ne. Ovo nije licencirano investicijsko, porezno ili pravno savjetovanje. Rad je usmjeren na osobni okvir odlučivanja, razumijevanje Bitcoina, uređenje sigurnosti i jasniji pristup vlastitoj situaciji. Za porezna i pravna pitanja treba se obratiti odgovarajućim stručnjacima.",
   },
   {
     question: "Moram li već imati Bitcoin?",
@@ -131,6 +131,11 @@ const faqs = [
   {
     question: "Radite li s drugim kriptovalutama?",
     answer: "Ne. Fokus je isključivo na Bitcoinu.",
+  },
+  {
+    question: "Je li razgovor povjerljiv?",
+    answer:
+      "Da. Razgovori su povjerljivi. Ne objavljujem osobne podatke, financijsku situaciju ni pojedinosti razgovora. Ako kasnije koristim opće uvide iz rada s klijentima, oni se uvijek iznose bez identiteta i bez pojedinosti po kojima bi se osoba mogla prepoznati.",
   },
   {
     question: "Što ako nakon uvodnog razgovora nema smisla nastaviti?",
@@ -340,7 +345,7 @@ export function App() {
               <a
                 key={link.href}
                 href={link.href}
-                className="whitespace-nowrap text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm whitespace-nowrap text-muted-foreground hover:text-foreground"
               >
                 {link.label}
               </a>
@@ -404,13 +409,13 @@ export function App() {
               </h1>
               <p className="hero-subtitle">
                 Pomažem ljudima s kapitalom koji već osjećaju da je Bitcoin
-                važan, ali nemaju miran, osoban i provediv okvir za odluku:
-                koliko imati, kako pristupiti kupnji, kako organizirati
-                sigurnost i kako Bitcoin uklopiti u širu financijsku sliku.
+                važan, ali nemaju miran i provediv okvir za odluku: koliko
+                imati, kako pristupiti kupnji, kako urediti sigurnost i kako
+                Bitcoin uklopiti u širu financijsku sliku.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-                Bez kratkoročnog trgovanja. Bez predviđanja cijene. Bez buke.
-                Samo miran, strukturiran razgovor o vašoj stvarnoj situaciji.
+                Bez trgovanja. Bez predviđanja cijene. Bez buke. Samo miran,
+                strukturiran razgovor o vašoj stvarnoj situaciji.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -463,6 +468,11 @@ export function App() {
               copy="Savjetovanje ima najviše smisla kada već osjećate da je tema važna, ali vam nedostaje osobni okvir za mirne i konkretne odluke."
             />
             <div className="grid gap-3">
+              <p className="mb-2 text-base leading-7 text-muted-foreground">
+                Ovo nije zamišljeno za potpune početnike koji samo žele opći
+                uvod u Bitcoin, nego za ljude koji osjećaju da je tema već
+                dovoljno važna da zaslužuje ozbiljniji osobni okvir.
+              </p>
               {audienceItems.map((item) => (
                 <div key={item} className="check-row">
                   <Check className="mt-1 size-4 text-primary" />
@@ -477,6 +487,10 @@ export function App() {
           <div className="pattern-panel">
             <SectionHeader title="Prepoznajete li ovaj obrazac?" />
             <div className="mt-7 space-y-5 text-lg leading-8 text-muted-foreground">
+              <p className="text-foreground">
+                Ovo je najčešći razlog zbog kojeg ljudi godinama ostaju između
+                interesa i odluke.
+              </p>
               <p>
                 Već neko vrijeme znate da je Bitcoin važan. Možda ste nešto već
                 kupili, možda godinama pratite temu, ali i dalje nemate jasan
@@ -489,7 +503,7 @@ export function App() {
                 Ne želite donijeti impulzivnu odluku, ali ne želite ni još
                 godinama ostati u istom krugu razmišljanja.
               </p>
-              <p className="text-foreground">
+              <p className="rounded-2xl border border-primary/20 bg-primary/10 p-5 font-semibold text-foreground">
                 U tom trenutku problem više nije informacija. Problem je okvir.
               </p>
             </div>
@@ -503,6 +517,10 @@ export function App() {
               copy="Ne bavim se kratkoročnim trgovanjem, drugim digitalnim imovinama ni obećanjima prinosa. Rad je usmjeren na dugoročni okvir odlučivanja, osobnu/poslovnu financijsku sliku, sigurnost i provedbu."
             />
             <div className="grid gap-3">
+              <p className="mb-2 text-base leading-7 text-muted-foreground">
+                Jasne granice usluge važne su jer ozbiljan razgovor o Bitcoinu
+                mora biti odvojen od buke, nagovaranja i nerealnih obećanja.
+              </p>
               {notForItems.map((item) => (
                 <div key={item} className="not-for-row">
                   <X className="size-4" />
@@ -578,7 +596,7 @@ export function App() {
                   Practical Bitcoin Standard
                 </a>
                 <a
-                  href={DVADESCET_JEDAN_URL}
+                  href={DVADESET_JEDAN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -594,7 +612,7 @@ export function App() {
                 <p>
                   U Bitcoinu sam od 2014. godine. Iza mene je više od 10.000
                   sati rada i proučavanja, više od šest godina profesionalnog
-                  rada u Bitcoin prostoru, rad sa Saifedeanom Ammousom te
+                  rada u Bitcoin industriji, rad sa Saifedeanom Ammousom te
                   dugogodišnji rad kroz DvadesetJedan.
                 </p>
                 <p>
@@ -624,12 +642,12 @@ export function App() {
           <div className="final-cta">
             <div>
               <h2>
-                Ako već neko vrijeme razmišljate o Bitcoinu, ali nemate jasan
-                okvir, krenimo od razgovora.
+                Ako već neko vrijeme razmišljate o Bitcoinu, ali i dalje nemate
+                miran osobni okvir, krenimo od uvodnog razgovora.
               </h2>
               <p>
-                Uvodni razgovor služi da vidimo gdje se trenutno nalazite, što
-                pokušavate odlučiti i ima li smisla nastaviti.
+                Cilj nije da sve riješimo u 15 minuta, nego da vidimo gdje se
+                nalazite, što pokušavate odlučiti i ima li smisla nastaviti.
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -667,7 +685,7 @@ export function App() {
               Practical Bitcoin Standard
             </a>
             <a
-              href={DVADESCET_JEDAN_URL}
+              href={DVADESET_JEDAN_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -682,11 +700,11 @@ export function App() {
         <Button
           type="button"
           size="icon"
-          className="fixed right-4 bottom-4 z-50 size-10 rounded-full border border-border/70 bg-background/94 shadow-lg md:right-6 md:bottom-6"
+          className="fixed right-4 bottom-4 z-50 size-10 rounded-full border border-border/70 bg-background/94 text-foreground shadow-lg hover:bg-muted hover:text-foreground md:right-6 md:bottom-6"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Povratak na vrh"
         >
-          <ArrowUp className="size-4" />
+          <ArrowUp className="size-4 stroke-[2.5]" />
         </Button>
       ) : null}
     </div>

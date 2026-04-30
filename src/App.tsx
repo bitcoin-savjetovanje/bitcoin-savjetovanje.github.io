@@ -144,7 +144,7 @@ const processSteps = [
     title: "Plaćeni savjetodavni razgovor",
     price: "200 €",
     priceTone: "medium",
-    copy: "Razgovor traje 60–90 minuta. Prolazimo vašu stvarnu situaciju: novčani tok, dugove, postojeći Bitcoin, ostatak imovine, potrošnju, kapital i glavne točke neodlučnosti.",
+    copy: "Razgovor traje 60–90 minuta. Prolazimo vašu stvarnu situaciju: novčani tok, dugove, postojeći Bitcoin, ostatak imovine, potrošnju, kapital i glavne točke neodlučnosti. Cilj ovog razgovora nije riješiti sve, nego jasno vidjeti gdje ste, što je glavni problem i koji je sljedeći razuman korak.",
     bullets: [
       "jasniju sliku gdje ste trenutno",
       "glavne rizike koje treba riješiti",
@@ -158,7 +158,7 @@ const processSteps = [
     title: "Strukturirani program",
     price: "1.500 €",
     priceTone: "strong",
-    copy: "Program nije produženi razgovor, nego primjena Practical Bitcoin Standard okvira na vašu konkretnu situaciju: budžet, dug, višak, Bitcoin kao novac, neto imovina, sigurnost i pravila odluka kroz vrijeme.",
+    copy: "Program nije produženi razgovor, nego primjena Practical Bitcoin Standard okvira na vašu konkretnu situaciju: budžet, dug, višak, Bitcoin kao novac, neto imovina, sigurnost i pravila odluka kroz vrijeme. Na kraju programa imate vlastiti dokument s pravilima: kako definirate višak, kada akumulirate, kada čekate, kada trošite, kada preispitujete plan i kako Bitcoin uklapate u neto imovinu.",
   },
 ]
 
@@ -199,7 +199,7 @@ const typicalSituationQuestions = [
   "trebam li prvo riješiti dug?",
   "kako Bitcoin uklopiti u ostatak imovine?",
   "kada akumulirati više, a kada trošiti?",
-  "što raditi kad je cijena ispod ili iznad dugoročnog trenda?",
+  "kako donositi odluke kad cijena snažno raste ili pada?",
 ]
 
 const practicalBitcoinStandardItems = [
@@ -547,19 +547,19 @@ export function App() {
           <div className="hero-shell">
             <div className="hero-copy">
               <h1 className="hero-title">
-                Bitcoin bez nagađanja u stvarnom životu
+                Bitcoin u vašim financijama, bez nagađanja
               </h1>
               <p className="hero-subtitle">
                 Ako već imate Bitcoin ili razmišljate o njemu, ali ga još niste
-                jasno uklopili u svoje financije — pomažem vam posložiti
-                praktičan sustav za budžet, dug, neto imovinu i odluke oko
-                Bitcoina.
+                jasno uklopili u svoje financije — pomažem vam postaviti
+                praktičan okvir za budžet, dug, neto imovinu i odluke kroz
+                vrijeme.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-                Ovo nije savjetovanje o trgovanju, predviđanju cijene ili
-                drugim digitalnim imovinama. Fokus je na tome kako Bitcoin
-                koristiti kao novac i kako donositi mirnije odluke kroz vlastitu
-                situaciju.
+                Ovo nije savjetovanje o trgovanju, kratkoročnim prognozama
+                cijene ili drugim digitalnim imovinama. Fokus je na tome kako
+                Bitcoin koristiti kao novac i donositi mirnije odluke u
+                vlastitoj situaciji.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -974,7 +974,7 @@ export function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Pogledajte Practical Bitcoin Standard
+                    Pogledajte okvir iza savjetovanja
                     <ArrowUpRight className="size-4" />
                   </a>
                 </Button>

@@ -67,9 +67,11 @@ export function PretextHeading<T extends ElementType = "h2">({
 
       const nextLineHeight = getLineHeight(style)
       const prepared = prepareWithSegments(text, font)
-      const nextLines = layoutWithLines(prepared, width, nextLineHeight).lines.map(
-        (line) => line.text
-      )
+      const nextLines = layoutWithLines(
+        prepared,
+        width,
+        nextLineHeight
+      ).lines.map((line) => line.text)
 
       setLines(nextLines)
       setLineStyle({ lineHeight: `${nextLineHeight}px` })
@@ -106,7 +108,7 @@ export function PretextHeading<T extends ElementType = "h2">({
       <span
         ref={probeRef}
         aria-hidden="true"
-        className={`pointer-events-none absolute invisible whitespace-normal ${textClassName}`}
+        className={`pointer-events-none invisible absolute whitespace-normal ${textClassName}`}
       >
         {text}
       </span>

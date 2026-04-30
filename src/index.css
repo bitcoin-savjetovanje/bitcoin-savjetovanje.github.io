@@ -442,6 +442,10 @@
     @apply mt-4 text-base leading-8 text-muted-foreground;
   }
 
+  .value-summary {
+    @apply mx-auto mt-8 max-w-3xl rounded-xl border border-border/70 bg-card/70 p-5 text-center text-base leading-8 font-semibold text-foreground shadow-sm;
+  }
+
   .comparison-card ul {
     @apply mt-6 grid gap-3 text-base leading-7 text-muted-foreground;
   }

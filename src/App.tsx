@@ -41,9 +41,9 @@ const navLinks = [
 ]
 
 const heroBenefits = [
-  "budžet i novčani tok",
+  "stvarna financijska slika",
   "Bitcoin u neto imovini",
-  "pravila odluka kroz vrijeme",
+  "pravila za odluke kroz vrijeme",
 ]
 
 const credibilityLogos = [
@@ -113,24 +113,19 @@ const notForItems = [
 
 const outcomes = [
   {
-    title: "Jasno mjerenje novčanih tokova i neto prihoda",
+    title: "Jasna slika financijske pozicije",
     icon: Compass,
-    copy: "Imate kontrolu nad novcem u svim dimenzijama: vremenu i oportunitetnom trošku, i znate relevantne pokazatelje poput neto prihoda i starosti novca.",
+    copy: "Prvo gledamo gdje ste trenutno: prihode, troškove, obveze, dugove, Bitcoin, ostalu imovinu i potrošačke odluke. Cilj je vidjeti stvarnu sliku, a ne donositi odluke na temelju dojma, stanja na računu ili trenutne cijene Bitcoina.",
   },
   {
-    title: "Okvir za balansiranje neto imovine",
-    icon: Check,
-    copy: "Bitcoin promatrate u odnosu na novac, kapital, dugove, potrošačka dobra i dugoročnu neto imovinu.",
-  },
-  {
-    title: "Pravila odluka kroz vrijeme",
-    icon: ShieldCheck,
-    copy: "Postavljate pravila za akumulaciju, trošenje, čekanje i preispitivanje odluka kroz različite cijene i životne okolnosti.",
-  },
-  {
-    title: "Pravilan odnos prema volatilnosti",
+    title: "Okvir za Bitcoin u neto imovini",
     icon: CircleDollarSign,
-    copy: "Razdvajamo stvarne rizike od buke: dug, likvidnost, skrbništvo, novčani tok, izloženost i emocionalnu podnošljivost odluke.",
+    copy: "Bitcoin ne promatramo kao izoliranu investiciju, nego kao novac unutar vaše ukupne neto imovine. Gledamo odnos između novca, kapitala i potrošačkih dobara te postavljamo okvir koji vam pomaže razumjeti koliki udio Bitcoina ima smisla u vašoj situaciji.",
+  },
+  {
+    title: "Pravila za odluke kroz vrijeme",
+    icon: ShieldCheck,
+    copy: "Postavljamo pravila za akumulaciju, trošenje, čekanje i preispitivanje plana kroz različite tržišne i životne okolnosti. Cilj je da odluke ne ovise o dnevnim pomacima cijene, tuđim mišljenjima ili osjećaju da morate reagirati odmah, nego o unaprijed definiranom okviru.",
   },
 ]
 
@@ -147,7 +142,7 @@ const processSteps = [
     title: "Plaćeni savjetodavni razgovor",
     price: "200 €",
     priceTone: "medium",
-    copy: "Razgovor traje 60–90 minuta. Prolazimo vašu stvarnu situaciju: novčani tok, dugove, postojeći Bitcoin, ostatak imovine, potrošnju, kapital i glavne točke neodlučnosti. Cilj ovog razgovora nije riješiti sve, nego jasno vidjeti gdje ste, što je glavni problem i koji je sljedeći razuman korak.",
+    copy: "Razgovor traje 60–90 minuta. Prolazimo vašu stvarnu situaciju: novčani tok, dugove, postojeći Bitcoin, ostatak imovine, potrošnju, kapital i glavne točke neodlučnosti. Cilj je povezati vašu stvarnu financijsku sliku s pitanjem gdje Bitcoin pripada u ukupnoj neto imovini. Cilj ovog razgovora nije riješiti sve, nego jasno vidjeti gdje ste, što je glavni problem i koji je sljedeći razuman korak.",
     bullets: [
       "jasniju sliku gdje ste trenutno",
       "glavne rizike koje treba riješiti",
@@ -161,14 +156,14 @@ const processSteps = [
     title: "Strukturirani program",
     price: "1.500 €",
     priceTone: "strong",
-    copy: "Program nije produženi razgovor, nego primjena Practical Bitcoin Standard okvira na vašu konkretnu situaciju: budžet, dug, višak, Bitcoin kao novac, neto imovina, sigurnost i pravila odluka kroz vrijeme. Na kraju programa imate vlastiti dokument s pravilima: kako definirate višak, kada akumulirate, kada čekate, kada trošite, kada preispitujete plan i kako Bitcoin uklapate u neto imovinu.",
+    copy: "Program nije produženi razgovor, nego primjena Practical Bitcoin Standard okvira na vašu konkretnu situaciju: stvarna financijska slika, Bitcoin u neto imovini i pravila za odluke kroz vrijeme. Na kraju programa imate vlastiti dokument s pravilima: kako definirate višak, kada akumulirate, kada čekate, kada trošite, kada preispitujete plan i kako Bitcoin uklapate u neto imovinu.",
   },
 ]
 
 const programItems = [
   {
-    title: "Budžet i stvarni višak",
-    copy: "Razlikujemo redovnu potrošnju, sigurnosnu rezervu, planirane troškove i višak koji stvarno možete usmjeravati.",
+    title: "Financijska slika i budžet",
+    copy: "Razlikujemo prihode, troškove, obveze, dugove, planiranu potrošnju i iznos koji stvarno možete usmjeravati prema Bitcoinu ili drugim ciljevima.",
   },
   {
     title: "Dugovi i obveze",
@@ -325,7 +320,7 @@ const faqs = [
   {
     question: "Kako izgleda rezultat programa?",
     answer:
-      "Rezultat programa je praktičan sustav za odluke: sažetak pravila, kriterija i sigurnosnih postupaka koje možete koristiti kroz vrijeme. Uključuje budžet, stvarni višak, odnos prema dugu, Bitcoin u neto imovini, pravila akumulacije i trošenja te sigurnosni model.",
+      "Rezultat programa je praktičan sustav za odluke: jasnija financijska slika, okvir za Bitcoin u neto imovini, pravila akumulacije i trošenja te sigurnosni model koji možete koristiti kroz vrijeme.",
   },
   {
     question: "Što ako već kupujem Bitcoin kad imam viška?",
@@ -595,8 +590,8 @@ export function App() {
                 ))}
               </div>
               <p className="hero-output">
-                Nakon rada imat ćete jasan okvir za korištenje Bitcoina kao
-                primarnog novca.
+                Nakon rada trebate imati jasniju financijsku sliku, okvir za
+                Bitcoin u neto imovini i pravila za odluke kroz vrijeme.
               </p>
             </div>
 
@@ -922,11 +917,11 @@ export function App() {
         <section id="sto-dobivate" className="section-shell section-muted">
           <SectionHeader
             title="Što konkretno dobivate?"
-            copy="Ne dobivate još jedno mišljenje, nego praktičan okvir za upravljanje cjelokupnom neto imovinom i integraciju Bitcoina, kao i donošenje odluka kroz vrijeme."
+            copy="Ne dobivate još jedno mišljenje, nego praktičan sustav: stvarna financijska slika, Bitcoin u neto imovini i pravila za odluke kroz vrijeme."
             align="center"
           />
 
-          <div className="mt-12 grid gap-4 md:grid-cols-2">
+          <div className="mt-12 grid gap-4 lg:grid-cols-3">
             {outcomes.map((item) => {
               const Icon = item.icon
 
@@ -941,6 +936,10 @@ export function App() {
               )
             })}
           </div>
+          <p className="value-summary">
+            Cilj nije da dobijete još više informacija o Bitcoinu. Cilj je da
+            imate sustav po kojem znate što radite sa svojim novcem i zašto.
+          </p>
         </section>
 
         <section id="okvir" className="section-shell">
@@ -1032,7 +1031,7 @@ export function App() {
         <section id="program" className="section-shell section-muted">
           <SectionHeader
             title="Što točno dobijete u programu?"
-            copy="Program je namijenjen ljudima koji ne žele samo razgovor, nego žele primijeniti Bitcoin standard na vlastiti budžet, dug, neto imovinu, sigurnost i odluke kroz vrijeme."
+            copy="Program je namijenjen ljudima koji ne žele samo razgovor, nego žele primijeniti Bitcoin standard na vlastitu financijsku sliku, Bitcoin u neto imovini, sigurnost i odluke kroz vrijeme."
             align="center"
           />
 
@@ -1046,9 +1045,9 @@ export function App() {
           </div>
           <p className="program-summary">
             Na kraju programa ne biste trebali imati samo više znanja o
-            Bitcoinu, nego praktičan sustav: što je višak, kako se odnosite
-            prema dugu, koliko Bitcoina ima smisla držati, kada akumulirate,
-            kada trošite i kako čuvate Bitcoin kroz vrijeme.
+            Bitcoinu, nego praktičan sustav: gdje se stvarno nalazite
+            financijski, kako Bitcoin uklapate u neto imovinu, kada
+            akumulirate, kada trošite i kako čuvate Bitcoin kroz vrijeme.
           </p>
         </section>
 

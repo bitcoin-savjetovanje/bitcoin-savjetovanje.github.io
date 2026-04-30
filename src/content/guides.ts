@@ -23,45 +23,56 @@ export const guides: Guide[] = [
     slug: "stvarni-visak",
     title: "Što je stvarni višak i zašto ga većina ljudi krivo procjenjuje?",
     metaDescription:
-      "Praktičan vodič za razumijevanje stvarnog viška prije odluka o Bitcoinu: budžet, dug, obveze, sigurnosna rezerva i neto imovina.",
+      "Vodič o tome kako osobni proračun, dug, novčana zaliha i buduće obveze određuju što je stvarni višak za mirnije Bitcoin odluke kroz vrijeme.",
     excerpt:
-      "Višak nije ono što ostane na računu na kraju mjeseca. Stvarni višak postoji tek nakon obveza, rizika, likvidnosti i plana.",
+      "Stvarni višak ne nastaje zato što novac stoji na računu. Nastaje tek kada svaki euro ima namjenu kroz vrijeme.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
     practicalQuestion:
       "Koji trošak, obvezu ili rizik najčešće zaboravite kada mislite da imate višak?",
     relatedSlugs: [
-      "bitcoin-u-neto-imovini",
-      "dug-ili-bitcoin",
       "dca-nije-dovoljan",
+      "dug-ili-bitcoin",
+      "bitcoin-u-neto-imovini",
     ],
     sections: [
       {
         heading: "Višak nije stanje na računu",
         body: [
-          "Mnogi ljudi o Bitcoinu razmišljaju tek kad vide da na računu postoji novac koji trenutno nije potrošen. To je razumljivo, ali nije dovoljno precizno. Stanje na računu može izgledati kao višak iako iza njega stoje obveze koje tek dolaze: porezi, rata kredita, školarina, veći servis, obiteljska pomoć, zdravstveni trošak ili planirana kupnja.",
-          "Stvarni višak je iznos koji ostaje nakon što su poznati redovni troškovi, kratkoročne obveze, dugovi, sigurnosna rezerva i veće potrebe koje su dovoljno vjerojatne da ih ne treba ignorirati. Tek tada ima smisla razgovarati o dodatnoj akumulaciji Bitcoina.",
+          "Novac koji trenutačno stoji na računu može izgledati kao višak, ali to ne znači da je stvarno slobodan. Možda iza njega već stoji rata kredita, porezna obveza, veći popravak, trošak zdravlja, školarina, obiteljska pomoć ili mjesec u kojem prihod neće doći istim ritmom. Ako se gleda samo današnje stanje, lako je zamijeniti privremenu novčanu zalihu za stvarni višak.",
+          "U okviru Praktičnog Bitcoin standarda, odluka o Bitcoinu ne počinje pitanjem koliko kupiti, nego pitanjem što novac već mora obaviti. Stvarni višak postoji tek nakon što su poznati prihodi, redovni troškovi, dugovi, budući odljevi i sigurnosna zaliha. Tek tada iznos koji ostane može postati kandidat za kupnju, čekanje, trošenje ili drugo pravilo.",
+          "Najjednostavnija provjera glasi: ako bi taj novac nestao iz računa danas, biste li za dva ili tri mjeseca morali dirati dug, prodavati Bitcoin ili odgoditi važnu obvezu? Ako je odgovor da, taj novac još nije višak. On već ima posao, samo ga još niste imenovali.",
         ],
       },
       {
-        heading: "Zašto ljudi precjenjuju višak",
+        heading: "Svaki euro treba namjenu",
         body: [
-          "Najčešća pogreška je gledati samo prihod i trenutne troškove, bez kalendara obveza. Druga pogreška je tretirati kreditne kartice, minuse i kratkoročne dugove kao odvojenu temu. Treća je pretpostaviti da će budući prihodi uvijek dolaziti istim ritmom.",
-          "U Practical Bitcoin Standard okviru višak se ne definira osjećajem, nego redoslijedom. Prvo se vidi novčani tok. Zatim se razumiju dugovi i obveze. Nakon toga se određuje likvidnost za miran život i nepredviđene događaje. Tek preostali iznos može biti kandidat za Bitcoin odluke.",
+          "Osobni proračun nulte osnove ne znači da se sve mora potrošiti. Znači da svaki euro dobiva zadatak prije nego što nestane u nejasnoj kategoriji viška. Jedan euro može služiti za stanovanje, drugi za hranu, treći za dug, četvrti za darivanje, peti za sigurnosnu zalihu, a tek nakon toga neki euro može biti slobodan za Bitcoin odluku.",
+          "Bez te namjene, višak često nastaje iz dojma. Čitatelj vidi novac na računu i zaključi da može kupiti više Bitcoina, a zatim ga nekoliko tjedana poslije iznenadi očekivani trošak koji nije bio zapisan. Proračun ne uklanja neizvjesnost, ali smanjuje samozavaravanje. On pokazuje koji je novac već zauzet, koji čeka poznatu obvezu, a koji se stvarno može rasporediti.",
+          "Namjena ne mora biti složena. Dovoljno je zapisati glavne skupine: životni troškovi, dug, kratkoročne obveze, sigurnosna zaliha, darivanje, veće planirane potrebe i Bitcoin odluke. Već takav zapis često pokaže da je navodni višak manji, ali i pouzdaniji. Manji stvarni višak bolji je od većeg iznosa koji postoji samo na papiru.",
         ],
       },
       {
-        heading: "Višak mora preživjeti loš mjesec",
+        heading: "Novac treba gledati kroz vrijeme",
         body: [
-          "Ako odluka ima smisla samo u idealnom mjesecu, okvir je preslab. Stvarni višak mora uzeti u obzir da se prihod može smanjiti, trošak povećati, a obitelj ili posao tražiti više likvidnosti nego inače. To ne znači da se odluke moraju odgađati zauvijek. Znači da ih treba donositi iz jasnije slike.",
-          "Za nekoga je razumno povećati izloženost Bitcoinu. Za nekoga je razumnije prvo smanjiti skupi dug. Za nekoga je najbolji korak urediti sigurnosnu rezervu. Isti iznos novca nema isto značenje kod osobe bez duga i kod osobe s velikim kratkoročnim obvezama.",
+          "Dobar proračun ne promatra samo jedan mjesec. Gleda i ono što dolazi za tri, šest ili dvanaest mjeseci. Godišnje osiguranje, porez, školski troškovi, održavanje doma, oprema za posao ili planirani odmor nisu iznenađenja ako ih unaprijed vidite. Ako ih ne vidite, pojavit će se kao razlog za neplanirano zaduživanje ili prodaju Bitcoina u lošem trenutku.",
+          "Zato stvarni višak nije samo pitanje iznosa, nego i vremena. Isti iznos može biti višak ako ga ne trebate godinu dana, a može biti potreban novac ako za dva mjeseca dolazi velika obveza. Bitcoin odluka koja ne poštuje vremenski raspored osobnog novca lako postaje krhka, iako je u trenutku donošenja izgledala razumno.",
+          "Koristan postupak je zapisati buduće odljeve prije nego što odlučite o kupnji. Ako znate da će u rujnu doći veći obiteljski trošak, dio današnjeg novca možda pripada rujnu. Tako proračun prestaje biti samo popis prošlih troškova i postaje alat za odluke koje još nisu došle na naplatu.",
         ],
       },
       {
-        heading: "Od pitanja do pravila",
+        heading: "Starost novca i mirnije odluke",
         body: [
-          "Korisno pitanje nije samo: koliko mogu kupiti? Bolje pitanje je: koji dio mogu usmjeriti prema Bitcoinu bez ugrožavanja obveza, mira i sposobnosti da plan održim kroz vrijeme?",
-          "Kada je višak definiran na taj način, odluke postaju mirnije. Ne kupujete zato što se bojite da propuštate priliku, nego zato što se odluka uklapa u budžet, dug, neto imovinu i dugoročna pravila.",
+          "Jedna od korisnih navika Praktičnog Bitcoin standarda jest povećavati starost novca. To znači da današnje troškove ne plaćate novcem koji je tek stigao, nego starijim novcem koji je već prošao kroz proračun. Što je novac stariji, to je manje pritiska da svaka uplata odmah riješi nekoliko problema odjednom.",
+          "Za Bitcoin odluke to je važno jer smanjuje panične poteze. Ako živite od uplate do uplate, svaka promjena cijene ili troška snažnije utječe na vas. Ako imate veću novčanu zalihu, jasne kategorije i poznate buduće odljeve, lakše je čekati, kupovati prema pravilima ili ne dirati Bitcoin koji ne želite trošiti.",
+          "Starost novca nije natjecanje, nego mjera disanja. Pokazuje koliko vremena imate prije nego što vas sljedeći trošak natjera na odluku. Što je taj prostor veći, to je lakše razlikovati stvarnu potrebu od tržišne buke. Tada Bitcoin može ostati dio plana, a ne prva stvar koja se dira kada mjesec postane tijesan.",
+        ],
+      },
+      {
+        heading: "Kako ovo mijenja odluku o Bitcoinu",
+        body: [
+          "Kada je višak jasno definiran, pitanje više nije samo imate li novca za kupnju. Pitanje postaje: koji dio novca može ići u Bitcoin bez ugrožavanja obveza, sigurnosti, obitelji i sposobnosti da plan izdržite kroz promjene cijene? Takvo pitanje ne daje isti odgovor svakoj osobi, ali daje čvršći početak razgovora.",
+          "Nekome će stvarni višak pokazati da može povećati redovitu kupnju. Nekome će pokazati da prvo treba smanjiti dug. Nekome će pokazati da novčana zaliha nije dovoljna. Cilj nije dobiti univerzalnu brojku, nego pisano pravilo koje možete objasniti sebi i obitelji: kada kupujem, kada čekam, što ne diram i kada preispitujem plan.",
         ],
       },
     ],
@@ -71,13 +82,13 @@ export const guides: Guide[] = [
     slug: "bitcoin-u-neto-imovini",
     title: "Kako uklopiti Bitcoin u neto imovinu?",
     metaDescription:
-      "Kako promatrati Bitcoin unutar ukupne neto imovine bez izoliranog gledanja cijene, impulsa ili tuđih pravila.",
+      "Kako promatrati Bitcoin u neto imovini kroz novac, potrošnju, kapital, dug, sigurnost i osobna pravila, bez univerzalnih naredbi ili pritiska.",
     excerpt:
-      "Bitcoin ne treba promatrati odvojeno od ostatka života. Važan je odnos prema novcu, dugu, kapitalu, potrošnji i sigurnosti.",
+      "Bitcoin ne stoji izvan ostatka imovine. Njegova uloga postaje jasnija kada znate što je novac, što je potrošnja, a što kapital.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
     practicalQuestion:
-      "Koliki udio vaše ukupne neto imovine Bitcoin čini danas i znate li zašto je baš takav?",
+      "Koliki dio vaše ukupne neto imovine Bitcoin čini danas i znate li zašto je baš takav?",
     relatedSlugs: [
       "stvarni-visak",
       "novac-kapital-potrosnja",
@@ -85,31 +96,43 @@ export const guides: Guide[] = [
     ],
     sections: [
       {
-        heading: "Neto imovina je početna mapa",
+        heading: "Bitcoin nije odvojen od ostatka imovine",
         body: [
-          "Bitcoin odluke postaju nejasne kad se Bitcoin promatra izolirano. Osoba može imati značajan iznos Bitcoina, ali i velik dug, nestabilan prihod ili slabu likvidnost. Druga osoba može imati manji iznos Bitcoina, ali čistu bilancu, stabilan novčani tok i dovoljno vremena.",
-          "Neto imovina pomaže da se Bitcoin vidi u odnosu na cjelinu: novac, nekretnine, poslovnu imovinu, dugove, potrošačka dobra, buduće obveze i sigurnosne rezerve. Bez te mape pitanje 'koliko Bitcoina' ostaje previše apstraktno.",
+          "Bitcoin odluke postaju nejasne kada se Bitcoin promatra kao zaseban svijet. Iznos na novčaniku može izgledati velik ili malen, ali njegovo značenje ovisi o ostatku života: dugu, prihodima, obiteljskim obvezama, novčanoj zalihi, nekretnini, poslu, znanju, vremenskom okviru i sposobnosti da ne reagirate na svaku promjenu cijene.",
+          "Neto imovina daje početnu sliku. Ona ne pokazuje samo što posjedujete, nego i što dugujete. Kada od imovine oduzmete obveze, dobivate jasniji pogled na stvarni položaj. Tek tada se može razumno pitati koju ulogu Bitcoin ima: je li novac za očuvanje kupovne moći, dugoročni kapital, dio buduće potrošnje ili kombinacija tih uloga.",
+          "Praktičan početak je popisati sve važne dijelove neto imovine bez uljepšavanja. Bitcoin, novac na računu, nekretnine, poslovna imovina, oprema, potrošna dobra i dugovi trebaju biti u istoj slici. Tek kada su zajedno, vidite je li Bitcoin premalen, prevelik, nejasan ili samo neobjašnjen u odnosu na ostatak života.",
         ],
       },
       {
-        heading: "Bitcoin kao novac, ne samo pozicija",
+        heading: "Tri uloge imovine",
         body: [
-          "Practical Bitcoin Standard polazi od ideje da Bitcoin nije samo nešto što se kupi i zaboravi, nego novac koji s vremenom može mijenjati odnos prema štednji, potrošnji i kapitalu. To ne znači da svatko treba imati isti udio izloženosti. Znači da odluka mora biti povezana s osobnim financijskim sustavom.",
-          "Ako Bitcoin čini velik dio neto imovine, važna su pravila sigurnosti, trošenja i pristupa. Ako čini mali dio, možda je važnije razumjeti zašto je tako i što bi promjena značila za obveze, likvidnost i mir.",
+          "Praktični Bitcoin standard razlikuje tri velike uloge imovine: novac, potrošna dobra i kapitalna ili proizvodna dobra. Novac služi za prijenos vrijednosti kroz vrijeme i odluke. Potrošna dobra služe izravnom korištenju i često imaju trošak održavanja. Kapitalna dobra mogu stvarati vrijednost, prihod ili mogućnosti kroz vrijeme.",
+          "Ova podjela pomaže jer ista stvar može izgledati kao imovina, ali imati vrlo različit učinak na vaš život. Automobil može biti potrošno dobro ako samo stvara trošak, a može biti potreban alat za posao. Nekretnina može pružati sigurnost, ali i vezati previše kapitala. Bitcoin se u tom okviru ponajprije promatra kao novac, no njegov udio treba gledati u odnosu na sve ostalo.",
+          "Ako te uloge ne razlikujete, lako je uspoređivati stvari koje nisu usporedive. Možete se pitati zašto nemate više Bitcoina, a zapravo je problem prevelik trošak vlasništva. Možete misliti da imate dovoljno kapitala, a zapravo imate imovinu koja ne stvara vrijednost i teško se pretvara u novac kada zatreba.",
         ],
       },
       {
-        heading: "Ciljani raspon je korisniji od jedne brojke",
+        heading: "Zašto jedna brojka nije dovoljna",
         body: [
-          "Jedna točna brojka često zvuči odlučno, ali u stvarnosti je krhka. Prihod se mijenja. Troškovi se mijenjaju. Cijena Bitcoina se mijenja. Životne okolnosti se mijenjaju. Zato je korisnije definirati ciljani raspon izloženosti i pravila kada se plan preispituje.",
-          "Raspon ne služi tome da se stalno reagira na tržište. Služi tome da znate kada je izloženost očito izvan vlastitog okvira, kada je bolje čekati, kada ima smisla akumulirati i kada je važnije riješiti drugi dio financijske slike.",
+          "Ljudi često traže jednu točnu brojku: koliki dio neto imovine treba biti u Bitcoinu. Takav odgovor zvuči uredno, ali može biti pogrešan. Osoba bez duga, s velikom novčanom zalihom i stabilnim prihodom nema istu polaznu točku kao osoba s obiteljskim obvezama, neizvjesnim poslom i kratkoročnim dugom.",
+          "Zato je korisnije razmišljati o ciljanom rasponu nego o jednoj krutoj brojci. Raspon dopušta da život ima svoje promjene, ali i dalje daje granice. Ako Bitcoin padne ispod raspona, možda se otvara prostor za kupnju. Ako naraste daleko iznad njega, možda ne treba odmah reagirati, ali treba znati što se tada preispituje: sigurnost, obitelj, dug, potrošnja ili pravila držanja.",
+          "Raspon treba biti povezan s vašom sposobnošću da izdržite promjene. Ako vas veći udio Bitcoina čini nemirnima i tjera na stalno gledanje cijene, možda raspon nije usklađen s vašim životom. Ako je udio malen, a stvarni višak postoji, možda odluka traži jasnije pravilo akumulacije.",
         ],
       },
       {
-        heading: "Neto imovina povezuje odluku i odgovornost",
+        heading: "Pravilo trećina kao okvir, ne naredba",
         body: [
-          "Kada znate gdje Bitcoin stoji u neto imovini, lakše je objasniti odluku sebi, partneru ili obitelji. Odluka više nije odvojena od budžeta, duga i sigurnosti. Postaje dio pisanog okvira.",
-          "To je svrha savjetovanja: ne donijeti odluku umjesto vas, nego pomoći da odluka bude razumljiva, održiva i povezana sa stvarnom situacijom.",
+          "U okviru Praktičnog Bitcoin standarda, pravilo trećina služi kao način provjere ravnoteže. Ono promatra odnos između novčanih dobara, kapitalnih ili proizvodnih dobara i potrošnih dobara. Ne treba ga čitati kao naredbu da svaka osoba mora imati isti udio Bitcoina, nekretnine ili bilo koje druge imovine.",
+          "Vrijednost tog pravila je u pitanju koje postavlja: je li moja neto imovina previše nagnuta u jednu stranu? Možda imate mnogo imovine koja stvara trošak, a premalo novčane zalihe. Možda imate Bitcoin, ali nemate obiteljski pristup i sigurnosni red. Možda imate kapital, ali i dug koji smanjuje slobodu. Pravilo služi za provjeru, ne za slijepo kopiranje.",
+          "Kada ga koristite kao ogledalo, pravilo trećina može biti vrlo korisno. Ne govori vam točno što morate kupiti ili prodati. Pokazuje gdje treba postaviti bolja pitanja. Ako jedna skupina imovine preuzima previše prostora, možda treba usporiti, čekati, smanjiti dug ili bolje opisati svrhu postojećeg Bitcoina.",
+        ],
+      },
+      {
+        heading: "Kada preispitati udio Bitcoina",
+        body: [
+          "Udio Bitcoina u neto imovini ne treba preispitivati svaki dan. Prečesto gledanje cijene lako vodi u nemir. Razumnije je unaprijed odrediti uvjete: veća promjena prihoda, novi dug, prodaja imovine, rođenje djeteta, promjena posla, veliki rast ili pad cijene, promjena sigurnosnog modela ili nova obiteljska odgovornost.",
+          "Tada se ne pitate samo treba li kupiti ili prodati. Pitate se je li cijeli sustav još uvijek razumljiv. Znate li zašto je Bitcoin na toj razini? Možete li to objasniti partneru ili obitelji? Možete li držati plan ako se kupovna moć snažno promijeni? Ako odgovor nije jasan, problem nije cijena, nego nedostatak osobnog okvira.",
+          "Preispitivanje ne mora značiti promjenu. Ponekad je najbolji zaključak da ne dirate ništa. Ali i tada je korisno znati zašto ne dirate ništa. Mirna odluka o čekanju jednako je vrijedna kao odluka o kupnji ako proizlazi iz neto imovine, proračuna i pisanih pravila.",
         ],
       },
     ],
@@ -119,13 +142,13 @@ export const guides: Guide[] = [
     slug: "dug-ili-bitcoin",
     title: "Kada prvo riješiti dug, a kada akumulirati Bitcoin?",
     metaDescription:
-      "Vodič za mirnije razmišljanje o dugu i Bitcoinu: kamata, rokovi, likvidnost, psihologija i osobni okvir odluka.",
+      "Vodič o dugu kao budućem odljevu koji utječe na slobodu držanja Bitcoina, osobni proračun, novčanu zalihu i odluke kroz vrijeme bez moraliziranja.",
     excerpt:
-      "Dug i Bitcoin ne mogu se promatrati odvojeno. Kamata, rok, obiteljske obveze i sigurnosna rezerva mijenjaju odluku.",
+      "Dug nije samo kamatna stopa. Dug je budući odljev koji može smanjiti slobodu držanja Bitcoina kroz teške mjesece.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
     practicalQuestion:
-      "Koji dug najviše smanjuje vaš prostor za mirnu Bitcoin odluku?",
+      "Bi li vas postojeći dug mogao prisiliti da prodate Bitcoin u trenutku kad to ne želite?",
     relatedSlugs: [
       "stvarni-visak",
       "bitcoin-u-neto-imovini",
@@ -133,31 +156,43 @@ export const guides: Guide[] = [
     ],
     sections: [
       {
-        heading: "Dug mijenja značenje viška",
+        heading: "Dug je odljev iz budućnosti",
         body: [
-          "Novac koji izgleda kao višak ne znači isto ako istovremeno postoji skup dug, kratki rok ili obveza koja nosi stres. Dug ima financijsku, ali i psihološku cijenu. On smanjuje prostor za grešku i može natjerati osobu da prodaje Bitcoin u lošem trenutku.",
-          "Zato se u Practical Bitcoin Standard metodi dug gleda rano. Prije razgovora o većoj izloženosti treba razumjeti vrstu duga, kamatu, rokove, mjesečnu opterećenost i posljedice ako prihod oslabi.",
+          "Dug nije samo iznos u tablici niti samo kamatna stopa. Dug je obećanje da će budući prihod već imati tuđu namjenu. Kada danas živite od novca koji tek trebate zaraditi, smanjujete prostor za mirne odluke. To posebno dolazi do izražaja kada razmišljate o Bitcoinu, jer Bitcoin traži sposobnost čekanja, držanja i preživljavanja promjena cijene.",
+          "Praktični Bitcoin standard ima snažan stav protiv života u dugu zato što dug oslabljuje osobni sustav. Ne radi se o moraliziranju. Radi se o tome da dug stvara stalni odljev, a stalni odljev smanjuje slobodu. Ako već znate da će dio budućeg novca otići na obvezu, tada današnji prividni višak možda nije stvarni višak.",
+          "Zato dug ulazi u razgovor prije iznosa kupnje. Prvo treba znati koliko duga postoji, koja je cijena tog duga, kada dospijeva i koliko vam mjesečno uzima prostora. Tek nakon toga ima smisla pitati koliki dio novca može ići prema Bitcoinu bez povećanja krhkosti cijelog sustava.",
         ],
       },
       {
-        heading: "Nije svaki dug isti",
+        heading: "Zašto dug smanjuje slobodu držanja Bitcoina",
         body: [
-          "Kratkoročni potrošački dug s visokom kamatom nije isto što i dugoročni kredit s niskom ratom i stabilnim prihodom. Dug koji prijeti likvidnosti nije isto što i dug koji je pod kontrolom. Zbog toga univerzalno pravilo može biti opasno.",
-          "Pitanje nije 'dug ili Bitcoin' u apstraktnom smislu. Pitanje je: koji dug, pod kojim uvjetima, uz kakav prihod, kakvu rezervu i kakav cilj? Tek tada se može razgovarati o razumnom redoslijedu.",
+          "Bitcoin može imati velike promjene cijene u kratkom razdoblju. Ako nemate dug, novčanu zalihu i jasne obveze, takve promjene mogu biti neugodne, ali ne moraju odmah ugroziti život. Ako uz Bitcoin imate skup dug, malu zalihu i kratak rok, ista promjena može vas prisiliti na potez koji ne biste odabrali u mirnijim okolnostima.",
+          "Zato pitanje nije samo može li očekivani rast nadmašiti kamatu. Takvo razmišljanje preskače važan dio stvarnosti: prihod može zakasniti, trošak može narasti, posao se može promijeniti, a obitelj može trebati novac. Dug smanjuje vrijeme koje imate na raspolaganju. Bitcoin odluka koja ovisi o savršenim okolnostima nije dovoljno jaka.",
+          "Dug također mijenja psihologiju držanja. Osoba bez duga može lakše reći da neće dirati Bitcoin. Osoba pod pritiskom obveza često nema taj luksuz. Zato se sloboda držanja ne mjeri samo uvjerenjem, nego i proračunom. Ako proračun ne može izdržati loš mjesec, ni uvjerenje možda neće biti dovoljno.",
         ],
       },
       {
-        heading: "Kad je razduživanje prvi korak",
+        heading: "Rastuće tržište može prikriti slabosti duga",
         body: [
-          "Prvo razduživanje često ima smisla kada dug nosi visoku kamatu, kad stvara stalni stres, kad smanjuje sposobnost držanja kroz volatilnost ili kad postoji rizik da će vas obveze prisiliti na lošu prodaju. U takvom slučaju akumulacija Bitcoina može izgledati racionalno, ali sustav je slab.",
-          "Smanjenje duga može povećati slobodu odlučivanja. To ne znači odustajanje od Bitcoina. Znači jačanje temelja prije većeg koraka.",
+          "U rastućem tržištu dug se često čini manje opasnim. Vrijednost Bitcoina raste, raspoloženje je bolje, a odluke koje su rizične izgledaju pametno. Problem je što rast može sakriti slabu strukturu. Osoba može povećavati izloženost, a da pritom ne vidi kako se gomilaju obveze, kratki rokovi ili manjak novčane zalihe.",
+          "Tada uspjeh ne dolazi nužno iz dobrog okvira, nego iz povoljnog okruženja. Ako se okruženje promijeni, ostaje pitanje: biste li istu odluku mogli izdržati bez rasta cijene? Ako je odgovor ne, dug možda upravlja vašom Bitcoin odlukom više nego što se čini.",
+          "Rastuće tržište zato nije dovoljno dobra provjera. Ono može nagraditi i loše navike. Bolja provjera je pitanje biste li isti dug, isti iznos kupnje i isti proračun prihvatili kada cijena ne bi rasla mjesecima. Ako odgovor postane neugodan, vrijeme je za oprezniji redoslijed.",
         ],
       },
       {
-        heading: "Kad akumulacija može imati smisla",
+        heading: "Padajuće tržište može dug učiniti bolnim",
         body: [
-          "Akumulacija može imati smisla ako je dug pod kontrolom, likvidnost postoji, novčani tok je stabilan i jasno je koji dio novca nije potreban za kratkoročne obveze. I tada odluka treba biti povezana s rasponom izloženosti i pravilima preispitivanja.",
-          "Cilj nije pronaći savršenu formulu. Cilj je smanjiti improvizaciju. Ako znate zašto prvo rješavate dug ili zašto dio viška ide u Bitcoin, lakše je ostati dosljedan kada se tržište ili život promijene.",
+          "Padajuće tržište ne stvara sve probleme, ali ih otkriva. Ako je dug velik, prihod nesiguran, a zaliha mala, pad kupovne moći može stvoriti pritisak da prodate Bitcoin upravo onda kada ste ga željeli držati. Tada se pokazuje da pitanje duga nije odvojeno od pitanja skrbništva, proračuna i obitelji.",
+          "Zbog toga razduživanje može biti važniji Bitcoin korak nego dodatna kupnja. Smanjenjem duga smanjujete buduće odljeve, povećavate izbor i smanjujete mogućnost prisilne prodaje. To ne znači da svaki dug mora nestati prije bilo kakve kupnje, ali znači da se dug ne smije gurati u stranu kao nevažan detalj.",
+        ],
+      },
+      {
+        heading: "Razduživanje kao priprema za Bitcoin standard",
+        body: [
+          "Puniji Bitcoin standard ne znači samo imati više Bitcoina. Znači imati život u kojem Bitcoin može stvarno služiti kao novac, a ne kao sredstvo koje se mora prodavati svaki put kad budući odljev dođe na naplatu. Razduživanje zato može biti oblik pripreme: jača proračun, smanjuje stres i povećava otpornost.",
+          "Razuman redoslijed ovisi o vrsti duga, kamati, roku, prihodu, obitelji i neto imovini. Nekome će prvi korak biti gašenje skupog duga. Nekome će biti istodobno smanjivanje duga i skromna redovita kupnja. Nekome će biti čekanje. Cilj nije univerzalna zapovijed, nego osobno pravilo koje smanjuje mogućnost da dug odlučuje umjesto vas.",
+          "Dobro pravilo može biti jednostavno: dok postoji određeni dug, kupnja ne prelazi unaprijed zadani dio stvarnog viška; kada se dug smanji, pravilo se preispituje. Takav zapis ne govori svima što trebaju raditi. Govori vama kako ćete izbjeći odluke koje se mijenjaju pod pritiskom tržišta ili računa koji dospijevaju.",
+          "Taj zapis može uključiti i pravilo da se novi dug ne koristi za životni stil koji proračun ne može nositi. Bitcoin tada nije izgovor za veći rizik, nego razlog da osobni novac postane uredniji, jednostavniji i manje ovisan o budućim prihodima.",
         ],
       },
     ],
@@ -165,47 +200,59 @@ export const guides: Guide[] = [
   },
   {
     slug: "dca-nije-dovoljan",
-    title: "Zašto DCA nije dovoljan ako nemate budžet?",
+    title: "Zašto redovita kupnja nije dovoljna ako nemate osobni proračun?",
     metaDescription:
-      "DCA može biti korisna navika, ali bez budžeta ne odgovara na pitanja stvarnog viška, duga, likvidnosti i sigurnosti.",
+      "Redovita kupnja može biti korisna navika, ali bez osobnog proračuna ne odgovara na pitanja stvarnog viška, duga, kupovne moći i pisanih pravila.",
     excerpt:
-      "Automatska kupnja može smanjiti impulzivnost, ali ne zamjenjuje budžet, pravila i razumijevanje neto imovine.",
+      "Redovita kupnja može smanjiti impulzivnost, ali ne zamjenjuje osobni proračun, namjenu svakog eura i pravila kroz vrijeme.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
     practicalQuestion:
-      "Znate li zašto je vaš trenutni DCA iznos baš takav i kada bi se trebao promijeniti?",
+      "Znate li zašto je vaš trenutni iznos redovite kupnje baš takav i kada bi se trebao promijeniti?",
     relatedSlugs: [
       "stvarni-visak",
-      "dug-ili-bitcoin",
       "bitcoin-u-neto-imovini",
+      "dug-ili-bitcoin",
     ],
     sections: [
       {
-        heading: "DCA rješava samo dio problema",
+        heading: "Redovita kupnja nije isto što i osobni okvir",
         body: [
-          "DCA, odnosno redovita kupnja istog iznosa, može pomoći jer uklanja dio potrebe za pogađanjem trenutka kupnje. To je korisno. Ali DCA ne odgovara na pitanje je li iznos prikladan za vašu situaciju. Ne zna imate li dug. Ne zna dolazi li veća obveza. Ne zna kolika je sigurnosna rezerva.",
-          "Zato DCA bez budžeta može postati automatizirana improvizacija. Izgleda disciplinirano, ali možda se temelji na pogrešno procijenjenom višku.",
+          "Redovita kupnja Bitcoina može biti korisna navika. Smanjuje potrebu za pogađanjem trenutka kupnje, smanjuje impulzivne odluke i uvodi ritam. No dobra navika nije isto što i osobni okvir. Ako ne znate zašto je iznos baš takav, što bi ga trebalo promijeniti i kako se uklapa u dug, proračun i neto imovinu, navika može skrivati nejasnoću.",
+          "Praktični Bitcoin standard polazi od osobnog proračuna prije automatizma. Prvo treba razumjeti novac koji ulazi, novac koji izlazi, obveze koje čekaju, dugove, sigurnosnu zalihu i obiteljski kontekst. Tek nakon toga redovita kupnja može dobiti stvarnu mjeru. Bez toga je samo ponavljajuća radnja koja možda jest korisna, ali ne zna ništa o vašem životu.",
+          "Ako je navika odvojena od proračuna, lako postane način da ne razmišljate. Iznos se ponavlja, osjećaj discipline postoji, ali nitko ne provjerava je li se život promijenio. Pravi okvir ne ukida redovitu kupnju. On joj daje razlog, granice i uvjete pod kojima se mijenja.",
         ],
       },
       {
-        heading: "Budžet daje mjeru",
+        heading: "Automatska radnja ne poznaje vaš život",
         body: [
-          "Budžet ne mora biti kompliciran. Njegova je svrha pokazati koliko novca stvarno ulazi, koliko izlazi, koje su obveze fiksne, koji troškovi su promjenjivi i gdje postoji prostor za odluke. Bez toga DCA iznos često nastaje iz osjećaja.",
-          "U Practical Bitcoin Standard okviru prvo se traži jasna financijska slika. Tek nakon toga redovita kupnja dobiva smisao: znate zašto je iznos baš takav, što se mora dogoditi da ga povećate, smanjite ili zaustavite.",
+          "Automatska kupnja ne zna da vam prihod kasni. Ne zna da dolazi veći trošak. Ne zna da ste preuzeli obiteljsku obvezu, promijenili posao, ušli u dug ili već imate Bitcoin koji čini velik dio neto imovine. Ona izvršava zadani iznos, ali ne procjenjuje treba li taj iznos i dalje imati smisla.",
+          "Zbog toga redovita kupnja može biti i korisna i opasno uspavljujuća. Korisna je kada slijedi jasno pravilo. Slaba je kada zamjenjuje razmišljanje. Ako se iznos ne mijenja nikada, čak ni kada se život promijeni, možda ne gledate dovoljno pažljivo osobni proračun i kupovnu moć.",
+          "Osobito je važno da automatska kupnja ne skriva dug. Ako se istodobno povećava zaduženje ili se sigurnosna zaliha smanjuje, tada redovita kupnja možda nije dokaz discipline, nego znak da sustav nema dobar redoslijed. Prvo treba vidjeti cijelu sliku, a zatim odlučiti što redovitost treba značiti.",
         ],
       },
       {
-        heading: "DCA ne zamjenjuje pravila za životne promjene",
+        heading: "Proračun mora doći prije iznosa",
         body: [
-          "Što ako prihod padne? Što ako se pojavi dug? Što ako Bitcoin naraste toliko da čini velik dio neto imovine? Što ako obitelj treba likvidnost? Sama navika kupnje ne daje odgovore na ta pitanja.",
-          "Zato je potreban osobni okvir: kada kupujete, kada čekate, kada preispitujete plan i što ne dirate bez obzira na tržišnu buku. DCA može biti dio tog sustava, ali ne cijeli sustav.",
+          "Iznos redovite kupnje treba proizaći iz osobnog proračuna. To znači da prvo zapisujete prihode, redovne troškove, dugove, buduće odljeve, sigurnosnu zalihu i ciljeve. Tek zatim pitate koji dio novca može ići u Bitcoin bez ugrožavanja obveza i bez stvaranja potrebe za neplaniranom prodajom.",
+          "Ako preskočite taj redoslijed, iznos često nastaje iz osjećaja. Može biti previsok jer želite brzo nadoknaditi propušteno. Može biti prenizak jer nemate povjerenja u vlastitu sliku. Može ostati isti godinama iako se prihod, dug ili neto imovina promijenila. Proračun daje mjeru koju osjećaj ne može dati.",
+          "U praksi to znači da iznos kupnje treba imati objašnjenje u jednoj ili dvije rečenice. Primjerice: kupujem ovaj iznos jer su dugovi pod kontrolom, sigurnosna zaliha je na dogovorenoj razini, a ovo je dio stvarnog viška. Ako ne možete napisati takvo objašnjenje, iznos možda nije pravilo nego navika bez temelja.",
         ],
       },
       {
-        heading: "Dobra navika treba dobar kontekst",
+        heading: "Usklađivanje kupovne moći",
         body: [
-          "Redovita akumulacija može biti mirna i korisna kada se uklapa u budžet, dug, neto imovinu i sigurnosni model. Bez tog konteksta ista navika može proizvoditi stres ili skrivati problem.",
-          "Pravo pitanje nije je li DCA dobar ili loš. Pitanje je imate li dovoljno jasnu sliku da znate zašto ga koristite, koliko dugo, kojim iznosom i pod kojim uvjetima se odluka mijenja.",
+          "Praktični Bitcoin standard naglašava usklađivanje kupovne moći. To znači da ne gledate samo koliko eura uplaćujete, nego što taj iznos stvarno predstavlja u vašem životu. Ako troškovi rastu, prihod se mijenja ili Bitcoin snažno promijeni vrijednost, isti iznos redovite kupnje više ne znači isto.",
+          "Usklađivanje ne znači stalno reagiranje na cijenu. Znači povremeno provjeriti je li pravilo još povezano s proračunom i neto imovinom. Možda iznos treba ostati isti. Možda ga treba smanjiti dok se ne riješi dug. Možda ga treba povećati kada se pojavi stvarni višak. Bitno je da razlog bude zapisan, a ne nagađan.",
+          "Ova provjera posebno je korisna nakon većih promjena cijena ili životnih okolnosti. Ako je Bitcoin postao velik dio neto imovine, pitanje više nije samo koliko kupovati, nego i kako čuvati, što ne dirati i kako objasniti plan obitelji. Redovita kupnja tada mora sjediti unutar šire slike.",
+        ],
+      },
+      {
+        heading: "Kada promijeniti pravilo",
+        body: [
+          "Dobro pravilo unaprijed kaže kada se mijenja. Primjeri mogu biti: promjena prihoda, novi dug, otplata duga, veći obiteljski trošak, povećanje novčane zalihe, promjena udjela Bitcoina u neto imovini ili nova sigurnosna odgovornost. Bez takvih uvjeta, odluka se često mijenja tek kada emocije postanu snažne.",
+          "Redovita kupnja može ostati dio vašeg sustava, ali ne smije biti zamjena za sustav. Ako znate zašto kupujete tim iznosom, što mora biti istina da nastavite i kada trebate stati, navika dobiva ozbiljnost. Tada Bitcoin odluka ne ovisi samo o cijeni ili osjećaju, nego o pisanom osobnom okviru.",
+          "Dobro je imati i pravilo čekanja. To je jednako važno kao pravilo kupnje. Ako se pojavi dug, veliki trošak ili nesigurnost prihoda, čekanje može biti zrelija odluka od automatskog nastavka. Redovitost ima vrijednost tek kada ne poništava zdrav razum proračuna.",
         ],
       },
     ],
@@ -215,9 +262,9 @@ export const guides: Guide[] = [
     slug: "obiteljski-pristup-bitcoinu",
     title: "Kako obitelj može pristupiti Bitcoinu ako vam se nešto dogodi?",
     metaDescription:
-      "Siguran obiteljski pristup Bitcoinu bez dijeljenja seed phrasea naivno ili ostavljanja obitelji bez plana.",
+      "Kako razmišljati o obiteljskom pristupu Bitcoinu bez otkrivanja osjetljivih podataka, tehničkih rizika, žurbe i prepuštanja kontrole u obitelji.",
     excerpt:
-      "Skrbništvo nije uređeno dok pouzdana osoba ne zna što postoji, gdje tražiti upute i kako ne napraviti štetu.",
+      "Ako Bitcoin ima važnu ulogu u neto imovini, osobni sustav mora biti razumljiv osobi od povjerenja u izvanrednim okolnostima.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
     practicalQuestion:
@@ -229,31 +276,44 @@ export const guides: Guide[] = [
     ],
     sections: [
       {
-        heading: "Sigurnost nije samo zaštita od krađe",
+        heading: "Nije dovoljno da samo vi znate",
         body: [
-          "Kod Bitcoina ljudi često razmišljaju o krađi, hardverskim novčanicima i seed phraseu. To je važno, ali nije cijela sigurnost. Postoji i drugi rizik: da nitko osim vas ne zna kako pristupiti sredstvima ako vam se nešto dogodi.",
-          "Dobar sustav mora čuvati Bitcoin od napadača, ali i omogućiti razuman pristup u izvanrednim okolnostima. Ako obitelj ne zna da Bitcoin postoji, gdje su upute ili koga smije kontaktirati, sustav nije dovršen.",
+          "Ako Bitcoin ima ozbiljnu ulogu u neto imovini, osobni sustav nije potpun ako postoji samo u vašoj glavi. Vi možda znate gdje je što, koje su upute važne i što se nikada ne smije napraviti. No u izvanrednoj situaciji obitelj ili osoba od povjerenja može ostati bez osnovnog smjera.",
+          "To ne znači da obitelji treba dati potpun pristup svemu. Znači da treba postojati razuman put: što postoji, kome se može obratiti, gdje se nalaze opće upute i koje su radnje opasne. Bitcoin traži veću osobnu odgovornost, ali odgovornost ne završava na vama ako imovina ima obiteljsko značenje.",
+          "Prvi zadatak nije tehnički, nego organizacijski. Treba odvojiti pitanje znanja od pitanja kontrole. Obitelj možda treba znati da Bitcoin postoji i da postoje upute, ali ne mora unaprijed imati sve podatke koji omogućuju pomicanje sredstava. Time se čuva i kontinuitet i sigurnost.",
         ],
       },
       {
-        heading: "Ne dijelite seed phrase bez plana",
+        heading: "Informacija nije isto što i pristup",
         body: [
-          "Rješenje nije jednostavno poslati seed phrase partneru, članu obitelji ili prijatelju. Time se mogu otvoriti novi rizici: slučajno brisanje, fotografiranje, spremanje u oblak, phishing, pogrešna aplikacija ili panika u trenutku kada je najvažnije biti oprezan.",
-          "Bolji pristup počinje dokumentiranjem: što postoji, koji je opći model čuvanja, gdje su fizičke upute, tko su pouzdane osobe i što se nikada ne smije napraviti. Detalji ovise o iznosu, tehničkoj sposobnosti obitelji i postojećem sigurnosnom modelu.",
+          "Važno je razlikovati informaciju od pristupa. Informacija može glasiti da Bitcoin postoji, da je dio neto imovine i da postoje upute za izvanredne okolnosti. Pristup znači sposobnost pomicanja sredstava. Te dvije stvari ne moraju i ne smiju uvijek biti na istom mjestu.",
+          "Mnogi ljudi preskoče tu razliku. Ili nitko ništa ne zna, pa obitelj nema put. Ili se osjetljivi podaci dijele preširoko, pa se povećava rizik. Zreliji pristup gradi slojeve: osnovna informacija, pouzdane osobe, fizičke upute, pravila opreza i odvojena zaštita onoga što bi omogućilo stvarni pristup.",
+          "Takav slojeviti pristup pomaže i u razgovoru s obitelji. Umjesto da razgovor odmah postane tehnički ili neugodan, možete početi od namjene: Bitcoin je dio neto imovine, postoji plan, ne treba žuriti i postoje stvari koje se nikada ne smiju napraviti. To je često dovoljno za prvi, mirniji korak.",
         ],
       },
       {
-        heading: "Operativne upute moraju biti razumljive",
+        heading: "Što obitelj treba znati",
         body: [
-          "Ako upute razumijete samo vi, one nisu obiteljski plan. Potrebno je napisati ih jezikom koji osoba od povjerenja može slijediti pod stresom. Upute ne moraju otkrivati sve tajne na jednom mjestu, ali moraju jasno objasniti redoslijed koraka.",
-          "Korisno je odvojiti informaciju da Bitcoin postoji od informacija koje omogućuju pristup. Također je važno navesti što ne raditi: ne unositi riječi u web stranicu, ne slati fotografije, ne odgovarati na poruke nepoznatih osoba i ne žuriti.",
+          "Osoba od povjerenja ne mora znati tehničke pojedinosti svakog novčanika. Treba znati da Bitcoin postoji, zašto je važan, gdje su opće upute, koga smije kontaktirati, koje dokumente treba potražiti i kojim redoslijedom treba postupati. Upute trebaju biti dovoljno jasne da ih osoba može razumjeti i pod stresom.",
+          "Korisno je zapisati i financijski kontekst: je li Bitcoin dio dugoročne neto imovine, postoji li namjera da se ne prodaje naglo, postoje li porezna ili pravna pitanja za stručnjake i koje odluke ne treba donositi u žurbi. To nisu tehničke upute za oporavak, nego zaštita od panike i pogrešnih prvih koraka.",
+          "Dobar dokument može imati dvije razine. Prva razina objašnjava da Bitcoin postoji, tko su pouzdane osobe i koja su osnovna pravila opreza. Druga razina upućuje gdje se nalaze daljnje upute, bez izlaganja osjetljivih podataka u glavnom dokumentu. Time osoba od povjerenja dobiva smjer, ali ne i nepotreban rizik.",
         ],
       },
       {
-        heading: "Skrbništvo je dio financijskog plana",
+        heading: "Što obitelj nikada ne smije napraviti",
         body: [
-          "Obiteljski pristup nije dodatak koji se rješava kasnije. Ako Bitcoin čini važan dio neto imovine, skrbništvo i nasljeđivanje moraju biti dio istog okvira kao budžet, dug i izloženost.",
-          "Savjetovanje ne znači da netko drugi drži vaše ključeve. Naprotiv: cilj je da vi razumijete i kontrolirate sustav, a da obitelj ne ostane bez puta ako vas nema ili niste dostupni.",
+          "Dobar obiteljski pristup mora jasno reći i što se ne radi. Ne unositi osjetljive podatke u mrežne stranice. Ne slati fotografije nepoznatim osobama. Ne tražiti pomoć u javnim skupinama. Ne žuriti s prodajom. Ne prepisivati privatne ključeve u nesigurne bilješke. Ne donositi odluke prije nego što se razumije cijela situacija.",
+          "Ova negativna pravila često su važnija od detaljnih tehničkih objašnjenja. U izvanrednoj situaciji ljudi traže brz izlaz i tada su najranjiviji. Ako unaprijed postoji kratka lista zabranjenih radnji, smanjuje se rizik da netko u dobroj namjeri napravi nepopravljivu štetu.",
+          "Popis zabranjenih radnji treba biti kratak i razumljiv. Ako je predug, osoba pod stresom ga neće slijediti. Bolje je imati nekoliko jasnih pravila koja sprječavaju najveće pogreške nego mnogo tehničkih pojedinosti koje nitko ne može sigurno primijeniti bez pripreme.",
+        ],
+      },
+      {
+        heading: "Upute bez otkrivanja osjetljivih podataka",
+        body: [
+          "Obiteljski pristup treba uravnotežiti dvije potrebe: kontinuitet i sigurnost. Kontinuitet znači da osoba od povjerenja nije potpuno izgubljena. Sigurnost znači da joj ne morate unaprijed otkriti sve što bi omogućilo samostalno pomicanje Bitcoina. Upute mogu opisati postupak, uloge i mjesta bez izlaganja najosjetljivijih podataka.",
+          "Cilj nije da svaki član obitelji postane tehnički stručnjak. Cilj je da sustav preživi vašu nedostupnost, bolest ili smrt, a da pritom ne postane lak plijen. U okviru Praktičnog Bitcoin standarda, skrbništvo je dio stvarne neto imovine. Ako je Bitcoin važan, tada i obiteljski pristup mora biti dio pisanog osobnog okvira.",
+          "Dobro je povremeno provjeriti razumiju li upute osobe kojima su namijenjene. Ne treba im otkrivati osjetljive dijelove, ali treba vidjeti znaju li gdje početi, koga nazvati i što izbjegavati. Plan koji nitko ne razumije u mirnom trenutku vjerojatno neće biti dovoljno dobar u teškom trenutku.",
+          "Takva provjera ne mora biti dramatična. Može biti kratak razgovor jednom godišnje, uz jasnu granicu da se ne otkrivaju osjetljivi podaci. Važno je da osoba od povjerenja zna da plan postoji i da se ne očekuje brza odluka pod pritiskom.",
         ],
       },
     ],
@@ -263,13 +323,13 @@ export const guides: Guide[] = [
     slug: "novac-kapital-potrosnja",
     title: "Bitcoin kao novac, kapital i potrošnja: praktičan okvir",
     metaDescription:
-      "Kako razmišljati o Bitcoinu kroz novac, kapital i potrošnju bez špekulativnog jezika i bez univerzalnih pravila.",
+      "Praktičan vodič za razlikovanje novca, potrošnih dobara i kapitala te razumijevanje uloge Bitcoina u neto imovini, pravilima i svjesnoj potrošnji.",
     excerpt:
-      "Bitcoin odluke postaju jasnije kada razlikujete novac za likvidnost, kapital za budućnost i potrošnju koju svjesno birate.",
+      "Praktični Bitcoin standard ne pita samo koliko Bitcoina imate, nego koju ulogu svaka imovina ima u vašem životu.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
     practicalQuestion:
-      "Koji dio vašeg Bitcoina je likvidnost, koji dio je dugoročni kapital, a koji dio biste svjesno mogli potrošiti?",
+      "Koji dio vašeg Bitcoina ima ulogu novca, koji dio dugoročnog kapitala, a koji dio biste svjesno mogli potrošiti?",
     relatedSlugs: [
       "bitcoin-u-neto-imovini",
       "stvarni-visak",
@@ -277,31 +337,42 @@ export const guides: Guide[] = [
     ],
     sections: [
       {
-        heading: "Tri različite uloge novca",
+        heading: "Tri uloge imovine",
         body: [
-          "U stvarnom životu novac nema samo jednu funkciju. Dio novca služi za likvidnost i obveze. Dio je kapital koji čuva mogućnost budućih odluka. Dio se troši na život, obitelj, rad, zdravlje i vrijednosti. Problem nastaje kad se sve te uloge pomiješaju.",
-          "Bitcoin može ući u svaku od tih tema, ali ne na isti način. Bitcoin koji čuvate kao dugoročnu štednju nije isto što i novac za sljedeća tri mjeseca troškova. Bitcoin koji možda nikad ne želite dirati nije isto što i iznos koji biste mogli koristiti za veću životnu odluku.",
+          "Praktični Bitcoin standard ne pita samo koliko imovine imate. Pita koju ulogu ta imovina ima u vašem životu. Jedan dio imovine služi kao novac: čuva mogućnost budućih odluka i prenosi kupovnu moć kroz vrijeme. Drugi dio služi potrošnji: stanovanje, prijevoz, odjeća, oprema, putovanja i stvari koje koristite. Treći dio ima kapitalnu ili proizvodnu ulogu: stvara prihod, znanje, mogućnosti ili dugoročnu vrijednost.",
+          "Ova podjela nije akademska. Ona mijenja način donošenja odluka. Ako ne razlikujete uloge, sve izgleda kao jedna velika imovina, a odluke postaju nejasne. Možete imati skupu potrošnu imovinu i osjećati se bogato, iako ona stalno traži novac. Možete imati kapital koji stvara vrijednost, ali premalo novčane zalihe. Možete imati Bitcoin, ali ne znati koji dio ima koju svrhu.",
+          "Kada napravite ovu podjelu, neto imovina postaje čitljivija. Više ne pitate samo koliko nešto vrijedi danas. Pitate što ta imovina radi za vas, koliko traži od vas i kakvu slobodu ili obvezu stvara. To je korisnije od jednostavnog zbrajanja iznosa.",
         ],
       },
       {
-        heading: "Kapital nije samo broj",
+        heading: "Bitcoin kao novac",
         body: [
-          "Kapital je sposobnost da zadržite opcije kroz vrijeme. Može biti u poslu, nekretnini, znanju, mreži odnosa ili Bitcoinu. Kada Bitcoin promatrate kao dio kapitala, pitanje više nije samo koliko vrijedi danas, nego koju ulogu ima u vašoj budućoj slobodi odlučivanja.",
-          "To ne znači da svaku potrošnju treba izbjegavati. Potrošnja može biti dobra kada je svjesna, kada ne ruši sigurnost i kada je usklađena s vrijednostima. Practical Bitcoin Standard zato ne promatra štednju, kapital i potrošnju kao moralne etikete, nego kao odluke koje treba razumjeti.",
+          "U ovom okviru Bitcoin se ponajprije promatra kao novac. To znači da njegova glavna uloga nije kratkoročno pogađanje cijene, nego čuvanje mogućnosti kroz vrijeme. Bitcoin kao novac mijenja odnos prema štednji, potrošnji i proračunu jer vas prisiljava da jasnije odvojite ono što treba biti dostupno od onoga što želite držati dugoročno.",
+          "No i ovdje treba oprez. Ako sav Bitcoin nazovete dugoročnim novcem, možda nećete znati što napraviti kada se pojavi stvarna životna potreba. Ako ga sav gledate kao novac koji je uvijek dostupan za trošenje, možda ćete oslabiti dugoročni plan. Zato je korisno unutar vlastitog Bitcoina razlikovati slojeve: novčanu zalihu, dugoročno držanje i iznos koji bi se u iznimnim okolnostima mogao koristiti.",
+          "Takvo odvajanje ne znači da fizički morate imati više novčanika ili složen tehnički sustav. Riječ je prije svega o pravilima. Koji dio ne dirate? Koji dio se može koristiti samo pod jasno zapisanim uvjetima? Koji dio služi kao novac za stvarne životne odluke? Bez tih odgovora, sve ostaje u istoj magli.",
         ],
       },
       {
-        heading: "Pravila smanjuju tržišnu buku",
+        heading: "Potrošna dobra i trošak vlasništva",
         body: [
-          "Ako nemate pravila, cijena lako postane glavni izvor odluka. Rast stvara pritisak da morate reagirati. Pad stvara sumnju. Tuđa mišljenja popunjavaju prazninu. Pravila vraćaju odluku u vaš životni kontekst.",
-          "Korisna pravila mogu definirati koji dio Bitcoina je dugoročna štednja, kada se može koristiti, kada se plan preispituje, koji dio neto imovine želite držati u Bitcoinu i što mora biti zadovoljeno prije dodatne akumulacije.",
+          "Potrošna dobra nisu loša. Dom, automobil, oprema i drugi predmeti mogu biti važni za dostojanstven život, obitelj i rad. Problem nastaje kada potrošna dobra vežu previše neto imovine ili stvaraju trošak koji niste uračunali. Vlasništvo gotovo uvijek ima trošak: održavanje, osiguranje, porez, vrijeme, pažnju i mogućnost da novac više nije dostupan za druge odluke.",
+          "Zato se u osobnom okviru ne pita samo možete li nešto kupiti. Pita se što vlasništvo traži nakon kupnje. Nekada je vlasništvo razumno. Nekada je najam bolji jer čuva novčanu zalihu i smanjuje buduće odljeve. Nema jedne formule, ali postoji korisno pitanje: hoće li ova potrošnja povećati slobodu ili će stvoriti obvezu koja smanjuje mogućnost držanja Bitcoina?",
+          "Ovo pitanje posebno je važno kada veća potrošnja traži prodaju Bitcoina ili novo zaduženje. Potrošnja može biti opravdana, ali treba biti svjesna. Ako se ne zna što se žrtvuje, odluka se lako predstavi kao potreba iako je zapravo izbor koji mijenja ravnotežu neto imovine.",
         ],
       },
       {
-        heading: "Okvir prije zaključka",
+        heading: "Kapitalna dobra i stvaranje vrijednosti",
         body: [
-          "Nema jedne razine izloženosti koja vrijedi za sve. Osoba s dugovima, nestabilnim prihodom i obiteljskim obvezama ne treba isti okvir kao osoba s čistom bilancom i visokom likvidnošću. Zato se zaključak ne smije preskočiti preko budžeta, duga i neto imovine.",
-          "Kada razlikujete novac, kapital i potrošnju, Bitcoin prestaje biti izolirano pitanje. Postaje dio šireg sustava odluka koji možete objasniti i koristiti kroz vrijeme.",
+          "Kapitalna ili proizvodna dobra imaju drugu ulogu. Ona mogu stvarati prihod, povećati sposobnost rada, otvoriti nove mogućnosti ili smanjiti buduće troškove. To može biti posao, oprema, znanje, alat, poslovni odnos ili imovina koja daje prihod. Takva dobra ne treba miješati s potrošnjom samo zato što imaju cijenu.",
+          "U odnosu na Bitcoin, kapitalna dobra postavljaju važno pitanje: kada ima smisla držati više novca, a kada ga usmjeriti u nešto što stvara vrijednost? Bitcoin može biti najbolji oblik novca u ovom okviru, ali novac nije jedina životna potreba. Ako zanemarite kapital koji vam omogućuje prihod, znanje ili rad, možete imati jaku novčanu poziciju i slab životni sustav.",
+        ],
+      },
+      {
+        heading: "Ravnoteža neto imovine",
+        body: [
+          "Ravnoteža neto imovine ne znači da sve mora biti jednako raspoređeno u svakom trenutku. Znači da znate zašto vaša imovina izgleda tako kako izgleda. Koliko je u novcu? Koliko u potrošnim dobrima? Koliko u kapitalu? Koliko je opterećeno dugom? Koliko je dostupno ako se život promijeni?",
+          "Kada tako gledate imovinu, Bitcoin prestaje biti odvojeno pitanje. On dobiva mjesto u sustavu: kao novac, kao dio dugoročne neto imovine i kao izvor pravila za potrošnju ili čekanje. Cilj nije savršena podjela, nego osobni okvir koji možete održati kroz vrijeme, objasniti obitelji i preispitati kada se vaša situacija promijeni.",
+          "Zato je korisno povremeno napraviti mirnu provjeru. Ne zato da biste stalno premještali imovinu, nego da vidite je li raspored još razumljiv. Ako potrošna dobra previše rastu, ako dug pritišće ili ako Bitcoin nema jasnu ulogu, ravnoteža nije stvar postotka, nego poziv da ponovno napišete pravila.",
         ],
       },
     ],

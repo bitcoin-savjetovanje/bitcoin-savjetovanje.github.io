@@ -2,39 +2,33 @@ import { useEffect, useState } from "react"
 import {
   ArrowUp,
   ArrowUpRight,
-  Briefcase,
   CalendarDays,
-  Car,
   Check,
   ChevronDown,
   CircleDollarSign,
   Compass,
-  Calculator,
-  DollarSign,
-  Euro,
-  Factory,
-  Gamepad2,
-  Guitar,
-  House,
+  Linkedin,
+  Mail,
   Menu,
   MoonStar,
-  Motorbike,
-  Plane,
-  Ship,
   ShieldCheck,
   SunMedium,
-  Wrench,
   X,
 } from "lucide-react"
 
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 
-const CALENDLY_URL = "https://cal.com/btcpavao/meeting"
+const CALENDLY_URL = "https://cal.com/btcpavao/uvodni-poziv"
 const EMAIL = "pavao@hey.com"
 const PRACTICAL_BITCOIN_STANDARD_URL =
   "https://btcpavao.gitbook.io/practical-bitcoin-standard/"
 const DVADESET_JEDAN_URL = "https://dvadesetjedan.com"
+const SAIFEDEAN_AMMOUS_URL = "https://saifedean.com"
+const SAIF_HOUSE_URL = "https://thesaifhouse.com/"
+const BITCOIN_STANDARD_PODCAST_URL = "https://saifedean.com/podcast"
+const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
+const TWENTYONE_URL = "https://twentyone.world"
 
 const navLinks = [
   { label: "Za koga je ovo?", href: "#za-koga" },
@@ -51,6 +45,42 @@ const heroBenefits = [
   "plan sigurnosti i skrbništva",
 ]
 
+const credibilityLogos = [
+  {
+    name: "Saifedean Ammous",
+    src: "/saifedean-ammous-logo.webp",
+    href: SAIFEDEAN_AMMOUS_URL,
+    className: "credibility-logo-strip__logo--compact",
+  },
+  {
+    name: "The Bitcoin Standard Podcast",
+    src: "/tbs-podcast-logo.svg",
+    href: BITCOIN_STANDARD_PODCAST_URL,
+    className: "credibility-logo-strip__logo--wide",
+  },
+  {
+    name: "The Saif House",
+    src: "/tsh-logo.avif",
+    href: SAIF_HOUSE_URL,
+    className:
+      "credibility-logo-strip__logo--wide credibility-logo-strip__logo--dark-white",
+  },
+  {
+    name: "TwentyOne",
+    src: "/dvadesetjedan-logo.svg",
+    darkSrc: "/dvadesetjedan-logo-dark.svg",
+    href: TWENTYONE_URL,
+    className: "credibility-logo-strip__logo--compact",
+  },
+  {
+    name: "DvadesetJedan",
+    src: "/dvadesetjedan-wordmark.png",
+    darkSrc: "/dvadesetjedan-wordmark-dark.png",
+    href: DVADESET_JEDAN_URL,
+    className: "credibility-logo-strip__logo--compact",
+  },
+]
+
 const trustItems = [
   "U Bitcoinu od 2014.",
   "10.000+ sati rada i proučavanja",
@@ -64,7 +94,7 @@ const audienceItems = [
   "niste sigurni koliki udio vaše imovine ima smisla držati u Bitcoinu",
   "želite znati kupovati odmah, postupno ili uopće ne još",
   "želite urediti sigurnost, skrbništvo i nasljeđivanje",
-  "želite Bitcoin uklopiti u širu sliku: prihode, obveze, dugove, kapital i potrošnju",
+  "želite Bitcoin uklopiti u prihode, obveze, kapital i potrošnju",
   "ne želite odluke donositi prema objavama, emocijama i tržišnoj buci",
 ]
 
@@ -128,7 +158,7 @@ const processSteps = [
     title: "Strukturirani program",
     price: "1.500 €",
     priceTone: "strong",
-    copy: "Program nije produženi razgovor, nego vođeni proces kroz više odluka: udio, ritam kupnje, sigurnost, pravila ponašanja, odnos prema ostatku imovine i praktična provedba.",
+    copy: "Program nije produženi razgovor, nego vođeni proces kroz više odluka: udio, ritam kupnje, sigurnost, pravila ponašanja, odnos prema ostatku imovine i praktična provedba. Namijenjen je ljudima koji nakon razgovora žele dovršiti plan, a ne ostati na okvirnim smjernicama.",
   },
 ]
 
@@ -332,101 +362,38 @@ function SectionHeader({
   )
 }
 
-function MoneySystemVisual() {
+function PlanVisual() {
+  const rows = [
+    "Udio imovine",
+    "Pravila kupnje",
+    "Skrbništvo",
+    "Nasljeđivanje",
+  ]
+
   return (
-    <div className="money-system" aria-hidden="true">
-      <svg
-        className="money-system__pie"
-        viewBox="0 0 100 100"
-        role="img"
-        aria-label="Pie chart: Novac 60%, Kapital 25%, Potrošnja 15%"
-      >
-        <path
-          className="money-system__slice money-system__slice--money"
-          d="M 50 50 L 50 5 A 45 45 0 1 1 23.55 86.41 Z"
-        />
-        <path
-          className="money-system__slice money-system__slice--capital"
-          d="M 50 50 L 23.55 86.41 A 45 45 0 0 1 13.59 23.55 Z"
-        />
-        <path
-          className="money-system__slice money-system__slice--spending"
-          d="M 50 50 L 13.59 23.55 A 45 45 0 0 1 50 5 Z"
-        />
-      </svg>
-
-      <p className="money-system__label money-system__label--money">Novac</p>
-      <p className="money-system__label money-system__label--capital">
-        Kapital
-      </p>
-      <p className="money-system__label money-system__label--spending">
-        Potrošnja
-      </p>
-
-      <article className="money-system__segment money-system__segment--money">
-        <div className="money-system__icons">
-          <span className="money-system__bitcoin-logo">
+    <div className="plan-visual" aria-hidden="true">
+      <div className="plan-visual__card">
+        <div className="plan-visual__header">
+          <div>
+            <p className="plan-visual__eyebrow">Osobni plan</p>
+            <h2>Osobni Bitcoin plan</h2>
+            <p>Pravila za kupnju, čuvanje i dugoročno ponašanje.</p>
+          </div>
+          <div className="plan-visual__bitcoin-mark">
             <img src="/bitcoin-logo.png" alt="" />
-          </span>
-          <span className="money-system__currency-mark money-system__currency-mark--euro">
-            <Euro className="size-5" />
-          </span>
-          <span className="money-system__currency-mark money-system__currency-mark--dollar">
-            <DollarSign className="size-5" />
-          </span>
-        </div>
-      </article>
-
-      <article className="money-system__segment money-system__segment--capital">
-        <div className="money-system__capital-chart">
-          <span className="money-system__capital-bitcoin">
-            <img src="/bitcoin-logo.png" alt="" />
-          </span>
-          <div className="money-system__bars">
-            <span />
-            <span />
-            <span />
           </div>
         </div>
-        <span className="money-system__capital-symbol money-system__capital-symbol--factory">
-          <Factory className="size-4" />
-        </span>
-        <span className="money-system__capital-symbol money-system__capital-symbol--wrench">
-          <Wrench className="size-4" />
-        </span>
-        <span className="money-system__capital-symbol money-system__capital-symbol--calculator">
-          <Calculator className="size-4" />
-        </span>
-        <span className="money-system__capital-symbol money-system__capital-symbol--briefcase">
-          <Briefcase className="size-4" />
-        </span>
-      </article>
 
-      <article className="money-system__segment money-system__segment--spending">
-        <div className="money-system__icons">
-          <span className="money-system__spending-icon money-system__spending-icon--home">
-            <House className="size-4" />
-          </span>
-          <span className="money-system__spending-icon money-system__spending-icon--car">
-            <Car className="size-4" />
-          </span>
-          <span className="money-system__spending-icon money-system__spending-icon--bike">
-            <Motorbike className="size-4" />
-          </span>
-          <span className="money-system__spending-icon money-system__spending-icon--plane">
-            <Plane className="size-4" />
-          </span>
-          <span className="money-system__spending-icon money-system__spending-icon--ship">
-            <Ship className="size-4" />
-          </span>
-          <span className="money-system__spending-icon money-system__spending-icon--guitar">
-            <Guitar className="size-4" />
-          </span>
-          <span className="money-system__spending-icon money-system__spending-icon--gamepad">
-            <Gamepad2 className="size-4" />
-          </span>
+        <div className="plan-visual__rows">
+          {rows.map((row) => (
+            <div key={row} className="plan-visual__row">
+              <Check className="plan-visual__check" />
+              <span>{row}</span>
+            </div>
+          ))}
         </div>
-      </article>
+
+      </div>
     </div>
   )
 }
@@ -548,9 +515,8 @@ export function App() {
                 uklopiti u ostatak života, kapitala i obveza.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-                Bez trgovanja. Bez predviđanja cijene. Bez drugih digitalnih
-                imovina. Samo miran, strukturiran razgovor o vašoj stvarnoj
-                situaciji.
+                Bez trgovanja. Bez drugih digitalnih imovina. Samo miran,
+                strukturiran razgovor o vašoj stvarnoj situaciji.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -587,9 +553,13 @@ export function App() {
                   </span>
                 ))}
               </div>
+              <p className="hero-output">
+                Nakon rada trebate imati jasna pravila: koliko Bitcoina držite,
+                kako ga kupujete, gdje ga čuvate i kada odluku preispitujete.
+              </p>
             </div>
 
-            <MoneySystemVisual />
+            <PlanVisual />
           </div>
         </section>
 
@@ -613,22 +583,26 @@ export function App() {
               />
               <h3>Pavao Pahljina</h3>
               <p>Bitcoin savjetnik · u Bitcoinu od 2014.</p>
-              <div className="mt-6 grid gap-2 text-sm">
+              <div className="profile-socials" aria-label="Kontakt i profili">
                 <a
-                  href={PRACTICAL_BITCOIN_STANDARD_URL}
+                  href="https://www.linkedin.com/in/pavaopahljina/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn profil"
                 >
-                  Practical Bitcoin Standard
+                  <Linkedin className="size-4" />
+                </a>
+                <a href={`mailto:${EMAIL}`} aria-label="Email">
+                  <Mail className="size-4" />
                 </a>
                 <a
-                  href={DVADESET_JEDAN_URL}
+                  href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Dogovorite uvodni razgovor"
                 >
-                  DvadesetJedan
+                  <CalendarDays className="size-4" />
                 </a>
-                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </div>
             </aside>
 
@@ -636,20 +610,92 @@ export function App() {
               <div className="credibility-copy">
                 <p>
                   U Bitcoinu sam od 2014. godine. Iza mene je više od 10.000
-                  sati rada i proučavanja, više od šest godina profesionalnog
-                  rada u Bitcoin prostoru, direktan rad sa Saifedeanom
-                  Ammousom, autorom svjetskog bestsellera The Bitcoin Standard,
-                  te rad na gradnji regionalne zajednice DvadesetJedan od 2022.
-                  godine.
+                  sati studiranja Bitcoina, šest godina profesionalnog rada u
+                  Bitcoin prostoru sa{" "}
+                  <a
+                    href={SAIFEDEAN_AMMOUS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Saifedeanom Ammousom
+                  </a>
+                  , autorom bestseller knjige{" "}
+                  <a
+                    href={BITCOIN_STANDARD_BOOK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    The Bitcoin Standard
+                  </a>
+                  , te gradnja regionalne zajednice{" "}
+                  <a
+                    href={DVADESET_JEDAN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    DvadesetJedan
+                  </a>{" "}
+                  u sklopu svjetske mreže{" "}
+                  <a
+                    href={TWENTYONE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    TwentyOne World
+                  </a>
+                  .
                 </p>
                 <p>
                   Od 2020. živim na Bitcoin standardu: primam, držim i trošim
-                  Bitcoin te ga koristim i investiram kroz različite tržišne
-                  uvjete. Ne savjetujem iz pozicije teorije, nego iz prakse:
-                  kupnja, čuvanje, trošenje, rizik, oportunitetni trošak i
-                  život s Bitcoinom kao primarnim novcem.
+                  Bitcoin kroz različite tržišne uvjete. Ne savjetujem iz
+                  pozicije teorije, nego iz prakse: kupnja, čuvanje, trošenje,
+                  rizik, oportunitetni trošak i život s Bitcoinom kao primarnim
+                  novcem.
+                </p>
+                <p>
+                  Na temelju dosadašnjeg iskustva trenutno radim i na open
+                  source priručniku{" "}
+                  <a
+                    href={PRACTICAL_BITCOIN_STANDARD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Practical Bitcoin Standard
+                  </a>
+                  .
                 </p>
               </div>
+            </div>
+            <div className="credibility-logo-strip" aria-label="Suradnje i projekti">
+              {credibilityLogos.map((logo) => (
+                <a
+                  key={logo.name}
+                  href={logo.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {logo.darkSrc ? (
+                    <>
+                      <img
+                        src={logo.src}
+                        alt={logo.name}
+                        className={`${logo.className} credibility-logo-strip__logo--light`}
+                      />
+                      <img
+                        src={logo.darkSrc}
+                        alt=""
+                        className={`${logo.className} credibility-logo-strip__logo--dark`}
+                      />
+                    </>
+                  ) : (
+                    <img
+                      src={logo.src}
+                      alt={logo.name}
+                      className={logo.className}
+                    />
+                  )}
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -695,7 +741,8 @@ export function App() {
                 godinama ostati u istom krugu razmišljanja.
               </p>
               <p className="rounded-2xl border border-primary/20 bg-primary/10 p-5 font-semibold text-foreground">
-                U tom trenutku problem više nije informacija. Problem je okvir.
+                U tom trenutku problem više nije nedostatak informacija, nego
+                pravilnog okvira za donošenje odluka.
               </p>
             </div>
           </div>

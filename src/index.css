@@ -24,11 +24,11 @@
   --border: oklch(0.88 0.003 95);
   --input: oklch(0.88 0.003 95);
   --ring: oklch(0.7 0.16 68);
-  --cta-green: oklch(0.78 0.14 142);
-  --cta-green-foreground: oklch(0.13 0.025 145);
-  --cta-green-hover: oklch(0.72 0.15 142);
-  --negative-red: #cc0000;
-  --negative-red-muted: rgb(204 0 0 / 10%);
+  --cta-green: oklch(0.56 0.14 142);
+  --cta-green-foreground: oklch(1 0 0);
+  --cta-green-hover: oklch(0.5 0.14 142);
+  --negative-red: oklch(0.38 0.11 25);
+  --negative-red-muted: oklch(0.38 0.11 25 / 9%);
   --chart-1: oklch(0.7 0.16 68);
   --chart-2: oklch(0.48 0.01 80);
   --chart-3: oklch(0.32 0.006 80);
@@ -64,11 +64,11 @@
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 14%);
   --ring: oklch(0.76 0.15 68);
-  --cta-green: oklch(0.78 0.14 142);
-  --cta-green-foreground: oklch(0.13 0.025 145);
-  --cta-green-hover: oklch(0.72 0.15 142);
-  --negative-red: #ff4d4d;
-  --negative-red-muted: rgb(255 77 77 / 14%);
+  --cta-green: oklch(0.62 0.13 142);
+  --cta-green-foreground: oklch(1 0 0);
+  --cta-green-hover: oklch(0.56 0.14 142);
+  --negative-red: oklch(0.68 0.09 25);
+  --negative-red-muted: oklch(0.68 0.09 25 / 13%);
   --sidebar: oklch(0.19 0.004 80);
   --sidebar-foreground: oklch(0.96 0.003 95);
   --sidebar-primary: oklch(0.76 0.15 68);
@@ -149,7 +149,7 @@
   }
 
   a {
-    @apply transition-colors;
+    @apply no-underline transition-colors;
   }
 
   a:hover {
@@ -232,287 +232,107 @@
     @apply rounded-full border border-border/75 bg-background/76 px-3 py-1.5 text-xs leading-5 font-medium text-muted-foreground shadow-sm;
   }
 
-  .money-system {
-    @apply relative mx-auto aspect-square w-full max-w-[460px] overflow-visible;
+  .hero-output {
+    @apply mt-4 max-w-2xl text-sm leading-7 font-medium text-foreground/72;
   }
 
-  .money-system__pie {
-    @apply absolute inset-[3%] drop-shadow-sm;
+  .plan-visual {
+    @apply relative mx-auto w-full max-w-[420px];
   }
 
-  .money-system__slice {
-    stroke: oklch(0.985 0.003 95);
-    stroke-linejoin: round;
-    stroke-width: 1.6;
+  .plan-visual__card {
+    @apply relative overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-7;
+    animation: plan-card-in 650ms ease-out both;
   }
 
-  .money-system__slice--money {
-    fill: oklch(0.9 0.075 72);
+  .plan-visual__card::before {
+    content: "";
+    position: absolute;
+    inset: -40% -20% auto auto;
+    width: 14rem;
+    height: 14rem;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--primary), transparent 82%);
+    filter: blur(10px);
+    pointer-events: none;
   }
 
-  .money-system__slice--capital {
-    fill: oklch(0.94 0.045 72);
+  .plan-visual__header {
+    @apply relative z-10 flex items-start justify-between gap-6;
   }
 
-  .money-system__slice--spending {
-    fill: oklch(0.97 0.025 72);
+  .plan-visual__eyebrow {
+    @apply text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase;
   }
 
-  .money-system__segment {
-    @apply absolute z-10 grid justify-items-center text-center;
+  .plan-visual__header h2 {
+    @apply mt-2 text-2xl font-semibold tracking-[-0.02em] text-foreground;
   }
 
-  .money-system__label {
-    @apply absolute z-20 text-base font-semibold text-foreground;
-    transform: translate(-50%, -50%);
+  .plan-visual__header p:not(.plan-visual__eyebrow) {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
   }
 
-  .money-system__label--money {
-    left: 99%;
-    top: 64%;
+  .plan-visual__bitcoin-mark {
+    @apply grid size-20 shrink-0 place-items-center rounded-full border text-5xl font-bold;
+    animation: plan-mark-float 6s ease-in-out infinite;
+    background: color-mix(in oklab, var(--primary), transparent 82%);
+    border-color: color-mix(in oklab, var(--primary), transparent 60%);
+    color: var(--primary);
   }
 
-  .money-system__label--capital {
-    left: -1%;
-    top: 58%;
+  .plan-visual__bitcoin-mark img {
+    @apply size-full rounded-full object-cover;
   }
 
-  .money-system__label--spending {
-    left: 27%;
-    top: 5%;
+  .plan-visual__rows {
+    @apply relative z-10 mt-8 grid gap-3;
   }
 
-  .money-system__segment--money {
-    left: 68%;
-    top: 44%;
-    transform: translate(-50%, -50%);
+  .plan-visual__row {
+    @apply flex items-center gap-3 rounded-xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-medium text-foreground shadow-sm;
+    animation: plan-row-in 520ms ease-out both;
+    opacity: 0;
   }
 
-  .money-system__segment--capital {
-    left: 25%;
-    top: 51%;
-    transform: translate(-50%, -50%);
+  .plan-visual__row:nth-child(1) {
+    animation-delay: 120ms;
   }
 
-  .money-system__segment--spending {
-    left: 36%;
-    top: 25.8%;
-    height: 5rem;
-    max-width: none;
-    transform: translate(-50%, -50%);
-    width: 6.75rem;
+  .plan-visual__row:nth-child(2) {
+    animation-delay: 240ms;
   }
 
-  .money-system__icons,
-  .money-system__capital-chart {
-    @apply flex items-center justify-center gap-2.5;
+  .plan-visual__row:nth-child(3) {
+    animation-delay: 360ms;
   }
 
-  .money-system__segment--spending .money-system__icons {
-    @apply relative block;
-    height: 100%;
-    width: 100%;
+  .plan-visual__row:nth-child(4) {
+    animation-delay: 480ms;
   }
 
-  .money-system__icons span {
-    @apply grid place-items-center rounded-full border shadow-sm;
-    background: oklch(0.985 0.003 95);
-    border-color: oklch(0.88 0.003 95);
-    color: oklch(0.48 0.13 58);
-    height: 3.25rem;
-    width: 3.25rem;
+  .plan-visual__check {
+    @apply size-4 shrink-0;
+    animation: plan-check-in 420ms ease-out both;
+    color: var(--cta-green-hover);
+    opacity: 0;
+    stroke-width: 3;
   }
 
-  .money-system__segment--spending .money-system__icons span {
-    @apply absolute;
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    height: 1.3rem !important;
-    width: 1.3rem !important;
+  .plan-visual__row:nth-child(1) .plan-visual__check {
+    animation-delay: 180ms;
   }
 
-  .money-system__segment--spending .money-system__icons svg {
-    height: 0.9rem !important;
-    transform: scale(1.05);
-    transform-origin: center;
-    width: 0.9rem !important;
+  .plan-visual__row:nth-child(2) .plan-visual__check {
+    animation-delay: 300ms;
   }
 
-  .money-system__segment--spending .money-system__spending-icon--home {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    height: 3.75rem !important;
-    left: 0.05rem;
-    overflow: visible;
-    top: 0.2rem;
-    width: 3.75rem !important;
+  .plan-visual__row:nth-child(3) .plan-visual__check {
+    animation-delay: 420ms;
   }
 
-  .money-system__segment--spending .money-system__spending-icon--car {
-    height: 2.45rem !important;
-    left: 3.25rem;
-    top: 0.55rem;
-    width: 2.45rem !important;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--car svg {
-    height: 1.7rem !important;
-    width: 1.7rem !important;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--bike {
-    left: 5.05rem;
-    top: 0.28rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--plane {
-    left: 1.85rem;
-    top: 3.35rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--ship {
-    left: 4.05rem;
-    top: 3.42rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--guitar {
-    left: 3.05rem;
-    top: 2.35rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--gamepad {
-    left: 5.1rem;
-    top: 2.05rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--home svg {
-    height: 2.5rem !important;
-    width: 2.5rem !important;
-  }
-
-  .money-system__segment--money .money-system__icons {
-    @apply relative block;
-    height: 10.8rem;
-    width: 10.8rem;
-  }
-
-  .money-system__segment--money .money-system__bitcoin-logo {
-    @apply absolute inset-0 overflow-hidden border-transparent bg-transparent p-0;
-    height: 10.8rem;
-    left: 0.1rem;
-    width: 10.8rem;
-  }
-
-  .money-system__segment--money .money-system__bitcoin-logo img {
-    @apply size-full object-cover;
-  }
-
-  .money-system__currency-mark {
-    @apply absolute grid place-items-center;
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    color: oklch(0.48 0.13 58);
-    height: 0.58rem;
-    width: 0.58rem;
-  }
-
-  .money-system__currency-mark svg {
-    height: 0.58rem;
-    transform: scale(1.05);
-    transform-origin: center;
-    width: 0.58rem;
-  }
-
-  .money-system__currency-mark--euro {
-    bottom: -3.85rem;
-    left: -1.45rem;
-  }
-
-  .money-system__currency-mark--dollar {
-    bottom: -2.95rem;
-    left: 1.15rem;
-  }
-
-  .money-system__capital-chart {
-    @apply relative rounded-lg border px-3 py-2.5 shadow-sm;
-    background: oklch(0.985 0.003 95);
-    border-color: oklch(0.88 0.003 95);
-    color: oklch(0.17 0.004 80);
-    width: 5.2rem;
-  }
-
-  .money-system__capital-symbol {
-    @apply absolute grid place-items-center;
-    color: oklch(0.48 0.13 58);
-    height: 2.1rem;
-    width: 2.1rem;
-  }
-
-  .money-system__capital-symbol svg {
-    height: 2.1rem;
-    transform: scale(1.05);
-    transform-origin: center;
-    width: 2.1rem;
-  }
-
-  .money-system__capital-symbol--factory {
-    left: -1.65rem;
-    top: 1.95rem;
-  }
-
-  .money-system__capital-symbol--wrench {
-    left: 1.75rem;
-    top: -1.6rem;
-  }
-
-  .money-system__capital-symbol--calculator {
-    left: 1.75rem;
-    top: 5.15rem;
-  }
-
-  .money-system__capital-symbol--briefcase {
-    left: 5.45rem;
-    top: 1.95rem;
-  }
-
-  .money-system__capital-bitcoin {
-    @apply absolute -top-1.5 -right-1.5 grid place-items-center overflow-hidden rounded-full border shadow-sm;
-    background: oklch(0.7 0.16 68);
-    border-color: oklch(0.985 0.003 95);
-    height: 1rem;
-    width: 1rem;
-  }
-
-  .money-system__capital-bitcoin img {
-    @apply size-full object-cover;
-  }
-
-  .money-system__bars {
-    @apply flex h-13 items-end gap-1 rounded-md border px-2 py-2;
-    background: oklch(0.997 0.002 95);
-    border-color: oklch(0.88 0.003 95);
-  }
-
-  .money-system__bars span {
-    @apply block w-2.5 rounded-full;
-    background: oklch(0.7 0.16 68);
-  }
-
-  .money-system__bars span:nth-child(1) {
-    height: 38%;
-    opacity: 0.5;
-  }
-
-  .money-system__bars span:nth-child(2) {
-    height: 64%;
-    opacity: 0.72;
-  }
-
-  .money-system__bars span:nth-child(3) {
-    height: 100%;
+  .plan-visual__row:nth-child(4) .plan-visual__check {
+    animation-delay: 540ms;
   }
 
   .check-row {
@@ -636,12 +456,60 @@
     @apply mt-2 text-sm leading-6 text-muted-foreground;
   }
 
-  .profile-panel a {
-    @apply text-foreground underline underline-offset-4;
+  .profile-socials {
+    @apply mt-6 flex gap-2;
+  }
+
+  .profile-socials a {
+    @apply grid size-10 place-items-center rounded-full border border-border/75 bg-background/76 text-foreground shadow-sm transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary;
   }
 
   .credibility-copy {
     @apply space-y-4 text-base leading-7 text-muted-foreground;
+  }
+
+  .credibility-copy a {
+    @apply font-semibold text-foreground no-underline transition-colors hover:text-primary;
+  }
+
+  .credibility-logo-strip {
+    @apply grid grid-cols-2 items-center gap-3 rounded-xl border border-border/70 bg-card/70 p-4 shadow-sm sm:grid-cols-5 lg:col-span-2;
+  }
+
+  .credibility-logo-strip a {
+    @apply flex h-16 items-center justify-center rounded-lg bg-background/80 px-3 transition-colors hover:bg-background;
+  }
+
+  .credibility-logo-strip img {
+    @apply max-h-10 max-w-full object-contain;
+  }
+
+  .credibility-logo-strip__logo--wide {
+    max-height: none;
+    max-width: none;
+    transform: scale(1.62);
+    width: 142%;
+  }
+
+  .credibility-logo-strip__logo--compact {
+    max-height: 0.58rem;
+    max-width: 25%;
+  }
+
+  .credibility-logo-strip__logo--dark {
+    display: none;
+  }
+
+  .dark .credibility-logo-strip__logo--light {
+    display: none;
+  }
+
+  .dark .credibility-logo-strip__logo--dark {
+    display: block;
+  }
+
+  .dark .credibility-logo-strip__logo--dark-white {
+    filter: brightness(0) invert(1);
   }
 
   .faq-item {
@@ -686,9 +554,56 @@
   }
 
   .final-cta__email {
-    @apply text-sm font-medium text-background underline underline-offset-4 hover:text-primary;
+    @apply text-sm font-semibold text-background no-underline hover:text-primary;
   }
 
+}
+
+@keyframes plan-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes plan-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes plan-check-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes plan-mark-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 @media (max-width: 640px) {
@@ -696,193 +611,28 @@
     background-size: 56px 56px;
   }
 
-  .money-system {
-    @apply max-w-[360px] p-4;
+  .plan-visual {
+    @apply max-w-[360px];
   }
 
-  .money-system__label {
-    @apply text-sm;
+  .plan-visual__card {
+    @apply rounded-2xl p-5;
   }
 
-  .money-system__label--money {
-    left: 99%;
-    top: 64%;
+  .plan-visual__bitcoin-mark {
+    @apply size-16 text-4xl;
   }
 
-  .money-system__label--capital {
-    left: 1%;
-    top: 58%;
+  .plan-visual__header h2 {
+    @apply text-xl;
   }
 
-  .money-system__label--spending {
-    left: 27%;
-    top: 5%;
+  .plan-visual__rows {
+    @apply mt-6 gap-2.5;
   }
 
-  .money-system__segment--money {
-    left: 68%;
-    top: 44%;
-  }
-
-  .money-system__segment--capital {
-    left: 25%;
-    top: 51%;
-  }
-
-  .money-system__segment--spending {
-    left: 36%;
-    top: 25.8%;
-    height: 4.15rem;
-    max-width: none;
-    width: 5.65rem;
-  }
-
-  .money-system__icons span {
-    @apply size-11;
-  }
-
-  .money-system__segment--spending .money-system__icons span {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    height: 1rem !important;
-    width: 1rem !important;
-  }
-
-  .money-system__segment--spending .money-system__icons svg {
-    height: 0.72rem !important;
-    transform: scale(1.05);
-    transform-origin: center;
-    width: 0.72rem !important;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--home {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    height: 3rem !important;
-    left: 0.05rem;
-    overflow: visible;
-    top: 0.18rem;
-    width: 3rem !important;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--car {
-    height: 1.95rem !important;
-    left: 2.65rem;
-    top: 0.45rem;
-    width: 1.95rem !important;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--car svg {
-    height: 1.32rem !important;
-    width: 1.32rem !important;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--bike {
-    left: 4.15rem;
-    top: 0.22rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--plane {
-    left: 1.42rem;
-    top: 2.78rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--ship {
-    left: 3.35rem;
-    top: 2.88rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--guitar {
-    left: 2.45rem;
-    top: 1.95rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--gamepad {
-    left: 4.18rem;
-    top: 1.7rem;
-  }
-
-  .money-system__segment--spending .money-system__spending-icon--home svg {
-    height: 2rem !important;
-    width: 2rem !important;
-  }
-
-  .money-system__bars {
-    @apply h-10 px-1.5 py-1.5;
-  }
-
-  .money-system__capital-bitcoin {
-    height: 0.875rem;
-    width: 0.875rem;
-  }
-
-  .money-system__segment--money .money-system__bitcoin-logo {
-    height: 6.95rem;
-    left: 0.05rem;
-    width: 6.95rem;
-  }
-
-  .money-system__segment--money .money-system__icons {
-    height: 6.95rem;
-    width: 6.95rem;
-  }
-
-  .money-system__currency-mark,
-  .money-system__currency-mark svg {
-    height: 0.42rem;
-    width: 0.42rem;
-  }
-
-  .money-system__currency-mark svg {
-    transform: scale(1.05);
-    transform-origin: center;
-  }
-
-  .money-system__currency-mark--euro {
-    bottom: -2.55rem;
-    left: -0.95rem;
-  }
-
-  .money-system__currency-mark--dollar {
-    bottom: -1.95rem;
-    left: 0.75rem;
-  }
-
-  .money-system__capital-chart {
-    width: 4.35rem;
-  }
-
-  .money-system__capital-symbol,
-  .money-system__capital-symbol svg {
-    height: 1.65rem;
-    width: 1.65rem;
-  }
-
-  .money-system__capital-symbol svg {
-    transform: scale(1.05);
-    transform-origin: center;
-  }
-
-  .money-system__capital-symbol--factory {
-    left: -1.25rem;
-    top: 1.55rem;
-  }
-
-  .money-system__capital-symbol--wrench {
-    left: 1.45rem;
-    top: -1.2rem;
-  }
-
-  .money-system__capital-symbol--calculator {
-    left: 1.45rem;
-    top: 4.25rem;
-  }
-
-  .money-system__capital-symbol--briefcase {
-    left: 4.45rem;
-    top: 1.55rem;
+  .plan-visual__row {
+    @apply px-3.5 py-2.5;
   }
 }
 
@@ -898,5 +648,14 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .plan-visual__card,
+  .plan-visual__row,
+  .plan-visual__check,
+  .plan-visual__bitcoin-mark {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

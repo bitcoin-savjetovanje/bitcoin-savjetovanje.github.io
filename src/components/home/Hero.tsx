@@ -1,7 +1,7 @@
 import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { CALENDLY_URL, EMAIL, PRIMARY_CTA, heroOutcomes } from "@/content/site"
+import { BOOKING_URL, EMAIL, PRIMARY_CTA, heroOutcomes } from "@/content/site"
 
 function PlanVisual() {
   const rows = [
@@ -63,7 +63,7 @@ export function Hero() {
               size="lg"
               className="cta-primary h-12 rounded-full px-6 text-base"
             >
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
                 <CalendarDays className="size-4" />
                 {PRIMARY_CTA}
               </a>

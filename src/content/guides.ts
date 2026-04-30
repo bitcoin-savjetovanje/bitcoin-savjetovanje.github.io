@@ -10,6 +10,9 @@ export type Guide = {
   title: string
   metaDescription: string
   excerpt: string
+  publishedAt: string
+  updatedAt: string
+  relatedSlugs: string[]
   sections: GuideSection[]
   finalCta: string
 }
@@ -22,6 +25,13 @@ export const guides: Guide[] = [
       "Praktičan vodič za razumijevanje stvarnog viška prije odluka o Bitcoinu: budžet, dug, obveze, sigurnosna rezerva i neto imovina.",
     excerpt:
       "Višak nije ono što ostane na računu na kraju mjeseca. Stvarni višak postoji tek nakon obveza, rizika, likvidnosti i plana.",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
+    relatedSlugs: [
+      "bitcoin-u-neto-imovini",
+      "dug-ili-bitcoin",
+      "dca-nije-dovoljan",
+    ],
     sections: [
       {
         heading: "Višak nije stanje na računu",
@@ -61,6 +71,13 @@ export const guides: Guide[] = [
       "Kako promatrati Bitcoin unutar ukupne neto imovine bez izoliranog gledanja cijene, impulsa ili tuđih pravila.",
     excerpt:
       "Bitcoin ne treba promatrati odvojeno od ostatka života. Važan je odnos prema novcu, dugu, kapitalu, potrošnji i sigurnosti.",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
+    relatedSlugs: [
+      "stvarni-visak",
+      "novac-kapital-potrosnja",
+      "dug-ili-bitcoin",
+    ],
     sections: [
       {
         heading: "Neto imovina je početna mapa",
@@ -100,6 +117,13 @@ export const guides: Guide[] = [
       "Vodič za mirnije razmišljanje o dugu i Bitcoinu: kamata, rokovi, likvidnost, psihologija i osobni okvir odluka.",
     excerpt:
       "Dug i Bitcoin ne mogu se promatrati odvojeno. Kamata, rok, obiteljske obveze i sigurnosna rezerva mijenjaju odluku.",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
+    relatedSlugs: [
+      "stvarni-visak",
+      "bitcoin-u-neto-imovini",
+      "dca-nije-dovoljan",
+    ],
     sections: [
       {
         heading: "Dug mijenja značenje viška",
@@ -139,6 +163,13 @@ export const guides: Guide[] = [
       "DCA može biti korisna navika, ali bez budžeta ne odgovara na pitanja stvarnog viška, duga, likvidnosti i sigurnosti.",
     excerpt:
       "Automatska kupnja može smanjiti impulzivnost, ali ne zamjenjuje budžet, pravila i razumijevanje neto imovine.",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
+    relatedSlugs: [
+      "stvarni-visak",
+      "dug-ili-bitcoin",
+      "bitcoin-u-neto-imovini",
+    ],
     sections: [
       {
         heading: "DCA rješava samo dio problema",
@@ -178,6 +209,13 @@ export const guides: Guide[] = [
       "Siguran obiteljski pristup Bitcoinu bez dijeljenja seed phrasea naivno ili ostavljanja obitelji bez plana.",
     excerpt:
       "Skrbništvo nije uređeno dok pouzdana osoba ne zna što postoji, gdje tražiti upute i kako ne napraviti štetu.",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
+    relatedSlugs: [
+      "bitcoin-u-neto-imovini",
+      "novac-kapital-potrosnja",
+      "stvarni-visak",
+    ],
     sections: [
       {
         heading: "Sigurnost nije samo zaštita od krađe",
@@ -217,6 +255,13 @@ export const guides: Guide[] = [
       "Kako razmišljati o Bitcoinu kroz novac, kapital i potrošnju bez špekulativnog jezika i bez univerzalnih pravila.",
     excerpt:
       "Bitcoin odluke postaju jasnije kada razlikujete novac za likvidnost, kapital za budućnost i potrošnju koju svjesno birate.",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
+    relatedSlugs: [
+      "bitcoin-u-neto-imovini",
+      "stvarni-visak",
+      "obiteljski-pristup-bitcoinu",
+    ],
     sections: [
       {
         heading: "Tri različite uloge novca",

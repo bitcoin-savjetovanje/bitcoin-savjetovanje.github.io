@@ -1,10 +1,10 @@
-import { CALENDLY_URL } from "@/content/site"
+import { BOOKING_URL } from "@/content/site"
 
 export function StickyMobileCta() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/92 p-3 shadow-lg backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/92 p-3 shadow-lg backdrop-blur lg:hidden">
       <a
-        href={CALENDLY_URL}
+        href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="cta-primary flex h-11 items-center justify-center rounded-full px-4 text-sm font-semibold"

@@ -1,7 +1,7 @@
 import { faqs } from "./faq"
 import type { Guide } from "./guides"
 import { offers } from "./offers"
-import { EMAIL, SITE_URL } from "./site"
+import { EMAIL, OG_IMAGE_URL, SITE_URL } from "./site"
 
 export function homeSchema() {
   return {
@@ -61,20 +61,40 @@ export function homeSchema() {
 }
 
 export function guideSchema(guide: Guide) {
+  const guideUrl = `${SITE_URL}/vodici/${guide.slug}`
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: guide.title,
     description: guide.metaDescription,
+    url: guideUrl,
+    mainEntityOfPage: guideUrl,
+    datePublished: guide.publishedAt,
+    dateModified: guide.updatedAt,
+    inLanguage: "hr-HR",
     author: {
       "@type": "Person",
+      "@id": `${SITE_URL}/#pavao-pahljina`,
       name: "Pavao Pahljina",
     },
     publisher: {
-      "@type": "Organization",
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#service`,
       name: "Bitcoin Savjetovanje",
     },
-    mainEntityOfPage: `${SITE_URL}/vodici/${guide.slug}`,
-    inLanguage: "hr-HR",
+    image: OG_IMAGE_URL,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Bitcoin Savjetovanje",
+    },
+    about: [
+      "Bitcoin",
+      "budžet",
+      "neto imovina",
+      "skrbništvo",
+      "osobni okvir odluka",
+    ],
   }
 }

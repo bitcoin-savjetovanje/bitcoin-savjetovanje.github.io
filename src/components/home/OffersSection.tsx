@@ -3,7 +3,7 @@ import { CalendarDays, Check } from "lucide-react"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
 import { offers } from "@/content/offers"
-import { CALENDLY_URL } from "@/content/site"
+import { BOOKING_URL } from "@/content/site"
 
 export function OffersSection() {
   return (
@@ -38,7 +38,7 @@ export function OffersSection() {
               ))}
             </ul>
             <Button asChild className="cta-primary mt-6 rounded-full">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
                 <CalendarDays className="size-4" />
                 {offer.cta}
               </a>

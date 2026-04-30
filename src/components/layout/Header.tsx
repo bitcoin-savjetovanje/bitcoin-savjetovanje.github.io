@@ -4,7 +4,7 @@ import { CalendarDays, Menu, MoonStar, SunMedium, X } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
-import { CALENDLY_URL, PRIMARY_CTA } from "@/content/site"
+import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -80,7 +80,7 @@ export function Header() {
             size="lg"
             className="cta-primary hidden rounded-full px-5 xl:inline-flex"
           >
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}
             </a>
@@ -120,7 +120,7 @@ export function Header() {
             </a>
           ))}
           <a
-            href={CALENDLY_URL}
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg border border-border/70 bg-card px-4 py-3 text-sm font-semibold"

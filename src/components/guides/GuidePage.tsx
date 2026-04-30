@@ -1,10 +1,14 @@
 import { CalendarDays } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import type { Guide } from "@/content/guides"
-import { CALENDLY_URL } from "@/content/site"
+import { findGuide, type Guide } from "@/content/guides"
+import { BOOKING_URL } from "@/content/site"
 
 export function GuidePage({ guide }: { guide: Guide }) {
+  const relatedGuides = guide.relatedSlugs
+    .map((slug) => findGuide(slug))
+    .filter((item): item is Guide => Boolean(item))
+
   return (
     <article className="section-shell">
       <a
@@ -35,6 +39,26 @@ export function GuidePage({ guide }: { guide: Guide }) {
           </section>
         ))}
       </div>
+      {relatedGuides.length > 0 ? (
+        <section className="mt-14 max-w-5xl">
+          <h2 className="text-2xl font-semibold">Povezani vodiči</h2>
+          <p className="mt-3 max-w-3xl text-base leading-8 text-muted-foreground">
+            Ako želite nastaviti istim smjerom, krenite od ovih tekstova.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {relatedGuides.map((relatedGuide) => (
+              <a
+                key={relatedGuide.slug}
+                href={`/vodici/${relatedGuide.slug}`}
+                className="program-card block hover:border-primary/50 hover:text-foreground"
+              >
+                <h3>{relatedGuide.title}</h3>
+                <p>{relatedGuide.excerpt}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
       <div className="mt-14 max-w-3xl rounded-2xl border border-border/80 bg-card p-6 shadow-sm">
         <h2 className="text-2xl font-semibold">
           Želite primijeniti okvir na svoju situaciju?
@@ -44,7 +68,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
           vidjeti gdje ste, što pokušavate odlučiti i ima li smisla nastaviti.
         </p>
         <Button asChild className="cta-primary mt-6 rounded-full">
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
             <CalendarDays className="size-4" />
             {guide.finalCta}
           </a>

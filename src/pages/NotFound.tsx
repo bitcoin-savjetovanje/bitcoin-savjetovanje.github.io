@@ -1,13 +1,15 @@
 import { Seo } from "@/components/Seo"
-import { SITE_URL } from "@/content/site"
+import { notFoundRoute } from "@/content/routes"
 
 export function NotFound() {
   return (
     <section className="section-shell">
       <Seo
-        title="Stranica nije pronađena | Bitcoin Savjetovanje"
-        description="Stranica koju tražite ne postoji."
-        canonical={SITE_URL}
+        title={notFoundRoute.title}
+        description={notFoundRoute.description}
+        canonical={notFoundRoute.canonical}
+        ogType={notFoundRoute.ogType}
+        schema={notFoundRoute.schema as object}
       />
       <div className="case-panel max-w-3xl">
         <h1 className="font-display text-4xl font-semibold">

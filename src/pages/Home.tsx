@@ -12,13 +12,18 @@ import { QualificationSection } from "@/components/home/QualificationSection"
 import { ResultsSection } from "@/components/home/ResultsSection"
 import { SecurityTrustSection } from "@/components/home/SecurityTrustSection"
 import { TrustStrip } from "@/components/home/TrustStrip"
-import { homeSchema } from "@/content/schema"
-import { homeSeo } from "@/content/site"
+import { homeRoute } from "@/content/routes"
 
 export function Home() {
   return (
     <>
-      <Seo {...homeSeo} schema={homeSchema()} />
+      <Seo
+        title={homeRoute.title}
+        description={homeRoute.description}
+        canonical={homeRoute.canonical}
+        ogType={homeRoute.ogType}
+        schema={homeRoute.schema as object}
+      />
       <Hero />
       <TrustStrip />
       <ProblemSection />
@@ -27,10 +32,10 @@ export function Home() {
       <ResultsSection />
       <OffersSection />
       <SecurityTrustSection />
-      <GuidesIndexSection />
       <AboutSection />
       <QualificationSection />
       <FaqSection />
+      <GuidesIndexSection />
       <FinalCta />
     </>
   )

@@ -3,10 +3,11 @@ import { CalendarDays, Linkedin, Mail } from "lucide-react"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import {
   BITCOIN_STANDARD_BOOK_URL,
-  CALENDLY_URL,
+  BOOKING_URL,
   DVADESET_JEDAN_URL,
   EMAIL,
   LINKEDIN_URL,
+  PRIMARY_CTA,
   PRACTICAL_BITCOIN_STANDARD_URL,
   SAIFEDEAN_AMMOUS_URL,
   TWENTYONE_URL,
@@ -35,10 +36,10 @@ export function AboutSection() {
               <Mail className="size-4" />
             </a>
             <a
-              href={CALENDLY_URL}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Dogovorite uvodni razgovor"
+              aria-label={PRIMARY_CTA}
             >
               <CalendarDays className="size-4" />
             </a>

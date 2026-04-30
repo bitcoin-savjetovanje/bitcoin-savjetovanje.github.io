@@ -1,3 +1,5 @@
+import { PRIMARY_CTA } from "./site"
+
 export type Offer = {
   title: string
   price: string
@@ -20,12 +22,12 @@ export const offers: Offer[] = [
       "preporuka sljedećeg koraka",
       "bez obveze nastavka",
     ],
-    cta: "Dogovorite uvodni razgovor",
+    cta: PRIMARY_CTA,
   },
   {
     title: "Plaćeni savjetodavni razgovor",
     price: "200 €",
-    duration: "60-90 minuta",
+    duration: "60–90 minuta",
     purpose:
       "Jedan fokusiran razgovor za jasniju sliku glavnog problema i sljedećeg razumnog koraka.",
     includes: [
@@ -35,7 +37,7 @@ export const offers: Offer[] = [
       "kratki pisani sažetak nakon poziva",
       "preporuka ima li smisla nastaviti u strukturirani program",
     ],
-    cta: "Dogovorite uvodni razgovor",
+    cta: PRIMARY_CTA,
   },
   {
     title: "Strukturirani program",
@@ -51,6 +53,6 @@ export const offers: Offer[] = [
       "osobni dokument s pravilima",
       "follow-up nakon 30 dana",
     ],
-    cta: "Dogovorite uvodni razgovor",
+    cta: PRIMARY_CTA,
   },
 ]

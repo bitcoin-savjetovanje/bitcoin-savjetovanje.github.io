@@ -1,7 +1,10 @@
 export const SITE_URL = "https://bitcoin-savjetovanje.com"
-export const CALENDLY_URL = "https://cal.com/btcpavao/uvodni-poziv"
+export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
+export const SITE_UPDATED_AT = "2026-04-30"
+export const OG_IMAGE_PATH = "/og-image.png"
+export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL =
   "https://btcpavao.gitbook.io/practical-bitcoin-standard/"
 export const DVADESET_JEDAN_URL = "https://dvadesetjedan.com"

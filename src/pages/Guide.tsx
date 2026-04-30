@@ -1,7 +1,7 @@
 import { Seo } from "@/components/Seo"
 import { GuidePage } from "@/components/guides/GuidePage"
 import { findGuide } from "@/content/guides"
-import { guideSchema } from "@/content/schema"
+import { findGuideRouteMeta } from "@/content/routes"
 import { SITE_URL } from "@/content/site"
 
 export function Guide({ slug }: { slug?: string }) {
@@ -34,15 +34,16 @@ export function Guide({ slug }: { slug?: string }) {
   }
 
   const canonical = `${SITE_URL}/vodici/${guide.slug}`
+  const route = findGuideRouteMeta(guide.slug)
 
   return (
     <>
       <Seo
-        title={`${guide.title} | Bitcoin Savjetovanje`}
-        description={guide.metaDescription}
-        canonical={canonical}
-        type="article"
-        schema={guideSchema(guide)}
+        title={route?.title ?? `${guide.title} | Bitcoin Savjetovanje`}
+        description={route?.description ?? guide.metaDescription}
+        canonical={route?.canonical ?? canonical}
+        ogType={route?.ogType ?? "article"}
+        schema={(route?.schema ?? {}) as object}
       />
       <GuidePage guide={guide} />
     </>

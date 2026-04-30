@@ -7,6 +7,7 @@ import {
   ChevronDown,
   CircleDollarSign,
   Compass,
+  Copyright,
   Linkedin,
   Mail,
   Menu,
@@ -50,13 +51,15 @@ const credibilityLogos = [
     name: "Saifedean Ammous",
     src: "/saifedean-ammous-logo.webp",
     href: SAIFEDEAN_AMMOUS_URL,
-    className: "credibility-logo-strip__logo--compact",
+    className:
+      "credibility-logo-strip__logo--compact credibility-logo-strip__logo--dark-white",
   },
   {
     name: "The Bitcoin Standard Podcast",
     src: "/tbs-podcast-logo.svg",
     href: BITCOIN_STANDARD_PODCAST_URL,
-    className: "credibility-logo-strip__logo--wide",
+    className:
+      "credibility-logo-strip__logo--wide credibility-logo-strip__logo--dark-white",
   },
   {
     name: "The Saif House",
@@ -82,8 +85,7 @@ const credibilityLogos = [
 ]
 
 const trustItems = [
-  "U Bitcoinu od 2014.",
-  "10.000+ sati rada i proučavanja",
+  "U Bitcoinu od 2014. · 10.000+ sati studiranja",
   "6+ godina profesionalnog rada u Bitcoin prostoru",
   "Život na Bitcoin standardu od 2020.",
 ]
@@ -96,11 +98,12 @@ const audienceItems = [
   "ne znate koliki dio imovine držati kao novac, kapital i potrošnju",
   "želite znati kada akumulirati više, kada trošiti, a kada ne dirati ništa",
   "želite prestati donositi odluke prema osjećaju, cijeni i tržišnoj buci",
+  "imate druge nedoumice i pitanja oko Bitcoina općenito",
 ]
 
 const notForItems = [
   "Ne radim kratkoročno trgovanje.",
-  "Ne predviđam cijenu.",
+  "Ne predviđam kratkoročnu cijenu niti garantiram budućnost.",
   "Ne bavim se drugim digitalnim imovinama.",
   "Ne gradim plan na obećanju budućeg prinosa.",
   "Ne dajem porezne ni pravne savjete.",
@@ -110,12 +113,12 @@ const notForItems = [
 
 const outcomes = [
   {
-    title: "Jasan novčani tok",
+    title: "Jasno mjerenje novčanih tokova i neto prihoda",
     icon: Compass,
-    copy: "Razumijete što je stvarni višak nakon osnovnih troškova, obveza, sigurnosne rezerve i planirane potrošnje.",
+    copy: "Imate kontrolu nad novcem u svim dimenzijama: vremenu i oportunitetnom trošku, i znate relevantne pokazatelje poput neto prihoda i starosti novca.",
   },
   {
-    title: "Okvir za neto imovinu",
+    title: "Okvir za balansiranje neto imovine",
     icon: Check,
     copy: "Bitcoin promatrate u odnosu na novac, kapital, dugove, potrošačka dobra i dugoročnu neto imovinu.",
   },
@@ -125,7 +128,7 @@ const outcomes = [
     copy: "Postavljate pravila za akumulaciju, trošenje, čekanje i preispitivanje odluka kroz različite cijene i životne okolnosti.",
   },
   {
-    title: "Mirniji odnos prema riziku",
+    title: "Pravilan odnos prema volatilnosti",
     icon: CircleDollarSign,
     copy: "Razdvajamo stvarne rizike od buke: dug, likvidnost, skrbništvo, novčani tok, izloženost i emocionalnu podnošljivost odluke.",
   },
@@ -187,10 +190,6 @@ const programItems = [
     title: "Sigurnost i skrbništvo",
     copy: "Uređujemo praktičan okvir za čuvanje Bitcoina, operativnu sigurnost i pristup u izvanrednim situacijama.",
   },
-  {
-    title: "Osobni dokument s pravilima",
-    copy: "Dobivate sažetak odluka, kriterija i pravila koja možete koristiti kroz promjene cijene, prihoda i životnih okolnosti.",
-  },
 ]
 
 const typicalSituationQuestions = [
@@ -245,8 +244,8 @@ const programExclusions = [
 
 const personalPlanItems = [
   {
-    title: "Ciljani raspon izloženosti",
-    copy: "Koliki udio neto imovine ima smisla držati u Bitcoinu s obzirom na vašu situaciju, vremenski okvir i podnošljivost rizika.",
+    title: "Raspon izloženosti i neto imovina",
+    copy: "Koliki udio neto imovine ima smisla držati u Bitcoinu i kako ga uskladiti s novcem, kapitalom, dugovima, troškovima i dugoročnim smjerom.",
   },
   {
     title: "Pravila kupnje i dodatne akumulacije",
@@ -267,10 +266,6 @@ const personalPlanItems = [
   {
     title: "Sigurnosne i nasljedne procedure",
     copy: "Kako smanjiti rizik gubitka pristupa i kako omogućiti obitelji pristup ako vam se nešto dogodi.",
-  },
-  {
-    title: "Odnos prema novcu, kapitalu i potrošnji",
-    copy: "Kako Bitcoin stoji u odnosu na sigurnosnu rezervu, ulaganja, dugove, troškove i dugoročnu neto imovinu.",
   },
 ]
 
@@ -404,10 +399,10 @@ function SectionHeader({
 
 function PlanVisual() {
   const rows = [
-    "Budžet i višak",
-    "Dug i obveze",
-    "Neto imovina",
-    "Bitcoin odluke",
+    "uspostava budžeta nulte razine",
+    "strategija razduživanja",
+    "kompozicija i balansiranje neto imovine",
+    "korištenje Bitcoina u dugoročnom kontekstu",
   ]
 
   return (
@@ -417,7 +412,10 @@ function PlanVisual() {
           <div>
             <p className="plan-visual__eyebrow">Praktičan okvir</p>
             <h2>Bitcoin standard u praksi</h2>
-            <p>Budžet, dug, neto imovina i odluke kroz vrijeme.</p>
+            <p>
+              Jasan plan za korištenje Bitcoina kao primarnog novca unutar
+              ukupne imovine.
+            </p>
           </div>
           <div className="plan-visual__bitcoin-mark">
             <img src="/bitcoin-logo.png" alt="" />
@@ -597,8 +595,8 @@ export function App() {
                 ))}
               </div>
               <p className="hero-output">
-                Nakon rada trebate imati jasniji odnos između budžeta, duga,
-                neto imovine i odluka oko Bitcoina.
+                Nakon rada imat ćete jasan okvir za korištenje Bitcoina kao
+                primarnog novca.
               </p>
             </div>
 
@@ -607,7 +605,7 @@ export function App() {
         </section>
 
         <section className="trust-strip" aria-label="Sažetak iskustva">
-          <div className="mx-auto grid max-w-7xl gap-3 px-4 py-6 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-3 px-4 py-6 sm:grid-cols-3 sm:px-6 lg:px-8">
             {trustItems.map((item) => (
               <div key={item} className="trust-strip__item">
                 {item}
@@ -627,9 +625,9 @@ export function App() {
                 <p className="text-foreground">
                   Najčešće pitanje nije: “Je li Bitcoin važan?”
                 </p>
-                <p className="font-semibold text-foreground">Pitanje je:</p>
               </div>
               <div className="grid gap-3">
+                <p className="mb-1 font-semibold text-foreground">Pitanje je:</p>
                 {typicalSituationQuestions.map((item) => (
                   <div key={item} className="check-row">
                     <Check className="positive-icon mt-1 size-4" />
@@ -640,7 +638,7 @@ export function App() {
             </div>
             <p className="mt-7 rounded-2xl border border-primary/20 bg-primary/10 p-5 font-semibold text-foreground">
               Ako na ova pitanja nemate jasan odgovor, problem nije manjak
-              informacija. Problem je manjak osobnog okvira.
+              informacija, nego manjak osobnog okvira.
             </p>
           </div>
         </section>
@@ -913,9 +911,9 @@ export function App() {
                 </div>
               ))}
               <p className="negative-note mt-4">
-                Ovo nije za vas ako tražite signal, garanciju prinosa, potvrdu
-                već donesene odluke ili nekoga tko će preuzeti odgovornost
-                umjesto vas.
+                Ovo nije za vas ako tražite signal za trgovinu, garanciju
+                prinosa, potvrdu već donesene odluke ili nekoga tko će preuzeti
+                odgovornost umjesto vas.
               </p>
             </div>
           </div>
@@ -924,7 +922,7 @@ export function App() {
         <section id="sto-dobivate" className="section-shell section-muted">
           <SectionHeader
             title="Što konkretno dobivate?"
-            copy="Ne dobivate još jedno mišljenje, nego praktičan okvir za budžet, dug, neto imovinu i Bitcoin odluke kroz vrijeme."
+            copy="Ne dobivate još jedno mišljenje, nego praktičan okvir za upravljanje cjelokupnom neto imovinom i integraciju Bitcoina, kao i donošenje odluka kroz vrijeme."
             align="center"
           />
 
@@ -1196,7 +1194,10 @@ export function App() {
       <footer className="border-t border-border/70">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-sm text-muted-foreground sm:px-6 md:flex-row md:items-start md:justify-between lg:px-8">
           <div className="max-w-2xl">
-            <p>Bitcoin Savjetovanje | Pavao Pahljina</p>
+            <p className="flex items-center gap-2">
+              <Copyright className="size-3.5" aria-hidden="true" />
+              <span>2026 Bitcoin Savjetovanje | Pavao Pahljina</span>
+            </p>
             <p className="mt-2 text-xs leading-6">
               Ovo nije investicijsko, porezno ni pravno savjetovanje. Ne
               upravljam vašim novcem, ne donosim odluke umjesto vas i ne držim

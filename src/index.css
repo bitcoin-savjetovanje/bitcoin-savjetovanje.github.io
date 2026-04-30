@@ -181,7 +181,7 @@
   }
 
   .hero-title {
-    @apply font-display text-4xl leading-[1.04] font-semibold tracking-[-0.035em] text-foreground sm:text-5xl lg:text-6xl xl:text-[4.15rem];
+    @apply font-display text-4xl leading-[1.04] font-semibold tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[3.5rem] xl:text-[3.55rem] 2xl:text-[3.75rem];
   }
 
   .hero-subtitle {
@@ -248,12 +248,18 @@
   .plan-visual__card::before {
     content: "";
     position: absolute;
-    inset: -40% -20% auto auto;
-    width: 14rem;
-    height: 14rem;
+    inset: -38% -28% auto auto;
+    width: 20rem;
+    height: 20rem;
     border-radius: 9999px;
-    background: color-mix(in oklab, var(--primary), transparent 82%);
-    filter: blur(10px);
+    background:
+      radial-gradient(
+        circle,
+        color-mix(in oklab, var(--primary), transparent 70%) 0%,
+        color-mix(in oklab, var(--primary), transparent 84%) 42%,
+        transparent 72%
+      );
+    filter: blur(8px);
     pointer-events: none;
   }
 
@@ -274,15 +280,54 @@
   }
 
   .plan-visual__bitcoin-mark {
-    @apply grid size-20 shrink-0 place-items-center rounded-full border text-5xl font-bold;
-    animation: plan-mark-float 6s ease-in-out infinite;
+    @apply relative grid size-20 shrink-0 place-items-center overflow-hidden rounded-full border text-5xl font-bold;
     background: color-mix(in oklab, var(--primary), transparent 82%);
     border-color: color-mix(in oklab, var(--primary), transparent 60%);
     color: var(--primary);
   }
 
+  .plan-visual__bitcoin-mark::before,
+  .plan-visual__bitcoin-mark::after {
+    content: "";
+    position: absolute;
+    inset: 8%;
+    z-index: 2;
+    border-radius: inherit;
+    mix-blend-mode: screen;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .plan-visual__bitcoin-mark::before {
+    background:
+      radial-gradient(circle at 24% 30%, hsl(0 0% 100% / 0.55) 0 1.2px, transparent 2.4px),
+      radial-gradient(circle at 78% 36%, hsl(0 0% 100% / 0.48) 0 1px, transparent 2.1px),
+      radial-gradient(circle at 72% 76%, hsl(0 0% 100% / 0.46) 0 1px, transparent 2px),
+      radial-gradient(circle at 28% 72%, hsl(0 0% 100% / 0.4) 0 0.9px, transparent 1.9px);
+    filter:
+      drop-shadow(0 0 2px hsl(0 0% 100% / 0.55))
+      drop-shadow(0 0 5px oklch(0.95 0.1 92 / 0.28));
+    transform: scale(0.9);
+    animation: plan-mark-twinkle-points 4.8s ease-in-out infinite;
+  }
+
+  .plan-visual__bitcoin-mark::after {
+    inset: 10%;
+    background:
+      linear-gradient(90deg, transparent 43%, hsl(0 0% 100% / 0.58) 49%, transparent 55%),
+      linear-gradient(0deg, transparent 43%, hsl(0 0% 100% / 0.48) 49%, transparent 55%),
+      linear-gradient(45deg, transparent 42%, hsl(0 0% 100% / 0.38) 49%, transparent 56%),
+      linear-gradient(135deg, transparent 42%, hsl(0 0% 100% / 0.32) 49%, transparent 56%);
+    clip-path: polygon(50% 16%, 59% 41%, 84% 50%, 59% 59%, 50% 84%, 41% 59%, 16% 50%, 41% 41%);
+    filter:
+      drop-shadow(0 0 2px hsl(0 0% 100% / 0.58))
+      drop-shadow(0 0 6px oklch(0.96 0.1 92 / 0.32));
+    transform: translate(-30%, -18%) scale(0.34) rotate(12deg);
+    animation: plan-mark-diamond-sparkle 4.8s ease-in-out infinite;
+  }
+
   .plan-visual__bitcoin-mark img {
-    @apply size-full rounded-full object-cover;
+    @apply relative z-[1] size-full rounded-full object-cover;
   }
 
   .plan-visual__rows {
@@ -290,7 +335,7 @@
   }
 
   .plan-visual__row {
-    @apply flex items-center gap-3 rounded-xl border border-border/70 bg-background/70 px-4 py-3 text-sm font-medium text-foreground shadow-sm;
+    @apply flex items-start gap-3 rounded-xl border border-border/70 bg-background/70 px-4 py-3 text-sm leading-5 font-medium text-foreground shadow-sm;
     animation: plan-row-in 520ms ease-out both;
     opacity: 0;
   }
@@ -473,7 +518,7 @@
   }
 
   .credibility-logo-strip {
-    @apply grid grid-cols-2 items-center gap-3 rounded-xl border border-border/70 bg-card/70 p-4 shadow-sm sm:grid-cols-5 lg:col-span-2;
+    @apply grid grid-cols-3 items-center gap-3 rounded-xl border border-border/70 bg-card/70 p-4 shadow-sm sm:grid-cols-5 lg:col-span-2;
   }
 
   .credibility-logo-strip a {
@@ -509,7 +554,7 @@
   }
 
   .dark .credibility-logo-strip__logo--dark-white {
-    filter: brightness(0) invert(1);
+    filter: grayscale(1) brightness(0) invert(1);
   }
 
   .faq-item {
@@ -595,14 +640,70 @@
   }
 }
 
-@keyframes plan-mark-float {
+@keyframes plan-mark-twinkle-points {
   0%,
+  19%,
+  37%,
+  59%,
+  78%,
   100% {
-    transform: translateY(0);
+    opacity: 0;
+    transform: scale(0.9);
   }
 
-  50% {
-    transform: translateY(-4px);
+  22% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+
+  24% {
+    opacity: 0.08;
+  }
+
+  41% {
+    opacity: 0.34;
+    transform: scale(1.02);
+  }
+
+  63% {
+    opacity: 0.36;
+    transform: scale(0.98);
+  }
+
+  81% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+@keyframes plan-mark-diamond-sparkle {
+  0%,
+  31%,
+  48%,
+  70%,
+  100% {
+    opacity: 0;
+    transform: translate(-30%, -18%) scale(0.22) rotate(12deg);
+  }
+
+  34% {
+    opacity: 0.46;
+    transform: translate(-30%, -18%) scale(0.52) rotate(12deg);
+  }
+
+  36% {
+    opacity: 0.08;
+    transform: translate(-30%, -18%) scale(0.36) rotate(12deg);
+  }
+
+  52% {
+    opacity: 0.38;
+    transform: translate(26%, -12%) scale(0.5) rotate(-10deg);
+  }
+
+  73% {
+    opacity: 0.34;
+    transform: translate(24%, 22%) scale(0.46) rotate(22deg);
   }
 }
 
@@ -634,6 +735,7 @@
   .plan-visual__row {
     @apply px-3.5 py-2.5;
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -653,9 +755,16 @@
   .plan-visual__card,
   .plan-visual__row,
   .plan-visual__check,
-  .plan-visual__bitcoin-mark {
+  .plan-visual__bitcoin-mark,
+  .plan-visual__bitcoin-mark::before,
+  .plan-visual__bitcoin-mark::after {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .plan-visual__bitcoin-mark::before,
+  .plan-visual__bitcoin-mark::after {
+    display: none !important;
   }
 }

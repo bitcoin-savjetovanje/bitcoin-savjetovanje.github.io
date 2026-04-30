@@ -1,0 +1,45 @@
+import { Copyright } from "lucide-react"
+
+import {
+  DVADESET_JEDAN_URL,
+  EMAIL,
+  PRACTICAL_BITCOIN_STANDARD_URL,
+} from "@/content/site"
+
+export function Footer() {
+  return (
+    <footer className="border-t border-border/70">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 text-sm text-muted-foreground sm:px-6 md:flex-row md:items-start md:justify-between lg:px-8">
+        <div className="max-w-2xl">
+          <p className="flex items-center gap-2">
+            <Copyright className="size-3.5" aria-hidden="true" />
+            <span>2026 Bitcoin Savjetovanje | Pavao Pahljina</span>
+          </p>
+          <p className="mt-2 text-xs leading-6">
+            Ovo nije investicijsko, porezno ni pravno savjetovanje. Ne upravljam
+            vašim novcem, ne donosim odluke umjesto vas i ne držim vaše
+            ključeve. Rad je edukativan i savjetodavan u području osobnog okvira
+            odlučivanja o Bitcoinu.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-4">
+          <a
+            href={PRACTICAL_BITCOIN_STANDARD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Practical Bitcoin Standard
+          </a>
+          <a
+            href={DVADESET_JEDAN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DvadesetJedan
+          </a>
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        </div>
+      </div>
+    </footer>
+  )
+}

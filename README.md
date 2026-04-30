@@ -46,6 +46,13 @@ Prerender:
 - `scripts/prerender.mjs`
 - `scripts/verify-dist.mjs`
 
+## Routes
+
+- `/`
+- `/vodici/`
+- `/vodici/:slug/`
+- `/sigurnost/`
+
 ## URL conventions
 
 - Homepage canonical uses a trailing slash: `https://bitcoin-savjetovanje.com/`.
@@ -66,3 +73,6 @@ The deploy workflow runs:
 - `npm run verify:dist`
 
 The Pages artifact is uploaded only after `verify:dist` passes.
+The verification script checks prerendered HTML, sitemap, robots, schema, guide
+pages, the security page, and core CTA/link metadata used for future
+privacy-friendly analytics hooks.

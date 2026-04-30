@@ -33,7 +33,7 @@ export function FinalCta() {
           <a
             className="final-cta__email"
             href={`mailto:${EMAIL}`}
-            data-link="email"
+            data-link="final-email"
           >
             {EMAIL}
           </a>

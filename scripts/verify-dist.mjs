@@ -133,6 +133,104 @@ assertIncludes("index.html", homeHtml, "OfferCatalog", "OfferCatalog schema")
 assertIncludes(
   "index.html",
   homeHtml,
+  "Primjeri situacija",
+  "situations section"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Ovo nisu univerzalna pravila ni primjeri stvarnih klijenata",
+  "situations clarification"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Kako izgleda rezultat programa?",
+  "program output preview section"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Osobni Bitcoin okvir",
+  "program document preview"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Ovo nije primjer stvarnog klijenta i ne sadrži financijsku preporuku",
+  "program output clarification"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Što se dogodi nakon što rezervirate termin?",
+  "booking steps section"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Ispunite nekoliko kratkih pitanja",
+  "booking steps first step"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Što nećemo raditi",
+  "security expectations section"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Pročitajte sigurnosna pravila",
+  "security page link copy"
+)
+assertIncludes("index.html", homeHtml, "/vodici/", "guide index link")
+assertIncludes("index.html", homeHtml, "/sigurnost/", "security page link")
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'data-cta="hero-booking"',
+  "hero booking CTA metadata"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'data-cta="header-booking"',
+  "header booking CTA metadata"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'data-cta="offers-program"',
+  "program offer CTA metadata"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'data-cta="final-booking"',
+  "final booking CTA metadata"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'data-cta="sticky-mobile-booking"',
+  "sticky mobile CTA metadata"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'data-link="security-rules"',
+  "security rules link metadata"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'data-link="footer-security"',
+  "footer security link metadata"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
   '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
   "canonical URL"
 )
@@ -225,6 +323,12 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(relativePath, html, "U ovom vodiču", "table of contents")
   assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
   assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
+  assertIncludes(
+    relativePath,
+    html,
+    'data-link="related-guide"',
+    "related guide link metadata"
+  )
   assertIncludes(
     relativePath,
     html,

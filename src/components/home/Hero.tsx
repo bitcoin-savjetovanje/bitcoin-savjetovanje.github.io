@@ -79,7 +79,7 @@ export function Hero() {
               size="lg"
               className="h-12 rounded-full border-border/80 bg-background/70 px-6 text-base"
             >
-              <a href="#metoda">
+              <a href="#metoda" data-link="hero-method">
                 Pogledajte metodu
                 <ArrowUpRight className="size-4" />
               </a>
@@ -103,7 +103,7 @@ export function Hero() {
           <a
             className="mt-5 inline-block text-sm font-semibold text-muted-foreground hover:text-primary"
             href={`mailto:${EMAIL}`}
-            data-link="email"
+            data-link="hero-email"
           >
             Ili pišite izravno: {EMAIL}
           </a>

@@ -27,19 +27,22 @@ export function Footer() {
             href={PRACTICAL_BITCOIN_STANDARD_URL}
             target="_blank"
             rel="noopener noreferrer"
-            data-link="practical-bitcoin-standard"
+            data-link="footer-practical-bitcoin-standard"
           >
             Practical Bitcoin Standard
           </a>
-          <a href="/sigurnost/">Sigurnost</a>
+          <a href="/sigurnost/" data-link="footer-security">
+            Sigurnost
+          </a>
           <a
             href={DVADESET_JEDAN_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-link="footer-dvadesetjedan"
           >
             DvadesetJedan
           </a>
-          <a href={`mailto:${EMAIL}`} data-link="email">
+          <a href={`mailto:${EMAIL}`} data-link="footer-email">
             {EMAIL}
           </a>
         </div>

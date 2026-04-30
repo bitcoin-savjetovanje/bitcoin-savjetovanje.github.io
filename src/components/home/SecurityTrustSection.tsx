@@ -28,6 +28,7 @@ export function SecurityTrustSection() {
             <a
               href="/sigurnost/"
               className="mt-4 inline-block text-sm font-semibold text-foreground hover:text-primary"
+              data-link="security-rules"
             >
               Pročitajte sigurnosna pravila
             </a>

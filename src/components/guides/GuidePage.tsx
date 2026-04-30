@@ -115,6 +115,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 key={relatedGuide.slug}
                 href={guideHref(relatedGuide.slug)}
                 className="program-card block hover:border-primary/50 hover:text-foreground"
+                data-link="related-guide"
               >
                 <h3>{relatedGuide.title}</h3>
                 <p>{relatedGuide.excerpt}</p>

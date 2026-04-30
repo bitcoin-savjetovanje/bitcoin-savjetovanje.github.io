@@ -1,8 +1,25 @@
-import { guides } from "./guides"
-import { guideSchema, homeSchema } from "./schema"
-import { OG_IMAGE_URL, SITE_UPDATED_AT, SITE_URL, homeSeo } from "./site"
+import { guideHref, guides } from "./guides"
+import {
+  guideSchema,
+  guidesIndexSchema,
+  homeSchema,
+  securityPageSchema,
+} from "./schema"
+import {
+  OG_IMAGE_URL,
+  SITE_UPDATED_AT,
+  SITE_URL,
+  guidesIndexSeo,
+  homeSeo,
+  securitySeo,
+} from "./site"
 
-export type RouteType = "home" | "guide" | "not-found"
+export type RouteType =
+  | "home"
+  | "guides-index"
+  | "guide"
+  | "security"
+  | "not-found"
 export type RouteOgType = "website" | "article"
 
 export type RouteMeta = {
@@ -33,11 +50,25 @@ export const homeRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
+export const guidesIndexRoute: RouteMeta = {
+  path: "/vodici/",
+  title: guidesIndexSeo.title,
+  description: guidesIndexSeo.description,
+  canonical: guidesIndexSeo.canonical,
+  schema: guidesIndexSchema(),
+  type: "guides-index",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
 export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   path: `/vodici/${guide.slug}`,
   title: `${guide.title} | Bitcoin Savjetovanje`,
   description: guide.metaDescription,
-  canonical: `${SITE_URL}/vodici/${guide.slug}`,
+  canonical: `${SITE_URL}${guideHref(guide.slug)}`,
   schema: guideSchema(guide),
   type: "guide",
   lastmod: guide.updatedAt,
@@ -46,6 +77,20 @@ export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   ogImageWidth: 1200,
   ogImageHeight: 630,
 }))
+
+export const securityRoute: RouteMeta = {
+  path: "/sigurnost/",
+  title: securitySeo.title,
+  description: securitySeo.description,
+  canonical: securitySeo.canonical,
+  schema: securityPageSchema(),
+  type: "security",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
 
 export const notFoundRoute: RouteMeta = {
   path: "/404",
@@ -67,7 +112,12 @@ export const notFoundRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
-export const prerenderRoutes: RouteMeta[] = [homeRoute, ...guideRouteMetas]
+export const prerenderRoutes: RouteMeta[] = [
+  homeRoute,
+  guidesIndexRoute,
+  ...guideRouteMetas,
+  securityRoute,
+]
 
 export function findGuideRouteMeta(slug: string | undefined) {
   return guideRouteMetas.find((route) => route.path === `/vodici/${slug}`)

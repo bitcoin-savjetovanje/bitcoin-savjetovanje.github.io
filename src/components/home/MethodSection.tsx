@@ -46,6 +46,7 @@ export function MethodSection() {
             href={PRACTICAL_BITCOIN_STANDARD_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-link="practical-bitcoin-standard"
           >
             Pročitajte Practical Bitcoin Standard
             <ArrowUpRight className="size-4" />

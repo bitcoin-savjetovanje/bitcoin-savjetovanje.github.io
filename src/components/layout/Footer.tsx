@@ -27,9 +27,11 @@ export function Footer() {
             href={PRACTICAL_BITCOIN_STANDARD_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-link="practical-bitcoin-standard"
           >
             Practical Bitcoin Standard
           </a>
+          <a href="/sigurnost/">Sigurnost</a>
           <a
             href={DVADESET_JEDAN_URL}
             target="_blank"
@@ -37,7 +39,9 @@ export function Footer() {
           >
             DvadesetJedan
           </a>
-          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          <a href={`mailto:${EMAIL}`} data-link="email">
+            {EMAIL}
+          </a>
         </div>
       </div>
     </footer>

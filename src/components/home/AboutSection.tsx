@@ -32,7 +32,7 @@ export function AboutSection() {
             >
               <Linkedin className="size-4" />
             </a>
-            <a href={`mailto:${EMAIL}`} aria-label="Email">
+            <a href={`mailto:${EMAIL}`} aria-label="Email" data-link="email">
               <Mail className="size-4" />
             </a>
             <a
@@ -40,6 +40,7 @@ export function AboutSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={PRIMARY_CTA}
+              data-cta="about-booking"
             >
               <CalendarDays className="size-4" />
             </a>
@@ -93,6 +94,7 @@ export function AboutSection() {
                 href={PRACTICAL_BITCOIN_STANDARD_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-link="practical-bitcoin-standard"
               >
                 Practical Bitcoin Standard
               </a>

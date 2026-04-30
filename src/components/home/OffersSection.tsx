@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button"
 import { offers } from "@/content/offers"
 import { BOOKING_URL } from "@/content/site"
 
+const offerCtaAttributes: Record<string, string> = {
+  "Uvodni razgovor": "offers-intro",
+  "Plaćeni savjetodavni razgovor": "offers-paid-call",
+  "Strukturirani program": "offers-program",
+}
+
 export function OffersSection() {
   return (
     <section id="program" className="section-shell">
@@ -38,7 +44,12 @@ export function OffersSection() {
               ))}
             </ul>
             <Button asChild className="cta-primary mt-6 rounded-full">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta={offerCtaAttributes[offer.title]}
+              >
                 <CalendarDays className="size-4" />
                 {offer.cta}
               </a>

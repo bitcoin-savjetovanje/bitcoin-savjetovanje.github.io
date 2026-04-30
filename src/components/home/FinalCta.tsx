@@ -20,12 +20,21 @@ export function FinalCta() {
             size="lg"
             className="cta-primary h-12 rounded-full px-6 text-base"
           >
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="final-booking"
+            >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}
             </a>
           </Button>
-          <a className="final-cta__email" href={`mailto:${EMAIL}`}>
+          <a
+            className="final-cta__email"
+            href={`mailto:${EMAIL}`}
+            data-link="email"
+          >
             {EMAIL}
           </a>
         </div>

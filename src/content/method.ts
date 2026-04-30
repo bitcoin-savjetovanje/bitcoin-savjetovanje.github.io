@@ -16,6 +16,25 @@ export const audienceItems = [
   "želite pravila koja možete objasniti sebi, partneru ili obitelji",
 ]
 
+export const situationExamples = [
+  {
+    title: "Imate Bitcoin, ali nemate pravila",
+    copy: "Akumulirali ste Bitcoin, ali ne znate kada kupovati, kada čekati, što ne dirati i kada preispitati plan.",
+  },
+  {
+    title: "Imate kapital, ali ne znate koliki Bitcoin udio ima smisla",
+    copy: "Uz Bitcoin imate likvidnu imovinu, nekretninu, posao, obveze ili obiteljski kontekst i želite odluku uklopiti u cjelinu.",
+  },
+  {
+    title: "Kupujete kad imate viška, ali višak nije jasno definiran",
+    copy: "DCA ili povremena kupnja postoje, ali budžet, dug, likvidnost i obveze nisu dovoljno jasno povezani.",
+  },
+  {
+    title: "Imate obitelj i želite sigurniji pristup",
+    copy: "Nije dovoljno da vi znate gdje je Bitcoin. Treba postojati razuman način da osoba od povjerenja zna što smije, što ne smije i gdje tražiti upute.",
+  },
+]
+
 export const notForItems = [
   "tražite trading signale",
   "želite kratkoročnu prognozu cijene",
@@ -67,12 +86,54 @@ export const afterWorkItems = [
   "imate jasniji sigurnosni i obiteljski pristup Bitcoinu",
 ]
 
+export const programDocumentItems = [
+  "trenutna financijska slika",
+  "budžet i stvarni višak",
+  "dug i obveze",
+  "Bitcoin u neto imovini",
+  "ciljani raspon izloženosti",
+  "pravila kupnje",
+  "pravila čekanja",
+  "pravila trošenja",
+  "pravila preispitivanja",
+  "sigurnosni model",
+  "obiteljski pristup i upute",
+]
+
+export const bookingSteps = [
+  {
+    title: "Ispunite nekoliko kratkih pitanja",
+    copy: "Prije poziva upišete osnovni kontekst: imate li Bitcoin, koja je glavna odluka i što želite razjasniti.",
+  },
+  {
+    title: "Na uvodnom razgovoru prolazimo gdje ste",
+    copy: "U 15 minuta vidimo vašu početnu situaciju, glavnu dilemu i ima li smisla nastaviti.",
+  },
+  {
+    title: "Predlažem najrazumniji sljedeći korak",
+    copy: "Ako mogu pomoći, predlažem plaćeni razgovor ili strukturirani program. Ako nema smisla nastaviti, reći ću vam to otvoreno.",
+  },
+  {
+    title: "Bez obveze nastavka",
+    copy: "Uvodni razgovor je bez naknade i ne obvezuje vas na daljnji rad.",
+  },
+]
+
 export const securityRules = [
   "bez custodyja",
   "bez pristupa vašim računima",
   "bez traženja seed phrasea",
   "bez kupnje ili prodaje u vaše ime",
   "bez poreznih i pravnih tvrdnji",
+]
+
+export const notDoingItems = [
+  "tražiti savršenu cijenu ulaska",
+  "predviđati kratkoročno tržište",
+  "uspoređivati altcoine",
+  "donositi odluke umjesto vas",
+  "raditi porezno ili pravno planiranje",
+  "dirati vaše ključeve, seed phrase ili račune",
 ]
 
 export const qualificationQuestions = [

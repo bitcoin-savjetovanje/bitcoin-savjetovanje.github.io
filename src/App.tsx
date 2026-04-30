@@ -6,8 +6,10 @@ import { Header } from "@/components/layout/Header"
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta"
 import { Button } from "@/components/ui/button"
 import { Guide } from "@/pages/Guide"
+import { GuidesIndex } from "@/pages/GuidesIndex"
 import { Home } from "@/pages/Home"
 import { NotFound } from "@/pages/NotFound"
+import { Security } from "@/pages/Security"
 
 function normalizePath(pathname: string) {
   if (pathname.length > 1 && pathname.endsWith("/")) {
@@ -34,8 +36,22 @@ function Route({ path }: { path: string }) {
     return <Home />
   }
 
+  if (path === "/vodici") {
+    return <GuidesIndex />
+  }
+
   if (path.startsWith("/vodici/")) {
-    return <Guide slug={decodeURIComponent(path.replace("/vodici/", ""))} />
+    const slug = decodeURIComponent(path.replace("/vodici/", ""))
+
+    if (!slug) {
+      return <GuidesIndex />
+    }
+
+    return <Guide slug={slug} />
+  }
+
+  if (path === "/sigurnost") {
+    return <Security />
   }
 
   return <NotFound />
@@ -59,7 +75,7 @@ export function App({ path }: { path?: string }) {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background pb-16 text-foreground md:pb-0">
+    <div className="min-h-screen bg-background pb-16 text-foreground lg:pb-0">
       <Header />
       <main id="top">
         <Route path={currentPath} />
@@ -71,7 +87,7 @@ export function App({ path }: { path?: string }) {
         <Button
           type="button"
           size="icon"
-          className="fixed right-4 bottom-20 z-50 size-10 rounded-full border border-border/70 bg-background/94 text-foreground shadow-lg hover:bg-muted hover:text-foreground md:right-6 md:bottom-6"
+          className="fixed right-4 bottom-20 z-50 size-10 rounded-full border border-border/70 bg-background/94 text-foreground shadow-lg hover:bg-muted hover:text-foreground md:right-6 lg:bottom-6"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Povratak na vrh"
         >

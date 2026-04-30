@@ -12,6 +12,7 @@ export type Guide = {
   excerpt: string
   publishedAt: string
   updatedAt: string
+  practicalQuestion: string
   relatedSlugs: string[]
   sections: GuideSection[]
   finalCta: string
@@ -27,6 +28,8 @@ export const guides: Guide[] = [
       "Višak nije ono što ostane na računu na kraju mjeseca. Stvarni višak postoji tek nakon obveza, rizika, likvidnosti i plana.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
+    practicalQuestion:
+      "Koji trošak, obvezu ili rizik najčešće zaboravite kada mislite da imate višak?",
     relatedSlugs: [
       "bitcoin-u-neto-imovini",
       "dug-ili-bitcoin",
@@ -55,7 +58,7 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "Praktično pitanje",
+        heading: "Od pitanja do pravila",
         body: [
           "Korisno pitanje nije samo: koliko mogu kupiti? Bolje pitanje je: koji dio mogu usmjeriti prema Bitcoinu bez ugrožavanja obveza, mira i sposobnosti da plan održim kroz vrijeme?",
           "Kada je višak definiran na taj način, odluke postaju mirnije. Ne kupujete zato što se bojite da propuštate priliku, nego zato što se odluka uklapa u budžet, dug, neto imovinu i dugoročna pravila.",
@@ -73,6 +76,8 @@ export const guides: Guide[] = [
       "Bitcoin ne treba promatrati odvojeno od ostatka života. Važan je odnos prema novcu, dugu, kapitalu, potrošnji i sigurnosti.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
+    practicalQuestion:
+      "Koliki udio vaše ukupne neto imovine Bitcoin čini danas i znate li zašto je baš takav?",
     relatedSlugs: [
       "stvarni-visak",
       "novac-kapital-potrosnja",
@@ -119,6 +124,8 @@ export const guides: Guide[] = [
       "Dug i Bitcoin ne mogu se promatrati odvojeno. Kamata, rok, obiteljske obveze i sigurnosna rezerva mijenjaju odluku.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
+    practicalQuestion:
+      "Koji dug najviše smanjuje vaš prostor za mirnu Bitcoin odluku?",
     relatedSlugs: [
       "stvarni-visak",
       "bitcoin-u-neto-imovini",
@@ -165,6 +172,8 @@ export const guides: Guide[] = [
       "Automatska kupnja može smanjiti impulzivnost, ali ne zamjenjuje budžet, pravila i razumijevanje neto imovine.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
+    practicalQuestion:
+      "Znate li zašto je vaš trenutni DCA iznos baš takav i kada bi se trebao promijeniti?",
     relatedSlugs: [
       "stvarni-visak",
       "dug-ili-bitcoin",
@@ -211,6 +220,8 @@ export const guides: Guide[] = [
       "Skrbništvo nije uređeno dok pouzdana osoba ne zna što postoji, gdje tražiti upute i kako ne napraviti štetu.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
+    practicalQuestion:
+      "Bi li osoba od povjerenja znala što napraviti, a što nikada ne napraviti, ako vam se nešto dogodi?",
     relatedSlugs: [
       "bitcoin-u-neto-imovini",
       "novac-kapital-potrosnja",
@@ -257,6 +268,8 @@ export const guides: Guide[] = [
       "Bitcoin odluke postaju jasnije kada razlikujete novac za likvidnost, kapital za budućnost i potrošnju koju svjesno birate.",
     publishedAt: "2026-04-30",
     updatedAt: "2026-04-30",
+    practicalQuestion:
+      "Koji dio vašeg Bitcoina je likvidnost, koji dio je dugoročni kapital, a koji dio biste svjesno mogli potrošiti?",
     relatedSlugs: [
       "bitcoin-u-neto-imovini",
       "stvarni-visak",
@@ -296,7 +309,11 @@ export const guides: Guide[] = [
   },
 ]
 
-export const guideRoutes = guides.map((guide) => `/vodici/${guide.slug}`)
+export function guideHref(slug: string) {
+  return `/vodici/${slug}/`
+}
+
+export const guideRoutes = guides.map((guide) => guideHref(guide.slug))
 
 export function findGuide(slug: string | undefined) {
   return guides.find((guide) => guide.slug === slug)

@@ -8,6 +8,7 @@ export function StickyMobileCta() {
         target="_blank"
         rel="noopener noreferrer"
         className="cta-primary flex h-11 items-center justify-center rounded-full px-4 text-sm font-semibold"
+        data-cta="sticky-mobile-booking"
       >
         Uvodni razgovor · 15 min · bez naknade
       </a>

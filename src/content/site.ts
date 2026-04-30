@@ -23,6 +23,20 @@ export const homeSeo = {
   canonical: `${SITE_URL}/`,
 }
 
+export const guidesIndexSeo = {
+  title: "Vodiči za praktične Bitcoin odluke | Bitcoin Savjetovanje",
+  description:
+    "Kratki hrvatski vodiči o budžetu, dugu, neto imovini, skrbništvu, obiteljskom pristupu i pravilima odlučivanja na Bitcoin standardu.",
+  canonical: `${SITE_URL}/vodici/`,
+}
+
+export const securitySeo = {
+  title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
+  description:
+    "Kako radim s temama Bitcoina, skrbništva i povjerljivosti: bez seed phrasea, bez privatnih ključeva, bez pristupa računima i bez custodyja.",
+  canonical: `${SITE_URL}/sigurnost/`,
+}
+
 export const heroOutcomes = [
   "jasnu financijsku sliku",
   "ciljani raspon izloženosti Bitcoinu",

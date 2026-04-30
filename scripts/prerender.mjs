@@ -83,7 +83,8 @@ function outputPath(routePath) {
     return path.join(distDir, "index.html")
   }
 
-  return path.join(distDir, routePath, "index.html")
+  const cleanPath = routePath.replace(/^\/+|\/+$/g, "")
+  return path.join(distDir, cleanPath, "index.html")
 }
 
 function xmlEscape(value) {

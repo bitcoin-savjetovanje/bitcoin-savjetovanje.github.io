@@ -80,7 +80,12 @@ export function Header() {
             size="lg"
             className="cta-primary hidden rounded-full px-5 xl:inline-flex"
           >
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="header-booking"
+            >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}
             </a>
@@ -125,6 +130,7 @@ export function Header() {
             rel="noopener noreferrer"
             className="rounded-lg border border-border/70 bg-card px-4 py-3 text-sm font-semibold"
             onClick={() => setMobileMenuOpen(false)}
+            data-cta="mobile-menu-booking"
           >
             {PRIMARY_CTA}
           </a>

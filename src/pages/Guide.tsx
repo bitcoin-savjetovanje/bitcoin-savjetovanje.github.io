@@ -1,11 +1,14 @@
 import { Seo } from "@/components/Seo"
 import { GuidePage } from "@/components/guides/GuidePage"
-import { findGuide } from "@/content/guides"
+import { findGuide, guideHref } from "@/content/guides"
 import { findGuideRouteMeta } from "@/content/routes"
 import { SITE_URL } from "@/content/site"
 
 export function Guide({ slug }: { slug?: string }) {
   const guide = findGuide(slug)
+  const missingCanonical = slug
+    ? `${SITE_URL}/vodici/${slug}/`
+    : `${SITE_URL}/vodici/`
 
   if (!guide) {
     return (
@@ -13,7 +16,7 @@ export function Guide({ slug }: { slug?: string }) {
         <Seo
           title="Vodič nije pronađen | Bitcoin Savjetovanje"
           description="Traženi vodič nije pronađen."
-          canonical={`${SITE_URL}/vodici/${slug ?? ""}`}
+          canonical={missingCanonical}
         />
         <div className="case-panel max-w-3xl">
           <h1 className="font-display text-4xl font-semibold">
@@ -33,7 +36,7 @@ export function Guide({ slug }: { slug?: string }) {
     )
   }
 
-  const canonical = `${SITE_URL}/vodici/${guide.slug}`
+  const canonical = `${SITE_URL}${guideHref(guide.slug)}`
   const route = findGuideRouteMeta(guide.slug)
 
   return (

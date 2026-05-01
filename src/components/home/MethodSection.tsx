@@ -9,8 +9,8 @@ export function MethodSection() {
   return (
     <section id="metoda" className="section-shell">
       <SectionHeader
-        title="Metoda iza savjetovanja: Practical Bitcoin Standard"
-        copy="Ne prolazimo teoriju Bitcoina. Uzimamo praktičan okvir i primjenjujemo ga na vašu stvarnu situaciju: budžet, dug, neto imovinu, sigurnost i pravila odlučivanja."
+        title="Metoda iza savjetovanja: Praktični Bitcoin standard"
+        copy="Ne prolazimo teoriju Bitcoina. Uzimamo praktičan okvir i primjenjujemo ga na vašu stvarnu situaciju: osobni proračun, dug, kupovnu moć, neto imovinu, sigurnost i pravila odlučivanja."
         align="center"
       />
       <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -26,16 +26,16 @@ export function MethodSection() {
       </div>
       <div className="program-summary space-y-4">
         <p>
-          Practical Bitcoin Standard je maksimalistički okvir za one koji žele
-          ići prema punijem Bitcoin standardu. Savjetovanje ne znači da svaka
-          osoba mora završiti na istoj razini izloženosti. Cilj je razumjeti
-          gdje ste sada, koliko daleko želite ići, te koja pravila imaju smisla
-          za vaš budžet, dug, obitelj, sigurnost i neto imovinu.
+          Praktični Bitcoin standard okvir je za one koji žele ići prema punijem
+          Bitcoin standardu. Savjetovanje ne znači da svaka osoba mora završiti
+          na istoj ulozi Bitcoina u neto imovini. Cilj je razumjeti gdje ste
+          sada, koliko daleko želite ići te koja pravila imaju smisla za vaš
+          osobni proračun, dug, obitelj, sigurnost, kupovnu moć i neto imovinu.
         </p>
         <p className="text-sm leading-7 font-medium">
           Priručnik je otvoren projekt u razvoju. Savjetovanje se ne oslanja na
-          kratkoročna predviđanja cijene, nego na budžet, neto imovinu,
-          sigurnost i pravila odlučivanja.
+          kratkoročna predviđanja cijene, nego na osobni proračun, dug, kupovnu
+          moć, neto imovinu, sigurnost i pravila odlučivanja.
         </p>
         <Button
           asChild
@@ -48,7 +48,7 @@ export function MethodSection() {
             rel="noopener noreferrer"
             data-link="practical-bitcoin-standard"
           >
-            Pročitajte Practical Bitcoin Standard
+            Pročitajte Praktični Bitcoin standard
             <ArrowUpRight className="size-4" />
           </a>
         </Button>

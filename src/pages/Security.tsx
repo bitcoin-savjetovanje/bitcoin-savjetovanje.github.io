@@ -88,8 +88,8 @@ export function Security() {
             <p className="mt-5 text-base leading-8 text-muted-foreground">
               Razgovori su povjerljivi. Ne objavljujem osobne podatke,
               financijsku situaciju ni pojedinosti razgovora. Za rad nije
-              potrebno dijeliti seed phrase, privatne ključeve, lozinke ili
-              pristup računima.
+              potrebno dijeliti početne riječi za oporavak, privatne ključeve,
+              lozinke ili pristup računima.
             </p>
           </section>
         </div>

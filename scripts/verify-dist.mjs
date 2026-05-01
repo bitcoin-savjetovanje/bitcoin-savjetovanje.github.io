@@ -120,8 +120,16 @@ const homeHtml = readFile("index.html")
 assertIncludes(
   "index.html",
   homeHtml,
-  "Bitcoin plan za ljude koji već imaju kapital",
+  "Praktični Bitcoin okvir",
   "homepage hero text"
+)
+assertIncludes("index.html", homeHtml, "osobni proračun", "personal budget copy")
+assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Praktični Bitcoin standard",
+  "Praktični Bitcoin standard copy"
 )
 assertIncludes(
   "index.html",
@@ -276,7 +284,18 @@ assertIncludes(
   "security title"
 )
 assertIncludes("sigurnost/index.html", securityHtml, "Nikada ne tražim", "never ask section")
-assertIncludes("sigurnost/index.html", securityHtml, "seed phrase", "seed phrase copy")
+assertIncludes(
+  "sigurnost/index.html",
+  securityHtml,
+  "početne riječi za oporavak",
+  "recovery words copy"
+)
+assertIncludes(
+  "sigurnost/index.html",
+  securityHtml,
+  "privatne ključeve",
+  "private keys copy"
+)
 assertIncludes(
   "sigurnost/index.html",
   securityHtml,

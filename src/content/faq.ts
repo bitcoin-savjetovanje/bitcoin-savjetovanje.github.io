@@ -12,26 +12,27 @@ export const faqs = [
   {
     question: "Hoćete li mi reći koliko Bitcoina trebam kupiti?",
     answer:
-      "Ne kao univerzalnu naredbu. Cilj je izgraditi okvir kroz koji možete donijeti vlastitu odluku u skladu s vašim budžetom, dugom, neto imovinom, vremenskim okvirom i odnosom prema riziku.",
+      "Ne kao univerzalnu naredbu. Cilj je izgraditi okvir kroz koji možete donijeti vlastitu odluku u skladu s vašim osobnim proračunom, dugom, kupovnom moći, neto imovinom, vremenskim okvirom i odnosom prema riziku.",
   },
   {
-    question: "Je li ovo samo za ljude koji žele biti all-in u Bitcoinu?",
+    question:
+      "Je li ovo samo za ljude koji žele živjeti na punom Bitcoin standardu?",
     answer:
-      "Ne. Practical Bitcoin Standard je snažan okvir, ali savjetovanje se primjenjuje na vašu situaciju. Za nekoga je sljedeći korak veća izloženost, za nekoga prvo razduživanje, za nekoga jasnija sigurnosna procedura, a za nekoga pravilo kada ne dirati ništa.",
+      "Ne. Praktični Bitcoin standard snažan je okvir, ali savjetovanje se primjenjuje na vašu situaciju. Za nekoga je sljedeći korak jasnija uloga Bitcoina u neto imovini, za nekoga prvo razduživanje, za nekoga sigurnosna procedura, a za nekoga pravilo kada ne dirati ništa.",
   },
   {
-    question: "Radite li s drugim digitalnim imovinama?",
+    question: "Radite li s drugom kriptoimovinom?",
     answer: "Ne. Fokus je isključivo na Bitcoinu.",
   },
   {
     question: "Što ako već kupujem Bitcoin kad imam viška?",
     answer:
-      "Tada krećemo od pitanja što je stvarni višak. Gledamo budžet, obveze, sigurnosnu rezervu, dugove i neto imovinu kako biste znali kada višak stvarno postoji i kako ga rasporediti.",
+      "Tada krećemo od pitanja što je stvarni višak. Gledamo osobni proračun, obveze, sigurnosnu zalihu, dugove i neto imovinu kako biste znali kada višak stvarno postoji i kako ga rasporediti.",
   },
   {
     question: "Kako izgleda rezultat programa?",
     answer:
-      "Rezultat je praktičan sustav za odluke: jasnija financijska slika, ciljani raspon izloženosti Bitcoinu, pravila akumulacije i trošenja, sigurnosni model i osobni dokument koji možete koristiti kroz vrijeme.",
+      "Rezultat je praktičan sustav za odluke: jasniji osobni proračun, dug i budući odljevi, uloga Bitcoina u neto imovini, pravila kupnje, čekanja, trošenja i usklađivanja kupovne moći, sigurnosni model i osobni dokument koji možete koristiti kroz vrijeme.",
   },
   {
     question: "Je li razgovor povjerljiv?",
@@ -44,8 +45,8 @@ export const faqs = [
       "Uvodni razgovor je bez naknade. Plaćeni savjetodavni razgovor je 200 €. Strukturirani program je 1.500 €.",
   },
   {
-    question: "Što je Practical Bitcoin Standard?",
+    question: "Što je Praktični Bitcoin standard?",
     answer:
-      "Practical Bitcoin Standard je otvoreni priručnik koji razvijam kao praktičan okvir za korištenje Bitcoina kao novca u stvarnom životu. Obuhvaća budžet, dug, davanje, neto imovinu, potrošnju, kapital i odluke kroz promjene cijene i vremena.",
+      "Praktični Bitcoin standard otvoreni je priručnik koji razvijam kao praktičan okvir za korištenje Bitcoina kao novca u stvarnom životu. Obuhvaća osobni proračun, dug, darivanje, neto imovinu, potrošnju, kapital i odluke kroz promjene kupovne moći.",
   },
 ]

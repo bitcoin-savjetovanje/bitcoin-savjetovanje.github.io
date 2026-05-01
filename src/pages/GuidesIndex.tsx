@@ -26,8 +26,8 @@ export function GuidesIndex() {
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
             Kraći tekstovi koji prevode glavne ideje Praktičnog Bitcoin
-            standarda u konkretne odluke: osobni proračun, dug, neto imovina,
-            skrbništvo, obiteljski pristup i pravila kroz vrijeme.
+            standarda u konkretne odluke: osobni proračun, dug, kupovnu moć,
+            neto imovinu, skrbništvo, obiteljski pristup i pravila kroz vrijeme.
           </p>
         </header>
 
@@ -39,8 +39,8 @@ export function GuidesIndex() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
             Vodiči pomažu razjasniti pojmove, ali osobni okvir nastaje tek kada
-            se primijeni na vaš osobni proračun, dug, neto imovinu i sigurnosni
-            model.
+            se primijeni na vaš osobni proračun, dug, kupovnu moć, neto imovinu
+            i sigurnosni model.
           </p>
           <Button asChild className="cta-primary mt-6 rounded-full">
             <a

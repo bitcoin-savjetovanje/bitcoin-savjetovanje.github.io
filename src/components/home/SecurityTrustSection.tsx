@@ -9,7 +9,7 @@ export function SecurityTrustSection() {
       <div className="case-panel border-primary/25">
         <SectionHeader
           title="Sigurnosno pravilo rada"
-          copy="Nikada ne tražim seed phrase, privatne ključeve, lozinke, pristup burzi ili pristup novčaniku. Ne primam Bitcoin na čuvanje. Ne kupujem ni prodajem umjesto vas. Cilj je da vi razumijete i kontrolirate vlastiti sustav."
+          copy="Nikada ne tražim početne riječi za oporavak, privatne ključeve, lozinke, pristup burzi ili pristup novčaniku. Ne primam Bitcoin na čuvanje. Ne kupujem ni prodajem umjesto vas. Cilj je da vi razumijete i kontrolirate vlastiti sustav."
         />
         <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
           {securityRules.map((rule) => (

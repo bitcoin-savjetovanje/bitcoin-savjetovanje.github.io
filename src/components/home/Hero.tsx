@@ -5,9 +5,9 @@ import { BOOKING_URL, EMAIL, PRIMARY_CTA, heroOutcomes } from "@/content/site"
 
 function PlanVisual() {
   const rows = [
-    "budžet, dug i stvarni višak",
+    "osobni proračun, dug i stvarni višak",
     "Bitcoin u neto imovini",
-    "pravila kupnje i čekanja",
+    "pravila kupnje, čekanja i trošenja",
     "skrbništvo i obiteljski pristup",
   ]
 
@@ -16,9 +16,12 @@ function PlanVisual() {
       <div className="plan-visual__card">
         <div className="plan-visual__header">
           <div>
-            <p className="plan-visual__eyebrow">Practical Bitcoin Standard</p>
+            <p className="plan-visual__eyebrow">Praktični Bitcoin standard</p>
             <h2>Okvir za odluke</h2>
-            <p>Praktičan plan za Bitcoin unutar stvarne financijske slike.</p>
+            <p>
+              Praktičan okvir za Bitcoin unutar osobnog proračuna, duga i neto
+              imovine.
+            </p>
           </div>
           <div className="plan-visual__bitcoin-mark">
             <img src="/bitcoin-logo.png" alt="" />
@@ -43,18 +46,19 @@ export function Hero() {
       <div className="hero-shell">
         <div className="hero-copy">
           <h1 className="hero-title">
-            Bitcoin plan za ljude koji već imaju kapital, ali nemaju jasna
-            pravila.
+            Praktični Bitcoin okvir za ljude koji imaju Bitcoin, imovinu ili
+            prihod, ali nemaju pisana pravila.
           </h1>
           <p className="hero-subtitle">
-            Ako imate Bitcoin, likvidnu imovinu ili ozbiljno razmišljate o većoj
-            izloženosti, pomažem vam posložiti budžet, dug, neto imovinu,
-            skrbništvo i pravila za odluke kroz vrijeme.
+            Pomažem vam povezati osobni proračun, dug, neto imovinu, Bitcoin kao
+            novac, skrbništvo i obiteljski pristup u jasan sustav odluka kroz
+            vrijeme.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Ovo nije savjetovanje o trgovanju, kratkoročnim prognozama cijene
-            ili drugim digitalnim imovinama. Fokus je na tome kako Bitcoin
-            uklopiti u stvarnu financijsku sliku i donositi mirnije odluke.
+            Ovo nije savjetovanje o trgovanju ni kratkoročnim prognozama cijene.
+            Fokus je na tome kako Bitcoin uklopiti u stvarni život: osobni
+            proračun, buduće odljeve, kupovnu moć, dug, sigurnost i neto
+            imovinu.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">

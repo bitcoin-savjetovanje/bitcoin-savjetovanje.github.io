@@ -88,7 +88,7 @@ export function AboutSection() {
               oportunitetni trošak i život s Bitcoinom kao primarnim novcem.
             </p>
             <p>
-              Na temelju dosadašnjeg iskustva trenutno radim i na open source
+              Na temelju dosadašnjeg iskustva trenutno radim i na otvorenom
               priručniku{" "}
               <a
                 href={PRACTICAL_BITCOIN_STANDARD_URL}
@@ -96,14 +96,15 @@ export function AboutSection() {
                 rel="noopener noreferrer"
                 data-link="practical-bitcoin-standard"
               >
-                Practical Bitcoin Standard
+                Praktični Bitcoin standard
               </a>
               .
             </p>
             <p>
               Danas moj rad nije samo objašnjavanje Bitcoina, nego primjena
-              Bitcoin standarda na stvarne financijske odluke: budžet, dug,
-              potrošnju, kapital, sigurnost i dugoročni smjer.
+              Bitcoin standarda na stvarne odluke: osobni proračun, dug, kupovnu
+              moć, neto imovinu, potrošnju, kapital, sigurnost i dugoročni
+              smjer.
             </p>
           </div>
         </div>

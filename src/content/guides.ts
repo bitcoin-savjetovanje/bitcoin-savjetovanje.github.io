@@ -116,7 +116,7 @@ export const guides: Guide[] = [
         body: [
           "Ljudi često traže jednu točnu brojku: koliki dio neto imovine treba biti u Bitcoinu. Takav odgovor zvuči uredno, ali može biti pogrešan. Osoba bez duga, s velikom novčanom zalihom i stabilnim prihodom nema istu polaznu točku kao osoba s obiteljskim obvezama, neizvjesnim poslom i kratkoročnim dugom.",
           "Zato je korisnije razmišljati o ciljanom rasponu nego o jednoj krutoj brojci. Raspon dopušta da život ima svoje promjene, ali i dalje daje granice. Ako Bitcoin padne ispod raspona, možda se otvara prostor za kupnju. Ako naraste daleko iznad njega, možda ne treba odmah reagirati, ali treba znati što se tada preispituje: sigurnost, obitelj, dug, potrošnja ili pravila držanja.",
-          "Raspon treba biti povezan s vašom sposobnošću da izdržite promjene. Ako vas veći udio Bitcoina čini nemirnima i tjera na stalno gledanje cijene, možda raspon nije usklađen s vašim životom. Ako je udio malen, a stvarni višak postoji, možda odluka traži jasnije pravilo akumulacije.",
+          "Raspon treba biti povezan s vašom sposobnošću da izdržite promjene. Ako vas veći udio Bitcoina čini nemirnima i tjera na stalno gledanje cijene, možda raspon nije usklađen s vašim životom. Ako je udio malen, a stvarni višak postoji, možda odluka traži jasnije pravilo redovite kupnje.",
         ],
       },
       {
@@ -140,7 +140,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "dug-ili-bitcoin",
-    title: "Kada prvo riješiti dug, a kada akumulirati Bitcoin?",
+    title: "Kada prvo riješiti dug, a kada kupovati Bitcoin?",
     metaDescription:
       "Vodič o dugu kao budućem odljevu koji utječe na slobodu držanja Bitcoina, osobni proračun, novčanu zalihu i odluke kroz vrijeme bez moraliziranja.",
     excerpt:
@@ -174,7 +174,7 @@ export const guides: Guide[] = [
       {
         heading: "Rastuće tržište može prikriti slabosti duga",
         body: [
-          "U rastućem tržištu dug se često čini manje opasnim. Vrijednost Bitcoina raste, raspoloženje je bolje, a odluke koje su rizične izgledaju pametno. Problem je što rast može sakriti slabu strukturu. Osoba može povećavati izloženost, a da pritom ne vidi kako se gomilaju obveze, kratki rokovi ili manjak novčane zalihe.",
+          "U rastućem tržištu dug se često čini manje opasnim. Vrijednost Bitcoina raste, raspoloženje je bolje, a odluke koje su rizične izgledaju pametno. Problem je što rast može sakriti slabu strukturu. Osoba može povećavati ulogu Bitcoina u neto imovini, a da pritom ne vidi kako se gomilaju obveze, kratki rokovi ili manjak novčane zalihe.",
           "Tada uspjeh ne dolazi nužno iz dobrog okvira, nego iz povoljnog okruženja. Ako se okruženje promijeni, ostaje pitanje: biste li istu odluku mogli izdržati bez rasta cijene? Ako je odgovor ne, dug možda upravlja vašom Bitcoin odlukom više nego što se čini.",
           "Rastuće tržište zato nije dovoljno dobra provjera. Ono može nagraditi i loše navike. Bolja provjera je pitanje biste li isti dug, isti iznos kupnje i isti proračun prihvatili kada cijena ne bi rasla mjesecima. Ako odgovor postane neugodan, vrijeme je za oprezniji redoslijed.",
         ],
@@ -318,7 +318,7 @@ export const guides: Guide[] = [
       {
         heading: "Što raditi kad kupovna moć raste",
         body: [
-          "Rast kupovne moći često je opasniji nego što se čini. Pad stvara strah, ali rast može stvoriti osjećaj da je sve dopušteno. Osoba može početi trošiti bez jasnog pravila, povećati životni stil, zadužiti se jer se osjeća bogatije ili dodatno povećavati izloženost Bitcoinu bez osobnog proračuna.",
+          "Rast kupovne moći često je opasniji nego što se čini. Pad stvara strah, ali rast može stvoriti osjećaj da je sve dopušteno. Osoba može početi trošiti bez jasnog pravila, povećati životni stil, zadužiti se jer se osjeća bogatije ili dodatno povećavati ulogu Bitcoina u neto imovini bez osobnog proračuna.",
           "U Praktičnom Bitcoin standardu rast kupovne moći nije poziv na impulzivnost. On je prilika da se budući odljevi bolje planiraju.",
           "Ako znate svoje prosječne mjesečne troškove, rast kupovne moći može vam pokazati koliko budućih mjeseci možete pokriti. Tada se višak ne mora odmah pretvoriti u veću potrošnju. Može se rasporediti u kategorije koje smanjuju budući pritisak.",
           "Dio budućih troškova možda se može platiti unaprijed. Neke potrepštine možda se mogu kupiti kada je kupovna moć veća. Dugoročni troškovi stanovanja, prijevoza, opreme, zdravlja ili poslovanja mogu se planirati mirnije ako imate podatke iz osobnog proračuna.",
@@ -343,7 +343,7 @@ export const guides: Guide[] = [
           "Prvo zapišite koje kategorije osobnog proračuna ovise o kupovnoj moći Bitcoina. To mogu biti kratkoročni troškovi, sigurnosna rezerva, davanje, budući veći izdaci ili dio neto imovine koji promatrate kao novčanu zalihu.",
           "Drugo, zapišite prag za provjeru. Ne morate ništa mijenjati zbog svake male promjene. Ali možete odlučiti da ćete osobni proračun pregledati kada se kupovna moć promijeni za 10 %, 20 % ili neki drugi prag koji odgovara vašoj situaciji.",
           "Treće, zapišite redoslijed postupanja. Kod pada: pregled odljeva, pregled priljeva, provjera duga, provjera sigurnosne rezerve. Kod rasta: raspored viška, planiranje budućih odljeva, provjera neto imovine i provjera je li potrošnja i dalje u skladu s vašim vrijednostima.",
-          "Četvrto, zapišite što nećete raditi. Nećete donositi odluku samo zato što vas je cijena uplašila. Nećete povećati potrošnju samo zato što se osjećate bogatije. Nećete koristiti dug kako biste pojačali izloženost Bitcoinu. Nećete dirati sigurnosni ili skrbnički sustav bez posebnog pravila.",
+          "Četvrto, zapišite što nećete raditi. Nećete donositi odluku samo zato što vas je cijena uplašila. Nećete povećati potrošnju samo zato što se osjećate bogatije. Nećete koristiti dug kako biste povećali ulogu Bitcoina u neto imovini. Nećete dirati sigurnosni ili skrbnički sustav bez posebnog pravila.",
           "Tek kada je to zapisano, promjena kupovne moći postaje upravljiv dio osobnog sustava, a ne stalni izvor napetosti.",
         ],
       },

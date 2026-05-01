@@ -1,7 +1,9 @@
 # Bitcoin Savjetovanje
 
-Website for Bitcoin Savjetovanje, built with Vite, React, TypeScript,
-SSR/prerender and GitHub Pages.
+Stranica za Bitcoin Savjetovanje, izgrađena s Viteom, Reactom, TypeScriptom,
+SSR/prerenderom i GitHub Pagesom. Sadržaj je organiziran oko Praktičnog Bitcoin
+standarda: osobni proračun, dug, kupovna moć, neto imovina, skrbništvo i
+početne riječi za oporavak.
 
 ## Development
 
@@ -24,7 +26,7 @@ npm run verify:dist
 
 ## Content map
 
-Homepage content:
+Sadržaj početne stranice:
 
 - `src/content/site.ts`
 - `src/content/method.ts`
@@ -55,7 +57,8 @@ Prerender:
 
 ## URL conventions
 
-- Homepage canonical uses a trailing slash: `https://bitcoin-savjetovanje.com/`.
+- Canonical početne stranice koristi završnu kosu crtu:
+  `https://bitcoin-savjetovanje.com/`.
 - Guide index, guide pages and static pages use trailing slash canonicals.
 - Sitemap URLs must match canonical URLs.
 - Internal guide links should use trailing slash, for example

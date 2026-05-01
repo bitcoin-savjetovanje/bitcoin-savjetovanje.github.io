@@ -8,7 +8,7 @@ export function FinalCta() {
     <section id="kontakt" className="section-shell">
       <div className="final-cta">
         <div>
-          <h2>Imate Bitcoin ili kapital, ali nemate jasna pravila?</h2>
+          <h2>Imate Bitcoin, imovinu ili prihod, ali nemate pisana pravila?</h2>
           <p>
             Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
             vidjeti gdje ste, što pokušavate odlučiti i ima li smisla nastaviti.

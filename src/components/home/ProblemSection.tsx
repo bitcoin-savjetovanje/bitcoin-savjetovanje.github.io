@@ -9,7 +9,7 @@ export function ProblemSection() {
       <div className="case-panel">
         <SectionHeader
           title="Problem najčešće nije manjak informacija, nego manjak osobnog okvira."
-          copy="Već znate da je Bitcoin važan. Ali i dalje ostaju pitanja koja ne rješava još jedan podcast, thread ili graf cijene."
+          copy="Već znate da je Bitcoin važan. Ali i dalje ostaju pitanja koja ne rješava još jedan podcast, objava ili graf cijene."
         />
         <div className="mt-8 grid gap-3 md:grid-cols-2">
           {problemQuestions.map((question) => (

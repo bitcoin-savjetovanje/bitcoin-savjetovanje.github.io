@@ -17,30 +17,30 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/pavaopahljina/"
 
 export const homeSeo = {
   title:
-    "Bitcoin Savjetovanje | Bitcoin plan za kapital, neto imovinu i pravila odluka",
+    "Bitcoin Savjetovanje | Praktični Bitcoin okvir za osobni proračun i neto imovinu",
   description:
-    "Bitcoin savjetovanje za ljude koji imaju kapital ili Bitcoin, ali nemaju jasna pravila za budžet, dug, neto imovinu, skrbništvo i odluke kroz vrijeme.",
+    "Bitcoin savjetovanje za ljude koji imaju Bitcoin, imovinu ili prihod, ali nemaju pisana pravila za osobni proračun, dug, kupovnu moć, neto imovinu i sigurnost.",
   canonical: `${SITE_URL}/`,
 }
 
 export const guidesIndexSeo = {
   title: "Vodiči za praktične Bitcoin odluke | Bitcoin Savjetovanje",
   description:
-    "Kratki hrvatski vodiči o osobnom proračunu, dugu, neto imovini, skrbništvu, obiteljskom pristupu i pravilima odlučivanja na Bitcoin standardu.",
+    "Kratki hrvatski vodiči o osobnom proračunu, dugu, kupovnoj moći, neto imovini, skrbništvu, obiteljskom pristupu i pravilima odlučivanja na Bitcoin standardu.",
   canonical: `${SITE_URL}/vodici/`,
 }
 
 export const securitySeo = {
   title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
   description:
-    "Kako radim s temama Bitcoina, skrbništva i povjerljivosti: bez seed phrasea, bez privatnih ključeva, bez pristupa računima i bez custodyja.",
+    "Kako radim s temama Bitcoina, skrbništva i povjerljivosti: bez početnih riječi za oporavak, bez privatnih ključeva, bez pristupa računima i bez čuvanja sredstava.",
   canonical: `${SITE_URL}/sigurnost/`,
 }
 
 export const heroOutcomes = [
-  "jasnu financijsku sliku",
-  "ciljani raspon izloženosti Bitcoinu",
-  "pisana pravila za kupnju, čekanje, trošenje i preispitivanje plana",
+  "jasnu sliku osobnog proračuna, duga i neto imovine",
+  "definiranu ulogu Bitcoina kao novca u vašem sustavu",
+  "pisana pravila za kupnju, čekanje, trošenje i usklađivanje kupovne moći",
 ]
 
 export const trustCards = [
@@ -54,7 +54,7 @@ export const trustCards = [
   },
   {
     title: "6+ godina profesionalnog rada",
-    copy: "Autor Practical Bitcoin Standarda i graditelj DvadesetJedan zajednice.",
+    copy: "Autor Praktičnog Bitcoin standarda i graditelj DvadesetJedan zajednice.",
   },
 ]
 

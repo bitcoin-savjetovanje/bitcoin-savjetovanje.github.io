@@ -1,9 +1,9 @@
 export const problemQuestions = [
-  "Što je za mene stvarni višak?",
-  "Koji budući odljevi već imaju pravo na današnji novac?",
+  "Koliko Bitcoina mogu imati s obzirom na sveukupnu situaciju?",
+  "Što radim ako Bitcoin naraste?",
   "Trebam li prvo riješiti dug?",
-  "Kada kupnja ima temelj u stvarnom višku, a kada je čekanje zrelija odluka?",
-  "Što se mijenja u osobnom proračunu ako kupovna moć Bitcoina padne?",
+  "Što radim ako Bitcoin padne?",
+  "Što mogu očekivati od Bitcoina u budućnosti?",
   "Kako obitelj može pristupiti Bitcoinu ako mi se nešto dogodi?",
 ]
 

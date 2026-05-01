@@ -5,10 +5,9 @@ import { BOOKING_URL, EMAIL, PRIMARY_CTA, heroOutcomes } from "@/content/site"
 
 function PlanVisual() {
   const rows = [
-    "osobni proračun, dug i stvarni višak",
-    "Bitcoin u neto imovini",
-    "pravila kupnje, čekanja i trošenja",
-    "skrbništvo i obiteljski pristup",
+    "Uspostava i provedba proračuna nulte razine.",
+    "Strategija upravljanja dugovanjem.",
+    "Organizacija Bitcoina unutar sveukupne imovine.",
   ]
 
   return (
@@ -18,10 +17,7 @@ function PlanVisual() {
           <div>
             <p className="plan-visual__eyebrow">Praktični Bitcoin standard</p>
             <h2>Okvir za odluke</h2>
-            <p>
-              Praktičan okvir za Bitcoin unutar osobnog proračuna, duga i neto
-              imovine.
-            </p>
+            <p>Okvir za Bitcoin unutar cjelokupne imovine.</p>
           </div>
           <div className="plan-visual__bitcoin-mark">
             <img src="/bitcoin-logo.png" alt="" />
@@ -50,10 +46,9 @@ export function Hero() {
             Pomažem vam povezati Bitcoin s ostalom imovinom u jasan sustav.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Ovo nije savjetovanje o trgovanju ni kratkoročnim prognozama cijene.
-            Fokus je na tome kako Bitcoin uklopiti u stvarni život: osobni
-            proračun, buduće odljeve, kupovnu moć, dug, sigurnost i neto
-            imovinu.
+            Ne radi se o savjetovanju o trgovanju ili kratkoročnim prognozama
+            cijene Bitcoina, nego o tome kako Bitcoin tretirati kao primarni
+            novac unutar sveukupne neto imovine.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">

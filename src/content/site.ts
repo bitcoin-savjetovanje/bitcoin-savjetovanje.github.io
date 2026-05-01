@@ -38,9 +38,9 @@ export const securitySeo = {
 }
 
 export const heroOutcomes = [
-  "jasnu sliku osobnog proračuna, duga i neto imovine",
-  "definiranu ulogu Bitcoina kao novca u vašem sustavu",
-  "pisana pravila za kupnju, čekanje, trošenje i usklađivanje kupovne moći",
+  "Jasni proračun.",
+  "Definiranu ulogu Bitcoina kao novca.",
+  "Pravila za odluke u vezi s Bitcoinom kroz vrijeme.",
 ]
 
 export const trustCards = [
@@ -50,11 +50,11 @@ export const trustCards = [
   },
   {
     title: "Bitcoin standard od 2020.",
-    copy: "Praksa primanja, držanja i trošenja Bitcoina kroz vrijeme.",
+    copy: "Praksa korištenja Bitcoina kao primarnog novca.",
   },
   {
-    title: "6+ godina profesionalnog rada",
-    copy: "Autor Praktičnog Bitcoin standarda i graditelj DvadesetJedan zajednice.",
+    title: "6 godina rada u Bitcoin industriji.",
+    copy: "Direktan rad s autorom svjetskog bestselera The Bitcoin Standard.",
   },
 ]
 

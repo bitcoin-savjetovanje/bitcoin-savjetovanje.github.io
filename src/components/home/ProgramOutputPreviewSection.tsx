@@ -9,7 +9,7 @@ export function ProgramOutputPreviewSection() {
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-start">
         <SectionHeader
           title="Kako izgleda rezultat programa?"
-          copy="Na kraju strukturiranog rada cilj nije još jedan popis informacija, nego osobni dokument koji možete koristiti kroz vrijeme."
+          copy="Dobivate jedan dokument: što imate, što dugujete, koju ulogu ima Bitcoin i koja pravila slijedite."
         />
         <div className="case-panel">
           <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
@@ -25,7 +25,7 @@ export function ProgramOutputPreviewSection() {
           </div>
           <p className="mt-6 text-sm leading-6 text-muted-foreground">
             Ovo nije primjer stvarnog klijenta i ne sadrži financijsku
-            preporuku. To je prikaz strukture dokumenta.
+            preporuku. To je samo prikaz strukture.
           </p>
         </div>
       </div>

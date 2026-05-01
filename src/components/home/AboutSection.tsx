@@ -17,7 +17,7 @@ import {
 export function AboutSection() {
   return (
     <section id="o-meni" className="section-shell section-muted">
-      <SectionHeader title="Zašto mogu pomoći?" />
+      <SectionHeader title="Zašto ja?" />
       <div className="credibility-grid">
         <aside className="profile-panel">
           <img src="/pavao-pahljina.jpg" alt="Pavao Pahljina" />
@@ -50,8 +50,7 @@ export function AboutSection() {
           <div className="credibility-copy">
             <p>
               U Bitcoinu sam od 2014. godine. Iza mene je više od 10.000 sati
-              studiranja Bitcoina, šest godina profesionalnog rada u Bitcoin
-              prostoru sa{" "}
+              proučavanja Bitcoina i šest godina profesionalnog rada sa{" "}
               <a
                 href={SAIFEDEAN_AMMOUS_URL}
                 target="_blank"
@@ -59,7 +58,7 @@ export function AboutSection() {
               >
                 Saifedeanom Ammousom
               </a>
-              , autorom bestseller knjige{" "}
+              , autorom knjige{" "}
               <a
                 href={BITCOIN_STANDARD_BOOK_URL}
                 target="_blank"
@@ -82,10 +81,9 @@ export function AboutSection() {
               .
             </p>
             <p>
-              Od 2020. živim na Bitcoin standardu: primam, držim i trošim
-              Bitcoin kroz različite tržišne uvjete. Ne savjetujem iz pozicije
-              teorije, nego iz prakse: kupnja, čuvanje, trošenje, rizik,
-              oportunitetni trošak i život s Bitcoinom kao primarnim novcem.
+              Od 2020. živim na Bitcoin standardu. Primam, držim i trošim
+              Bitcoin. Zato razgovor ne kreće od teorije, nego od stvarnog
+              života: novca, duga, sigurnosti, obitelji i odluka.
             </p>
             <p>
               Na temelju dosadašnjeg iskustva trenutno radim i na otvorenom
@@ -101,10 +99,9 @@ export function AboutSection() {
               .
             </p>
             <p>
-              Danas moj rad nije samo objašnjavanje Bitcoina, nego primjena
-              Bitcoin standarda na stvarne odluke: osobni proračun, dug, kupovnu
-              moć, neto imovinu, potrošnju, kapital, sigurnost i dugoročni
-              smjer.
+              Danas moj rad nije nagovaranje na Bitcoin. Moj posao je pomoći vam
+              da razumijete što Bitcoin znači za vašu imovinu i koja pravila
+              imaju smisla za vas.
             </p>
           </div>
         </div>

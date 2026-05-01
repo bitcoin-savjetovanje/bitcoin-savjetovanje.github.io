@@ -8,8 +8,8 @@ export function QualificationSection() {
     <section className="section-shell section-muted">
       <div className="grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-start">
         <SectionHeader
-          title="Prije uvodnog razgovora"
-          copy="Za bolji razgovor, razmislite o ovim pitanjima:"
+          title="Prije poziva"
+          copy="Ne trebate pripremiti savršene brojke. Dovoljno je znati ovo:"
         />
         <div className="grid gap-3">
           {qualificationQuestions.map((question) => (

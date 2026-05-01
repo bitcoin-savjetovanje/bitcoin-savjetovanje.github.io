@@ -8,8 +8,8 @@ export function ProblemSection() {
     <section className="section-shell">
       <div className="case-panel">
         <SectionHeader
-          title="Problem kod većine nije manjak informacija o Bitcoinu, nego nedostatak sustava upravljanja imovinom."
-          copy="Vjerojatno već znate da je Bitcoin važan, ali i dalje ostaju pitanja koja ne može riješiti još jedan podcast, graf cijene, pa čak ni knjiga."
+          title="Ne trebate još informacija. Trebate sustav."
+          copy="Ako imate Bitcoin, ali ne znate što napraviti kada cijena raste ili pada, problem nisu informacije. Problem su nezapisana pravila."
         />
         <div className="mt-8 grid gap-3 md:grid-cols-2">
           {problemQuestions.map((question) => (

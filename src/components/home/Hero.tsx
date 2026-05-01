@@ -5,9 +5,10 @@ import { BOOKING_URL, EMAIL, PRIMARY_CTA, heroOutcomes } from "@/content/site"
 
 function PlanVisual() {
   const rows = [
-    "Uspostava i provedba proračuna nulte razine.",
-    "Strategija upravljanja dugovanjem.",
-    "Organizacija Bitcoina unutar sveukupne imovine.",
+    "jasan proračun",
+    "uređen dug",
+    "Bitcoin u imovini",
+    "sljedeći korak",
   ]
 
   return (
@@ -16,8 +17,8 @@ function PlanVisual() {
         <div className="plan-visual__header">
           <div>
             <p className="plan-visual__eyebrow">Praktični Bitcoin standard</p>
-            <h2>Okvir za odluke</h2>
-            <p>Okvir za Bitcoin unutar cjelokupne imovine.</p>
+            <h2>Jasan plan</h2>
+            <p>Bitcoin, imovina i odluke u jednom sustavu.</p>
           </div>
           <div className="plan-visual__bitcoin-mark">
             <img src="/bitcoin-logo.png" alt="" />
@@ -43,12 +44,12 @@ export function Hero() {
         <div className="hero-copy">
           <h1 className="hero-title">Imate Bitcoin. Sada trebate pravila.</h1>
           <p className="hero-subtitle">
-            Pomažem vam povezati Bitcoin s ostalom imovinom u jasan sustav.
+            Pomažem vam napraviti jasna pravila za Bitcoin i ostatak imovine.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Ne radi se o savjetovanju o trgovanju ili kratkoročnim prognozama
-            cijene Bitcoina, nego o tome kako Bitcoin tretirati kao primarni
-            novac unutar sveukupne neto imovine.
+            U 15 minuta vidimo gdje ste, što želite postići i koji je sljedeći
+            razuman korak. Bez prognoza cijene. Bez pritiska. Bez upravljanja
+            vašim novcem.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -80,7 +81,7 @@ export function Hero() {
             </Button>
           </div>
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            Bez naknade. Bez obveze. Cilj je vidjeti ima li smisla nastaviti.
+            Uvodni razgovor je bez naknade i bez obveze.
           </p>
           <div className="mt-6">
             <p className="text-sm font-semibold text-foreground">

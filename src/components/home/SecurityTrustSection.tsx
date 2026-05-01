@@ -8,8 +8,8 @@ export function SecurityTrustSection() {
     <section className="section-shell section-muted">
       <div className="case-panel border-primary/25">
         <SectionHeader
-          title="Sigurnosno pravilo rada"
-          copy="Nikada ne tražim početne riječi za oporavak, privatne ključeve, lozinke, pristup burzi ili pristup novčaniku. Ne primam Bitcoin na čuvanje. Ne kupujem ni prodajem umjesto vas. Cilj je da vi razumijete i kontrolirate vlastiti sustav."
+          title="Sigurnost je jednostavna: ključevi ostaju kod vas."
+          copy="Ne tražim početne riječi za oporavak, privatne ključeve, lozinke, pristup burzi ili pristup novčaniku. Ne primam Bitcoin na čuvanje. Ne kupujem ni prodajem umjesto vas."
         />
         <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
           {securityRules.map((rule) => (
@@ -23,7 +23,7 @@ export function SecurityTrustSection() {
           <div>
             <h3 className="text-xl font-semibold">Što nećemo raditi</h3>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Očekivanja držimo jasnima prije nego što razgovor uopće počne.
+              Granice su jasne prije prvog poziva.
             </p>
             <a
               href="/sigurnost/"

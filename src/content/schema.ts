@@ -55,7 +55,7 @@ export function homeSchema() {
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
         serviceType: "Bitcoin edukacija i savjetodavni okvir",
         description:
-          "Edukativan i savjetodavan okvir za Bitcoin odluke, osobni proračun, dug, kupovnu moć, neto imovinu, skrbništvo i sigurnost. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Savjetodavni rad za jasnija pravila o Bitcoinu, osobnom proračunu, dugu, imovini i sigurnosti. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },
       {
         "@type": "OfferCatalog",

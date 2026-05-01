@@ -8,10 +8,10 @@ export function FinalCta() {
     <section id="kontakt" className="section-shell">
       <div className="final-cta">
         <div>
-          <h2>Imate Bitcoin, imovinu ili prihod, ali nemate pisana pravila?</h2>
+          <h2>Ako želite jasna pravila, krenimo s 15 minuta.</h2>
           <p>
-            Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
-            vidjeti gdje ste, što pokušavate odlučiti i ima li smisla nastaviti.
+            Rezervirajte uvodni razgovor. Vidjet ćemo gdje ste, što želite
+            postići i mogu li vam pomoći.
           </p>
         </div>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">

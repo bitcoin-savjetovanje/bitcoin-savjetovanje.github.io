@@ -6,10 +6,7 @@ import { afterWorkItems, beforeWorkItems } from "@/content/method"
 export function ResultsSection() {
   return (
     <section className="section-shell section-muted">
-      <SectionHeader
-        title="Rezultat nije još više informacija. Rezultat su vaša pravila."
-        align="center"
-      />
+      <SectionHeader title="Na kraju imate pravila." align="center" />
       <div className="mt-12 grid gap-4 lg:grid-cols-2">
         <article className="comparison-card">
           <h3>Prije</h3>

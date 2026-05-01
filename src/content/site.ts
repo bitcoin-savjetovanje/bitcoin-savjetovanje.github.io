@@ -16,10 +16,9 @@ export const TWENTYONE_URL = "https://twentyone.world"
 export const LINKEDIN_URL = "https://www.linkedin.com/in/pavaopahljina/"
 
 export const homeSeo = {
-  title:
-    "Bitcoin Savjetovanje | Praktični Bitcoin okvir za osobni proračun i neto imovinu",
+  title: "Bitcoin Savjetovanje | Jasna pravila za Bitcoin i imovinu",
   description:
-    "Bitcoin savjetovanje za ljude koji imaju Bitcoin, imovinu ili prihod, ali nemaju pisana pravila za osobni proračun, dug, kupovnu moć, neto imovinu i sigurnost.",
+    "Imate Bitcoin ili imovinu, ali nemate jasan plan? Dogovorite uvodni razgovor i razjasnite proračun, dug, sigurnost i ulogu Bitcoina.",
   canonical: `${SITE_URL}/`,
 }
 
@@ -38,23 +37,23 @@ export const securitySeo = {
 }
 
 export const heroOutcomes = [
-  "Jasni proračun.",
-  "Definiranu ulogu Bitcoina kao novca.",
-  "Pravila za odluke u vezi s Bitcoinom kroz vrijeme.",
+  "Jasan proračun.",
+  "Jasna uloga Bitcoina.",
+  "Pravila za sljedeću odluku.",
 ]
 
 export const trustCards = [
   {
     title: "U Bitcoinu od 2014.",
-    copy: "Dugogodišnje iskustvo kroz različite tržišne i životne uvjete.",
+    copy: "Više ciklusa, isti fokus: Bitcoin kao novac.",
   },
   {
     title: "Bitcoin standard od 2020.",
     copy: "Praksa korištenja Bitcoina kao primarnog novca.",
   },
   {
-    title: "6 godina rada u Bitcoin industriji.",
-    copy: "Direktan rad s autorom svjetskog bestselera The Bitcoin Standard.",
+    title: "Rad s najboljima.",
+    copy: "Direktan rad sa Saifedeanom Ammousom, autorom The Bitcoin Standard.",
   },
 ]
 

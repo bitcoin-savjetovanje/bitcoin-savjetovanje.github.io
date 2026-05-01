@@ -7,7 +7,7 @@ import { BOOKING_URL } from "@/content/site"
 
 const offerCtaAttributes: Record<string, string> = {
   "Uvodni razgovor": "offers-intro",
-  "Plaćeni savjetodavni razgovor": "offers-paid-call",
+  "Savjetodavni razgovor": "offers-paid-call",
   "Strukturirani program": "offers-program",
 }
 
@@ -15,8 +15,8 @@ export function OffersSection() {
   return (
     <section id="program" className="section-shell">
       <SectionHeader
-        title="Program"
-        copy="Tri jasna načina rada. Svi kreću od uvodnog razgovora kako bismo vidjeli što pokušavate odlučiti i ima li smisla nastaviti."
+        title="Kako možemo raditi"
+        copy="Sve kreće od besplatnog 15-minutnog razgovora. Ako mogu pomoći, predložit ću sljedeći korak."
       />
       <div className="mt-10 grid gap-4 lg:grid-cols-3">
         {offers.map((offer) => (
@@ -58,9 +58,8 @@ export function OffersSection() {
         ))}
       </div>
       <p className="negative-note mt-6">
-        Ne upravljam vašim novcem, ne kupujem Bitcoin za vas, ne držim vaše
-        ključeve i ne dajem porezno, pravno ili licencirano investicijsko
-        mišljenje.
+        Ključevi i odluke ostaju kod vas. Ne upravljam novcem i ne dajem
+        porezno, pravno ni licencirano investicijsko mišljenje.
       </p>
     </section>
   )

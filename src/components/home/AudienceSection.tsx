@@ -9,7 +9,7 @@ export function AudienceSection() {
       <div className="grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-start">
         <SectionHeader
           title="Za koga je ovo"
-          copy="Za ljude koji Bitcoin žele povezati s osobnim proračunom, dugom, kupovnom moći, neto imovinom, obitelji i pravilima koja mogu stvarno koristiti."
+          copy="Za ljude koji imaju Bitcoin ili imovinu i žele znati što dalje."
         />
         <div className="grid gap-8">
           <div className="grid gap-3">

@@ -6,7 +6,7 @@ export function SituationsSection() {
     <section className="section-shell">
       <SectionHeader
         title="Primjeri situacija"
-        copy="Ovo nisu univerzalna pravila ni primjeri stvarnih klijenata. Ovo su tipične situacije u kojima osobni Bitcoin okvir može pomoći."
+        copy="Ovo nisu univerzalna pravila ni primjeri stvarnih klijenata. Ovo su situacije u kojima vrijedi razgovarati."
         align="center"
       />
       <div className="mt-12 grid gap-4 md:grid-cols-2">

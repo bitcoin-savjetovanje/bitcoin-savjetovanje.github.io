@@ -18,8 +18,7 @@ export function Footer() {
           <p className="mt-2 text-xs leading-6">
             Ovo nije investicijsko, porezno ni pravno savjetovanje. Ne upravljam
             vašim novcem, ne donosim odluke umjesto vas i ne držim vaše
-            ključeve. Rad je edukativan i savjetodavan u području osobnog okvira
-            odlučivanja o Bitcoinu.
+            ključeve. Pomažem vam postaviti jasnija pravila za Bitcoin.
           </p>
         </div>
         <div className="flex flex-wrap gap-4">

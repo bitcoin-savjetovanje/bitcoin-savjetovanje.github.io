@@ -8,6 +8,9 @@ export function BookingStepsSection() {
           <h2 className="font-display text-3xl leading-tight font-semibold text-foreground sm:text-4xl">
             Što se dogodi nakon što rezervirate termin?
           </h2>
+          <p className="mt-4 text-base leading-7 text-muted-foreground">
+            Prvi korak je kratak. Cilj je brzo vidjeti mogu li vam pomoći.
+          </p>
         </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-4">
           {bookingSteps.map((step, index) => (

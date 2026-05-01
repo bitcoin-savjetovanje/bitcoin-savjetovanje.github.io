@@ -9,8 +9,8 @@ export function MethodSection() {
   return (
     <section id="metoda" className="section-shell">
       <SectionHeader
-        title="Metoda iza savjetovanja: Praktični Bitcoin standard"
-        copy="Ne prolazimo teoriju Bitcoina. Uzimamo praktičan okvir i primjenjujemo ga na vašu stvarnu situaciju: osobni proračun, dug, kupovnu moć, neto imovinu, sigurnost i pravila odlučivanja."
+        title="Kako radimo"
+        copy="Uzimamo vašu stvarnu situaciju i pretvaramo je u pravila: proračun, dug, Bitcoin, sigurnost i sljedeći korak."
         align="center"
       />
       <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -26,16 +26,14 @@ export function MethodSection() {
       </div>
       <div className="program-summary space-y-4">
         <p>
-          Praktični Bitcoin standard okvir je za one koji žele ići prema punijem
-          Bitcoin standardu. Savjetovanje ne znači da svaka osoba mora završiti
-          na istoj ulozi Bitcoina u neto imovini. Cilj je razumjeti gdje ste
-          sada, koliko daleko želite ići te koja pravila imaju smisla za vaš
-          osobni proračun, dug, obitelj, sigurnost, kupovnu moć i neto imovinu.
+          Praktični Bitcoin standard je polazište. Vaša situacija je mjerilo.
+          Cilj nije savršena teorija, nego pravila koja možete koristiti kada
+          kupujete, čekate, trošite ili preispitujete Bitcoin.
         </p>
         <p className="text-sm leading-7 font-medium">
-          Priručnik je otvoren projekt u razvoju. Savjetovanje se ne oslanja na
-          kratkoročna predviđanja cijene, nego na osobni proračun, dug, kupovnu
-          moć, neto imovinu, sigurnost i pravila odlučivanja.
+          Ne oslanjamo se na prognoze cijene. Gledamo osobni proračun, dug,
+          kupovnu moć, neto imovinu, sigurnost i odluke koje morate donositi
+          kroz vrijeme.
         </p>
         <Button
           asChild

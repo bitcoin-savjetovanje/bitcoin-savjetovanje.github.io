@@ -42,7 +42,7 @@ export function Hero() {
     <section className="hero-section border-b border-border/70">
       <div className="hero-shell">
         <div className="hero-copy">
-          <h1 className="hero-title">Imate Bitcoin. Sada trebate pravila.</h1>
+          <h1 className="hero-title">Imate Bitcoin? Trebate plan.</h1>
           <p className="hero-subtitle">
             Pomažem vam napraviti jasna pravila za Bitcoin i ostatak imovine.
           </p>

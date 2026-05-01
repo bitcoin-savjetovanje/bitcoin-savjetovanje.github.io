@@ -32,10 +32,11 @@ export const offers: Offer[] = [
   {
     title: "Savjetodavni razgovor",
     price: "200 €",
-    duration: "60 minuta",
-    forWhom: "Za jedno konkretno pitanje.",
-    detail: "60 minuta.",
-    purpose: "Jedno pitanje. Jedan jasan okvir za odluku.",
+    duration: "60 do 90 minuta",
+    forWhom: "Za odluku koju želite razjasniti prije sljedećeg koraka.",
+    detail: "60 - 90 minuta, po potrebi.",
+    purpose:
+      "Prođemo situaciju, mogućnosti i granice odluke koju želite donijeti.",
     includes: [
       "dug ili Bitcoin",
       "prodati ili čekati",
@@ -50,7 +51,7 @@ export const offers: Offer[] = [
     price: "1.500 €",
     duration: "4–6 tjedana",
     forWhom: "Za izgradnju cijelog osobnog Bitcoin standarda.",
-    detail: "4–6 tjedana.",
+    detail: "4-6 tjedana. Kontinuirana komunikacija.",
     purpose:
       "Pisana pravila za novac, dug, darivanje, Bitcoin, neto imovinu i sigurnost.",
     includes: [

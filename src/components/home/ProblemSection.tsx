@@ -39,8 +39,8 @@ export function ProblemSection() {
           ))}
         </div>
         <p className="mt-8 max-w-2xl text-xl leading-8 font-semibold text-foreground">
-          Bez pravila, tržišni sentiment vodi vaš Bitcoin. Ne trebate još šuma.
-          Trebate osobni Bitcoin standard.
+          Bez pravila, vaše odluke oko Bitcoina lako će povesti tržišni
+          sentiment. Ne trebate još šuma, nego osobni Bitcoin standard.
         </p>
       </div>
     </section>

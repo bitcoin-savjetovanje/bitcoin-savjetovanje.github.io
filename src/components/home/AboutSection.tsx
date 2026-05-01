@@ -95,16 +95,13 @@ export function AboutSection() {
               </a>
               .
             </p>
-            <p>
-              Moj posao nije nagovoriti vas da kupite Bitcoin. Moj posao je
-              pomoći vam urediti novac, dug, imovinu i pravila oko Bitcoina.
-            </p>
+            <p>Moj posao nije nagovarati vas da kupite ili prodate Bitcoin.</p>
             <div className="grid gap-2 pt-2 sm:grid-cols-2">
               {[
                 "živim na Bitcoin standardu",
-                "radio sam sa Saifedeanom Ammousom",
+                "radio sam sa Saifedeanom Ammousom direktno",
                 "radim na Bitcoin edukaciji i sadržaju",
-                "metoda je nastala iz prakse",
+                "višegodišnje prakse",
               ].map((item) => (
                 <div key={item} className="check-row bg-background/70">
                   <p>{item}</p>

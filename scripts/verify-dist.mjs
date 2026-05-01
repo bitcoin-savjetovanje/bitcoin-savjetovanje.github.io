@@ -164,7 +164,6 @@ const forbiddenVisibleText = [
   "crypto",
   "ROI",
   "custody",
-  "seed phrase",
   "self-custody",
   "cash balance",
   "stack",
@@ -265,6 +264,12 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
+  "Bez pravila, vaše odluke oko Bitcoina lako će povesti tržišni sentiment.",
+  "problem section conclusion"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
   "Cijena nije prognoza. Cijena je signal za proračun.",
   "price time section title"
 )
@@ -332,6 +337,18 @@ assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
 assertIncludes(
   "index.html",
   homeHtml,
+  "Upravljanje promjenama kupovne moći",
+  "standard path purchasing power step"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Ravnoteža u neto imovini",
+  "standard path net worth balance step"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
   "Praktični Bitcoin standard",
   "Praktični Bitcoin standard copy"
 )
@@ -360,6 +377,12 @@ assertIncludes(
   homeHtml,
   "Vaš osobni Bitcoin standard",
   "program document title"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Pravilo trećina u ravnoteži neto imovine",
+  "program document net worth rule"
 )
 assertIncludes(
   "index.html",
@@ -394,8 +417,63 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
+  "početne riječi (seed phrase)",
+  "homepage seed phrase clarification"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "slanje Bitcoina meni na čuvanje",
+  "homepage no Bitcoin custody transfer copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "modelu skrbništva prikladnom za vašu situaciju",
+  "homepage custody model copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "oporavku sredstava",
+  "homepage recovery copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
   "Ne savjetujem o sustavu koji ne živim.",
   "about section title"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Moj posao nije nagovarati vas da kupite ili prodate Bitcoin.",
+  "about section no persuasion copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "radio sam sa Saifedeanom Ammousom direktno",
+  "about direct Saifedean copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "višegodišnje prakse",
+  "about practice copy"
+)
+assertIncludes("index.html", homeHtml, "60 do 90 minuta", "consulting duration")
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "60 - 90 minuta, po potrebi.",
+  "consulting detail duration"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "4-6 tjedana. Kontinuirana komunikacija.",
+  "program communication detail"
 )
 assertIncludes(
   "index.html",
@@ -649,13 +727,13 @@ assertIncludes(
 assertIncludes(
   "sigurnost/index.html",
   securityHtml,
-  "model skrbništva prema spremnosti",
+  "model skrbništva prikladan za vašu situaciju",
   "custody readiness copy"
 )
 assertIncludes(
   "sigurnost/index.html",
   securityHtml,
-  "početne riječi za oporavak",
+  "početne riječi (seed phrase)",
   "recovery words copy"
 )
 assertIncludes(

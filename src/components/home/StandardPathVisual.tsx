@@ -3,18 +3,18 @@ const standardPathSteps = [
   "Dug",
   "Darivanje",
   "Bitcoin kao novac",
-  "Kupovna moć",
-  "Neto imovina",
+  "Upravljanje promjenama kupovne moći",
+  "Ravnoteža u neto imovini",
   "Sigurnost i obitelj",
 ]
 
 export function StandardPathVisual({ compact = false }: { compact?: boolean }) {
   const listClass = compact
-    ? "mt-7 grid gap-2.5 md:grid-cols-7"
-    : "mt-7 grid gap-2.5 md:grid-cols-7 xl:block xl:space-y-2.5"
+    ? "mt-7 grid gap-2.5 lg:grid-cols-7"
+    : "mt-7 grid gap-2.5"
   const connectorClass = compact
-    ? "absolute top-8 bottom-[-0.75rem] left-4 w-px bg-border md:top-4 md:right-[-0.75rem] md:bottom-auto md:left-8 md:h-px md:w-auto"
-    : "absolute top-8 bottom-[-0.75rem] left-4 w-px bg-border md:top-4 md:right-[-0.75rem] md:bottom-auto md:left-8 md:h-px md:w-auto xl:top-8 xl:right-auto xl:bottom-[-0.75rem] xl:left-4 xl:h-auto xl:w-px"
+    ? "absolute top-8 bottom-[-0.75rem] left-4 w-px bg-border lg:top-4 lg:right-[-0.75rem] lg:bottom-auto lg:left-8 lg:h-px lg:w-auto"
+    : "absolute top-8 bottom-[-0.75rem] left-4 w-px bg-border"
 
   return (
     <div
@@ -24,7 +24,7 @@ export function StandardPathVisual({ compact = false }: { compact?: boolean }) {
           : "relative mx-auto w-full max-w-[460px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-7"
       }
       role="img"
-      aria-label="Redoslijed osobnog Bitcoin standarda: proračun, dug, darivanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj"
+      aria-label="Redoslijed osobnog Bitcoin standarda: proračun, dug, darivanje, Bitcoin kao novac, upravljanje promjenama kupovne moći, ravnoteža u neto imovini, sigurnost i obitelj"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -35,8 +35,13 @@ export function StandardPathVisual({ compact = false }: { compact?: boolean }) {
             Jedan redoslijed.
           </h2>
         </div>
-        <div className="grid size-12 shrink-0 place-items-center rounded-full border border-primary/30 bg-primary/10 text-lg font-semibold text-primary">
-          ₿
+        <div className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-full border border-primary/30 bg-primary/10">
+          <img
+            src="/bitcoin-logo.png"
+            alt=""
+            className="size-full rounded-full object-cover"
+            aria-hidden="true"
+          />
         </div>
       </div>
 
@@ -49,7 +54,7 @@ export function StandardPathVisual({ compact = false }: { compact?: boolean }) {
             <span className="relative z-10 grid size-8 shrink-0 place-items-center rounded-full border border-primary/30 bg-background text-xs font-semibold text-primary shadow-sm">
               {index + 1}
             </span>
-            <span className="min-w-0 rounded-xl border border-border/75 bg-background/70 px-3 py-2 text-sm leading-5 font-semibold text-foreground shadow-sm md:flex md:min-h-14 md:items-center xl:min-h-0 xl:flex-none">
+            <span className="min-w-0 rounded-xl border border-border/75 bg-background/70 px-3 py-2 text-sm leading-5 font-semibold text-foreground shadow-sm lg:flex lg:min-h-14 lg:items-center">
               {step}
             </span>
           </li>

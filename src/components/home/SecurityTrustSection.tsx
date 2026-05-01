@@ -3,18 +3,18 @@ import { Check, X } from "lucide-react"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 
 const neverAsk = [
-  "početne riječi",
+  "početne riječi (seed phrase)",
   "privatne ključeve",
   "pristup računima",
   "pristup uređajima",
-  "slanje Bitcoina meni",
+  "slanje Bitcoina meni na čuvanje",
 ]
 
 const workOn = [
-  "modelu skrbništva",
+  "modelu skrbništva prikladnom za vašu situaciju",
   "pravilima pristupa",
   "obiteljskim uputama",
-  "oporavku",
+  "oporavku sredstava",
   "smanjenju rizika",
 ]
 

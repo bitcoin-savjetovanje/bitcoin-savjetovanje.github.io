@@ -8,7 +8,6 @@ const forbiddenVisibleText = [
   "crypto",
   "ROI",
   "custody",
-  "seed phrase",
   "self-custody",
   "cash balance",
   "stack",

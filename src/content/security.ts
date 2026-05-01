@@ -1,19 +1,20 @@
 export const neverAskItems = [
-  "početne riječi za oporavak",
+  "početne riječi (seed phrase)",
   "privatne ključeve",
   "lozinke",
   "pristup burzi",
   "pristup novčaniku",
   "pristup uređajima",
   "kontrolu nad vašim Bitcoinom",
-  "slanje Bitcoina na moju adresu radi čuvanja",
+  "slanje Bitcoina meni na čuvanje",
 ]
 
 export const securityReviewItems = [
-  "model skrbništva prema spremnosti",
+  "model skrbništva prikladan za vašu situaciju",
   "što dokumentirati",
   "kako izbjeći jednu točku kvara",
   "kako pripremiti obiteljski pristup",
+  "oporavak sredstava",
   "koje odluke trebate donijeti sami",
   "kako razgovarati o sigurnosti bez otkrivanja osjetljivih podataka",
 ]

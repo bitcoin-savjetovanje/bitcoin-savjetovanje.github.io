@@ -100,7 +100,7 @@ export const programDocumentItems = [
   "Pravila darivanja",
   "Bitcoin kao novčana zaliha",
   "Usklađivanje kupovne moći",
-  "Pravilo neto imovine",
+  "Pravilo trećina u ravnoteži neto imovine",
   "Sigurnost i obiteljski pristup",
 ]
 

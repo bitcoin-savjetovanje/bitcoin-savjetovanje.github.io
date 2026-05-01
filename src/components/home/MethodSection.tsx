@@ -10,20 +10,29 @@ export function MethodSection() {
     <section id="metoda" className="section-shell">
       <SectionHeader
         title="Praktični Bitcoin standard ima redoslijed."
-        copy="Praktični Bitcoin standard ima redoslijed: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, usklađivanje kupovne moći i ravnoteža neto imovine."
+        copy="Ne počinje pitanjem koliko Bitcoina kupiti. Počinje pitanjem ima li vaš novac pravila."
         align="center"
       />
-      <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <ol className="mx-auto mt-12 grid max-w-5xl gap-3">
         {methodSteps.map((step, index) => (
-          <article key={step.title} className="program-card">
-            <span className="text-sm font-semibold text-muted-foreground">
-              {String(index + 1).padStart(2, "0")}
+          <li
+            key={step.title}
+            className="grid gap-3 rounded-2xl border border-border/80 bg-card p-4 shadow-sm sm:grid-cols-[3.5rem_1fr] sm:items-start sm:p-5"
+          >
+            <span className="grid size-11 place-items-center rounded-full border border-primary/30 bg-primary/10 text-sm font-semibold text-primary">
+              {index + 1}
             </span>
-            <h3 className="mt-3">{step.title}</h3>
-            <p>{step.copy}</p>
-          </article>
+            <div>
+              <h3 className="text-xl leading-tight font-semibold">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-base leading-7 text-muted-foreground">
+                {step.copy}
+              </p>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
       <div className="program-summary space-y-4">
         <p>
           Praktični Bitcoin standard nije teorija o cijeni. To je redoslijed za

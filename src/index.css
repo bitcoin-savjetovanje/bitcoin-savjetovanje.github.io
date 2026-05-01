@@ -139,9 +139,17 @@
     min-height: 100vh;
     overflow-x: clip;
     background:
-      linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px),
-      linear-gradient(180deg, hsl(var(--border) / 0.28) 1px, transparent 1px),
-      hsl(var(--background));
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--border), transparent 65%) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--border), transparent 72%) 1px,
+        transparent 1px
+      ),
+      var(--background);
     background-size: 88px 88px;
   }
 
@@ -177,12 +185,12 @@
     background:
       linear-gradient(
         180deg,
-        hsl(var(--background) / 0.96),
-        hsl(var(--background) / 0.9)
+        color-mix(in oklab, var(--background), transparent 4%),
+        color-mix(in oklab, var(--background), transparent 10%)
       ),
       radial-gradient(
         circle at 72% 34%,
-        hsl(var(--primary) / 0.14),
+        color-mix(in oklab, var(--primary), transparent 86%),
         transparent 28%
       );
   }
@@ -211,8 +219,8 @@
   .section-muted {
     @apply bg-muted/35;
     box-shadow:
-      100vw 0 0 hsl(var(--muted) / 0.35),
-      -100vw 0 0 hsl(var(--muted) / 0.35);
+      100vw 0 0 color-mix(in oklab, var(--muted), transparent 65%),
+      -100vw 0 0 color-mix(in oklab, var(--muted), transparent 65%);
   }
 
   .trust-strip {

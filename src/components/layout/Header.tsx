@@ -6,6 +6,13 @@ import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
 import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
 
+const tabletNavLinks = [
+  { label: "Metoda", href: "/#metoda" },
+  { label: "Program", href: "/#program" },
+  { label: "Sigurnost", href: "/sigurnost/" },
+  { label: "Vodiči", href: "/vodici/" },
+]
+
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const isDark = theme === "dark"
@@ -38,7 +45,7 @@ export function Header() {
     }
 
     function handleResize() {
-      if (window.innerWidth >= 1280) {
+      if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false)
       }
     }
@@ -74,6 +81,18 @@ export function Header() {
           ))}
         </nav>
 
+        <nav className="hidden items-center gap-5 lg:flex xl:hidden">
+          {tabletNavLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm whitespace-nowrap text-muted-foreground hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
         <div className="flex items-center gap-2">
           <Button
             asChild
@@ -94,7 +113,7 @@ export function Header() {
           <Button
             variant="outline"
             size="icon"
-            className="size-11 rounded-full border-border/80 bg-background/80 sm:size-10 xl:hidden"
+            className="size-11 rounded-full border-border/80 bg-background/80 sm:size-10 lg:hidden"
             onClick={() => setMobileMenuOpen((open) => !open)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav"
@@ -114,7 +133,7 @@ export function Header() {
       {mobileMenuOpen ? (
         <nav
           id="mobile-nav"
-          className="mx-auto grid max-w-7xl gap-2 border-t border-border/50 px-3 pt-3 pb-4 sm:px-6 xl:hidden"
+          className="mx-auto grid max-w-7xl gap-2 border-t border-border/50 px-3 pt-3 pb-4 sm:px-6 lg:hidden"
         >
           {navLinks.map((link) => (
             <a

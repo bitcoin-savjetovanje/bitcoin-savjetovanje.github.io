@@ -4,6 +4,8 @@ export type Offer = {
   title: string
   price: string
   duration?: string
+  forWhom: string
+  detail: string
   purpose: string
   includes: string[]
   cta: string
@@ -14,7 +16,10 @@ export const offers: Offer[] = [
     title: "Uvodni razgovor",
     price: "0 €",
     duration: "15 minuta",
-    purpose: "Vidimo gdje ste, što vas muči i koji je sljedeći razuman korak.",
+    forWhom: "Za prvi korak.",
+    detail: "15 minuta. Bez naknade.",
+    purpose:
+      "Vidimo gdje ste, što pokušavate odlučiti i ima li smisla nastaviti.",
     includes: [
       "imate li Bitcoin",
       "postoji li dug",
@@ -27,16 +32,16 @@ export const offers: Offer[] = [
   {
     title: "Savjetodavni razgovor",
     price: "200 €",
-    duration: "60–90 minuta",
+    duration: "60 minuta",
+    forWhom: "Za jedno konkretno pitanje.",
+    detail: "60 minuta.",
     purpose: "Jedno pitanje. Jedan jasan okvir za odluku.",
     includes: [
-      "osobni proračun i stvarni višak",
-      "dug i budući odljevi",
-      "Bitcoin kao novac",
-      "neto imovina",
-      "odgovori na otvorene Bitcoin nedoumice",
-      "sljedeći razuman korak",
-      "kratki pisani sažetak",
+      "dug ili Bitcoin",
+      "prodati ili čekati",
+      "sigurnost",
+      "obiteljski pristup",
+      "proračun i stvarni višak",
     ],
     cta: PRIMARY_CTA,
   },
@@ -44,8 +49,10 @@ export const offers: Offer[] = [
     title: "Strukturirani program",
     price: "1.500 €",
     duration: "4–6 tjedana",
+    forWhom: "Za izgradnju cijelog osobnog Bitcoin standarda.",
+    detail: "4–6 tjedana.",
     purpose:
-      "4–6 tjedana rada za vaš osobni Bitcoin standard. Za ljude koji žele postaviti osobni Bitcoin standard, ne samo riješiti jedno pitanje.",
+      "Pisana pravila za novac, dug, darivanje, Bitcoin, neto imovinu i sigurnost.",
     includes: [
       "pripremni upitnik",
       "4 radna razgovora kroz 4–6 tjedana",

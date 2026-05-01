@@ -17,7 +17,10 @@ import {
 export function AboutSection() {
   return (
     <section id="o-meni" className="section-shell section-muted">
-      <SectionHeader title="Živim standard koji pomažem postaviti." />
+      <SectionHeader
+        title="Ne savjetujem o sustavu koji ne živim."
+        copy="Okvir je nastao iz stvarnog života: proračuna, duga, rada, sigurnosti i korištenja Bitcoina kao novca."
+      />
       <div className="credibility-grid">
         <aside className="profile-panel">
           <img src="/pavao-pahljina.jpg" alt="Pavao Pahljina" />
@@ -96,6 +99,18 @@ export function AboutSection() {
               Moj posao nije nagovoriti vas da kupite Bitcoin. Moj posao je
               pomoći vam urediti novac, dug, imovinu i pravila oko Bitcoina.
             </p>
+            <div className="grid gap-2 pt-2 sm:grid-cols-2">
+              {[
+                "živim na Bitcoin standardu",
+                "radio sam sa Saifedeanom Ammousom",
+                "radim na Bitcoin edukaciji i sadržaju",
+                "metoda je nastala iz prakse",
+              ].map((item) => (
+                <div key={item} className="check-row bg-background/70">
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div

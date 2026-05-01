@@ -1055,7 +1055,7 @@ const guideEntries: Guide[] = [
   },
   {
     slug: "novac-kapital-potrosnja",
-    title: "Novac, potrošnja i proizvodna imovina",
+    title: "Novac, potrošna dobra i proizvodna imovina",
     metaDescription:
       "Vodič o tri uloge imovine: novcu, potrošnim dobrima i proizvodnoj imovini, te o tome zašto Bitcoin pripada ulozi novca.",
     excerpt:
@@ -1066,7 +1066,7 @@ const guideEntries: Guide[] = [
     publishedAt: "2026-04-30",
     updatedAt: "2026-05-01",
     practicalQuestion:
-      "Koji dio vaše neto imovine je novac, koji dio potrošnja, a koji dio proizvodna imovina?",
+      "Koji dio vaše neto imovine je novac, koji dio potrošna dobra, a koji dio proizvodna imovina?",
     relatedSlugs: [
       "bitcoin-kao-novac",
       "bitcoin-u-neto-imovini",
@@ -1116,7 +1116,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Proizvodna imovina",
         body: [
-          "Proizvodna imovina su kapitalna dobra koja povećavaju produktivnost. To može biti posao, alat, znanje, oprema, sustav, zemljište ili odnos koji stvara vrijednost. Ona ima drugu ulogu od novca i potrošnih dobara.",
+          "Proizvodna imovina su dobra koja povećavaju produktivnost. To može biti posao, alat, znanje, oprema, sustav, zemljište ili odnos koji stvara vrijednost. Ona ima drugu ulogu od novca i potrošnih dobara.",
           "Bitcoin ne zamjenjuje potrebu za proizvodnom imovinom. Možete imati dobar novac, a i dalje trebate sposobnost stvaranja vrijednosti. Osobni Bitcoin standard zato ne pita samo koliko Bitcoina imate, nego i kako stvarate priljeve.",
         ],
       },
@@ -1250,7 +1250,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Najviše trećina u proizvodnoj imovini",
         body: [
-          "Proizvodna imovina su kapitalna dobra koja povećavaju produktivnost ili stvaraju vrijednost. To može biti posao, alat, znanje, oprema ili sustav koji povećava priljeve. Ona je važna jer novac sam po sebi ne stvara rad.",
+          "Proizvodna imovina su dobra koja povećavaju produktivnost ili stvaraju vrijednost. To može biti posao, alat, znanje, oprema ili sustav koji povećava priljeve. Ona je važna jer novac sam po sebi ne stvara rad.",
           "Ali i proizvodna imovina može biti preteška ako traži previše vremena, duga ili rizika. Zato pravilo trećina ne kaže da proizvodne imovine mora biti što više. Kaže da treba imati jasnu svrhu i granicu.",
         ],
       },
@@ -1429,14 +1429,16 @@ export const guides = [...guideEntries].sort((first, second) => {
 
 export const recommendedGuideSlugs = [
   "svaki-euro-ima-namjenu",
+  "stvarni-visak",
+  "starost-novca",
   "dug-je-buduci-novac",
+  "dug-ili-bitcoin",
   "darivanje-u-proracunu",
-  "novac-dolazi-od-ljudi",
   "bitcoin-kao-novac",
   "uskladivanje-kupovne-moci-bitcoina",
-  "cijena-kao-mjera-vremena",
   "pravilo-trecina",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "obiteljski-pristup-bitcoinu",
 ]
 
 export const featuredGuides = guides.filter((guide) => guide.featured)

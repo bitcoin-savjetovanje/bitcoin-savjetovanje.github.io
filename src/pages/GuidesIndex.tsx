@@ -1,5 +1,6 @@
 import { CalendarDays } from "lucide-react"
 
+import { GuideCardsGrid } from "@/components/guides/GuideCardsGrid"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import {
@@ -12,19 +13,41 @@ import {
 } from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
 import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
-import { estimateGuideReadingMinutes } from "@/utils/readingTime"
+
+function guideList(slugs: string[]) {
+  return slugs.map((slug) => findGuide(slug)).filter(Boolean)
+}
 
 const recommendedGuides = recommendedGuideSlugs
   .map((slug) => findGuide(slug))
   .filter(Boolean)
 
-const beginnerGuides = [
-  "svaki-euro-ima-namjenu",
-  "dug-je-buduci-novac",
-  "bitcoin-kao-novac",
+const startPaths = [
+  {
+    title: "Ako nemate osobni proračun",
+    guides: guideList([
+      "svaki-euro-ima-namjenu",
+      "stvarni-visak",
+      "starost-novca",
+    ]),
+  },
+  {
+    title: "Ako imate dug",
+    guides: guideList([
+      "dug-je-buduci-novac",
+      "dug-ili-bitcoin",
+      "ne-zaduzujte-se-za-bitcoin",
+    ]),
+  },
+  {
+    title: "Ako već koristite Bitcoin kao novac",
+    guides: guideList([
+      "bitcoin-kao-novac",
+      "uskladivanje-kupovne-moci-bitcoina",
+      "pravilo-trecina",
+    ]),
+  },
 ]
-  .map((slug) => findGuide(slug))
-  .filter(Boolean)
 
 const standardPathSteps = [
   "proračun",
@@ -63,10 +86,10 @@ export function GuidesIndex() {
         <section className="mx-auto mt-12 max-w-5xl rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-              Preporučeni redoslijed
+              Preporučeni redoslijed čitanja
             </p>
             <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em]">
-              Ne znate odakle krenuti?
+              Ne čitajte sve odjednom. Krenite redom.
             </h2>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
               Krenite redom. Prvo novac koji imate. Zatim dug. Zatim darivanje.
@@ -115,25 +138,32 @@ export function GuidesIndex() {
               ) : null
             )}
           </ol>
-          <div className="mt-8 border-t border-border/70 pt-6">
-            <h3 className="text-lg font-semibold">Ako želite samo početak</h3>
-            <ol className="mt-4 grid gap-2 md:grid-cols-3">
-              {beginnerGuides.map((guide, index) =>
-                guide ? (
-                  <li key={guide.slug}>
-                    <a
-                      href={guideHref(guide.slug)}
-                      className="flex h-full gap-3 rounded-xl border border-border/75 bg-background/70 p-4 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary/50 hover:text-primary"
-                    >
-                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary/10 text-xs text-primary">
-                        {index + 1}
-                      </span>
-                      <span>{guide.title}</span>
-                    </a>
-                  </li>
-                ) : null
-              )}
-            </ol>
+          <div className="mt-8 grid gap-4 border-t border-border/70 pt-6 lg:grid-cols-3">
+            {startPaths.map((path) => (
+              <section
+                key={path.title}
+                className="rounded-2xl border border-border/80 bg-background/70 p-4 shadow-sm"
+              >
+                <h3 className="text-lg font-semibold">{path.title}</h3>
+                <ol className="mt-4 grid gap-2">
+                  {path.guides.map((guide, index) =>
+                    guide ? (
+                      <li key={guide.slug}>
+                        <a
+                          href={guideHref(guide.slug)}
+                          className="flex h-full gap-3 rounded-xl border border-border/75 bg-card p-3 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary/50 hover:text-primary focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                        >
+                          <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary/10 text-xs text-primary">
+                            {index + 1}
+                          </span>
+                          <span>{guide.title}</span>
+                        </a>
+                      </li>
+                    ) : null
+                  )}
+                </ol>
+              </section>
+            ))}
           </div>
         </section>
 
@@ -159,24 +189,7 @@ export function GuidesIndex() {
                     {guideCategoryDescriptions[category]}
                   </p>
                 </div>
-                <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {categoryGuides.map((guide) => (
-                    <a
-                      key={guide.slug}
-                      href={guideHref(guide.slug)}
-                      className="program-card group block hover:border-primary/50 hover:text-foreground"
-                    >
-                      <h3 className="flex items-start justify-between gap-4">
-                        <span>{guide.title}</span>
-                      </h3>
-                      <p className="mt-3 text-sm leading-6 font-semibold text-muted-foreground">
-                        Vrijeme čitanja: {estimateGuideReadingMinutes(guide)}{" "}
-                        min
-                      </p>
-                      <p>{guide.excerpt}</p>
-                    </a>
-                  ))}
-                </div>
+                <GuideCardsGrid items={categoryGuides} showReadingTime />
               </section>
             )
           })}

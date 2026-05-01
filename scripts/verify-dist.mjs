@@ -69,6 +69,26 @@ function readFile(relativePath) {
   return fs.readFileSync(filePath(relativePath), "utf8")
 }
 
+function htmlFiles(directory = distDir) {
+  const entries = fs.readdirSync(directory, { withFileTypes: true })
+  const files = []
+
+  for (const entry of entries) {
+    const entryPath = path.join(directory, entry.name)
+
+    if (entry.isDirectory()) {
+      files.push(...htmlFiles(entryPath))
+      continue
+    }
+
+    if (entry.isFile() && entry.name.endsWith(".html")) {
+      files.push(entryPath)
+    }
+  }
+
+  return files
+}
+
 function assertIncludes(relativePath, contents, expected, label = expected) {
   if (contents.includes(expected)) {
     pass(`${relativePath} contains ${label}`)
@@ -137,6 +157,36 @@ const requiredFiles = [
 
 requiredFiles.forEach(assertFile)
 
+const forbiddenVisibleText = [
+  "Bitcoin kao novac, kapital i potrošnja",
+  "dugoročnog kapitala",
+  "Bitcoin kao kapital",
+  "crypto",
+  "ROI",
+  "custody",
+  "seed phrase",
+  "self-custody",
+  "cash balance",
+  "stack",
+  "lead magnet",
+  "charity",
+  "giving",
+]
+
+for (const absoluteHtmlPath of htmlFiles()) {
+  const relativeHtmlPath = path.relative(distDir, absoluteHtmlPath)
+  const html = fs.readFileSync(absoluteHtmlPath, "utf8")
+
+  for (const forbidden of forbiddenVisibleText) {
+    assertNotIncludes(
+      relativeHtmlPath,
+      html,
+      forbidden,
+      `forbidden visible text: ${forbidden}`
+    )
+  }
+}
+
 const homeHtml = readFile("index.html")
 assertIncludes(
   "index.html",
@@ -147,7 +197,7 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Bitcoin nije samo imovina koju držite. Bitcoin je novac.",
+  "Bitcoin kao novac",
   "homepage Bitcoin as money copy"
 )
 assertIncludes(
@@ -189,14 +239,22 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Veći kapacitet za priljeve",
-  "giving section inflow card"
+  "Veći kapacitet za služenje ljudima",
+  "giving section people card"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Veći kapacitet za rizik",
+  "Veći kapacitet za razuman rizik",
   "giving section risk card"
+)
+assertIncludes("index.html", homeHtml, "Bez prognoza cijene", "no price forecast copy")
+assertIncludes("index.html", homeHtml, "Bez trgovanja", "no trading copy")
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Bez upravljanja vašim sredstvima",
+  "no managed funds copy"
 )
 assertIncludes(
   "index.html",
@@ -228,7 +286,7 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "4–6 tjedana rada za vaš osobni Bitcoin standard",
+  "4–6 tjedana rada",
   "structured program duration copy"
 )
 assertIncludes(
@@ -294,8 +352,14 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Na kraju imate svoj osobni Bitcoin standard.",
+  "Na kraju ne dobivate mišljenje. Dobivate pisana pravila.",
   "program output preview section"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Vaš osobni Bitcoin standard",
+  "program document title"
 )
 assertIncludes(
   "index.html",
@@ -330,7 +394,7 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Živim standard koji pomažem postaviti.",
+  "Ne savjetujem o sustavu koji ne živim.",
   "about section title"
 )
 assertIncludes(
@@ -417,13 +481,13 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Preporučeni redoslijed",
+  "Preporučeni redoslijed čitanja",
   "recommended reading order"
 )
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Ne znate odakle krenuti?",
+  "Ne čitajte sve odjednom. Krenite redom.",
   "recommended order intro"
 )
 assertIncludes(
@@ -515,8 +579,20 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Ako želite samo početak",
-  "beginner guide block"
+  "Ako nemate osobni proračun",
+  "budget start path"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Ako imate dug",
+  "debt start path"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Ako već koristite Bitcoin kao novac",
+  "bitcoin money start path"
 )
 assertIncludes(
   "vodici/index.html",
@@ -678,12 +754,27 @@ assertIncludes(
   "purchasing power guide title"
 )
 
+const firstGuidePath = "vodici/svaki-euro-ima-namjenu/index.html"
+const firstGuideHtml = readFile(firstGuidePath)
+assertIncludes(
+  firstGuidePath,
+  firstGuideHtml,
+  "Sljedeći vodič u redoslijedu",
+  "next guide block"
+)
+assertIncludes(
+  firstGuidePath,
+  firstGuideHtml,
+  'data-link="next-guide"',
+  "next guide metadata"
+)
+
 const moneyCapitalGuidePath = "vodici/novac-kapital-potrosnja/index.html"
 const moneyCapitalGuideHtml = readFile(moneyCapitalGuidePath)
 assertIncludes(
   moneyCapitalGuidePath,
   moneyCapitalGuideHtml,
-  "Novac, potrošnja i proizvodna imovina",
+  "Novac, potrošna dobra i proizvodna imovina",
   "money production guide title"
 )
 assertIncludes(
@@ -773,7 +864,7 @@ const newGuideChecks = [
   },
   {
     path: "vodici/novac-kapital-potrosnja/index.html",
-    title: "Novac, potrošnja i proizvodna imovina",
+    title: "Novac, potrošna dobra i proizvodna imovina",
     copy: "Bitcoin kao novac",
   },
 ]

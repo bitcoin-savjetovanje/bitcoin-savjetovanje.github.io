@@ -1,7 +1,22 @@
-import { X } from "lucide-react"
+import { Check, X } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { notDoingItems, securityRules } from "@/content/method"
+
+const neverAsk = [
+  "početne riječi",
+  "privatne ključeve",
+  "pristup računima",
+  "pristup uređajima",
+  "slanje Bitcoina meni",
+]
+
+const workOn = [
+  "modelu skrbništva",
+  "pravilima pristupa",
+  "obiteljskim uputama",
+  "oporavku",
+  "smanjenju rizika",
+]
 
 export function SecurityTrustSection() {
   return (
@@ -17,37 +32,37 @@ export function SecurityTrustSection() {
           samostalno čuvanje. Za nekoga je bolji prijelazni model. Za svakoga je
           cilj isti: manje rizika i više jasnoće.
         </p>
-        <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-          {securityRules.map((rule) => (
-            <div key={rule} className="not-for-row">
-              <X className="negative-icon size-3.5" />
-              <p>{rule}</p>
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
+            <h3 className="text-xl font-semibold">Nikada ne tražim:</h3>
+            <div className="mt-5 grid gap-2">
+              {neverAsk.map((item) => (
+                <div key={item} className="not-for-row bg-card">
+                  <X className="negative-icon size-3.5" />
+                  <p>{item}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </section>
+          <section className="rounded-2xl border border-primary/25 bg-background/70 p-5 shadow-sm">
+            <h3 className="text-xl font-semibold">Radimo na:</h3>
+            <div className="mt-5 grid gap-2">
+              {workOn.map((item) => (
+                <div key={item} className="not-for-row bg-card">
+                  <Check className="positive-icon size-3.5" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
-        <div className="mt-10 grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:items-start">
-          <div>
-            <h3 className="text-xl font-semibold">Što nećemo raditi</h3>
-            <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Ja pomažem postaviti standard. Kontrola ostaje kod vas.
-            </p>
-            <a
-              href="/sigurnost/"
-              className="mt-4 inline-block text-sm font-semibold text-foreground hover:text-primary"
-              data-link="security-rules"
-            >
-              Pročitajte sigurnosna pravila
-            </a>
-          </div>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {notDoingItems.map((item) => (
-              <div key={item} className="not-for-row bg-background/70">
-                <X className="negative-icon size-3.5" />
-                <p>{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <a
+          href="/sigurnost/"
+          className="mt-6 inline-block text-sm font-semibold text-foreground hover:text-primary"
+          data-link="security-rules"
+        >
+          Pročitajte sigurnosna pravila
+        </a>
       </div>
     </section>
   )

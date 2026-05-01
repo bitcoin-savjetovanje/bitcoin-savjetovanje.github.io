@@ -49,31 +49,31 @@ export const notForItems = [
 
 export const methodSteps = [
   {
-    title: "Osobni proračun",
-    copy: "Svaki euro dobiva namjenu prije nego što postane potrošnja, darivanje, sigurnosna zaliha ili Bitcoin odluka.",
+    title: "Svaki euro ima namjenu",
+    copy: "Osobni proračun pokazuje što novac treba napraviti prije Bitcoin odluke.",
   },
   {
-    title: "Život bez duga",
-    copy: "Dug je budući novac koji ste već potrošili. Cilj je ukloniti ga i prestati živjeti iz budućnosti.",
+    title: "Dug izlazi iz sustava",
+    copy: "Dug je budući novac koji ste već potrošili.",
   },
   {
-    title: "Darivanje",
-    copy: "Dio novca odvaja se bez očekivanja povrata. To vježba velikodušnost, usmjerava vas prema ljudima i jača sposobnost stvaranja vrijednosti.",
+    title: "Darivanje dobiva mjesto",
+    copy: "Nakon reda i izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
   },
   {
-    title: "Bitcoin kao novac",
-    copy: "Bitcoin se ne promatra kao imovina sa strane, nego kao novac i novčana zaliha.",
+    title: "Bitcoin postaje novac",
+    copy: "Bitcoin se ne promatra kao imovina sa strane, nego kao novčana zaliha.",
   },
   {
-    title: "Kupovna moć",
-    copy: "Kada kupovna moć Bitcoina raste ili pada, ne pogađate tržište. Usklađujete proračun.",
+    title: "Kupovna moć se usklađuje",
+    copy: "Cijena je pomoćni signal za vrijeme, proračun i odluke.",
   },
   {
-    title: "Neto imovina",
+    title: "Neto imovina ostaje u ravnoteži",
     copy: "Novac, potrošna dobra i proizvodna imovina imaju različite uloge i različita pravila.",
   },
   {
-    title: "Sigurnost i obitelj",
+    title: "Sigurnost uključuje obitelj",
     copy: "Vaš Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
   },
 ]
@@ -95,19 +95,13 @@ export const afterWorkItems = [
 ]
 
 export const programDocumentItems = [
-  "osobni proračun i stvarni višak",
-  "plan izlaska iz duga",
-  "buduće odljeve i novčanu zalihu",
-  "kapacitet za darivanje i priljeve",
-  "Bitcoin kao novac",
-  "usklađivanje kupovne moći",
-  "tržišni sentiment i pravila kupnje",
-  "dugoročni trend cijene kao pomoćni signal",
-  "potrošna dobra i proizvodnu imovinu",
-  "ravnotežu neto imovine",
-  "model skrbništva prema spremnosti",
-  "sigurnost i obiteljski pristup",
-  "otvorena Bitcoin pitanja",
+  "Pravila osobnog proračuna",
+  "Plan izlaska iz duga",
+  "Pravila darivanja",
+  "Bitcoin kao novčana zaliha",
+  "Usklađivanje kupovne moći",
+  "Pravilo neto imovine",
+  "Sigurnost i obiteljski pristup",
 ]
 
 export const bookingSteps = [
@@ -133,8 +127,8 @@ export const securityRules = [
   "bez traženja ključeva",
   "bez traženja početnih riječi",
   "bez pristupa računima",
+  "bez pristupa uređajima",
   "skrbništvo prema spremnosti",
-  "obiteljski pristup bez panike",
 ]
 
 export const notDoingItems = [

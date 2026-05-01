@@ -1,42 +1,8 @@
-import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
+import { ArrowUpRight, CalendarDays } from "lucide-react"
 
+import { StandardPathVisual } from "@/components/home/StandardPathVisual"
 import { Button } from "@/components/ui/button"
-import { BOOKING_URL, EMAIL, PRIMARY_CTA, heroOutcomes } from "@/content/site"
-
-function PlanVisual() {
-  const rows = [
-    "osobni proračun",
-    "plan izlaska iz duga",
-    "redovito darivanje",
-    "Bitcoin kao novac",
-    "ravnoteža neto imovine",
-  ]
-
-  return (
-    <div className="plan-visual" aria-hidden="true">
-      <div className="plan-visual__card">
-        <div className="plan-visual__header">
-          <div>
-            <p className="plan-visual__eyebrow">Praktični Bitcoin standard</p>
-            <h2>Osobni standard</h2>
-            <p>Bitcoin, dug i proračun u jednom sustavu.</p>
-          </div>
-          <div className="plan-visual__bitcoin-mark">
-            <img src="/bitcoin-logo.png" alt="" />
-          </div>
-        </div>
-        <div className="plan-visual__rows">
-          {rows.map((row) => (
-            <div key={row} className="plan-visual__row">
-              <Check className="plan-visual__check" />
-              <span>{row}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
+import { BOOKING_URL, EMAIL } from "@/content/site"
 
 export function Hero() {
   return (
@@ -47,9 +13,9 @@ export function Hero() {
             Imate Bitcoin? Izgradite osobni Bitcoin standard.
           </h1>
           <p className="hero-subtitle">
-            Bitcoin nije samo imovina koju držite. Bitcoin je novac. Pomažem vam
-            urediti osobni proračun, ukloniti dug, odrediti ulogu Bitcoina,
-            uskladiti kupovnu moć i napisati pravila za odluke kroz vrijeme.
+            Bitcoin ne treba stajati sa strane vašeg života. Pomažem vam
+            napisati pravila za osobni proračun, dug, darivanje, Bitcoin kao
+            novac, neto imovinu, sigurnost i obitelj.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
             Bez prognoza cijene. Bez trgovanja. Bez upravljanja vašim
@@ -69,7 +35,7 @@ export function Hero() {
                 data-cta="hero-booking"
               >
                 <CalendarDays className="size-4" />
-                {PRIMARY_CTA}
+                Dogovorite uvodni razgovor
               </a>
             </Button>
             <Button
@@ -79,36 +45,24 @@ export function Hero() {
               className="h-12 w-full rounded-full border-border/80 bg-background/70 px-5 text-base sm:w-auto sm:px-6"
             >
               <a href="#metoda" data-link="hero-method">
-                Pogledajte metodu
+                Pogledajte redoslijed
                 <ArrowUpRight className="size-4" />
               </a>
             </Button>
           </div>
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            Uvodni razgovor je besplatan i traje 15 minuta. Vidimo gdje ste i
+            Uvodni razgovor je bez naknade i traje 15 minuta. Vidimo gdje ste i
             koji je sljedeći razuman korak.
           </p>
-          <div className="mt-6">
-            <p className="text-sm font-semibold text-foreground">
-              Nakon rada imate jasan plan.
-            </p>
-            <div className="mt-3 grid gap-2 sm:flex sm:flex-wrap">
-              {heroOutcomes.map((outcome) => (
-                <span key={outcome} className="hero-benefit">
-                  {outcome}
-                </span>
-              ))}
-            </div>
-          </div>
           <a
-            className="mt-5 inline-block text-sm font-semibold break-all text-muted-foreground hover:text-primary sm:break-normal"
+            className="mt-6 inline-block text-sm font-semibold break-all text-muted-foreground hover:text-primary sm:break-normal"
             href={`mailto:${EMAIL}`}
             data-link="hero-email"
           >
             Ili pišite izravno: {EMAIL}
           </a>
         </div>
-        <PlanVisual />
+        <StandardPathVisual />
       </div>
     </section>
   )

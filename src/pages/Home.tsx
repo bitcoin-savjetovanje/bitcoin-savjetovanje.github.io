@@ -30,11 +30,11 @@ export function Home() {
       <Hero />
       <TrustStrip />
       <ProblemSection />
+      <MethodSection />
       <DebtSection />
       <GivingSection />
-      <ResultsSection />
-      <MethodSection />
       <PriceTimeSection />
+      <ResultsSection />
       <ProgramOutputPreviewSection />
       <OffersSection />
       <BookingStepsSection />

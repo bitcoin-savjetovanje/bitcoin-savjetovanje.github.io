@@ -8,11 +8,11 @@ const darivanjeCards = [
     copy: "Darivanje nije kredit ni skriveni dogovor.",
   },
   {
-    title: "Veći kapacitet za priljeve",
-    copy: "Velikodušna osoba bolje služi ljudima. A priljevi dolaze od ljudi.",
+    title: "Veći kapacitet za služenje ljudima",
+    copy: "Velikodušna osoba lakše sluša, pregovara i stvara vrijednost za druge.",
   },
   {
-    title: "Veći kapacitet za rizik",
+    title: "Veći kapacitet za razuman rizik",
     copy: "Tko vježba davanje bez povrata, lakše podnosi neizvjesnost stvaranja vrijednosti.",
   },
 ]
@@ -28,8 +28,9 @@ export function GivingSection() {
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-8 text-muted-foreground">
             <p>
-              Darivanje nije zato da kupite povrat. Darivanje je praksa kojom se
-              učite odvojiti od novca bez straha.
+              Darivanje nije način da kupite povrat. Nije obećanje većeg
+              prihoda. To je praksa koja mijenja vaš odnos prema novcu, ljudima
+              i riziku.
             </p>
             <p>
               Kad darujete, ulazite među ljude drukčije. Manje očajno. Više

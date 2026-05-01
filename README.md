@@ -28,6 +28,12 @@ npm run build
 npm run verify:dist
 ```
 
+Nakon live deploya, opcionalna mrežna provjera:
+
+```bash
+npm run verify:live
+```
+
 ## Content map
 
 Sadržaj početne stranice:

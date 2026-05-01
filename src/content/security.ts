@@ -4,6 +4,7 @@ export const neverAskItems = [
   "lozinke",
   "pristup burzi",
   "pristup novčaniku",
+  "pristup uređajima",
   "kontrolu nad vašim Bitcoinom",
   "slanje Bitcoina na moju adresu radi čuvanja",
 ]

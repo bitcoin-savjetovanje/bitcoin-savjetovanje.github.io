@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 const priceTimeCards = [
   {
     title: "Iznad trenda",
-    copy: "Dio budućih odljeva možda se može riješiti ranije.",
+    copy: "Provjerite buduće odljeve i pravila trošenja.",
   },
   {
     title: "Blizu trenda",
@@ -13,7 +13,7 @@ const priceTimeCards = [
   },
   {
     title: "Ispod trenda",
-    copy: "Smanjujete potrošnju, jačate priljeve i akumulirate iz stvarnog viška.",
+    copy: "Smanjujete potrošnju, jačate priljeve i akumulirate samo iz stvarnog viška.",
   },
 ]
 
@@ -63,13 +63,13 @@ export function PriceTimeSection() {
       <div className="case-panel">
         <SectionHeader
           title="Cijena nije prognoza. Cijena je signal za proračun."
-          copy="Ne pokušavamo pogoditi kratkoročno kretanje cijene. Ali možemo usporediti trenutnu cijenu s dugoročnim potencijskim trendom i vidjeti je li kupovna moć ispred, blizu ili iza očekivanog ritma."
+          copy="Ne pokušavamo pogoditi kratkoročno kretanje cijene. Cijenu koristimo samo kao pomoćni signal da se vratimo proračunu, dugu, budućim odljevima i stvarnom višku."
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.85fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-8 text-muted-foreground">
             <p>
-              Ovaj okvir ne daje ciljne cijene. Pomaže odlučiti što učiniti s
-              proračunom.
+              Ovaj okvir ne daje ciljne cijene. Ne govori kada kupiti ili
+              prodati. Pomaže provjeriti jesu li pravila još dobra.
             </p>
             <p>
               Taj dugoročni potencijski trend (Bitcoin power law) nije

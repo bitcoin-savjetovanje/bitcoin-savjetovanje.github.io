@@ -9,6 +9,17 @@ const debtItems = [
   "Dug je fiat ponašanje koje Bitcoin standard mora ukloniti.",
 ]
 
+const spendingPaths = [
+  {
+    label: "Fiat pravilo",
+    steps: ["Potroši danas", "plati sutra", "budućnost gubi slobodu"],
+  },
+  {
+    label: "Bitcoin standard",
+    steps: ["Štedi danas", "troši prošli novac", "budućnost ostaje slobodna"],
+  },
+]
+
 export function DebtSection() {
   return (
     <section className="section-shell section-muted">
@@ -37,6 +48,28 @@ export function DebtSection() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          {spendingPaths.map((path) => (
+            <article
+              key={path.label}
+              className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm"
+            >
+              <h3 className="text-lg font-semibold">{path.label}</h3>
+              <ol className="mt-5 grid gap-3">
+                {path.steps.map((step, index) => (
+                  <li key={step} className="flex items-center gap-3">
+                    <span className="grid size-7 shrink-0 place-items-center rounded-full border border-border/80 bg-card text-xs font-semibold text-muted-foreground">
+                      {index + 1}
+                    </span>
+                    <span className="text-sm font-semibold text-foreground">
+                      {step}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </article>
+          ))}
         </div>
       </div>
     </section>

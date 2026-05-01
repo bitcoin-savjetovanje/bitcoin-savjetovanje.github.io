@@ -169,7 +169,7 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Prvo dolazi red. Zatim izlazak iz duga. Tek tada darivanje.",
+  "Prvo dolazi red. Zatim izlazak iz duga. Na posljetku, sustavno darivanje.",
   "giving section order copy"
 )
 assertIncludes(

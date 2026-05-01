@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 const givingCards = [
   {
     title: "Bez očekivanja povrata",
-    copy: "Darivanje nije kredit, ulaganje ni skrivena obveza.",
+    copy: "Praksa sustavnog darivanja jedan je od najjačih alata upravljanja novcem.",
   },
   {
     title: "Iz uređenog proračuna",
@@ -13,7 +13,7 @@ const givingCards = [
   },
   {
     title: "Prema ljudima",
-    copy: "Darivanje vas uči gledati izvan sebe. Prihod dolazi od služenja ljudima.",
+    copy: "Darivanje vas uči gledati izvan sebe. Čini vas profesionalno jačim.",
   },
 ]
 
@@ -23,13 +23,12 @@ export function GivingSection() {
       <div className="case-panel">
         <SectionHeader
           title="Darivanje mijenja vaš odnos prema novcu."
-          copy="Prvo dolazi red. Zatim izlazak iz duga. Tek tada darivanje."
+          copy="Prvo dolazi red. Zatim izlazak iz duga. Na posljetku, sustavno darivanje."
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-8 text-muted-foreground">
             <p>
-              Ne iz krivnje. Ne radi povrata. Nego zato što novac treba služiti
-              i drugima.
+              Sustavno darivanje je jedan od alata mudrog upravljanja imovinom.
             </p>
             <p>
               Kada dio osobnog proračuna dobije namjenu za darivanje, novac

@@ -4,10 +4,10 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 import { problemQuestions } from "@/content/method"
 
 const problemSignals = [
-  "Kupujete kada cijena pritisne.",
+  "Kupujete više kada cijena i sentiment počnu rasti.",
   "Čekate kada se pojavi strah.",
-  "Dug i budući troškovi ulaze u odluke.",
-  "Proračun ne pokazuje stvarni višak.",
+  "Dug i budući troškovi ne ulaze u odluke oko Bitcoina.",
+  "Ne znate precizne brojke i mjere u svojoj imovini.",
   "Bitcoin stoji kao imovina sa strane, a ne kao novac u sustavu.",
 ]
 
@@ -16,8 +16,12 @@ export function ProblemSection() {
     <section className="section-shell">
       <div className="case-panel">
         <SectionHeader
-          title="Imate Bitcoin, ali možda još živite po fiat pravilima."
-          copy="Problem nije manjak informacija. Problem je što Bitcoin još nema mjesto u vašem životu kao novac."
+          title={
+            <>
+              Imate Bitcoin, ali možda još živite po <em>fiat</em> pravilima.
+            </>
+          }
+          copy="Problem nije manjak informacija, nego to što Bitcoin još nema mjesto u vašem životu kao novac."
         />
         <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
           {problemSignals.map((item) => (
@@ -36,7 +40,7 @@ export function ProblemSection() {
           ))}
         </div>
         <p className="mt-8 max-w-2xl text-xl leading-8 font-semibold text-foreground">
-          Ne trebate još buke. Trebate osobni Bitcoin standard.
+          Ne trebate još šuma. Trebate osobni Bitcoin standard.
         </p>
       </div>
     </section>

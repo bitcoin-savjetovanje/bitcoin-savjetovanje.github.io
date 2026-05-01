@@ -1,10 +1,12 @@
+import type { ReactNode } from "react"
+
 export function SectionHeader({
   title,
   copy,
   align = "left",
 }: {
-  title: string
-  copy?: string
+  title: ReactNode
+  copy?: ReactNode
   align?: "left" | "center"
 }) {
   return (

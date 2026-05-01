@@ -70,7 +70,7 @@ export const methodSteps = [
   },
   {
     title: "Neto imovina",
-    copy: "Novac, potrošna dobra i proizvodna imovina imaju različite uloge i različita pravila.",
+    copy: "Novac, potrošna dobra i proizvodna imovina (kapital) imaju različite uloge i različita pravila.",
   },
   {
     title: "Sigurnost i obitelj",
@@ -87,7 +87,7 @@ export const beforeWorkItems = [
 ]
 
 export const afterWorkItems = [
-  "svaki euro ima namjenu",
+  "sav novac ima namjenu",
   "dug ima plan izlaska",
   "dio novca redovito služi darivanju",
   "Bitcoin ima ulogu novca",

@@ -7,9 +7,9 @@ function PlanVisual() {
   const rows = [
     "osobni proračun",
     "plan izlaska iz duga",
-    "darivanje",
+    "Sustavno darivanje",
     "Bitcoin kao novac",
-    "kupovna moć",
+    "ravnoteža neto imovine",
   ]
 
   return (
@@ -90,7 +90,7 @@ export function Hero() {
           </p>
           <div className="mt-6">
             <p className="text-sm font-semibold text-foreground">
-              Nakon rada imate:
+              Nakon rada imate jasan plan.
             </p>
             <div className="mt-3 grid gap-2 sm:flex sm:flex-wrap">
               {heroOutcomes.map((outcome) => (

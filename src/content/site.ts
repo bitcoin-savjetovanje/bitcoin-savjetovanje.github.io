@@ -46,15 +46,15 @@ export const heroOutcomes = [
 export const trustCards = [
   {
     title: "U Bitcoinu od 2014.",
-    copy: "Više ciklusa, isti fokus: Bitcoin kao novac.",
+    copy: "Praktično iskustvo korištenja i proučavanja Bitcoina kroz višegodišnje cikluse.",
   },
   {
     title: "Bitcoin standard od 2020.",
     copy: "Praksa korištenja Bitcoina kao primarnog novca.",
   },
   {
-    title: "Rad s najboljima.",
-    copy: "Direktan rad sa Saifedeanom Ammousom i razvoj Praktičnog Bitcoin standarda.",
+    title: "Profesionalan rad u industriji",
+    copy: "Operativni rad s autorom svjetskog bestsellera The Bitcoin Standard.",
   },
 ]
 

@@ -26,7 +26,7 @@ export const homeSeo = {
 export const guidesIndexSeo = {
   title: "Vodiči za praktične Bitcoin odluke | Bitcoin Savjetovanje",
   description:
-    "Kratki hrvatski vodiči o budžetu, dugu, neto imovini, skrbništvu, obiteljskom pristupu i pravilima odlučivanja na Bitcoin standardu.",
+    "Kratki hrvatski vodiči o osobnom proračunu, dugu, neto imovini, skrbništvu, obiteljskom pristupu i pravilima odlučivanja na Bitcoin standardu.",
   canonical: `${SITE_URL}/vodici/`,
 }
 

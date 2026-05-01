@@ -53,9 +53,9 @@ export function homeSchema() {
         email: EMAIL,
         areaServed: ["Hrvatska", "Online"],
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
-        serviceType: "Bitcoin education and advisory framework",
+        serviceType: "Bitcoin edukacija i savjetodavni okvir",
         description:
-          "Edukativan i savjetodavan okvir za Bitcoin odluke, budžet, dug, neto imovinu, skrbništvo i sigurnost. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Edukativan i savjetodavan okvir za Bitcoin odluke, osobni proračun, dug, neto imovinu, skrbništvo i sigurnost. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },
       {
         "@type": "OfferCatalog",
@@ -116,7 +116,7 @@ export function guideSchema(guide: Guide) {
         },
         about: [
           "Bitcoin",
-          "budžet",
+          "osobni proračun",
           "neto imovina",
           "skrbništvo",
           "osobni okvir odluka",

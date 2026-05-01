@@ -43,11 +43,12 @@ export function OffersSection() {
                 </li>
               ))}
             </ul>
-            <Button asChild className="cta-primary mt-6 rounded-full">
+            <Button asChild className="cta-primary mt-6 w-full rounded-full">
               <a
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="justify-center text-center"
                 data-cta={offerCtaAttributes[offer.title]}
               >
                 <CalendarDays className="size-4" />

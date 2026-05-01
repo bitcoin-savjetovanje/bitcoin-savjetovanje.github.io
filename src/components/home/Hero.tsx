@@ -52,11 +52,11 @@ export function Hero() {
             vašim novcem.
           </p>
 
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
             <Button
               asChild
               size="lg"
-              className="cta-primary h-12 rounded-full px-6 text-base"
+              className="cta-primary h-12 w-full rounded-full px-5 text-base sm:w-auto sm:px-6"
             >
               <a
                 href={BOOKING_URL}
@@ -72,7 +72,7 @@ export function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="h-12 rounded-full border-border/80 bg-background/70 px-6 text-base"
+              className="h-12 w-full rounded-full border-border/80 bg-background/70 px-5 text-base sm:w-auto sm:px-6"
             >
               <a href="#metoda" data-link="hero-method">
                 Pogledajte metodu
@@ -87,7 +87,7 @@ export function Hero() {
             <p className="text-sm font-semibold text-foreground">
               Nakon rada imate:
             </p>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="mt-3 grid gap-2 sm:flex sm:flex-wrap">
               {heroOutcomes.map((outcome) => (
                 <span key={outcome} className="hero-benefit">
                   {outcome}
@@ -96,7 +96,7 @@ export function Hero() {
             </div>
           </div>
           <a
-            className="mt-5 inline-block text-sm font-semibold text-muted-foreground hover:text-primary"
+            className="mt-5 inline-block text-sm font-semibold break-all text-muted-foreground hover:text-primary sm:break-normal"
             href={`mailto:${EMAIL}`}
             data-link="hero-email"
           >

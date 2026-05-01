@@ -21,7 +21,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
     <article className="section-shell">
       <nav
         aria-label="Breadcrumb"
-        className="text-sm font-medium text-muted-foreground"
+        className="text-sm leading-6 font-medium text-muted-foreground"
       >
         <ol className="flex flex-wrap items-center gap-2">
           <li>
@@ -36,7 +36,10 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </a>
           </li>
           <li aria-hidden="true">/</li>
-          <li aria-current="page" className="text-foreground">
+          <li
+            aria-current="page"
+            className="min-w-0 break-words text-foreground"
+          >
             {guide.title}
           </li>
         </ol>
@@ -48,13 +51,13 @@ export function GuidePage({ guide }: { guide: Guide }) {
         Natrag na vodiče
       </a>
       <header className="mt-8 max-w-4xl">
-        <h1 className="font-display text-4xl leading-tight font-semibold tracking-[-0.025em] text-foreground sm:text-5xl">
+        <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
           {guide.title}
         </h1>
         <p className="mt-5 text-sm font-semibold text-muted-foreground">
           Vrijeme čitanja: {estimateGuideReadingMinutes(guide)} min
         </p>
-        <p className="mt-6 text-lg leading-8 text-muted-foreground">
+        <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
           {guide.excerpt}
         </p>
       </header>
@@ -132,11 +135,15 @@ export function GuidePage({ guide }: { guide: Guide }) {
           Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
           vidjeti gdje ste, što pokušavate odlučiti i ima li smisla nastaviti.
         </p>
-        <Button asChild className="cta-primary mt-6 rounded-full">
+        <Button
+          asChild
+          className="cta-primary mt-6 w-full rounded-full sm:w-auto"
+        >
           <a
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
+            className="justify-center text-center"
             data-cta="guide-booking"
           >
             <CalendarDays className="size-4" />

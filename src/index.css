@@ -127,6 +127,7 @@
     @apply font-sans antialiased;
     overflow-x: clip;
     scroll-behavior: smooth;
+    text-size-adjust: 100%;
   }
 
   * {
@@ -158,6 +159,20 @@
 }
 
 @layer components {
+  .sticky-mobile-cta {
+    position: fixed;
+    left: max(0.75rem, env(safe-area-inset-left));
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    z-index: 40;
+    padding: 0.25rem;
+    border: 1px solid color-mix(in oklab, var(--border), transparent 30%);
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--background), transparent 8%);
+    box-shadow: 0 16px 34px hsl(0 0% 0% / 0.14);
+    backdrop-filter: blur(18px);
+  }
+
   .hero-section {
     background:
       linear-gradient(
@@ -173,7 +188,7 @@
   }
 
   .hero-shell {
-    @apply mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-22 lg:px-8 xl:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] xl:items-center xl:py-28;
+    @apply mx-auto grid max-w-7xl gap-9 px-4 py-12 sm:gap-12 sm:px-6 sm:py-20 lg:px-8 xl:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] xl:items-center xl:py-28;
   }
 
   .hero-copy {
@@ -181,15 +196,16 @@
   }
 
   .hero-title {
-    @apply font-display text-4xl leading-[1.04] font-semibold tracking-[-0.035em] text-foreground sm:text-5xl lg:text-[3.5rem] xl:text-[3.55rem] 2xl:text-[3.75rem];
+    @apply font-display text-[2.55rem] leading-[1.04] font-semibold tracking-[-0.025em] text-foreground sm:text-5xl sm:tracking-[-0.035em] lg:text-[3.5rem] xl:text-[3.55rem] 2xl:text-[3.75rem];
   }
 
   .hero-subtitle {
-    @apply mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl sm:leading-9;
+    @apply mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:mt-7 sm:text-xl sm:leading-9;
   }
 
   .section-shell {
-    @apply mx-auto max-w-7xl px-4 py-22 sm:px-6 sm:py-28 lg:px-8;
+    @apply mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28;
+    scroll-margin-top: 5.5rem;
   }
 
   .section-muted {
@@ -204,7 +220,7 @@
   }
 
   .trust-strip__item {
-    @apply rounded-lg border border-border/75 bg-background/76 px-4 py-3 text-sm leading-6 font-medium text-foreground shadow-sm;
+    @apply rounded-lg border border-border/75 bg-background/76 px-4 py-3.5 text-sm leading-6 font-medium text-foreground shadow-sm;
   }
 
   .cta-primary {
@@ -229,7 +245,7 @@
   }
 
   .hero-benefit {
-    @apply rounded-full border border-border/75 bg-background/76 px-3 py-1.5 text-xs leading-5 font-medium text-muted-foreground shadow-sm;
+    @apply rounded-full border border-border/75 bg-background/76 px-3 py-2 text-center text-xs leading-5 font-medium text-muted-foreground shadow-sm sm:py-1.5;
   }
 
   .hero-output {
@@ -237,11 +253,11 @@
   }
 
   .plan-visual {
-    @apply relative mx-auto w-full max-w-[420px];
+    @apply relative mx-auto w-full max-w-[420px] min-w-0;
   }
 
   .plan-visual__card {
-    @apply relative overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-7;
+    @apply relative overflow-hidden rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-7;
     animation: plan-card-in 650ms ease-out both;
   }
 
@@ -264,11 +280,11 @@
   }
 
   .plan-visual__header {
-    @apply relative z-10 flex items-start justify-between gap-6;
+    @apply relative z-10 flex items-start justify-between gap-4 sm:gap-6;
   }
 
   .plan-visual__eyebrow {
-    @apply text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase;
+    @apply text-[0.68rem] leading-5 font-semibold tracking-[0.14em] text-muted-foreground uppercase sm:text-xs sm:tracking-[0.18em];
   }
 
   .plan-visual__header h2 {
@@ -280,7 +296,7 @@
   }
 
   .plan-visual__bitcoin-mark {
-    @apply relative grid size-20 shrink-0 place-items-center overflow-hidden rounded-full border text-5xl font-bold;
+    @apply relative grid size-16 shrink-0 place-items-center overflow-hidden rounded-full border text-4xl font-bold sm:size-20 sm:text-5xl;
     background: color-mix(in oklab, var(--primary), transparent 82%);
     border-color: color-mix(in oklab, var(--primary), transparent 60%);
     color: var(--primary);
@@ -331,11 +347,11 @@
   }
 
   .plan-visual__rows {
-    @apply relative z-10 mt-8 grid gap-3;
+    @apply relative z-10 mt-6 grid gap-2.5 sm:mt-8 sm:gap-3;
   }
 
   .plan-visual__row {
-    @apply flex items-start gap-3 rounded-xl border border-border/70 bg-background/70 px-4 py-3 text-sm leading-5 font-medium text-foreground shadow-sm;
+    @apply flex items-start gap-3 rounded-xl border border-border/70 bg-background/70 px-3.5 py-2.5 text-sm leading-5 font-medium text-foreground shadow-sm sm:px-4 sm:py-3;
     animation: plan-row-in 520ms ease-out both;
     opacity: 0;
   }
@@ -381,11 +397,11 @@
   }
 
   .check-row {
-    @apply flex gap-3 rounded-lg border border-border/75 bg-card/82 p-4 text-base leading-7 shadow-sm;
+    @apply flex min-w-0 gap-3 rounded-lg border border-border/75 bg-card/82 p-4 text-base leading-7 shadow-sm;
   }
 
   .not-for-row {
-    @apply flex gap-2.5 rounded-md bg-card/58 px-3.5 py-2.5 text-sm leading-6 text-muted-foreground;
+    @apply flex min-w-0 gap-2.5 rounded-md bg-card/58 px-3.5 py-2.5 text-sm leading-6 text-muted-foreground;
     box-shadow: none;
   }
 
@@ -405,7 +421,7 @@
 
   .pattern-panel,
   .case-panel {
-    @apply rounded-2xl border border-border/80 bg-card/82 p-6 shadow-sm sm:p-8 lg:p-10;
+    @apply rounded-2xl border border-border/80 bg-card/82 p-5 shadow-sm sm:p-8 lg:p-10;
   }
 
   .question-panel p {
@@ -420,7 +436,7 @@
   .process-card,
   .program-card,
   .comparison-card {
-    @apply rounded-xl border border-border/80 bg-card p-6 shadow-sm;
+    @apply min-w-0 rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
   }
 
   .value-card .icon-mark {
@@ -433,7 +449,7 @@
   .process-card h3,
   .program-card h3,
   .comparison-card h3 {
-    @apply text-xl leading-tight font-semibold;
+    @apply min-w-0 text-xl leading-tight font-semibold break-words;
   }
 
   .value-card p,
@@ -470,7 +486,7 @@
   }
 
   .price-badge {
-    @apply inline-flex min-w-max shrink-0 items-center justify-center rounded-full px-3 py-1 text-sm font-semibold whitespace-nowrap text-foreground;
+    @apply inline-flex min-w-max shrink-0 items-center justify-center rounded-full px-3 py-1.5 text-sm font-semibold whitespace-nowrap text-foreground;
   }
 
   .price-badge--soft {
@@ -486,11 +502,11 @@
   }
 
   .credibility-grid {
-    @apply mt-8 grid gap-8 lg:grid-cols-[340px_1fr] lg:items-start;
+    @apply mt-8 grid min-w-0 gap-8 lg:grid-cols-[340px_1fr] lg:items-start;
   }
 
   .profile-panel {
-    @apply rounded-xl border border-border/80 bg-card p-7 shadow-sm;
+    @apply rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-7;
   }
 
   .profile-panel img {
@@ -522,11 +538,11 @@
   }
 
   .credibility-logo-strip {
-    @apply grid grid-cols-3 items-center gap-3 rounded-xl border border-border/70 bg-card/70 p-4 shadow-sm sm:grid-cols-5 lg:col-span-2;
+    @apply grid min-w-0 grid-cols-2 items-center gap-2.5 rounded-xl border border-border/70 bg-card/70 p-3 shadow-sm sm:grid-cols-5 sm:gap-3 sm:p-4 lg:col-span-2;
   }
 
   .credibility-logo-strip a {
-    @apply flex h-16 items-center justify-center rounded-lg bg-background/80 px-3 transition-colors hover:bg-background;
+    @apply flex h-14 min-w-0 items-center justify-center overflow-hidden rounded-lg bg-background/80 px-3 transition-colors hover:bg-background sm:h-16;
   }
 
   .credibility-logo-strip img {
@@ -591,11 +607,11 @@
   }
 
   .final-cta {
-    @apply grid gap-8 rounded-2xl border border-border/80 bg-foreground p-6 text-background shadow-sm sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center;
+    @apply grid min-w-0 gap-6 rounded-2xl border border-border/80 bg-foreground p-5 text-background shadow-sm sm:gap-8 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center;
   }
 
   .final-cta h2 {
-    @apply max-w-3xl text-3xl leading-tight font-semibold sm:text-4xl;
+    @apply max-w-3xl text-2xl leading-tight font-semibold sm:text-4xl;
   }
 
   .final-cta p {
@@ -603,7 +619,7 @@
   }
 
   .final-cta__email {
-    @apply text-sm font-semibold text-background no-underline hover:text-primary;
+    @apply break-all text-sm font-semibold text-background no-underline hover:text-primary sm:break-normal;
   }
 
 }
@@ -717,15 +733,11 @@
   }
 
   .plan-visual {
-    @apply max-w-[360px];
+    @apply max-w-[350px];
   }
 
   .plan-visual__card {
     @apply rounded-2xl p-5;
-  }
-
-  .plan-visual__bitcoin-mark {
-    @apply size-16 text-4xl;
   }
 
   .plan-visual__header h2 {
@@ -740,6 +752,43 @@
     @apply px-3.5 py-2.5;
   }
 
+  .credibility-logo-strip__logo--wide {
+    transform: scale(1.08);
+    width: 100%;
+  }
+
+  .credibility-logo-strip__logo--compact {
+    max-height: 0.9rem;
+    max-width: 62%;
+  }
+
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 2.32rem;
+  }
+
+  .plan-visual__header {
+    gap: 0.75rem;
+  }
+
+  .plan-visual__bitcoin-mark {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+
+@media (max-height: 430px) and (orientation: landscape) {
+  .hero-shell {
+    padding-top: 2rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .sticky-mobile-cta {
+    left: auto;
+    width: min(24rem, calc(100vw - 1.5rem));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

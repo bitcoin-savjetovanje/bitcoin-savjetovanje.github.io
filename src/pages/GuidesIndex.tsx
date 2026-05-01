@@ -21,10 +21,10 @@ export function GuidesIndex() {
           <p className="text-sm font-semibold tracking-[0.16em] text-muted-foreground uppercase">
             Praktični Bitcoin standard
           </p>
-          <h1 className="mt-4 font-display text-4xl leading-tight font-semibold tracking-[-0.025em] text-foreground sm:text-5xl">
+          <h1 className="mt-4 font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
             Vodiči za praktične Bitcoin odluke
           </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Kraći tekstovi koji prevode glavne ideje Praktičnog Bitcoin
             standarda u konkretne odluke: osobni proračun, dug, kupovnu moć,
             neto imovinu, skrbništvo, obiteljski pristup i pravila kroz vrijeme.
@@ -42,11 +42,15 @@ export function GuidesIndex() {
             se primijeni na vaš osobni proračun, dug, kupovnu moć, neto imovinu
             i sigurnosni model.
           </p>
-          <Button asChild className="cta-primary mt-6 rounded-full">
+          <Button
+            asChild
+            className="cta-primary mt-6 w-full rounded-full sm:w-auto"
+          >
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
+              className="justify-center text-center"
               data-cta="guides-index-booking"
             >
               <CalendarDays className="size-4" />

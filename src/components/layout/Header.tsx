@@ -14,7 +14,7 @@ function ThemeToggle() {
     <Button
       variant="outline"
       size="icon"
-      className="size-10 rounded-full border-border/80 bg-background/80 backdrop-blur"
+      className="size-11 rounded-full border-border/80 bg-background/80 backdrop-blur sm:size-10"
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
       {isDark ? (
@@ -53,10 +53,10 @@ export function Header() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/86 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3.5 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <a
-          className="font-display text-base font-semibold whitespace-nowrap"
+          className="min-w-0 font-display text-base font-semibold whitespace-nowrap"
           href="/"
         >
           Bitcoin Savjetovanje
@@ -94,17 +94,19 @@ export function Header() {
           <Button
             variant="outline"
             size="icon"
-            className="size-10 rounded-full border-border/80 bg-background/80 xl:hidden"
+            className="size-11 rounded-full border-border/80 bg-background/80 sm:size-10 xl:hidden"
             onClick={() => setMobileMenuOpen((open) => !open)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav"
+            aria-label={
+              mobileMenuOpen ? "Zatvori navigaciju" : "Otvori navigaciju"
+            }
           >
             {mobileMenuOpen ? (
               <X className="size-4" />
             ) : (
               <Menu className="size-4" />
             )}
-            <span className="sr-only">Otvori navigaciju</span>
           </Button>
         </div>
       </div>
@@ -112,13 +114,13 @@ export function Header() {
       {mobileMenuOpen ? (
         <nav
           id="mobile-nav"
-          className="mx-auto grid max-w-7xl gap-2 px-4 pb-4 xl:hidden"
+          className="mx-auto grid max-w-7xl gap-2 border-t border-border/50 px-3 pt-3 pb-4 sm:px-6 xl:hidden"
         >
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg border border-border/70 bg-card px-4 py-3 text-sm font-medium"
+              className="rounded-lg border border-border/70 bg-card px-4 py-3.5 text-sm font-medium shadow-sm"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}
@@ -128,7 +130,7 @@ export function Header() {
             href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-border/70 bg-card px-4 py-3 text-sm font-semibold"
+            className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
             onClick={() => setMobileMenuOpen(false)}
             data-cta="mobile-menu-booking"
           >

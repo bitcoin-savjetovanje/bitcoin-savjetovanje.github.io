@@ -75,7 +75,7 @@ export function App({ path }: { path?: string }) {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background pb-16 text-foreground lg:pb-0">
+    <div className="min-h-screen bg-background pb-[calc(6.5rem+env(safe-area-inset-bottom))] text-foreground lg:pb-0">
       <Header />
       <main id="top">
         <Route path={currentPath} />
@@ -87,7 +87,7 @@ export function App({ path }: { path?: string }) {
         <Button
           type="button"
           size="icon"
-          className="fixed right-4 bottom-20 z-50 size-10 rounded-full border border-border/70 bg-background/94 text-foreground shadow-lg hover:bg-muted hover:text-foreground md:right-6 lg:bottom-6"
+          className="fixed right-4 bottom-[calc(5.25rem+env(safe-area-inset-bottom))] z-50 size-10 rounded-full border border-border/70 bg-background/94 text-foreground shadow-lg hover:bg-muted hover:text-foreground md:right-6 lg:bottom-6"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Povratak na vrh"
         >

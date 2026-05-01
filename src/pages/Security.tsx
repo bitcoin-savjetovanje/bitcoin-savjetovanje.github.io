@@ -61,10 +61,10 @@ export function Security() {
         </nav>
 
         <header className="mt-8 max-w-4xl">
-          <h1 className="font-display text-4xl leading-tight font-semibold tracking-[-0.025em] text-foreground sm:text-5xl">
+          <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
             Sigurnost i povjerljivost
           </h1>
-          <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Bitcoin savjetovanje ne traži pristup vašem novcu. Cilj je da vi
             razumijete i kontrolirate vlastiti sustav.
           </p>
@@ -106,12 +106,13 @@ export function Security() {
           <Button
             asChild
             size="lg"
-            className="cta-primary mt-6 rounded-full px-6 lg:mt-0"
+            className="cta-primary mt-6 w-full rounded-full px-5 text-center sm:w-auto sm:px-6 lg:mt-0"
           >
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
+              className="justify-center"
               data-cta="security-booking"
             >
               <CalendarDays className="size-4" />

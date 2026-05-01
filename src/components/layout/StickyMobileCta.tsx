@@ -2,12 +2,12 @@ import { BOOKING_URL } from "@/content/site"
 
 export function StickyMobileCta() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border/70 bg-background/92 p-3 shadow-lg backdrop-blur lg:hidden">
+    <div className="sticky-mobile-cta lg:hidden">
       <a
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="cta-primary flex h-11 items-center justify-center rounded-full px-4 text-sm font-semibold"
+        className="cta-primary flex h-11 min-w-0 items-center justify-center rounded-full px-4 text-center text-sm font-semibold whitespace-nowrap"
         data-cta="sticky-mobile-booking"
       >
         Uvodni razgovor · 15 min · bez naknade

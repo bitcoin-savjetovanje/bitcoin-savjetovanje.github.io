@@ -18,7 +18,7 @@ export function FinalCta() {
           <Button
             asChild
             size="lg"
-            className="cta-primary h-12 rounded-full px-6 text-base"
+            className="cta-primary h-12 w-full rounded-full px-5 text-base sm:w-auto sm:px-6"
           >
             <a
               href={BOOKING_URL}

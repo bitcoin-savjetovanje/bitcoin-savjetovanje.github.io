@@ -1,10 +1,22 @@
 import { CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
-import { GuideCardsGrid } from "@/components/guides/GuideCardsGrid"
 import { Button } from "@/components/ui/button"
+import {
+  findGuide,
+  guideCategories,
+  guideCategoryDescriptions,
+  guideHref,
+  guidesByCategory,
+  recommendedGuideSlugs,
+} from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
 import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { estimateGuideReadingMinutes } from "@/utils/readingTime"
+
+const recommendedGuides = recommendedGuideSlugs
+  .map((slug) => findGuide(slug))
+  .filter(Boolean)
 
 export function GuidesIndex() {
   return (
@@ -28,23 +40,93 @@ export function GuidesIndex() {
             Ako želite razumjeti okvir, čitajte vodiče. Ako ga želite
             primijeniti na svoju situaciju, rezervirajte razgovor.
           </p>
-          <p className="mt-4 text-base leading-8 text-muted-foreground">
-            Vodiči prate redoslijed Praktičnog Bitcoin standarda: osobni
-            proračun, život bez duga, darivanje, Bitcoin kao novac, kupovna moć
-            i neto imovina.
-          </p>
         </header>
 
-        <GuideCardsGrid showReadingTime />
+        <section className="mx-auto mt-12 max-w-5xl rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Preporučeni redoslijed
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em]">
+              Ne znate odakle krenuti?
+            </h2>
+            <p className="mt-3 text-base leading-8 text-muted-foreground">
+              Krenite redom. Prvo novac koji imate. Zatim dug. Tek onda Bitcoin
+              kao novac, neto imovina i sigurnost.
+            </p>
+          </div>
+          <ol className="mt-6 grid gap-2 md:grid-cols-2">
+            {recommendedGuides.map((guide, index) =>
+              guide ? (
+                <li key={guide.slug}>
+                  <a
+                    href={guideHref(guide.slug)}
+                    className="flex h-full gap-3 rounded-xl border border-border/75 bg-background/70 p-4 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary/50 hover:text-primary"
+                  >
+                    <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary/10 text-xs text-primary">
+                      {index + 1}
+                    </span>
+                    <span>{guide.title}</span>
+                  </a>
+                </li>
+              ) : null
+            )}
+          </ol>
+        </section>
+
+        <div className="mt-14 space-y-12">
+          {guideCategories.map((category, categoryIndex) => {
+            const categoryGuides = guidesByCategory(category)
+            const categoryId = `guide-category-${categoryIndex + 1}`
+
+            if (categoryGuides.length === 0) {
+              return null
+            }
+
+            return (
+              <section key={category} aria-labelledby={categoryId}>
+                <div className="max-w-3xl">
+                  <h2
+                    id={categoryId}
+                    className="font-display text-2xl leading-tight font-semibold text-foreground sm:text-3xl"
+                  >
+                    {category}
+                  </h2>
+                  <p className="mt-3 text-base leading-8 text-muted-foreground">
+                    {guideCategoryDescriptions[category]}
+                  </p>
+                </div>
+                <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                  {categoryGuides.map((guide) => (
+                    <a
+                      key={guide.slug}
+                      href={guideHref(guide.slug)}
+                      className="program-card group block hover:border-primary/50 hover:text-foreground"
+                    >
+                      <h3 className="flex items-start justify-between gap-4">
+                        <span>{guide.title}</span>
+                      </h3>
+                      <p className="mt-3 text-sm leading-6 font-semibold text-muted-foreground">
+                        Vrijeme čitanja: {estimateGuideReadingMinutes(guide)}{" "}
+                        min
+                      </p>
+                      <p>{guide.excerpt}</p>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )
+          })}
+        </div>
 
         <div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-border/80 bg-card p-6 text-center shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Želite primijeniti okvir na svoju situaciju?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
-            Vodiči pomažu razjasniti pojmove. Osobni Bitcoin standard nastaje
-            tek kada se primijeni na vaš proračun, dug, kupovnu moć, neto
-            imovinu i sigurnosni model.
+            Bitcoin standard nije samo posjedovanje Bitcoina. Nastaje kada vaš
+            novac, dug, potrošnja, proizvodna imovina, sigurnost i obitelj imaju
+            pravila.
           </p>
           <Button
             asChild

@@ -25,7 +25,7 @@ export const homeSeo = {
 export const guidesIndexSeo = {
   title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Vodiči o osobnom proračunu, životu bez duga, darivanju, Bitcoinu kao novcu, kupovnoj moći, neto imovini, sigurnosti i obitelji.",
+    "Vodiči kroz Praktični Bitcoin standard: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 

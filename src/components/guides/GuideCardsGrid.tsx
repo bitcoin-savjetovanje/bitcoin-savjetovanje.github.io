@@ -1,16 +1,21 @@
 import { ArrowUpRight } from "lucide-react"
 
-import { guideHref, guides } from "@/content/guides"
+import { featuredGuides, guideHref, guides, type Guide } from "@/content/guides"
 import { estimateGuideReadingMinutes } from "@/utils/readingTime"
 
 export function GuideCardsGrid({
+  items,
   showReadingTime = false,
 }: {
+  items?: Guide[]
   showReadingTime?: boolean
 }) {
+  const guideItems =
+    items ?? (featuredGuides.length > 0 ? featuredGuides : guides)
+
   return (
     <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {guides.map((guide) => (
+      {guideItems.map((guide) => (
         <a
           key={guide.slug}
           href={guideHref(guide.slug)}

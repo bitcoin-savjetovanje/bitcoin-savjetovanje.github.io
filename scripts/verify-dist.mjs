@@ -8,13 +8,31 @@ const serverEntry = path.join(distDir, "server", "entry-server.js")
 const failures = []
 
 const requiredGuidePaths = [
+  "/vodici/svaki-euro-ima-namjenu",
   "/vodici/stvarni-visak",
+  "/vodici/starost-novca",
+  "/vodici/dug-je-buduci-novac",
   "/vodici/bitcoin-u-neto-imovini",
   "/vodici/dug-ili-bitcoin",
+  "/vodici/ne-zaduzujte-se-za-bitcoin",
+  "/vodici/darivanje-u-proracunu",
+  "/vodici/bitcoin-kao-novac",
+  "/vodici/pozitivni-neto-priljev",
   "/vodici/dca-nije-dovoljan",
   "/vodici/uskladivanje-kupovne-moci-bitcoina",
+  "/vodici/pravilo-trecina",
+  "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
   "/vodici/obiteljski-pristup-bitcoinu",
   "/vodici/novac-kapital-potrosnja",
+]
+
+const guideCategories = [
+  "Osobni proračun",
+  "Život bez duga",
+  "Darivanje",
+  "Bitcoin kao novac",
+  "Neto imovina",
+  "Sigurnost i obitelj",
 ]
 
 function pass(message) {
@@ -289,6 +307,62 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
+  "Preporučeni redoslijed",
+  "recommended reading order"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Ne znate odakle krenuti?",
+  "recommended order intro"
+)
+for (const category of guideCategories) {
+  assertIncludes(
+    "vodici/index.html",
+    guidesIndexHtml,
+    category,
+    `${category} category`
+  )
+}
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Svaki euro ima namjenu",
+  "first recommended guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Dug je budući novac koji ste već potrošili",
+  "debt guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Darivanje nije ukras. Darivanje je kategorija.",
+  "giving guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Bitcoin je novac",
+  "bitcoin as money guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Pravilo trećina u neto imovini",
+  "thirds rule guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Sigurnost ne smije ovisiti samo o vama",
+  "security guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
   '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/" />',
   "guide index canonical URL"
 )
@@ -441,6 +515,66 @@ assertIncludes(
   '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/uskladivanje-kupovne-moci-bitcoina/" />',
   "purchasing power guide canonical URL"
 )
+
+const newGuideChecks = [
+  {
+    path: "vodici/svaki-euro-ima-namjenu/index.html",
+    title: "Svaki euro ima namjenu",
+    copy: "Proračun nije kazna",
+  },
+  {
+    path: "vodici/starost-novca/index.html",
+    title: "Starost novca",
+    copy: "Stariji novac daje prostor",
+  },
+  {
+    path: "vodici/dug-je-buduci-novac/index.html",
+    title: "Dug je budući novac koji ste već potrošili",
+    copy: "Dug je fiat ponašanje",
+  },
+  {
+    path: "vodici/ne-zaduzujte-se-za-bitcoin/index.html",
+    title: "Ne zadužujte se za Bitcoin",
+    copy: "Zašto je to fiat ponašanje",
+  },
+  {
+    path: "vodici/darivanje-u-proracunu/index.html",
+    title: "Darivanje nije ukras. Darivanje je kategorija.",
+    copy: "Darivanje nije dug",
+  },
+  {
+    path: "vodici/bitcoin-kao-novac/index.html",
+    title: "Bitcoin je novac",
+    copy: "Bitcoin nije proizvodna imovina",
+  },
+  {
+    path: "vodici/pozitivni-neto-priljev/index.html",
+    title: "Pozitivan neto priljev",
+    copy: "Priljevi i odljevi",
+  },
+  {
+    path: "vodici/pravilo-trecina/index.html",
+    title: "Pravilo trećina u neto imovini",
+    copy: "Najmanje trećina u novcu",
+  },
+  {
+    path: "vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/index.html",
+    title: "Sigurnost ne smije ovisiti samo o vama",
+    copy: "Informacija nije isto što i pristup",
+  },
+  {
+    path: "vodici/novac-kapital-potrosnja/index.html",
+    title: "Novac, potrošnja i proizvodna imovina",
+    copy: "Bitcoin kao novac",
+  },
+]
+
+for (const guideCheck of newGuideChecks) {
+  const guideHtml = readFile(guideCheck.path)
+
+  assertIncludes(guideCheck.path, guideHtml, guideCheck.title, "guide title")
+  assertIncludes(guideCheck.path, guideHtml, guideCheck.copy, "guide copy")
+}
 
 const sitemap = readFile("sitemap.xml")
 for (const route of prerenderRoutes) {

@@ -45,14 +45,9 @@ export function Hero() {
     <section className="hero-section border-b border-border/70">
       <div className="hero-shell">
         <div className="hero-copy">
-          <h1 className="hero-title">
-            Praktični Bitcoin okvir za ljude koji imaju Bitcoin, imovinu ili
-            prihod, ali nemaju pisana pravila.
-          </h1>
+          <h1 className="hero-title">Imate Bitcoin. Sada trebate pravila.</h1>
           <p className="hero-subtitle">
-            Pomažem vam povezati osobni proračun, dug, neto imovinu, Bitcoin kao
-            novac, skrbništvo i obiteljski pristup u jasan sustav odluka kroz
-            vrijeme.
+            Pomažem vam povezati Bitcoin s ostalom imovinom u jasan sustav.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
             Ovo nije savjetovanje o trgovanju ni kratkoročnim prognozama cijene.

@@ -120,7 +120,7 @@ const homeHtml = readFile("index.html")
 assertIncludes(
   "index.html",
   homeHtml,
-  "Praktični Bitcoin okvir",
+  "Imate Bitcoin. Sada trebate pravila.",
   "homepage hero text"
 )
 assertIncludes("index.html", homeHtml, "osobni proračun", "personal budget copy")

@@ -5,6 +5,62 @@ export type GuideSection = {
   body: string[]
 }
 
+export type GuideVisual =
+  | {
+      type: "sequence"
+      title: string
+      steps: string[]
+      caption?: string
+    }
+  | {
+      type: "equation"
+      title: string
+      parts: string[]
+      result: string
+      caption?: string
+    }
+  | {
+      type: "split"
+      title: string
+      leftLabel: string
+      leftItems: string[]
+      rightLabel: string
+      rightItems: string[]
+      caption?: string
+    }
+  | {
+      type: "cycle"
+      title: string
+      nodes: string[]
+      center?: string
+      caption?: string
+    }
+  | {
+      type: "trend"
+      title: string
+      states: Array<{ label: string; description: string }>
+      caption?: string
+    }
+  | {
+      type: "thirds"
+      title: string
+      columns: Array<{ label: string; description: string }>
+      caption?: string
+    }
+  | {
+      type: "network"
+      title: string
+      center: string
+      nodes: string[]
+      caption?: string
+    }
+  | {
+      type: "safety"
+      title: string
+      zones: Array<{ label: string; description: string }>
+      caption?: string
+    }
+
 export const guideCategories = [
   "Osobni proračun",
   "Život bez duga",
@@ -42,6 +98,7 @@ export type Guide = {
   updatedAt: string
   practicalQuestion: string
   relatedSlugs: string[]
+  visual?: GuideVisual
   sections: GuideSection[]
   finalCta: string
 }
@@ -62,6 +119,12 @@ const guideEntries: Guide[] = [
     practicalQuestion:
       "Možete li za svaki euro koji imate reći što treba napraviti prije nego što odlučite kupiti Bitcoin?",
     relatedSlugs: ["stvarni-visak", "starost-novca", "darivanje-u-proracunu"],
+    visual: {
+      type: "sequence",
+      title: "Od prihoda do reda",
+      steps: ["priljev", "namjena", "0 neraspoređeno"],
+      caption: "Osobni proračun počinje kada svaki euro dobije posao.",
+    },
     sections: [
       {
         heading: "Proračun nije kazna",
@@ -119,6 +182,14 @@ const guideEntries: Guide[] = [
       "starost-novca",
       "dca-nije-dovoljan",
     ],
+    visual: {
+      type: "equation",
+      title: "Što ostaje nakon obveza",
+      parts: ["priljevi", "obveze", "budući odljevi"],
+      result: "stvarni višak",
+      caption:
+        "Višak nije stanje na računu. Višak je ono što ostaje nakon namjena.",
+    },
     sections: [
       {
         heading: "Višak nije stanje na računu",
@@ -176,6 +247,13 @@ const guideEntries: Guide[] = [
       "stvarni-visak",
       "dug-ili-bitcoin",
     ],
+    visual: {
+      type: "sequence",
+      title: "Novac kroz vrijeme",
+      steps: ["danas", "30 dana", "90 dana"],
+      caption:
+        "Što duže novac preživi prije potrošnje, to odluke postaju mirnije.",
+    },
     sections: [
       {
         heading: "Novac koji odmah nestaje",
@@ -290,6 +368,19 @@ const guideEntries: Guide[] = [
       "ne-zaduzujte-se-za-bitcoin",
       "darivanje-bez-duga",
     ],
+    visual: {
+      type: "split",
+      title: "Dva načina trošenja",
+      leftLabel: "Fiat pravilo",
+      leftItems: ["potroši danas", "plati sutra", "budućnost gubi slobodu"],
+      rightLabel: "Bitcoin standard",
+      rightItems: [
+        "štedi danas",
+        "troši prošli novac",
+        "budućnost ostaje slobodna",
+      ],
+      caption: "Dug je budući novac koji ste već potrošili.",
+    },
     sections: [
       {
         heading: "Dug nije samo broj",
@@ -401,6 +492,15 @@ const guideEntries: Guide[] = [
     practicalQuestion:
       "Biste li istu Bitcoin odluku donijeli da ne očekujete rast cijene?",
     relatedSlugs: ["dug-je-buduci-novac", "dug-ili-bitcoin", "stvarni-visak"],
+    visual: {
+      type: "split",
+      title: "Dva puta prema Bitcoinu",
+      leftLabel: "Dug",
+      leftItems: ["obveza", "pritisak", "prisilna odluka"],
+      rightLabel: "Stvarni višak",
+      rightItems: ["sloboda", "pravilo", "mirno čekanje"],
+      caption: "Bitcoin standard ne počinje dugom.",
+    },
     sections: [
       {
         heading: "Zašto zvuči primamljivo",
@@ -459,6 +559,13 @@ const guideEntries: Guide[] = [
       "novac-dolazi-od-ljudi",
       "svaki-euro-ima-namjenu",
     ],
+    visual: {
+      type: "cycle",
+      title: "Krug darivanja",
+      nodes: ["ljudi", "vrijednost", "priljevi", "darivanje"],
+      center: "velikodušnost",
+      caption: "Darivanje vas vraća ljudima, a priljevi dolaze od ljudi.",
+    },
     sections: [
       {
         heading: "Darivanje nije ostatak",
@@ -523,6 +630,12 @@ const guideEntries: Guide[] = [
       "novac-dolazi-od-ljudi",
       "dug-je-buduci-novac",
     ],
+    visual: {
+      type: "sequence",
+      title: "Redoslijed je važan",
+      steps: ["red", "bez duga", "darivanje"],
+      caption: "Darivanje ne dolazi iz pritiska, nego iz slobode.",
+    },
     sections: [
       {
         heading: "Dug i darivanje ne stvaraju isti duh",
@@ -586,6 +699,13 @@ const guideEntries: Guide[] = [
       "darivanje-bez-duga",
       "pozitivni-neto-priljev",
     ],
+    visual: {
+      type: "network",
+      title: "Priljevi dolaze od ljudi",
+      center: "vrijednost",
+      nodes: ["kupac", "klijent", "poslodavac", "obitelj", "zajednica"],
+      caption: "Novac dolazi kroz dobrovoljnu razmjenu s ljudima.",
+    },
     sections: [
       {
         heading: "Novac nije odvojen od ljudi",
@@ -651,6 +771,25 @@ const guideEntries: Guide[] = [
       "cijena-kao-mjera-vremena",
       "novac-kapital-potrosnja",
     ],
+    visual: {
+      type: "thirds",
+      title: "Gdje pripada Bitcoin?",
+      columns: [
+        {
+          label: "novac",
+          description: "Bitcoin kao novčana zaliha",
+        },
+        {
+          label: "potrošnja",
+          description: "dobra za izravnu uporabu",
+        },
+        {
+          label: "proizvodna imovina",
+          description: "dobra koja stvaraju vrijednost",
+        },
+      ],
+      caption: "U ovom okviru Bitcoin ima ulogu novca.",
+    },
     sections: [
       {
         heading: "Što znači da je Bitcoin novac",
@@ -708,6 +847,14 @@ const guideEntries: Guide[] = [
       "bitcoin-kao-novac",
       "uskladivanje-kupovne-moci-bitcoina",
     ],
+    visual: {
+      type: "equation",
+      title: "Temelj rasta",
+      parts: ["priljevi", "odljevi"],
+      result: "pozitivan neto priljev",
+      caption:
+        "Bitcoin standard počinje kada priljevi redovito nadmašuju odljeve.",
+    },
     sections: [
       {
         heading: "Priljevi i odljevi",
@@ -765,6 +912,25 @@ const guideEntries: Guide[] = [
       "bitcoin-kao-novac",
       "pozitivni-neto-priljev",
     ],
+    visual: {
+      type: "trend",
+      title: "Kupovna moć mijenja proračun",
+      states: [
+        {
+          label: "raste",
+          description: "rasporediti višak",
+        },
+        {
+          label: "miruje",
+          description: "držati pravila",
+        },
+        {
+          label: "pada",
+          description: "smanjiti odljeve",
+        },
+      ],
+      caption: "Ne pogađate tržište. Usklađujete proračun.",
+    },
     sections: [
       {
         heading: "Cijena nije naredba",
@@ -822,6 +988,25 @@ const guideEntries: Guide[] = [
       "bitcoin-kao-novac",
       "pozitivni-neto-priljev",
     ],
+    visual: {
+      type: "trend",
+      title: "Cijena kao vrijeme",
+      states: [
+        {
+          label: "iznad trenda",
+          description: "riješiti buduće odljeve",
+        },
+        {
+          label: "blizu trenda",
+          description: "držati pravila",
+        },
+        {
+          label: "ispod trenda",
+          description: "smanjiti potrošnju",
+        },
+      ],
+      caption: "Dugoročni trend je pomoćni signal, ne prognoza cijene.",
+    },
     sections: [
       {
         heading: "Ne pogađamo kratkoročno kretanje",
@@ -887,6 +1072,25 @@ const guideEntries: Guide[] = [
       "bitcoin-u-neto-imovini",
       "uskladivanje-kupovne-moci-bitcoina",
     ],
+    visual: {
+      type: "thirds",
+      title: "Tri uloge neto imovine",
+      columns: [
+        {
+          label: "novac",
+          description: "kupovna moć za buduću razmjenu",
+        },
+        {
+          label: "potrošna dobra",
+          description: "dobra za izravnu uporabu",
+        },
+        {
+          label: "proizvodna imovina",
+          description: "dobra koja povećavaju produktivnost",
+        },
+      ],
+      caption: "Ne služi svaka imovina istoj svrsi.",
+    },
     sections: [
       {
         heading: "Tri različite uloge",
@@ -1002,6 +1206,25 @@ const guideEntries: Guide[] = [
       "novac-kapital-potrosnja",
       "bitcoin-kao-novac",
     ],
+    visual: {
+      type: "thirds",
+      title: "Provjera ravnoteže",
+      columns: [
+        {
+          label: "najmanje trećina",
+          description: "novac",
+        },
+        {
+          label: "najviše trećina",
+          description: "potrošna dobra",
+        },
+        {
+          label: "najviše trećina",
+          description: "proizvodna imovina",
+        },
+      ],
+      caption: "Pravilo trećina je ogledalo, ne naredba.",
+    },
     sections: [
       {
         heading: "Zašto ravnoteža uopće treba pravilo",
@@ -1059,6 +1282,25 @@ const guideEntries: Guide[] = [
       "bitcoin-kao-novac",
       "bitcoin-u-neto-imovini",
     ],
+    visual: {
+      type: "safety",
+      title: "Obiteljski pristup",
+      zones: [
+        {
+          label: "što postoji",
+          description: "osnovna informacija",
+        },
+        {
+          label: "što ne dirati",
+          description: "početne riječi i ključevi",
+        },
+        {
+          label: "kome se javiti",
+          description: "osoba ili uputa za pomoć",
+        },
+      ],
+      caption: "Informacija nije isto što i pristup.",
+    },
     sections: [
       {
         heading: "Nije dovoljno da samo vi znate",
@@ -1117,6 +1359,25 @@ const guideEntries: Guide[] = [
       "bitcoin-kao-novac",
       "bitcoin-u-neto-imovini",
     ],
+    visual: {
+      type: "safety",
+      title: "Sigurnost bez jedne točke loma",
+      zones: [
+        {
+          label: "kontrola",
+          description: "Bitcoin ostaje pod vašom kontrolom",
+        },
+        {
+          label: "upute",
+          description: "osoba od povjerenja zna što ne smije napraviti",
+        },
+        {
+          label: "pristup",
+          description: "put postoji, ali ne otkriva osjetljive podatke",
+        },
+      ],
+      caption: "Sigurnost mora biti razumljiva i obitelji.",
+    },
     sections: [
       {
         heading: "Kontrola ostaje kod vas",

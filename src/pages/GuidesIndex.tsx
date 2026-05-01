@@ -26,6 +26,16 @@ const beginnerGuides = [
   .map((slug) => findGuide(slug))
   .filter(Boolean)
 
+const standardPathSteps = [
+  "proračun",
+  "bez duga",
+  "darivanje",
+  "Bitcoin kao novac",
+  "kupovna moć",
+  "neto imovina",
+  "sigurnost",
+]
+
 export function GuidesIndex() {
   return (
     <>
@@ -66,6 +76,27 @@ export function GuidesIndex() {
               Redoslijed je važan: darivanje ne dolazi iz duga ni krivnje, nego
               iz uređenog novca.
             </p>
+          </div>
+          <div
+            className="mt-8 rounded-2xl border border-border/80 bg-background/70 p-4 shadow-sm sm:p-5"
+            aria-label="Put prema osobnom Bitcoin standardu"
+          >
+            <h3 className="text-lg font-semibold">
+              Put prema osobnom Bitcoin standardu
+            </h3>
+            <ol className="mt-4 grid gap-2 md:grid-cols-7">
+              {standardPathSteps.map((step, index) => (
+                <li
+                  key={step}
+                  className="flex items-center gap-3 rounded-xl border border-border/75 bg-card p-3 text-sm font-semibold text-foreground shadow-sm md:flex-col md:items-start"
+                >
+                  <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary/10 text-xs text-primary">
+                    {index + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
           </div>
           <ol className="mt-6 grid gap-2 md:grid-cols-2">
             {recommendedGuides.map((guide, index) =>

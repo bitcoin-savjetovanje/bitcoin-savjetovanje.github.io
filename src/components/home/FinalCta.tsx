@@ -10,8 +10,9 @@ export function FinalCta() {
         <div>
           <h2>Ako želite jasna pravila, krenimo s 15 minuta.</h2>
           <p>
-            Rezervirajte uvodni razgovor. Vidjet ćemo gdje ste u odnosu na
-            osobni Bitcoin standard i koji je sljedeći razuman korak.
+            Uvodni razgovor je bez naknade i traje 15 minuta. Vidjet ćemo gdje
+            ste u odnosu na osobni Bitcoin standard i koji je sljedeći razuman
+            korak.
           </p>
         </div>
         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center">
@@ -27,8 +28,7 @@ export function FinalCta() {
               data-cta="final-booking"
             >
               <CalendarDays className="size-4" />
-              <span className="sm:hidden">Dogovorite uvodni razgovor</span>
-              <span className="hidden sm:inline">{PRIMARY_CTA}</span>
+              <span>{PRIMARY_CTA}</span>
             </a>
           </Button>
           <a

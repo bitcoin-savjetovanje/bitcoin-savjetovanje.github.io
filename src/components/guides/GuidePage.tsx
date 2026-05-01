@@ -1,5 +1,6 @@
 import { CalendarDays } from "lucide-react"
 
+import { GuideVisual } from "@/components/guides/GuideVisual"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
 import { BOOKING_URL } from "@/content/site"
@@ -61,6 +62,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
           {guide.excerpt}
         </p>
       </header>
+      {guide.visual ? <GuideVisual visual={guide.visual} /> : null}
       {sectionLinks.length > 0 ? (
         <nav
           aria-labelledby="guide-toc-heading"

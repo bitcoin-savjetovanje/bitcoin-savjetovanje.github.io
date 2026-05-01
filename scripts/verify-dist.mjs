@@ -234,8 +234,40 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
+  "4–6 tjedana rada",
+  "program visual title"
+)
+assertIncludes("index.html", homeHtml, "upitnik", "program visual questionnaire")
+assertIncludes("index.html", homeHtml, "4 razgovora", "program visual calls")
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "osobni dokument",
+  "program visual document"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "30 dana provjere",
+  "program visual follow-up"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
   "Mogu li pitati bilo što o Bitcoinu?",
   "open Bitcoin questions FAQ"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Pomažem vam izgraditi osobni Bitcoin standard",
+  "footer positioning copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Uvodni razgovor je bez naknade i traje 15 minuta.",
+  "final CTA helper copy"
 )
 assertIncludes("index.html", homeHtml, "osobni proračun", "personal budget copy")
 assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
@@ -394,6 +426,30 @@ assertIncludes(
   "Ne znate odakle krenuti?",
   "recommended order intro"
 )
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Put prema osobnom Bitcoin standardu",
+  "guide path visual title"
+)
+const guidePathVisualSteps = [
+  "proračun",
+  "bez duga",
+  "darivanje",
+  "Bitcoin kao novac",
+  "kupovna moć",
+  "neto imovina",
+  "sigurnost",
+]
+
+for (const step of guidePathVisualSteps) {
+  assertIncludes(
+    "vodici/index.html",
+    guidesIndexHtml,
+    step,
+    `${step} guide path visual step`
+  )
+}
 for (const category of guideCategories) {
   assertIncludes(
     "vodici/index.html",
@@ -727,6 +783,106 @@ for (const guideCheck of newGuideChecks) {
 
   assertIncludes(guideCheck.path, guideHtml, guideCheck.title, "guide title")
   assertIncludes(guideCheck.path, guideHtml, guideCheck.copy, "guide copy")
+}
+
+const guideVisualChecks = [
+  {
+    path: "vodici/svaki-euro-ima-namjenu/index.html",
+    title: "Od prihoda do reda",
+    copy: "0 neraspoređeno",
+  },
+  {
+    path: "vodici/stvarni-visak/index.html",
+    title: "Što ostaje nakon obveza",
+    copy: "stvarni višak",
+  },
+  {
+    path: "vodici/starost-novca/index.html",
+    title: "Novac kroz vrijeme",
+    copy: "90 dana",
+  },
+  {
+    path: "vodici/dug-je-buduci-novac/index.html",
+    title: "Dva načina trošenja",
+    copy: "Bitcoin standard",
+  },
+  {
+    path: "vodici/ne-zaduzujte-se-za-bitcoin/index.html",
+    title: "Dva puta prema Bitcoinu",
+    copy: "Stvarni višak",
+  },
+  {
+    path: "vodici/darivanje-u-proracunu/index.html",
+    title: "Krug darivanja",
+    copy: "velikodušnost",
+  },
+  {
+    path: "vodici/darivanje-bez-duga/index.html",
+    title: "Redoslijed je važan",
+    copy: "bez duga",
+  },
+  {
+    path: "vodici/novac-dolazi-od-ljudi/index.html",
+    title: "Priljevi dolaze od ljudi",
+    copy: "vrijednost",
+  },
+  {
+    path: "vodici/bitcoin-kao-novac/index.html",
+    title: "Gdje pripada Bitcoin?",
+    copy: "Bitcoin kao novčana zaliha",
+  },
+  {
+    path: "vodici/pozitivni-neto-priljev/index.html",
+    title: "Temelj rasta",
+    copy: "priljevi",
+  },
+  {
+    path: "vodici/uskladivanje-kupovne-moci-bitcoina/index.html",
+    title: "Kupovna moć mijenja proračun",
+    copy: "držati pravila",
+  },
+  {
+    path: "vodici/cijena-kao-mjera-vremena/index.html",
+    title: "Cijena kao vrijeme",
+    copy: "ispod trenda",
+  },
+  {
+    path: "vodici/novac-kapital-potrosnja/index.html",
+    title: "Tri uloge neto imovine",
+    copy: "kupovna moć za buduću razmjenu",
+  },
+  {
+    path: "vodici/pravilo-trecina/index.html",
+    title: "Provjera ravnoteže",
+    copy: "najmanje trećina",
+  },
+  {
+    path: "vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/index.html",
+    title: "Sigurnost bez jedne točke loma",
+    copy: "kontrola",
+  },
+  {
+    path: "vodici/obiteljski-pristup-bitcoinu/index.html",
+    title: "Obiteljski pristup",
+    copy: "što ne dirati",
+  },
+]
+
+for (const visualCheck of guideVisualChecks) {
+  const guideHtml = readFile(visualCheck.path)
+
+  assertIncludes(
+    visualCheck.path,
+    guideHtml,
+    visualCheck.title,
+    "guide visual title"
+  )
+  assertIncludes(
+    visualCheck.path,
+    guideHtml,
+    visualCheck.copy,
+    "guide visual copy"
+  )
 }
 
 const givingGuidePath = "vodici/darivanje-u-proracunu/index.html"

@@ -58,7 +58,7 @@ export const methodSteps = [
   },
   {
     title: "Darivanje",
-    copy: "Dio proračuna odvaja se za darivanje, ako je temelj uređen. To je praksa velikodušnosti, ne naknadna misao.",
+    copy: "Dio novca odvaja se bez očekivanja povrata. To vježba velikodušnost, usmjerava vas prema ljudima i jača sposobnost stvaranja vrijednosti.",
   },
   {
     title: "Bitcoin kao novac",
@@ -82,15 +82,15 @@ export const beforeWorkItems = [
   "ne znate što je stvarni višak",
   "dug odlučuje prije vas",
   "Bitcoin izgleda kao imovina sa strane",
-  "kupujete ili čekate na osjećaj",
+  "novac držite iz straha",
   "svaka promjena kupovne moći stvara pritisak",
 ]
 
 export const afterWorkItems = [
   "svaki euro ima namjenu",
   "dug ima plan izlaska",
+  "dio novca redovito služi darivanju",
   "Bitcoin ima ulogu novca",
-  "kupovna moć se usklađuje s proračunom",
   "sigurnost i obitelj imaju pravila",
 ]
 
@@ -100,7 +100,7 @@ export const programDocumentItems = [
   "starost novca",
   "plan izlaska iz duga",
   "buduće odljeve",
-  "darivanje, ako je primjenjivo",
+  "pravilo darivanja nakon života bez duga",
   "Bitcoin kao novac",
   "Bitcoin kao novčanu zalihu",
   "usklađivanje kupovne moći",

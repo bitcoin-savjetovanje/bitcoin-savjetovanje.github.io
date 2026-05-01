@@ -51,8 +51,12 @@ export function GuidesIndex() {
               Ne znate odakle krenuti?
             </h2>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Krenite redom. Prvo novac koji imate. Zatim dug. Tek onda Bitcoin
-              kao novac, neto imovina i sigurnost.
+              Krenite redom. Prvo novac koji imate. Zatim dug. Zatim darivanje.
+              Tek onda Bitcoin kao novac, neto imovina i sigurnost.
+            </p>
+            <p className="mt-3 text-sm leading-7 font-semibold text-foreground">
+              Redoslijed je važan: darivanje ne dolazi iz duga ni krivnje, nego
+              iz uređenog novca.
             </p>
           </div>
           <ol className="mt-6 grid gap-2 md:grid-cols-2">

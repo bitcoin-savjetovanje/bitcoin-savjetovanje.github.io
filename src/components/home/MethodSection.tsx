@@ -10,7 +10,7 @@ export function MethodSection() {
     <section id="metoda" className="section-shell">
       <SectionHeader
         title="Praktični Bitcoin standard ima redoslijed."
-        copy="Ne počinjemo pitanjem koliko Bitcoina kupiti. Počinjemo pitanjem: je li vaš novac uređen?"
+        copy="Praktični Bitcoin standard ima redoslijed: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, kupovna moć i neto imovina."
         align="center"
       />
       <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -27,8 +27,8 @@ export function MethodSection() {
       <div className="program-summary space-y-4">
         <p>
           Praktični Bitcoin standard nije teorija o cijeni. To je redoslijed za
-          stvarni život: proračun, dug, darivanje, Bitcoin kao novac, kupovna
-          moć i neto imovina.
+          stvarni život: osobni proračun, život bez duga, darivanje, Bitcoin kao
+          novac, kupovna moć i neto imovina.
         </p>
         <p className="text-sm leading-7 font-medium">
           Cilj nije savršena teorija, nego osobni standard koji možete koristiti

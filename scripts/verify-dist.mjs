@@ -16,6 +16,7 @@ const requiredGuidePaths = [
   "/vodici/dug-ili-bitcoin",
   "/vodici/ne-zaduzujte-se-za-bitcoin",
   "/vodici/darivanje-u-proracunu",
+  "/vodici/darivanje-bez-duga",
   "/vodici/bitcoin-kao-novac",
   "/vodici/pozitivni-neto-priljev",
   "/vodici/dca-nije-dovoljan",
@@ -158,6 +159,42 @@ assertIncludes(
   homeHtml,
   "Bitcoin standard ne počinje većom kupnjom. Počinje izlaskom iz duga.",
   "debt section punchline"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Darivanje mijenja vaš odnos prema novcu.",
+  "giving section title"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Prvo dolazi red. Zatim izlazak iz duga. Tek tada darivanje.",
+  "giving section order copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Bez očekivanja povrata",
+  "giving section no return card"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Iz uređenog proračuna",
+  "giving section budget card"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Prema ljudima",
+  "giving section people card"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Praktični Bitcoin standard ne pita samo koliko imate",
+  "giving section punchline"
 )
 assertIncludes("index.html", homeHtml, "osobni proračun", "personal budget copy")
 assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
@@ -339,8 +376,26 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Darivanje nije ukras. Darivanje je kategorija.",
+  "Darivanje mijenja vaš odnos prema novcu",
   "giving guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Darivanje bez duga",
+  "debt-free giving guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Redoslijed je važan",
+  "giving order note"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Nakon izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
+  "giving category description"
 )
 assertIncludes(
   "vodici/index.html",
@@ -539,8 +594,13 @@ const newGuideChecks = [
   },
   {
     path: "vodici/darivanje-u-proracunu/index.html",
-    title: "Darivanje nije ukras. Darivanje je kategorija.",
-    copy: "Darivanje nije dug",
+    title: "Darivanje mijenja vaš odnos prema novcu",
+    copy: "Darivanje nije ostatak",
+  },
+  {
+    path: "vodici/darivanje-bez-duga/index.html",
+    title: "Darivanje bez duga",
+    copy: "Dug i darivanje ne stvaraju isti duh",
   },
   {
     path: "vodici/bitcoin-kao-novac/index.html",
@@ -575,6 +635,90 @@ for (const guideCheck of newGuideChecks) {
   assertIncludes(guideCheck.path, guideHtml, guideCheck.title, "guide title")
   assertIncludes(guideCheck.path, guideHtml, guideCheck.copy, "guide copy")
 }
+
+const givingGuidePath = "vodici/darivanje-u-proracunu/index.html"
+const givingGuideHtml = readFile(givingGuidePath)
+assertIncludes(
+  givingGuidePath,
+  givingGuideHtml,
+  "Darivanje mijenja vaš odnos prema novcu",
+  "renamed giving guide title"
+)
+assertIncludes(
+  givingGuidePath,
+  givingGuideHtml,
+  "Darivanje nije ostatak",
+  "renamed giving guide first section"
+)
+assertIncludes(
+  givingGuidePath,
+  givingGuideHtml,
+  "Bez očekivanja povrata",
+  "renamed giving guide no return section"
+)
+assertIncludes(
+  givingGuidePath,
+  givingGuideHtml,
+  "Darivanje vas okreće prema ljudima",
+  "renamed giving guide people section"
+)
+assertIncludes(
+  givingGuidePath,
+  givingGuideHtml,
+  "Velikodušnost mijenja način rada",
+  "renamed giving guide work section"
+)
+
+const debtFreeGivingGuidePath = "vodici/darivanje-bez-duga/index.html"
+const debtFreeGivingGuideHtml = readFile(debtFreeGivingGuidePath)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  "Darivanje bez duga",
+  "debt-free giving guide title"
+)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  "Dug i darivanje ne stvaraju isti duh",
+  "debt-free giving guide first section"
+)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  "Prvo sloboda, zatim velikodušnost",
+  "debt-free giving guide freedom section"
+)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  "Praktično pitanje",
+  "debt-free giving guide practical question"
+)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  "Povezani vodiči",
+  "debt-free giving guide related guides"
+)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  '"@type":"Article"',
+  "debt-free giving Article schema"
+)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  "BreadcrumbList",
+  "debt-free giving BreadcrumbList schema"
+)
+assertIncludes(
+  debtFreeGivingGuidePath,
+  debtFreeGivingGuideHtml,
+  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-bez-duga/" />',
+  "debt-free giving canonical URL"
+)
 
 const sitemap = readFile("sitemap.xml")
 for (const route of prerenderRoutes) {

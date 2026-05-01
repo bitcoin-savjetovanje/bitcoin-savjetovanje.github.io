@@ -15,6 +15,16 @@ export const faqs = [
       "Ne preporučujem takav pristup. To je fiat ponašanje primijenjeno na Bitcoin. Praktični Bitcoin standard ide suprotnim putem: osobni proračun, život bez duga, stvarni višak, zatim Bitcoin kao novac.",
   },
   {
+    question: "Zašto je darivanje dio Bitcoin standarda?",
+    answer:
+      "Zato što novac ne služi samo čuvanju kupovne moći. Novac je i način odnosa prema ljudima. U Praktičnom Bitcoin standardu darivanje dolazi nakon osobnog proračuna i života bez duga. Ne radi se o krivnji, nego o vježbanju velikodušnosti i sposobnosti stvaranja vrijednosti.",
+  },
+  {
+    question: "Trebam li darivati ako imam dug?",
+    answer:
+      "Ne kao pravilo ovog okvira. Prvo treba jasno vidjeti dug i napraviti plan izlaska. Darivanje u Praktičnom Bitcoin standardu dolazi iz uređenog proračuna i slobode, ne iz pritiska.",
+  },
+  {
     question: "Hoćete li mi reći koliko Bitcoina trebam kupiti?",
     answer:
       "Ne. Prvo gledamo ima li svaki euro namjenu, postoji li dug, što je stvarni višak i koju ulogu Bitcoin ima u neto imovini. Broj bez tog okvira nije plan.",

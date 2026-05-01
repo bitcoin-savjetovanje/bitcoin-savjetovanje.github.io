@@ -5,6 +5,7 @@ import { BookingStepsSection } from "@/components/home/BookingStepsSection"
 import { DebtSection } from "@/components/home/DebtSection"
 import { FaqSection } from "@/components/home/FaqSection"
 import { FinalCta } from "@/components/home/FinalCta"
+import { GivingSection } from "@/components/home/GivingSection"
 import { Hero } from "@/components/home/Hero"
 import { MethodSection } from "@/components/home/MethodSection"
 import { OffersSection } from "@/components/home/OffersSection"
@@ -29,6 +30,7 @@ export function Home() {
       <TrustStrip />
       <ProblemSection />
       <DebtSection />
+      <GivingSection />
       <ResultsSection />
       <MethodSection />
       <ProgramOutputPreviewSection />

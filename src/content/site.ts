@@ -18,7 +18,7 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/pavaopahljina/"
 export const homeSeo = {
   title: "Bitcoin Savjetovanje | Osobni Bitcoin standard",
   description:
-    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Uredite osobni proračun, dug, kupovnu moć, neto imovinu, sigurnost i pisana pravila.",
+    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Uredite osobni proračun, dug, darivanje, kupovnu moć, neto imovinu i sigurnost.",
   canonical: `${SITE_URL}/`,
 }
 
@@ -39,6 +39,7 @@ export const securitySeo = {
 export const heroOutcomes = [
   "Svaki euro ima namjenu.",
   "Dug ima plan izlaska.",
+  "Darivanje ima mjesto.",
   "Bitcoin ima ulogu novca.",
 ]
 

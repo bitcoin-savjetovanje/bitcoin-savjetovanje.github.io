@@ -55,7 +55,7 @@ export function homeSchema() {
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
         serviceType: "Bitcoin savjetovanje i osobni Bitcoin standard",
         description:
-          "Savjetodavni rad za osobni Bitcoin standard: osobni proračun, život bez duga, Bitcoin kao novac, kupovna moć, neto imovina i sigurnost. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Savjetodavni rad za osobni Bitcoin standard: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, kupovna moć, neto imovina i sigurnost. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },
       {
         "@type": "OfferCatalog",
@@ -118,6 +118,7 @@ export function guideSchema(guide: Guide) {
           "Bitcoin",
           "osobni proračun",
           "dug",
+          "darivanje",
           "kupovna moć",
           "neto imovina",
           "skrbništvo",

@@ -16,7 +16,7 @@ export function OffersSection() {
     <section id="program" className="section-shell">
       <SectionHeader
         title="Prvi korak je 15 minuta."
-        copy="Ne morate odmah znati koji program trebate. U razgovoru vidimo gdje ste u odnosu na Praktični Bitcoin standard: proračun, dug, Bitcoin, imovina i sigurnost."
+        copy="Ne morate odmah znati koji program trebate. U razgovoru vidimo gdje ste u odnosu na Praktični Bitcoin standard: proračun, dug, darivanje, Bitcoin, imovina i sigurnost."
       />
       <div className="mt-10 grid gap-4 lg:grid-cols-3">
         {offers.map((offer) => (

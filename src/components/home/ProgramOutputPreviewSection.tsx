@@ -9,7 +9,7 @@ export function ProgramOutputPreviewSection() {
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-start">
         <SectionHeader
           title="Na kraju imate svoj osobni Bitcoin standard."
-          copy="Ne još jednu teoriju. Ne još jedan popis savjeta. Jedan dokument koji pokazuje kako vaš novac, dug, Bitcoin, potrošnja, proizvodna imovina i sigurnost rade zajedno."
+          copy="Ne još jednu teoriju. Ne još jedan popis savjeta. Jedan dokument koji pokazuje kako vaš novac, dug, darivanje, Bitcoin, potrošnja, proizvodna imovina i sigurnost rade zajedno."
         />
         <div className="case-panel">
           <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">

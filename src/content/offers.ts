@@ -43,10 +43,9 @@ export const offers: Offer[] = [
     price: "1.500 €",
     purpose: "Tri poziva za vaš osobni Bitcoin standard.",
     includes: [
-      "poziv 1: proračun, dug i starost novca",
-      "poziv 2: Bitcoin kao novac, kupovna moć i neto imovina",
-      "poziv 3: pravila kupnje, čekanja, trošenja i preispitivanja",
-      "sigurnost i obiteljski pristup",
+      "poziv 1: osobni proračun, dug i stvarni višak",
+      "poziv 2: darivanje, Bitcoin kao novac i kupovna moć",
+      "poziv 3: neto imovina, pravila, sigurnost i obitelj",
       "osobni dokument s pravilima",
       "razgovor nakon 30 dana",
     ],

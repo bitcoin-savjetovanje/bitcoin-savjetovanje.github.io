@@ -2,47 +2,37 @@ export const faqs = [
   {
     question: "Što je cilj uvodnog razgovora?",
     answer:
-      "Cilj je u 15 minuta vidjeti gdje ste, što želite riješiti i mogu li vam pomoći. Ako mogu, predložit ću sljedeći korak. Ako ne mogu, reći ću vam to otvoreno.",
+      "U 15 minuta vidimo gdje ste u odnosu na Praktični Bitcoin standard: osobni proračun, dug, stvarni višak, Bitcoin kao novac, sigurnost i sljedeći korak.",
   },
   {
-    question: "Je li ovo financijsko savjetovanje?",
+    question: "Što ako imam dug?",
     answer:
-      "Ne. Ovo nije licencirano investicijsko, porezno ili pravno savjetovanje. Rad je usmjeren na jasnija pravila za Bitcoin, imovinu i sigurnost.",
+      "Tada krećemo od duga. U Praktičnom Bitcoin standardu dug nije sporedna tema. Dug je budući novac koji ste već potrošili i može vas prisiliti na loše Bitcoin odluke. Cilj je jasno vidjeti dug, buduće odljeve i put prema životu bez duga.",
   },
   {
-    question: "Moram li već imati Bitcoin?",
+    question: "Mogu li se zadužiti kako bih kupio Bitcoin?",
     answer:
-      "Ne morate. Možete tek razmišljati o Bitcoinu ili ga već imati. U oba slučaja cilj je jasan plan.",
+      "Ne preporučujem takav pristup. To je fiat ponašanje primijenjeno na Bitcoin. Praktični Bitcoin standard ide suprotnim putem: osobni proračun, život bez duga, stvarni višak, zatim Bitcoin kao novac.",
   },
   {
     question: "Hoćete li mi reći koliko Bitcoina trebam kupiti?",
     answer:
-      "Ne dajem univerzalnu naredbu. Pomažem vam postaviti pravila kroz koja sami donosite odluku u skladu s proračunom, dugom, imovinom i rizikom.",
+      "Ne. Prvo gledamo ima li svaki euro namjenu, postoji li dug, što je stvarni višak i koju ulogu Bitcoin ima u neto imovini. Broj bez tog okvira nije plan.",
   },
   {
-    question:
-      "Je li ovo samo za ljude koji žele živjeti na punom Bitcoin standardu?",
+    question: "Što je Praktični Bitcoin standard?",
     answer:
-      "Ne. Praktični Bitcoin standard je okvir. Vaša situacija određuje sljedeći korak: dug, sigurnost, proračun, obitelj ili veća uloga Bitcoina u imovini.",
+      "Praktični Bitcoin standard je okvir za život s Bitcoinom kao novcem: osobni proračun, život bez duga, darivanje, Bitcoin kao novčana zaliha, usklađivanje kupovne moći i ravnoteža neto imovine.",
   },
   {
-    question: "Radite li s drugom kriptoimovinom?",
-    answer: "Ne. Fokus je isključivo na Bitcoinu.",
-  },
-  {
-    question: "Što ako već kupujem Bitcoin kad imam viška?",
+    question: "Je li ovo financijsko savjetovanje?",
     answer:
-      "Tada prvo provjeravamo je li višak stvaran. Gledamo proračun, dug, buduće troškove i imovinu.",
+      "Ne. Ovo nije licencirano investicijsko, porezno ili pravno savjetovanje. Rad je usmjeren na osobni okvir odlučivanja i primjenu Praktičnog Bitcoin standarda na vašu situaciju.",
   },
   {
-    question: "Kako izgleda rezultat programa?",
+    question: "Moram li već imati Bitcoin?",
     answer:
-      "Rezultat je osobni dokument s pravilima: proračun, dug, uloga Bitcoina, kupnja, čekanje, trošenje, sigurnost i obiteljski pristup.",
-  },
-  {
-    question: "Je li razgovor povjerljiv?",
-    answer:
-      "Da. Razgovori su povjerljivi. Ne objavljujem osobne podatke, financijsku situaciju ni pojedinosti razgovora.",
+      "Ne morate. Ali usluga je najkorisnija ako već ozbiljno razmišljate o Bitcoinu kao novcu, a ne samo kao kratkoročnoj imovini.",
   },
   {
     question: "Koliko košta?",
@@ -50,8 +40,12 @@ export const faqs = [
       "Uvodni razgovor je bez naknade. Savjetodavni razgovor je 200 €. Strukturirani program je 1.500 €.",
   },
   {
-    question: "Što je Praktični Bitcoin standard?",
+    question: "Je li razgovor povjerljiv?",
     answer:
-      "Praktični Bitcoin standard je otvoreni priručnik o korištenju Bitcoina kao novca u stvarnom životu: proračun, dug, imovina, sigurnost i odluke kroz vrijeme.",
+      "Da. Razgovori su povjerljivi. Ne objavljujem osobne podatke, financijsku situaciju ni pojedinosti razgovora.",
+  },
+  {
+    question: "Radite li s drugom kriptoimovinom?",
+    answer: "Ne. Fokus je isključivo na Bitcoinu.",
   },
 ]

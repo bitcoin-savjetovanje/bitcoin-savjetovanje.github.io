@@ -2,7 +2,7 @@ export const SITE_URL = "https://bitcoin-savjetovanje.com"
 export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
-export const SITE_UPDATED_AT = "2026-04-30"
+export const SITE_UPDATED_AT = "2026-05-01"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL =
@@ -16,30 +16,30 @@ export const TWENTYONE_URL = "https://twentyone.world"
 export const LINKEDIN_URL = "https://www.linkedin.com/in/pavaopahljina/"
 
 export const homeSeo = {
-  title: "Bitcoin Savjetovanje | Jasna pravila za Bitcoin i imovinu",
+  title: "Bitcoin Savjetovanje | Osobni Bitcoin standard",
   description:
-    "Imate Bitcoin ili imovinu, ali nemate jasan plan? Dogovorite uvodni razgovor i razjasnite proračun, dug, sigurnost i ulogu Bitcoina.",
+    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Uredite osobni proračun, dug, kupovnu moć, neto imovinu, sigurnost i pisana pravila.",
   canonical: `${SITE_URL}/`,
 }
 
 export const guidesIndexSeo = {
-  title: "Vodiči za praktične Bitcoin odluke | Bitcoin Savjetovanje",
+  title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Kratki hrvatski vodiči o osobnom proračunu, dugu, kupovnoj moći, neto imovini, skrbništvu, obiteljskom pristupu i pravilima odlučivanja na Bitcoin standardu.",
+    "Vodiči o osobnom proračunu, životu bez duga, darivanju, Bitcoinu kao novcu, kupovnoj moći, neto imovini, sigurnosti i obitelji.",
   canonical: `${SITE_URL}/vodici/`,
 }
 
 export const securitySeo = {
   title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
   description:
-    "Kako radim s temama Bitcoina, skrbništva i povjerljivosti: bez početnih riječi za oporavak, bez privatnih ključeva, bez pristupa računima i bez čuvanja sredstava.",
+    "Sigurnost kao dio osobnog Bitcoin standarda: bez početnih riječi, bez privatnih ključeva, bez pristupa računima i bez čuvanja sredstava.",
   canonical: `${SITE_URL}/sigurnost/`,
 }
 
 export const heroOutcomes = [
-  "Jasan proračun.",
-  "Jasna uloga Bitcoina.",
-  "Pravila za sljedeću odluku.",
+  "Svaki euro ima namjenu.",
+  "Dug ima plan izlaska.",
+  "Bitcoin ima ulogu novca.",
 ]
 
 export const trustCards = [
@@ -53,7 +53,7 @@ export const trustCards = [
   },
   {
     title: "Rad s najboljima.",
-    copy: "Direktan rad sa Saifedeanom Ammousom, autorom The Bitcoin Standard.",
+    copy: "Direktan rad sa Saifedeanom Ammousom i razvoj Praktičnog Bitcoin standarda.",
   },
 ]
 

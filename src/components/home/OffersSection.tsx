@@ -15,8 +15,8 @@ export function OffersSection() {
   return (
     <section id="program" className="section-shell">
       <SectionHeader
-        title="Kako možemo raditi"
-        copy="Sve kreće od besplatnog 15-minutnog razgovora. Ako mogu pomoći, predložit ću sljedeći korak."
+        title="Prvi korak je 15 minuta."
+        copy="Ne morate odmah znati koji program trebate. U razgovoru vidimo gdje ste u odnosu na Praktični Bitcoin standard: proračun, dug, Bitcoin, imovina i sigurnost."
       />
       <div className="mt-10 grid gap-4 lg:grid-cols-3">
         {offers.map((offer) => (
@@ -59,8 +59,9 @@ export function OffersSection() {
         ))}
       </div>
       <p className="negative-note mt-6">
-        Ključevi i odluke ostaju kod vas. Ne upravljam novcem i ne dajem
-        porezno, pravno ni licencirano investicijsko mišljenje.
+        Ne upravljam vašim novcem, ne kupujem Bitcoin za vas, ne čuvam vaše
+        ključeve i ne dajem porezno, pravno ili licencirano investicijsko
+        mišljenje.
       </p>
     </section>
   )

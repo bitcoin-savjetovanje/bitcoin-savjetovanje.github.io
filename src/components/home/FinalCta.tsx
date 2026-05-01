@@ -10,8 +10,8 @@ export function FinalCta() {
         <div>
           <h2>Ako želite jasna pravila, krenimo s 15 minuta.</h2>
           <p>
-            Rezervirajte uvodni razgovor. Vidjet ćemo gdje ste, što želite
-            postići i mogu li vam pomoći.
+            Rezervirajte uvodni razgovor. Vidjet ćemo gdje ste u odnosu na
+            osobni Bitcoin standard i koji je sljedeći razuman korak.
           </p>
         </div>
         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center">

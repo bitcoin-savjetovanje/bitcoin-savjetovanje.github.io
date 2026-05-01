@@ -2,8 +2,8 @@
 
 Stranica za Bitcoin Savjetovanje, izgrađena s Viteom, Reactom, TypeScriptom,
 SSR/prerenderom i GitHub Pagesom. Sadržaj je organiziran oko Praktičnog Bitcoin
-standarda: osobni proračun, dug, kupovna moć, neto imovina, skrbništvo i
-početne riječi za oporavak.
+standarda: osobni proračun, život bez duga, darivanje, Bitcoin kao novac,
+kupovna moć, neto imovina, skrbništvo i početne riječi za oporavak.
 
 ## Development
 

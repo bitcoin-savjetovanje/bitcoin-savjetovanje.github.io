@@ -82,11 +82,11 @@ export const guides: Guide[] = [
     slug: "bitcoin-u-neto-imovini",
     title: "Kako uklopiti Bitcoin u neto imovinu?",
     metaDescription:
-      "Kako promatrati Bitcoin u neto imovini kroz novac, potrošnju, kapital, dug, sigurnost i osobna pravila, bez univerzalnih naredbi ili pritiska.",
+      "Kako promatrati Bitcoin u neto imovini kroz novac, potrošnju, proizvodnu imovinu, dug, sigurnost i osobna pravila, bez univerzalnih naredbi ili pritiska.",
     excerpt:
-      "Bitcoin ne stoji izvan ostatka imovine. Njegova uloga postaje jasnija kada znate što je novac, što je potrošnja, a što kapital.",
+      "Bitcoin ne stoji izvan ostatka imovine. Njegova uloga postaje jasnija kada znate što je novac, što je potrošnja, a što proizvodna imovina.",
     publishedAt: "2026-04-30",
-    updatedAt: "2026-04-30",
+    updatedAt: "2026-05-01",
     practicalQuestion:
       "Koliki dio vaše ukupne neto imovine Bitcoin čini danas i znate li zašto je baš takav?",
     relatedSlugs: [
@@ -99,16 +99,16 @@ export const guides: Guide[] = [
         heading: "Bitcoin nije odvojen od ostatka imovine",
         body: [
           "Bitcoin odluke postaju nejasne kada se Bitcoin promatra kao zaseban svijet. Iznos na novčaniku može izgledati velik ili malen, ali njegovo značenje ovisi o ostatku života: dugu, prihodima, obiteljskim obvezama, novčanoj zalihi, nekretnini, poslu, znanju, vremenskom okviru i sposobnosti da ne reagirate na svaku promjenu cijene.",
-          "Neto imovina daje početnu sliku. Ona ne pokazuje samo što posjedujete, nego i što dugujete. Kada od imovine oduzmete obveze, dobivate jasniji pogled na stvarni položaj. Tek tada se može razumno pitati koju ulogu Bitcoin ima: je li novac za očuvanje kupovne moći, dugoročni kapital, dio buduće potrošnje ili kombinacija tih uloga.",
+          "Neto imovina daje početnu sliku. Ona ne pokazuje samo što posjedujete, nego i što dugujete. Kada od imovine oduzmete obveze, dobivate jasniji pogled na stvarni položaj. Tek tada se može razumno pitati koju ulogu Bitcoin ima kao novac: čuva li kupovnu moć, služi li kao novčana zaliha ili zahtijeva posebna pravila za buduću potrošnju.",
           "Praktičan početak je popisati sve važne dijelove neto imovine bez uljepšavanja. Bitcoin, novac na računu, nekretnine, poslovna imovina, oprema, potrošna dobra i dugovi trebaju biti u istoj slici. Tek kada su zajedno, vidite je li Bitcoin premalen, prevelik, nejasan ili samo neobjašnjen u odnosu na ostatak života.",
         ],
       },
       {
         heading: "Tri uloge imovine",
         body: [
-          "Praktični Bitcoin standard razlikuje tri velike uloge imovine: novac, potrošna dobra i kapitalna ili proizvodna dobra. Novac služi za prijenos vrijednosti kroz vrijeme i odluke. Potrošna dobra služe izravnom korištenju i često imaju trošak održavanja. Kapitalna dobra mogu stvarati vrijednost, prihod ili mogućnosti kroz vrijeme.",
-          "Ova podjela pomaže jer ista stvar može izgledati kao imovina, ali imati vrlo različit učinak na vaš život. Automobil može biti potrošno dobro ako samo stvara trošak, a može biti potreban alat za posao. Nekretnina može pružati sigurnost, ali i vezati previše kapitala. Bitcoin se u tom okviru ponajprije promatra kao novac, no njegov udio treba gledati u odnosu na sve ostalo.",
-          "Ako te uloge ne razlikujete, lako je uspoređivati stvari koje nisu usporedive. Možete se pitati zašto nemate više Bitcoina, a zapravo je problem prevelik trošak vlasništva. Možete misliti da imate dovoljno kapitala, a zapravo imate imovinu koja ne stvara vrijednost i teško se pretvara u novac kada zatreba.",
+          "Praktični Bitcoin standard razlikuje tri velike uloge imovine: novac, potrošna dobra i proizvodnu imovinu. Novac služi za buduću razmjenu i čuvanje kupovne moći. Potrošna dobra služe izravnom korištenju i često imaju trošak održavanja. Proizvodna imovina može stvarati vrijednost, prihod ili mogućnosti kroz vrijeme.",
+          "Ova podjela pomaže jer ista stvar može izgledati kao imovina, ali imati vrlo različit učinak na vaš život. Automobil može biti potrošno dobro ako samo stvara trošak, a može biti potreban alat za posao. Nekretnina može pružati sigurnost, ali i vezati previše neto imovine. Bitcoin se u tom okviru ponajprije promatra kao novac, no njegov udio treba gledati u odnosu na sve ostalo.",
+          "Ako te uloge ne razlikujete, lako je uspoređivati stvari koje nisu usporedive. Možete se pitati zašto nemate više Bitcoina, a zapravo je problem prevelik trošak vlasništva. Možete misliti da imate dovoljno proizvodne imovine, a zapravo imate imovinu koja ne stvara vrijednost i teško se pretvara u novac kada zatreba.",
         ],
       },
       {
@@ -122,8 +122,8 @@ export const guides: Guide[] = [
       {
         heading: "Pravilo trećina kao okvir, ne naredba",
         body: [
-          "U okviru Praktičnog Bitcoin standarda, pravilo trećina služi kao način provjere ravnoteže. Ono promatra odnos između novčanih dobara, kapitalnih ili proizvodnih dobara i potrošnih dobara. Ne treba ga čitati kao naredbu da svaka osoba mora imati isti udio Bitcoina, nekretnine ili bilo koje druge imovine.",
-          "Vrijednost tog pravila je u pitanju koje postavlja: je li moja neto imovina previše nagnuta u jednu stranu? Možda imate mnogo imovine koja stvara trošak, a premalo novčane zalihe. Možda imate Bitcoin, ali nemate obiteljski pristup i sigurnosni red. Možda imate kapital, ali i dug koji smanjuje slobodu. Pravilo služi za provjeru, ne za slijepo kopiranje.",
+          "U okviru Praktičnog Bitcoin standarda, pravilo trećina služi kao način provjere ravnoteže. Ono promatra odnos između novčanih dobara, proizvodne imovine i potrošnih dobara. Ne treba ga čitati kao naredbu da svaka osoba mora imati isti udio Bitcoina, nekretnine ili bilo koje druge imovine.",
+          "Vrijednost tog pravila je u pitanju koje postavlja: je li moja neto imovina previše nagnuta u jednu stranu? Možda imate mnogo imovine koja stvara trošak, a premalo novčane zalihe. Možda imate Bitcoin, ali nemate obiteljski pristup i sigurnosni red. Možda imate proizvodnu imovinu, ali i dug koji smanjuje slobodu. Pravilo služi za provjeru, ne za slijepo kopiranje.",
           "Kada ga koristite kao ogledalo, pravilo trećina može biti vrlo korisno. Ne govori vam točno što morate kupiti ili prodati. Pokazuje gdje treba postaviti bolja pitanja. Ako jedna skupina imovine preuzima previše prostora, možda treba usporiti, čekati, smanjiti dug ili bolje opisati svrhu postojećeg Bitcoina.",
         ],
       },
@@ -140,13 +140,13 @@ export const guides: Guide[] = [
   },
   {
     slug: "dug-ili-bitcoin",
-    title: "Kada prvo riješiti dug, a kada kupovati Bitcoin?",
+    title: "Zašto dug i Bitcoin ne idu zajedno?",
     metaDescription:
-      "Vodič o dugu kao budućem odljevu koji utječe na slobodu držanja Bitcoina, osobni proračun, novčanu zalihu i odluke kroz vrijeme bez moraliziranja.",
+      "Vodič o tome zašto dug smanjuje slobodu odlučivanja i zašto Praktični Bitcoin standard počinje životom bez duga.",
     excerpt:
-      "Dug nije samo kamatna stopa. Dug je budući odljev koji može smanjiti slobodu držanja Bitcoina kroz teške mjesece.",
+      "Dug je budući novac koji ste već potrošili. Zato može smanjiti slobodu držanja Bitcoina baš onda kada vam je sloboda najpotrebnija.",
     publishedAt: "2026-04-30",
-    updatedAt: "2026-04-30",
+    updatedAt: "2026-05-01",
     practicalQuestion:
       "Bi li vas postojeći dug mogao prisiliti da prodate Bitcoin u trenutku kad to ne želite?",
     relatedSlugs: [
@@ -156,11 +156,11 @@ export const guides: Guide[] = [
     ],
     sections: [
       {
-        heading: "Dug je odljev iz budućnosti",
+        heading: "Dug je budući novac",
         body: [
-          "Dug nije samo iznos u tablici niti samo kamatna stopa. Dug je obećanje da će budući prihod već imati tuđu namjenu. Kada danas živite od novca koji tek trebate zaraditi, smanjujete prostor za mirne odluke. To posebno dolazi do izražaja kada razmišljate o Bitcoinu, jer Bitcoin traži sposobnost čekanja, držanja i preživljavanja promjena cijene.",
-          "Praktični Bitcoin standard ima snažan stav protiv života u dugu zato što dug oslabljuje osobni sustav. Ne radi se o moraliziranju. Radi se o tome da dug stvara stalni odljev, a stalni odljev smanjuje slobodu. Ako već znate da će dio budućeg novca otići na obvezu, tada današnji prividni višak možda nije stvarni višak.",
-          "Zato dug ulazi u razgovor prije iznosa kupnje. Prvo treba znati koliko duga postoji, koja je cijena tog duga, kada dospijeva i koliko vam mjesečno uzima prostora. Tek nakon toga ima smisla pitati koliki dio novca može ići prema Bitcoinu bez povećanja krhkosti cijelog sustava.",
+          "Dug nije samo iznos u tablici niti samo kamatna stopa. Dug je budući novac koji ste već potrošili. Kada danas živite od prihoda koji tek trebate zaraditi, smanjujete prostor za mirne odluke.",
+          "Praktični Bitcoin standard ima snažan stav protiv života u dugu zato što dug oslabljuje osobni sustav. Ne radi se o moraliziranju. Radi se o tome da dug povećava buduće odljeve i smanjuje slobodu.",
+          "Zato dug ulazi u razgovor prije iznosa kupnje. Prvo treba znati koliko duga postoji, kada dospijeva i koliko vam mjesečno uzima prostora. Tek nakon toga ima smisla pitati koji novac stvarno može ići prema Bitcoinu.",
         ],
       },
       {
@@ -172,24 +172,24 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "Rastuće tržište može prikriti slabosti duga",
+        heading: "Dug je fiat ponašanje",
         body: [
-          "U rastućem tržištu dug se često čini manje opasnim. Vrijednost Bitcoina raste, raspoloženje je bolje, a odluke koje su rizične izgledaju pametno. Problem je što rast može sakriti slabu strukturu. Osoba može povećavati ulogu Bitcoina u neto imovini, a da pritom ne vidi kako se gomilaju obveze, kratki rokovi ili manjak novčane zalihe.",
-          "Tada uspjeh ne dolazi nužno iz dobrog okvira, nego iz povoljnog okruženja. Ako se okruženje promijeni, ostaje pitanje: biste li istu odluku mogli izdržati bez rasta cijene? Ako je odgovor ne, dug možda upravlja vašom Bitcoin odlukom više nego što se čini.",
-          "Rastuće tržište zato nije dovoljno dobra provjera. Ono može nagraditi i loše navike. Bolja provjera je pitanje biste li isti dug, isti iznos kupnje i isti proračun prihvatili kada cijena ne bi rasla mjesecima. Ako odgovor postane neugodan, vrijeme je za oprezniji redoslijed.",
+          "Fiat sustav normalizira život iz budućnosti. Danas trošite, sutra plaćate. Dug postaje navika, a ne iznimka. Kada se to ponašanje prenese na Bitcoin, nastaje krhki sustav.",
+          "Zadužiti se kako biste kupili Bitcoin znači primijeniti fiat ponašanje na novac koji traži strpljenje. To povećava pritisak, skraćuje vrijeme odlučivanja i može pretvoriti dobru ideju u loše pravilo.",
+          "Zato ne preporučujem zaduživanje radi kupnje Bitcoina. Praktični Bitcoin standard ide suprotnim putem: osobni proračun, život bez duga, stvarni višak, zatim Bitcoin kao novac.",
         ],
       },
       {
-        heading: "Padajuće tržište može dug učiniti bolnim",
+        heading: "Pad kupovne moći otkriva dug",
         body: [
-          "Padajuće tržište ne stvara sve probleme, ali ih otkriva. Ako je dug velik, prihod nesiguran, a zaliha mala, pad kupovne moći može stvoriti pritisak da prodate Bitcoin upravo onda kada ste ga željeli držati. Tada se pokazuje da pitanje duga nije odvojeno od pitanja skrbništva, proračuna i obitelji.",
+          "Pad kupovne moći Bitcoina ne stvara sve probleme, ali ih otkriva. Ako je dug velik, prihod nesiguran, a zaliha mala, pad kupovne moći može stvoriti pritisak da prodate Bitcoin upravo onda kada ste ga željeli držati.",
           "Zbog toga razduživanje može biti važniji Bitcoin korak nego dodatna kupnja. Smanjenjem duga smanjujete buduće odljeve, povećavate izbor i smanjujete mogućnost prisilne prodaje. To ne znači da svaki dug mora nestati prije bilo kakve kupnje, ali znači da se dug ne smije gurati u stranu kao nevažan detalj.",
         ],
       },
       {
-        heading: "Razduživanje kao priprema za Bitcoin standard",
+        heading: "Izlazak iz duga kao početak Bitcoin standarda",
         body: [
-          "Puniji Bitcoin standard ne znači samo imati više Bitcoina. Znači imati život u kojem Bitcoin može stvarno služiti kao novac, a ne kao sredstvo koje se mora prodavati svaki put kad budući odljev dođe na naplatu. Razduživanje zato može biti oblik pripreme: jača proračun, smanjuje stres i povećava otpornost.",
+          "Bitcoin standard ne znači samo imati više Bitcoina. Znači imati život u kojem Bitcoin može stvarno služiti kao novac, a ne kao sredstvo koje se mora prodavati svaki put kad budući odljev dođe na naplatu. Izlazak iz duga zato je početak, a ne sporedna optimizacija.",
           "Razuman redoslijed ovisi o vrsti duga, kamati, roku, prihodu, obitelji i neto imovini. Nekome će prvi korak biti gašenje skupog duga. Nekome će biti istodobno smanjivanje duga i skromna redovita kupnja. Nekome će biti čekanje. Cilj nije univerzalna zapovijed, nego osobno pravilo koje smanjuje mogućnost da dug odlučuje umjesto vas.",
           "Dobro pravilo može biti jednostavno: dok postoji određeni dug, kupnja ne prelazi unaprijed zadani dio stvarnog viška; kada se dug smanji, pravilo se preispituje. Takav zapis ne govori svima što trebaju raditi. Govori vama kako ćete izbjeći odluke koje se mijenjaju pod pritiskom tržišta ili računa koji dospijevaju.",
           "Taj zapis može uključiti i pravilo da se novi dug ne koristi za životni stil koji proračun ne može nositi. Bitcoin tada nije izgovor za veći rizik, nego razlog da osobni novac postane uredniji, jednostavniji i manje ovisan o budućim prihodima.",
@@ -413,15 +413,15 @@ export const guides: Guide[] = [
   },
   {
     slug: "novac-kapital-potrosnja",
-    title: "Bitcoin kao novac, kapital i potrošnja: praktičan okvir",
+    title: "Novac, potrošnja i proizvodna imovina: gdje pripada Bitcoin?",
     metaDescription:
-      "Praktičan vodič za razlikovanje novca, potrošnih dobara i kapitala te razumijevanje uloge Bitcoina u neto imovini, pravilima i svjesnoj potrošnji.",
+      "Vodič o razlici između novca, potrošnih dobara i proizvodne imovine te o tome zašto Bitcoin u tom okviru ima ulogu novca.",
     excerpt:
-      "Praktični Bitcoin standard ne pita samo koliko Bitcoina imate, nego koju ulogu svaka imovina ima u vašem životu.",
+      "Bitcoin nije proizvodna imovina ni potrošno dobro. U Praktičnom Bitcoin standardu Bitcoin ima ulogu novca, dok potrošnja i proizvodna imovina imaju druga pravila.",
     publishedAt: "2026-04-30",
-    updatedAt: "2026-04-30",
+    updatedAt: "2026-05-01",
     practicalQuestion:
-      "Koji dio vašeg Bitcoina ima ulogu novca, koji dio dugoročnog kapitala, a koji dio biste svjesno mogli potrošiti?",
+      "Ima li Bitcoin u vašem sustavu ulogu novca ili ga još promatrate kao imovinu bez jasne namjene?",
     relatedSlugs: [
       "bitcoin-u-neto-imovini",
       "uskladivanje-kupovne-moci-bitcoina",
@@ -431,17 +431,17 @@ export const guides: Guide[] = [
       {
         heading: "Tri uloge imovine",
         body: [
-          "Praktični Bitcoin standard ne pita samo koliko imovine imate. Pita koju ulogu ta imovina ima u vašem životu. Jedan dio imovine služi kao novac: čuva mogućnost budućih odluka i prenosi kupovnu moć kroz vrijeme. Drugi dio služi potrošnji: stanovanje, prijevoz, odjeća, oprema, putovanja i stvari koje koristite. Treći dio ima kapitalnu ili proizvodnu ulogu: stvara prihod, znanje, mogućnosti ili dugoročnu vrijednost.",
-          "Ova podjela nije akademska. Ona mijenja način donošenja odluka. Ako ne razlikujete uloge, sve izgleda kao jedna velika imovina, a odluke postaju nejasne. Možete imati skupu potrošnu imovinu i osjećati se bogato, iako ona stalno traži novac. Možete imati kapital koji stvara vrijednost, ali premalo novčane zalihe. Možete imati Bitcoin, ali ne znati koji dio ima koju svrhu.",
+          "Praktični Bitcoin standard ne pita samo koliko imovine imate. Pita koju ulogu ta imovina ima u vašem životu. Jedan dio imovine služi kao novac: čuva mogućnost buduće razmjene i prenosi kupovnu moć kroz vrijeme. Drugi dio služi potrošnji: stanovanje, prijevoz, odjeća, oprema, putovanja i stvari koje koristite. Treći dio je proizvodna imovina: dobra koja povećavaju produktivnost, stvaraju prihod ili šire sposobnost rada.",
+          "Ova podjela nije akademska. Ona mijenja način donošenja odluka. Ako ne razlikujete uloge, sve izgleda kao jedna velika imovina, a odluke postaju nejasne. Možete imati skupa potrošna dobra i osjećati se bogato, iako ona stalno traže novac. Možete imati proizvodnu imovinu koja stvara vrijednost, ali premalo novčane zalihe. Možete imati Bitcoin, ali ga još ne promatrati kao novac.",
           "Kada napravite ovu podjelu, neto imovina postaje čitljivija. Više ne pitate samo koliko nešto vrijedi danas. Pitate što ta imovina radi za vas, koliko traži od vas i kakvu slobodu ili obvezu stvara. To je korisnije od jednostavnog zbrajanja iznosa.",
         ],
       },
       {
         heading: "Bitcoin kao novac",
         body: [
-          "U ovom okviru Bitcoin se ponajprije promatra kao novac. To znači da njegova glavna uloga nije kratkoročno pogađanje cijene, nego čuvanje mogućnosti kroz vrijeme. Bitcoin kao novac mijenja odnos prema štednji, potrošnji i proračunu jer vas prisiljava da jasnije odvojite ono što treba biti dostupno od onoga što želite držati dugoročno.",
-          "No i ovdje treba oprez. Ako sav Bitcoin nazovete dugoročnim novcem, možda nećete znati što napraviti kada se pojavi stvarna životna potreba. Ako ga sav gledate kao novac koji je uvijek dostupan za trošenje, možda ćete oslabiti dugoročni plan. Zato je korisno unutar vlastitog Bitcoina razlikovati slojeve: novčanu zalihu, dugoročno držanje i iznos koji bi se u iznimnim okolnostima mogao koristiti.",
-          "Takvo odvajanje ne znači da fizički morate imati više novčanika ili složen tehnički sustav. Riječ je prije svega o pravilima. Koji dio ne dirate? Koji dio se može koristiti samo pod jasno zapisanim uvjetima? Koji dio služi kao novac za stvarne životne odluke? Bez tih odgovora, sve ostaje u istoj magli.",
+          "Bitcoin je novac u ovom okviru, ne kapital. Njegova glavna uloga nije proizvoditi prihod ili povećavati produktivnost kao alat, stroj, znanje ili posao. Njegova uloga je čuvati kupovnu moć i služiti budućoj razmjeni.",
+          "To ne znači da je svaki satoshi uvijek dostupan za trošenje. Znači da Bitcoin treba imati novčanu ulogu u sustavu: što čuvate, što ne dirate, što može služiti budućoj potrebi i pod kojim uvjetima se pravila preispituju.",
+          "Takvo odvajanje ne znači da fizički morate imati više novčanika ili složen tehnički sustav. Riječ je prije svega o pravilima. Koji dio je novčana zaliha? Koji dio ne dirate? Koji dio se može koristiti samo pod jasno zapisanim uvjetima? Bez tih odgovora, sve ostaje u istoj magli.",
         ],
       },
       {
@@ -453,17 +453,17 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "Kapitalna dobra i stvaranje vrijednosti",
+        heading: "Proizvodna imovina i stvaranje vrijednosti",
         body: [
-          "Kapitalna ili proizvodna dobra imaju drugu ulogu. Ona mogu stvarati prihod, povećati sposobnost rada, otvoriti nove mogućnosti ili smanjiti buduće troškove. To može biti posao, oprema, znanje, alat, poslovni odnos ili imovina koja daje prihod. Takva dobra ne treba miješati s potrošnjom samo zato što imaju cijenu.",
-          "U odnosu na Bitcoin, kapitalna dobra postavljaju važno pitanje: kada ima smisla držati više novca, a kada ga usmjeriti u nešto što stvara vrijednost? Bitcoin može biti najbolji oblik novca u ovom okviru, ali novac nije jedina životna potreba. Ako zanemarite kapital koji vam omogućuje prihod, znanje ili rad, možete imati jaku novčanu poziciju i slab životni sustav.",
+          "Proizvodna imovina ima drugu ulogu. To su kapitalna dobra koja povećavaju produktivnost: posao, oprema, znanje, alat, poslovni odnos ili imovina koja daje prihod. Takva dobra ne treba miješati s potrošnjom samo zato što imaju cijenu.",
+          "U odnosu na Bitcoin, proizvodna imovina postavlja važno pitanje: kada ima smisla držati više novca, a kada ga usmjeriti u nešto što stvara vrijednost? Bitcoin može biti najbolji oblik novca u ovom okviru, ali novac nije jedina životna potreba. Ako zanemarite proizvodnu imovinu koja vam omogućuje prihod, znanje ili rad, možete imati jaku novčanu poziciju i slab životni sustav.",
         ],
       },
       {
         heading: "Ravnoteža neto imovine",
         body: [
-          "Ravnoteža neto imovine ne znači da sve mora biti jednako raspoređeno u svakom trenutku. Znači da znate zašto vaša imovina izgleda tako kako izgleda. Koliko je u novcu? Koliko u potrošnim dobrima? Koliko u kapitalu? Koliko je opterećeno dugom? Koliko je dostupno ako se život promijeni?",
-          "Kada tako gledate imovinu, Bitcoin prestaje biti odvojeno pitanje. On dobiva mjesto u sustavu: kao novac, kao dio dugoročne neto imovine i kao izvor pravila za potrošnju ili čekanje. Cilj nije savršena podjela, nego osobni okvir koji možete održati kroz vrijeme, objasniti obitelji i preispitati kada se vaša situacija promijeni.",
+          "Ravnoteža neto imovine ne znači da sve mora biti jednako raspoređeno u svakom trenutku. Znači da znate zašto vaša imovina izgleda tako kako izgleda. Koliko je u novcu? Koliko u potrošnim dobrima? Koliko u proizvodnoj imovini? Koliko je opterećeno dugom? Koliko je dostupno ako se život promijeni?",
+          "Kada tako gledate imovinu, Bitcoin prestaje biti odvojeno pitanje. On dobiva mjesto u sustavu kao novac i kao izvor pravila za potrošnju ili čekanje. Cilj nije savršena podjela, nego osobni okvir koji možete održati kroz vrijeme, objasniti obitelji i preispitati kada se vaša situacija promijeni.",
           "Zato je korisno povremeno napraviti mirnu provjeru. Ne zato da biste stalno premještali imovinu, nego da vidite je li raspored još razumljiv. Ako potrošna dobra previše rastu, ako dug pritišće ili ako Bitcoin nema jasnu ulogu, ravnoteža nije stvar postotka, nego poziv da ponovno napišete pravila.",
         ],
       },

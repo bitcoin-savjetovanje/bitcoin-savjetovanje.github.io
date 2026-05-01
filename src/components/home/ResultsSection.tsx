@@ -6,10 +6,13 @@ import { afterWorkItems, beforeWorkItems } from "@/content/method"
 export function ResultsSection() {
   return (
     <section className="section-shell section-muted">
-      <SectionHeader title="Na kraju imate pravila." align="center" />
+      <SectionHeader
+        title="Bez standarda, svaka promjena cijene postaje hitna odluka."
+        align="center"
+      />
       <div className="mt-12 grid gap-4 lg:grid-cols-2">
         <article className="comparison-card">
-          <h3>Prije</h3>
+          <h3>Bez osobnog Bitcoin standarda</h3>
           <ul>
             {beforeWorkItems.map((item) => (
               <li key={item}>
@@ -20,7 +23,7 @@ export function ResultsSection() {
           </ul>
         </article>
         <article className="comparison-card comparison-card--after">
-          <h3>Nakon</h3>
+          <h3>S osobnim Bitcoin standardom</h3>
           <ul>
             {afterWorkItems.map((item) => (
               <li key={item}>

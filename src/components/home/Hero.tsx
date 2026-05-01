@@ -5,10 +5,10 @@ import { BOOKING_URL, EMAIL, PRIMARY_CTA, heroOutcomes } from "@/content/site"
 
 function PlanVisual() {
   const rows = [
-    "jasan proračun",
-    "uređen dug",
-    "Bitcoin u imovini",
-    "sljedeći korak",
+    "osobni proračun",
+    "plan izlaska iz duga",
+    "Bitcoin kao novac",
+    "kupovna moć",
   ]
 
   return (
@@ -17,8 +17,8 @@ function PlanVisual() {
         <div className="plan-visual__header">
           <div>
             <p className="plan-visual__eyebrow">Praktični Bitcoin standard</p>
-            <h2>Jasan plan</h2>
-            <p>Bitcoin, imovina i odluke u jednom sustavu.</p>
+            <h2>Osobni standard</h2>
+            <p>Bitcoin, dug i proračun u jednom sustavu.</p>
           </div>
           <div className="plan-visual__bitcoin-mark">
             <img src="/bitcoin-logo.png" alt="" />
@@ -42,14 +42,17 @@ export function Hero() {
     <section className="hero-section border-b border-border/70">
       <div className="hero-shell">
         <div className="hero-copy">
-          <h1 className="hero-title">Imate Bitcoin? Trebate plan.</h1>
+          <h1 className="hero-title">
+            Imate Bitcoin? Izgradite osobni Bitcoin standard.
+          </h1>
           <p className="hero-subtitle">
-            Pomažem vam napraviti jasna pravila za Bitcoin i ostatak imovine.
+            Bitcoin nije samo imovina koju držite. Bitcoin je novac. Pomažem vam
+            urediti osobni proračun, ukloniti dug, odrediti ulogu Bitcoina,
+            uskladiti kupovnu moć i napisati pravila za odluke kroz vrijeme.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            U 15 minuta vidimo gdje ste, što želite postići i koji je sljedeći
-            razuman korak. Bez prognoza cijene. Bez pritiska. Bez upravljanja
-            vašim novcem.
+            Bez prognoza cijene. Bez trgovanja. Bez upravljanja vašim
+            sredstvima.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
@@ -81,7 +84,8 @@ export function Hero() {
             </Button>
           </div>
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            Uvodni razgovor je bez naknade i bez obveze.
+            Uvodni razgovor je besplatan i traje 15 minuta. Vidimo gdje ste i
+            koji je sljedeći razuman korak.
           </p>
           <div className="mt-6">
             <p className="text-sm font-semibold text-foreground">

@@ -1,37 +1,37 @@
 export const problemQuestions = [
-  "Koliko Bitcoina ima smisla za mene?",
-  "Što radim ako Bitcoin naraste?",
-  "Što radim ako Bitcoin padne?",
-  "Što s dugom?",
-  "Kako zaštititi obitelj?",
-  "Koji je moj sljedeći korak?",
+  "Je li svaki euro dobio namjenu?",
+  "Trošim li novac koji već imam ili novac iz budućnosti?",
+  "Je li dug taj koji odlučuje umjesto mene?",
+  "Ima li Bitcoin ulogu novca ili samo imovine sa strane?",
+  "Što radim kada se kupovna moć Bitcoina promijeni?",
+  "Zna li obitelj što smije, a što ne smije napraviti?",
 ]
 
 export const audienceItems = [
-  "imate Bitcoin, ali nemate pisana pravila",
-  "imate imovinu ili prihod i želite znati koliko Bitcoin ima smisla",
-  "kupujete povremeno, ali ne znate je li višak stvaran",
-  "imate dug, obitelj ili veće buduće troškove",
-  "želite mirnije odluke kada cijena raste ili pada",
+  "imate Bitcoin, ali još nemate osobni Bitcoin standard",
+  "imate dug i želite znati kako on utječe na Bitcoin odluke",
+  "kupujete Bitcoin, ali ne znate što je stvarni višak",
+  "želite Bitcoin koristiti kao novac, ne samo kao imovinu sa strane",
+  "želite urediti potrošnju, proizvodnu imovinu i neto imovinu",
   "želite pravila koja možete objasniti sebi i obitelji",
 ]
 
 export const situationExamples = [
   {
-    title: "Imate Bitcoin, ali nemate plan",
-    copy: "Znate da je važan, ali ne znate kada kupovati, čekati, trošiti ili ne dirati ništa.",
+    title: "Imate Bitcoin, ali još živite po fiat pravilima",
+    copy: "Cijena, dug i osjećaj hitnosti još uvijek vode odluke.",
   },
   {
-    title: "Imate imovinu, ali nema jasne slike",
-    copy: "Bitcoin, novac, nekretnina, posao, dug i obitelj još nisu spojeni u jednu odluku.",
+    title: "Dug ulazi u svaku odluku",
+    copy: "Budući odljevi smanjuju slobodu i mogu vas prisiliti na loše Bitcoin odluke.",
   },
   {
-    title: "Kupujete kad imate višak",
-    copy: "Želite znati je li taj višak stvaran ili ga već trebaju proračun, dug ili budući troškovi.",
+    title: "Ne znate što je stvarni višak",
+    copy: "Novac na računu izgleda slobodno, ali možda već ima drugu namjenu.",
   },
   {
-    title: "Cijena se pomakne i sve izgleda hitno",
-    copy: "Kada Bitcoin raste ili pada, trebaju vam pravila, ne panika.",
+    title: "Bitcoin nije dio sustava",
+    copy: "Držite ga, ali još nema jasnu ulogu novca u proračunu i neto imovini.",
   },
   {
     title: "Obitelj treba znati što napraviti",
@@ -49,53 +49,64 @@ export const notForItems = [
 
 export const methodSteps = [
   {
-    title: "Proračun",
-    copy: "Vidimo koliko novca stvarno imate za odluke, a koliko već ima drugu namjenu.",
+    title: "Osobni proračun",
+    copy: "Svaki euro dobiva namjenu prije nego što postane potrošnja, darivanje, sigurnosna zaliha ili Bitcoin odluka.",
   },
   {
-    title: "Dug",
-    copy: "Odvajamo dug, obveze i buduće troškove od novca koji možete slobodno usmjeriti.",
+    title: "Život bez duga",
+    copy: "Dug je budući novac koji ste već potrošili. Cilj je ukloniti ga i prestati živjeti iz budućnosti.",
   },
   {
-    title: "Stvarni višak",
-    copy: "Definiramo kada višak stvarno postoji, a kada je pametnije čekati.",
+    title: "Darivanje",
+    copy: "Dio proračuna odvaja se za darivanje, ako je temelj uređen. To je praksa velikodušnosti, ne naknadna misao.",
   },
   {
-    title: "Bitcoin",
-    copy: "Određujemo koju ulogu Bitcoin ima u vašoj imovini i novčanom sustavu.",
+    title: "Bitcoin kao novac",
+    copy: "Bitcoin se ne promatra kao imovina sa strane, nego kao novac i novčana zaliha.",
   },
   {
-    title: "Pravila",
-    copy: "Pišemo kada kupujete, kada čekate, kada trošite i kada preispitujete plan.",
+    title: "Kupovna moć",
+    copy: "Kada kupovna moć Bitcoina raste ili pada, ne pogađate tržište. Usklađujete proračun.",
   },
   {
-    title: "Sigurnost",
-    copy: "Uređujemo čuvanje sredstava i obiteljski pristup bez dijeljenja osjetljivih podataka.",
+    title: "Neto imovina",
+    copy: "Novac, potrošna dobra i proizvodna imovina imaju različite uloge i različita pravila.",
+  },
+  {
+    title: "Sigurnost i obitelj",
+    copy: "Vaš Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
   },
 ]
 
 export const beforeWorkItems = [
-  "imate Bitcoin, ali nemate plan",
-  "ne znate što napraviti kada cijena raste ili pada",
+  "ne znate što je stvarni višak",
+  "dug odlučuje prije vas",
+  "Bitcoin izgleda kao imovina sa strane",
   "kupujete ili čekate na osjećaj",
-  "dug, proračun i imovina nisu povezani",
-  "sigurnost ovisi samo o vama",
+  "svaka promjena kupovne moći stvara pritisak",
 ]
 
 export const afterWorkItems = [
-  "znate gdje stojite",
-  "znate ulogu Bitcoina u imovini",
-  "imate pravila za kupnju, čekanje i trošenje",
-  "znate kako dug i budući troškovi ulaze u odluku",
-  "imate sigurnosni i obiteljski plan",
+  "svaki euro ima namjenu",
+  "dug ima plan izlaska",
+  "Bitcoin ima ulogu novca",
+  "kupovna moć se usklađuje s proračunom",
+  "sigurnost i obitelj imaju pravila",
 ]
 
 export const programDocumentItems = [
   "osobni proračun",
-  "dug i budući troškovi",
   "stvarni višak",
-  "Bitcoin u imovini",
-  "kupovna moć",
+  "starost novca",
+  "plan izlaska iz duga",
+  "buduće odljeve",
+  "darivanje, ako je primjenjivo",
+  "Bitcoin kao novac",
+  "Bitcoin kao novčanu zalihu",
+  "usklađivanje kupovne moći",
+  "potrošna dobra",
+  "proizvodnu imovinu",
+  "ravnotežu neto imovine",
   "pravila kupnje",
   "pravila čekanja",
   "pravila trošenja",
@@ -106,29 +117,29 @@ export const programDocumentItems = [
 
 export const bookingSteps = [
   {
-    title: "Ispunite nekoliko kratkih pitanja",
-    copy: "Napišete imate li Bitcoin, što vas muči i što želite razjasniti.",
+    title: "Odaberete termin",
+    copy: "Razgovor traje 15 minuta i bez naknade je.",
   },
   {
-    title: "Razgovaramo 15 minuta",
-    copy: "Prođemo vašu situaciju i glavno pitanje.",
+    title: "Odgovorite na nekoliko pitanja",
+    copy: "Napišete imate li Bitcoin, postoji li dug i što želite razjasniti.",
   },
   {
-    title: "Dobivate smjer",
-    copy: "Kažem mogu li pomoći i koji je sljedeći korak.",
+    title: "Razgovaramo",
+    copy: "Vidimo gdje ste u odnosu na Praktični Bitcoin standard.",
   },
   {
-    title: "Vi odlučujete",
-    copy: "Uvodni razgovor je besplatan i ne obvezuje vas na nastavak.",
+    title: "Dobijete sljedeći korak",
+    copy: "Ako mogu pomoći, predložit ću nastavak. Ako ne mogu, reći ću vam to otvoreno.",
   },
 ]
 
 export const securityRules = [
   "bez čuvanja sredstava",
-  "bez pristupa vašim računima",
-  "bez traženja početnih riječi za oporavak",
+  "bez pristupa računima",
+  "bez traženja početnih riječi",
   "bez kupnje ili prodaje u vaše ime",
-  "bez poreznih i pravnih tvrdnji",
+  "bez odluka umjesto vas",
 ]
 
 export const notDoingItems = [
@@ -144,7 +155,7 @@ export const qualificationQuestions = [
   "Imate li Bitcoin?",
   "Što želite razjasniti?",
   "Imate li dug ili veće buduće troškove?",
-  "Što vas najviše brine: proračun, imovina, sigurnost ili obitelj?",
+  "Što vas najviše brine: proračun, dug, Bitcoin kao novac, sigurnost ili obitelj?",
   "Želite li jedan razgovor ili cijeli program?",
 ]
 

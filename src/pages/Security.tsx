@@ -65,8 +65,8 @@ export function Security() {
             Sigurnost i povjerljivost
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Bitcoin savjetovanje ne traži pristup vašem novcu. Cilj je da vi
-            razumijete i kontrolirate vlastiti sustav.
+            Sigurnost je dio osobnog Bitcoin standarda. Cilj je da Bitcoin
+            ostane pod vašom kontrolom, ali da sustav ne ovisi samo o vama.
           </p>
         </header>
 

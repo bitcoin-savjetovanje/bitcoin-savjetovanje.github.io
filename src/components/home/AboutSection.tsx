@@ -17,7 +17,7 @@ import {
 export function AboutSection() {
   return (
     <section id="o-meni" className="section-shell section-muted">
-      <SectionHeader title="Zašto ja?" />
+      <SectionHeader title="Živim standard koji pomažem postaviti." />
       <div className="credibility-grid">
         <aside className="profile-panel">
           <img src="/pavao-pahljina.jpg" alt="Pavao Pahljina" />
@@ -49,8 +49,8 @@ export function AboutSection() {
         <div>
           <div className="credibility-copy">
             <p>
-              U Bitcoinu sam od 2014. godine. Iza mene je više od 10.000 sati
-              proučavanja Bitcoina i šest godina profesionalnog rada sa{" "}
+              U Bitcoinu sam od 2014. Od 2020. živim na Bitcoin standardu. Radio
+              sam šest godina sa{" "}
               <a
                 href={SAIFEDEAN_AMMOUS_URL}
                 target="_blank"
@@ -66,7 +66,7 @@ export function AboutSection() {
               >
                 The Bitcoin Standard
               </a>
-              , te gradnja regionalne zajednice{" "}
+              . Gradim{" "}
               <a
                 href={DVADESET_JEDAN_URL}
                 target="_blank"
@@ -74,20 +74,14 @@ export function AboutSection() {
               >
                 DvadesetJedan
               </a>{" "}
-              u sklopu svjetske mreže{" "}
+              zajednicu u sklopu svjetske mreže{" "}
               <a href={TWENTYONE_URL} target="_blank" rel="noopener noreferrer">
                 TwentyOne World
               </a>
               .
             </p>
             <p>
-              Od 2020. živim na Bitcoin standardu. Primam, držim i trošim
-              Bitcoin. Zato razgovor ne kreće od teorije, nego od stvarnog
-              života: novca, duga, sigurnosti, obitelji i odluka.
-            </p>
-            <p>
-              Na temelju dosadašnjeg iskustva trenutno radim i na otvorenom
-              priručniku{" "}
+              Pišem otvoreni priručnik{" "}
               <a
                 href={PRACTICAL_BITCOIN_STANDARD_URL}
                 target="_blank"
@@ -99,9 +93,8 @@ export function AboutSection() {
               .
             </p>
             <p>
-              Danas moj rad nije nagovaranje na Bitcoin. Moj posao je pomoći vam
-              da razumijete što Bitcoin znači za vašu imovinu i koja pravila
-              imaju smisla za vas.
+              Moj posao nije nagovoriti vas da kupite Bitcoin. Moj posao je
+              pomoći vam urediti novac, dug, imovinu i pravila oko Bitcoina.
             </p>
           </div>
         </div>

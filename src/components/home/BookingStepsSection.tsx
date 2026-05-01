@@ -6,10 +6,10 @@ export function BookingStepsSection() {
       <div className="case-panel">
         <div className="max-w-3xl">
           <h2 className="font-display text-3xl leading-tight font-semibold text-foreground sm:text-4xl">
-            Što se dogodi nakon što rezervirate termin?
+            Što se dogodi nakon klika?
           </h2>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
-            Prvi korak je kratak. Cilj je brzo vidjeti mogu li vam pomoći.
+            Prvi korak je kratak. Cilj je jasno vidjeti sljedeći korak.
           </p>
         </div>
         <div className="mt-10 grid gap-4 lg:grid-cols-4">

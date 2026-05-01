@@ -120,8 +120,26 @@ const homeHtml = readFile("index.html")
 assertIncludes(
   "index.html",
   homeHtml,
-  "Imate Bitcoin? Trebate plan.",
+  "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
   "homepage hero text"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Bitcoin nije samo imovina koju držite. Bitcoin je novac.",
+  "homepage Bitcoin as money copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Dug je budući novac koji ste već potrošili.",
+  "debt section title"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Bitcoin standard ne počinje većom kupnjom. Počinje izlaskom iz duga.",
+  "debt section punchline"
 )
 assertIncludes("index.html", homeHtml, "osobni proračun", "personal budget copy")
 assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
@@ -142,25 +160,19 @@ assertIncludes("index.html", homeHtml, "OfferCatalog", "OfferCatalog schema")
 assertIncludes(
   "index.html",
   homeHtml,
-  "Primjeri situacija",
-  "situations section"
+  "Praktični Bitcoin standard ima redoslijed.",
+  "method section title"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Ovo nisu univerzalna pravila ni primjeri stvarnih klijenata",
-  "situations clarification"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Kako izgleda rezultat programa?",
+  "Na kraju imate svoj osobni Bitcoin standard.",
   "program output preview section"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Osobni Bitcoin okvir",
+  "Osobni Bitcoin standard",
   "program document preview"
 )
 assertIncludes(
@@ -172,20 +184,38 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Što se dogodi nakon što rezervirate termin?",
+  "Što se dogodi nakon klika?",
   "booking steps section"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Ispunite nekoliko kratkih pitanja",
+  "Odaberete termin",
   "booking steps first step"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Što nećemo raditi",
+  "Vaš Bitcoin ostaje vaš.",
   "security expectations section"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Živim standard koji pomažem postaviti.",
+  "about section title"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Mogu li se zadužiti kako bih kupio Bitcoin?",
+  "debt FAQ question"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "To je fiat ponašanje primijenjeno na Bitcoin",
+  "fiat debt FAQ copy"
 )
 assertIncludes(
   "index.html",
@@ -253,7 +283,7 @@ const guidesIndexHtml = readFile("vodici/index.html")
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Vodiči za praktične Bitcoin odluke",
+  "Vodiči za osobni Bitcoin standard",
   "guide index title"
 )
 assertIncludes(
@@ -379,6 +409,26 @@ assertIncludes(
   "Usklađivanje kupovne moći",
   "purchasing power guide title"
 )
+
+const moneyCapitalGuidePath = "vodici/novac-kapital-potrosnja/index.html"
+const moneyCapitalGuideHtml = readFile(moneyCapitalGuidePath)
+assertIncludes(
+  moneyCapitalGuidePath,
+  moneyCapitalGuideHtml,
+  "Novac, potrošnja i proizvodna imovina",
+  "money production guide title"
+)
+assertIncludes(
+  moneyCapitalGuidePath,
+  moneyCapitalGuideHtml,
+  "Bitcoin je novac",
+  "money production guide Bitcoin as money copy"
+)
+
+const debtGuidePath = "vodici/dug-ili-bitcoin/index.html"
+const debtGuideHtml = readFile(debtGuidePath)
+assertIncludes(debtGuidePath, debtGuideHtml, "Dug je budući novac", "debt guide copy")
+assertIncludes(debtGuidePath, debtGuideHtml, "život bez duga", "debt guide standard copy")
 assertIncludes(
   purchasingPowerGuidePath,
   purchasingPowerGuideHtml,

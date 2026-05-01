@@ -8,12 +8,12 @@ export function ProgramOutputPreviewSection() {
     <section className="section-shell">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-start">
         <SectionHeader
-          title="Kako izgleda rezultat programa?"
-          copy="Dobivate jedan dokument: što imate, što dugujete, koju ulogu ima Bitcoin i koja pravila slijedite."
+          title="Na kraju imate svoj osobni Bitcoin standard."
+          copy="Ne još jednu teoriju. Ne još jedan popis savjeta. Jedan dokument koji pokazuje kako vaš novac, dug, Bitcoin, potrošnja, proizvodna imovina i sigurnost rade zajedno."
         />
         <div className="case-panel">
           <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-            Osobni Bitcoin okvir
+            Osobni Bitcoin standard
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             {programDocumentItems.map((item) => (
@@ -25,7 +25,7 @@ export function ProgramOutputPreviewSection() {
           </div>
           <p className="mt-6 text-sm leading-6 text-muted-foreground">
             Ovo nije primjer stvarnog klijenta i ne sadrži financijsku
-            preporuku. To je samo prikaz strukture.
+            preporuku. To je prikaz strukture osobnog standarda.
           </p>
         </div>
       </div>

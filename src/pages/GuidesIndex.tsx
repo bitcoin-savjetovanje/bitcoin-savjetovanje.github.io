@@ -22,12 +22,16 @@ export function GuidesIndex() {
             Praktični Bitcoin standard
           </p>
           <h1 className="mt-4 font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Vodiči za praktične Bitcoin odluke
+            Vodiči za osobni Bitcoin standard
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Kraći tekstovi koji prevode glavne ideje Praktičnog Bitcoin
-            standarda u konkretne odluke: osobni proračun, dug, kupovnu moć,
-            neto imovinu, skrbništvo, obiteljski pristup i pravila kroz vrijeme.
+            Ako želite razumjeti okvir, čitajte vodiče. Ako ga želite
+            primijeniti na svoju situaciju, rezervirajte razgovor.
+          </p>
+          <p className="mt-4 text-base leading-8 text-muted-foreground">
+            Vodiči prate redoslijed Praktičnog Bitcoin standarda: osobni
+            proračun, život bez duga, darivanje, Bitcoin kao novac, kupovna moć
+            i neto imovina.
           </p>
         </header>
 
@@ -38,9 +42,9 @@ export function GuidesIndex() {
             Želite primijeniti okvir na svoju situaciju?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
-            Vodiči pomažu razjasniti pojmove, ali osobni okvir nastaje tek kada
-            se primijeni na vaš osobni proračun, dug, kupovnu moć, neto imovinu
-            i sigurnosni model.
+            Vodiči pomažu razjasniti pojmove. Osobni Bitcoin standard nastaje
+            tek kada se primijeni na vaš proračun, dug, kupovnu moć, neto
+            imovinu i sigurnosni model.
           </p>
           <Button
             asChild

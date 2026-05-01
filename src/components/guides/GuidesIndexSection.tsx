@@ -5,8 +5,8 @@ export function GuidesIndexSection() {
   return (
     <section id="vodici" className="section-shell section-muted">
       <SectionHeader
-        title="Vodiči za praktične Bitcoin odluke"
-        copy="Ako želite prvo čitati, počnite ovdje. Ako želite pravila za svoju situaciju, rezervirajte uvodni razgovor."
+        title="Vodiči za osobni Bitcoin standard"
+        copy="Ako želite razumjeti okvir, čitajte vodiče. Ako ga želite primijeniti na svoju situaciju, rezervirajte razgovor."
         align="center"
       />
       <GuideCardsGrid />

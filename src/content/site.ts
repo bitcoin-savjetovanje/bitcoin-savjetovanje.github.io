@@ -2,7 +2,7 @@ export const SITE_URL = "https://bitcoin-savjetovanje.com"
 export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
-export const SITE_UPDATED_AT = "2026-04-30"
+export const SITE_UPDATED_AT = "2026-05-01"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL =
@@ -23,9 +23,9 @@ export const homeSeo = {
 }
 
 export const guidesIndexSeo = {
-  title: "Vodiči za praktične Bitcoin odluke | Bitcoin Savjetovanje",
+  title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Kratki hrvatski vodiči o osobnom proračunu, dugu, kupovnoj moći, neto imovini, skrbništvu, obiteljskom pristupu i pravilima odlučivanja na Bitcoin standardu.",
+    "Vodiči kroz Praktični Bitcoin standard: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 

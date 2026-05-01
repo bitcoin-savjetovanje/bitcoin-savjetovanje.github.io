@@ -53,9 +53,9 @@ export function homeSchema() {
         email: EMAIL,
         areaServed: ["Hrvatska", "Online"],
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
-        serviceType: "Bitcoin edukacija i savjetodavni okvir",
+        serviceType: "Bitcoin savjetovanje i osobni Bitcoin standard",
         description:
-          "Savjetodavni rad za jasnija pravila o Bitcoinu, osobnom proračunu, dugu, imovini i sigurnosti. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Savjetodavni rad za osobni Bitcoin standard: osobni proračun, život bez duga, Bitcoin kao novac, kupovna moć, neto imovina i sigurnost. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },
       {
         "@type": "OfferCatalog",
@@ -117,10 +117,11 @@ export function guideSchema(guide: Guide) {
         about: [
           "Bitcoin",
           "osobni proračun",
+          "dug",
           "kupovna moć",
           "neto imovina",
           "skrbništvo",
-          "osobni okvir odluka",
+          "osobni Bitcoin standard",
         ],
       },
       breadcrumbSchema([
@@ -138,7 +139,7 @@ export function guidesIndexSchema() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        name: "Vodiči za praktične Bitcoin odluke",
+        name: "Vodiči za osobni Bitcoin standard",
         description: guidesIndexSeo.description,
         url: guidesIndexSeo.canonical,
         inLanguage: "hr-HR",

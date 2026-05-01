@@ -70,7 +70,7 @@ export const methodSteps = [
   },
   {
     title: "Neto imovina",
-    copy: "Novac, potrošna dobra i proizvodna imovina (kapital) imaju različite uloge i različita pravila.",
+    copy: "Novac, potrošna dobra i proizvodna imovina imaju različite uloge i različita pravila.",
   },
   {
     title: "Sigurnost i obitelj",
@@ -95,24 +95,19 @@ export const afterWorkItems = [
 ]
 
 export const programDocumentItems = [
-  "osobni proračun",
-  "stvarni višak",
-  "starost novca",
+  "osobni proračun i stvarni višak",
   "plan izlaska iz duga",
-  "buduće odljeve",
-  "pravilo darivanja nakon života bez duga",
+  "buduće odljeve i novčanu zalihu",
+  "kapacitet za darivanje i priljeve",
   "Bitcoin kao novac",
-  "Bitcoin kao novčanu zalihu",
   "usklađivanje kupovne moći",
-  "potrošna dobra",
-  "proizvodnu imovinu",
+  "tržišni sentiment i pravila kupnje",
+  "dugoročni trend cijene kao pomoćni signal",
+  "potrošna dobra i proizvodnu imovinu",
   "ravnotežu neto imovine",
-  "pravila kupnje",
-  "pravila čekanja",
-  "pravila trošenja",
-  "pravila preispitivanja",
-  "sigurnost",
-  "obiteljski pristup",
+  "model skrbništva prema spremnosti",
+  "sigurnost i obiteljski pristup",
+  "otvorena Bitcoin pitanja",
 ]
 
 export const bookingSteps = [
@@ -135,11 +130,11 @@ export const bookingSteps = [
 ]
 
 export const securityRules = [
-  "bez čuvanja sredstava",
-  "bez pristupa računima",
+  "bez traženja ključeva",
   "bez traženja početnih riječi",
-  "bez kupnje ili prodaje u vaše ime",
-  "bez odluka umjesto vas",
+  "bez pristupa računima",
+  "skrbništvo prema spremnosti",
+  "obiteljski pristup bez panike",
 ]
 
 export const notDoingItems = [

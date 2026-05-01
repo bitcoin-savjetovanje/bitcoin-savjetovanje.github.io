@@ -10,7 +10,7 @@ export const PRACTICAL_BITCOIN_STANDARD_URL =
 export const DVADESET_JEDAN_URL = "https://dvadesetjedan.com"
 export const SAIFEDEAN_AMMOUS_URL = "https://saifedean.com"
 export const SAIF_HOUSE_URL = "https://thesaifhouse.com/"
-export const BITCOIN_STANDARD_PODCAST_URL = "https://saifedean.com/podcast"
+export const BITCOIN_STANDARD_AUDIO_URL = "https://saifedean.com/podcast"
 export const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
 export const TWENTYONE_URL = "https://twentyone.world"
 export const LINKEDIN_URL = "https://www.linkedin.com/in/pavaopahljina/"
@@ -25,14 +25,14 @@ export const homeSeo = {
 export const guidesIndexSeo = {
   title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Vodiči kroz Praktični Bitcoin standard: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
+    "Vodiči kroz Praktični Bitcoin standard: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 
 export const securitySeo = {
   title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
   description:
-    "Sigurnost kao dio osobnog Bitcoin standarda: bez početnih riječi, bez privatnih ključeva, bez pristupa računima i bez čuvanja sredstava.",
+    "Sigurnost kao dio osobnog Bitcoin standarda: skrbništvo prema spremnosti, bez početnih riječi, bez privatnih ključeva, bez pristupa računima i bez čuvanja Bitcoina.",
   canonical: `${SITE_URL}/sigurnost/`,
 }
 
@@ -69,7 +69,7 @@ export const credibilityLogos = [
   {
     name: "The Bitcoin Standard Podcast",
     src: "/tbs-podcast-logo.svg",
-    href: BITCOIN_STANDARD_PODCAST_URL,
+    href: BITCOIN_STANDARD_AUDIO_URL,
     className:
       "credibility-logo-strip__logo--wide credibility-logo-strip__logo--dark-white",
   },

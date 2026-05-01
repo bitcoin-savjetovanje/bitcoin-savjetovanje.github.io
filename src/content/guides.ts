@@ -23,7 +23,7 @@ export const guideCategoryDescriptions: Record<GuideCategory, string> = {
     "Dug je budući novac koji ste već potrošili. Bitcoin standard počinje izlaskom iz duga.",
   Darivanje: "Nakon izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
   "Bitcoin kao novac":
-    "Bitcoin se promatra kao novac i novčana zaliha, ne kao imovina sa strane.",
+    "Bitcoin se promatra kao novac i novčana zaliha, uz pravila za vrijeme, kupovnu moć i proračun.",
   "Neto imovina":
     "Novac, potrošna dobra i proizvodna imovina imaju različite uloge.",
   "Sigurnost i obitelj":
@@ -456,8 +456,8 @@ const guideEntries: Guide[] = [
       "Imate li u osobnom proračunu prostor za darivanje koje ne očekuje ništa natrag?",
     relatedSlugs: [
       "darivanje-bez-duga",
+      "novac-dolazi-od-ljudi",
       "svaki-euro-ima-namjenu",
-      "dug-je-buduci-novac",
     ],
     sections: [
       {
@@ -520,8 +520,8 @@ const guideEntries: Guide[] = [
       "Koji dug prvo mora izaći iz vašeg života da biste mogli darivati bez unutarnjeg otpora?",
     relatedSlugs: [
       "darivanje-u-proracunu",
+      "novac-dolazi-od-ljudi",
       "dug-je-buduci-novac",
-      "svaki-euro-ima-namjenu",
     ],
     sections: [
       {
@@ -570,6 +570,69 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
+    slug: "novac-dolazi-od-ljudi",
+    title: "Novac dolazi od ljudi",
+    metaDescription:
+      "Vodič o tome kako darivanje, odnosi s ljudima i stvaranje vrijednosti povećavaju kapacitet za buduće priljeve.",
+    excerpt:
+      "Prihod ne dolazi iz apstraktnog sustava. Prihod dolazi od ljudi kojima ste pružili vrijednost.",
+    category: "Darivanje",
+    order: 57,
+    publishedAt: "2026-05-01",
+    updatedAt: "2026-05-01",
+    practicalQuestion: "Kome vaš rad danas stvarno pomaže?",
+    relatedSlugs: [
+      "darivanje-u-proracunu",
+      "darivanje-bez-duga",
+      "pozitivni-neto-priljev",
+    ],
+    sections: [
+      {
+        heading: "Novac nije odvojen od ljudi",
+        body: [
+          "Novac ne dolazi iz magle, aplikacije ili apstraktnog sustava. U stvarnom životu dolazi kroz dobrovoljnu razmjenu s ljudima. Netko vidi vrijednost u onome što nudite i odluči dati svoj novac jer ono što prima vrijedi više od novca koji predaje.",
+          "To je jednostavna, ali važna misao. Kada gledate samo saldo, lako zaboravite da iza svakog priljeva postoji osoba, obitelj, kupac, klijent ili zajednica. Osobni Bitcoin standard zato ne zatvara čovjeka u stanje na računu. Vraća ga pitanju: kome stvaram vrijednost?",
+        ],
+      },
+      {
+        heading: "Prihod je potvrda vrijednosti",
+        body: [
+          "Pošten prihod nije dokaz da ste nekome nešto uzeli. On je potvrda da ste nekome pružili vrijednost. Druga osoba mogla je zadržati svoj novac. Nije morala platiti. Platila je zato što je procijenila da joj ono što dobiva pomaže više od novca koji daje.",
+          "Zato odnos prema prihodu ne treba počivati na krivnji. Treba počivati na odgovornosti. Ako priljevi dolaze od ljudi, tada veći kapacitet za priljeve traži veću sposobnost služenja ljudima: bolje slušanje, jasniji rad, pošteniju isporuku i manje očaja u razgovorima.",
+        ],
+      },
+      {
+        heading: "Darivanje nije vraćanje duga društvu",
+        body: [
+          "Darivanje ne treba opisivati kao vraćanje društvu. Pošteno zarađen novac već znači da ste nekome pružili vrijednost u dobrovoljnoj razmjeni. Niste prvo nešto uzeli pa sada morate vratiti. To stvara pogrešan ton i pretvara darivanje u moralni račun.",
+          "Darivanje ima drukčiju ulogu. Ono je praksa kojom želite postati osoba koja može stvarati više vrijednosti. Darivanje ne kupuje povrat. Darivanje gradi osobu koja može stvoriti veći povrat. Bez jamstva, bez potraživanja i bez pritiska na onoga tko prima.",
+        ],
+      },
+      {
+        heading: "Darivanje širi pogled",
+        body: [
+          "Kada je sav novac zatvoren u vlastiti strah, pogled se sužava. Vidite samo svoje račune, svoje ciljeve i svoje rizike. To je razumljivo, posebno ako postoji dug ili neuređen proračun. Ali dugoročno takav pogled slabi sposobnost stvaranja vrijednosti.",
+          "Redovito darivanje, nakon reda i izlaska iz duga, širi pogled. Uči vas primijetiti ljude, potrebe i male prilike za služenje. Ne zato da biste odmah nešto dobili natrag, nego zato da novac ne postane zid između vas i stvarnog svijeta.",
+        ],
+      },
+      {
+        heading: "Velikodušnost mijenja razgovore",
+        body: [
+          "Velikodušna osoba ulazi u poslovne i ljudske razgovore drukčije. Manje očajno. Više otvoreno. Lakše sluša. Lakše prima primjedbu. Lakše pregovara jer ne mora iz svakog razgovora izvući najviše za sebe u tom trenutku.",
+          "To ne znači da velikodušnost jamči veći prihod. Ne jamči. Ali povećava kapacitet za stvaranje vrijednosti. Ljudi lakše vjeruju osobi koja nije stisnuta oko svake kune i svakog ustupka. A priljevi, kada su pošteni, dolaze od ljudi kojima ste pomogli.",
+        ],
+      },
+      {
+        heading: "Bitcoin standard nije bijeg od ljudi",
+        body: [
+          "Bitcoin kao novac ne znači povlačenje iz svijeta. Ne znači da se čovjek zatvara u hladno čuvanje kupovne moći i prestaje gledati ljude. Dobar novac treba dati više jasnoće, više strpljenja i više slobode za stvaranje vrijednosti u svijetu.",
+          "Zato darivanje ima mjesto u osobnom Bitcoin standardu. Prvo red. Zatim izlazak iz duga. Tek tada darivanje. Ne kao predstava, ne kao krivnja i ne kao ulaganje s očekivanim povratom. Kao praksa koja vas vraća ljudima od kojih priljevi i dolaze.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+  },
+  {
     slug: "bitcoin-kao-novac",
     title: "Bitcoin je novac",
     metaDescription:
@@ -585,8 +648,8 @@ const guideEntries: Guide[] = [
       "Je li vaš Bitcoin novac u sustavu ili imovina koja stoji sa strane?",
     relatedSlugs: [
       "uskladivanje-kupovne-moci-bitcoina",
+      "cijena-kao-mjera-vremena",
       "novac-kapital-potrosnja",
-      "bitcoin-u-neto-imovini",
     ],
     sections: [
       {
@@ -698,9 +761,9 @@ const guideEntries: Guide[] = [
     practicalQuestion:
       "Kada bi se kupovna moć vašeg Bitcoina snažno promijenila, biste li znali koje kategorije proračuna treba provjeriti?",
     relatedSlugs: [
+      "cijena-kao-mjera-vremena",
       "bitcoin-kao-novac",
       "pozitivni-neto-priljev",
-      "bitcoin-u-neto-imovini",
     ],
     sections: [
       {
@@ -736,6 +799,70 @@ const guideEntries: Guide[] = [
         body: [
           "Dobro pravilo može glasiti: kada se kupovna moć Bitcoina znatno promijeni, prvo pregledavam proračun, dug, buduće odljeve i novčanu zalihu. Ne kupujem ni ne prodajem samo zato što me cijena pomaknula.",
           "Takvo pravilo vraća odluku vama. Bitcoin ostaje novac u sustavu, a ne izvor stalne hitnosti. Usklađivanje kupovne moći nije pogađanje. To je održavanje reda.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+  },
+  {
+    slug: "cijena-kao-mjera-vremena",
+    title: "Cijena kao mjera vremena",
+    metaDescription:
+      "Vodič o tome kako dugoročni potencijski trend Bitcoina pomaže razmišljati o vremenu, kupovnoj moći i osobnom proračunu.",
+    excerpt:
+      "Ne pokušavamo pogoditi kratkoročnu cijenu. Gledamo odnos cijene, vremena i proračuna.",
+    category: "Bitcoin kao novac",
+    order: 77,
+    publishedAt: "2026-05-01",
+    updatedAt: "2026-05-01",
+    practicalQuestion:
+      "Ako je kupovna moć Bitcoina šest mjeseci ispred ili iza dugoročnog trenda, što se mijenja u vašem proračunu?",
+    relatedSlugs: [
+      "uskladivanje-kupovne-moci-bitcoina",
+      "bitcoin-kao-novac",
+      "pozitivni-neto-priljev",
+    ],
+    sections: [
+      {
+        heading: "Ne pogađamo kratkoročno kretanje",
+        body: [
+          "Cilj osobnog Bitcoin standarda nije pogoditi sutrašnju, mjesečnu ili godišnju cijenu. To bi odluku opet predalo tržištu. Danas biste se osjećali pametno, sutra prestrašeno, a pravila bi se mijenjala prema svakoj promjeni kupovne moći.",
+          "Pitanje je jednostavnije: što trenutna kupovna moć znači za proračun? Može li pokriti poznate buduće odljeve? Mijenja li odnos između novčane zalihe, duga i stvarnog viška? Treba li nešto ranije riješiti ili treba samo držati pravila?",
+        ],
+      },
+      {
+        heading: "Dugoročni trend nije jamstvo",
+        body: [
+          "Dugoročni potencijski obrazac (Bitcoin power law) nije obećanje cijene. Nije plan za kratkoročnu kupnju ili prodaju. To je pomoćni način razmišljanja o odnosu cijene i vremena, posebno kada želite vidjeti je li kupovna moć ispred, blizu ili iza dugoročnog ritma.",
+          "Takav pogled može biti koristan samo ako ostane na svome mjestu. Ne smije zamijeniti osobni proračun. Ne smije potisnuti dug. Ne smije stvoriti osjećaj sigurnosti koji ne postoji. Dugoročni trend je signal za provjeru, ne zapovijed.",
+        ],
+      },
+      {
+        heading: "Iznad trenda: budući odljevi",
+        body: [
+          "Ako je kupovna moć ispred očekivanog ritma, ne znači da treba slaviti bez pravila. Znači da možete mirno pogledati buduće odljeve. Postoji li trošak koji će ionako doći? Postoji li nužna kupnja koju treba riješiti? Postoji li pritisak koji se može smanjiti ranije?",
+          "U tom slučaju dio budućih odljeva možda se može riješiti ranije: unaprijed plaćeni troškovi, nužne kupnje ili smanjenje budućeg pritiska. Ali odluka i dalje mora proći kroz proračun. Rast kupovne moći ne smije postati dopuštenje za nered.",
+        ],
+      },
+      {
+        heading: "Iza trenda: manja potrošnja i veći priljevi",
+        body: [
+          "Ako je kupovna moć iza dugoročnog trenda, odgovor nije panika. Odgovor je povratak osnovama. Smanjuju se potrošni odljevi, jačaju priljevi i Bitcoin se akumulira iz stvarnog viška, bez oslanjanja na dug i bez žurbe.",
+          "Taj trenutak često pokazuje koliko je sustav stvarno čvrst. Ako je proračun jasan, znate što možete nastaviti. Ako nije jasan, prvo ga uređujete. Ako priljevi nisu dovoljni, radite na sposobnosti stvaranja vrijednosti. Cijena tada ne vodi život, nego otkriva gdje treba više reda.",
+        ],
+      },
+      {
+        heading: "Tržišni sentiment ne smije voditi odluke",
+        body: [
+          "Kada prevlada pohlepa, ljudi kupuju više. Kada prevlada strah, staju. To je normalno ljudsko ponašanje, ali nije osobni Bitcoin standard. Tržišni sentiment može biti koristan podatak, ali ne smije biti upravljač.",
+          "Zato pravila moraju biti jača od sentimenta. Ako ste blizu dugoročnog ritma, ne mijenjate sustav samo zato što se raspoloženje promijenilo. Ako ste iznad ili ispod, prvo gledate proračun, dug, buduće odljeve i stvarni višak. Tek tada odlučujete.",
+        ],
+      },
+      {
+        heading: "Proračun ostaje glavni alat",
+        body: [
+          "Dugoročni trend je pomoćni signal. Osobni proračun ostaje glavni alat. On govori koji novac već ima namjenu, koji dug traži buduće odljeve, koliko je stvarni višak i koji dio Bitcoina ima ulogu novčane zalihe.",
+          "Zato cijena može biti mjera vremena, ali ne i zamjena za red. Ako je kupovna moć ispred, možda nešto rješavate ranije. Ako je iza, jačate priljeve i smanjujete odljeve. Ako je blizu, držite pravila. U sva tri slučaja proračun odlučuje prvi.",
         ],
       },
     ],
@@ -1043,8 +1170,10 @@ export const recommendedGuideSlugs = [
   "svaki-euro-ima-namjenu",
   "dug-je-buduci-novac",
   "darivanje-u-proracunu",
+  "novac-dolazi-od-ljudi",
   "bitcoin-kao-novac",
   "uskladivanje-kupovne-moci-bitcoina",
+  "cijena-kao-mjera-vremena",
   "pravilo-trecina",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
 ]

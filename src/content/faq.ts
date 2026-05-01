@@ -15,14 +15,19 @@ export const faqs = [
       "Ne preporučujem takav pristup. To je fiat ponašanje primijenjeno na Bitcoin. Praktični Bitcoin standard ide suprotnim putem: osobni proračun, život bez duga, stvarni višak, zatim Bitcoin kao novac.",
   },
   {
-    question: "Zašto je darivanje dio Bitcoin standarda?",
+    question: "Zašto je darivanje povezano s većim priljevima?",
     answer:
-      "Zato što novac ne služi samo čuvanju kupovne moći. Novac je i način odnosa prema ljudima. U Praktičnom Bitcoin standardu darivanje dolazi nakon osobnog proračuna i života bez duga. Ne radi se o krivnji, nego o vježbanju velikodušnosti i sposobnosti stvaranja vrijednosti.",
+      "Zato što priljevi dolaze od ljudi. Darivanje vas uči manje se držati za novac, bolje slušati, lakše pregovarati i bolje služiti drugima. To nije jamstvo većeg prihoda, nego praksa koja povećava sposobnost stvaranja vrijednosti.",
   },
   {
     question: "Trebam li darivati ako imam dug?",
     answer:
       "Ne kao pravilo ovog okvira. Prvo treba jasno vidjeti dug i napraviti plan izlaska. Darivanje u Praktičnom Bitcoin standardu dolazi iz uređenog proračuna i slobode, ne iz pritiska.",
+  },
+  {
+    question: "Je li darivanje ulaganje?",
+    answer:
+      "Ne. Darivanje je bez očekivanja povrata. Ali osoba koja redovito daruje vježba odvajanje od novca, lakše podnosi neizvjesnost i može imati veći kapacitet za razuman poslovni rizik.",
   },
   {
     question: "Hoćete li mi reći koliko Bitcoina trebam kupiti?",
@@ -35,6 +40,11 @@ export const faqs = [
       "Praktični Bitcoin standard je okvir za život s Bitcoinom kao novcem: osobni proračun, život bez duga, darivanje, Bitcoin kao novčana zaliha, usklađivanje kupovne moći i ravnoteža neto imovine.",
   },
   {
+    question: "Koristite li Bitcoin power law za prognozu cijene?",
+    answer:
+      "Ne za kratkoročne prognoze. Dugoročni potencijski trend može pomoći razumjeti je li današnja kupovna moć ispred, blizu ili iza dugoročnog ritma. Odluke se i dalje vraćaju na osobni proračun, dug, buduće odljeve i stvarni višak.",
+  },
+  {
     question: "Je li ovo financijsko savjetovanje?",
     answer:
       "Ne. Ovo nije licencirano investicijsko, porezno ili pravno savjetovanje. Rad je usmjeren na osobni okvir odlučivanja i primjenu Praktičnog Bitcoin standarda na vašu situaciju.",
@@ -43,6 +53,16 @@ export const faqs = [
     question: "Moram li već imati Bitcoin?",
     answer:
       "Ne morate. Ali usluga je najkorisnija ako već ozbiljno razmišljate o Bitcoinu kao novcu, a ne samo kao kratkoročnoj imovini.",
+  },
+  {
+    question: "Moram li samostalno čuvati Bitcoin?",
+    answer:
+      "Ne postoji jedan model za svaku osobu. Gledamo vaše znanje, sigurnosne navike, obiteljsku situaciju i razinu spremnosti. Za nekoga je cilj samostalno čuvanje, za nekoga prijelazni model, a za svakoga manje rizika i više jasnoće.",
+  },
+  {
+    question: "Mogu li pitati bilo što o Bitcoinu?",
+    answer:
+      "Da. Ako imate pitanje o Bitcoinu koje vas muči, možemo ga proći. Ako odgovor ne mogu dati odmah u razgovoru, vratit ću vam se naknadno s jasnim objašnjenjem ili izvorom za daljnje čitanje.",
   },
   {
     question: "Koliko košta?",

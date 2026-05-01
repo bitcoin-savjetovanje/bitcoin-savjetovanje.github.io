@@ -17,10 +17,12 @@ const requiredGuidePaths = [
   "/vodici/ne-zaduzujte-se-za-bitcoin",
   "/vodici/darivanje-u-proracunu",
   "/vodici/darivanje-bez-duga",
+  "/vodici/novac-dolazi-od-ljudi",
   "/vodici/bitcoin-kao-novac",
   "/vodici/pozitivni-neto-priljev",
   "/vodici/dca-nije-dovoljan",
   "/vodici/uskladivanje-kupovne-moci-bitcoina",
+  "/vodici/cijena-kao-mjera-vremena",
   "/vodici/pravilo-trecina",
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
   "/vodici/obiteljski-pristup-bitcoinu",
@@ -163,13 +165,13 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Darivanje mijenja vaš odnos prema novcu.",
+  "Darivanje povećava vaš kapacitet za stvaranje vrijednosti.",
   "giving section title"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Prvo dolazi red. Zatim izlazak iz duga. Na posljetku, sustavno darivanje.",
+  "Prvo red. Zatim izlazak iz duga. Tek tada darivanje.",
   "giving section order copy"
 )
 assertIncludes(
@@ -181,20 +183,59 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Iz uređenog proračuna",
-  "giving section budget card"
+  "Novac dolazi od ljudi",
+  "giving section people punchline"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Prema ljudima",
-  "giving section people card"
+  "Veći kapacitet za priljeve",
+  "giving section inflow card"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Praktični Bitcoin standard ne pita samo koliko imate",
-  "giving section punchline"
+  "Veći kapacitet za rizik",
+  "giving section risk card"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "tržišni sentiment",
+  "market sentiment copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Cijena nije prognoza. Cijena je signal za proračun.",
+  "price time section title"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "dugoročni potencijski trend",
+  "long-term power trend copy"
+)
+assertIncludes("index.html", homeHtml, "Iznad trenda", "above trend card")
+assertIncludes("index.html", homeHtml, "Blizu trenda", "near trend card")
+assertIncludes("index.html", homeHtml, "Ispod trenda", "below trend card")
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Sigurnost nije dogma. Sigurnost je sustav.",
+  "security nuance section title"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "4–6 tjedana rada za vaš osobni Bitcoin standard",
+  "structured program duration copy"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "Mogu li pitati bilo što o Bitcoinu?",
+  "open Bitcoin questions FAQ"
 )
 assertIncludes("index.html", homeHtml, "osobni proračun", "personal budget copy")
 assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
@@ -251,7 +292,7 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Vaš Bitcoin ostaje vaš.",
+  "Sigurnost nije dogma. Sigurnost je sustav.",
   "security expectations section"
 )
 assertIncludes(
@@ -388,6 +429,12 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
+  "Novac dolazi od ljudi",
+  "money comes from people guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
   "Redoslijed je važan",
   "giving order note"
 )
@@ -402,6 +449,18 @@ assertIncludes(
   guidesIndexHtml,
   "Bitcoin je novac",
   "bitcoin as money guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Cijena kao mjera vremena",
+  "price as time guide"
+)
+assertIncludes(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Ako želite samo početak",
+  "beginner guide block"
 )
 assertIncludes(
   "vodici/index.html",
@@ -446,6 +505,24 @@ assertIncludes("sigurnost/index.html", securityHtml, "Nikada ne tražim", "never
 assertIncludes(
   "sigurnost/index.html",
   securityHtml,
+  "Sigurnost nije dogma",
+  "security nuance intro"
+)
+assertIncludes(
+  "sigurnost/index.html",
+  securityHtml,
+  "Što procjenjujemo",
+  "custody assessment section"
+)
+assertIncludes(
+  "sigurnost/index.html",
+  securityHtml,
+  "model skrbništva prema spremnosti",
+  "custody readiness copy"
+)
+assertIncludes(
+  "sigurnost/index.html",
+  securityHtml,
   "početne riječi za oporavak",
   "recovery words copy"
 )
@@ -454,6 +531,12 @@ assertIncludes(
   securityHtml,
   "privatne ključeve",
   "private keys copy"
+)
+assertIncludes(
+  "sigurnost/index.html",
+  securityHtml,
+  "ne čuvam Bitcoin",
+  "no Bitcoin custody copy"
 )
 assertIncludes(
   "sigurnost/index.html",
@@ -603,6 +686,11 @@ const newGuideChecks = [
     copy: "Dug i darivanje ne stvaraju isti duh",
   },
   {
+    path: "vodici/novac-dolazi-od-ljudi/index.html",
+    title: "Novac dolazi od ljudi",
+    copy: "Prihod je potvrda vrijednosti",
+  },
+  {
     path: "vodici/bitcoin-kao-novac/index.html",
     title: "Bitcoin je novac",
     copy: "Bitcoin nije proizvodna imovina",
@@ -611,6 +699,11 @@ const newGuideChecks = [
     path: "vodici/pozitivni-neto-priljev/index.html",
     title: "Pozitivan neto priljev",
     copy: "Priljevi i odljevi",
+  },
+  {
+    path: "vodici/cijena-kao-mjera-vremena/index.html",
+    title: "Cijena kao mjera vremena",
+    copy: "Ne pogađamo kratkoročno kretanje",
   },
   {
     path: "vodici/pravilo-trecina/index.html",
@@ -718,6 +811,114 @@ assertIncludes(
   debtFreeGivingGuideHtml,
   '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-bez-duga/" />',
   "debt-free giving canonical URL"
+)
+
+const peopleMoneyGuidePath = "vodici/novac-dolazi-od-ljudi/index.html"
+const peopleMoneyGuideHtml = readFile(peopleMoneyGuidePath)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  "Novac dolazi od ljudi",
+  "people money guide title"
+)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  "Prihod je potvrda vrijednosti",
+  "people money income section"
+)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  "Darivanje nije vraćanje duga društvu",
+  "people money giving section"
+)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  "Velikodušnost mijenja razgovore",
+  "people money generosity section"
+)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  "Praktično pitanje",
+  "people money practical question"
+)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  '"@type":"Article"',
+  "people money Article schema"
+)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  "BreadcrumbList",
+  "people money BreadcrumbList schema"
+)
+assertIncludes(
+  peopleMoneyGuidePath,
+  peopleMoneyGuideHtml,
+  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/novac-dolazi-od-ljudi/" />',
+  "people money canonical URL"
+)
+
+const priceTimeGuidePath = "vodici/cijena-kao-mjera-vremena/index.html"
+const priceTimeGuideHtml = readFile(priceTimeGuidePath)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  "Cijena kao mjera vremena",
+  "price time guide title"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  "Ne pogađamo kratkoročno kretanje",
+  "price time no prediction section"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  "Dugoročni trend nije jamstvo",
+  "price time trend section"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  "Tržišni sentiment ne smije voditi odluke",
+  "price time sentiment section"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  "Proračun ostaje glavni alat",
+  "price time budget section"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  "Praktično pitanje",
+  "price time practical question"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  '"@type":"Article"',
+  "price time Article schema"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  "BreadcrumbList",
+  "price time BreadcrumbList schema"
+)
+assertIncludes(
+  priceTimeGuidePath,
+  priceTimeGuideHtml,
+  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/cijena-kao-mjera-vremena/" />',
+  "price time canonical URL"
 )
 
 const sitemap = readFile("sitemap.xml")

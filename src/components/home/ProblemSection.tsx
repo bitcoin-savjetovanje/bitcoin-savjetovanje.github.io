@@ -4,10 +4,10 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 import { problemQuestions } from "@/content/method"
 
 const problemSignals = [
-  "Kupujete više kada cijena i sentiment počnu rasti.",
-  "Čekate kada se pojavi strah.",
-  "Dug i budući troškovi ne ulaze u odluke oko Bitcoina.",
-  "Ne znate precizne brojke i mjere u svojoj imovini.",
+  "Kupujete više kada cijena raste i tržišni sentiment prijeđe u pohlepu.",
+  "Kada tržišni sentiment prijeđe u strah, želite stati.",
+  "Dug ostaje izvan odluke, iako je već odlučuje.",
+  "Ne znate gdje stoje novac, dug i imovina.",
   "Bitcoin stoji kao imovina sa strane, a ne kao novac u sustavu.",
 ]
 
@@ -40,7 +40,8 @@ export function ProblemSection() {
           ))}
         </div>
         <p className="mt-8 max-w-2xl text-xl leading-8 font-semibold text-foreground">
-          Ne trebate još šuma. Trebate osobni Bitcoin standard.
+          Bez pravila, sentiment vodi vaš Bitcoin. Ne trebate još šuma. Trebate
+          osobni Bitcoin standard.
         </p>
       </div>
     </section>

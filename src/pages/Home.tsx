@@ -9,6 +9,7 @@ import { GivingSection } from "@/components/home/GivingSection"
 import { Hero } from "@/components/home/Hero"
 import { MethodSection } from "@/components/home/MethodSection"
 import { OffersSection } from "@/components/home/OffersSection"
+import { PriceTimeSection } from "@/components/home/PriceTimeSection"
 import { ProblemSection } from "@/components/home/ProblemSection"
 import { ProgramOutputPreviewSection } from "@/components/home/ProgramOutputPreviewSection"
 import { ResultsSection } from "@/components/home/ResultsSection"
@@ -33,6 +34,7 @@ export function Home() {
       <GivingSection />
       <ResultsSection />
       <MethodSection />
+      <PriceTimeSection />
       <ProgramOutputPreviewSection />
       <OffersSection />
       <BookingStepsSection />

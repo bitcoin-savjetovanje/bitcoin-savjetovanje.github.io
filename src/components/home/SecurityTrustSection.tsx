@@ -8,9 +8,15 @@ export function SecurityTrustSection() {
     <section className="section-shell section-muted">
       <div className="case-panel border-primary/25">
         <SectionHeader
-          title="Vaš Bitcoin ostaje vaš."
-          copy="Ne tražim ključeve. Ne tražim početne riječi. Ne tražim pristup računima. Ne čuvam vaš Bitcoin. Ne donosim odluke umjesto vas."
+          title="Sigurnost nije dogma. Sigurnost je sustav."
+          copy="Ne tražim ključeve, početne riječi ni pristup računima. Ne čuvam vaš Bitcoin i ne donosim odluke umjesto vas."
         />
+        <p className="mt-6 max-w-4xl text-base leading-8 text-muted-foreground">
+          Rješenje za skrbništvo biramo prema vašem znanju, sigurnosnim
+          navikama, obiteljskoj situaciji i razini spremnosti. Za nekoga je cilj
+          samostalno čuvanje. Za nekoga je bolji prijelazni model. Za svakoga je
+          cilj isti: manje rizika i više jasnoće.
+        </p>
         <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
           {securityRules.map((rule) => (
             <div key={rule} className="not-for-row">

@@ -7,7 +7,7 @@ function PlanVisual() {
   const rows = [
     "osobni proračun",
     "plan izlaska iz duga",
-    "Sustavno darivanje",
+    "redovito darivanje",
     "Bitcoin kao novac",
     "ravnoteža neto imovine",
   ]

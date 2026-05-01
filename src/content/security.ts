@@ -9,7 +9,7 @@ export const neverAskItems = [
 ]
 
 export const securityReviewItems = [
-  "načelo sigurnosnog modela",
+  "model skrbništva prema spremnosti",
   "što dokumentirati",
   "kako izbjeći jednu točku kvara",
   "kako pripremiti obiteljski pristup",
@@ -17,8 +17,17 @@ export const securityReviewItems = [
   "kako razgovarati o sigurnosti bez otkrivanja osjetljivih podataka",
 ]
 
+export const skrbnistvoAssessmentItems = [
+  "tehničko znanje",
+  "sigurnosne navike",
+  "obiteljski pristup",
+  "rizik gubitka pristupa",
+  "rizik neovlaštenog pristupa",
+  "mogući prijelaz prema većoj samostalnosti",
+]
+
 export const notDoingSecurityItems = [
-  "ne čuvam sredstva",
+  "ne čuvam Bitcoin",
   "ne potpisujem transakcije za vas",
   "ne kupujem ni prodajem u vaše ime",
   "ne upravljam novcem",

@@ -7,6 +7,7 @@ import {
   neverAskItems,
   notDoingSecurityItems,
   securityReviewItems,
+  skrbnistvoAssessmentItems,
 } from "@/content/security"
 import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
 
@@ -65,8 +66,9 @@ export function Security() {
             Sigurnost i povjerljivost
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Sigurnost je dio osobnog Bitcoin standarda. Cilj je da Bitcoin
-            ostane pod vašom kontrolom, ali da sustav ne ovisi samo o vama.
+            Sigurnost nije dogma. Cilj nije svima preporučiti isti model
+            skrbništva, nego pronaći rješenje koje odgovara vašem znanju,
+            sigurnosnim navikama, obitelji i trenutnoj situaciji.
           </p>
         </header>
 
@@ -78,6 +80,10 @@ export function Security() {
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Što možemo proći</h2>
             <SecurityList items={securityReviewItems} icon="check" />
+          </section>
+          <section className="case-panel">
+            <h2 className="text-2xl font-semibold">Što procjenjujemo</h2>
+            <SecurityList items={skrbnistvoAssessmentItems} icon="check" />
           </section>
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Što ne radim</h2>

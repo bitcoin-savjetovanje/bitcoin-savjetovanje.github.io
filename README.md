@@ -5,7 +5,9 @@ SSR/prerenderom i GitHub Pagesom. Sadržaj je organiziran oko Praktičnog Bitcoi
 standarda: osobni proračun, život bez duga, darivanje, Bitcoin kao novac,
 kupovna moć, neto imovina, skrbništvo i početne riječi za oporavak.
 Darivanje se obrađuje kao treći temeljni korak nakon reda u novcu i izlaska iz
-duga: bez očekivanja povrata, iz uređenog proračuna i prema ljudima.
+duga: bez očekivanja povrata, iz uređenog proračuna i prema ljudima. Vodiči
+uključuju i odnos novca prema ljudima te cijenu kao pomoćni signal za vrijeme i
+proračun, bez projekcija i obećanja prinosa.
 
 ## Development
 

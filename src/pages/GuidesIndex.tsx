@@ -18,6 +18,14 @@ const recommendedGuides = recommendedGuideSlugs
   .map((slug) => findGuide(slug))
   .filter(Boolean)
 
+const beginnerGuides = [
+  "svaki-euro-ima-namjenu",
+  "dug-je-buduci-novac",
+  "bitcoin-kao-novac",
+]
+  .map((slug) => findGuide(slug))
+  .filter(Boolean)
+
 export function GuidesIndex() {
   return (
     <>
@@ -76,6 +84,26 @@ export function GuidesIndex() {
               ) : null
             )}
           </ol>
+          <div className="mt-8 border-t border-border/70 pt-6">
+            <h3 className="text-lg font-semibold">Ako želite samo početak</h3>
+            <ol className="mt-4 grid gap-2 md:grid-cols-3">
+              {beginnerGuides.map((guide, index) =>
+                guide ? (
+                  <li key={guide.slug}>
+                    <a
+                      href={guideHref(guide.slug)}
+                      className="flex h-full gap-3 rounded-xl border border-border/75 bg-background/70 p-4 text-sm font-semibold text-foreground shadow-sm transition-colors hover:border-primary/50 hover:text-primary"
+                    >
+                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary/10 text-xs text-primary">
+                        {index + 1}
+                      </span>
+                      <span>{guide.title}</span>
+                    </a>
+                  </li>
+                ) : null
+              )}
+            </ol>
+          </div>
         </section>
 
         <div className="mt-14 space-y-12">

@@ -6,7 +6,7 @@ export function GuidesIndexSection() {
     <section id="vodici" className="section-shell section-muted">
       <SectionHeader
         title="Vodiči za praktične Bitcoin odluke"
-        copy="Kraći tekstovi koji prevode glavne ideje Practical Bitcoin Standarda u konkretne odluke: budžet, dug, neto imovina, skrbništvo i obiteljski pristup."
+        copy="Kraći tekstovi koji prevode glavne ideje Praktičnog Bitcoin standarda u konkretne odluke: osobni proračun, dug, neto imovina, skrbništvo i obiteljski pristup."
         align="center"
       />
       <GuideCardsGrid />

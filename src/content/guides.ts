@@ -31,9 +31,9 @@ export const guides: Guide[] = [
     practicalQuestion:
       "Koji trošak, obvezu ili rizik najčešće zaboravite kada mislite da imate višak?",
     relatedSlugs: [
+      "uskladivanje-kupovne-moci-bitcoina",
       "dca-nije-dovoljan",
       "dug-ili-bitcoin",
-      "bitcoin-u-neto-imovini",
     ],
     sections: [
       {
@@ -91,8 +91,8 @@ export const guides: Guide[] = [
       "Koliki dio vaše ukupne neto imovine Bitcoin čini danas i znate li zašto je baš takav?",
     relatedSlugs: [
       "stvarni-visak",
+      "uskladivanje-kupovne-moci-bitcoina",
       "novac-kapital-potrosnja",
-      "dug-ili-bitcoin",
     ],
     sections: [
       {
@@ -211,8 +211,8 @@ export const guides: Guide[] = [
       "Znate li zašto je vaš trenutni iznos redovite kupnje baš takav i kada bi se trebao promijeniti?",
     relatedSlugs: [
       "stvarni-visak",
+      "uskladivanje-kupovne-moci-bitcoina",
       "bitcoin-u-neto-imovini",
-      "dug-ili-bitcoin",
     ],
     sections: [
       {
@@ -253,6 +253,98 @@ export const guides: Guide[] = [
           "Dobro pravilo unaprijed kaže kada se mijenja. Primjeri mogu biti: promjena prihoda, novi dug, otplata duga, veći obiteljski trošak, povećanje novčane zalihe, promjena udjela Bitcoina u neto imovini ili nova sigurnosna odgovornost. Bez takvih uvjeta, odluka se često mijenja tek kada emocije postanu snažne.",
           "Redovita kupnja može ostati dio vašeg sustava, ali ne smije biti zamjena za sustav. Ako znate zašto kupujete tim iznosom, što mora biti istina da nastavite i kada trebate stati, navika dobiva ozbiljnost. Tada Bitcoin odluka ne ovisi samo o cijeni ili osjećaju, nego o pisanom osobnom okviru.",
           "Dobro je imati i pravilo čekanja. To je jednako važno kao pravilo kupnje. Ako se pojavi dug, veliki trošak ili nesigurnost prihoda, čekanje može biti zrelija odluka od automatskog nastavka. Redovitost ima vrijednost tek kada ne poništava zdrav razum proračuna.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+  },
+  {
+    slug: "uskladivanje-kupovne-moci-bitcoina",
+    title: "Usklađivanje kupovne moći: što raditi kad Bitcoin raste ili pada?",
+    metaDescription:
+      "Vodič o tome kako uskladiti osobni proračun s promjenama kupovne moći Bitcoina, bez pogađanja cijene i impulzivnih odluka.",
+    excerpt:
+      "Ako Bitcoin ima ozbiljnu ulogu u vašoj neto imovini, promjena njegove kupovne moći nije samo tržišna vijest. Ona utječe na osobni proračun, odljeve, priljeve, sigurnosnu rezervu i pravila odlučivanja.",
+    publishedAt: "2026-04-30",
+    updatedAt: "2026-04-30",
+    practicalQuestion:
+      "Kada bi se kupovna moć vašeg Bitcoina promijenila za 20 %, biste li znali koje kategorije osobnog proračuna treba prilagoditi?",
+    relatedSlugs: [
+      "stvarni-visak",
+      "bitcoin-u-neto-imovini",
+      "dca-nije-dovoljan",
+    ],
+    sections: [
+      {
+        heading: "Promjena cijene nije isto što i odluka",
+        body: [
+          "Većina ljudi promjenu cijene Bitcoina promatra kao tržišni događaj. Ako cijena raste, javlja se osjećaj da treba nešto učiniti prije nego prilika prođe. Ako cijena pada, javlja se strah da se plan raspada. U oba slučaja odluka se lako počne donositi prema osjećaju, a ne prema pravilima.",
+          "Praktični Bitcoin standard polazi od drukčijeg pitanja. Ne pita prvo hoće li Bitcoin rasti ili padati. Pita kako se promjena kupovne moći Bitcoina odražava na osobni proračun, odljeve, priljeve i neto imovinu.",
+          "To je važna razlika. Ako Bitcoin gledate samo kao imovinu odvojenu od svakodnevnog života, promjena cijene izgleda kao vanjski događaj. Ali ako Bitcoin ima ulogu novca, novčane zalihe ili važnog dijela neto imovine, tada promjena kupovne moći mora ući u osobni proračun.",
+          "Usklađivanje kupovne moći znači da ne pokušavate pogoditi tržište. Umjesto toga redovito provjeravate koliko stvarne kupovne moći imate i prema tome prilagođavate raspored novca po kategorijama.",
+        ],
+      },
+      {
+        heading: "Kupovna moć važnija je od samog iznosa",
+        body: [
+          "Količina Bitcoina koju imate važna je, ali sama po sebi ne govori dovoljno. Jednaka količina Bitcoina u dva različita trenutka može pokrivati vrlo različitu količinu životnih troškova.",
+          "Ako Bitcoin koji imate pokriva šest mjeseci vaših odljeva, vaša je situacija drukčija nego ako isti Bitcoin pokriva dvije godine odljeva. Broj u novčaniku može biti isti, ali kupovna moć nije ista.",
+          "Zato se u Praktičnom Bitcoin standardu pozornost ne stavlja samo na količinu Bitcoina, nego na odnos između Bitcoina, osobnog proračuna i stvarnih životnih troškova.",
+          "To ne znači da svaku promjenu cijene treba pretvoriti u odluku. Upravo suprotno. Cilj je izbjeći stalno reagiranje. Ali da biste mogli ne reagirati impulzivno, morate znati što se zapravo promijenilo.",
+          "Pitanje nije samo koliko Bitcoin vrijedi. Pitanje je koliko vaših stvarnih odljeva taj Bitcoin sada pokriva. Ako ne znate svoje prosječne mjesečne odljeve, ne možete ozbiljno odgovoriti na to pitanje.",
+        ],
+      },
+      {
+        heading: "Usklađivanje počinje osobnim proračunom",
+        body: [
+          "Osobni proračun nije samo popis troškova. U ovom okviru proračun je način da svaka jedinica novca dobije namjenu prije nego bude potrošena. Tek tada možete znati što je stvarni višak, što je obveza, što je sigurnosna rezerva i koji dio novca smije biti izložen promjeni kupovne moći Bitcoina.",
+          "Ako nemate osobni proračun, promjena cijene Bitcoina lako postaje emocionalni događaj. Rast može stvoriti osjećaj bogatstva koji još nije raspoređen ni provjeren. Pad može stvoriti osjećaj gubitka koji možda ne ugrožava nijednu stvarnu obvezu.",
+          "Usklađivanje kupovne moći uvodi red u obje situacije. Kada se kupovna moć Bitcoina promijeni, ne postavljate prvo pitanje treba li kupiti ili prodati. Prvo gledate proračunske kategorije.",
+          "To mogu biti stanovanje, hrana, prijevoz, davanje, zdravstveni troškovi, poslovni troškovi, sigurnosna rezerva, budući veći izdaci i dugoročni ciljevi. Ako Bitcoin čini dio vaše novčane zalihe, tada promjena njegove kupovne moći znači da treba provjeriti jesu li te kategorije i dalje stvarne.",
+          "Ako je ukupna kupovna moć pala, možda imate više raspoređenih obveza nego što stvarno možete pokriti. Ako je porasla, možda imate višak koji još nema namjenu. U oba slučaja osobni proračun treba ponovno uskladiti.",
+        ],
+      },
+      {
+        heading: "Što raditi kad kupovna moć pada",
+        body: [
+          "Pad kupovne moći Bitcoina ne mora automatski značiti da je plan pogrešan. Ali mora otkriti koliko je plan otporan.",
+          "Prvo pitanje nije trebate li prodati prije većeg pada. Prvo pitanje je koji odljevi sada stvaraju pritisak. Ako imate dug, visoke obvezne troškove, kratkoročne rokove ili nejasnu sigurnosnu rezervu, pad kupovne moći može brzo prijeći iz psihološkog problema u stvarni problem.",
+          "Zato se u padu najprije gledaju odljevi. Koji su troškovi nužni? Koji su odgođeni troškovi sada postali neodrživi? Koje kategorije treba smanjiti? Koja potrošnja je nastala iz navike, a ne iz stvarne potrebe?",
+          "Drugo pitanje su priljevi. Ako se kupovna moć smanjuje, nije dovoljno samo rezati troškove. Treba pitati može li se povećati prihod, poboljšati usluga koju pružate, prodati više vrijednog rada ili bolje organizirati vrijeme.",
+          "Treće pitanje je dug. Dug u padu kupovne moći postaje posebno težak jer traži odljeve neovisno o vašoj trenutnoj situaciji. Ako dug postoji, može vas natjerati na prodaju Bitcoina upravo onda kada to ne želite.",
+          "U padu kupovne moći ne trebate tražiti savršenu tržišnu odluku. Trebate provjeriti možete li smanjiti odljeve, povećati priljeve i ostati unutar vlastitih pravila.",
+        ],
+      },
+      {
+        heading: "Što raditi kad kupovna moć raste",
+        body: [
+          "Rast kupovne moći često je opasniji nego što se čini. Pad stvara strah, ali rast može stvoriti osjećaj da je sve dopušteno. Osoba može početi trošiti bez jasnog pravila, povećati životni stil, zadužiti se jer se osjeća bogatije ili dodatno povećavati izloženost Bitcoinu bez osobnog proračuna.",
+          "U Praktičnom Bitcoin standardu rast kupovne moći nije poziv na impulzivnost. On je prilika da se budući odljevi bolje planiraju.",
+          "Ako znate svoje prosječne mjesečne troškove, rast kupovne moći može vam pokazati koliko budućih mjeseci možete pokriti. Tada se višak ne mora odmah pretvoriti u veću potrošnju. Može se rasporediti u kategorije koje smanjuju budući pritisak.",
+          "Dio budućih troškova možda se može platiti unaprijed. Neke potrepštine možda se mogu kupiti kada je kupovna moć veća. Dugoročni troškovi stanovanja, prijevoza, opreme, zdravlja ili poslovanja mogu se planirati mirnije ako imate podatke iz osobnog proračuna.",
+          "To ne znači da uvijek treba trošiti Bitcoin kada raste. Znači da rast kupovne moći treba ući u osobni proračun. Ako imate dodatnu kupovnu moć, ona treba dobiti namjenu. Bez namjene, lako se pretvara u osjećaj bogatstva koji potiče loše odluke.",
+          "Najvažnije pitanje u rastu nije kako iskoristiti još veći rast. Najvažnije pitanje je koje buduće odljeve sada možete riješiti ili smanjiti bez narušavanja dugoročnog okvira.",
+        ],
+      },
+      {
+        heading: "Zašto ovo nije pogađanje trenutka kupnje ili prodaje",
+        body: [
+          "Usklađivanje kupovne moći nije pokušaj pogađanja vrha ili dna. To je način da osobni proračun ostane istinit.",
+          "Kada pokušavate pogoditi tržište, odluka ovisi o pretpostavci što će cijena napraviti. Kada usklađujete kupovnu moć, odluka ovisi o vlastitim podacima: prihodima, odljevima, dugu, obvezama, sigurnosnoj rezervi, neto imovini i pravilima koja ste unaprijed zapisali.",
+          "Zato ovaj okvir smanjuje potrebu za stalnim praćenjem cijene. Cijena može biti povod za provjeru, ali ne mora biti gospodar odluke. Pravila su važnija od osjećaja.",
+          "Dobro pravilo može biti jednostavno. Ako se kupovna moć promijeni za određeni prag, pregledavate osobni proračun. Ako kupovna moć padne, prvo gledate odljeve, priljeve i dug. Ako kupovna moć poraste, prvo raspoređujete višak u buduće obveze i važne kategorije.",
+          "Ne mijenjate dugoročni plan samo zato što se tržište snažno pomaknulo. Plan preispitujete tek kada se promijenio vaš stvarni životni okvir.",
+        ],
+      },
+      {
+        heading: "Kako zapisati vlastito pravilo usklađivanja",
+        body: [
+          "Dobar osobni okvir ne mora biti složen. Može početi s nekoliko jasnih rečenica.",
+          "Prvo zapišite koje kategorije osobnog proračuna ovise o kupovnoj moći Bitcoina. To mogu biti kratkoročni troškovi, sigurnosna rezerva, davanje, budući veći izdaci ili dio neto imovine koji promatrate kao novčanu zalihu.",
+          "Drugo, zapišite prag za provjeru. Ne morate ništa mijenjati zbog svake male promjene. Ali možete odlučiti da ćete osobni proračun pregledati kada se kupovna moć promijeni za 10 %, 20 % ili neki drugi prag koji odgovara vašoj situaciji.",
+          "Treće, zapišite redoslijed postupanja. Kod pada: pregled odljeva, pregled priljeva, provjera duga, provjera sigurnosne rezerve. Kod rasta: raspored viška, planiranje budućih odljeva, provjera neto imovine i provjera je li potrošnja i dalje u skladu s vašim vrijednostima.",
+          "Četvrto, zapišite što nećete raditi. Nećete donositi odluku samo zato što vas je cijena uplašila. Nećete povećati potrošnju samo zato što se osjećate bogatije. Nećete koristiti dug kako biste pojačali izloženost Bitcoinu. Nećete dirati sigurnosni ili skrbnički sustav bez posebnog pravila.",
+          "Tek kada je to zapisano, promjena kupovne moći postaje upravljiv dio osobnog sustava, a ne stalni izvor napetosti.",
         ],
       },
     ],
@@ -332,8 +424,8 @@ export const guides: Guide[] = [
       "Koji dio vašeg Bitcoina ima ulogu novca, koji dio dugoročnog kapitala, a koji dio biste svjesno mogli potrošiti?",
     relatedSlugs: [
       "bitcoin-u-neto-imovini",
+      "uskladivanje-kupovne-moci-bitcoina",
       "stvarni-visak",
-      "obiteljski-pristup-bitcoinu",
     ],
     sections: [
       {

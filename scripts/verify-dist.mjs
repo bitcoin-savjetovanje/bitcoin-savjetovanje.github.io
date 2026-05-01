@@ -12,6 +12,7 @@ const requiredGuidePaths = [
   "/vodici/bitcoin-u-neto-imovini",
   "/vodici/dug-ili-bitcoin",
   "/vodici/dca-nije-dovoljan",
+  "/vodici/uskladivanje-kupovne-moci-bitcoina",
   "/vodici/obiteljski-pristup-bitcoinu",
   "/vodici/novac-kapital-potrosnja",
 ]
@@ -349,6 +350,28 @@ for (const guidePath of requiredGuidePaths) {
     `${guidePath} trailing-slash link`
   )
 }
+
+const purchasingPowerGuidePath =
+  "vodici/uskladivanje-kupovne-moci-bitcoina/index.html"
+const purchasingPowerGuideHtml = readFile(purchasingPowerGuidePath)
+assertIncludes(
+  purchasingPowerGuidePath,
+  purchasingPowerGuideHtml,
+  "Usklađivanje kupovne moći",
+  "purchasing power guide title"
+)
+assertIncludes(
+  purchasingPowerGuidePath,
+  purchasingPowerGuideHtml,
+  "Kupovna moć",
+  "purchasing power guide copy"
+)
+assertIncludes(
+  purchasingPowerGuidePath,
+  purchasingPowerGuideHtml,
+  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/uskladivanje-kupovne-moci-bitcoina/" />',
+  "purchasing power guide canonical URL"
+)
 
 const sitemap = readFile("sitemap.xml")
 for (const route of prerenderRoutes) {

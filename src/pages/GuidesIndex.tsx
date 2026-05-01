@@ -19,15 +19,15 @@ export function GuidesIndex() {
       <section className="section-shell">
         <header className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold tracking-[0.16em] text-muted-foreground uppercase">
-            Practical Bitcoin Standard
+            Praktični Bitcoin standard
           </p>
           <h1 className="mt-4 font-display text-4xl leading-tight font-semibold tracking-[-0.025em] text-foreground sm:text-5xl">
             Vodiči za praktične Bitcoin odluke
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Kraći tekstovi koji prevode glavne ideje Practical Bitcoin Standarda
-            u konkretne odluke: budžet, dug, neto imovina, skrbništvo,
-            obiteljski pristup i pravila kroz vrijeme.
+            Kraći tekstovi koji prevode glavne ideje Praktičnog Bitcoin
+            standarda u konkretne odluke: osobni proračun, dug, neto imovina,
+            skrbništvo, obiteljski pristup i pravila kroz vrijeme.
           </p>
         </header>
 
@@ -39,7 +39,8 @@ export function GuidesIndex() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
             Vodiči pomažu razjasniti pojmove, ali osobni okvir nastaje tek kada
-            se primijeni na vaš budžet, dug, neto imovinu i sigurnosni model.
+            se primijeni na vaš osobni proračun, dug, neto imovinu i sigurnosni
+            model.
           </p>
           <Button asChild className="cta-primary mt-6 rounded-full">
             <a

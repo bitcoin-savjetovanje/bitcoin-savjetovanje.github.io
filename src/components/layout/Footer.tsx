@@ -29,7 +29,7 @@ export function Footer() {
             rel="noopener noreferrer"
             data-link="footer-practical-bitcoin-standard"
           >
-            Practical Bitcoin Standard
+            Praktični Bitcoin standard
           </a>
           <a href="/sigurnost/" data-link="footer-security">
             Sigurnost

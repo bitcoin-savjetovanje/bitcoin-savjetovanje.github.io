@@ -12,7 +12,6 @@ export const SAIF_HOUSE_URL = "https://thesaifhouse.com/"
 export const BITCOIN_STANDARD_AUDIO_URL = "https://saifedean.com/podcast"
 export const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
 export const TWENTYONE_URL = "https://twentyone.world"
-export const LINKEDIN_URL = "https://www.linkedin.com/in/pavaopahljina/"
 
 export const homeSeo = {
   title: "Bitcoin Savjetovanje | Osobni Bitcoin standard",

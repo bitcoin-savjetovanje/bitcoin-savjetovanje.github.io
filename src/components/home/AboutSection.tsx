@@ -1,4 +1,4 @@
-import { CalendarDays, Linkedin, Mail } from "lucide-react"
+import { CalendarDays, Mail } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import {
@@ -6,7 +6,6 @@ import {
   BOOKING_URL,
   DVADESET_JEDAN_URL,
   EMAIL,
-  LINKEDIN_URL,
   PRIMARY_CTA,
   PRACTICAL_BITCOIN_STANDARD_URL,
   SAIFEDEAN_AMMOUS_URL,
@@ -27,14 +26,6 @@ export function AboutSection() {
           <h3>Pavao Pahljina</h3>
           <p>Bitcoin savjetnik · u Bitcoinu od 2014.</p>
           <div className="profile-socials" aria-label="Kontakt i profili">
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profil"
-            >
-              <Linkedin className="size-4" />
-            </a>
             <a href={`mailto:${EMAIL}`} aria-label="Email" data-link="email">
               <Mail className="size-4" />
             </a>

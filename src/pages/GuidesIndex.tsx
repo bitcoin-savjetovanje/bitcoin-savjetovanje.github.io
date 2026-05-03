@@ -34,9 +34,9 @@ const startPaths = [
   {
     title: "Ako imate kredit",
     guides: guideList([
-      "dug-je-buduci-novac",
-      "dug-ili-bitcoin",
-      "ne-zaduzujte-se-za-bitcoin",
+      "kredit-je-buduci-novac",
+      "kredit-ili-bitcoin",
+      "ne-uzimajte-kredit-za-bitcoin",
     ]),
   },
   {

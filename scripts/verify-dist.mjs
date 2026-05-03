@@ -11,12 +11,12 @@ const requiredGuidePaths = [
   "/vodici/svaki-euro-ima-namjenu",
   "/vodici/stvarni-visak",
   "/vodici/starost-novca",
-  "/vodici/dug-je-buduci-novac",
+  "/vodici/kredit-je-buduci-novac",
   "/vodici/bitcoin-u-neto-imovini",
-  "/vodici/dug-ili-bitcoin",
-  "/vodici/ne-zaduzujte-se-za-bitcoin",
-  "/vodici/darivanje-u-proracunu",
-  "/vodici/darivanje-bez-duga",
+  "/vodici/kredit-ili-bitcoin",
+  "/vodici/ne-uzimajte-kredit-za-bitcoin",
+  "/vodici/sustavno-davanje-u-proracunu-nulte-razine",
+  "/vodici/sustavno-davanje-bez-kredita",
   "/vodici/novac-dolazi-od-ljudi",
   "/vodici/bitcoin-kao-novac",
   "/vodici/pozitivni-neto-priljev",
@@ -27,6 +27,33 @@ const requiredGuidePaths = [
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
   "/vodici/obiteljski-pristup-bitcoinu",
   "/vodici/novac-kapital-potrosnja",
+]
+
+const aliasGuidePaths = [
+  {
+    oldPath: "/vodici/dug-je-buduci-novac",
+    newCanonical:
+      "https://bitcoin-savjetovanje.com/vodici/kredit-je-buduci-novac/",
+  },
+  {
+    oldPath: "/vodici/dug-ili-bitcoin",
+    newCanonical: "https://bitcoin-savjetovanje.com/vodici/kredit-ili-bitcoin/",
+  },
+  {
+    oldPath: "/vodici/ne-zaduzujte-se-za-bitcoin",
+    newCanonical:
+      "https://bitcoin-savjetovanje.com/vodici/ne-uzimajte-kredit-za-bitcoin/",
+  },
+  {
+    oldPath: "/vodici/darivanje-u-proracunu",
+    newCanonical:
+      "https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
+  },
+  {
+    oldPath: "/vodici/darivanje-bez-duga",
+    newCanonical:
+      "https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-bez-kredita/",
+  },
 ]
 
 const guideCategories = [
@@ -153,6 +180,7 @@ const requiredFiles = [
   "vodici/index.html",
   "sigurnost/index.html",
   ...requiredGuidePaths.map(routeFile),
+  ...aliasGuidePaths.map((route) => routeFile(route.oldPath)),
 ]
 
 requiredFiles.forEach(assertFile)
@@ -478,7 +506,7 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Mogu li se zadužiti kako bih kupio Bitcoin?",
+  "Mogu li uzeti kredit kako bih kupio Bitcoin?",
   "debt FAQ question"
 )
 assertIncludes(
@@ -862,7 +890,7 @@ assertIncludes(
   "money production guide Bitcoin as money copy"
 )
 
-const debtGuidePath = "vodici/dug-ili-bitcoin/index.html"
+const debtGuidePath = "vodici/kredit-ili-bitcoin/index.html"
 const debtGuideHtml = readFile(debtGuidePath)
 assertIncludes(debtGuidePath, debtGuideHtml, "Kredit je budući novac", "debt guide copy")
 assertIncludes(debtGuidePath, debtGuideHtml, "život bez kredita", "debt guide standard copy")
@@ -891,22 +919,22 @@ const newGuideChecks = [
     copy: "Stariji novac daje prostor",
   },
   {
-    path: "vodici/dug-je-buduci-novac/index.html",
+    path: "vodici/kredit-je-buduci-novac/index.html",
     title: "Kredit je budući novac koji ste već potrošili",
     copy: "Kredit je fiat ponašanje",
   },
   {
-    path: "vodici/ne-zaduzujte-se-za-bitcoin/index.html",
-    title: "Ne zadužujte se za Bitcoin",
+    path: "vodici/ne-uzimajte-kredit-za-bitcoin/index.html",
+    title: "Ne uzimajte kredit za Bitcoin",
     copy: "Zašto je to fiat ponašanje",
   },
   {
-    path: "vodici/darivanje-u-proracunu/index.html",
+    path: "vodici/sustavno-davanje-u-proracunu-nulte-razine/index.html",
     title: "Sustavno davanje mijenja vaš odnos prema novcu",
     copy: "Sustavno davanje nije ostatak",
   },
   {
-    path: "vodici/darivanje-bez-duga/index.html",
+    path: "vodici/sustavno-davanje-bez-kredita/index.html",
     title: "Sustavno davanje bez kredita",
     copy: "Kredit i sustavno davanje ne stvaraju isti duh",
   },
@@ -971,22 +999,22 @@ const guideVisualChecks = [
     copy: "90 dana",
   },
   {
-    path: "vodici/dug-je-buduci-novac/index.html",
+    path: "vodici/kredit-je-buduci-novac/index.html",
     title: "Dva načina trošenja",
     copy: "Bitcoin standard",
   },
   {
-    path: "vodici/ne-zaduzujte-se-za-bitcoin/index.html",
+    path: "vodici/ne-uzimajte-kredit-za-bitcoin/index.html",
     title: "Dva puta prema Bitcoinu",
     copy: "Stvarni višak",
   },
   {
-    path: "vodici/darivanje-u-proracunu/index.html",
+    path: "vodici/sustavno-davanje-u-proracunu-nulte-razine/index.html",
     title: "Krug sustavnog davanja",
     copy: "velikodušnost",
   },
   {
-    path: "vodici/darivanje-bez-duga/index.html",
+    path: "vodici/sustavno-davanje-bez-kredita/index.html",
     title: "Redoslijed je važan",
     copy: "bez kredita",
   },
@@ -1054,7 +1082,7 @@ for (const visualCheck of guideVisualChecks) {
   )
 }
 
-const givingGuidePath = "vodici/darivanje-u-proracunu/index.html"
+const givingGuidePath = "vodici/sustavno-davanje-u-proracunu-nulte-razine/index.html"
 const givingGuideHtml = readFile(givingGuidePath)
 assertIncludes(
   givingGuidePath,
@@ -1087,7 +1115,7 @@ assertIncludes(
   "renamed giving guide work section"
 )
 
-const debtFreeGivingGuidePath = "vodici/darivanje-bez-duga/index.html"
+const debtFreeGivingGuidePath = "vodici/sustavno-davanje-bez-kredita/index.html"
 const debtFreeGivingGuideHtml = readFile(debtFreeGivingGuidePath)
 assertIncludes(
   debtFreeGivingGuidePath,
@@ -1134,7 +1162,7 @@ assertIncludes(
 assertIncludes(
   debtFreeGivingGuidePath,
   debtFreeGivingGuideHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-bez-duga/" />',
+  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-bez-kredita/" />',
   "debt-free giving canonical URL"
 )
 
@@ -1248,6 +1276,10 @@ assertIncludes(
 
 const sitemap = readFile("sitemap.xml")
 for (const route of prerenderRoutes) {
+  if (route.includeInSitemap === false) {
+    continue
+  }
+
   const routeLoc = `<loc>${route.canonical}</loc>`
 
   assertIncludes("sitemap.xml", sitemap, routeLoc, `${route.path} URL`)
@@ -1258,6 +1290,30 @@ for (const route of prerenderRoutes) {
     `${route.path} lastmod`
   )
   assertCount("sitemap.xml", sitemap, routeLoc, 1, `${route.path} URL`)
+}
+
+for (const aliasRoute of aliasGuidePaths) {
+  const aliasPath = routeFile(aliasRoute.oldPath)
+  const aliasHtml = readFile(aliasPath)
+
+  assertIncludes(
+    aliasPath,
+    aliasHtml,
+    `<link rel="canonical" href="${aliasRoute.newCanonical}" />`,
+    `${aliasRoute.oldPath} canonical points to new slug`
+  )
+  assertNotIncludes(
+    "sitemap.xml",
+    sitemap,
+    `<loc>${aliasRoute.newCanonical.replace(/\/$/, "")}</loc>`,
+    `${aliasRoute.oldPath} non-slash canonical is not in sitemap`
+  )
+  assertNotIncludes(
+    "sitemap.xml",
+    sitemap,
+    `<loc>https://bitcoin-savjetovanje.com${aliasRoute.oldPath}/</loc>`,
+    `${aliasRoute.oldPath} alias is not in sitemap`
+  )
 }
 
 for (const guidePath of requiredGuidePaths) {

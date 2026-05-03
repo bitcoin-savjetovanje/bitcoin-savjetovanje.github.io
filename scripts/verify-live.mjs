@@ -43,6 +43,38 @@ const pageChecks = [
       "model skrbništva",
     ],
   },
+  {
+    path: "/vodici/kredit-je-buduci-novac/",
+    includes: ["Kredit je budući novac koji ste već potrošili"],
+  },
+  {
+    path: "/vodici/kredit-ili-bitcoin/",
+    includes: ["Zašto kredit i Bitcoin ne idu zajedno?"],
+  },
+  {
+    path: "/vodici/ne-uzimajte-kredit-za-bitcoin/",
+    includes: ["Ne uzimajte kredit za Bitcoin"],
+  },
+  {
+    path: "/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
+    includes: ["Sustavno davanje mijenja vaš odnos prema novcu"],
+  },
+  {
+    path: "/vodici/sustavno-davanje-bez-kredita/",
+    includes: ["Sustavno davanje bez kredita"],
+  },
+  {
+    path: "/vodici/dug-je-buduci-novac/",
+    includes: [
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/kredit-je-buduci-novac/" />',
+    ],
+  },
+  {
+    path: "/vodici/darivanje-u-proracunu/",
+    includes: [
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-u-proracunu-nulte-razine/" />',
+    ],
+  },
 ]
 
 function pass(message) {
@@ -103,11 +135,30 @@ try {
     `${baseUrl}/`,
     `${baseUrl}/vodici/`,
     `${baseUrl}/sigurnost/`,
+    `${baseUrl}/vodici/kredit-je-buduci-novac/`,
+    `${baseUrl}/vodici/kredit-ili-bitcoin/`,
+    `${baseUrl}/vodici/ne-uzimajte-kredit-za-bitcoin/`,
+    `${baseUrl}/vodici/sustavno-davanje-u-proracunu-nulte-razine/`,
+    `${baseUrl}/vodici/sustavno-davanje-bez-kredita/`,
   ]) {
     if (sitemap.includes(`<loc>${expectedUrl}</loc>`)) {
       pass(`sitemap contains ${expectedUrl}`)
     } else {
       fail(`sitemap is missing ${expectedUrl}`)
+    }
+  }
+
+  for (const removedUrl of [
+    `${baseUrl}/vodici/dug-je-buduci-novac/`,
+    `${baseUrl}/vodici/dug-ili-bitcoin/`,
+    `${baseUrl}/vodici/ne-zaduzujte-se-za-bitcoin/`,
+    `${baseUrl}/vodici/darivanje-u-proracunu/`,
+    `${baseUrl}/vodici/darivanje-bez-duga/`,
+  ]) {
+    if (sitemap.includes(`<loc>${removedUrl}</loc>`)) {
+      fail(`sitemap still contains alias URL ${removedUrl}`)
+    } else {
+      pass(`sitemap does not contain alias URL ${removedUrl}`)
     }
   }
 } catch (error) {

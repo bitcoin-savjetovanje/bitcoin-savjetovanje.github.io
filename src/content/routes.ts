@@ -34,6 +34,7 @@ export type RouteMeta = {
   ogImage: string
   ogImageWidth: number
   ogImageHeight: number
+  includeInSitemap?: boolean
 }
 
 export const homeRoute: RouteMeta = {
@@ -78,6 +79,23 @@ export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   ogImageHeight: 630,
 }))
 
+export const guideAliasRouteMetas: RouteMeta[] = guides.flatMap((guide) =>
+  (guide.previousSlugs ?? []).map((previousSlug) => ({
+    path: `/vodici/${previousSlug}`,
+    title: `${guide.title} | Bitcoin Savjetovanje`,
+    description: guide.metaDescription,
+    canonical: `${SITE_URL}${guideHref(guide.slug)}`,
+    schema: guideSchema(guide),
+    type: "guide" as const,
+    lastmod: guide.updatedAt,
+    ogType: "article" as const,
+    ogImage: OG_IMAGE_URL,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    includeInSitemap: false,
+  }))
+)
+
 export const securityRoute: RouteMeta = {
   path: "/sigurnost/",
   title: securitySeo.title,
@@ -116,9 +134,12 @@ export const prerenderRoutes: RouteMeta[] = [
   homeRoute,
   guidesIndexRoute,
   ...guideRouteMetas,
+  ...guideAliasRouteMetas,
   securityRoute,
 ]
 
 export function findGuideRouteMeta(slug: string | undefined) {
-  return guideRouteMetas.find((route) => route.path === `/vodici/${slug}`)
+  return [...guideRouteMetas, ...guideAliasRouteMetas].find(
+    (route) => route.path === `/vodici/${slug}`
+  )
 }

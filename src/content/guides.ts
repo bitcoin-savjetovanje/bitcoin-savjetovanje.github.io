@@ -89,6 +89,7 @@ export const guideCategoryDescriptions: Record<GuideCategory, string> = {
 
 export type Guide = {
   slug: string
+  previousSlugs?: string[]
   title: string
   metaDescription: string
   excerpt: string
@@ -119,7 +120,11 @@ const guideEntries: Guide[] = [
     updatedAt: "2026-05-01",
     practicalQuestion:
       "Možete li za svaki euro koji imate reći što treba napraviti prije nego što odlučite kupiti Bitcoin?",
-    relatedSlugs: ["stvarni-visak", "starost-novca", "darivanje-u-proracunu"],
+    relatedSlugs: [
+      "stvarni-visak",
+      "starost-novca",
+      "sustavno-davanje-u-proracunu-nulte-razine",
+    ],
     visual: {
       type: "sequence",
       title: "Od prihoda do reda",
@@ -146,7 +151,7 @@ const guideEntries: Guide[] = [
         heading: "Bez namjene nema stvarnog viška",
         body: [
           "Stvarni višak nije iznos koji vidite na računu. Stvarni višak je novac koji je slobodan nakon što su poznati odljevi, obveze, krediti i budući troškovi. Ako novac za dva mjeseca mora platiti nešto važno, on nije višak. On samo čeka svoj red.",
-          "Zato je opasno kupovati Bitcoin samo zato što se danas čini da ima prostora. Možda prostor postoji. Možda ne postoji. Proračun nulte razine je način da to prestane biti dojam. On pokazuje koji novac možete rasporediti bez toga da sutra morate prodati Bitcoin ili se zadužiti za nešto što ste mogli vidjeti unaprijed.",
+          "Zato je opasno kupovati Bitcoin samo zato što se danas čini da ima prostora. Možda prostor postoji. Možda ne postoji. Proračun nulte razine je način da to prestane biti dojam. On pokazuje koji novac možete rasporediti bez toga da sutra morate prodati Bitcoin ili uzeti kredit za nešto što ste mogli vidjeti unaprijed.",
         ],
       },
       {
@@ -247,7 +252,7 @@ const guideEntries: Guide[] = [
     relatedSlugs: [
       "svaki-euro-ima-namjenu",
       "stvarni-visak",
-      "dug-ili-bitcoin",
+      "kredit-ili-bitcoin",
     ],
     visual: {
       type: "sequence",
@@ -353,7 +358,8 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
-    slug: "dug-je-buduci-novac",
+    slug: "kredit-je-buduci-novac",
+    previousSlugs: ["dug-je-buduci-novac"],
     title: "Kredit je budući novac koji ste već potrošili",
     metaDescription:
       "Vodič o kreditu kao budućem novcu, fiat ponašanju i glavnoj zapreci mirnom korištenju Bitcoina kao novca.",
@@ -366,9 +372,9 @@ const guideEntries: Guide[] = [
     updatedAt: "2026-05-01",
     practicalQuestion: "Koji kredit najviše odlučuje umjesto vas?",
     relatedSlugs: [
-      "dug-ili-bitcoin",
-      "ne-zaduzujte-se-za-bitcoin",
-      "darivanje-bez-duga",
+      "kredit-ili-bitcoin",
+      "ne-uzimajte-kredit-za-bitcoin",
+      "sustavno-davanje-bez-kredita",
     ],
     visual: {
       type: "split",
@@ -394,7 +400,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Kredit je budući novac",
         body: [
-          "Kada se zadužite, trošite novac koji još niste zaradili. Danas dobivate stvar, uslugu ili likvidnost, ali sutra dolazi obveza. Taj sutrašnji novac više nema punu slobodu. Već ima vlasnika, rok i uvjet.",
+          "Kada uzmete kredit, trošite novac koji još niste zaradili. Danas dobivate stvar, uslugu ili likvidnost, ali sutra dolazi obveza. Taj sutrašnji novac više nema punu slobodu. Već ima vlasnika, rok i uvjet.",
           "Kredit je fiat ponašanje jer normalizira život iz budućnosti. U fiat sustavu takvo ponašanje izgleda normalno: danas trošite, sutra plaćate. Praktični Bitcoin standard ide suprotnim putem. Prvo uređuje sadašnji novac, zatim uklanja kredit, pa tek onda gradi mirniji odnos prema Bitcoinu kao novcu.",
         ],
       },
@@ -423,7 +429,8 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
-    slug: "dug-ili-bitcoin",
+    slug: "kredit-ili-bitcoin",
+    previousSlugs: ["dug-ili-bitcoin"],
     title: "Zašto kredit i Bitcoin ne idu zajedno?",
     metaDescription:
       "Vodič o tome zašto kredit smanjuje slobodu odlučivanja i zašto Praktični Bitcoin standard počinje životom bez kredita.",
@@ -436,8 +443,8 @@ const guideEntries: Guide[] = [
     practicalQuestion:
       "Bi li vas postojeći kredit mogao prisiliti da prodate Bitcoin u trenutku kada to ne želite?",
     relatedSlugs: [
-      "dug-je-buduci-novac",
-      "ne-zaduzujte-se-za-bitcoin",
+      "kredit-je-buduci-novac",
+      "ne-uzimajte-kredit-za-bitcoin",
       "stvarni-visak",
     ],
     sections: [
@@ -481,19 +488,24 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
-    slug: "ne-zaduzujte-se-za-bitcoin",
-    title: "Ne zadužujte se za Bitcoin",
+    slug: "ne-uzimajte-kredit-za-bitcoin",
+    previousSlugs: ["ne-zaduzujte-se-za-bitcoin"],
+    title: "Ne uzimajte kredit za Bitcoin",
     metaDescription:
-      "Vodič o tome zašto zaduživanje radi kupnje Bitcoina nije Praktični Bitcoin standard, nego fiat ponašanje primijenjeno na Bitcoin.",
+      "Vodič o tome zašto kredit za kupnju Bitcoina nije Praktični Bitcoin standard, nego fiat ponašanje primijenjeno na Bitcoin.",
     excerpt:
-      "Zadužiti se za Bitcoin znači koristiti fiat pravila za ulazak u Bitcoin. Praktični Bitcoin standard ide suprotnim putem.",
+      "Uzeti kredit za Bitcoin znači koristiti fiat pravila za ulazak u Bitcoin. Praktični Bitcoin standard ide suprotnim putem.",
     category: "Život bez kredita",
     order: 40,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
     practicalQuestion:
       "Biste li istu Bitcoin odluku donijeli da ne očekujete rast cijene?",
-    relatedSlugs: ["dug-je-buduci-novac", "dug-ili-bitcoin", "stvarni-visak"],
+    relatedSlugs: [
+      "kredit-je-buduci-novac",
+      "kredit-ili-bitcoin",
+      "stvarni-visak",
+    ],
     visual: {
       type: "split",
       title: "Dva puta prema Bitcoinu",
@@ -507,7 +519,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Zašto zvuči primamljivo",
         body: [
-          "Zadužiti se za Bitcoin može zvučati logično kada vjerujete da će kupovna moć Bitcoina rasti. Kredit ima poznatu cijenu, a Bitcoin možda ima veću buduću vrijednost. Na papiru to može izgledati kao pametan potez.",
+          "Uzeti kredit za Bitcoin može zvučati logično kada vjerujete da će kupovna moć Bitcoina rasti. Kredit ima poznatu cijenu, a Bitcoin možda ima veću buduću vrijednost. Na papiru to može izgledati kao pametan potez.",
           "Ali osobni Bitcoin standard ne živi na papiru. Živi u mjesecima u kojima dolaze računi, obitelj, troškovi, padovi cijene, promjene prihoda i umor. Pitanje nije samo može li matematika uspjeti. Pitanje je možete li živjeti s pritiskom ako ne uspije na vrijeme.",
         ],
       },
@@ -515,14 +527,14 @@ const guideEntries: Guide[] = [
         heading: "Zašto je to fiat ponašanje",
         body: [
           "Fiat ponašanje kaže: uzmi iz budućnosti da bi trošio danas. Bitcoin standard kaže suprotno: prvo uredite novac koji imate, izađite iz kredita i tek onda gradite iz stvarnog viška. To je velika razlika.",
-          "Kada se zadužite za Bitcoin, pokušavate ući u čvršći novac pomoću slabog pravila. Kredit uvodi rok i prisilu. Bitcoin traži vrijeme i mir. Ako se te dvije stvari pomiješaju, kredit često pobijedi upravo kada tržište postane teško.",
+          "Kada uzmete kredit za Bitcoin, pokušavate ući u čvršći novac pomoću slabog pravila. Kredit uvodi rok i prisilu. Bitcoin traži vrijeme i mir. Ako se te dvije stvari pomiješaju, kredit često pobijedi upravo kada tržište postane teško.",
         ],
       },
       {
         heading: "Što kredit radi vašoj sposobnosti čekanja",
         body: [
           "Kredit smanjuje sposobnost čekanja. Ako cijena padne, rata ostaje. Ako prihod kasni, rata ostaje. Ako se pojavi trošak, rata ostaje. Sve to može natjerati osobu da proda Bitcoin ne zato što želi, nego zato što mora.",
-          "Zato zaduživanje radi kupnje Bitcoina nije samo veći rizik. To je promjena karaktera odluke. Bitcoin prestaje biti novac koji držite strpljivo i postaje oklada koja mora uspjeti prije nego kredit postane pretežak.",
+          "Zato kredit za kupnju Bitcoina nije samo veći rizik. To je promjena karaktera odluke. Bitcoin prestaje biti novac koji držite strpljivo i postaje oklada koja mora uspjeti prije nego kredit postane pretežak.",
         ],
       },
       {
@@ -543,7 +555,8 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
-    slug: "darivanje-u-proracunu",
+    slug: "sustavno-davanje-u-proracunu-nulte-razine",
+    previousSlugs: ["darivanje-u-proracunu"],
     title: "Sustavno davanje mijenja vaš odnos prema novcu",
     metaDescription:
       "Vodič o sustavnom davanju u Praktičnom Bitcoin standardu: bez očekivanja povrata, nakon izlaska iz kredita i iz uređenog proračuna nulte razine.",
@@ -557,7 +570,7 @@ const guideEntries: Guide[] = [
     practicalQuestion:
       "Imate li u osobnom proračunu nulte razine prostor za sustavno davanje koje ne očekuje ništa natrag?",
     relatedSlugs: [
-      "darivanje-bez-duga",
+      "sustavno-davanje-bez-kredita",
       "novac-dolazi-od-ljudi",
       "svaki-euro-ima-namjenu",
     ],
@@ -616,7 +629,8 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
-    slug: "darivanje-bez-duga",
+    slug: "sustavno-davanje-bez-kredita",
+    previousSlugs: ["darivanje-bez-duga"],
     title: "Sustavno davanje bez kredita",
     metaDescription:
       "Vodič o tome zašto sustavno davanje u Praktičnom Bitcoin standardu dolazi nakon osobnog proračuna nulte razine i izlaska iz kredita.",
@@ -629,9 +643,9 @@ const guideEntries: Guide[] = [
     practicalQuestion:
       "Koji kredit prvo mora izaći iz vašeg života da biste mogli sustavno davati bez unutarnjeg otpora?",
     relatedSlugs: [
-      "darivanje-u-proracunu",
+      "sustavno-davanje-u-proracunu-nulte-razine",
       "novac-dolazi-od-ljudi",
-      "dug-je-buduci-novac",
+      "kredit-je-buduci-novac",
     ],
     visual: {
       type: "sequence",
@@ -698,8 +712,8 @@ const guideEntries: Guide[] = [
     updatedAt: "2026-05-01",
     practicalQuestion: "Kome vaš rad danas stvarno pomaže?",
     relatedSlugs: [
-      "darivanje-u-proracunu",
-      "darivanje-bez-duga",
+      "sustavno-davanje-u-proracunu-nulte-razine",
+      "sustavno-davanje-bez-kredita",
       "pozitivni-neto-priljev",
     ],
     visual: {
@@ -1434,9 +1448,9 @@ export const recommendedGuideSlugs = [
   "svaki-euro-ima-namjenu",
   "stvarni-visak",
   "starost-novca",
-  "dug-je-buduci-novac",
-  "dug-ili-bitcoin",
-  "darivanje-u-proracunu",
+  "kredit-je-buduci-novac",
+  "kredit-ili-bitcoin",
+  "sustavno-davanje-u-proracunu-nulte-razine",
   "bitcoin-kao-novac",
   "uskladivanje-kupovne-moci-bitcoina",
   "pravilo-trecina",
@@ -1453,7 +1467,9 @@ export function guideHref(slug: string) {
 export const guideRoutes = guides.map((guide) => guideHref(guide.slug))
 
 export function findGuide(slug: string | undefined) {
-  return guides.find((guide) => guide.slug === slug)
+  return guides.find(
+    (guide) => guide.slug === slug || guide.previousSlugs?.includes(slug ?? "")
+  )
 }
 
 export function guidesByCategory(category: GuideCategory) {

@@ -10,7 +10,7 @@ export const faqs = [
       "Tada krećemo od kredita. U Praktičnom Bitcoin standardu kredit nije sporedna tema. Kredit je budući novac koji ste već potrošili i može vas prisiliti na loše Bitcoin odluke. Cilj je jasno vidjeti kredit, buduće odljeve i put prema životu bez kredita.",
   },
   {
-    question: "Mogu li se zadužiti kako bih kupio Bitcoin?",
+    question: "Mogu li uzeti kredit kako bih kupio Bitcoin?",
     answer:
       "Ne preporučujem takav pristup. To je fiat ponašanje primijenjeno na Bitcoin. Praktični Bitcoin standard ide suprotnim putem: osobni proračun nulte razine, život bez kredita, stvarni višak, zatim Bitcoin kao novac.",
   },

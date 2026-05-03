@@ -100,6 +100,10 @@ function sitemap(routes) {
   const seen = new Set()
   const urls = routes
     .filter((route) => {
+      if (route.includeInSitemap === false) {
+        return false
+      }
+
       if (seen.has(route.canonical)) {
         return false
       }

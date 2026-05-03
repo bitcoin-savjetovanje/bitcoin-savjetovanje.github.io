@@ -5,8 +5,7 @@ export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
 export const SITE_UPDATED_AT = "2026-05-01"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
-export const PRACTICAL_BITCOIN_STANDARD_URL =
-  "https://btcpavao.gitbook.io/practical-bitcoin-standard/"
+export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
 export const DVADESET_JEDAN_URL = "https://dvadesetjedan.com"
 export const SAIFEDEAN_AMMOUS_URL = "https://saifedean.com"
 export const SAIF_HOUSE_URL = "https://thesaifhouse.com/"

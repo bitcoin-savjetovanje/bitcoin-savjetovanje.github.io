@@ -51,8 +51,6 @@ export function MethodSection() {
         >
           <a
             href={PRACTICAL_BITCOIN_STANDARD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="w-full justify-center text-center sm:w-auto"
             data-link="practical-bitcoin-standard"
           >

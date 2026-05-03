@@ -24,8 +24,6 @@ export function Footer() {
         <div className="flex flex-wrap gap-4">
           <a
             href={PRACTICAL_BITCOIN_STANDARD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             data-link="footer-practical-bitcoin-standard"
           >
             Praktični Bitcoin standard

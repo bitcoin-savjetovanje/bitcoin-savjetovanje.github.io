@@ -87,8 +87,6 @@ export function AboutSection() {
               Pišem otvoreni priručnik{" "}
               <a
                 href={PRACTICAL_BITCOIN_STANDARD_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 data-link="practical-bitcoin-standard"
               >
                 Praktični Bitcoin standard

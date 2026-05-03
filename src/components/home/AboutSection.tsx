@@ -19,7 +19,7 @@ export function AboutSection() {
     <section id="o-meni" className="section-shell section-muted">
       <SectionHeader
         title="Ne savjetujem o sustavu koji ne živim."
-        copy="Okvir je nastao iz stvarnog života: proračuna, duga, rada, sigurnosti i korištenja Bitcoina kao novca."
+        copy="Okvir je nastao iz stvarnog života: proračuna nulte razine, kredita, rada, sigurnosti i korištenja Bitcoina kao novca."
       />
       <div className="credibility-grid">
         <aside className="profile-panel">

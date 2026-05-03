@@ -1,7 +1,7 @@
 const standardPathSteps = [
-  "Proračun",
-  "Dug",
-  "Darivanje",
+  "Proračun nulte razine",
+  "Kredit",
+  "Sustavno davanje",
   "Bitcoin kao novac",
   "Upravljanje promjenama kupovne moći",
   "Ravnoteža u neto imovini",
@@ -24,7 +24,7 @@ export function StandardPathVisual({ compact = false }: { compact?: boolean }) {
           : "relative mx-auto w-full max-w-[460px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-7"
       }
       role="img"
-      aria-label="Redoslijed osobnog Bitcoin standarda: proračun, dug, darivanje, Bitcoin kao novac, upravljanje promjenama kupovne moći, ravnoteža u neto imovini, sigurnost i obitelj"
+      aria-label="Redoslijed osobnog Bitcoin standarda: proračun nulte razine, kredit, sustavno davanje, Bitcoin kao novac, upravljanje promjenama kupovne moći, ravnoteža u neto imovini, sigurnost i obitelj"
     >
       <div className="flex items-start justify-between gap-4">
         <div>

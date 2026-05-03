@@ -1,7 +1,7 @@
 export const problemQuestions = [
   "Je li svaki euro dobio namjenu?",
   "Trošim li novac koji već imam ili novac iz budućnosti?",
-  "Je li dug taj koji odlučuje umjesto mene?",
+  "Je li kredit taj koji odlučuje umjesto mene?",
   "Ima li Bitcoin ulogu novca ili samo imovine sa strane?",
   "Što radim kada se kupovna moć Bitcoina promijeni?",
   "Zna li obitelj što smije, a što ne smije napraviti?",
@@ -9,7 +9,7 @@ export const problemQuestions = [
 
 export const audienceItems = [
   "imate Bitcoin, ali još nemate osobni Bitcoin standard",
-  "imate dug i želite znati kako on utječe na Bitcoin odluke",
+  "imate kredit i želite znati kako on utječe na Bitcoin odluke",
   "kupujete Bitcoin, ali ne znate što je stvarni višak",
   "želite Bitcoin koristiti kao novac, ne samo kao imovinu sa strane",
   "želite urediti potrošnju, proizvodnu imovinu i neto imovinu",
@@ -19,10 +19,10 @@ export const audienceItems = [
 export const situationExamples = [
   {
     title: "Imate Bitcoin, ali još živite po fiat pravilima",
-    copy: "Cijena, dug i osjećaj hitnosti još uvijek vode odluke.",
+    copy: "Cijena, kredit i osjećaj hitnosti još uvijek vode odluke.",
   },
   {
-    title: "Dug ulazi u svaku odluku",
+    title: "Kredit ulazi u svaku odluku",
     copy: "Budući odljevi smanjuju slobodu i mogu vas prisiliti na loše Bitcoin odluke.",
   },
   {
@@ -31,7 +31,7 @@ export const situationExamples = [
   },
   {
     title: "Bitcoin nije dio sustava",
-    copy: "Držite ga, ali još nema jasnu ulogu novca u proračunu i neto imovini.",
+    copy: "Držite ga, ali još nema jasnu ulogu novca u proračunu nulte razine i neto imovini.",
   },
   {
     title: "Obitelj treba znati što napraviti",
@@ -50,15 +50,15 @@ export const notForItems = [
 export const methodSteps = [
   {
     title: "Svaki euro ima namjenu",
-    copy: "Osobni proračun pokazuje što novac treba napraviti prije Bitcoin odluke.",
+    copy: "Osobni proračun nulte razine pokazuje što novac treba napraviti prije Bitcoin odluke.",
   },
   {
-    title: "Dug izlazi iz sustava",
-    copy: "Dug je budući novac koji ste već potrošili.",
+    title: "Kredit izlazi iz sustava",
+    copy: "Kredit je budući novac koji ste već potrošili.",
   },
   {
-    title: "Darivanje dobiva mjesto",
-    copy: "Nakon reda i izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
+    title: "Sustavno davanje dobiva mjesto",
+    copy: "Nakon reda i izlaska iz kredita, dio novca dobiva namjenu za druge ljude.",
   },
   {
     title: "Bitcoin postaje novac",
@@ -66,7 +66,7 @@ export const methodSteps = [
   },
   {
     title: "Kupovna moć se usklađuje",
-    copy: "Cijena je pomoćni signal za vrijeme, proračun i odluke.",
+    copy: "Cijena je pomoćni signal za vrijeme, proračun nulte razine i odluke.",
   },
   {
     title: "Neto imovina ostaje u ravnoteži",
@@ -80,7 +80,7 @@ export const methodSteps = [
 
 export const beforeWorkItems = [
   "ne znate što je stvarni višak",
-  "dug odlučuje prije vas",
+  "kredit odlučuje prije vas",
   "Bitcoin izgleda kao imovina sa strane",
   "novac držite iz straha",
   "svaka promjena kupovne moći stvara pritisak",
@@ -88,16 +88,16 @@ export const beforeWorkItems = [
 
 export const afterWorkItems = [
   "sav novac ima namjenu",
-  "dug ima plan izlaska",
-  "dio novca redovito služi darivanju",
+  "kredit ima plan izlaska",
+  "dio novca redovito služi sustavnom davanju",
   "Bitcoin ima ulogu novca",
   "sigurnost i obitelj imaju pravila",
 ]
 
 export const programDocumentItems = [
-  "Pravila osobnog proračuna",
-  "Plan izlaska iz duga",
-  "Pravila darivanja",
+  "Pravila osobnog proračuna nulte razine",
+  "Plan izlaska iz kredita",
+  "Pravila sustavnog davanja",
   "Bitcoin kao novčana zaliha",
   "Usklađivanje kupovne moći",
   "Pravilo trećina u ravnoteži neto imovine",
@@ -111,7 +111,7 @@ export const bookingSteps = [
   },
   {
     title: "Odgovorite na nekoliko pitanja",
-    copy: "Napišete imate li Bitcoin, postoji li dug i što želite razjasniti.",
+    copy: "Napišete imate li Bitcoin, postoji li kredit i što želite razjasniti.",
   },
   {
     title: "Razgovaramo",
@@ -143,8 +143,8 @@ export const notDoingItems = [
 export const qualificationQuestions = [
   "Imate li Bitcoin?",
   "Što želite razjasniti?",
-  "Imate li dug ili veće buduće troškove?",
-  "Što vas najviše brine: proračun, dug, Bitcoin kao novac, sigurnost ili obitelj?",
+  "Imate li kredit ili veće buduće troškove?",
+  "Što vas najviše brine: proračun nulte razine, kredit, Bitcoin kao novac, sigurnost ili obitelj?",
   "Želite li jedan razgovor ili cijeli program?",
 ]
 

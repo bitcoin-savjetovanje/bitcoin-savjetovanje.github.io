@@ -24,7 +24,7 @@ const recommendedGuides = recommendedGuideSlugs
 
 const startPaths = [
   {
-    title: "Ako nemate osobni proračun",
+    title: "Ako nemate osobni proračun nulte razine",
     guides: guideList([
       "svaki-euro-ima-namjenu",
       "stvarni-visak",
@@ -32,7 +32,7 @@ const startPaths = [
     ]),
   },
   {
-    title: "Ako imate dug",
+    title: "Ako imate kredit",
     guides: guideList([
       "dug-je-buduci-novac",
       "dug-ili-bitcoin",
@@ -50,9 +50,9 @@ const startPaths = [
 ]
 
 const standardPathSteps = [
-  "proračun",
-  "bez duga",
-  "darivanje",
+  "proračun nulte razine",
+  "bez kredita",
+  "sustavno davanje",
   "Bitcoin kao novac",
   "kupovna moć",
   "neto imovina",
@@ -92,12 +92,12 @@ export function GuidesIndex() {
               Ne čitajte sve odjednom. Krenite redom.
             </h2>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Krenite redom. Prvo novac koji imate. Zatim dug. Zatim darivanje.
-              Tek onda Bitcoin kao novac, neto imovina i sigurnost.
+              Krenite redom. Prvo novac koji imate. Zatim kredit. Zatim sustavno
+              davanje. Tek onda Bitcoin kao novac, neto imovina i sigurnost.
             </p>
             <p className="mt-3 text-sm leading-7 font-semibold text-foreground">
-              Redoslijed je važan: darivanje ne dolazi iz duga ni krivnje, nego
-              iz uređenog novca.
+              Redoslijed je važan: sustavno davanje ne dolazi iz kredita ni
+              krivnje, nego iz uređenog novca.
             </p>
           </div>
           <div
@@ -201,8 +201,8 @@ export function GuidesIndex() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
             Bitcoin standard nije samo posjedovanje Bitcoina. Nastaje kada vaš
-            novac, dug, potrošnja, proizvodna imovina, sigurnost i obitelj imaju
-            pravila.
+            novac, kredit, potrošnja, proizvodna imovina, sigurnost i obitelj
+            imaju pravila.
           </p>
           <Button
             asChild

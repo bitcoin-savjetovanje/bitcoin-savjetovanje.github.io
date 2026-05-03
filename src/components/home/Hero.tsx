@@ -14,8 +14,8 @@ export function Hero() {
           </h1>
           <p className="hero-subtitle">
             Bitcoin ne treba stajati sa strane vašeg života. Pomažem vam
-            napisati pravila za osobni proračun, dug, darivanje, Bitcoin kao
-            novac, neto imovinu, sigurnost i obitelj.
+            napisati pravila za osobni proračun nulte razine, kredit, sustavno
+            davanje, Bitcoin kao novac, neto imovinu, sigurnost i obitelj.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
             Bez prognoza cijene. Bez trgovanja. Bez upravljanja vašim

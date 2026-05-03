@@ -2,12 +2,12 @@
 
 Stranica za Bitcoin Savjetovanje, izgrađena s Viteom, Reactom, TypeScriptom,
 SSR/prerenderom i GitHub Pagesom. Sadržaj je organiziran oko Praktičnog Bitcoin
-standarda: osobni proračun, život bez duga, darivanje, Bitcoin kao novac,
+standarda: osobni proračun nulte razine, život bez kredita, sustavno davanje, Bitcoin kao novac,
 kupovna moć, neto imovina, skrbništvo i početne riječi za oporavak.
-Darivanje se obrađuje kao treći temeljni korak nakon reda u novcu i izlaska iz
-duga: bez očekivanja povrata, iz uređenog proračuna i prema ljudima. Vodiči
+Sustavno davanje se obrađuje kao treći temeljni korak nakon reda u novcu i izlaska iz
+kredita: bez očekivanja povrata, iz uređenog proračuna nulte razine i prema ljudima. Vodiči
 uključuju i odnos novca prema ljudima te cijenu kao pomoćni signal za vrijeme i
-proračun, bez projekcija i obećanja prinosa.
+proračun nulte razine, bez projekcija i obećanja prinosa.
 
 ## Development
 

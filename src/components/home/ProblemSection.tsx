@@ -8,8 +8,8 @@ const problemSignals = [
     copy: "Kupujete više kada raste pohlepa. Stajete kada raste strah.",
   },
   {
-    title: "Dug i budući odljevi",
-    copy: "Dug odlučuje prije vas, osobito kada kupovna moć padne.",
+    title: "Kredit i budući odljevi",
+    copy: "Kredit odlučuje prije vas, osobito kada kupovna moć padne.",
   },
   {
     title: "Nejasna neto imovina",
@@ -23,7 +23,7 @@ export function ProblemSection() {
       <div className="case-panel">
         <SectionHeader
           title="Imate Bitcoin, ali odluke možda još vodi nešto drugo."
-          copy="Problem nije manjak informacija. Problem je redoslijed: cijena, dug i strah često dođu prije osobnog proračuna."
+          copy="Problem nije manjak informacija. Problem je redoslijed: cijena, kredit i strah često dođu prije osobnog proračuna nulte razine."
         />
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {problemSignals.map((item) => (

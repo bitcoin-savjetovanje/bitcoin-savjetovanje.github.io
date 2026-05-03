@@ -18,14 +18,14 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/pavaopahljina/"
 export const homeSeo = {
   title: "Bitcoin Savjetovanje | Osobni Bitcoin standard",
   description:
-    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Uredite osobni proračun, dug, darivanje, kupovnu moć, neto imovinu i sigurnost.",
+    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Uredite osobni proračun nulte razine, kredit, sustavno davanje, kupovnu moć, neto imovinu i sigurnost.",
   canonical: `${SITE_URL}/`,
 }
 
 export const guidesIndexSeo = {
   title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Vodiči kroz Praktični Bitcoin standard: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
+    "Vodiči kroz Praktični Bitcoin standard: osobni proračun nulte razine, život bez kredita, sustavno davanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 
@@ -38,8 +38,8 @@ export const securitySeo = {
 
 export const heroOutcomes = [
   "Svaki euro ima namjenu.",
-  "Dug ima plan izlaska.",
-  "Darivanje ima mjesto.",
+  "Kredit ima plan izlaska.",
+  "Sustavno davanje ima mjesto.",
   "Bitcoin ima ulogu novca.",
 ]
 

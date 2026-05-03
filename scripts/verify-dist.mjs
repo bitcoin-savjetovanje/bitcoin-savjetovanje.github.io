@@ -30,9 +30,9 @@ const requiredGuidePaths = [
 ]
 
 const guideCategories = [
-  "Osobni proračun",
-  "Život bez duga",
-  "Darivanje",
+  "Osobni proračun nulte razine",
+  "Život bez kredita",
+  "Sustavno davanje",
   "Bitcoin kao novac",
   "Neto imovina",
   "Sigurnost i obitelj",
@@ -202,25 +202,25 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Dug je budući novac koji ste već potrošili.",
+  "Kredit je budući novac koji ste već potrošili.",
   "debt section title"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Bitcoin standard ne počinje većom kupnjom. Počinje izlaskom iz duga.",
+  "Bitcoin standard ne počinje većom kupnjom. Počinje izlaskom iz kredita.",
   "debt section punchline"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Darivanje povećava vaš kapacitet za stvaranje vrijednosti.",
+  "Sustavno davanje povećava vaš kapacitet za stvaranje vrijednosti.",
   "giving section title"
 )
 assertIncludes(
   "index.html",
   homeHtml,
-  "Prvo red. Zatim izlazak iz duga. Tek tada darivanje.",
+  "Prvo red. Zatim izlazak iz kredita. Tek tada sustavno davanje.",
   "giving section order copy"
 )
 assertIncludes(
@@ -270,7 +270,7 @@ assertIncludes(
 assertIncludes(
   "index.html",
   homeHtml,
-  "Cijena nije prognoza. Cijena je signal za proračun.",
+  "Cijena nije prognoza. Cijena je signal za proračun nulte razine.",
   "price time section title"
 )
 assertIncludes(
@@ -332,7 +332,7 @@ assertIncludes(
   "Uvodni razgovor je bez naknade i traje 15 minuta.",
   "final CTA helper copy"
 )
-assertIncludes("index.html", homeHtml, "osobni proračun", "personal budget copy")
+assertIncludes("index.html", homeHtml, "osobni proračun nulte razine", "personal budget copy")
 assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
 assertIncludes(
   "index.html",
@@ -575,9 +575,9 @@ assertIncludes(
   "guide path visual title"
 )
 const guidePathVisualSteps = [
-  "proračun",
-  "bez duga",
-  "darivanje",
+  "proračun nulte razine",
+  "bez kredita",
+  "sustavno davanje",
   "Bitcoin kao novac",
   "kupovna moć",
   "neto imovina",
@@ -609,19 +609,19 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Dug je budući novac koji ste već potrošili",
+  "Kredit je budući novac koji ste već potrošili",
   "debt guide"
 )
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Darivanje mijenja vaš odnos prema novcu",
+  "Sustavno davanje mijenja vaš odnos prema novcu",
   "giving guide"
 )
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Darivanje bez duga",
+  "Sustavno davanje bez kredita",
   "debt-free giving guide"
 )
 assertIncludes(
@@ -639,7 +639,7 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Nakon izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
+  "Nakon izlaska iz kredita, dio novca dobiva namjenu za druge ljude.",
   "giving category description"
 )
 assertIncludes(
@@ -657,13 +657,13 @@ assertIncludes(
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Ako nemate osobni proračun",
+  "Ako nemate osobni proračun nulte razine",
   "budget start path"
 )
 assertIncludes(
   "vodici/index.html",
   guidesIndexHtml,
-  "Ako imate dug",
+  "Ako imate kredit",
   "debt start path"
 )
 assertIncludes(
@@ -864,8 +864,8 @@ assertIncludes(
 
 const debtGuidePath = "vodici/dug-ili-bitcoin/index.html"
 const debtGuideHtml = readFile(debtGuidePath)
-assertIncludes(debtGuidePath, debtGuideHtml, "Dug je budući novac", "debt guide copy")
-assertIncludes(debtGuidePath, debtGuideHtml, "život bez duga", "debt guide standard copy")
+assertIncludes(debtGuidePath, debtGuideHtml, "Kredit je budući novac", "debt guide copy")
+assertIncludes(debtGuidePath, debtGuideHtml, "život bez kredita", "debt guide standard copy")
 assertIncludes(
   purchasingPowerGuidePath,
   purchasingPowerGuideHtml,
@@ -883,7 +883,7 @@ const newGuideChecks = [
   {
     path: "vodici/svaki-euro-ima-namjenu/index.html",
     title: "Svaki euro ima namjenu",
-    copy: "Proračun nije kazna",
+    copy: "Proračun nulte razine nije kazna",
   },
   {
     path: "vodici/starost-novca/index.html",
@@ -892,8 +892,8 @@ const newGuideChecks = [
   },
   {
     path: "vodici/dug-je-buduci-novac/index.html",
-    title: "Dug je budući novac koji ste već potrošili",
-    copy: "Dug je fiat ponašanje",
+    title: "Kredit je budući novac koji ste već potrošili",
+    copy: "Kredit je fiat ponašanje",
   },
   {
     path: "vodici/ne-zaduzujte-se-za-bitcoin/index.html",
@@ -902,13 +902,13 @@ const newGuideChecks = [
   },
   {
     path: "vodici/darivanje-u-proracunu/index.html",
-    title: "Darivanje mijenja vaš odnos prema novcu",
-    copy: "Darivanje nije ostatak",
+    title: "Sustavno davanje mijenja vaš odnos prema novcu",
+    copy: "Sustavno davanje nije ostatak",
   },
   {
     path: "vodici/darivanje-bez-duga/index.html",
-    title: "Darivanje bez duga",
-    copy: "Dug i darivanje ne stvaraju isti duh",
+    title: "Sustavno davanje bez kredita",
+    copy: "Kredit i sustavno davanje ne stvaraju isti duh",
   },
   {
     path: "vodici/novac-dolazi-od-ljudi/index.html",
@@ -982,13 +982,13 @@ const guideVisualChecks = [
   },
   {
     path: "vodici/darivanje-u-proracunu/index.html",
-    title: "Krug darivanja",
+    title: "Krug sustavnog davanja",
     copy: "velikodušnost",
   },
   {
     path: "vodici/darivanje-bez-duga/index.html",
     title: "Redoslijed je važan",
-    copy: "bez duga",
+    copy: "bez kredita",
   },
   {
     path: "vodici/novac-dolazi-od-ljudi/index.html",
@@ -1007,7 +1007,7 @@ const guideVisualChecks = [
   },
   {
     path: "vodici/uskladivanje-kupovne-moci-bitcoina/index.html",
-    title: "Kupovna moć mijenja proračun",
+    title: "Kupovna moć mijenja proračun nulte razine",
     copy: "držati pravila",
   },
   {
@@ -1059,13 +1059,13 @@ const givingGuideHtml = readFile(givingGuidePath)
 assertIncludes(
   givingGuidePath,
   givingGuideHtml,
-  "Darivanje mijenja vaš odnos prema novcu",
+  "Sustavno davanje mijenja vaš odnos prema novcu",
   "renamed giving guide title"
 )
 assertIncludes(
   givingGuidePath,
   givingGuideHtml,
-  "Darivanje nije ostatak",
+  "Sustavno davanje nije ostatak",
   "renamed giving guide first section"
 )
 assertIncludes(
@@ -1077,7 +1077,7 @@ assertIncludes(
 assertIncludes(
   givingGuidePath,
   givingGuideHtml,
-  "Darivanje vas okreće prema ljudima",
+  "Sustavno davanje vas okreće prema ljudima",
   "renamed giving guide people section"
 )
 assertIncludes(
@@ -1092,13 +1092,13 @@ const debtFreeGivingGuideHtml = readFile(debtFreeGivingGuidePath)
 assertIncludes(
   debtFreeGivingGuidePath,
   debtFreeGivingGuideHtml,
-  "Darivanje bez duga",
+  "Sustavno davanje bez kredita",
   "debt-free giving guide title"
 )
 assertIncludes(
   debtFreeGivingGuidePath,
   debtFreeGivingGuideHtml,
-  "Dug i darivanje ne stvaraju isti duh",
+  "Kredit i sustavno davanje ne stvaraju isti duh",
   "debt-free giving guide first section"
 )
 assertIncludes(
@@ -1155,7 +1155,7 @@ assertIncludes(
 assertIncludes(
   peopleMoneyGuidePath,
   peopleMoneyGuideHtml,
-  "Darivanje nije vraćanje duga društvu",
+  "Sustavno davanje nije vraćanje kredita društvu",
   "people money giving section"
 )
 assertIncludes(
@@ -1218,7 +1218,7 @@ assertIncludes(
 assertIncludes(
   priceTimeGuidePath,
   priceTimeGuideHtml,
-  "Proračun ostaje glavni alat",
+  "Proračun nulte razine ostaje glavni alat",
   "price time budget section"
 )
 assertIncludes(

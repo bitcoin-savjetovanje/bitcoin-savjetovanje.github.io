@@ -29,8 +29,8 @@ const pageChecks = [
     path: "/vodici/",
     includes: [
       "Preporučeni redoslijed čitanja",
-      "Ako nemate osobni proračun",
-      "Ako imate dug",
+      "Ako nemate osobni proračun nulte razine",
+      "Ako imate kredit",
     ],
   },
   {

@@ -22,7 +22,7 @@ export const offers: Offer[] = [
       "Vidimo gdje ste, što pokušavate odlučiti i ima li smisla nastaviti.",
     includes: [
       "imate li Bitcoin",
-      "postoji li dug",
+      "postoji li kredit",
       "što je glavno pitanje",
       "jedno pitanje o Bitcoinu koje vam nije jasno",
       "ima li smisla nastaviti",
@@ -38,11 +38,11 @@ export const offers: Offer[] = [
     purpose:
       "Prođemo situaciju, mogućnosti i granice odluke koju želite donijeti.",
     includes: [
-      "dug ili Bitcoin",
+      "kredit ili Bitcoin",
       "prodati ili čekati",
       "sigurnost",
       "obiteljski pristup",
-      "proračun i stvarni višak",
+      "proračun nulte razine i stvarni višak",
     ],
     cta: PRIMARY_CTA,
   },
@@ -53,7 +53,7 @@ export const offers: Offer[] = [
     forWhom: "Za izgradnju cijelog osobnog Bitcoin standarda.",
     detail: "4-6 tjedana. Kontinuirana komunikacija.",
     purpose:
-      "Pisana pravila za novac, dug, darivanje, Bitcoin, neto imovinu i sigurnost.",
+      "Pisana pravila za novac, kredit, sustavno davanje, Bitcoin, neto imovinu i sigurnost.",
     includes: [
       "pripremni upitnik",
       "4 radna razgovora kroz 4–6 tjedana",

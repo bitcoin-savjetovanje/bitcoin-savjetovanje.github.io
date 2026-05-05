@@ -15,7 +15,7 @@ export function StandardComparisonSection() {
           <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
             Bitcoin bez standarda
           </p>
-          <h3 className="mt-3">Cijena i pritisak vode odluke.</h3>
+          <h3 className="mt-3">Sentiment vodi odluke.</h3>
           <ul>
             {standardWithoutItems.map((item) => (
               <li key={item}>

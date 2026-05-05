@@ -23,7 +23,7 @@ export const situationExamples = [
   },
   {
     title: "Dug ulazi u svaku odluku",
-    copy: "Dug je budući novac koji ste već potrošili i može vas prisiliti na loše Bitcoin odluke.",
+    copy: "Dug je budući novac koji ste već potrošili i može nas prisiliti na loše Bitcoin odluke.",
   },
   {
     title: "Ne znate što je stvarni višak",
@@ -47,7 +47,7 @@ export const volatilityStressCards = [
       "vidite je li proračun stvaran",
       "dug postaje vidljiv",
       "stvarni višak se razlikuje od dojma",
-      "učite smanjiti otpad",
+      "učite smanjiti rasipanje",
       "tražite bolji način stvaranja prihoda",
     ],
   },
@@ -65,7 +65,7 @@ export const volatilityStressCards = [
 ]
 
 export const standardWithoutItems = [
-  "cijena odlučuje umjesto vas",
+  "sentiment odlučuje umjesto nas",
   "dug stvara pritisak",
   "novac na računu izgleda kao višak",
   "prodaja se događa pod stresom",
@@ -89,7 +89,7 @@ export const foundationCards = [
   },
   {
     title: "Život bez duga",
-    copy: "Dug je budući novac koji ste već potrošili. Dok dug postoji, dio budućnosti već je odlučio prije vas.",
+    copy: "Dug je budući novac koji ste već potrošili. Dok dug postoji, dio budućnosti već je odlučio prije nas.",
   },
   {
     title: "Darivanje",
@@ -214,7 +214,7 @@ export const securityRules = [
 export const notForItems = [
   "želite kratkoročnu prognozu cijene",
   "tražite upute za kupnju i prodaju",
-  "želite da netko odluči umjesto vas",
+  "želite prepustiti odluke",
   "želite savjetovanje o altcoinima ili kriptoimovini",
   "trebate porezni, pravni ili licencirani investicijski savjet",
 ]
@@ -228,14 +228,14 @@ export const notDoingItems = [
   "ne tražim početne riječi",
   "ne pristupam vašim računima",
   "ne dajem porezni, pravni ili licencirani investicijski savjet",
-  "ne odlučujem umjesto vas",
+  "ne preuzimam odluku",
 ]
 
 export const qualificationQuestions = [
   "Imate li Bitcoin?",
   "Što želite razjasniti?",
   "Imate li dug ili veće buduće troškove?",
-  "Što vas najviše brine: proračun nulte osnove, dug, Bitcoin kao novac, sigurnost ili obitelj?",
+  "Što nas najviše brine: proračun nulte osnove, dug, Bitcoin kao novac, sigurnost ili obitelj?",
   "Želite li jedan razgovor ili cijeli program?",
 ]
 

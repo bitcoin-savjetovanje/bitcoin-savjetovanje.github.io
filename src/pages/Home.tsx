@@ -1,8 +1,10 @@
 import { Seo } from "@/components/Seo"
 import { GuidesIndexSection } from "@/components/guides/GuidesIndexSection"
 import { AboutSection } from "@/components/home/AboutSection"
+import { FaqSection } from "@/components/home/FaqSection"
 import { FinalCta } from "@/components/home/FinalCta"
 import { FoundationsSection } from "@/components/home/FoundationsSection"
+import { GivingDifferentiatorSection } from "@/components/home/GivingDifferentiatorSection"
 import { Hero } from "@/components/home/Hero"
 import { NotDoingSection } from "@/components/home/NotDoingSection"
 import { OffersSection } from "@/components/home/OffersSection"
@@ -28,12 +30,14 @@ export function Home() {
       <VolatilityStressSection />
       <StandardComparisonSection />
       <FoundationsSection />
+      <GivingDifferentiatorSection />
       <StandardCheckSection />
       <OffersSection />
       <NotDoingSection />
       <GuidesIndexSection />
       <SecurityTrustSection />
       <AboutSection />
+      <FaqSection />
       <FinalCta />
     </>
   )

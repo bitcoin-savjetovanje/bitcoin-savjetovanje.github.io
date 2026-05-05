@@ -87,9 +87,9 @@ export function AboutSection() {
               .
             </p>
             <p>
-              Moj posao nije nagovarati vas da kupite ili prodate Bitcoin. Moj
-              posao je pomoći vam postaviti pravila koja možete živjeti i
-              objasniti obitelji.
+              Moj posao nije nagovarati na kupnju ili prodaju Bitcoina. Moj
+              posao je pomoći postaviti pravila koja se mogu živjeti i objasniti
+              obitelji.
             </p>
             <div className="grid gap-2 pt-2 sm:grid-cols-2">
               {aboutCards.map((item) => (

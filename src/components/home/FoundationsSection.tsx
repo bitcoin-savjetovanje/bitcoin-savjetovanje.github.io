@@ -7,7 +7,7 @@ export function FoundationsSection() {
   return (
     <section id="temelji" className="section-shell section-muted">
       <SectionHeader
-        title="Prvo red. Zatim sloboda. Zatim darivanje."
+        title="Prvo kontrola. Zatim sloboda. Zatim darivanje."
         copy="Bitcoin kao novac ima smisla tek kada temelj osobnog sustava ne ovisi o dojmu, dugu ili improvizaciji."
         align="center"
       />

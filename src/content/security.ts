@@ -32,10 +32,10 @@ export const skrbnistvoAssessmentItems = [
 
 export const notDoingSecurityItems = [
   "ne čuvam Bitcoin",
-  "ne potpisujem transakcije za vas",
+  "ne potpisujem transakcije za nas",
   "ne kupujem ni prodajem u vaše ime",
   "ne upravljam novcem",
-  "ne donosim odluke umjesto vas",
+  "ne donosim odluke umjesto nas",
   "ne tražim početne riječi ni privatne ključeve",
   "ne dajem porezni, pravni ili licencirani investicijski savjet",
 ]

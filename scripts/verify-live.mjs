@@ -3,6 +3,8 @@ const failures = []
 const words = (...parts) => parts.join(" ")
 
 const forbiddenVisibleText = [
+  words("Bitcoin kao novac,", "kapital i potrošnja"),
+  words("dugoročnog", "kapitala"),
   "proračun nulte razine",
   "Dogovorite 15-minutni uvodni razgovor",
   "Strukturirani program",
@@ -18,6 +20,15 @@ const forbiddenVisibleText = [
   "lead magnet",
   "charity",
   "giving",
+  words("dobar", "dug"),
+  words("jeftin", "dug"),
+  words("pametno", "zaduživanje"),
+  words("optimizacija", "duga"),
+  words("upravljanje", "dugom"),
+  words("kredit kao", "alat"),
+  words("dug se može", "isplatiti"),
+  words("ako je prinos veći od", "kamate"),
+  words("ulaganje u Bitcoin", "kreditom"),
 ]
 
 const pageChecks = [
@@ -25,9 +36,23 @@ const pageChecks = [
     path: "/",
     includes: [
       "Imate Bitcoin. Ali imate li Bitcoin standard?",
+      "Što vaš sustav radi kada Bitcoin napravi bilo što?",
       "Volatilnost otkriva imate li standard.",
+      "Volatilnost se ne događa u vakuumu.",
+      "Bitcoin padne 40%",
+      "Bitcoin naraste 100%",
+      "Partner pita",
+      "Darivanje nije ukras Bitcoin standarda.",
+      "novac dolazi kroz ljude",
       "Koliko je vaš Bitcoin standard stvaran?",
       "Izgradnja osobnog Bitcoin standarda",
+      "Niste sigurni jeste li spremni za cijeli program?",
+      "Dubinska provjera osobnog Bitcoin standarda",
+      "Je li ovo financijsko savjetovanje?",
+      "Moram li već imati Bitcoin?",
+      "Što ako imam dug?",
+      "Hoćete li mi reći koliko Bitcoina kupiti ili prodati?",
+      "Zašto je darivanje dio Bitcoin standarda?",
       "Dogovorite provjeru osobnog Bitcoin standarda",
     ],
   },
@@ -35,6 +60,7 @@ const pageChecks = [
     path: "/vodici/",
     includes: [
       "Vodiči za osobni Bitcoin standard",
+      "Krenite s ova tri vodiča.",
       "Razina 1: Imate Bitcoin, ali još živite po fiat pravilima",
       "Razina 2: Gradite osobni Bitcoin standard",
       "Razina 3: Živite i usavršavate standard",
@@ -51,35 +77,63 @@ const pageChecks = [
     ],
   },
   {
-    path: "/vodici/kredit-je-buduci-novac/",
+    path: "/vodici/dug-je-buduci-novac/",
     includes: ["Dug je budući novac koji ste već potrošili"],
   },
   {
-    path: "/vodici/kredit-ili-bitcoin/",
+    path: "/vodici/dug-ili-bitcoin/",
     includes: ["Dug ili Bitcoin?"],
   },
   {
-    path: "/vodici/ne-uzimajte-kredit-za-bitcoin/",
+    path: "/vodici/ne-zaduzujte-se-za-bitcoin/",
     includes: ["Ne zadužujte se za Bitcoin"],
   },
   {
-    path: "/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
+    path: "/vodici/darivanje-u-proracunu-nulte-osnove/",
     includes: ["Darivanje mijenja vaš odnos prema novcu"],
+  },
+  {
+    path: "/vodici/darivanje-bez-duga/",
+    includes: ["Darivanje bez duga"],
   },
   {
     path: "/vodici/uskladivanje-kupovne-moci-bitcoina/",
     includes: ["Kada kupovna moć pada", "Kada kupovna moć raste"],
   },
   {
-    path: "/vodici/dug-je-buduci-novac/",
+    path: "/vodici/kredit-je-buduci-novac/",
     includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/kredit-je-buduci-novac/" />',
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/dug-je-buduci-novac/" />',
+    ],
+  },
+  {
+    path: "/vodici/kredit-ili-bitcoin/",
+    includes: [
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/dug-ili-bitcoin/" />',
+    ],
+  },
+  {
+    path: "/vodici/ne-uzimajte-kredit-za-bitcoin/",
+    includes: [
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/ne-zaduzujte-se-za-bitcoin/" />',
+    ],
+  },
+  {
+    path: "/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
+    includes: [
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/" />',
+    ],
+  },
+  {
+    path: "/vodici/sustavno-davanje-bez-kredita/",
+    includes: [
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-bez-duga/" />',
     ],
   },
   {
     path: "/vodici/darivanje-u-proracunu/",
     includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-u-proracunu-nulte-razine/" />',
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/" />',
     ],
   },
 ]
@@ -142,10 +196,11 @@ try {
     `${baseUrl}/`,
     `${baseUrl}/vodici/`,
     `${baseUrl}/sigurnost/`,
-    `${baseUrl}/vodici/kredit-je-buduci-novac/`,
-    `${baseUrl}/vodici/kredit-ili-bitcoin/`,
-    `${baseUrl}/vodici/ne-uzimajte-kredit-za-bitcoin/`,
-    `${baseUrl}/vodici/sustavno-davanje-u-proracunu-nulte-razine/`,
+    `${baseUrl}/vodici/dug-je-buduci-novac/`,
+    `${baseUrl}/vodici/dug-ili-bitcoin/`,
+    `${baseUrl}/vodici/ne-zaduzujte-se-za-bitcoin/`,
+    `${baseUrl}/vodici/darivanje-u-proracunu-nulte-osnove/`,
+    `${baseUrl}/vodici/darivanje-bez-duga/`,
     `${baseUrl}/vodici/uskladivanje-kupovne-moci-bitcoina/`,
   ]) {
     if (sitemap.includes(`<loc>${expectedUrl}</loc>`)) {
@@ -156,11 +211,12 @@ try {
   }
 
   for (const removedUrl of [
-    `${baseUrl}/vodici/dug-je-buduci-novac/`,
-    `${baseUrl}/vodici/dug-ili-bitcoin/`,
-    `${baseUrl}/vodici/ne-zaduzujte-se-za-bitcoin/`,
+    `${baseUrl}/vodici/kredit-je-buduci-novac/`,
+    `${baseUrl}/vodici/kredit-ili-bitcoin/`,
+    `${baseUrl}/vodici/ne-uzimajte-kredit-za-bitcoin/`,
+    `${baseUrl}/vodici/sustavno-davanje-u-proracunu-nulte-razine/`,
+    `${baseUrl}/vodici/sustavno-davanje-bez-kredita/`,
     `${baseUrl}/vodici/darivanje-u-proracunu/`,
-    `${baseUrl}/vodici/darivanje-bez-duga/`,
   ]) {
     if (sitemap.includes(`<loc>${removedUrl}</loc>`)) {
       fail(`sitemap still contains alias URL ${removedUrl}`)

@@ -38,7 +38,7 @@ export function GivingSection() {
               vrijednost.
             </p>
             <p className="text-xl leading-8 font-semibold text-foreground">
-              Novac dolazi od ljudi. Darivanje vas vraća ljudima.
+              Novac dolazi od ljudi. Darivanje nas vraća ljudima.
             </p>
           </div>
           <div className="grid gap-3">

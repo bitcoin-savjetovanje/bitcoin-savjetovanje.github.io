@@ -1,6 +1,6 @@
 import { ArrowUpRight, CalendarDays } from "lucide-react"
 
-import { StandardPathVisual } from "@/components/home/StandardPathVisual"
+import { BitcoinStressTestVisual } from "@/components/home/BitcoinStressTestVisual"
 import { Button } from "@/components/ui/button"
 import { BOOKING_URL, EMAIL, PRIMARY_CTA, SECONDARY_CTA } from "@/content/site"
 
@@ -13,7 +13,7 @@ export function Hero() {
             Imate Bitcoin. Ali imate li Bitcoin standard?
           </h1>
           <p className="hero-subtitle">
-            Ako pad cijene stvara paniku, ako dug odlučuje umjesto vas, ako ne
+            Ako pad cijene stvara paniku, ako dug odlučuje umjesto nas, ako ne
             znate što je stvarni višak ili ako obitelj ne zna plan, problem nije
             Bitcoin. Problem je sustav oko njega.
           </p>
@@ -63,7 +63,7 @@ export function Hero() {
             Ili pišite izravno: {EMAIL}
           </a>
         </div>
-        <StandardPathVisual />
+        <BitcoinStressTestVisual />
       </div>
     </section>
   )

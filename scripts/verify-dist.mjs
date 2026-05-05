@@ -11,12 +11,12 @@ const requiredGuidePaths = [
   "/vodici/svaki-euro-ima-namjenu",
   "/vodici/stvarni-visak",
   "/vodici/starost-novca",
-  "/vodici/kredit-je-buduci-novac",
+  "/vodici/dug-je-buduci-novac",
   "/vodici/bitcoin-u-neto-imovini",
-  "/vodici/kredit-ili-bitcoin",
-  "/vodici/ne-uzimajte-kredit-za-bitcoin",
-  "/vodici/sustavno-davanje-u-proracunu-nulte-razine",
-  "/vodici/sustavno-davanje-bez-kredita",
+  "/vodici/dug-ili-bitcoin",
+  "/vodici/ne-zaduzujte-se-za-bitcoin",
+  "/vodici/darivanje-u-proracunu-nulte-osnove",
+  "/vodici/darivanje-bez-duga",
   "/vodici/novac-dolazi-od-ljudi",
   "/vodici/bitcoin-kao-novac",
   "/vodici/pozitivni-neto-priljev",
@@ -31,28 +31,33 @@ const requiredGuidePaths = [
 
 const aliasGuidePaths = [
   {
-    oldPath: "/vodici/dug-je-buduci-novac",
+    oldPath: "/vodici/kredit-je-buduci-novac",
     newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/kredit-je-buduci-novac/",
+      "https://bitcoin-savjetovanje.com/vodici/dug-je-buduci-novac/",
   },
   {
-    oldPath: "/vodici/dug-ili-bitcoin",
-    newCanonical: "https://bitcoin-savjetovanje.com/vodici/kredit-ili-bitcoin/",
+    oldPath: "/vodici/kredit-ili-bitcoin",
+    newCanonical: "https://bitcoin-savjetovanje.com/vodici/dug-ili-bitcoin/",
   },
   {
-    oldPath: "/vodici/ne-zaduzujte-se-za-bitcoin",
+    oldPath: "/vodici/ne-uzimajte-kredit-za-bitcoin",
     newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/ne-uzimajte-kredit-za-bitcoin/",
+      "https://bitcoin-savjetovanje.com/vodici/ne-zaduzujte-se-za-bitcoin/",
+  },
+  {
+    oldPath: "/vodici/sustavno-davanje-u-proracunu-nulte-razine",
+    newCanonical:
+      "https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/",
+  },
+  {
+    oldPath: "/vodici/sustavno-davanje-bez-kredita",
+    newCanonical:
+      "https://bitcoin-savjetovanje.com/vodici/darivanje-bez-duga/",
   },
   {
     oldPath: "/vodici/darivanje-u-proracunu",
     newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
-  },
-  {
-    oldPath: "/vodici/darivanje-bez-duga",
-    newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-bez-kredita/",
+      "https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/",
   },
 ]
 
@@ -234,6 +239,14 @@ const homeHtml = readFile("index.html")
 const homeChecks = [
   ["Imate Bitcoin. Ali imate li Bitcoin standard?", "new hero title"],
   [
+    "Što vaš sustav radi kada Bitcoin napravi bilo što?",
+    "hero stress-test visual",
+  ],
+  ["Bitcoin padne", "hero stress-test falling scenario"],
+  ["Bitcoin naraste", "hero stress-test rising scenario"],
+  ["Dođe veliki trošak", "hero stress-test expense scenario"],
+  ["Obitelj treba reagirati", "hero stress-test family scenario"],
+  [
     "problem nije Bitcoin. Problem je sustav oko njega.",
     "hero problem statement",
   ],
@@ -249,16 +262,21 @@ const homeChecks = [
   ["Volatilnost otkriva imate li standard.", "volatility section"],
   ["Kad kupovna moć pada", "falling purchasing power card"],
   ["Kad kupovna moć raste", "rising purchasing power card"],
+  ["Volatilnost se ne događa u vakuumu.", "life scenarios title"],
+  ["Bitcoin padne 40%", "falling life scenario"],
+  ["Bitcoin naraste 100%", "rising life scenario"],
+  ["Partner pita", "family life scenario"],
   [
     "Bitcoin nije dovoljan ako ostatak života ostaje na fiat pravilima.",
     "standard contrast title",
   ],
   ["Bitcoin bez standarda", "without standard column"],
   ["Bitcoin sa standardom", "with standard column"],
-  ["Prvo red. Zatim sloboda. Zatim darivanje.", "foundations title"],
+  ["Prvo kontrola. Zatim sloboda. Zatim darivanje.", "foundations title"],
   ["Proračun nulte osnove", "zero-based budget terminology"],
   ["Život bez duga", "debt-free life terminology"],
   ["Darivanje nije ukras osobnog Bitcoin standarda.", "giving foundation"],
+  ["novac dolazi kroz ljude", "giving differentiator copy"],
   ["Koliko je vaš Bitcoin standard stvaran?", "self-assessment title"],
   ["Znate li točno što je vaš stvarni višak?", "assessment question"],
   ["Imate li dug koji može prisiliti prodaju Bitcoina?", "debt pressure check"],
@@ -270,6 +288,14 @@ const homeChecks = [
   ["4–6 tjedana · 1.500 €", "program price duration"],
   ["Korak 1 - Red u novcu", "program step 1"],
   ["Korak 6 - Sigurnost i obitelj", "program step 6"],
+  [
+    "Niste sigurni jeste li spremni za cijeli program?",
+    "program entry options title",
+  ],
+  [
+    "Dubinska provjera osobnog Bitcoin standarda",
+    "deep standard check offer",
+  ],
   [
     "Na kraju imate pisani osobni Bitcoin standard",
     "program outcome",
@@ -303,6 +329,17 @@ const homeChecks = [
   [
     "Pomažem vam postaviti pravila iz prakse koju sam morao naučiti živjeti.",
     "about practice copy",
+  ],
+  ["Je li ovo financijsko savjetovanje?", "FAQ financial advice question"],
+  ["Moram li već imati Bitcoin?", "FAQ Bitcoin ownership question"],
+  ["Što ako imam dug?", "FAQ debt question"],
+  [
+    "Hoćete li mi reći koliko Bitcoina kupiti ili prodati?",
+    "FAQ buy sell question",
+  ],
+  [
+    "Zašto je darivanje dio Bitcoin standarda?",
+    "FAQ giving question",
   ],
   [
     "Provjerite što bi vaš sustav napravio kada Bitcoin napravi bilo što.",
@@ -362,9 +399,11 @@ const guideIndexChecks = [
     "Ako želite razumjeti okvir, čitajte vodiče.",
     "guide index sales support copy",
   ],
-  ["Preporučeni redoslijed čitanja", "recommended reading order"],
-  ["Ne čitajte sve odjednom. Krenite redom.", "recommended order intro"],
-  ["Put prema osobnom Bitcoin standardu", "guide path visual title"],
+  ["Krenite s ova tri vodiča.", "three starter guides title"],
+  [
+    "Ako pročitate samo tri vodiča, krenite ovdje.",
+    "three starter guides copy",
+  ],
   [
     "Razina 1: Imate Bitcoin, ali još živite po fiat pravilima",
     "level 1 title",
@@ -376,6 +415,7 @@ const guideIndexChecks = [
   ["Bitcoin je novac", "bitcoin as money guide"],
   ["Pravilo trećina u neto imovini", "thirds rule guide"],
   ["Sigurnost ne smije ovisiti samo o vama", "security guide"],
+  ["Svi vodiči po području", "secondary guide categories"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/" />',
     "guide index canonical URL",
@@ -518,7 +558,7 @@ const focusedGuideChecks = [
     checks: ["Što je stvarni višak?", "Višak nije stanje na računu"],
   },
   {
-    path: "vodici/kredit-je-buduci-novac/index.html",
+    path: "vodici/dug-je-buduci-novac/index.html",
     checks: [
       "Dug je budući novac koji ste već potrošili",
       "Dva stanja novca",
@@ -527,11 +567,11 @@ const focusedGuideChecks = [
     ],
   },
   {
-    path: "vodici/kredit-ili-bitcoin/index.html",
+    path: "vodici/dug-ili-bitcoin/index.html",
     checks: ["Dug ili Bitcoin?", "Ne pokušavajte istrgovati izlaz"],
   },
   {
-    path: "vodici/sustavno-davanje-u-proracunu-nulte-razine/index.html",
+    path: "vodici/darivanje-u-proracunu-nulte-osnove/index.html",
     checks: [
       "Darivanje mijenja vaš odnos prema novcu",
       "Darivanje nije ostatak",

@@ -38,7 +38,7 @@ export function DebtSection() {
               Vrijeme zalijeva stanje u kojem živite.
             </p>
             <a
-              href="/vodici/kredit-je-buduci-novac/"
+              href="/vodici/dug-je-buduci-novac/"
               className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
               data-link="debt-guide"
             >

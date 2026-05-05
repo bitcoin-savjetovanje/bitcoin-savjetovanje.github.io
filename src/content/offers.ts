@@ -16,7 +16,7 @@ export const offers: Offer[] = [
     title: "Uvodna provjera",
     price: "0 €",
     duration: "15 minuta",
-    forWhom: "Za prvi korak ako želite vidjeti ima li razgovor smisla.",
+    forWhom: "Za prvi korak i kvalifikaciju.",
     detail: "15 minuta. Bez naknade. Bez obveze.",
     purpose:
       "Provjerimo gdje ste: imate li Bitcoin, postoji li dug, znate li stvarni višak i koji dio sustava trenutno stvara najviše pritiska.",
@@ -29,11 +29,10 @@ export const offers: Offer[] = [
     cta: PRIMARY_CTA,
   },
   {
-    title: "Provjera osobnog Bitcoin standarda",
+    title: "Dubinska provjera osobnog Bitcoin standarda",
     price: "200 €",
     duration: "60–90 minuta",
-    forWhom:
-      "Za osobu koja već ima Bitcoin i želi provjeriti gdje joj sustav puca.",
+    forWhom: "Za osobu koja želi jedan dublji razgovor i jasne zaključke.",
     detail: "Jedan dublji razgovor s jasnim zaključcima.",
     purpose:
       "Prođemo proračun nulte osnove, dug, stvarni višak, darivanje, Bitcoin kao novac, sigurnost i obiteljski pristup.",

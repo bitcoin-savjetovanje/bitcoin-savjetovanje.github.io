@@ -160,7 +160,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
               Želite primijeniti okvir na svoju situaciju?
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
-              Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
+              Provjera traje 15 minuta, bez naknade i bez obveze. Cilj je
               vidjeti gdje ste, što pokušavate odlučiti i ima li smisla
               nastaviti.
             </p>
@@ -173,7 +173,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="justify-center text-center"
-                data-cta="guide-booking"
+                data-cta="guide-standard-check"
               >
                 <CalendarDays className="size-4" />
                 {guide.finalCta}
@@ -218,7 +218,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
               target="_blank"
               rel="noopener noreferrer"
               className="justify-center text-center"
-              data-cta="guide-sidebar-booking"
+              data-cta="guide-sidebar-standard-check"
             >
               <CalendarDays className="size-4" />
               Razgovor

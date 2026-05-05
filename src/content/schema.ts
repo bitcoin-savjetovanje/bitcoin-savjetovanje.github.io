@@ -1,4 +1,3 @@
-import { faqs } from "./faq"
 import { guideHref, guides, type Guide } from "./guides"
 import { offers } from "./offers"
 import {
@@ -53,9 +52,9 @@ export function homeSchema() {
         email: EMAIL,
         areaServed: ["Hrvatska", "Online"],
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
-        serviceType: "Bitcoin savjetovanje i osobni Bitcoin standard",
+        serviceType: "Provjera i izgradnja osobnog Bitcoin standarda",
         description:
-          "Savjetodavni rad za osobni Bitcoin standard: osobni proračun nulte razine, život bez kredita, sustavno davanje, Bitcoin kao novac, kupovna moć, neto imovina i sigurnost. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Savjetodavni rad za provjeru i izgradnju osobnog Bitcoin standarda: proračun nulte osnove, život bez duga, darivanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },
       {
         "@type": "OfferCatalog",
@@ -66,17 +65,6 @@ export function homeSchema() {
           price: offer.price.replace(" €", "").replace(".", ""),
           priceCurrency: "EUR",
           description: offer.purpose,
-        })),
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
         })),
       },
     ],
@@ -116,9 +104,9 @@ export function guideSchema(guide: Guide) {
         },
         about: [
           "Bitcoin",
-          "osobni proračun nulte razine",
-          "kredit",
-          "sustavno davanje",
+          "proračun nulte osnove",
+          "dug",
+          "darivanje",
           "kupovna moć",
           "neto imovina",
           "skrbništvo",

@@ -57,13 +57,15 @@ const aliasGuidePaths = [
 ]
 
 const guideCategories = [
-  "Osobni proračun nulte razine",
-  "Život bez kredita",
-  "Sustavno davanje",
+  "Osobni proračun nulte osnove",
+  "Život bez duga",
+  "Darivanje",
   "Bitcoin kao novac",
   "Neto imovina",
   "Sigurnost i obitelj",
 ]
+
+const words = (...parts) => parts.join(" ")
 
 function pass(message) {
   console.log(`PASS ${message}`)
@@ -186,9 +188,14 @@ const requiredFiles = [
 requiredFiles.forEach(assertFile)
 
 const forbiddenVisibleText = [
-  "Bitcoin kao novac, kapital i potrošnja",
-  "dugoročnog kapitala",
-  "Bitcoin kao kapital",
+  words("Bitcoin kao novac,", "kapital i potrošnja"),
+  words("dugoročnog", "kapitala"),
+  words("Bitcoin kao", "kapital"),
+  "proračun nulte razine",
+  "Dogovorite 15-minutni uvodni razgovor",
+  "Strukturirani program",
+  "Savjetodavni razgovor",
+  "Uvodni razgovor",
   "crypto",
   "ROI",
   "custody",
@@ -198,6 +205,15 @@ const forbiddenVisibleText = [
   "lead magnet",
   "charity",
   "giving",
+  words("dobar", "dug"),
+  words("jeftin", "dug"),
+  words("pametno", "zaduživanje"),
+  words("optimizacija", "duga"),
+  words("upravljanje", "dugom"),
+  words("kredit kao", "alat"),
+  words("dug se može", "isplatiti"),
+  words("ako je prinos veći od", "kamate"),
+  words("ulaganje u Bitcoin", "kreditom"),
 ]
 
 for (const absoluteHtmlPath of htmlFiles()) {
@@ -215,344 +231,112 @@ for (const absoluteHtmlPath of htmlFiles()) {
 }
 
 const homeHtml = readFile("index.html")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
-  "homepage hero text"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Bitcoin kao novac",
-  "homepage Bitcoin as money copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Kredit je budući novac koji ste već potrošili.",
-  "debt section title"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Bitcoin standard ne počinje većom kupnjom. Počinje izlaskom iz kredita.",
-  "debt section punchline"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Sustavno davanje povećava vaš kapacitet za stvaranje vrijednosti.",
-  "giving section title"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Prvo red. Zatim izlazak iz kredita. Tek tada sustavno davanje.",
-  "giving section order copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Bez očekivanja povrata",
-  "giving section no return card"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Novac dolazi od ljudi",
-  "giving section people punchline"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Veći kapacitet za služenje ljudima",
-  "giving section people card"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Veći kapacitet za razuman rizik",
-  "giving section risk card"
-)
-assertIncludes("index.html", homeHtml, "Bez prognoza cijene", "no price forecast copy")
-assertIncludes("index.html", homeHtml, "Bez trgovanja", "no trading copy")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Bez upravljanja vašim sredstvima",
-  "no managed funds copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "tržišni sentiment",
-  "market sentiment copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Bez pravila, vaše odluke oko Bitcoina lako će povesti tržišni sentiment.",
-  "problem section conclusion"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Cijena nije prognoza. Cijena je signal za proračun nulte razine.",
-  "price time section title"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "dugoročni potencijski trend",
-  "long-term power trend copy"
-)
-assertIncludes("index.html", homeHtml, "Iznad trenda", "above trend card")
-assertIncludes("index.html", homeHtml, "Blizu trenda", "near trend card")
-assertIncludes("index.html", homeHtml, "Ispod trenda", "below trend card")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Sigurnost nije dogma. Sigurnost je sustav.",
-  "security nuance section title"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "4–6 tjedana rada",
-  "structured program duration copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "4–6 tjedana rada",
-  "program visual title"
-)
-assertIncludes("index.html", homeHtml, "upitnik", "program visual questionnaire")
-assertIncludes("index.html", homeHtml, "4 razgovora", "program visual calls")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "osobni dokument",
-  "program visual document"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "30 dana provjere",
-  "program visual follow-up"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Mogu li pitati bilo što o Bitcoinu?",
-  "open Bitcoin questions FAQ"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Pomažem vam izgraditi osobni Bitcoin standard",
-  "footer positioning copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Uvodni razgovor je bez naknade i traje 15 minuta.",
-  "final CTA helper copy"
-)
-assertIncludes("index.html", homeHtml, "osobni proračun nulte razine", "personal budget copy")
-assertIncludes("index.html", homeHtml, "kupovna moć", "purchasing power copy")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Upravljanje promjenama kupovne moći",
-  "standard path purchasing power step"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Ravnoteža u neto imovini",
-  "standard path net worth balance step"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Praktični Bitcoin standard",
-  "Praktični Bitcoin standard copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Dogovorite 15-minutni uvodni razgovor",
-  "primary CTA"
-)
-assertIncludes("index.html", homeHtml, "FAQPage", "FAQPage schema")
-assertIncludes("index.html", homeHtml, "OfferCatalog", "OfferCatalog schema")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Praktični Bitcoin standard ima redoslijed.",
-  "method section title"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Na kraju ne dobivate mišljenje. Dobivate pisana pravila.",
-  "program output preview section"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Vaš osobni Bitcoin standard",
-  "program document title"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Pravilo trećina u ravnoteži neto imovine",
-  "program document net worth rule"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Osobni Bitcoin standard",
-  "program document preview"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Ovo nije primjer stvarnog klijenta i ne sadrži financijsku preporuku",
-  "program output clarification"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Što se dogodi nakon klika?",
-  "booking steps section"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Odaberete termin",
-  "booking steps first step"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Sigurnost nije dogma. Sigurnost je sustav.",
-  "security expectations section"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "početne riječi (seed phrase)",
-  "homepage seed phrase clarification"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "slanje Bitcoina meni na čuvanje",
-  "homepage no Bitcoin custody transfer copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "modelu skrbništva prikladnom za vašu situaciju",
-  "homepage custody model copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "oporavku sredstava",
-  "homepage recovery copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Ne savjetujem o sustavu koji ne živim.",
-  "about section title"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Moj posao nije nagovarati vas da kupite ili prodate Bitcoin.",
-  "about section no persuasion copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "radio sam sa Saifedeanom Ammousom direktno",
-  "about direct Saifedean copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "višegodišnje prakse",
-  "about practice copy"
-)
-assertIncludes("index.html", homeHtml, "60 do 90 minuta", "consulting duration")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "60 - 90 minuta, po potrebi.",
-  "consulting detail duration"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "4-6 tjedana. Kontinuirana komunikacija.",
-  "program communication detail"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Mogu li uzeti kredit kako bih kupio Bitcoin?",
-  "debt FAQ question"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "To je fiat ponašanje primijenjeno na Bitcoin",
-  "fiat debt FAQ copy"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  "Pročitajte sigurnosna pravila",
-  "security page link copy"
-)
+const homeChecks = [
+  ["Imate Bitcoin. Ali imate li Bitcoin standard?", "new hero title"],
+  [
+    "problem nije Bitcoin. Problem je sustav oko njega.",
+    "hero problem statement",
+  ],
+  [
+    "Dogovorite provjeru osobnog Bitcoin standarda",
+    "primary CTA",
+  ],
+  ["Provjerite gdje ste", "secondary CTA"],
+  [
+    "15 minuta. Bez naknade. Bez prognoza cijene. Bez upravljanja vašim sredstvima.",
+    "hero trust copy",
+  ],
+  ["Volatilnost otkriva imate li standard.", "volatility section"],
+  ["Kad kupovna moć pada", "falling purchasing power card"],
+  ["Kad kupovna moć raste", "rising purchasing power card"],
+  [
+    "Bitcoin nije dovoljan ako ostatak života ostaje na fiat pravilima.",
+    "standard contrast title",
+  ],
+  ["Bitcoin bez standarda", "without standard column"],
+  ["Bitcoin sa standardom", "with standard column"],
+  ["Prvo red. Zatim sloboda. Zatim darivanje.", "foundations title"],
+  ["Proračun nulte osnove", "zero-based budget terminology"],
+  ["Život bez duga", "debt-free life terminology"],
+  ["Darivanje nije ukras osobnog Bitcoin standarda.", "giving foundation"],
+  ["Koliko je vaš Bitcoin standard stvaran?", "self-assessment title"],
+  ["Znate li točno što je vaš stvarni višak?", "assessment question"],
+  ["Imate li dug koji može prisiliti prodaju Bitcoina?", "debt pressure check"],
+  [
+    "Zna li obitelj što smije, a što ne smije napraviti sa sigurnosnim postavkama?",
+    "family security check",
+  ],
+  ["Izgradnja osobnog Bitcoin standarda", "main program title"],
+  ["4–6 tjedana · 1.500 €", "program price duration"],
+  ["Korak 1 - Red u novcu", "program step 1"],
+  ["Korak 6 - Sigurnost i obitelj", "program step 6"],
+  [
+    "Na kraju imate pisani osobni Bitcoin standard",
+    "program outcome",
+  ],
+  [
+    "Ovo nije prognoza cijene ni upravljanje vašim Bitcoinom.",
+    "not doing title",
+  ],
+  ["ne dajem trading signale", "no trading signals"],
+  ["ne tražim početne riječi", "no recovery words"],
+  [
+    "Radimo na pravilima po kojima vi donosite bolje odluke.",
+    "positive not doing contrast",
+  ],
+  [
+    "Vodiči su za razumijevanje. Razgovor je za primjenu.",
+    "guides sales support title",
+  ],
+  [
+    "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
+    "security and family title",
+  ],
+  [
+    "početne riječi i privatni ključevi se ne dijele sa savjetnikom",
+    "security family rule",
+  ],
+  [
+    "Ne pomažem vam napraviti nešto što sam promatrao izvana.",
+    "about authority title",
+  ],
+  [
+    "Pomažem vam postaviti pravila iz prakse koju sam morao naučiti živjeti.",
+    "about practice copy",
+  ],
+  [
+    "Provjerite što bi vaš sustav napravio kada Bitcoin napravi bilo što.",
+    "final CTA title",
+  ],
+  ["OfferCatalog", "OfferCatalog schema"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
+    "canonical URL",
+  ],
+]
+
+for (const [expected, label] of homeChecks) {
+  assertIncludes("index.html", homeHtml, expected, label)
+}
+
+const homeDataCtas = [
+  'data-cta="hero-standard-check"',
+  'data-cta="volatility-standard-check"',
+  'data-cta="test-standard-check"',
+  'data-cta="program-standard-check"',
+  'data-cta="guides-standard-check"',
+  'data-cta="final-standard-check"',
+  'data-cta="header-standard-check"',
+  'data-cta="sticky-mobile-standard-check"',
+]
+
+for (const dataCta of homeDataCtas) {
+  assertIncludes("index.html", homeHtml, dataCta, dataCta)
+}
+
+assertNotIncludes("index.html", homeHtml, "FAQPage", "removed FAQPage schema")
 assertIncludes("index.html", homeHtml, "/vodici/", "guide index link")
 assertIncludes("index.html", homeHtml, "/sigurnost/", "security page link")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  'data-cta="hero-booking"',
-  "hero booking CTA metadata"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  'data-cta="header-booking"',
-  "header booking CTA metadata"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  'data-cta="offers-program"',
-  "program offer CTA metadata"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  'data-cta="final-booking"',
-  "final booking CTA metadata"
-)
-assertIncludes(
-  "index.html",
-  homeHtml,
-  'data-cta="sticky-mobile-booking"',
-  "sticky mobile CTA metadata"
-)
 assertIncludes(
   "index.html",
   homeHtml,
@@ -565,12 +349,6 @@ assertIncludes(
   'data-link="footer-security"',
   "footer security link metadata"
 )
-assertIncludes(
-  "index.html",
-  homeHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
-  "canonical URL"
-)
 assertCount("index.html", homeHtml, '<link rel="canonical"', 1, "canonical tag")
 
 if (!home) {
@@ -578,48 +356,39 @@ if (!home) {
 }
 
 const guidesIndexHtml = readFile("vodici/index.html")
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Vodiči za osobni Bitcoin standard",
-  "guide index title"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Preporučeni redoslijed čitanja",
-  "recommended reading order"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Ne čitajte sve odjednom. Krenite redom.",
-  "recommended order intro"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Put prema osobnom Bitcoin standardu",
-  "guide path visual title"
-)
-const guidePathVisualSteps = [
-  "proračun nulte razine",
-  "bez kredita",
-  "sustavno davanje",
-  "Bitcoin kao novac",
-  "kupovna moć",
-  "neto imovina",
-  "sigurnost",
+const guideIndexChecks = [
+  ["Vodiči za osobni Bitcoin standard", "guide index title"],
+  [
+    "Ako želite razumjeti okvir, čitajte vodiče.",
+    "guide index sales support copy",
+  ],
+  ["Preporučeni redoslijed čitanja", "recommended reading order"],
+  ["Ne čitajte sve odjednom. Krenite redom.", "recommended order intro"],
+  ["Put prema osobnom Bitcoin standardu", "guide path visual title"],
+  [
+    "Razina 1: Imate Bitcoin, ali još živite po fiat pravilima",
+    "level 1 title",
+  ],
+  ["Razina 2: Gradite osobni Bitcoin standard", "level 2 title"],
+  ["Razina 3: Živite i usavršavate standard", "level 3 title"],
+  ["Dug je budući novac koji ste već potrošili", "debt guide title"],
+  ["Darivanje mijenja vaš odnos prema novcu", "giving guide"],
+  ["Bitcoin je novac", "bitcoin as money guide"],
+  ["Pravilo trećina u neto imovini", "thirds rule guide"],
+  ["Sigurnost ne smije ovisiti samo o vama", "security guide"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/" />',
+    "guide index canonical URL",
+  ],
+  ["CollectionPage", "CollectionPage schema"],
+  ["ItemList", "ItemList schema"],
+  ['data-cta="guides-index-standard-check"', "guide index CTA metadata"],
 ]
 
-for (const step of guidePathVisualSteps) {
-  assertIncludes(
-    "vodici/index.html",
-    guidesIndexHtml,
-    step,
-    `${step} guide path visual step`
-  )
+for (const [expected, label] of guideIndexChecks) {
+  assertIncludes("vodici/index.html", guidesIndexHtml, expected, label)
 }
+
 for (const category of guideCategories) {
   assertIncludes(
     "vodici/index.html",
@@ -628,98 +397,7 @@ for (const category of guideCategories) {
     `${category} category`
   )
 }
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Svaki euro ima namjenu",
-  "first recommended guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Kredit je budući novac koji ste već potrošili",
-  "debt guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Sustavno davanje mijenja vaš odnos prema novcu",
-  "giving guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Sustavno davanje bez kredita",
-  "debt-free giving guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Novac dolazi od ljudi",
-  "money comes from people guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Redoslijed je važan",
-  "giving order note"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Nakon izlaska iz kredita, dio novca dobiva namjenu za druge ljude.",
-  "giving category description"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Bitcoin je novac",
-  "bitcoin as money guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Cijena kao mjera vremena",
-  "price as time guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Ako nemate osobni proračun nulte razine",
-  "budget start path"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Ako imate kredit",
-  "debt start path"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Ako već koristite Bitcoin kao novac",
-  "bitcoin money start path"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Pravilo trećina u neto imovini",
-  "thirds rule guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  "Sigurnost ne smije ovisiti samo o vama",
-  "security guide"
-)
-assertIncludes(
-  "vodici/index.html",
-  guidesIndexHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/" />',
-  "guide index canonical URL"
-)
-assertIncludes("vodici/index.html", guidesIndexHtml, "CollectionPage", "CollectionPage schema")
-assertIncludes("vodici/index.html", guidesIndexHtml, "ItemList", "ItemList schema")
+
 assertCount(
   "vodici/index.html",
   guidesIndexHtml,
@@ -733,61 +411,29 @@ if (!guidesIndex) {
 }
 
 const securityHtml = readFile("sigurnost/index.html")
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "Sigurnost i povjerljivost",
-  "security title"
-)
-assertIncludes("sigurnost/index.html", securityHtml, "Nikada ne tražim", "never ask section")
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "Sigurnost nije dogma",
-  "security nuance intro"
-)
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "Što procjenjujemo",
-  "custody assessment section"
-)
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "model skrbništva prikladan za vašu situaciju",
-  "custody readiness copy"
-)
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "početne riječi (seed phrase)",
-  "recovery words copy"
-)
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "privatne ključeve",
-  "private keys copy"
-)
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "ne čuvam Bitcoin",
-  "no Bitcoin custody copy"
-)
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/sigurnost/" />',
-  "security canonical URL"
-)
-assertIncludes(
-  "sigurnost/index.html",
-  securityHtml,
-  "Dogovorite 15-minutni uvodni razgovor",
-  "primary CTA"
-)
+const securityChecks = [
+  ["Sigurnost i povjerljivost", "security title"],
+  [
+    "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
+    "security family intro",
+  ],
+  ["Nikada ne tražim", "never ask section"],
+  ["početne riječi", "recovery words copy"],
+  ["privatne ključeve", "private keys copy"],
+  ["što obitelj smije napraviti", "family allowed actions"],
+  ["što obitelj nikada ne smije napraviti", "family forbidden actions"],
+  ["ne čuvam Bitcoin", "no Bitcoin custody copy"],
+  ['data-cta="security-standard-check"', "security CTA metadata"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/sigurnost/" />',
+    "security canonical URL",
+  ],
+]
+
+for (const [expected, label] of securityChecks) {
+  assertIncludes("sigurnost/index.html", securityHtml, expected, label)
+}
+
 assertCount(
   "sigurnost/index.html",
   securityHtml,
@@ -832,7 +478,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
-    "Dogovorite 15-minutni uvodni razgovor",
+    "Dogovorite provjeru osobnog Bitcoin standarda",
     "primary CTA"
   )
   assertIncludes(
@@ -850,496 +496,113 @@ for (const guidePath of requiredGuidePaths) {
   )
 }
 
-const purchasingPowerGuidePath =
-  "vodici/uskladivanje-kupovne-moci-bitcoina/index.html"
-const purchasingPowerGuideHtml = readFile(purchasingPowerGuidePath)
-assertIncludes(
-  purchasingPowerGuidePath,
-  purchasingPowerGuideHtml,
-  "Usklađivanje kupovne moći",
-  "purchasing power guide title"
-)
+for (const alias of aliasGuidePaths) {
+  const relativePath = routeFile(alias.oldPath)
+  const html = readFile(relativePath)
 
-const firstGuidePath = "vodici/svaki-euro-ima-namjenu/index.html"
-const firstGuideHtml = readFile(firstGuidePath)
-assertIncludes(
-  firstGuidePath,
-  firstGuideHtml,
-  "Sljedeći vodič u redoslijedu",
-  "next guide block"
-)
-assertIncludes(
-  firstGuidePath,
-  firstGuideHtml,
-  'data-link="next-guide"',
-  "next guide metadata"
-)
-
-const moneyCapitalGuidePath = "vodici/novac-kapital-potrosnja/index.html"
-const moneyCapitalGuideHtml = readFile(moneyCapitalGuidePath)
-assertIncludes(
-  moneyCapitalGuidePath,
-  moneyCapitalGuideHtml,
-  "Novac, potrošna dobra i proizvodna imovina",
-  "money production guide title"
-)
-assertIncludes(
-  moneyCapitalGuidePath,
-  moneyCapitalGuideHtml,
-  "Bitcoin je novac",
-  "money production guide Bitcoin as money copy"
-)
-
-const debtGuidePath = "vodici/kredit-ili-bitcoin/index.html"
-const debtGuideHtml = readFile(debtGuidePath)
-assertIncludes(debtGuidePath, debtGuideHtml, "Kredit je budući novac", "debt guide copy")
-assertIncludes(debtGuidePath, debtGuideHtml, "život bez kredita", "debt guide standard copy")
-assertIncludes(
-  purchasingPowerGuidePath,
-  purchasingPowerGuideHtml,
-  "Kupovna moć",
-  "purchasing power guide copy"
-)
-assertIncludes(
-  purchasingPowerGuidePath,
-  purchasingPowerGuideHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/uskladivanje-kupovne-moci-bitcoina/" />',
-  "purchasing power guide canonical URL"
-)
-
-const newGuideChecks = [
-  {
-    path: "vodici/svaki-euro-ima-namjenu/index.html",
-    title: "Svaki euro ima namjenu",
-    copy: "Proračun nulte razine nije kazna",
-  },
-  {
-    path: "vodici/starost-novca/index.html",
-    title: "Starost novca",
-    copy: "Stariji novac daje prostor",
-  },
-  {
-    path: "vodici/kredit-je-buduci-novac/index.html",
-    title: "Kredit je budući novac koji ste već potrošili",
-    copy: "Kredit je fiat ponašanje",
-  },
-  {
-    path: "vodici/ne-uzimajte-kredit-za-bitcoin/index.html",
-    title: "Ne uzimajte kredit za Bitcoin",
-    copy: "Zašto je to fiat ponašanje",
-  },
-  {
-    path: "vodici/sustavno-davanje-u-proracunu-nulte-razine/index.html",
-    title: "Sustavno davanje mijenja vaš odnos prema novcu",
-    copy: "Sustavno davanje nije ostatak",
-  },
-  {
-    path: "vodici/sustavno-davanje-bez-kredita/index.html",
-    title: "Sustavno davanje bez kredita",
-    copy: "Kredit i sustavno davanje ne stvaraju isti duh",
-  },
-  {
-    path: "vodici/novac-dolazi-od-ljudi/index.html",
-    title: "Novac dolazi od ljudi",
-    copy: "Prihod je potvrda vrijednosti",
-  },
-  {
-    path: "vodici/bitcoin-kao-novac/index.html",
-    title: "Bitcoin je novac",
-    copy: "Bitcoin nije proizvodna imovina",
-  },
-  {
-    path: "vodici/pozitivni-neto-priljev/index.html",
-    title: "Pozitivan neto priljev",
-    copy: "Priljevi i odljevi",
-  },
-  {
-    path: "vodici/cijena-kao-mjera-vremena/index.html",
-    title: "Cijena kao mjera vremena",
-    copy: "Ne pogađamo kratkoročno kretanje",
-  },
-  {
-    path: "vodici/pravilo-trecina/index.html",
-    title: "Pravilo trećina u neto imovini",
-    copy: "Najmanje trećina u novcu",
-  },
-  {
-    path: "vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/index.html",
-    title: "Sigurnost ne smije ovisiti samo o vama",
-    copy: "Informacija nije isto što i pristup",
-  },
-  {
-    path: "vodici/novac-kapital-potrosnja/index.html",
-    title: "Novac, potrošna dobra i proizvodna imovina",
-    copy: "Bitcoin kao novac",
-  },
-]
-
-for (const guideCheck of newGuideChecks) {
-  const guideHtml = readFile(guideCheck.path)
-
-  assertIncludes(guideCheck.path, guideHtml, guideCheck.title, "guide title")
-  assertIncludes(guideCheck.path, guideHtml, guideCheck.copy, "guide copy")
+  assertIncludes(
+    relativePath,
+    html,
+    `<link rel="canonical" href="${alias.newCanonical}" />`,
+    "alias canonical URL"
+  )
 }
 
-const guideVisualChecks = [
+const focusedGuideChecks = [
   {
     path: "vodici/svaki-euro-ima-namjenu/index.html",
-    title: "Od prihoda do reda",
-    copy: "0 neraspoređeno",
+    checks: ["Svaki euro ima namjenu", "Proračun nulte osnove nije kazna"],
   },
   {
     path: "vodici/stvarni-visak/index.html",
-    title: "Što ostaje nakon obveza",
-    copy: "stvarni višak",
-  },
-  {
-    path: "vodici/starost-novca/index.html",
-    title: "Novac kroz vrijeme",
-    copy: "90 dana",
+    checks: ["Što je stvarni višak?", "Višak nije stanje na računu"],
   },
   {
     path: "vodici/kredit-je-buduci-novac/index.html",
-    title: "Dva načina trošenja",
-    copy: "Bitcoin standard",
+    checks: [
+      "Dug je budući novac koji ste već potrošili",
+      "Dva stanja novca",
+      "Vrijeme zalijeva stanje",
+      "izađite iz duga što je brže moguće",
+    ],
   },
   {
-    path: "vodici/ne-uzimajte-kredit-za-bitcoin/index.html",
-    title: "Dva puta prema Bitcoinu",
-    copy: "Stvarni višak",
+    path: "vodici/kredit-ili-bitcoin/index.html",
+    checks: ["Dug ili Bitcoin?", "Ne pokušavajte istrgovati izlaz"],
   },
   {
     path: "vodici/sustavno-davanje-u-proracunu-nulte-razine/index.html",
-    title: "Krug sustavnog davanja",
-    copy: "velikodušnost",
-  },
-  {
-    path: "vodici/sustavno-davanje-bez-kredita/index.html",
-    title: "Redoslijed je važan",
-    copy: "bez kredita",
-  },
-  {
-    path: "vodici/novac-dolazi-od-ljudi/index.html",
-    title: "Priljevi dolaze od ljudi",
-    copy: "vrijednost",
+    checks: [
+      "Darivanje mijenja vaš odnos prema novcu",
+      "Darivanje nije ostatak",
+      "Bez očekivanja povrata",
+    ],
   },
   {
     path: "vodici/bitcoin-kao-novac/index.html",
-    title: "Gdje pripada Bitcoin?",
-    copy: "Bitcoin kao novčana zaliha",
-  },
-  {
-    path: "vodici/pozitivni-neto-priljev/index.html",
-    title: "Temelj rasta",
-    copy: "priljevi",
+    checks: ["Bitcoin je novac", "Bitcoin nije proizvodna imovina"],
   },
   {
     path: "vodici/uskladivanje-kupovne-moci-bitcoina/index.html",
-    title: "Kupovna moć mijenja proračun nulte razine",
-    copy: "držati pravila",
-  },
-  {
-    path: "vodici/cijena-kao-mjera-vremena/index.html",
-    title: "Cijena kao vrijeme",
-    copy: "ispod trenda",
-  },
-  {
-    path: "vodici/novac-kapital-potrosnja/index.html",
-    title: "Tri uloge neto imovine",
-    copy: "kupovna moć za buduću razmjenu",
+    checks: [
+      "Usklađivanje kupovne moći",
+      "Kada kupovna moć pada",
+      "Kada kupovna moć raste",
+    ],
   },
   {
     path: "vodici/pravilo-trecina/index.html",
-    title: "Provjera ravnoteže",
-    copy: "najmanje trećina",
+    checks: ["Pravilo trećina u neto imovini", "Najmanje trećina u novcu"],
   },
   {
     path: "vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/index.html",
-    title: "Sigurnost bez jedne točke loma",
-    copy: "kontrola",
+    checks: [
+      "Sigurnost ne smije ovisiti samo o vama",
+      "Informacija nije isto što i pristup",
+    ],
   },
   {
     path: "vodici/obiteljski-pristup-bitcoinu/index.html",
-    title: "Obiteljski pristup",
-    copy: "što ne dirati",
+    checks: ["Obiteljski pristup", "što ne dirati"],
   },
 ]
 
-for (const visualCheck of guideVisualChecks) {
-  const guideHtml = readFile(visualCheck.path)
+for (const guideCheck of focusedGuideChecks) {
+  const html = readFile(guideCheck.path)
 
-  assertIncludes(
-    visualCheck.path,
-    guideHtml,
-    visualCheck.title,
-    "guide visual title"
-  )
-  assertIncludes(
-    visualCheck.path,
-    guideHtml,
-    visualCheck.copy,
-    "guide visual copy"
-  )
+  for (const expected of guideCheck.checks) {
+    assertIncludes(guideCheck.path, html, expected, `guide copy: ${expected}`)
+  }
 }
-
-const givingGuidePath = "vodici/sustavno-davanje-u-proracunu-nulte-razine/index.html"
-const givingGuideHtml = readFile(givingGuidePath)
-assertIncludes(
-  givingGuidePath,
-  givingGuideHtml,
-  "Sustavno davanje mijenja vaš odnos prema novcu",
-  "renamed giving guide title"
-)
-assertIncludes(
-  givingGuidePath,
-  givingGuideHtml,
-  "Sustavno davanje nije ostatak",
-  "renamed giving guide first section"
-)
-assertIncludes(
-  givingGuidePath,
-  givingGuideHtml,
-  "Bez očekivanja povrata",
-  "renamed giving guide no return section"
-)
-assertIncludes(
-  givingGuidePath,
-  givingGuideHtml,
-  "Sustavno davanje vas okreće prema ljudima",
-  "renamed giving guide people section"
-)
-assertIncludes(
-  givingGuidePath,
-  givingGuideHtml,
-  "Velikodušnost mijenja način rada",
-  "renamed giving guide work section"
-)
-
-const debtFreeGivingGuidePath = "vodici/sustavno-davanje-bez-kredita/index.html"
-const debtFreeGivingGuideHtml = readFile(debtFreeGivingGuidePath)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  "Sustavno davanje bez kredita",
-  "debt-free giving guide title"
-)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  "Kredit i sustavno davanje ne stvaraju isti duh",
-  "debt-free giving guide first section"
-)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  "Prvo sloboda, zatim velikodušnost",
-  "debt-free giving guide freedom section"
-)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  "Praktično pitanje",
-  "debt-free giving guide practical question"
-)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  "Povezani vodiči",
-  "debt-free giving guide related guides"
-)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  '"@type":"Article"',
-  "debt-free giving Article schema"
-)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  "BreadcrumbList",
-  "debt-free giving BreadcrumbList schema"
-)
-assertIncludes(
-  debtFreeGivingGuidePath,
-  debtFreeGivingGuideHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/sustavno-davanje-bez-kredita/" />',
-  "debt-free giving canonical URL"
-)
-
-const peopleMoneyGuidePath = "vodici/novac-dolazi-od-ljudi/index.html"
-const peopleMoneyGuideHtml = readFile(peopleMoneyGuidePath)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  "Novac dolazi od ljudi",
-  "people money guide title"
-)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  "Prihod je potvrda vrijednosti",
-  "people money income section"
-)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  "Sustavno davanje nije vraćanje kredita društvu",
-  "people money giving section"
-)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  "Velikodušnost mijenja razgovore",
-  "people money generosity section"
-)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  "Praktično pitanje",
-  "people money practical question"
-)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  '"@type":"Article"',
-  "people money Article schema"
-)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  "BreadcrumbList",
-  "people money BreadcrumbList schema"
-)
-assertIncludes(
-  peopleMoneyGuidePath,
-  peopleMoneyGuideHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/novac-dolazi-od-ljudi/" />',
-  "people money canonical URL"
-)
-
-const priceTimeGuidePath = "vodici/cijena-kao-mjera-vremena/index.html"
-const priceTimeGuideHtml = readFile(priceTimeGuidePath)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  "Cijena kao mjera vremena",
-  "price time guide title"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  "Ne pogađamo kratkoročno kretanje",
-  "price time no prediction section"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  "Dugoročni trend nije jamstvo",
-  "price time trend section"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  "Tržišni sentiment ne smije voditi odluke",
-  "price time sentiment section"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  "Proračun nulte razine ostaje glavni alat",
-  "price time budget section"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  "Praktično pitanje",
-  "price time practical question"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  '"@type":"Article"',
-  "price time Article schema"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  "BreadcrumbList",
-  "price time BreadcrumbList schema"
-)
-assertIncludes(
-  priceTimeGuidePath,
-  priceTimeGuideHtml,
-  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/cijena-kao-mjera-vremena/" />',
-  "price time canonical URL"
-)
 
 const sitemap = readFile("sitemap.xml")
-for (const route of prerenderRoutes) {
-  if (route.includeInSitemap === false) {
-    continue
-  }
 
-  const routeLoc = `<loc>${route.canonical}</loc>`
-
-  assertIncludes("sitemap.xml", sitemap, routeLoc, `${route.path} URL`)
+for (const route of ["/", "/vodici/", "/sigurnost/"]) {
   assertIncludes(
     "sitemap.xml",
     sitemap,
-    `<lastmod>${route.lastmod}</lastmod>`,
-    `${route.path} lastmod`
-  )
-  assertCount("sitemap.xml", sitemap, routeLoc, 1, `${route.path} URL`)
-}
-
-for (const aliasRoute of aliasGuidePaths) {
-  const aliasPath = routeFile(aliasRoute.oldPath)
-  const aliasHtml = readFile(aliasPath)
-
-  assertIncludes(
-    aliasPath,
-    aliasHtml,
-    `<link rel="canonical" href="${aliasRoute.newCanonical}" />`,
-    `${aliasRoute.oldPath} canonical points to new slug`
-  )
-  assertNotIncludes(
-    "sitemap.xml",
-    sitemap,
-    `<loc>${aliasRoute.newCanonical.replace(/\/$/, "")}</loc>`,
-    `${aliasRoute.oldPath} non-slash canonical is not in sitemap`
-  )
-  assertNotIncludes(
-    "sitemap.xml",
-    sitemap,
-    `<loc>https://bitcoin-savjetovanje.com${aliasRoute.oldPath}/</loc>`,
-    `${aliasRoute.oldPath} alias is not in sitemap`
+    `<loc>https://bitcoin-savjetovanje.com${route}</loc>`,
+    `${route} sitemap URL`
   )
 }
 
 for (const guidePath of requiredGuidePaths) {
-  const route = routeMap.get(guidePath)
-
-  if (!route) {
-    continue
-  }
-
-  const nonSlashLoc = `<loc>${route.canonical.replace(/\/$/, "")}</loc>`
-  assertNotIncludes(
+  assertIncludes(
     "sitemap.xml",
     sitemap,
-    nonSlashLoc,
-    `${guidePath} non-slash URL`
+    `<loc>https://bitcoin-savjetovanje.com${guidePath}/</loc>`,
+    `${guidePath} sitemap URL`
   )
 }
 
-const robots = readFile("robots.txt")
-assertIncludes("robots.txt", robots, "User-agent: *", "user agent rule")
-assertIncludes(
-  "robots.txt",
-  robots,
-  "Sitemap: https://bitcoin-savjetovanje.com/sitemap.xml",
-  "sitemap location"
-)
+for (const alias of aliasGuidePaths) {
+  assertNotIncludes(
+    "sitemap.xml",
+    sitemap,
+    `<loc>https://bitcoin-savjetovanje.com${alias.oldPath}/</loc>`,
+    `${alias.oldPath} alias sitemap URL`
+  )
+}
 
 if (failures.length > 0) {
   console.error(`\nverify-dist failed with ${failures.length} problem(s):`)

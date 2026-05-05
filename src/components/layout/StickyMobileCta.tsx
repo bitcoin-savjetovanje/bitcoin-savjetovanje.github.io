@@ -8,9 +8,9 @@ export function StickyMobileCta() {
         target="_blank"
         rel="noopener noreferrer"
         className="cta-primary flex h-11 min-w-0 items-center justify-center rounded-full px-4 text-center text-sm font-semibold whitespace-nowrap"
-        data-cta="sticky-mobile-booking"
+        data-cta="sticky-mobile-standard-check"
       >
-        Uvodni razgovor · 15 min
+        Provjera standarda · 15 min
       </a>
     </div>
   )

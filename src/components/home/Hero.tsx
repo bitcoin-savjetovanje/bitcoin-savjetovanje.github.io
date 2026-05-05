@@ -2,7 +2,7 @@ import { ArrowUpRight, CalendarDays } from "lucide-react"
 
 import { StandardPathVisual } from "@/components/home/StandardPathVisual"
 import { Button } from "@/components/ui/button"
-import { BOOKING_URL, EMAIL } from "@/content/site"
+import { BOOKING_URL, EMAIL, PRIMARY_CTA, SECONDARY_CTA } from "@/content/site"
 
 export function Hero() {
   return (
@@ -10,16 +10,17 @@ export function Hero() {
       <div className="hero-shell">
         <div className="hero-copy">
           <h1 className="hero-title">
-            Imate Bitcoin? Izgradite osobni Bitcoin standard.
+            Imate Bitcoin. Ali imate li Bitcoin standard?
           </h1>
           <p className="hero-subtitle">
-            Bitcoin ne treba stajati sa strane vašeg života. Pomažem vam
-            napisati pravila za osobni proračun nulte razine, kredit, sustavno
-            davanje, Bitcoin kao novac, neto imovinu, sigurnost i obitelj.
+            Ako pad cijene stvara paniku, ako dug odlučuje umjesto vas, ako ne
+            znate što je stvarni višak ili ako obitelj ne zna plan, problem nije
+            Bitcoin. Problem je sustav oko njega.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Bez prognoza cijene. Bez trgovanja. Bez upravljanja vašim
-            sredstvima.
+            Pomažem vam provjeriti i izgraditi osobna pravila za proračun nulte
+            osnove, život bez duga, darivanje, Bitcoin kao novac, kupovnu moć,
+            neto imovinu, sigurnost i obiteljski pristup.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
@@ -32,10 +33,10 @@ export function Hero() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cta="hero-booking"
+                data-cta="hero-standard-check"
               >
                 <CalendarDays className="size-4" />
-                Dogovorite uvodni razgovor
+                {PRIMARY_CTA}
               </a>
             </Button>
             <Button
@@ -44,15 +45,15 @@ export function Hero() {
               size="lg"
               className="h-12 w-full rounded-full border-border/80 bg-background/70 px-5 text-base sm:w-auto sm:px-6"
             >
-              <a href="#metoda" data-link="hero-method">
-                Pogledajte redoslijed
+              <a href="#provjera" data-cta="hero-where-you-stand">
+                {SECONDARY_CTA}
                 <ArrowUpRight className="size-4" />
               </a>
             </Button>
           </div>
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            Uvodni razgovor je bez naknade i traje 15 minuta. Vidimo gdje ste i
-            koji je sljedeći razuman korak.
+            15 minuta. Bez naknade. Bez prognoza cijene. Bez upravljanja vašim
+            sredstvima.
           </p>
           <a
             className="mt-6 inline-block text-sm font-semibold break-all text-muted-foreground hover:text-primary sm:break-normal"

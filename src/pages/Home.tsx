@@ -1,20 +1,16 @@
 import { Seo } from "@/components/Seo"
 import { GuidesIndexSection } from "@/components/guides/GuidesIndexSection"
 import { AboutSection } from "@/components/home/AboutSection"
-import { BookingStepsSection } from "@/components/home/BookingStepsSection"
-import { DebtSection } from "@/components/home/DebtSection"
-import { FaqSection } from "@/components/home/FaqSection"
 import { FinalCta } from "@/components/home/FinalCta"
-import { GivingSection } from "@/components/home/GivingSection"
+import { FoundationsSection } from "@/components/home/FoundationsSection"
 import { Hero } from "@/components/home/Hero"
-import { MethodSection } from "@/components/home/MethodSection"
+import { NotDoingSection } from "@/components/home/NotDoingSection"
 import { OffersSection } from "@/components/home/OffersSection"
-import { PriceTimeSection } from "@/components/home/PriceTimeSection"
-import { ProblemSection } from "@/components/home/ProblemSection"
-import { ProgramOutputPreviewSection } from "@/components/home/ProgramOutputPreviewSection"
-import { ResultsSection } from "@/components/home/ResultsSection"
 import { SecurityTrustSection } from "@/components/home/SecurityTrustSection"
+import { StandardCheckSection } from "@/components/home/StandardCheckSection"
+import { StandardComparisonSection } from "@/components/home/StandardComparisonSection"
 import { TrustStrip } from "@/components/home/TrustStrip"
+import { VolatilityStressSection } from "@/components/home/VolatilityStressSection"
 import { homeRoute } from "@/content/routes"
 
 export function Home() {
@@ -29,19 +25,15 @@ export function Home() {
       />
       <Hero />
       <TrustStrip />
-      <ProblemSection />
-      <MethodSection />
-      <DebtSection />
-      <GivingSection />
-      <PriceTimeSection />
-      <ResultsSection />
-      <ProgramOutputPreviewSection />
+      <VolatilityStressSection />
+      <StandardComparisonSection />
+      <FoundationsSection />
+      <StandardCheckSection />
       <OffersSection />
-      <BookingStepsSection />
+      <NotDoingSection />
+      <GuidesIndexSection />
       <SecurityTrustSection />
       <AboutSection />
-      <FaqSection />
-      <GuidesIndexSection />
       <FinalCta />
     </>
   )

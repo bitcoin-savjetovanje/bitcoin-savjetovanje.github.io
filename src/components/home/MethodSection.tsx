@@ -36,9 +36,9 @@ export function MethodSection() {
       <div className="program-summary space-y-4">
         <p>
           Praktični Bitcoin standard nije teorija o cijeni. To je redoslijed za
-          stvarni život: osobni proračun nulte razine, život bez kredita,
-          sustavno davanje, Bitcoin kao novac, usklađivanje kupovne moći i
-          ravnoteža neto imovine.
+          stvarni život: osobni proračun nulte osnove, život bez duga,
+          darivanje, Bitcoin kao novac, usklađivanje kupovne moći i ravnoteža
+          neto imovine.
         </p>
         <p className="text-sm leading-7 font-medium">
           Cilj nije savršena teorija, nego osobni standard koji možete koristiti

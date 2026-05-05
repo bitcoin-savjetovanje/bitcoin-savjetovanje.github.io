@@ -5,12 +5,14 @@ import { BOOKING_URL, EMAIL, PRIMARY_CTA } from "@/content/site"
 
 export function FinalCta() {
   return (
-    <section id="kontakt" className="section-shell">
+    <section id="razgovor" className="section-shell">
       <div className="final-cta">
         <div>
-          <h2>Ako želite jasna pravila, krenimo s 15 minuta.</h2>
+          <h2>
+            Provjerite što bi vaš sustav napravio kada Bitcoin napravi bilo što.
+          </h2>
           <p>
-            Uvodni razgovor je bez naknade i traje 15 minuta. Vidjet ćemo gdje
+            Provjera traje 15 minuta, bez naknade i bez obveze. Vidjet ćemo gdje
             ste u odnosu na osobni Bitcoin standard i koji je sljedeći razuman
             korak.
           </p>
@@ -25,7 +27,7 @@ export function FinalCta() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              data-cta="final-booking"
+              data-cta="final-standard-check"
             >
               <CalendarDays className="size-4" />
               <span>{PRIMARY_CTA}</span>

@@ -62,8 +62,8 @@ export function PriceTimeSection() {
     <section className="section-shell">
       <div className="case-panel">
         <SectionHeader
-          title="Cijena nije prognoza. Cijena je signal za proračun nulte razine."
-          copy="Ne pokušavamo pogoditi kratkoročno kretanje cijene. Cijenu koristimo samo kao pomoćni signal da se vratimo proračunu nulte razine, kreditu, budućim odljevima i stvarnom višku."
+          title="Cijena nije prognoza. Cijena je signal za proračun nulte osnove."
+          copy="Ne pokušavamo pogoditi kratkoročno kretanje cijene. Cijenu koristimo samo kao pomoćni signal da se vratimo proračunu nulte osnove, dugu, budućim odljevima i stvarnom višku."
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.85fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-8 text-muted-foreground">
@@ -74,7 +74,7 @@ export function PriceTimeSection() {
             <p>
               Taj dugoročni potencijski trend (Bitcoin power law) nije
               kratkoročna prognoza cijene. To je pomoćni način razmišljanja o
-              vremenu, kupovnoj moći i proračunu nulte razine.
+              vremenu, kupovnoj moći i proračunu nulte osnove.
             </p>
             <PriceTimeVisual />
           </div>

@@ -1,5 +1,5 @@
 export const neverAskItems = [
-  "početne riječi (seed phrase)",
+  "početne riječi",
   "privatne ključeve",
   "lozinke",
   "pristup burzi",
@@ -14,6 +14,8 @@ export const securityReviewItems = [
   "što dokumentirati",
   "kako izbjeći jednu točku kvara",
   "kako pripremiti obiteljski pristup",
+  "što obitelj smije napraviti",
+  "što obitelj nikada ne smije napraviti",
   "oporavak sredstava",
   "koje odluke trebate donijeti sami",
   "kako razgovarati o sigurnosti bez otkrivanja osjetljivih podataka",
@@ -34,5 +36,6 @@ export const notDoingSecurityItems = [
   "ne kupujem ni prodajem u vaše ime",
   "ne upravljam novcem",
   "ne donosim odluke umjesto vas",
-  "ne dajem porezno, pravno ili licencirano investicijsko mišljenje",
+  "ne tražim početne riječi ni privatne ključeve",
+  "ne dajem porezni, pravni ili licencirani investicijski savjet",
 ]

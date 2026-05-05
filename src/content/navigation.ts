@@ -1,8 +1,8 @@
 export const navLinks = [
-  { label: "Metoda", href: "/#metoda" },
+  { label: "Provjera", href: "/#provjera" },
   { label: "Program", href: "/#program" },
-  { label: "Sigurnost", href: "/sigurnost/" },
   { label: "Vodiči", href: "/vodici/" },
+  { label: "Sigurnost", href: "/sigurnost/" },
   { label: "O meni", href: "/#o-meni" },
-  { label: "Pitanja", href: "/#pitanja" },
+  { label: "Razgovor", href: "/#razgovor" },
 ]

@@ -1,6 +1,7 @@
 import { CalendarDays, Mail } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
+import { aboutCards } from "@/content/method"
 import {
   BITCOIN_STANDARD_BOOK_URL,
   BOOKING_URL,
@@ -17,8 +18,8 @@ export function AboutSection() {
   return (
     <section id="o-meni" className="section-shell section-muted">
       <SectionHeader
-        title="Ne savjetujem o sustavu koji ne živim."
-        copy="Okvir je nastao iz stvarnog života: proračuna nulte razine, kredita, rada, sigurnosti i korištenja Bitcoina kao novca."
+        title="Ne pomažem vam napraviti nešto što sam promatrao izvana."
+        copy="Pomažem vam postaviti pravila iz prakse koju sam morao naučiti živjeti."
       />
       <div className="credibility-grid">
         <aside className="profile-panel">
@@ -34,7 +35,7 @@ export function AboutSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={PRIMARY_CTA}
-              data-cta="about-booking"
+              data-cta="about-standard-check"
             >
               <CalendarDays className="size-4" />
             </a>
@@ -44,7 +45,7 @@ export function AboutSection() {
           <div className="credibility-copy">
             <p>
               U Bitcoinu sam od 2014. Od 2020. živim na Bitcoin standardu. Radio
-              sam šest godina sa{" "}
+              sam u Bitcoin industriji i radio sam sa{" "}
               <a
                 href={SAIFEDEAN_AMMOUS_URL}
                 target="_blank"
@@ -75,7 +76,8 @@ export function AboutSection() {
               .
             </p>
             <p>
-              Pišem otvoreni priručnik{" "}
+              Ovaj okvir nije teorija za druge. Nastao je iz pokušaja življenja
+              s Bitcoinom kao novcem i iz rada na otvorenom priručniku{" "}
               <a
                 href={PRACTICAL_BITCOIN_STANDARD_URL}
                 data-link="practical-bitcoin-standard"
@@ -84,16 +86,18 @@ export function AboutSection() {
               </a>
               .
             </p>
-            <p>Moj posao nije nagovarati vas da kupite ili prodate Bitcoin.</p>
+            <p>
+              Moj posao nije nagovarati vas da kupite ili prodate Bitcoin. Moj
+              posao je pomoći vam postaviti pravila koja možete živjeti i
+              objasniti obitelji.
+            </p>
             <div className="grid gap-2 pt-2 sm:grid-cols-2">
-              {[
-                "živim na Bitcoin standardu",
-                "radio sam sa Saifedeanom Ammousom direktno",
-                "radim na Bitcoin edukaciji i sadržaju",
-                "višegodišnje prakse",
-              ].map((item) => (
-                <div key={item} className="check-row bg-background/70">
-                  <p>{item}</p>
+              {aboutCards.map((item) => (
+                <div key={item.title} className="check-row bg-background/70">
+                  <p>
+                    <strong className="text-foreground">{item.title}:</strong>{" "}
+                    {item.copy}
+                  </p>
                 </div>
               ))}
             </div>

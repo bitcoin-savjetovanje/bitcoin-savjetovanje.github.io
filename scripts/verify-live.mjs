@@ -1,10 +1,14 @@
 const baseUrl = "https://bitcoin-savjetovanje.com"
 const failures = []
+const words = (...parts) => parts.join(" ")
 
 const forbiddenVisibleText = [
-  "Bitcoin kao novac, kapital i potrošnja",
-  "dugoročnog kapitala",
-  "Bitcoin kao kapital",
+  "proračun nulte razine",
+  "Dogovorite 15-minutni uvodni razgovor",
+  "Strukturirani program",
+  "Savjetodavni razgovor",
+  "Uvodni razgovor",
+  words("Bitcoin kao", "kapital"),
   "crypto",
   "ROI",
   "custody",
@@ -20,48 +24,51 @@ const pageChecks = [
   {
     path: "/",
     includes: [
-      "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
-      "Bez prognoza cijene",
-      "Praktični Bitcoin standard ima redoslijed.",
+      "Imate Bitcoin. Ali imate li Bitcoin standard?",
+      "Volatilnost otkriva imate li standard.",
+      "Koliko je vaš Bitcoin standard stvaran?",
+      "Izgradnja osobnog Bitcoin standarda",
+      "Dogovorite provjeru osobnog Bitcoin standarda",
     ],
   },
   {
     path: "/vodici/",
     includes: [
-      "Preporučeni redoslijed čitanja",
-      "Ako nemate osobni proračun nulte razine",
-      "Ako imate kredit",
+      "Vodiči za osobni Bitcoin standard",
+      "Razina 1: Imate Bitcoin, ali još živite po fiat pravilima",
+      "Razina 2: Gradite osobni Bitcoin standard",
+      "Razina 3: Živite i usavršavate standard",
     ],
   },
   {
     path: "/sigurnost/",
     includes: [
-      "Nikada ne tražim",
+      "Bitcoin mora ostati pod vašom kontrolom",
       "početne riječi",
       "privatne ključeve",
       "ne čuvam Bitcoin",
-      "model skrbništva",
+      "što obitelj smije napraviti",
     ],
   },
   {
     path: "/vodici/kredit-je-buduci-novac/",
-    includes: ["Kredit je budući novac koji ste već potrošili"],
+    includes: ["Dug je budući novac koji ste već potrošili"],
   },
   {
     path: "/vodici/kredit-ili-bitcoin/",
-    includes: ["Zašto kredit i Bitcoin ne idu zajedno?"],
+    includes: ["Dug ili Bitcoin?"],
   },
   {
     path: "/vodici/ne-uzimajte-kredit-za-bitcoin/",
-    includes: ["Ne uzimajte kredit za Bitcoin"],
+    includes: ["Ne zadužujte se za Bitcoin"],
   },
   {
     path: "/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
-    includes: ["Sustavno davanje mijenja vaš odnos prema novcu"],
+    includes: ["Darivanje mijenja vaš odnos prema novcu"],
   },
   {
-    path: "/vodici/sustavno-davanje-bez-kredita/",
-    includes: ["Sustavno davanje bez kredita"],
+    path: "/vodici/uskladivanje-kupovne-moci-bitcoina/",
+    includes: ["Kada kupovna moć pada", "Kada kupovna moć raste"],
   },
   {
     path: "/vodici/dug-je-buduci-novac/",
@@ -139,7 +146,7 @@ try {
     `${baseUrl}/vodici/kredit-ili-bitcoin/`,
     `${baseUrl}/vodici/ne-uzimajte-kredit-za-bitcoin/`,
     `${baseUrl}/vodici/sustavno-davanje-u-proracunu-nulte-razine/`,
-    `${baseUrl}/vodici/sustavno-davanje-bez-kredita/`,
+    `${baseUrl}/vodici/uskladivanje-kupovne-moci-bitcoina/`,
   ]) {
     if (sitemap.includes(`<loc>${expectedUrl}</loc>`)) {
       pass(`sitemap contains ${expectedUrl}`)

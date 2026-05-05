@@ -1,8 +1,9 @@
 export const SITE_URL = "https://bitcoin-savjetovanje.com"
 export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
 export const EMAIL = "pavao@hey.com"
-export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
-export const SITE_UPDATED_AT = "2026-05-01"
+export const PRIMARY_CTA = "Dogovorite provjeru osobnog Bitcoin standarda"
+export const SECONDARY_CTA = "Provjerite gdje ste"
+export const SITE_UPDATED_AT = "2026-05-05"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
@@ -14,45 +15,45 @@ export const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
 export const TWENTYONE_URL = "https://twentyone.world"
 
 export const homeSeo = {
-  title: "Bitcoin Savjetovanje | Osobni Bitcoin standard",
+  title: "Bitcoin Savjetovanje | Provjera osobnog Bitcoin standarda",
   description:
-    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Uredite osobni proračun nulte razine, kredit, sustavno davanje, kupovnu moć, neto imovinu i sigurnost.",
+    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Provjerite pravila za proračun nulte osnove, život bez duga, darivanje, Bitcoin kao novac, kupovnu moć, neto imovinu, sigurnost i obitelj.",
   canonical: `${SITE_URL}/`,
 }
 
 export const guidesIndexSeo = {
   title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Vodiči kroz Praktični Bitcoin standard: osobni proračun nulte razine, život bez kredita, sustavno davanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
+    "Vodiči za prijelaz iz “imam Bitcoin” u osobni Bitcoin standard: proračun nulte osnove, dug, darivanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 
 export const securitySeo = {
   title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
   description:
-    "Sigurnost kao dio osobnog Bitcoin standarda: skrbništvo prema spremnosti, bez početnih riječi, bez privatnih ključeva, bez pristupa računima i bez čuvanja Bitcoina.",
+    "Sigurnost kao dio osobnog Bitcoin standarda: Bitcoin ostaje pod vašom kontrolom, ali obitelj ima jasna pravila bez dijeljenja početnih riječi i privatnih ključeva.",
   canonical: `${SITE_URL}/sigurnost/`,
 }
 
 export const heroOutcomes = [
   "Svaki euro ima namjenu.",
-  "Kredit ima plan izlaska.",
-  "Sustavno davanje ima mjesto.",
+  "Dug ima plan izlaska.",
+  "Darivanje ima mjesto.",
   "Bitcoin ima ulogu novca.",
 ]
 
 export const trustCards = [
   {
     title: "U Bitcoinu od 2014.",
-    copy: "Praktično iskustvo korištenja i proučavanja Bitcoina kroz višegodišnje cikluse.",
+    copy: "Iskustvo kroz više ciklusa, bez potrebe za prognozama cijene.",
   },
   {
     title: "Bitcoin standard od 2020.",
-    copy: "Praksa korištenja Bitcoina kao primarnog novca.",
+    copy: "Okvir je nastao iz pokušaja življenja s Bitcoinom kao novcem.",
   },
   {
     title: "Profesionalan rad u industriji",
-    copy: "Operativni rad s autorom svjetskog bestsellera The Bitcoin Standard.",
+    copy: "Radio sam u Bitcoin industriji i sa Saifedeanom Ammousom.",
   },
 ]
 

@@ -3,35 +3,29 @@ import { Check, X } from "lucide-react"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 
 const neverAsk = [
-  "početne riječi (seed phrase)",
+  "početne riječi",
   "privatne ključeve",
+  "lozinke",
   "pristup računima",
-  "pristup uređajima",
   "slanje Bitcoina meni na čuvanje",
 ]
 
-const workOn = [
-  "modelu skrbništva prikladnom za vašu situaciju",
-  "pravilima pristupa",
-  "obiteljskim uputama",
-  "oporavku sredstava",
-  "smanjenju rizika",
+const familyRules = [
+  "obitelj zna što smije napraviti",
+  "obitelj zna što nikada ne smije napraviti",
+  "početne riječi i privatni ključevi se ne dijele sa savjetnikom",
+  "postoji jasan plan bez predaje kontrole",
+  "upute su razumljive i u izvanrednoj situaciji",
 ]
 
 export function SecurityTrustSection() {
   return (
-    <section className="section-shell section-muted">
+    <section id="sigurnost" className="section-shell section-muted">
       <div className="case-panel border-primary/25">
         <SectionHeader
-          title="Sigurnost nije dogma. Sigurnost je sustav."
-          copy="Ne tražim ključeve, početne riječi ni pristup računima. Ne čuvam vaš Bitcoin i ne donosim odluke umjesto vas."
+          title="Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama."
+          copy="Cilj nije da netko drugi ima kontrolu. Cilj je da obitelj zna pravila, da ne otkriva osjetljive podatke i da u krizi ne napravi prvi pogrešan korak."
         />
-        <p className="mt-6 max-w-4xl text-base leading-8 text-muted-foreground">
-          Rješenje za skrbništvo biramo prema vašem znanju, sigurnosnim
-          navikama, obiteljskoj situaciji i razini spremnosti. Za nekoga je cilj
-          samostalno čuvanje. Za nekoga je bolji prijelazni model. Za svakoga je
-          cilj isti: manje rizika i više jasnoće.
-        </p>
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
             <h3 className="text-xl font-semibold">Nikada ne tražim:</h3>
@@ -47,7 +41,7 @@ export function SecurityTrustSection() {
           <section className="rounded-2xl border border-primary/25 bg-background/70 p-5 shadow-sm">
             <h3 className="text-xl font-semibold">Radimo na:</h3>
             <div className="mt-5 grid gap-2">
-              {workOn.map((item) => (
+              {familyRules.map((item) => (
                 <div key={item} className="not-for-row bg-card">
                   <Check className="positive-icon size-3.5" />
                   <p>{item}</p>

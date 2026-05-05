@@ -1,22 +1,21 @@
-import { X } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
 
-const debtItems = [
-  "Kredit povećava buduće odljeve.",
-  "Kredit smanjuje slobodu.",
-  "Kredit otežava mirno držanje Bitcoina.",
-  "Kredit je fiat ponašanje koje Bitcoin standard mora ukloniti.",
-]
-
-const spendingPaths = [
+const moneyStates = [
   {
-    label: "Fiat pravilo",
-    steps: ["Potroši danas", "plati sutra", "budućnost gubi slobodu"],
+    label: "Život u dugu",
+    steps: [
+      "budući novac",
+      "nemir",
+      "zbunjenost",
+      "ropstvo",
+      "odluke pod pritiskom",
+    ],
   },
   {
-    label: "Bitcoin standard",
-    steps: ["Štedi danas", "troši prošli novac", "budućnost ostaje slobodna"],
+    label: "Život bez duga",
+    steps: ["prošli novac", "mir", "jasnoća", "sloboda", "odluke bez očaja"],
   },
 ]
 
@@ -25,51 +24,50 @@ export function DebtSection() {
     <section className="section-shell section-muted">
       <div className="case-panel border-primary/25">
         <SectionHeader
-          title="Kredit je budući novac koji ste već potrošili."
-          copy="Kredit nije samo kamata. Kredit je obveza prema budućnosti. Svaka rata uzima dio vašeg budućeg vremena prije nego što ga uopće živite."
+          title="Dug nije samo broj. Dug je stanje."
+          copy="Kamata, rata i rok nisu nevažni, ali nisu glavno pitanje. Glavno pitanje je koliko dugo živite u stanju duga i što to stanje radi vašim odlukama."
         />
-        <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-start">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[0.85fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-8 text-muted-foreground">
             <p>
-              Dok kredit postoji, on ulazi u svaku Bitcoin odluku. Može vas
-              natjerati da prodate kada ne želite. Može vas spriječiti da
-              čekate. Može pretvoriti promjenu kupovne moći u pritisak.
+              Dug nije samo financijska stavka u bilanci. Život u dugu i život
+              bez duga dva su različita psihološko-duhovna stanja. Jedno hrani
+              nemir, ropstvo i zbunjenost. Drugo hrani slobodu, mir i jasnoću.
             </p>
             <p className="text-xl leading-8 font-semibold text-foreground">
-              Bitcoin standard ne počinje većom kupnjom. Počinje izlaskom iz
-              kredita.
+              Vrijeme zalijeva stanje u kojem živite.
             </p>
+            <a
+              href="/vodici/kredit-je-buduci-novac/"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+              data-link="debt-guide"
+            >
+              Pročitajte vodič o životu bez duga
+              <ArrowUpRight className="size-4" />
+            </a>
           </div>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {debtItems.map((item) => (
-              <div key={item} className="not-for-row bg-background/70">
-                <X className="negative-icon size-3.5" />
-                <p>{item}</p>
-              </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {moneyStates.map((state) => (
+              <article
+                key={state.label}
+                className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm"
+              >
+                <h3 className="text-lg font-semibold">{state.label}</h3>
+                <ol className="mt-5 grid gap-3">
+                  {state.steps.map((step, index) => (
+                    <li key={step} className="flex items-center gap-3">
+                      <span className="grid size-7 shrink-0 place-items-center rounded-full border border-border/80 bg-card text-xs font-semibold text-muted-foreground">
+                        {index + 1}
+                      </span>
+                      <span className="text-sm font-semibold text-foreground">
+                        {step}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </article>
             ))}
           </div>
-        </div>
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
-          {spendingPaths.map((path) => (
-            <article
-              key={path.label}
-              className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm"
-            >
-              <h3 className="text-lg font-semibold">{path.label}</h3>
-              <ol className="mt-5 grid gap-3">
-                {path.steps.map((step, index) => (
-                  <li key={step} className="flex items-center gap-3">
-                    <span className="grid size-7 shrink-0 place-items-center rounded-full border border-border/80 bg-card text-xs font-semibold text-muted-foreground">
-                      {index + 1}
-                    </span>
-                    <span className="text-sm font-semibold text-foreground">
-                      {step}
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </article>
-          ))}
         </div>
       </div>
     </section>

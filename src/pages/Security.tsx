@@ -66,9 +66,10 @@ export function Security() {
             Sigurnost i povjerljivost
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Sigurnost nije dogma. Cilj nije svima preporučiti isti model
-            skrbništva, nego pronaći rješenje koje odgovara vašem znanju,
-            sigurnosnim navikama, obitelji i trenutnoj situaciji.
+            Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti
+            samo o vama. Cilj nije da netko drugi ima kontrolu, nego da postoji
+            jasan plan koji obitelj razumije bez otkrivanja osjetljivih
+            podataka.
           </p>
         </header>
 
@@ -94,8 +95,10 @@ export function Security() {
             <p className="mt-5 text-base leading-8 text-muted-foreground">
               Razgovori su povjerljivi. Ne objavljujem osobne podatke,
               financijsku situaciju ni pojedinosti razgovora. Za rad nije
-              potrebno dijeliti početne riječi (seed phrase), privatne ključeve,
-              lozinke ili pristup računima.
+              potrebno dijeliti početne riječi, privatne ključeve, lozinke ili
+              pristup računima. Obitelj treba znati što smije napraviti i što
+              nikada ne smije napraviti, ali savjetnik ne treba kontrolu nad
+              vašim Bitcoinom.
             </p>
           </section>
         </div>
@@ -106,7 +109,7 @@ export function Security() {
               Želite urediti sigurnosni okvir bez predaje kontrole?
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-8 text-background/72">
-              Uvodni razgovor traje 15 minuta, bez naknade i bez obveze.
+              Provjera traje 15 minuta, bez naknade i bez obveze.
             </p>
           </div>
           <Button
@@ -119,7 +122,7 @@ export function Security() {
               target="_blank"
               rel="noopener noreferrer"
               className="justify-center"
-              data-cta="security-booking"
+              data-cta="security-standard-check"
             >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}

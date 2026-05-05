@@ -22,37 +22,45 @@ const recommendedGuides = recommendedGuideSlugs
   .map((slug) => findGuide(slug))
   .filter(Boolean)
 
-const startPaths = [
+const guideLevels = [
   {
-    title: "Ako nemate osobni proračun nulte razine",
+    title: "Razina 1: Imate Bitcoin, ali još živite po fiat pravilima",
+    copy: "Prvo uredite novac koji već imate: namjenu, stvarni višak, dug i naviku redovite kupnje.",
     guides: guideList([
       "svaki-euro-ima-namjenu",
       "stvarni-visak",
-      "starost-novca",
-    ]),
-  },
-  {
-    title: "Ako imate kredit",
-    guides: guideList([
       "kredit-je-buduci-novac",
-      "kredit-ili-bitcoin",
-      "ne-uzimajte-kredit-za-bitcoin",
+      "dca-nije-dovoljan",
     ]),
   },
   {
-    title: "Ako već koristite Bitcoin kao novac",
+    title: "Razina 2: Gradite osobni Bitcoin standard",
+    copy: "Zatim se Bitcoin povezuje s darivanjem, kupovnom moći, priljevima i ulogom novca.",
     guides: guideList([
+      "sustavno-davanje-u-proracunu-nulte-razine",
       "bitcoin-kao-novac",
       "uskladivanje-kupovne-moci-bitcoina",
+      "pozitivni-neto-priljev",
+      "novac-dolazi-od-ljudi",
+    ]),
+  },
+  {
+    title: "Razina 3: Živite i usavršavate standard",
+    copy: "Na kraju provjeravate neto imovinu, pravilo trećina, reakcije na promjene kupovne moći, sigurnost i obitelj.",
+    guides: guideList([
       "pravilo-trecina",
+      "bitcoin-u-neto-imovini",
+      "cijena-kao-mjera-vremena",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+      "obiteljski-pristup-bitcoinu",
     ]),
   },
 ]
 
 const standardPathSteps = [
-  "proračun nulte razine",
-  "bez kredita",
-  "sustavno davanje",
+  "proračun nulte osnove",
+  "život bez duga",
+  "darivanje",
   "Bitcoin kao novac",
   "kupovna moć",
   "neto imovina",
@@ -79,7 +87,8 @@ export function GuidesIndex() {
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Ako želite razumjeti okvir, čitajte vodiče. Ako ga želite
-            primijeniti na svoju situaciju, rezervirajte razgovor.
+            primijeniti na vlastiti proračun, dug, darivanje, Bitcoin, neto
+            imovinu i obitelj, dogovorite provjeru.
           </p>
         </header>
 
@@ -92,12 +101,13 @@ export function GuidesIndex() {
               Ne čitajte sve odjednom. Krenite redom.
             </h2>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Krenite redom. Prvo novac koji imate. Zatim kredit. Zatim sustavno
-              davanje. Tek onda Bitcoin kao novac, neto imovina i sigurnost.
+              Vodiči su za razumijevanje. Razgovor je za primjenu. Krenite od
+              novca koji imate, zatim od duga i darivanja, a tek onda od
+              Bitcoina kao novca, neto imovine i sigurnosti.
             </p>
             <p className="mt-3 text-sm leading-7 font-semibold text-foreground">
-              Redoslijed je važan: sustavno davanje ne dolazi iz kredita ni
-              krivnje, nego iz uređenog novca.
+              Redoslijed je važan: osobni Bitcoin standard nije popis tekstova,
+              nego sustav pravila koji treba primijeniti.
             </p>
           </div>
           <div
@@ -139,12 +149,15 @@ export function GuidesIndex() {
             )}
           </ol>
           <div className="mt-8 grid gap-4 border-t border-border/70 pt-6 lg:grid-cols-3">
-            {startPaths.map((path) => (
+            {guideLevels.map((path) => (
               <section
                 key={path.title}
                 className="rounded-2xl border border-border/80 bg-background/70 p-4 shadow-sm"
               >
                 <h3 className="text-lg font-semibold">{path.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {path.copy}
+                </p>
                 <ol className="mt-4 grid gap-2">
                   {path.guides.map((guide, index) =>
                     guide ? (
@@ -201,8 +214,8 @@ export function GuidesIndex() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
             Bitcoin standard nije samo posjedovanje Bitcoina. Nastaje kada vaš
-            novac, kredit, potrošnja, proizvodna imovina, sigurnost i obitelj
-            imaju pravila.
+            novac, dug, darivanje, neto imovina, sigurnost i obitelj imaju
+            pravila.
           </p>
           <Button
             asChild
@@ -213,7 +226,7 @@ export function GuidesIndex() {
               target="_blank"
               rel="noopener noreferrer"
               className="justify-center text-center"
-              data-cta="guides-index-booking"
+              data-cta="guides-index-standard-check"
             >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}

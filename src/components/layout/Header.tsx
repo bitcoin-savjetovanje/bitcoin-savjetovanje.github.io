@@ -7,10 +7,10 @@ import { navLinks } from "@/content/navigation"
 import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
 
 const tabletNavLinks = [
-  { label: "Metoda", href: "/#metoda" },
+  { label: "Provjera", href: "/#provjera" },
   { label: "Program", href: "/#program" },
-  { label: "Sigurnost", href: "/sigurnost/" },
   { label: "Vodiči", href: "/vodici/" },
+  { label: "Sigurnost", href: "/sigurnost/" },
 ]
 
 function ThemeToggle() {
@@ -103,7 +103,7 @@ export function Header() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              data-cta="header-booking"
+              data-cta="header-standard-check"
             >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}
@@ -151,7 +151,7 @@ export function Header() {
             rel="noopener noreferrer"
             className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
             onClick={() => setMobileMenuOpen(false)}
-            data-cta="mobile-menu-booking"
+            data-cta="mobile-menu-standard-check"
           >
             {PRIMARY_CTA}
           </a>

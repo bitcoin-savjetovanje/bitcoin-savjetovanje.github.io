@@ -42,7 +42,7 @@ const pageChecks = [
       "Bitcoin padne 40%",
       "Bitcoin naraste 100%",
       "Partner pita",
-      "Darivanje nije ukras Bitcoin standarda.",
+      "Davanje nije ukras Bitcoin standarda.",
       "novac dolazi kroz ljude",
       "Koliko je vaš Bitcoin standard stvaran?",
       "Izgradnja osobnog Bitcoin standarda",
@@ -52,7 +52,7 @@ const pageChecks = [
       "Moram li već imati Bitcoin?",
       "Što ako imam dug?",
       "Hoćete li mi reći koliko Bitcoina kupiti ili prodati?",
-      "Zašto je darivanje dio Bitcoin standarda?",
+      "Zašto je davanje dio Bitcoin standarda?",
       "Dogovorite provjeru osobnog Bitcoin standarda",
     ],
   },
@@ -89,12 +89,12 @@ const pageChecks = [
     includes: ["Ne zadužujte se za Bitcoin"],
   },
   {
-    path: "/vodici/darivanje-u-proracunu-nulte-osnove/",
-    includes: ["Darivanje mijenja vaš odnos prema novcu"],
+    path: "/vodici/davanje-u-proracunu-nulte-osnove/",
+    includes: ["Davanje mijenja vaš odnos prema novcu"],
   },
   {
-    path: "/vodici/darivanje-bez-duga/",
-    includes: ["Darivanje bez duga"],
+    path: "/vodici/davanje-bez-duga/",
+    includes: ["Davanje bez duga"],
   },
   {
     path: "/vodici/uskladivanje-kupovne-moci-bitcoina/",
@@ -121,19 +121,19 @@ const pageChecks = [
   {
     path: "/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
     includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/" />',
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/davanje-u-proracunu-nulte-osnove/" />',
     ],
   },
   {
     path: "/vodici/sustavno-davanje-bez-kredita/",
     includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-bez-duga/" />',
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/davanje-bez-duga/" />',
     ],
   },
   {
-    path: "/vodici/darivanje-u-proracunu/",
+    path: "/vodici/davanje-u-proracunu/",
     includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/" />',
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/davanje-u-proracunu-nulte-osnove/" />',
     ],
   },
 ]
@@ -199,8 +199,8 @@ try {
     `${baseUrl}/vodici/dug-je-buduci-novac/`,
     `${baseUrl}/vodici/dug-ili-bitcoin/`,
     `${baseUrl}/vodici/ne-zaduzujte-se-za-bitcoin/`,
-    `${baseUrl}/vodici/darivanje-u-proracunu-nulte-osnove/`,
-    `${baseUrl}/vodici/darivanje-bez-duga/`,
+    `${baseUrl}/vodici/davanje-u-proracunu-nulte-osnove/`,
+    `${baseUrl}/vodici/davanje-bez-duga/`,
     `${baseUrl}/vodici/uskladivanje-kupovne-moci-bitcoina/`,
   ]) {
     if (sitemap.includes(`<loc>${expectedUrl}</loc>`)) {
@@ -216,7 +216,7 @@ try {
     `${baseUrl}/vodici/ne-uzimajte-kredit-za-bitcoin/`,
     `${baseUrl}/vodici/sustavno-davanje-u-proracunu-nulte-razine/`,
     `${baseUrl}/vodici/sustavno-davanje-bez-kredita/`,
-    `${baseUrl}/vodici/darivanje-u-proracunu/`,
+    `${baseUrl}/vodici/davanje-u-proracunu/`,
   ]) {
     if (sitemap.includes(`<loc>${removedUrl}</loc>`)) {
       fail(`sitemap still contains alias URL ${removedUrl}`)

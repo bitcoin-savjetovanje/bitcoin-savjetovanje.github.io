@@ -1,47 +1,43 @@
-import { CircleAlert, Landmark, TrendingDown, TrendingUp } from "lucide-react"
+import { ArrowUpDown, ShieldCheck, Wallet } from "lucide-react"
 
 const stressScenarios = [
   {
-    title: "Bitcoin padne",
-    question: "Prodajete pod pritiskom ili znate koji novac ima namjenu?",
-    Icon: TrendingDown,
-  },
-  {
-    title: "Bitcoin naraste",
+    title: "Kako reagirate kad se Bitcoin tečaj promijeni?",
     question:
-      "Trošite iz euforije ili unaprijed plaćate ciljeve i povećavate darivanje?",
-    Icon: TrendingUp,
+      "Strah u padu, euforija u rastu — ili unaprijed postavljena pravila?",
+    Icon: ArrowUpDown,
   },
   {
-    title: "Dođe veliki trošak",
+    title: "Je li vaša ukupna imovina u ravnoteži?",
     question:
-      "Dirate Bitcoin iz panike ili već imate stvarni višak i buduće odljeve?",
-    Icon: CircleAlert,
+      "Gdje je Bitcoin u sklopu vaše ukupne imovine, i što planirate kod većih pomaka?",
+    Icon: Wallet,
   },
   {
-    title: "Obitelj treba reagirati",
-    question: "Ovisi li sve o vama ili postoje jasna sigurnosna pravila?",
-    Icon: Landmark,
+    title: "Kako ste uredili skrbništvo i pristup Bitcoinu za vašu obitelj?",
+    question:
+      "Imate li jasan plan i protokol za upravljanje Bitcoinom, kojeg zna i obitelj?",
+    Icon: ShieldCheck,
   },
 ]
 
 export function BitcoinStressTestVisual() {
   return (
     <div
-      className="relative mx-auto w-full max-w-[500px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-7"
+      className="relative mx-auto w-full max-w-[500px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-6"
       role="img"
-      aria-label="Stres-test osobnog Bitcoin standarda kroz pad, rast, veliki trošak i obiteljsku reakciju"
+      aria-label="Stres-test osobnog Bitcoin standarda kroz cijenu, novac i obitelj"
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+          <h2 className="text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">
             Stres-test standarda
-          </p>
-          <h2 className="mt-2 text-2xl leading-tight font-semibold tracking-[-0.02em] text-foreground">
-            Što vaš sustav radi kada Bitcoin napravi bilo što?
           </h2>
+          <p className="mt-2 text-base leading-6 font-semibold text-foreground sm:text-lg sm:leading-7">
+            Tri provjere: promjena cijene, stanje imovine, plan za obitelj.
+          </p>
         </div>
-        <div className="grid size-12 shrink-0 place-items-center overflow-hidden rounded-full border border-primary/30 bg-primary/10">
+        <div className="grid size-11 shrink-0 place-items-center overflow-hidden rounded-full border border-primary/30 bg-primary/10">
           <img
             src="/bitcoin-logo.png"
             alt=""
@@ -51,21 +47,23 @@ export function BitcoinStressTestVisual() {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3">
+      <div className="mt-4 grid gap-2.5">
         {stressScenarios.map(({ title, question, Icon }) => (
           <article
             key={title}
-            className="grid gap-3 rounded-xl border border-border/75 bg-background/70 p-3 shadow-sm sm:grid-cols-[2.25rem_1fr] sm:p-4"
+            className="rounded-xl border border-border/75 bg-background/70 p-3 shadow-sm"
           >
-            <div className="grid size-9 shrink-0 place-items-center rounded-full border border-primary/25 bg-primary/10 text-primary">
-              <Icon className="size-4" />
-            </div>
-            <div>
+            <div className="flex items-center gap-2.5">
+              <div className="grid size-8 shrink-0 place-items-center rounded-full border border-primary/25 bg-primary/10 text-primary">
+                <Icon className="size-4" />
+              </div>
               <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">
+            </div>
+            {question ? (
+              <p className="mt-2 text-sm leading-5 text-muted-foreground">
                 {question}
               </p>
-            </div>
+            ) : null}
           </article>
         ))}
       </div>

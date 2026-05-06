@@ -36,9 +36,9 @@ const guideLevels = [
   },
   {
     title: "Razina 2: Gradite osobni Bitcoin standard",
-    copy: "Zatim se Bitcoin povezuje s darivanjem, kupovnom moći, priljevima i ulogom novca.",
+    copy: "Zatim se Bitcoin povezuje s davanjem, kupovnom moći, priljevima i ulogom novca.",
     guides: guideList([
-      "darivanje-u-proracunu-nulte-osnove",
+      "davanje-u-proracunu-nulte-osnove",
       "bitcoin-kao-novac",
       "uskladivanje-kupovne-moci-bitcoina",
       "pozitivni-neto-priljev",
@@ -78,7 +78,7 @@ export function GuidesIndex() {
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Ako želite razumjeti okvir, čitajte vodiče. Ako ga želite
-            primijeniti na vlastiti proračun, dug, darivanje, Bitcoin, neto
+            primijeniti na vlastiti proračun, dug, davanje, Bitcoin, neto
             imovinu i obitelj, dogovorite provjeru.
           </p>
         </header>
@@ -121,7 +121,7 @@ export function GuidesIndex() {
           <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-2xl border border-primary/25 bg-primary/10 p-5 sm:flex-row sm:items-center">
             <p className="max-w-2xl text-base leading-7 font-semibold text-foreground">
               Razumijevanje vodiča ima smisla tek kada ga možete pretvoriti u
-              pravila za vlastiti novac, dug, darivanje i sigurnost.
+              pravila za vlastiti novac, dug, davanje i sigurnost.
             </p>
             <Button
               asChild
@@ -219,7 +219,7 @@ export function GuidesIndex() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
             Bitcoin standard nije samo posjedovanje Bitcoina. Nastaje kada vaš
-            novac, dug, darivanje, neto imovina, sigurnost i obitelj imaju
+            novac, dug, davanje, neto imovina, sigurnost i obitelj imaju
             pravila.
           </p>
           <Button

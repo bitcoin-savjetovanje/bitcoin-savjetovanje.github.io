@@ -15,8 +15,8 @@ const requiredGuidePaths = [
   "/vodici/bitcoin-u-neto-imovini",
   "/vodici/dug-ili-bitcoin",
   "/vodici/ne-zaduzujte-se-za-bitcoin",
-  "/vodici/darivanje-u-proracunu-nulte-osnove",
-  "/vodici/darivanje-bez-duga",
+  "/vodici/davanje-u-proracunu-nulte-osnove",
+  "/vodici/davanje-bez-duga",
   "/vodici/novac-dolazi-od-ljudi",
   "/vodici/bitcoin-kao-novac",
   "/vodici/pozitivni-neto-priljev",
@@ -47,24 +47,24 @@ const aliasGuidePaths = [
   {
     oldPath: "/vodici/sustavno-davanje-u-proracunu-nulte-razine",
     newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/",
+      "https://bitcoin-savjetovanje.com/vodici/davanje-u-proracunu-nulte-osnove/",
   },
   {
     oldPath: "/vodici/sustavno-davanje-bez-kredita",
     newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/darivanje-bez-duga/",
+      "https://bitcoin-savjetovanje.com/vodici/davanje-bez-duga/",
   },
   {
-    oldPath: "/vodici/darivanje-u-proracunu",
+    oldPath: "/vodici/davanje-u-proracunu",
     newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/darivanje-u-proracunu-nulte-osnove/",
+      "https://bitcoin-savjetovanje.com/vodici/davanje-u-proracunu-nulte-osnove/",
   },
 ]
 
 const guideCategories = [
   "Osobni proračun nulte osnove",
   "Život bez duga",
-  "Darivanje",
+  "Davanje",
   "Bitcoin kao novac",
   "Neto imovina",
   "Sigurnost i obitelj",
@@ -237,57 +237,114 @@ for (const absoluteHtmlPath of htmlFiles()) {
 
 const homeHtml = readFile("index.html")
 const homeChecks = [
-  ["Imate Bitcoin. Ali imate li Bitcoin standard?", "new hero title"],
   [
-    "Što vaš sustav radi kada Bitcoin napravi bilo što?",
+    "Prijeđite iz “imam Bitcoin” u osobni Bitcoin standard.",
+    "new hero title",
+  ],
+  [
+    "Nije dovoljno imati Bitcoin. Trebate plan za pad, rast, trošak, dug i obitelj — prije nego što vas život natjera da odlučujete pod pritiskom.",
+    "new hero subtitle",
+  ],
+  [
+    "Pomažem vam urediti pravila za život s Bitcoinom",
+    "new hero body copy",
+  ],
+  [
+    "Tri provjere: promjena cijene, stanje imovine, plan za obitelj.",
     "hero stress-test visual",
   ],
-  ["Bitcoin padne", "hero stress-test falling scenario"],
-  ["Bitcoin naraste", "hero stress-test rising scenario"],
-  ["Dođe veliki trošak", "hero stress-test expense scenario"],
-  ["Obitelj treba reagirati", "hero stress-test family scenario"],
   [
-    "problem nije Bitcoin. Problem je sustav oko njega.",
-    "hero problem statement",
+    "Kako reagirate kad se Bitcoin tečaj promijeni?",
+    "hero stress-test price point",
   ],
   [
-    "Dogovorite provjeru osobnog Bitcoin standarda",
+    "Strah u padu, euforija u rastu",
+    "hero stress-test price copy",
+  ],
+  [
+    "Je li vaša ukupna imovina u ravnoteži?",
+    "hero stress-test assets point",
+  ],
+  [
+    "Gdje je Bitcoin u sklopu vaše ukupne imovine",
+    "hero stress-test money copy",
+  ],
+  [
+    "Kako ste uredili skrbništvo i pristup Bitcoinu za vašu obitelj?",
+    "hero stress-test family point",
+  ],
+  [
+    "Imate li jasan plan i protokol za upravljanje Bitcoinom",
+    "hero stress-test family copy",
+  ],
+  [
+    "Dogovorite uvodni poziv",
     "primary CTA",
   ],
   ["Provjerite gdje ste", "secondary CTA"],
   [
-    "15 minuta. Bez naknade. Bez prognoza cijene. Bez upravljanja vašim sredstvima.",
+    "15 minuta. Bez naknade.",
     "hero trust copy",
   ],
   ["Volatilnost otkriva imate li standard.", "volatility section"],
   ["Kad kupovna moć pada", "falling purchasing power card"],
   ["Kad kupovna moć raste", "rising purchasing power card"],
   ["Volatilnost se ne događa u vakuumu.", "life scenarios title"],
-  ["Bitcoin padne 40%", "falling life scenario"],
-  ["Bitcoin naraste 100%", "rising life scenario"],
-  ["Partner pita", "family life scenario"],
+  ["Cijena se promijeni", "price life scenario"],
+  ["Novac zatreba", "money life scenario"],
+  ["Obitelj treba plan", "family life scenario"],
   [
     "Bitcoin nije dovoljan ako ostatak života ostaje na fiat pravilima.",
     "standard contrast title",
   ],
   ["Bitcoin bez standarda", "without standard column"],
   ["Bitcoin sa standardom", "with standard column"],
-  ["Prvo kontrola. Zatim sloboda. Zatim darivanje.", "foundations title"],
+  [
+    "Osobni Bitcoin standard u 6 područja",
+    "standard areas section title",
+  ],
+  ["Mudrost upravljanja novcem", "money wisdom segment"],
+  ["Bitcoin standard", "bitcoin standard segment"],
+  ["Proračun", "budget standard area"],
+  ["Razduživanje", "debt reduction standard area"],
+  ["Davanje", "giving standard area"],
+  ["Bitcoin u imovini", "bitcoin assets standard area"],
+  ["Bitcoin zakon potencije", "bitcoin power law standard area"],
+  [
+    "Bitcoin sigurnost i nasljeđivanje",
+    "bitcoin security inheritance standard area",
+  ],
+  ["Prvo kontrola. Zatim sloboda. Zatim davanje.", "foundations title"],
   ["Proračun nulte osnove", "zero-based budget terminology"],
   ["Život bez duga", "debt-free life terminology"],
-  ["Darivanje nije ukras osobnog Bitcoin standarda.", "giving foundation"],
+  ["Davanje nije ukras osobnog Bitcoin standarda.", "giving foundation"],
   ["novac dolazi kroz ljude", "giving differentiator copy"],
   ["Koliko je vaš Bitcoin standard stvaran?", "self-assessment title"],
-  ["Znate li točno što je vaš stvarni višak?", "assessment question"],
-  ["Imate li dug koji može prisiliti prodaju Bitcoina?", "debt pressure check"],
   [
-    "Zna li obitelj što smije, a što ne smije napraviti sa sigurnosnim postavkama?",
+    "Znate li koju namjenu ima sav novac kojim raspolažete?",
+    "assessment question",
+  ],
+  [
+    "Znate li kako reagirati na promjenu cijene Bitcoina dok postoji dug?",
+    "debt pressure check",
+  ],
+  [
+    "Znaju li svi uključeni što napraviti u ključnim situacijama?",
     "family security check",
   ],
   ["Izgradnja osobnog Bitcoin standarda", "main program title"],
   ["4–6 tjedana · 1.500 €", "program price duration"],
   ["Korak 1 - Red u novcu", "program step 1"],
-  ["Korak 6 - Sigurnost i obitelj", "program step 6"],
+  [
+    "Proračun nulte osnove, prihodi, rashodi, budući troškovi i stvarni višak.",
+    "program step 1 copy",
+  ],
+  ["Korak 3 - Davanje i prihodi", "program step 3"],
+  ["Korak 5 - Ravnoteža neto imovine", "program step 5"],
+  [
+    "Korak 6 - Plan skrbništva/sigurnosti i pristup Bitcoinu za obitelj",
+    "program step 6",
+  ],
   [
     "Niste sigurni jeste li spremni za cijeli program?",
     "program entry options title",
@@ -299,28 +356,6 @@ const homeChecks = [
   [
     "Na kraju imate pisani osobni Bitcoin standard",
     "program outcome",
-  ],
-  [
-    "Ovo nije prognoza cijene ni upravljanje vašim Bitcoinom.",
-    "not doing title",
-  ],
-  ["ne dajem trading signale", "no trading signals"],
-  ["ne tražim početne riječi", "no recovery words"],
-  [
-    "Radimo na pravilima po kojima vi donosite bolje odluke.",
-    "positive not doing contrast",
-  ],
-  [
-    "Vodiči su za razumijevanje. Razgovor je za primjenu.",
-    "guides sales support title",
-  ],
-  [
-    "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
-    "security and family title",
-  ],
-  [
-    "početne riječi i privatni ključevi se ne dijele sa savjetnikom",
-    "security family rule",
   ],
   [
     "Ne pomažem vam napraviti nešto što sam promatrao izvana.",
@@ -338,11 +373,11 @@ const homeChecks = [
     "FAQ buy sell question",
   ],
   [
-    "Zašto je darivanje dio Bitcoin standarda?",
+    "Zašto je davanje dio Bitcoin standarda?",
     "FAQ giving question",
   ],
   [
-    "Provjerite što bi vaš sustav napravio kada Bitcoin napravi bilo što.",
+    "Provjerite gdje ste u odnosu na uređeni Bitcoin standard.",
     "final CTA title",
   ],
   ["OfferCatalog", "OfferCatalog schema"],
@@ -361,25 +396,32 @@ const homeDataCtas = [
   'data-cta="volatility-standard-check"',
   'data-cta="test-standard-check"',
   'data-cta="program-standard-check"',
-  'data-cta="guides-standard-check"',
   'data-cta="final-standard-check"',
   'data-cta="header-standard-check"',
   'data-cta="sticky-mobile-standard-check"',
+  'data-cta="standard-area-booking"',
 ]
 
 for (const dataCta of homeDataCtas) {
   assertIncludes("index.html", homeHtml, dataCta, dataCta)
 }
 
+const homeDataLinks = [
+  'data-link="standard-area-proracun"',
+  'data-link="standard-area-razduzivanje"',
+  'data-link="standard-area-davanje"',
+  'data-link="standard-area-bitcoin-u-imovini"',
+  'data-link="standard-area-bitcoin-power-law"',
+  'data-link="standard-area-sigurnost-nasljedivanje"',
+]
+
+for (const dataLink of homeDataLinks) {
+  assertIncludes("index.html", homeHtml, dataLink, dataLink)
+}
+
 assertNotIncludes("index.html", homeHtml, "FAQPage", "removed FAQPage schema")
 assertIncludes("index.html", homeHtml, "/vodici/", "guide index link")
 assertIncludes("index.html", homeHtml, "/sigurnost/", "security page link")
-assertIncludes(
-  "index.html",
-  homeHtml,
-  'data-link="security-rules"',
-  "security rules link metadata"
-)
 assertIncludes(
   "index.html",
   homeHtml,
@@ -411,7 +453,7 @@ const guideIndexChecks = [
   ["Razina 2: Gradite osobni Bitcoin standard", "level 2 title"],
   ["Razina 3: Živite i usavršavate standard", "level 3 title"],
   ["Dug je budući novac koji ste već potrošili", "debt guide title"],
-  ["Darivanje mijenja vaš odnos prema novcu", "giving guide"],
+  ["Davanje mijenja vaš odnos prema novcu", "giving guide"],
   ["Bitcoin je novac", "bitcoin as money guide"],
   ["Pravilo trećina u neto imovini", "thirds rule guide"],
   ["Sigurnost ne smije ovisiti samo o vama", "security guide"],
@@ -518,7 +560,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
-    "Dogovorite provjeru osobnog Bitcoin standarda",
+    "Dogovorite uvodni poziv",
     "primary CTA"
   )
   assertIncludes(
@@ -571,10 +613,10 @@ const focusedGuideChecks = [
     checks: ["Dug ili Bitcoin?", "Ne pokušavajte istrgovati izlaz"],
   },
   {
-    path: "vodici/darivanje-u-proracunu-nulte-osnove/index.html",
+    path: "vodici/davanje-u-proracunu-nulte-osnove/index.html",
     checks: [
-      "Darivanje mijenja vaš odnos prema novcu",
-      "Darivanje nije ostatak",
+      "Davanje mijenja vaš odnos prema novcu",
+      "Davanje nije ostatak",
       "Bez očekivanja povrata",
     ],
   },

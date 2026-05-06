@@ -9,7 +9,7 @@ const stressRows = [
   {
     label: "Rast kupovne moći",
     without: "euforija i improvizacija",
-    with: "budući troškovi, ciljevi i darivanje",
+    with: "budući troškovi, ciljevi i davanje",
   },
   {
     label: "Obitelj i sigurnost",

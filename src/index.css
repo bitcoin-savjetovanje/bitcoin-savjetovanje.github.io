@@ -453,6 +453,66 @@
     color: var(--cta-green-hover);
   }
 
+  .standard-areas {
+    @apply min-w-0;
+  }
+
+  .standard-segment {
+    @apply min-w-0 overflow-hidden rounded-2xl border border-border/80 bg-card/82 p-4 shadow-sm sm:p-6 lg:p-8;
+  }
+
+  .standard-segment__header {
+    @apply grid min-w-0 gap-5 rounded-2xl border border-primary/20 bg-background/70 p-5 sm:p-7 lg:grid-cols-[0.42fr_1fr] lg:items-end;
+  }
+
+  .standard-area-block {
+    @apply mt-6 grid min-w-0 gap-6 rounded-2xl border border-border/80 bg-background/72 p-5 shadow-sm sm:p-7 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.75fr)] lg:items-center lg:gap-8;
+  }
+
+  .standard-area-block--reverse {
+    @apply lg:grid-cols-[minmax(320px,0.75fr)_minmax(0,0.95fr)];
+  }
+
+  .standard-area-block--reverse .standard-area-block__copy {
+    @apply lg:order-2;
+  }
+
+  .standard-area-block--reverse .standard-area-block__visual {
+    @apply lg:order-1;
+  }
+
+  .standard-area-block__copy,
+  .standard-area-block__visual {
+    @apply min-w-0;
+  }
+
+  .standard-area-block .icon-mark {
+    @apply grid size-10 shrink-0 place-items-center rounded-full text-sm font-semibold;
+    background: color-mix(in oklab, var(--cta-green), transparent 84%);
+    color: var(--cta-green-hover);
+  }
+
+  .standard-area-visual {
+    @apply relative min-w-0 overflow-hidden rounded-2xl bg-card/90 p-5 shadow-sm sm:p-6;
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in oklab, var(--card), transparent 4%),
+        color-mix(in oklab, var(--muted), transparent 36%)
+      ),
+      var(--card);
+  }
+
+  .standard-area-visual::before {
+    content: "";
+    position: absolute;
+    inset: auto -18% -34% 30%;
+    height: 14rem;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--primary), transparent 84%);
+    pointer-events: none;
+  }
+
   .value-card h3,
   .process-card h3,
   .program-card h3,

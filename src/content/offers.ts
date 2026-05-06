@@ -35,7 +35,7 @@ export const offers: Offer[] = [
     forWhom: "Za osobu koja želi jedan dublji razgovor i jasne zaključke.",
     detail: "Jedan dublji razgovor s jasnim zaključcima.",
     purpose:
-      "Prođemo proračun nulte osnove, dug, stvarni višak, darivanje, Bitcoin kao novac, sigurnost i obiteljski pristup.",
+      "Prođemo proračun nulte osnove, dug, stvarni višak, davanje, Bitcoin kao novac, sigurnost i obiteljski pristup.",
     includes: [
       "pitanja za provjeru stvarnog viška",
       "pregled rizika prisilne prodaje",
@@ -52,7 +52,7 @@ export const offers: Offer[] = [
       "Za izgradnju cijelog pisanog sustava za novac, dug, Bitcoin, sigurnost i obitelj.",
     detail: "4–6 tjedana rada, razgovori i pisani osobni standard.",
     purpose:
-      "Ne dobivate prognozu cijene. Ne dobivate uputu za trgovanje. Dobivate pisana pravila za novac, dug, darivanje, Bitcoin, kupovnu moć, neto imovinu, sigurnost i obitelj.",
+      "Dobivate pisana pravila za novac, dug, davanje, Bitcoin, kupovnu moć, neto imovinu, sigurnost i obitelj.",
     includes: [
       "pripremni upitnik",
       "radni razgovori kroz 4–6 tjedana",

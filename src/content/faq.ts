@@ -20,8 +20,8 @@ export const faqs = [
       "Ne. Ne radimo prognozu cijene ni trading plan. Radimo na proračunu, stvarnom višku, kupovnoj moći, dugu, neto imovini i pravilima za odluke.",
   },
   {
-    question: "Zašto je darivanje dio Bitcoin standarda?",
+    question: "Zašto je davanje dio Bitcoin standarda?",
     answer:
-      "Zato što osobni Bitcoin standard nije samo obrana kupovne moći. Darivanje mijenja odnos prema novcu, ljudima i stvaranju vrijednosti. Ne dolazi iz duga ni krivnje, nego iz uređenog novca.",
+      "Zato što osobni Bitcoin standard nije samo obrana kupovne moći. Davanje mijenja odnos prema novcu, ljudima i stvaranju vrijednosti. Ne dolazi iz duga ni krivnje, nego iz uređenog novca.",
   },
 ]

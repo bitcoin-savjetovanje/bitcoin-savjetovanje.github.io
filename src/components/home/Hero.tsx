@@ -10,17 +10,17 @@ export function Hero() {
       <div className="hero-shell">
         <div className="hero-copy">
           <h1 className="hero-title">
-            Imate Bitcoin. Ali imate li Bitcoin standard?
+            Prijeđite iz “imam Bitcoin” u osobni Bitcoin standard.
           </h1>
           <p className="hero-subtitle">
-            Ako pad cijene stvara paniku, ako dug odlučuje umjesto nas, ako ne
-            znate što je stvarni višak ili ako obitelj ne zna plan, problem nije
-            Bitcoin. Problem je sustav oko njega.
+            Nije dovoljno imati Bitcoin. Trebate plan za pad, rast, trošak, dug
+            i obitelj — prije nego što vas život natjera da odlučujete pod
+            pritiskom.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Pomažem vam provjeriti i izgraditi osobna pravila za proračun nulte
-            osnove, život bez duga, darivanje, Bitcoin kao novac, kupovnu moć,
-            neto imovinu, sigurnost i obiteljski pristup.
+            Pomažem vam urediti pravila za život s Bitcoinom: namjenu novca,
+            izlazak iz duga, davanje, ulogu Bitcoina, sigurnost, skrbništvo i
+            obiteljski plan.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
@@ -52,8 +52,7 @@ export function Hero() {
             </Button>
           </div>
           <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            15 minuta. Bez naknade. Bez prognoza cijene. Bez upravljanja vašim
-            sredstvima.
+            15 minuta. Bez naknade.
           </p>
           <a
             className="mt-6 inline-block text-sm font-semibold break-all text-muted-foreground hover:text-primary sm:break-normal"

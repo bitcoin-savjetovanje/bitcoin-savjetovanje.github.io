@@ -64,7 +64,7 @@ export type GuideVisual =
 export const guideCategories = [
   "Osobni proračun nulte osnove",
   "Život bez duga",
-  "Darivanje",
+  "Davanje",
   "Bitcoin kao novac",
   "Neto imovina",
   "Sigurnost i obitelj",
@@ -77,7 +77,7 @@ export const guideCategoryDescriptions: Record<GuideCategory, string> = {
     "Prvi korak je red. Svaki euro dobiva namjenu prije Bitcoin odluke.",
   "Život bez duga":
     "Dug nije samo obveza. Dug je stanje koje s vremenom hrani nemir, ropstvo i zbunjenost. Bitcoin standard počinje izlaskom iz duga i prestankom trošenja budućeg novca.",
-  Darivanje: "Nakon izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
+  Davanje: "Nakon izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
   "Bitcoin kao novac":
     "Bitcoin se promatra kao novac i novčana zaliha, uz pravila za vrijeme, kupovnu moć i proračun nulte osnove.",
   "Neto imovina":
@@ -122,7 +122,7 @@ const guideEntries: Guide[] = [
     relatedSlugs: [
       "stvarni-visak",
       "starost-novca",
-      "darivanje-u-proracunu-nulte-osnove",
+      "davanje-u-proracunu-nulte-osnove",
     ],
     visual: {
       type: "sequence",
@@ -143,7 +143,7 @@ const guideEntries: Guide[] = [
         heading: "Svaki euro već ima posao",
         body: [
           "Svaki euro koji imate već nekamo ide. Ako mu vi ne date posao, posao će mu dati navika, hitnost ili tuđi zahtjev. Zato proračun nulte osnove počinje jednostavnom rečenicom: svaki euro mora dobiti namjenu. Ne zato da biste sve potrošili, nego zato da ništa ne ostane nejasno.",
-          "Jedan dio novca ide na redovne troškove. Jedan dio na izlazak iz duga. Jedan dio na buduće odljeve. Jedan dio na sigurnosnu zalihu. Jedan dio može ići na darivanje. Tek nakon toga možete mirno reći koji dio novca stvarno može postati Bitcoin odluka. Red dolazi prije kupnje.",
+          "Jedan dio novca ide na redovne troškove. Jedan dio na izlazak iz duga. Jedan dio na buduće odljeve. Jedan dio na sigurnosnu zalihu. Jedan dio može ići na davanje. Tek nakon toga možete mirno reći koji dio novca stvarno može postati Bitcoin odluka. Red dolazi prije kupnje.",
         ],
       },
       {
@@ -374,7 +374,7 @@ const guideEntries: Guide[] = [
     relatedSlugs: [
       "dug-ili-bitcoin",
       "ne-zaduzujte-se-za-bitcoin",
-      "darivanje-bez-duga",
+      "davanje-bez-duga",
     ],
     visual: {
       type: "split",
@@ -454,7 +454,7 @@ const guideEntries: Guide[] = [
         body: [
           "Zato je cilj jednostavan: izađite iz duga što je brže moguće i ostanite bez duga zauvijek. Ne trošite budući novac. Kupujte samo novcem koji već imate.",
           "Ako ste u dugu, prihvatite gorak, ali ispravan lijek: smanjite standard, prodajte što treba prodati, likvidirajte dio imovine ako je potrebno i očistite bilancu. To može boljeti kratkoročno, ali vraća zrak, mir i jasnoću.",
-          "Kad postanete bez duga, tek tada gradite pravi temelj za sljedeću praksu: darivanje. Jer nakon što prestanete hraniti duh ropstva, nemira i zbunjenosti, možete početi hraniti duh velikodušnosti.",
+          "Kad postanete bez duga, tek tada gradite pravi temelj za sljedeću praksu: davanje. Jer nakon što prestanete hraniti duh ropstva, nemira i zbunjenosti, možete početi hraniti duh velikodušnosti.",
         ],
       },
     ],
@@ -582,75 +582,75 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
-    slug: "darivanje-u-proracunu-nulte-osnove",
+    slug: "davanje-u-proracunu-nulte-osnove",
     previousSlugs: [
       "sustavno-davanje-u-proracunu-nulte-razine",
-      "darivanje-u-proracunu",
+      "davanje-u-proracunu",
     ],
-    title: "Darivanje mijenja vaš odnos prema novcu",
+    title: "Davanje mijenja vaš odnos prema novcu",
     metaDescription:
-      "Vodič o darivanju u Praktičnom Bitcoin standardu: bez očekivanja povrata, nakon izlaska iz duga i iz uređenog proračuna nulte osnove.",
+      "Vodič o davanju u Praktičnom Bitcoin standardu: bez očekivanja povrata, nakon izlaska iz duga i iz uređenog proračuna nulte osnove.",
     excerpt:
-      "Darivanje nije ostatak novca niti moralni pritisak. U Praktičnom Bitcoin standardu ono dolazi nakon reda i izlaska iz duga.",
-    category: "Darivanje",
+      "Davanje nije ostatak novca niti moralni pritisak. U Praktičnom Bitcoin standardu ono dolazi nakon reda i izlaska iz duga.",
+    category: "Davanje",
     order: 50,
     featured: true,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
     practicalQuestion:
-      "Imate li u osobnom proračunu nulte osnove prostor za darivanje koje ne očekuje ništa natrag?",
+      "Imate li u osobnom proračunu nulte osnove prostor za davanje koje ne očekuje ništa natrag?",
     relatedSlugs: [
-      "darivanje-bez-duga",
+      "davanje-bez-duga",
       "novac-dolazi-od-ljudi",
       "svaki-euro-ima-namjenu",
     ],
     visual: {
       type: "cycle",
-      title: "Krug darivanja",
-      nodes: ["ljudi", "vrijednost", "priljevi", "darivanje"],
+      title: "Krug davanja",
+      nodes: ["ljudi", "vrijednost", "priljevi", "davanje"],
       center: "velikodušnost",
-      caption: "Darivanje nas vraća ljudima, a priljevi dolaze od ljudi.",
+      caption: "Davanje nas vraća ljudima, a priljevi dolaze od ljudi.",
     },
     sections: [
       {
-        heading: "Darivanje nije ostatak",
+        heading: "Davanje nije ostatak",
         body: [
-          "Darivanje nije ono što se dogodi ako nešto slučajno ostane. Ako je samo ostatak, tada ovisi o raspoloženju, krivnji ili pritisku trenutka. Jedan mjesec postoji, drugi mjesec nestane. Nema pravilo i nema mir.",
-          "U Praktičnom Bitcoin standardu darivanje dobiva mjesto u osobnom proračunu nulte osnove. Ne zato da bi netko dokazao dobrotu, nego zato da novac prestane biti nejasan. Svaki euro treba namjenu. Dio novca, kada je temelj uređen, može dobiti namjenu za druge ljude.",
+          "Davanje nije ono što se dogodi ako nešto slučajno ostane. Ako je samo ostatak, tada ovisi o raspoloženju, krivnji ili pritisku trenutka. Jedan mjesec postoji, drugi mjesec nestane. Nema pravilo i nema mir.",
+          "U Praktičnom Bitcoin standardu davanje dobiva mjesto u osobnom proračunu nulte osnove. Ne zato da bi netko dokazao dobrotu, nego zato da novac prestane biti nejasan. Svaki euro treba namjenu. Dio novca, kada je temelj uređen, može dobiti namjenu za druge ljude.",
         ],
       },
       {
-        heading: "Darivanje dolazi nakon izlaska iz duga",
+        heading: "Davanje dolazi nakon izlaska iz duga",
         body: [
-          "Dug stvara pritisak. Dug traži buduće odljeve. Dug može učiniti da i dobra odluka postane izvor nemira. Zato darivanje u ovom okviru ne smije usporiti izlazak iz duga niti prikriti neuređen proračun nulte osnove.",
-          "Redoslijed je važan. Prvo osobni proračun nulte osnove. Zatim život bez duga. Tek tada redovito darivanje. To ne znači da osoba u dugu ne smije nikada pomoći nikome. Znači da darivanje kao praksa osobnog Bitcoin standarda dolazi iz reda i slobode, a ne iz pritiska.",
+          "Dug stvara pritisak. Dug traži buduće odljeve. Dug može učiniti da i dobra odluka postane izvor nemira. Zato davanje u ovom okviru ne smije usporiti izlazak iz duga niti prikriti neuređen proračun nulte osnove.",
+          "Redoslijed je važan. Prvo osobni proračun nulte osnove. Zatim život bez duga. Tek tada redovito davanje. To ne znači da osoba u dugu ne smije nikada pomoći nikome. Znači da davanje kao praksa osobnog Bitcoin standarda dolazi iz reda i slobode, a ne iz pritiska.",
         ],
       },
       {
         heading: "Bez očekivanja povrata",
         body: [
-          "Ako očekujete povrat, to nije darivanje. To je dogovor, razmjena ili skrivena obveza. Darivanje u ovom okviru ne traži da primatelj vrati uslugu, zahvalnost, naklonost ili buduću korist.",
+          "Ako očekujete povrat, to nije davanje. To je dogovor, razmjena ili skrivena obveza. Davanje u ovom okviru ne traži da primatelj vrati uslugu, zahvalnost, naklonost ili buduću korist.",
           "To čuva dostojanstvo primatelja. Dar ne smije postati nevidljiv dug. Ako poklon stvara obvezu, više nije čist dar. Zato pravilo mora biti jasno: darujem bez očekivanja povrata i bez stvaranja pritiska na osobu koja prima.",
         ],
       },
       {
-        heading: "Darivanje nas okreće prema ljudima",
+        heading: "Davanje nas okreće prema ljudima",
         body: [
-          "Darivanje nije zato što ste nešto uzeli od društva. Pošteno zarađen novac već znači da ste nekome pružili vrijednost. Netko je dobrovoljno dao svoj novac jer je ono što ste ponudili bilo vrijedno.",
-          "Darivanje zato ima drukčiju ulogu. Ono nas okreće izvan sebe. Podsjeća da novac nije samo obrana od straha, nego i način odnosa prema ljudima. Kada dio proračuna nulte osnove dobije namjenu za druge, novac postaje manje zatvoren i više usmjeren na služenje.",
+          "Davanje nije zato što ste nešto uzeli od društva. Pošteno zarađen novac već znači da ste nekome pružili vrijednost. Netko je dobrovoljno dao svoj novac jer je ono što ste ponudili bilo vrijedno.",
+          "Davanje zato ima drukčiju ulogu. Ono nas okreće izvan sebe. Podsjeća da novac nije samo obrana od straha, nego i način odnosa prema ljudima. Kada dio proračuna nulte osnove dobije namjenu za druge, novac postaje manje zatvoren i više usmjeren na služenje.",
         ],
       },
       {
         heading: "Velikodušnost mijenja način rada",
         body: [
           "Velikodušna osoba lakše sluša. Lakše vidi što drugoj osobi stvarno treba. Lakše prima povratnu informaciju, pregovara bez sitničavosti i gradi odnose koji traju. To ne jamči veći prihod. Ali povećava sposobnost stvaranja vrijednosti.",
-          "Zato darivanje nije sporedna stavka proračuna nulte osnove. Ono vježba smjer iz kojeg dolazi pošten prihod: prema ljudima, njihovim problemima i vrijednosti koju možete stvoriti. Bolji novac ne bi smio čovjeka učiniti tvrđim. Trebao bi mu dati više reda i više slobode za velikodušnost.",
+          "Zato davanje nije sporedna stavka proračuna nulte osnove. Ono vježba smjer iz kojeg dolazi pošten prihod: prema ljudima, njihovim problemima i vrijednosti koju možete stvoriti. Bolji novac ne bi smio čovjeka učiniti tvrđim. Trebao bi mu dati više reda i više slobode za velikodušnost.",
         ],
       },
       {
-        heading: "Prvo pravilo darivanja",
+        heading: "Prvo pravilo davanja",
         body: [
-          "Pravilo može biti jednostavno: kada osobni proračun nulte osnove ima red i dug više ne hrani nemir, dio novca dobiva namjenu za darivanje bez očekivanja povrata. Ne iz krivnje. Ne zbog povrata. Nego zato što novac treba služiti i drugima.",
+          "Pravilo može biti jednostavno: kada osobni proračun nulte osnove ima red i dug više ne hrani nemir, dio novca dobiva namjenu za davanje bez očekivanja povrata. Ne iz krivnje. Ne zbog povrata. Nego zato što novac treba služiti i drugima.",
           "Manji i češći darovi često su bolji od velikih i rijetkih. Lakše ih je održati, manje stvaraju pritisak i više nalikuju praksi. Cilj nije dokazati veličinu dara. Cilj je vježbati velikodušnost bez novog duga, bez skrivenih očekivanja i bez narušavanja proračuna nulte osnove.",
         ],
       },
@@ -658,35 +658,35 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
   },
   {
-    slug: "darivanje-bez-duga",
+    slug: "davanje-bez-duga",
     previousSlugs: ["sustavno-davanje-bez-kredita"],
-    title: "Darivanje bez duga",
+    title: "Davanje bez duga",
     metaDescription:
-      "Vodič o tome zašto darivanje u Praktičnom Bitcoin standardu dolazi nakon osobnog proračuna nulte osnove i izlaska iz duga.",
+      "Vodič o tome zašto davanje u Praktičnom Bitcoin standardu dolazi nakon osobnog proračuna nulte osnove i izlaska iz duga.",
     excerpt:
       "Kad prestanete hraniti duh ropstva, nemira i zbunjenosti, možete početi hraniti duh velikodušnosti.",
-    category: "Darivanje",
+    category: "Davanje",
     order: 55,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
     practicalQuestion:
       "Pokušavate li hraniti duh velikodušnosti dok još hranite duh ropstva, nemira i zbunjenosti?",
     relatedSlugs: [
-      "darivanje-u-proracunu-nulte-osnove",
+      "davanje-u-proracunu-nulte-osnove",
       "novac-dolazi-od-ljudi",
       "dug-je-buduci-novac",
     ],
     visual: {
       type: "sequence",
       title: "Redoslijed je važan",
-      steps: ["red", "bez duga", "darivanje"],
-      caption: "Darivanje ne dolazi iz pritiska, nego iz slobode.",
+      steps: ["red", "bez duga", "davanje"],
+      caption: "Davanje ne dolazi iz pritiska, nego iz slobode.",
     },
     sections: [
       {
-        heading: "Darivanje ne dolazi iz stanja duga",
+        heading: "Davanje ne dolazi iz stanja duga",
         body: [
-          "Darivanje ne dolazi iz stanja duga kao pravilo ovog okvira. Dug hrani duh ropstva, nemira i zbunjenosti. Darivanje treba hraniti drukčiji duh: velikodušnost, slobodu i otvorenost prema ljudima.",
+          "Davanje ne dolazi iz stanja duga kao pravilo ovog okvira. Dug hrani duh ropstva, nemira i zbunjenosti. Davanje treba hraniti drukčiji duh: velikodušnost, slobodu i otvorenost prema ljudima.",
           "Ako darujete dok još živite u stanju duga, dar lako postane novi izvor pritiska. Umjesto mira pojavljuje se otpor. Umjesto velikodušnosti pojavljuje se krivnja. Zato je redoslijed važan.",
         ],
       },
@@ -694,20 +694,20 @@ const guideEntries: Guide[] = [
         heading: "Prvo sloboda, mir i jasnoća",
         body: [
           "Nakon izlaska iz duga stanje bez duga je mlada biljka. Treba joj vrijeme, voda i zaštita. Ne treba je odmah opteretiti novom praksom koja će vratiti nemir.",
-          "Prvo prestajete trošiti budući novac. Prvo čistite bilancu. Prvo vraćate zrak, mir i jasnoću. Tek tada darivanje može postati praksa koja raste iz slobode.",
+          "Prvo prestajete trošiti budući novac. Prvo čistite bilancu. Prvo vraćate zrak, mir i jasnoću. Tek tada davanje može postati praksa koja raste iz slobode.",
         ],
       },
       {
         heading: "Tek tada velikodušnost",
         body: [
-          "Kad postanete bez duga, tek tada gradite pravi temelj za sljedeću praksu: darivanje. Jer nakon što prestanete hraniti duh ropstva, nemira i zbunjenosti, možete početi hraniti duh velikodušnosti.",
-          "Darivanje dolazi nakon što prestanete trošiti budući novac. Tada nije bijeg od krivnje, nije dokazivanje i nije pokušaj popravljanja osjećaja. Postaje praksa odnosa prema ljudima.",
+          "Kad postanete bez duga, tek tada gradite pravi temelj za sljedeću praksu: davanje. Jer nakon što prestanete hraniti duh ropstva, nemira i zbunjenosti, možete početi hraniti duh velikodušnosti.",
+          "Davanje dolazi nakon što prestanete trošiti budući novac. Tada nije bijeg od krivnje, nije dokazivanje i nije pokušaj popravljanja osjećaja. Postaje praksa odnosa prema ljudima.",
         ],
       },
       {
-        heading: "Darivanje nije dug",
+        heading: "Davanje nije dug",
         body: [
-          "Darivanje nije dug, skriveni dogovor ni način da kod primatelja stvorite obvezu. Ako očekujete povrat, više ne darujete. Tada stvarate račun.",
+          "Davanje nije dug, skriveni dogovor ni način da kod primatelja stvorite obvezu. Ako očekujete povrat, više ne darujete. Tada stvarate račun.",
           "Dar je dar samo ako ne traži povrat i ne stvara pritisak. To čuva dostojanstvo primatelja i čuva vaš odnos prema novcu.",
         ],
       },
@@ -721,8 +721,8 @@ const guideEntries: Guide[] = [
       {
         heading: "Praktično pravilo",
         body: [
-          "Zapišite pravilo: darivanje ne smije stvarati novi dug, ne smije usporiti izlazak iz starog duga i ne smije očekivati povrat. Ako to pravilo nije zadovoljeno, darivanje čeka.",
-          "To možda zvuči strogo, ali čuva velikodušnost. Darivanje koje počiva na dugu lako postane gorčina. Darivanje koje počiva na redu može trajati. Prvo sloboda. Zatim velikodušnost. Tek tada darivanje postaje dio osobnog Bitcoin standarda.",
+          "Zapišite pravilo: davanje ne smije stvarati novi dug, ne smije usporiti izlazak iz starog duga i ne smije očekivati povrat. Ako to pravilo nije zadovoljeno, davanje čeka.",
+          "To možda zvuči strogo, ali čuva velikodušnost. Davanje koje počiva na dugu lako postane gorčina. Davanje koje počiva na redu može trajati. Prvo sloboda. Zatim velikodušnost. Tek tada davanje postaje dio osobnog Bitcoin standarda.",
         ],
       },
     ],
@@ -732,17 +732,17 @@ const guideEntries: Guide[] = [
     slug: "novac-dolazi-od-ljudi",
     title: "Novac dolazi od ljudi",
     metaDescription:
-      "Vodič o tome kako darivanje, odnosi s ljudima i stvaranje vrijednosti povećavaju kapacitet za buduće priljeve.",
+      "Vodič o tome kako davanje, odnosi s ljudima i stvaranje vrijednosti povećavaju kapacitet za buduće priljeve.",
     excerpt:
       "Prihod ne dolazi iz apstraktnog sustava. Prihod dolazi od ljudi kojima ste pružili vrijednost.",
-    category: "Darivanje",
+    category: "Davanje",
     order: 57,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
     practicalQuestion: "Kome vaš rad danas stvarno pomaže?",
     relatedSlugs: [
-      "darivanje-u-proracunu-nulte-osnove",
-      "darivanje-bez-duga",
+      "davanje-u-proracunu-nulte-osnove",
+      "davanje-bez-duga",
       "pozitivni-neto-priljev",
     ],
     visual: {
@@ -768,17 +768,17 @@ const guideEntries: Guide[] = [
         ],
       },
       {
-        heading: "Darivanje nije vraćanje duga društvu",
+        heading: "Davanje nije vraćanje duga društvu",
         body: [
-          "Darivanje ne treba opisivati kao vraćanje društvu. Pošteno zarađen novac već znači da ste nekome pružili vrijednost u dobrovoljnoj razmjeni. Niste prvo nešto uzeli pa sada morate vratiti. To stvara pogrešan ton i pretvara darivanje u moralni račun.",
-          "Darivanje ima drukčiju ulogu. Ono je praksa kojom želite postati osoba koja može stvarati više vrijednosti. Darivanje ne kupuje povrat. Darivanje gradi osobu koja može stvoriti veći povrat. Bez jamstva, bez potraživanja i bez pritiska na onoga tko prima.",
+          "Davanje ne treba opisivati kao vraćanje društvu. Pošteno zarađen novac već znači da ste nekome pružili vrijednost u dobrovoljnoj razmjeni. Niste prvo nešto uzeli pa sada morate vratiti. To stvara pogrešan ton i pretvara davanje u moralni račun.",
+          "Davanje ima drukčiju ulogu. Ono je praksa kojom želite postati osoba koja može stvarati više vrijednosti. Davanje ne kupuje povrat. Davanje gradi osobu koja može stvoriti veći povrat. Bez jamstva, bez potraživanja i bez pritiska na onoga tko prima.",
         ],
       },
       {
-        heading: "Darivanje širi pogled",
+        heading: "Davanje širi pogled",
         body: [
           "Kada je sav novac zatvoren u vlastiti strah, pogled se sužava. Vidite samo svoje račune, svoje ciljeve i svoje rizike. To je razumljivo, posebno ako postoji dug ili neuređen proračun nulte osnove. Ali dugoročno takav pogled slabi sposobnost stvaranja vrijednosti.",
-          "Redovito darivanje, nakon reda i izlaska iz duga, širi pogled. Uči nas primijetiti ljude, potrebe i male prilike za služenje. Ne zato da biste odmah nešto dobili natrag, nego zato da novac ne postane zid između nas i stvarnog svijeta.",
+          "Redovito davanje, nakon reda i izlaska iz duga, širi pogled. Uči nas primijetiti ljude, potrebe i male prilike za služenje. Ne zato da biste odmah nešto dobili natrag, nego zato da novac ne postane zid između nas i stvarnog svijeta.",
         ],
       },
       {
@@ -792,7 +792,7 @@ const guideEntries: Guide[] = [
         heading: "Bitcoin standard nije bijeg od ljudi",
         body: [
           "Bitcoin kao novac ne znači povlačenje iz svijeta. Ne znači da se čovjek zatvara u hladno čuvanje kupovne moći i prestaje gledati ljude. Dobar novac treba dati više jasnoće, više strpljenja i više slobode za stvaranje vrijednosti u svijetu.",
-          "Zato darivanje ima mjesto u osobnom Bitcoin standardu. Prvo red. Zatim izlazak iz duga. Tek tada darivanje. Ne kao predstava, ne kao krivnja i ne kao ulaganje s očekivanim povratom. Kao praksa koja nas vraća ljudima od kojih priljevi i dolaze.",
+          "Zato davanje ima mjesto u osobnom Bitcoin standardu. Prvo red. Zatim izlazak iz duga. Tek tada davanje. Ne kao predstava, ne kao krivnja i ne kao ulaganje s očekivanim povratom. Kao praksa koja nas vraća ljudima od kojih priljevi i dolaze.",
         ],
       },
     ],
@@ -1479,7 +1479,7 @@ export const recommendedGuideSlugs = [
   "starost-novca",
   "dug-je-buduci-novac",
   "dug-ili-bitcoin",
-  "darivanje-u-proracunu-nulte-osnove",
+  "davanje-u-proracunu-nulte-osnove",
   "bitcoin-kao-novac",
   "uskladivanje-kupovne-moci-bitcoina",
   "pravilo-trecina",

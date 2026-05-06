@@ -54,7 +54,7 @@ export function homeSchema() {
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
         serviceType: "Provjera i izgradnja osobnog Bitcoin standarda",
         description:
-          "Savjetodavni rad za provjeru i izgradnju osobnog Bitcoin standarda: proračun nulte osnove, život bez duga, darivanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Savjetodavni rad za provjeru i izgradnju osobnog Bitcoin standarda: proračun nulte osnove, život bez duga, davanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },
       {
         "@type": "OfferCatalog",
@@ -106,7 +106,7 @@ export function guideSchema(guide: Guide) {
           "Bitcoin",
           "proračun nulte osnove",
           "dug",
-          "darivanje",
+          "davanje",
           "kupovna moć",
           "neto imovina",
           "skrbništvo",

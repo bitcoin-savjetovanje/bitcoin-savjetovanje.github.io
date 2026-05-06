@@ -1,7 +1,7 @@
 export const SITE_URL = "https://bitcoin-savjetovanje.com"
 export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
 export const EMAIL = "pavao@hey.com"
-export const PRIMARY_CTA = "Dogovorite provjeru osobnog Bitcoin standarda"
+export const PRIMARY_CTA = "Dogovorite uvodni poziv"
 export const SECONDARY_CTA = "Provjerite gdje ste"
 export const SITE_UPDATED_AT = "2026-05-05"
 export const OG_IMAGE_PATH = "/og-image.png"
@@ -17,14 +17,14 @@ export const TWENTYONE_URL = "https://twentyone.world"
 export const homeSeo = {
   title: "Bitcoin Savjetovanje | Provjera osobnog Bitcoin standarda",
   description:
-    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Provjerite pravila za proračun nulte osnove, život bez duga, darivanje, Bitcoin kao novac, kupovnu moć, neto imovinu, sigurnost i obitelj.",
+    "Imate Bitcoin, ali nemate osobni Bitcoin standard? Provjerite pravila za proračun nulte osnove, život bez duga, davanje, Bitcoin kao novac, kupovnu moć, neto imovinu, sigurnost i obitelj.",
   canonical: `${SITE_URL}/`,
 }
 
 export const guidesIndexSeo = {
   title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Vodiči za prijelaz iz “imam Bitcoin” u osobni Bitcoin standard: proračun nulte osnove, dug, darivanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
+    "Vodiči za prijelaz iz “imam Bitcoin” u osobni Bitcoin standard: proračun nulte osnove, dug, davanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 
@@ -38,7 +38,7 @@ export const securitySeo = {
 export const heroOutcomes = [
   "Svaki euro ima namjenu.",
   "Dug ima plan izlaska.",
-  "Darivanje ima mjesto.",
+  "Davanje ima mjesto.",
   "Bitcoin ima ulogu novca.",
 ]
 

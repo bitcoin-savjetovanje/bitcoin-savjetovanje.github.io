@@ -8,9 +8,7 @@ export function FinalCta() {
     <section id="razgovor" className="section-shell">
       <div className="final-cta">
         <div>
-          <h2>
-            Provjerite što bi vaš sustav napravio kada Bitcoin napravi bilo što.
-          </h2>
+          <h2>Provjerite gdje ste u odnosu na uređeni Bitcoin standard.</h2>
           <p>
             Provjera traje 15 minuta, bez naknade i bez obveze. Vidjet ćemo gdje
             ste u odnosu na osobni Bitcoin standard i koji je sljedeći razuman

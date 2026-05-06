@@ -6,10 +6,18 @@ import { volatilityStressCards } from "@/content/method"
 import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
 
 const lifeScenarios = [
-  "Bitcoin padne 40%, a za tri mjeseca dolazi veliki trošak.",
-  "Bitcoin naraste 100%, a ne znate što unaprijed platiti.",
-  "Imate dug, a prihod kasni.",
-  "Partner pita: “Što je plan ako ti se nešto dogodi?”",
+  {
+    title: "Cijena se promijeni",
+    copy: "Bitcoin padne ili naraste, a pravila određuju što radite prije panike ili euforije.",
+  },
+  {
+    title: "Novac zatreba",
+    copy: "Dolazi veliki trošak, prihod kasni ili dug traži novac, a proračun pokazuje što je stvarni višak.",
+  },
+  {
+    title: "Obitelj treba plan",
+    copy: "Netko pita što napraviti ako se vama nešto dogodi, a odgovor već postoji u sigurnosnom protokolu.",
+  },
 ]
 
 function VolatilityIcon({ title }: { title: string }) {
@@ -26,20 +34,15 @@ export function VolatilityStressSection() {
       <div className="case-panel border-primary/25">
         <SectionHeader
           title="Volatilnost otkriva imate li standard."
-          copy="Bitcoinova kupovna moć može rasti i padati brzo. To je test vašeg proračuna, duga, stvarnog viška, darivanja, sigurnosti i obiteljskog dogovora."
+          copy="Nakon što prijeđete iz “imam Bitcoin” u osobni Bitcoin standard, volatilnost više nije poziv na improvizaciju nego provjera pravila za novac, dug, imovinu i obitelj."
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-8 text-muted-foreground">
             <p>
-              Kada Bitcoin pada, bez standarda se paničari ili prodaje pod
-              pritiskom. Sa standardom znamo koji novac ima namjenu, smanjujemo
-              rasipanje, štitimo obveze i povećavamo sposobnost stvaranja
-              prihoda.
-            </p>
-            <p>
-              Kada Bitcoin raste, bez standarda se improvizira. Sa standardom
-              možemo unaprijed platiti buduće troškove, ostvariti ciljeve,
-              povećati darivanje i održati ravnotežu neto imovine.
+              Kad Bitcoin pada ili raste, bez standarda se reagira iz panike ili
+              euforije. Sa standardom unaprijed znate koji novac ima namjenu,
+              koje obveze ne dirate, što plaćate, koliko dajete i kako čuvate
+              ravnotežu neto imovine.
             </p>
             <Button asChild className="cta-primary rounded-full">
               <a
@@ -80,14 +83,19 @@ export function VolatilityStressSection() {
           <h3 className="text-2xl font-semibold tracking-[-0.015em]">
             Volatilnost se ne događa u vakuumu.
           </h3>
-          <div className="mt-5 grid gap-3 md:grid-cols-2">
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
             {lifeScenarios.map((scenario) => (
-              <div key={scenario} className="check-row bg-card/80">
+              <article key={scenario.title} className="check-row bg-card/80">
                 <Check className="positive-icon mt-1 size-4 shrink-0" />
-                <p className="text-sm leading-6 font-semibold text-foreground">
-                  {scenario}
-                </p>
-              </div>
+                <div>
+                  <h4 className="text-sm leading-6 font-semibold text-foreground">
+                    {scenario.title}
+                  </h4>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                    {scenario.copy}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
           <p className="mt-5 max-w-3xl text-base leading-8 font-semibold text-foreground">

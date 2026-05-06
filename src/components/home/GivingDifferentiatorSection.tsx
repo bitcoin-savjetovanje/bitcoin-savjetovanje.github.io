@@ -4,16 +4,16 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 
 const givingCards = [
   {
-    title: "Darivanje mijenja odnos prema novcu",
+    title: "Davanje mijenja odnos prema novcu",
     copy: "Novac više nije samo zaštita od svijeta, nego sredstvo za služenje, zahvalnost i stvaranje boljih odnosa.",
   },
   {
-    title: "Darivanje povećava sposobnost stvaranja vrijednosti",
+    title: "Davanje povećava sposobnost stvaranja vrijednosti",
     copy: "Kada redovito dajete bez očekivanja povrata, lakše vidite potrebe drugih ljudi. A prihodi dolaze kroz služenje ljudima.",
   },
   {
-    title: "Darivanje mora doći nakon kontrole i bez duga",
-    copy: "Darivanje nije bijeg od odgovornosti. Prvo kontrola novca, zatim život bez duga, zatim darivanje kao trajna praksa.",
+    title: "Davanje mora doći nakon kontrole i bez duga",
+    copy: "Davanje nije bijeg od odgovornosti. Prvo kontrola novca, zatim život bez duga, zatim davanje kao trajna praksa.",
   },
 ]
 
@@ -27,15 +27,15 @@ export function GivingDifferentiatorSection() {
               <HeartHandshake className="size-5" />
             </div>
             <SectionHeader
-              title="Darivanje nije ukras Bitcoin standarda."
-              copy="Ako Bitcoin učini da se zatvorimo u sebe, nismo izgradili standard. Darivanje nas vraća ljudima. A novac dolazi kroz ljude."
+              title="Davanje nije ukras Bitcoin standarda."
+              copy="Ako Bitcoin učini da se zatvorimo u sebe, nismo izgradili standard. Davanje nas vraća ljudima. A novac dolazi kroz ljude."
             />
             <a
-              href="/vodici/darivanje-u-proracunu-nulte-osnove/"
+              href="/vodici/davanje-u-proracunu-nulte-osnove/"
               className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-              data-link="darivanje-guide"
+              data-link="davanje-guide"
             >
-              Pročitajte vodič o darivanju
+              Pročitajte vodič o davanju
               <ArrowUpRight className="size-4" />
             </a>
           </div>

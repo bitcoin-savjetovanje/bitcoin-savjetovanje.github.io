@@ -8,7 +8,7 @@ export function NotDoingSection() {
     <section className="section-shell">
       <div className="case-panel">
         <SectionHeader
-          title="Ovo nije prognoza cijene ni upravljanje vašim Bitcoinom."
+          title="Ovo nije prognoziranje kratkoročne cijene ni upravljanje vašim Bitcoinom."
           copy="Granice su dio sigurnosti. Radimo na pravilima po kojima vi donosite bolje odluke."
         />
         <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">

@@ -148,7 +148,7 @@ export function StandardAreasSection() {
                   <p className="text-sm leading-5 font-semibold tracking-[0.14em] text-muted-foreground uppercase">
                     {segment.eyebrow}
                   </p>
-                  <h3 className="mt-3 text-3xl leading-tight font-semibold text-foreground sm:text-4xl">
+                  <h3 className="mt-3 text-2xl leading-tight font-semibold text-foreground sm:text-3xl lg:text-4xl">
                     {segment.title}
                   </h3>
                 </div>

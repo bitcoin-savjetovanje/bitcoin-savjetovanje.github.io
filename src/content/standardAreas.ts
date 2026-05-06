@@ -99,9 +99,9 @@ export const standardAreaSegments: StandardAreaSegment[] = [
         title: "Bitcoin u imovini",
         shortTitle: "Neto imovina",
         problem:
-          'Bitcoin se najčešće tretira kao zasebna investicija koju se "ne dira" osim u krajnjoj nuždi.',
+          'Bitcoin se najčešće tretira kao zasebna investicija koju se "ne dira" osim u krajnjoj nuždi. Pomiješani su nam pojmovi štednje/novca, investicije i diverzifikacije.',
         solution:
-          "Bitcoin ima jasnu ulogu novca koji se normalno zarađuje, štedi, daje, investira i troši.",
+          "Bitcoin ima jasnu ulogu novca koji se normalno zarađuje, štedi, daje, investira i troši. Promjene cijene Bitcoina znače usklađivanje proračuna.",
         bullets: [
           "razlikujete novac, potrošnju i proizvodnu imovinu",
           "Bitcoin tretiramo kao dio novčane zalihe, ne kao investiciju",
@@ -119,7 +119,7 @@ export const standardAreaSegments: StandardAreaSegment[] = [
         problem:
           "Kad nas netko pita koliko će Bitcoin vrijediti u budućnosti, ili ne znamo odgovor ili ovisimo o trenutnom tržišnom sentimentu i narativima.",
         solution:
-          "Zakon potencije u Bitcoinu nam kvantificira kojom brzinom cijena Bitcoina raste u vremenu, i postavlja realna i praktična očekivanja.",
+          "Zakon potencije u Bitcoinu nam kvantificira kojom brzinom cijena Bitcoina raste u vremenu, i postavlja realna i praktična očekivanja. Proračun i ravnoteža neto imovine radi se u skladu s očekivanjima prema dugoročnom trendu.",
         bullets: [
           "dugoročni obrazac umjesto dnevne buke",
           "model nije garancija, ali je vrlo koristan okvir",

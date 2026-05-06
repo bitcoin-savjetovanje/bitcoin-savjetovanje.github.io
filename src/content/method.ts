@@ -155,7 +155,7 @@ export const programSteps = [
     copy: "Pregled duga, budućih odljeva, rizika prisilne prodaje i plan izlaska.",
   },
   {
-    title: "Korak 3 - Davanje i prihodi",
+    title: "Korak 3 - Sustavno davanje",
     copy: "Kategorija davanja, odnos prema ljudima, stvaranje vrijednosti i rast prihoda.",
   },
   {

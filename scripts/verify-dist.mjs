@@ -286,15 +286,8 @@ const homeChecks = [
     "15 minuta. Bez naknade.",
     "hero trust copy",
   ],
-  ["Volatilnost otkriva imate li standard.", "volatility section"],
-  ["Kad kupovna moć pada", "falling purchasing power card"],
-  ["Kad kupovna moć raste", "rising purchasing power card"],
-  ["Volatilnost se ne događa u vakuumu.", "life scenarios title"],
-  ["Cijena se promijeni", "price life scenario"],
-  ["Novac zatreba", "money life scenario"],
-  ["Obitelj treba plan", "family life scenario"],
   [
-    "Bitcoin nije dovoljan ako ostatak života ostaje na fiat pravilima.",
+    "Bitcoin sam po sebi nije dovoljan ukoliko nije uređen unutar ukupne neto imovine.",
     "standard contrast title",
   ],
   ["Bitcoin bez standarda", "without standard column"],
@@ -309,7 +302,19 @@ const homeChecks = [
   ["Razduživanje", "debt reduction standard area"],
   ["Davanje", "giving standard area"],
   ["Bitcoin u imovini", "bitcoin assets standard area"],
+  [
+    "Pomiješani su nam pojmovi štednje/novca, investicije i diverzifikacije.",
+    "bitcoin assets problem copy",
+  ],
+  [
+    "Promjene cijene Bitcoina znače usklađivanje proračuna.",
+    "bitcoin assets solution copy",
+  ],
   ["Bitcoin zakon potencije", "bitcoin power law standard area"],
+  [
+    "Proračun i ravnoteža neto imovine radi se u skladu s očekivanjima prema dugoročnom trendu.",
+    "bitcoin power law solution copy",
+  ],
   [
     "Bitcoin sigurnost i nasljeđivanje",
     "bitcoin security inheritance standard area",
@@ -339,7 +344,7 @@ const homeChecks = [
     "Proračun nulte osnove, prihodi, rashodi, budući troškovi i stvarni višak.",
     "program step 1 copy",
   ],
-  ["Korak 3 - Davanje i prihodi", "program step 3"],
+  ["Korak 3 - Sustavno davanje", "program step 3"],
   ["Korak 5 - Ravnoteža neto imovine", "program step 5"],
   [
     "Korak 6 - Plan skrbništva/sigurnosti i pristup Bitcoinu za obitelj",
@@ -393,7 +398,6 @@ for (const [expected, label] of homeChecks) {
 
 const homeDataCtas = [
   'data-cta="hero-standard-check"',
-  'data-cta="volatility-standard-check"',
   'data-cta="test-standard-check"',
   'data-cta="program-standard-check"',
   'data-cta="final-standard-check"',

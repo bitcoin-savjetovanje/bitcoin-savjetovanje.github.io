@@ -462,7 +462,7 @@
   }
 
   .standard-segment__header {
-    @apply grid min-w-0 gap-5 rounded-2xl border border-primary/20 bg-background/70 p-5 sm:p-7 lg:grid-cols-[0.42fr_1fr] lg:items-end;
+    @apply grid min-w-0 gap-5 rounded-2xl border border-primary/20 bg-background/70 p-5 sm:p-7 lg:grid-cols-[minmax(340px,0.5fr)_1fr] lg:items-end;
   }
 
   .standard-area-block {

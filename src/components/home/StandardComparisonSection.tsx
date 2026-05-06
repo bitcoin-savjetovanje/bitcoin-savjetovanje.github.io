@@ -7,7 +7,7 @@ export function StandardComparisonSection() {
   return (
     <section className="section-shell">
       <SectionHeader
-        title="Bitcoin nije dovoljan ako ostatak života ostaje na fiat pravilima."
+        title="Bitcoin sam po sebi nije dovoljan ukoliko nije uređen unutar ukupne neto imovine."
         align="center"
       />
       <div className="mt-12 grid gap-4 lg:grid-cols-2">

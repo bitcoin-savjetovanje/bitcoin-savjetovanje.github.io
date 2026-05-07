@@ -53,8 +53,8 @@ export function OffersSection() {
     <section id="program" className="section-shell section-muted">
       <div className="case-panel border-primary/25 bg-card">
         <SectionHeader
-          title="Od kratke provjere do pisanog standarda"
-          copy="Ne morate odmah znati treba li vam cijeli program. Prvo napravimo kratku provjeru, zatim po potrebi dublji razgovor, a tek onda izgradnju pisanog osobnog Bitcoin standarda."
+          title="Od uvodnog razgovora do pisanog standarda"
+          copy="Ne morate odmah znati treba li vam cijeli program. Prvo napravimo 15-minutni uvodni razgovor, zatim po potrebi dubinsku provjeru, a tek onda izgradnju pisanog osobnog Bitcoin standarda."
         />
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {offerPath.map(({ eyebrow, offer, detail, price }) => (

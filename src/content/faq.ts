@@ -7,7 +7,7 @@ export const faqs = [
   {
     question: "Moram li već imati Bitcoin?",
     answer:
-      "Da, ovaj okvir je najkorisniji ljudima koji već imaju Bitcoin ili ga ozbiljno akumuliraju. Ako ste potpuni početnik, prvo pročitajte osnovne vodiče.",
+      "Ne nužno. Najkorisnije je ako već imate Bitcoin ili ga ozbiljno planirate koristiti kao dio vlastitog novca. Ako ste potpuni početnik, prvo pročitajte osnovne vodiče. Ako već razmišljate kako Bitcoin uklopiti u proračun, dug, imovinu, sigurnost ili obitelj, uvodni razgovor može imati smisla.",
   },
   {
     question: "Hoćete li upravljati mojim sredstvima?",
@@ -17,6 +17,6 @@ export const faqs = [
   {
     question: "Što dobivam u uvodnom razgovoru?",
     answer:
-      "Kratku provjeru stanja: proračun, dug, stvarni višak, ulogu Bitcoina, sigurnost i obiteljski plan. Na kraju dobijete razuman sljedeći korak ili jasno “ne” ako ne mogu pomoći.",
+      "Kratak pregled stanja: proračun, dug, stvarni višak, ulogu Bitcoina, sigurnost i obiteljski plan. Na kraju dobijete razuman sljedeći korak ili jasno “ne” ako ne mogu pomoći.",
   },
 ]

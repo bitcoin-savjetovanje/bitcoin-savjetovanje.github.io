@@ -64,12 +64,12 @@ export function GuidePage({ guide }: { guide: Guide }) {
         </p>
       </header>
       {guide.visual ? <GuideVisual visual={guide.visual} /> : null}
-      <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,48rem)_18rem] lg:items-start">
+      <div className="mt-10 max-w-4xl">
         <div className="min-w-0">
           {sectionLinks.length > 0 ? (
             <nav
               aria-labelledby="guide-toc-heading"
-              className="rounded-xl border border-border/80 bg-card p-5 shadow-sm lg:hidden"
+              className="rounded-xl border border-border/80 bg-card p-5 shadow-sm"
             >
               <h2 id="guide-toc-heading" className="text-lg font-semibold">
                 U ovom vodiču
@@ -85,7 +85,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
               </ol>
             </nav>
           ) : null}
-          <div className="mt-12 space-y-12 lg:mt-0">
+          <div className="mt-12 space-y-12">
             {guide.sections.map((section) => (
               <section
                 key={section.heading}
@@ -181,50 +181,6 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </Button>
           </div>
         </div>
-        <aside className="sticky top-28 hidden rounded-2xl border border-border/80 bg-card p-5 shadow-sm lg:block">
-          <h2 className="text-lg font-semibold">Sadržaj vodiča</h2>
-          <ol className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground">
-            {sectionLinks.map((section) => (
-              <li key={section.id}>
-                <a href={`#${section.id}`} className="hover:text-primary">
-                  {section.heading}
-                </a>
-              </li>
-            ))}
-          </ol>
-          {guide.practicalQuestion ? (
-            <a
-              href="#prakticno-pitanje"
-              className="mt-5 block text-sm font-semibold text-foreground hover:text-primary"
-            >
-              Praktično pitanje
-            </a>
-          ) : null}
-          {nextGuide ? (
-            <a
-              href={guideHref(nextGuide.slug)}
-              className="mt-5 block rounded-xl border border-border/75 bg-background/70 p-4 text-sm font-semibold hover:border-primary/50 hover:text-primary"
-              data-link="next-guide-sidebar"
-            >
-              Sljedeći vodič
-              <span className="mt-2 block text-muted-foreground">
-                {nextGuide.title}
-              </span>
-            </a>
-          ) : null}
-          <Button asChild className="cta-primary mt-5 w-full rounded-full">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="justify-center text-center"
-              data-cta="guide-sidebar-standard-check"
-            >
-              <CalendarDays className="size-4" />
-              Razgovor
-            </a>
-          </Button>
-        </aside>
       </div>
     </article>
   )

@@ -165,6 +165,32 @@ function assertBefore(relativePath, contents, first, second, label) {
   fail(`${relativePath} has wrong order: ${label}`)
 }
 
+function assertArrayEquals(relativePath, actual, expected, label) {
+  const actualText = JSON.stringify(actual)
+  const expectedText = JSON.stringify(expected)
+
+  if (actualText === expectedText) {
+    pass(`${relativePath} keeps exact list: ${label}`)
+    return
+  }
+
+  fail(
+    `${relativePath} has wrong list for ${label}: ${actualText}, expected ${expectedText}`
+  )
+}
+
+function attributeValue(tag, name) {
+  const match = tag.match(new RegExp(`${name}="([^"]+)"`))
+  return match?.[1] ?? ""
+}
+
+function anchorHrefsByDataLink(contents, dataLink) {
+  return [...contents.matchAll(/<a\b[^>]*>/g)]
+    .map((match) => match[0])
+    .filter((tag) => attributeValue(tag, "data-link") === dataLink)
+    .map((tag) => attributeValue(tag, "href"))
+}
+
 function routeFile(routePath) {
   if (routePath === "/") {
     return "index.html"
@@ -228,6 +254,9 @@ const forbiddenVisibleText = [
   "Provjera traje",
   "dogovorite provjeru",
   "Dogovorite provjeru",
+  "kratka provjera",
+  "Kratka provjera",
+  "Od kratke provjere do pisanog standarda",
   words("dobar", "dug"),
   words("jeftin", "dug"),
   words("pametno", "zaduživanje"),
@@ -420,7 +449,7 @@ const homeChecks = [
     "price-time guide URL",
   ],
   [
-    "Od kratke provjere do pisanog standarda",
+    "Od uvodnog razgovora do pisanog standarda",
     "offers path title",
   ],
   [
@@ -479,7 +508,10 @@ const homeChecks = [
     "Dug je budući novac koji ste već potrošili",
     "second guide teaser",
   ],
-  ["Bitcoin je novac", "third guide teaser"],
+  [
+    "Davanje mijenja vaš odnos prema novcu",
+    "third guide teaser",
+  ],
   ["Pogledajte sve vodiče", "all guides link"],
   [
     "Što dobivam u uvodnom razgovoru?",
@@ -487,6 +519,10 @@ const homeChecks = [
   ],
   ["Je li ovo financijsko savjetovanje?", "FAQ financial advice question"],
   ["Moram li već imati Bitcoin?", "FAQ Bitcoin ownership question"],
+  [
+    "Ne nužno. Najkorisnije je ako već imate Bitcoin ili ga ozbiljno planirate koristiti kao dio vlastitog novca.",
+    "softened FAQ Bitcoin ownership answer",
+  ],
   [
     "Hoćete li upravljati mojim sredstvima?",
     "FAQ custody/control question",
@@ -509,6 +545,36 @@ const homeChecks = [
 for (const [expected, label] of homeChecks) {
   assertIncludes("index.html", homeHtml, expected, label)
 }
+
+const homeNavLinks = [
+  ['href="/#program"', "program nav link"],
+  ['href="/vodici/"', "guides nav link"],
+  ['href="/sigurnost/"', "security nav link"],
+  ['href="/#o-meni"', "about nav link"],
+  ['href="/#razgovor"', "intro call nav link"],
+]
+
+for (const [expected, label] of homeNavLinks) {
+  assertIncludes("index.html", homeHtml, expected, label)
+}
+
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  'href="/#provjera"',
+  "removed check nav link"
+)
+
+assertArrayEquals(
+  "index.html",
+  anchorHrefsByDataLink(homeHtml, "home-guide-teaser"),
+  [
+    "/vodici/svaki-euro-ima-namjenu/",
+    "/vodici/dug-je-buduci-novac/",
+    "/vodici/davanje-u-proracunu-nulte-osnove/",
+  ],
+  "home guide teaser href order"
+)
 
 const homeDataCtas = [
   'data-cta="hero-intro-call"',
@@ -545,6 +611,7 @@ const removedHomepageCopy = [
   "Bitcoin zakon potencije",
   "Rješenje",
   "trading plan",
+  "Da, ovaj okvir je najkorisniji ljudima koji već imaju Bitcoin ili ga ozbiljno akumuliraju.",
 ]
 
 for (const removedCopy of removedHomepageCopy) {
@@ -584,7 +651,7 @@ assertBefore(
   "index.html",
   homeHtml,
   "Cijena kao mjera vremena",
-  "Od kratke provjere do pisanog standarda",
+  "Od uvodnog razgovora do pisanog standarda",
   "price-time before offers"
 )
 assertBefore(
@@ -800,6 +867,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(relativePath, html, "BreadcrumbList", "BreadcrumbList schema")
   assertIncludes(relativePath, html, "Vrijeme čitanja", "reading time")
   assertIncludes(relativePath, html, "U ovom vodiču", "table of contents")
+  assertNotIncludes(relativePath, html, "Sadržaj vodiča", "duplicate guide TOC")
   assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
   assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
   assertIncludes(

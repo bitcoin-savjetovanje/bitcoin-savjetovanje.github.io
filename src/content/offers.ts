@@ -21,7 +21,7 @@ export const offers: Offer[] = [
     purpose:
       "Provjerimo gdje ste: imate li Bitcoin, postoji li dug, znate li stvarni višak i koji dio sustava trenutno stvara najviše pritiska.",
     includes: [
-      "kratka provjera osobnog Bitcoin standarda",
+      "15-minutni uvodni razgovor o osobnom Bitcoin standardu",
       "glavno pitanje koje treba razjasniti",
       "što bi bio razuman sljedeći korak",
       "jasno ne ako ne mogu pomoći",

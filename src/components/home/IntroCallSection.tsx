@@ -11,7 +11,7 @@ export function IntroCallSection() {
       <div className="case-panel border-primary/25">
         <SectionHeader
           title="U 15 minuta vidimo gdje sustav najviše škripi."
-          copy="Uvodni razgovor nije prodaja Bitcoina, prognoza cijene ni upravljanje vašim novcem. To je kratka provjera: imate li jasan proračun, postoji li dug, znate li stvarni višak, kakvu ulogu ima Bitcoin i postoji li obiteljski sigurnosni plan."
+          copy="Uvodni razgovor nije prodaja Bitcoina, prognoza cijene ni upravljanje vašim novcem. U njemu gledamo imate li jasan proračun, postoji li dug, znate li stvarni višak, kakvu ulogu ima Bitcoin i postoji li obiteljski sigurnosni plan."
         />
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {introCallItems.map((item, index) => (

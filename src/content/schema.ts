@@ -58,7 +58,8 @@ export function homeSchema() {
         email: EMAIL,
         areaServed: ["Hrvatska", "Online"],
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
-        serviceType: "Provjera i izgradnja osobnog Bitcoin standarda",
+        serviceType:
+          "Uvodni razgovor, dubinska provjera i izgradnja osobnog Bitcoin standarda",
         description:
           "Savjetodavni rad za osobna pravila o proračunu, dugu, davanju, Bitcoinu kao novcu, neto imovini, sigurnosti i obitelji. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },

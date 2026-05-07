@@ -7,10 +7,10 @@ import { navLinks } from "@/content/navigation"
 import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
 
 const tabletNavLinks = [
-  { label: "Provjera", href: "/#provjera" },
   { label: "Program", href: "/#program" },
   { label: "Vodiči", href: "/vodici/" },
   { label: "Sigurnost", href: "/sigurnost/" },
+  { label: "Razgovor", href: "/#razgovor" },
 ]
 
 function ThemeToggle() {

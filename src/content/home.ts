@@ -74,5 +74,5 @@ export const programOutcomes = [
 export const homeGuideSlugs = [
   "svaki-euro-ima-namjenu",
   "dug-je-buduci-novac",
-  "bitcoin-kao-novac",
-]
+  "davanje-u-proracunu-nulte-osnove",
+] as const

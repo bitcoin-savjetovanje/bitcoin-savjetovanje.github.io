@@ -24,7 +24,7 @@ export const homeSeo = {
 export const guidesIndexSeo = {
   title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Vodiči za prijelaz iz “imam Bitcoin” u osobni Bitcoin standard: proračun nulte osnove, dug, davanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
+    "Kratka mapa Praktičnog Bitcoin standarda: proračun, dug, davanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 

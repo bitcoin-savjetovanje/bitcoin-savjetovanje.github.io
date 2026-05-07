@@ -190,7 +190,7 @@ export const programDocumentItems = [
 export const bookingSteps = [
   {
     title: "Odaberete termin",
-    copy: "Provjera traje 15 minuta i bez naknade je.",
+    copy: "Uvodni razgovor traje 15 minuta i bez naknade je.",
   },
   {
     title: "Odgovorite na nekoliko pitanja",

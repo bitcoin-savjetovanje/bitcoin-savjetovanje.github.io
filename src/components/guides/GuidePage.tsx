@@ -160,7 +160,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
               Želite primijeniti okvir na svoju situaciju?
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
-              Provjera traje 15 minuta, bez naknade i bez obveze. Cilj je
+              Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
               vidjeti gdje ste, što pokušavate odlučiti i ima li smisla
               nastaviti.
             </p>
@@ -182,7 +182,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
           </div>
         </div>
         <aside className="sticky top-28 hidden rounded-2xl border border-border/80 bg-card p-5 shadow-sm lg:block">
-          <h2 className="text-lg font-semibold">U ovom vodiču</h2>
+          <h2 className="text-lg font-semibold">Sadržaj vodiča</h2>
           <ol className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground">
             {sectionLinks.map((section) => (
               <li key={section.id}>

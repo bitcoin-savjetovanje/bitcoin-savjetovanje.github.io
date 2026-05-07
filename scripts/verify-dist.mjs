@@ -61,15 +61,6 @@ const aliasGuidePaths = [
   },
 ]
 
-const guideCategories = [
-  "Osobni proračun nulte osnove",
-  "Život bez duga",
-  "Davanje",
-  "Bitcoin kao novac",
-  "Neto imovina",
-  "Sigurnost i obitelj",
-]
-
 const words = (...parts) => parts.join(" ")
 
 function pass(message) {
@@ -232,6 +223,11 @@ const forbiddenVisibleText = [
   "giving",
   "umjesto nas",
   "ne potpisujem transakcije za nas",
+  "Kontrola ostaje kod nas",
+  "kontrola ostaje kod nas",
+  "Provjera traje",
+  "dogovorite provjeru",
+  "Dogovorite provjeru",
   words("dobar", "dug"),
   words("jeftin", "dug"),
   words("pametno", "zaduživanje"),
@@ -614,26 +610,47 @@ const guidesIndexHtml = readFile("vodici/index.html")
 const guideIndexChecks = [
   ["Vodiči za osobni Bitcoin standard", "guide index title"],
   [
-    "Ako želite razumjeti okvir, čitajte vodiče.",
-    "guide index sales support copy",
-  ],
-  ["Krenite s ova tri vodiča.", "three starter guides title"],
-  [
-    "Ako pročitate samo tri vodiča, krenite ovdje.",
-    "three starter guides copy",
+    "Ne morate pročitati sve. Vodiči su mapa metode",
+    "guide index method map copy",
   ],
   [
-    "Razina 1: Imate Bitcoin, ali još živite po fiat pravilima",
-    "level 1 title",
+    "Ako želite primjenu na vlastitu situaciju, dogovorite 15-minutni uvodni razgovor.",
+    "guide index intro call copy",
   ],
-  ["Razina 2: Gradite osobni Bitcoin standard", "level 2 title"],
-  ["Razina 3: Živite i usavršavate standard", "level 3 title"],
+  [
+    "Bez naknade. Bez obveze. Bez upravljanja vašim sredstvima.",
+    "guide index CTA microcopy",
+  ],
+  ["Krenite redom", "method map title"],
+  [
+    "Ovih sedam vodiča daje najkraći put kroz metodu.",
+    "method map intro",
+  ],
+  ["Svaki euro ima namjenu", "budget primary guide"],
   ["Dug je budući novac koji ste već potrošili", "debt guide title"],
   ["Davanje mijenja vaš odnos prema novcu", "giving guide"],
   ["Bitcoin je novac", "bitcoin as money guide"],
-  ["Pravilo trećina u neto imovini", "thirds rule guide"],
-  ["Sigurnost ne smije ovisiti samo o vama", "security guide"],
-  ["Svi vodiči po području", "secondary guide categories"],
+  ["Cijena kao mjera vremena", "price-time guide"],
+  ["Bitcoin i ravnoteža neto imovine", "net worth primary guide"],
+  ["Sigurnost i obiteljski plan", "security family primary guide"],
+  ["Dodatne bilješke", "additional notes title"],
+  [
+    "Ovi tekstovi razrađuju pojedine dijelove metode.",
+    "additional notes intro",
+  ],
+  ["Pravilo trećina u neto imovini", "additional thirds guide"],
+  [
+    "Kako obitelj može pristupiti Bitcoinu ako vam se nešto dogodi?",
+    "additional family guide",
+  ],
+  [
+    "Želite primijeniti okvir na vlastitu situaciju?",
+    "guide index final CTA title",
+  ],
+  [
+    "Uvodni razgovor je bez naknade i traje 15 minuta.",
+    "guide index final CTA microcopy",
+  ],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/" />',
     "guide index canonical URL",
@@ -647,14 +664,72 @@ for (const [expected, label] of guideIndexChecks) {
   assertIncludes("vodici/index.html", guidesIndexHtml, expected, label)
 }
 
-for (const category of guideCategories) {
-  assertIncludes(
+const oldGuideIndexText = [
+  "Krenite s ova tri vodiča",
+  "Razina 1",
+  "Razina 2",
+  "Razina 3",
+  "Svi vodiči po području",
+]
+
+for (const oldText of oldGuideIndexText) {
+  assertNotIncludes(
     "vodici/index.html",
     guidesIndexHtml,
-    category,
-    `${category} category`
+    oldText,
+    `old guide index text: ${oldText}`
   )
 }
+
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Svaki euro ima namjenu",
+  "Dug je budući novac koji ste već potrošili",
+  "budget before debt"
+)
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Dug je budući novac koji ste već potrošili",
+  "Davanje mijenja vaš odnos prema novcu",
+  "debt before giving"
+)
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Davanje mijenja vaš odnos prema novcu",
+  "Bitcoin je novac",
+  "giving before Bitcoin"
+)
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Bitcoin je novac",
+  "Cijena kao mjera vremena",
+  "Bitcoin before price-time"
+)
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Cijena kao mjera vremena",
+  "Bitcoin i ravnoteža neto imovine",
+  "price-time before net worth"
+)
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Bitcoin i ravnoteža neto imovine",
+  "Sigurnost i obiteljski plan",
+  "net worth before security"
+)
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "Krenite redom",
+  "Dodatne bilješke",
+  "primary guides before additional notes"
+)
 
 assertCount(
   "vodici/index.html",

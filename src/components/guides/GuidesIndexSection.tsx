@@ -10,7 +10,7 @@ export function GuidesIndexSection() {
     <section id="vodici" className="section-shell section-muted">
       <SectionHeader
         title="Vodiči su za razumijevanje. Razgovor je za primjenu."
-        copy="Ako želite razumjeti okvir, čitajte vodiče. Ako ga želite primijeniti na vlastiti proračun, dug, davanje, Bitcoin, neto imovinu i obitelj, dogovorite provjeru."
+        copy="Ako želite razumjeti okvir, čitajte vodiče. Ako ga želite primijeniti na vlastiti proračun, dug, davanje, Bitcoin, neto imovinu i obitelj, dogovorite 15-minutni uvodni razgovor."
         align="center"
       />
       <GuideCardsGrid />

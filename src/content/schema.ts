@@ -1,4 +1,10 @@
-import { guideHref, guides, type Guide } from "./guides"
+import {
+  findGuide,
+  guideHref,
+  guidesIndexOrderedSlugs,
+  guidesIndexPrimaryItems,
+  type Guide,
+} from "./guides"
 import { offers } from "./offers"
 import {
   EMAIL,
@@ -123,6 +129,10 @@ export function guideSchema(guide: Guide) {
 }
 
 export function guidesIndexSchema() {
+  const primaryGuideNames = new Map(
+    guidesIndexPrimaryItems.map((guide) => [guide.slug, guide.title])
+  )
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -139,12 +149,22 @@ export function guidesIndexSchema() {
         },
         mainEntity: {
           "@type": "ItemList",
-          itemListElement: guides.map((guide, index) => ({
-            "@type": "ListItem",
-            position: index + 1,
-            name: guide.title,
-            url: `${SITE_URL}${guideHref(guide.slug)}`,
-          })),
+          itemListElement: guidesIndexOrderedSlugs.flatMap((slug, index) => {
+            const guide = findGuide(slug)
+
+            if (!guide) {
+              return []
+            }
+
+            return [
+              {
+                "@type": "ListItem",
+                position: index + 1,
+                name: primaryGuideNames.get(slug) ?? guide.title,
+                url: `${SITE_URL}${guideHref(guide.slug)}`,
+              },
+            ]
+          }),
         },
       },
       breadcrumbSchema([

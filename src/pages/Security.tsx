@@ -109,7 +109,7 @@ export function Security() {
               Želite urediti sigurnosni okvir bez predaje kontrole?
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-8 text-background/72">
-              Provjera traje 15 minuta, bez naknade i bez obveze.
+              Uvodni razgovor traje 15 minuta, bez naknade i bez obveze.
             </p>
           </div>
           <Button

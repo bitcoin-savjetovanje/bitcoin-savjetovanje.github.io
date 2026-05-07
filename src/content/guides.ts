@@ -1390,7 +1390,7 @@ const guideEntries: Guide[] = [
     slug: "sigurnost-ne-smije-ovisiti-samo-o-vama",
     title: "Sigurnost ne smije ovisiti samo o vama",
     metaDescription:
-      "Vodič o sigurnosti i obiteljskom pristupu Bitcoinu: kontrola ostaje kod nas, ali sustav ne smije ovisiti samo o vama.",
+      "Vodič o sigurnosti i obiteljskom pristupu Bitcoinu: kontrola ostaje kod vas, ali sustav ne smije ovisiti samo o vama.",
     excerpt:
       "Vaš Bitcoin mora ostati pod vašom kontrolom. Ali ako nitko ne zna što napraviti u izvanrednoj situaciji, sustav nije dovršen.",
     category: "Sigurnost i obitelj",
@@ -1426,9 +1426,9 @@ const guideEntries: Guide[] = [
     },
     sections: [
       {
-        heading: "Kontrola ostaje kod nas",
+        heading: "Kontrola ostaje kod vas",
         body: [
-          "Sigurnost u osobnom Bitcoin standardu počinje od jednostavne granice: kontrola ostaje kod nas. Nitko ne treba početne riječi, privatne ključeve, lozinke ili pristup računu da bi s vama razgovarao o sustavu.",
+          "Sigurnost u osobnom Bitcoin standardu počinje od jednostavne granice: kontrola ostaje kod vas. Nitko ne treba početne riječi, privatne ključeve, lozinke ili pristup računu da bi s vama razgovarao o sustavu.",
           "Ali kontrola ne znači izolaciju. Ako nitko ne zna što postoji, gdje su opće upute i što nikada ne smije napraviti, sustav ovisi samo o vama. To nije dovoljno za ozbiljnu neto imovinu.",
         ],
       },
@@ -1472,6 +1472,97 @@ export const guides = [...guideEntries].sort((first, second) => {
 
   return first.title.localeCompare(second.title, "hr")
 })
+
+export type GuidesIndexPrimaryItem = {
+  slug: string
+  title: string
+  category: string
+  excerpt: string
+}
+
+export const guidesIndexPrimaryItems: GuidesIndexPrimaryItem[] = [
+  {
+    slug: "svaki-euro-ima-namjenu",
+    title: "Svaki euro ima namjenu",
+    category: "Proračun",
+    excerpt:
+      "Proračun nulte osnove pokazuje koji novac je stvarno slobodan za Bitcoin odluku.",
+  },
+  {
+    slug: "dug-je-buduci-novac",
+    title: "Dug je budući novac koji ste već potrošili",
+    category: "Dug",
+    excerpt:
+      "Bitcoin i dug ne smiju se promatrati samo matematički. Dug mijenja stanje osobe koja odlučuje.",
+  },
+  {
+    slug: "davanje-u-proracunu-nulte-osnove",
+    title: "Davanje mijenja vaš odnos prema novcu",
+    category: "Davanje",
+    excerpt:
+      "Nakon reda i izlaska iz duga, dio novca dobiva namjenu za druge ljude.",
+  },
+  {
+    slug: "bitcoin-kao-novac",
+    title: "Bitcoin je novac",
+    category: "Bitcoin kao novac",
+    excerpt:
+      "Bitcoin nije samo imovina koju držite. U osobnom Bitcoin standardu ima ulogu novca.",
+  },
+  {
+    slug: "cijena-kao-mjera-vremena",
+    title: "Cijena kao mjera vremena",
+    category: "Kupovna moć",
+    excerpt:
+      "Dugoročni trend je pomoćni signal, ne prognoza cijene. Proračun odlučuje prvi.",
+  },
+  {
+    slug: "bitcoin-u-neto-imovini",
+    title: "Bitcoin i ravnoteža neto imovine",
+    category: "Neto imovina",
+    excerpt:
+      "Novac, potrošna dobra i proizvodna imovina imaju različite uloge.",
+  },
+  {
+    slug: "sigurnost-ne-smije-ovisiti-samo-o-vama",
+    title: "Sigurnost i obiteljski plan",
+    category: "Sigurnost i obitelj",
+    excerpt:
+      "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
+  },
+]
+
+export const guidesIndexAdditionalGroups = [
+  {
+    title: "Proračun",
+    slugs: ["stvarni-visak", "starost-novca", "dca-nije-dovoljan"],
+  },
+  {
+    title: "Dug",
+    slugs: ["dug-ili-bitcoin", "ne-zaduzujte-se-za-bitcoin"],
+  },
+  {
+    title: "Davanje",
+    slugs: ["davanje-bez-duga", "novac-dolazi-od-ljudi"],
+  },
+  {
+    title: "Bitcoin kao novac",
+    slugs: ["pozitivni-neto-priljev", "uskladivanje-kupovne-moci-bitcoina"],
+  },
+  {
+    title: "Neto imovina",
+    slugs: ["novac-kapital-potrosnja", "pravilo-trecina"],
+  },
+  {
+    title: "Sigurnost i obitelj",
+    slugs: ["obiteljski-pristup-bitcoinu"],
+  },
+] as const
+
+export const guidesIndexOrderedSlugs = [
+  ...guidesIndexPrimaryItems.map((guide) => guide.slug),
+  ...guidesIndexAdditionalGroups.flatMap((group) => group.slugs),
+]
 
 export const recommendedGuideSlugs = [
   "svaki-euro-ima-namjenu",

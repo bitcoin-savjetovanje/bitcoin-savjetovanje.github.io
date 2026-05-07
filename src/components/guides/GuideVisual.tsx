@@ -20,13 +20,10 @@ function VisualShell({
   return (
     <article
       className="mt-10 max-w-5xl rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-6"
-      aria-label={`Vizual vodiča: ${visual.title}`}
+      aria-label={`Prikaz vodiča: ${visual.title}`}
     >
       <div className="max-w-3xl">
-        <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-          Vizual
-        </p>
-        <h2 className="mt-2 text-2xl font-semibold tracking-[-0.015em]">
+        <h2 className="text-2xl font-semibold tracking-[-0.015em]">
           {visual.title}
         </h2>
         {visual.caption ? (

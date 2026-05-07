@@ -1,7 +1,6 @@
 import { CalendarDays, Mail } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { aboutCards } from "@/content/method"
 import {
   BITCOIN_STANDARD_BOOK_URL,
   BOOKING_URL,
@@ -18,8 +17,8 @@ export function AboutSection() {
   return (
     <section id="o-meni" className="section-shell section-muted">
       <SectionHeader
-        title="Ne pomažem vam napraviti nešto što sam promatrao izvana."
-        copy="Pomažem vam postaviti pravila iz prakse koju sam morao naučiti živjeti."
+        title="Ne pomažem vam postaviti teoriju koju nisam živio."
+        copy="Bitcoin standard treba izdržati običan život, ne samo dobru ideju."
       />
       <div className="credibility-grid">
         <aside className="profile-panel">
@@ -45,7 +44,7 @@ export function AboutSection() {
           <div className="credibility-copy">
             <p>
               U Bitcoinu sam od 2014. Od 2020. živim na Bitcoin standardu. Radio
-              sam u Bitcoin industriji i radio sam sa{" "}
+              sam u Bitcoin industriji i sa{" "}
               <a
                 href={SAIFEDEAN_AMMOUS_URL}
                 target="_blank"
@@ -61,7 +60,23 @@ export function AboutSection() {
               >
                 The Bitcoin Standard
               </a>
-              . Gradim{" "}
+              . Praktični Bitcoin standard nastao je iz pokušaja da Bitcoin ne
+              bude samo nešto što držim, nego novac s kojim stvarno živim.
+            </p>
+            <p>
+              Moj posao nije reći vam što će cijena napraviti. Moj posao je
+              pomoći vam zapisati pravila po kojima ćete vi donositi bolje
+              odluke.
+            </p>
+            <p>
+              Dio tog rada javno razvijam kroz{" "}
+              <a
+                href={PRACTICAL_BITCOIN_STANDARD_URL}
+                data-link="practical-bitcoin-standard"
+              >
+                Praktični Bitcoin standard
+              </a>{" "}
+              i{" "}
               <a
                 href={DVADESET_JEDAN_URL}
                 target="_blank"
@@ -69,38 +84,12 @@ export function AboutSection() {
               >
                 DvadesetJedan
               </a>{" "}
-              zajednicu u sklopu svjetske mreže{" "}
+              zajednicu u sklopu mreže{" "}
               <a href={TWENTYONE_URL} target="_blank" rel="noopener noreferrer">
                 TwentyOne World
               </a>
               .
             </p>
-            <p>
-              Ovaj okvir nije teorija za druge. Nastao je iz pokušaja življenja
-              s Bitcoinom kao novcem i iz rada na otvorenom priručniku{" "}
-              <a
-                href={PRACTICAL_BITCOIN_STANDARD_URL}
-                data-link="practical-bitcoin-standard"
-              >
-                Praktični Bitcoin standard
-              </a>
-              .
-            </p>
-            <p>
-              Moj posao nije nagovarati na kupnju ili prodaju Bitcoina. Moj
-              posao je pomoći postaviti pravila koja se mogu živjeti i objasniti
-              obitelji.
-            </p>
-            <div className="grid gap-2 pt-2 sm:grid-cols-2">
-              {aboutCards.map((item) => (
-                <div key={item.title} className="check-row bg-background/70">
-                  <p>
-                    <strong className="text-foreground">{item.title}:</strong>{" "}
-                    {item.copy}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
         <div

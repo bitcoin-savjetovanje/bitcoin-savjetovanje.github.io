@@ -1,17 +1,17 @@
 import { CalendarDays } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { BOOKING_URL, EMAIL, PRIMARY_CTA } from "@/content/site"
+import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
 
 export function FinalCta() {
   return (
     <section id="razgovor" className="section-shell">
       <div className="final-cta">
         <div>
-          <h2>Provjerite gdje ste u odnosu na uređeni Bitcoin standard.</h2>
+          <h2>Provjerite gdje ste u odnosu na osobni Bitcoin standard.</h2>
           <p>
-            Provjera traje 15 minuta, bez naknade i bez obveze. Vidjet ćemo gdje
-            ste u odnosu na osobni Bitcoin standard i koji je sljedeći razuman
+            Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
+            vidjeti što je jasno, što nije zapisano i koji je sljedeći razuman
             korak.
           </p>
         </div>
@@ -25,19 +25,12 @@ export function FinalCta() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              data-cta="final-standard-check"
+              data-cta="final-intro-call"
             >
               <CalendarDays className="size-4" />
               <span>{PRIMARY_CTA}</span>
             </a>
           </Button>
-          <a
-            className="final-cta__email"
-            href={`mailto:${EMAIL}`}
-            data-link="final-email"
-          >
-            {EMAIL}
-          </a>
         </div>
       </div>
     </section>

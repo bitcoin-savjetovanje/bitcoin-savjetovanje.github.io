@@ -1,22 +1,19 @@
-import { ArrowUpDown, ShieldCheck, Wallet } from "lucide-react"
+import { ShieldCheck, WalletCards, Waypoints } from "lucide-react"
 
-const stressScenarios = [
+const ruleRows = [
   {
-    title: "Kako reagirate kad se Bitcoin tečaj promijeni?",
-    question:
-      "Strah u padu, euforija u rastu — ili unaprijed postavljena pravila?",
-    Icon: ArrowUpDown,
+    title: "Novac",
+    question: "svaki euro ima namjenu prije Bitcoin odluke",
+    Icon: WalletCards,
   },
   {
-    title: "Je li vaša ukupna imovina u ravnoteži?",
-    question:
-      "Gdje je Bitcoin u sklopu vaše ukupne imovine, i što planirate kod većih pomaka?",
-    Icon: Wallet,
+    title: "Dug i višak",
+    question: "prvo stvarni višak, zatim odluka",
+    Icon: Waypoints,
   },
   {
-    title: "Kako ste uredili skrbništvo i pristup Bitcoinu za vašu obitelj?",
-    question:
-      "Imate li jasan plan i protokol za upravljanje Bitcoinom, kojeg zna i obitelj?",
+    title: "Sigurnost",
+    question: "obitelj zna pravila bez predaje kontrole",
     Icon: ShieldCheck,
   },
 ]
@@ -31,10 +28,10 @@ export function BitcoinStressTestVisual() {
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">
-            Stres-test standarda
+            Osobni standard
           </h2>
           <p className="mt-2 text-base leading-6 font-semibold text-foreground sm:text-lg sm:leading-7">
-            Tri provjere: promjena cijene, stanje imovine, plan za obitelj.
+            Pravila prije pritiska.
           </p>
         </div>
         <div className="grid size-11 shrink-0 place-items-center overflow-hidden rounded-full border border-primary/30 bg-primary/10">
@@ -48,7 +45,7 @@ export function BitcoinStressTestVisual() {
       </div>
 
       <div className="mt-4 grid gap-2.5">
-        {stressScenarios.map(({ title, question, Icon }) => (
+        {ruleRows.map(({ title, question, Icon }) => (
           <article
             key={title}
             className="rounded-xl border border-border/75 bg-background/70 p-3 shadow-sm"

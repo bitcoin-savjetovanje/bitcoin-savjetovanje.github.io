@@ -10,18 +10,13 @@ export const faqs = [
       "Da, ovaj okvir je najkorisniji ljudima koji već imaju Bitcoin ili ga ozbiljno akumuliraju. Ako ste potpuni početnik, prvo pročitajte osnovne vodiče.",
   },
   {
-    question: "Što ako imam dug?",
+    question: "Hoćete li upravljati mojim sredstvima?",
     answer:
-      "Tada je dug dio provjere. Dug je budući novac koji ste već potrošili i može prisiliti loše Bitcoin odluke. Cilj je vidjeti kako izaći iz duga i ne graditi standard na budućem novcu.",
+      "Ne. Ne tražim pristup računima, uređajima, lozinkama, privatnim ključevima ni početnim riječima. Vaš Bitcoin ostaje pod vašom kontrolom.",
   },
   {
-    question: "Hoćete li mi reći koliko Bitcoina kupiti ili prodati?",
+    question: "Što dobivam u uvodnom razgovoru?",
     answer:
-      "Ne. Ne radimo prognozu cijene ni trading plan. Radimo na proračunu, stvarnom višku, kupovnoj moći, dugu, neto imovini i pravilima za odluke.",
-  },
-  {
-    question: "Zašto je davanje dio Bitcoin standarda?",
-    answer:
-      "Zato što osobni Bitcoin standard nije samo obrana kupovne moći. Davanje mijenja odnos prema novcu, ljudima i stvaranju vrijednosti. Ne dolazi iz duga ni krivnje, nego iz uređenog novca.",
+      "Kratku provjeru stanja: proračun, dug, stvarni višak, ulogu Bitcoina, sigurnost i obiteljski plan. Na kraju dobijete razuman sljedeći korak ili jasno “ne” ako ne mogu pomoći.",
   },
 ]

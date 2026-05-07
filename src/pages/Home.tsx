@@ -2,11 +2,14 @@ import { Seo } from "@/components/Seo"
 import { AboutSection } from "@/components/home/AboutSection"
 import { FaqSection } from "@/components/home/FaqSection"
 import { FinalCta } from "@/components/home/FinalCta"
+import { GuidesTeaserSection } from "@/components/home/GuidesTeaserSection"
 import { Hero } from "@/components/home/Hero"
+import { IntroCallSection } from "@/components/home/IntroCallSection"
+import { MethodHintSection } from "@/components/home/MethodHintSection"
 import { OffersSection } from "@/components/home/OffersSection"
-import { StandardAreasSection } from "@/components/home/StandardAreasSection"
-import { StandardCheckSection } from "@/components/home/StandardCheckSection"
-import { StandardComparisonSection } from "@/components/home/StandardComparisonSection"
+import { PersonalStandardSection } from "@/components/home/PersonalStandardSection"
+import { SecurityTrustSection } from "@/components/home/SecurityTrustSection"
+import { StressTestSection } from "@/components/home/StressTestSection"
 import { homeRoute } from "@/content/routes"
 
 export function Home() {
@@ -20,11 +23,14 @@ export function Home() {
         schema={homeRoute.schema as object}
       />
       <Hero />
-      <StandardComparisonSection />
-      <StandardAreasSection />
-      <StandardCheckSection />
+      <StressTestSection />
+      <MethodHintSection />
+      <IntroCallSection />
+      <PersonalStandardSection />
       <OffersSection />
+      <SecurityTrustSection />
       <AboutSection />
+      <GuidesTeaserSection />
       <FaqSection />
       <FinalCta />
     </>

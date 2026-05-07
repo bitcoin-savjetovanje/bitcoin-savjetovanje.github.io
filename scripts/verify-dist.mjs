@@ -197,10 +197,8 @@ const forbiddenVisibleText = [
   words("dugoročnog", "kapitala"),
   words("Bitcoin kao", "kapital"),
   "proračun nulte razine",
-  "Dogovorite 15-minutni uvodni razgovor",
   "Strukturirani program",
   "Savjetodavni razgovor",
-  "Uvodni razgovor",
   "crypto",
   "ROI",
   "custody",
@@ -236,154 +234,204 @@ for (const absoluteHtmlPath of htmlFiles()) {
 }
 
 const homeHtml = readFile("index.html")
+const homeForbiddenVisibleText = [
+  "FOMO",
+  "Fear & Greed",
+  "falling knife",
+  "DCA",
+  "trading",
+  "crypto",
+  "altcoin",
+  "web3",
+  "custody",
+  "seed phrase",
+  "self-custody",
+  "risk tolerance",
+  "ROI",
+  "mindset",
+  "framework",
+  "cash balance",
+  "stack",
+  "stacking",
+  "hype",
+  "roadmap",
+  "lead magnet",
+  "giving",
+  "charity",
+  "trading signali",
+  "uvodni poziv",
+]
+
+for (const forbidden of homeForbiddenVisibleText) {
+  assertNotIncludes(
+    "index.html",
+    homeHtml,
+    forbidden,
+    `homepage forbidden text: ${forbidden}`
+  )
+}
+
 const homeChecks = [
+  ["Bitcoin Savjetovanje | Osobni Bitcoin standard", "home SEO title"],
   [
-    "Prijeđite iz “imam Bitcoin” u osobni Bitcoin standard.",
-    "new hero title",
+    "Imate Bitcoin. Sada trebate pravila.",
+    "hero title",
   ],
   [
-    "Nije dovoljno imati Bitcoin. Trebate plan za pad, rast, trošak, dug i obitelj — prije nego što vas život natjera da odlučujete pod pritiskom.",
-    "new hero subtitle",
+    "Bitcoin nije problem. Problem je kada odluke o novcu, dugu, troškovima, sigurnosti i obitelji nisu zapisane prije pritiska.",
+    "hero subtitle",
   ],
   [
-    "Pomažem vam urediti pravila za život s Bitcoinom",
-    "new hero body copy",
+    "Pomažem vam izgraditi osobni Bitcoin standard",
+    "hero body copy",
   ],
   [
-    "Tri provjere: promjena cijene, stanje imovine, plan za obitelj.",
-    "hero stress-test visual",
-  ],
-  [
-    "Kako reagirate kad se Bitcoin tečaj promijeni?",
-    "hero stress-test price point",
-  ],
-  [
-    "Strah u padu, euforija u rastu",
-    "hero stress-test price copy",
-  ],
-  [
-    "Je li vaša ukupna imovina u ravnoteži?",
-    "hero stress-test assets point",
-  ],
-  [
-    "Gdje je Bitcoin u sklopu vaše ukupne imovine",
-    "hero stress-test money copy",
-  ],
-  [
-    "Kako ste uredili skrbništvo i pristup Bitcoinu za vašu obitelj?",
-    "hero stress-test family point",
-  ],
-  [
-    "Imate li jasan plan i protokol za upravljanje Bitcoinom",
-    "hero stress-test family copy",
-  ],
-  [
-    "Dogovorite uvodni poziv",
+    "Dogovorite 15-minutni uvodni razgovor",
     "primary CTA",
   ],
-  ["Provjerite gdje ste", "secondary CTA"],
   [
-    "15 minuta. Bez naknade.",
-    "hero trust copy",
+    "15 minuta. Bez naknade. Bez obveze.",
+    "hero intro call helper",
   ],
   [
-    "Bitcoin sam po sebi nije dovoljan ukoliko nije uređen unutar ukupne neto imovine.",
-    "standard contrast title",
-  ],
-  ["Bitcoin bez standarda", "without standard column"],
-  ["Bitcoin sa standardom", "with standard column"],
-  [
-    "Osobni Bitcoin standard u 6 područja",
-    "standard areas section title",
-  ],
-  ["Mudrost upravljanja novcem", "money wisdom segment"],
-  ["Bitcoin standard", "bitcoin standard segment"],
-  ["Proračun", "budget standard area"],
-  ["Razduživanje", "debt reduction standard area"],
-  ["Davanje", "giving standard area"],
-  ["Bitcoin u imovini", "bitcoin assets standard area"],
-  [
-    "Pomiješani su nam pojmovi štednje/novca, investicije i diverzifikacije.",
-    "bitcoin assets problem copy",
+    "Bez prognoza cijene. Bez upravljanja vašim sredstvima. Bez traženja početnih riječi.",
+    "hero security microcopy",
   ],
   [
-    "Promjene cijene Bitcoina znače usklađivanje proračuna.",
-    "bitcoin assets solution copy",
-  ],
-  ["Bitcoin zakon potencije", "bitcoin power law standard area"],
-  [
-    "Proračun i ravnoteža neto imovine radi se u skladu s očekivanjima prema dugoročnom trendu.",
-    "bitcoin power law solution copy",
+    "Bitcoin standard se vidi kad dođe pritisak.",
+    "stress-test section title",
   ],
   [
-    "Bitcoin sigurnost i nasljeđivanje",
-    "bitcoin security inheritance standard area",
-  ],
-  ["Prvo kontrola. Zatim sloboda. Zatim davanje.", "foundations title"],
-  ["Proračun nulte osnove", "zero-based budget terminology"],
-  ["Život bez duga", "debt-free life terminology"],
-  ["Davanje nije ukras osobnog Bitcoin standarda.", "giving foundation"],
-  ["novac dolazi kroz ljude", "giving differentiator copy"],
-  ["Koliko je vaš Bitcoin standard stvaran?", "self-assessment title"],
-  [
-    "Znate li koju namjenu ima sav novac kojim raspolažete?",
-    "assessment question",
+    "Kada Bitcoin padne",
+    "stress-test fall card",
   ],
   [
-    "Znate li kako reagirati na promjenu cijene Bitcoina dok postoji dug?",
-    "debt pressure check",
+    "Kada Bitcoin naraste",
+    "stress-test rise card",
   ],
   [
-    "Znaju li svi uključeni što napraviti u ključnim situacijama?",
-    "family security check",
+    "Kada se dogodi život",
+    "stress-test life card",
+  ],
+  [
+    "Metoda je šira od kupnje Bitcoina.",
+    "method hint title",
+  ],
+  [
+    "Proračun",
+    "method path budget",
+  ],
+  [
+    "Dug",
+    "method path debt",
+  ],
+  [
+    "Darivanje",
+    "method path giving",
+  ],
+  [
+    "Bitcoin",
+    "method path bitcoin",
+  ],
+  [
+    "Neto imovina",
+    "method path net worth",
+  ],
+  [
+    "Sigurnost",
+    "method path security",
+  ],
+  [
+    "Obitelj",
+    "method path family",
+  ],
+  [
+    "U 15 minuta vidimo gdje sustav najviše škripi.",
+    "intro call section title",
+  ],
+  [
+    "Uvodni razgovor nije prodaja Bitcoina, prognoza cijene ni upravljanje vašim novcem.",
+    "intro call boundary copy",
+  ],
+  [
+    "Uvodni razgovor je bez naknade i traje 15 minuta.",
+    "intro call helper copy",
+  ],
+  [
+    "Osobni Bitcoin standard je dokument s pravilima.",
+    "personal standard title",
+  ],
+  [
+    "što svaki euro treba napraviti",
+    "personal standard budget rule",
+  ],
+  [
+    "što obitelj treba znati bez predaje kontrole",
+    "personal standard family rule",
   ],
   ["Izgradnja osobnog Bitcoin standarda", "main program title"],
   ["4–6 tjedana · 1.500 €", "program price duration"],
-  ["Korak 1 - Red u novcu", "program step 1"],
   [
-    "Proračun nulte osnove, prihodi, rashodi, budući troškovi i stvarni višak.",
-    "program step 1 copy",
-  ],
-  ["Korak 3 - Sustavno davanje", "program step 3"],
-  ["Korak 5 - Ravnoteža neto imovine", "program step 5"],
-  [
-    "Korak 6 - Plan skrbništva/sigurnosti i pristup Bitcoinu za obitelj",
-    "program step 6",
+    "Za ljude koji ne žele samo još jedan razgovor o Bitcoinu, nego pisana pravila za vlastiti život.",
+    "program positioning copy",
   ],
   [
-    "Niste sigurni jeste li spremni za cijeli program?",
-    "program entry options title",
+    "pisani osobni Bitcoin standard",
+    "program written standard outcome",
+  ],
+  [
+    "sigurnosni i obiteljski plan",
+    "program security outcome",
   ],
   [
     "Dubinska provjera osobnog Bitcoin standarda",
     "deep standard check offer",
   ],
   [
-    "Na kraju imate pisani osobni Bitcoin standard",
-    "program outcome",
+    "Vaš Bitcoin ostaje pod vašom kontrolom.",
+    "security section title",
   ],
   [
-    "Ne pomažem vam napraviti nešto što sam promatrao izvana.",
+    "Pročitajte sigurnosna pravila",
+    "security page link",
+  ],
+  [
+    "Ne pomažem vam postaviti teoriju koju nisam živio.",
     "about authority title",
   ],
   [
-    "Pomažem vam postaviti pravila iz prakse koju sam morao naučiti živjeti.",
-    "about practice copy",
+    "Moj posao nije reći vam što će cijena napraviti.",
+    "about boundary copy",
+  ],
+  ["Želite prvo čitati?", "guides teaser title"],
+  [
+    "Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju.",
+    "guides teaser copy",
+  ],
+  ["Svaki euro ima namjenu", "first guide teaser"],
+  [
+    "Dug je budući novac koji ste već potrošili",
+    "second guide teaser",
+  ],
+  ["Bitcoin je novac", "third guide teaser"],
+  ["Pogledajte sve vodiče", "all guides link"],
+  [
+    "Što dobivam u uvodnom razgovoru?",
+    "FAQ intro call question",
   ],
   ["Je li ovo financijsko savjetovanje?", "FAQ financial advice question"],
   ["Moram li već imati Bitcoin?", "FAQ Bitcoin ownership question"],
-  ["Što ako imam dug?", "FAQ debt question"],
   [
-    "Hoćete li mi reći koliko Bitcoina kupiti ili prodati?",
-    "FAQ buy sell question",
+    "Hoćete li upravljati mojim sredstvima?",
+    "FAQ custody/control question",
   ],
   [
-    "Zašto je davanje dio Bitcoin standarda?",
-    "FAQ giving question",
-  ],
-  [
-    "Provjerite gdje ste u odnosu na uređeni Bitcoin standard.",
+    "Provjerite gdje ste u odnosu na osobni Bitcoin standard.",
     "final CTA title",
+  ],
+  [
+    "Uvodni razgovor traje 15 minuta, bez naknade i bez obveze.",
+    "final CTA copy",
   ],
   ["OfferCatalog", "OfferCatalog schema"],
   [
@@ -397,13 +445,16 @@ for (const [expected, label] of homeChecks) {
 }
 
 const homeDataCtas = [
-  'data-cta="hero-standard-check"',
-  'data-cta="test-standard-check"',
-  'data-cta="program-standard-check"',
-  'data-cta="final-standard-check"',
+  'data-cta="hero-intro-call"',
+  'data-cta="stress-test-intro-call"',
+  'data-cta="method-intro-call"',
+  'data-cta="intro-call-primary"',
+  'data-cta="program-intro-call"',
+  'data-cta="security-intro-call"',
+  'data-cta="guides-intro-call"',
+  'data-cta="final-intro-call"',
   'data-cta="header-standard-check"',
   'data-cta="sticky-mobile-standard-check"',
-  'data-cta="standard-area-booking"',
 ]
 
 for (const dataCta of homeDataCtas) {
@@ -411,16 +462,31 @@ for (const dataCta of homeDataCtas) {
 }
 
 const homeDataLinks = [
-  'data-link="standard-area-proracun"',
-  'data-link="standard-area-razduzivanje"',
-  'data-link="standard-area-davanje"',
-  'data-link="standard-area-bitcoin-u-imovini"',
-  'data-link="standard-area-bitcoin-power-law"',
-  'data-link="standard-area-sigurnost-nasljedivanje"',
+  'data-link="security-rules"',
+  'data-link="home-guide-teaser"',
+  'data-link="home-guides-index"',
 ]
 
 for (const dataLink of homeDataLinks) {
   assertIncludes("index.html", homeHtml, dataLink, dataLink)
+}
+
+const removedHomepageCopy = [
+  "Osobni Bitcoin standard u 6 područja",
+  "Koliko je vaš Bitcoin standard stvaran?",
+  "Znate li koju namjenu ima sav novac kojim raspolažete?",
+  "Bitcoin zakon potencije",
+  "Rješenje",
+  "trading plan",
+]
+
+for (const removedCopy of removedHomepageCopy) {
+  assertNotIncludes(
+    "index.html",
+    homeHtml,
+    removedCopy,
+    `removed homepage copy: ${removedCopy}`
+  )
 }
 
 assertNotIncludes("index.html", homeHtml, "FAQPage", "removed FAQPage schema")
@@ -433,6 +499,13 @@ assertIncludes(
   "footer security link metadata"
 )
 assertCount("index.html", homeHtml, '<link rel="canonical"', 1, "canonical tag")
+assertCount(
+  "index.html",
+  homeHtml,
+  "Provjerite gdje ste u odnosu na osobni Bitcoin standard.",
+  1,
+  "final CTA title"
+)
 
 if (!home) {
   fail("Route metadata for homepage is missing")
@@ -564,7 +637,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
-    "Dogovorite uvodni poziv",
+    "Dogovorite 15-minutni uvodni razgovor",
     "primary CTA"
   )
   assertIncludes(

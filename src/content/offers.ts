@@ -13,7 +13,7 @@ export type Offer = {
 
 export const offers: Offer[] = [
   {
-    title: "Uvodna provjera",
+    title: "15-minutni uvodni razgovor",
     price: "0 €",
     duration: "15 minuta",
     forWhom: "Za prvi korak i kvalifikaciju.",
@@ -54,11 +54,12 @@ export const offers: Offer[] = [
     purpose:
       "Dobivate pisana pravila za novac, dug, davanje, Bitcoin, kupovnu moć, neto imovinu, sigurnost i obitelj.",
     includes: [
-      "pripremni upitnik",
-      "radni razgovori kroz 4–6 tjedana",
       "pisani osobni Bitcoin standard",
-      "sigurnosni i obiteljski pregled",
-      "pravila za preispitivanje nakon promjena",
+      "pravila za proračun, dug i stvarni višak",
+      "pravila za darivanje i rast priljeva",
+      "pravila za Bitcoin kao novac i kupovnu moć",
+      "pregled neto imovine",
+      "sigurnosni i obiteljski plan",
     ],
     cta: PRIMARY_CTA,
   },

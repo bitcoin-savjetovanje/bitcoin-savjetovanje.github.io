@@ -17,7 +17,7 @@ export const TWENTYONE_URL = "https://twentyone.world"
 export const homeSeo = {
   title: "Bitcoin Savjetovanje | Osobni Bitcoin standard",
   description:
-    "Imate Bitcoin, ali nemate jasna pravila? Dogovorite 15-minutni uvodni razgovor i provjerite proračun, dug, darivanje, Bitcoin kao novac, neto imovinu, sigurnost i obitelj.",
+    "Imate Bitcoin, ali nemate jasna pravila? Dogovorite 15-minutni uvodni razgovor i provjerite proračun, dug, davanje, Bitcoin kao novac, kupovnu moć, neto imovinu, sigurnost i obitelj.",
   canonical: `${SITE_URL}/`,
 }
 

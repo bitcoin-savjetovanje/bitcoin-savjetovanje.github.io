@@ -229,7 +229,7 @@ const guideEntries: Guide[] = [
         heading: "Jednostavno pravilo",
         body: [
           "Pravilo može glasiti: višak je samo novac koji nema drugu namjenu, ne pripada budućem odljevu, ne treba za izlazak iz duga i ne slabi sigurnosnu zalihu. Sve ostalo još nije višak.",
-          "Kada ovo zapišete, Bitcoin odluke postaju čišće. Manje je glume, manje hitnosti i manje potrebe da cijena odlučuje umjesto nas. Prvo znate što je slobodno. Tek onda odlučujete što s tim novcem.",
+          "Kada ovo zapišete, Bitcoin odluke postaju čišće. Manje je glume, manje hitnosti i manje potrebe da cijena odlučuje umjesto vas. Prvo znate što je slobodno. Tek onda odlučujete što s tim novcem.",
         ],
       },
     ],
@@ -361,7 +361,7 @@ const guideEntries: Guide[] = [
     previousSlugs: ["kredit-je-buduci-novac"],
     title: "Dug je budući novac koji ste već potrošili",
     metaDescription:
-      "Vodič o dugu kao budućem novcu koji ste već potrošili, životu bez duga, vremenu provedenom u dugu i zašto dug može odlučivati umjesto nas.",
+      "Vodič o dugu kao budućem novcu koji ste već potrošili, životu bez duga, vremenu provedenom u dugu i zašto dug može odlučivati umjesto vas.",
     excerpt:
       "Dug nije samo financijska stavka. Dug je budući novac koji ste već potrošili i stanje koje oblikuje odluke.",
     category: "Život bez duga",
@@ -1026,9 +1026,9 @@ const guideEntries: Guide[] = [
     category: "Bitcoin kao novac",
     order: 77,
     publishedAt: "2026-05-01",
-    updatedAt: "2026-05-01",
+    updatedAt: "2026-05-07",
     practicalQuestion:
-      "Ako je kupovna moć Bitcoina šest mjeseci ispred ili iza dugoročnog trenda, što se mijenja u vašem proračunu nulte osnove?",
+      "Ako je kupovna moć Bitcoina šest mjeseci ispred ili ispod dugoročnog trenda, što se mijenja u vašem proračunu nulte osnove?",
     relatedSlugs: [
       "uskladivanje-kupovne-moci-bitcoina",
       "bitcoin-kao-novac",
@@ -1064,7 +1064,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Dugoročni trend nije jamstvo",
         body: [
-          "Dugoročni potencijski obrazac (Bitcoin power law) nije obećanje cijene. Nije plan za kratkoročnu kupnju ili prodaju. To je pomoćni način razmišljanja o odnosu cijene i vremena, posebno kada želite vidjeti je li kupovna moć ispred, blizu ili iza dugoročnog ritma.",
+          "Dugoročni potencijski obrazac (Bitcoin power law) nije obećanje cijene. Nije plan za kratkoročnu kupnju ili prodaju. To je pomoćni način razmišljanja o odnosu cijene i vremena, posebno kada želite vidjeti je li kupovna moć ispred, blizu ili ispod dugoročnog ritma.",
           "Takav pogled može biti koristan samo ako ostane na svome mjestu. Ne smije zamijeniti osobni proračun nulte osnove. Ne smije potisnuti dug. Ne smije stvoriti osjećaj sigurnosti koji ne postoji. Dugoročni trend je signal za provjeru, ne zapovijed.",
         ],
       },
@@ -1076,9 +1076,9 @@ const guideEntries: Guide[] = [
         ],
       },
       {
-        heading: "Iza trenda: manja potrošnja i veći priljevi",
+        heading: "Ispod trenda: manja potrošnja i veći priljevi",
         body: [
-          "Ako je kupovna moć iza dugoročnog trenda, odgovor nije panika. Odgovor je povratak osnovama. Smanjuju se potrošni odljevi, jačaju priljevi i Bitcoin se akumulira iz stvarnog viška, bez oslanjanja na dug i bez žurbe.",
+          "Ako je kupovna moć ispod dugoročnog trenda, odgovor nije panika. Odgovor je povratak osnovama. Smanjuju se potrošni odljevi, jačaju priljevi i Bitcoin se akumulira iz stvarnog viška, bez oslanjanja na dug i bez žurbe.",
           "Taj trenutak često pokazuje koliko je sustav stvarno čvrst. Ako je proračun nulte osnove jasan, znate što možete nastaviti. Ako nije jasan, prvo ga uređujete. Ako priljevi nisu dovoljni, radite na sposobnosti stvaranja vrijednosti. Cijena tada ne vodi život, nego otkriva gdje treba više reda.",
         ],
       },
@@ -1093,7 +1093,7 @@ const guideEntries: Guide[] = [
         heading: "Proračun nulte osnove ostaje glavni alat",
         body: [
           "Dugoročni trend je pomoćni signal. Osobni proračun nulte osnove ostaje glavni alat. On govori koji novac već ima namjenu, koji dug traži buduće odljeve, koliko je stvarni višak i koji dio Bitcoina ima ulogu novčane zalihe.",
-          "Zato cijena može biti mjera vremena, ali ne i zamjena za red. Ako je kupovna moć ispred, možda nešto rješavate ranije. Ako je iza, jačate priljeve i smanjujete odljeve. Ako je blizu, držite pravila. U sva tri slučaja proračun nulte osnove odlučuje prvi.",
+          "Zato cijena može biti mjera vremena, ali ne i zamjena za red. Ako je kupovna moć ispred, možda nešto rješavate ranije. Ako je ispod, jačate priljeve i smanjujete odljeve. Ako je blizu, držite pravila. U sva tri slučaja proračun nulte osnove odlučuje prvi.",
         ],
       },
     ],

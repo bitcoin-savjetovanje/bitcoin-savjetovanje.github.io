@@ -152,6 +152,28 @@ function assertCount(relativePath, contents, expected, count, label = expected) 
   fail(`${relativePath} contains ${label} ${actual} time(s), expected ${count}`)
 }
 
+function assertBefore(relativePath, contents, first, second, label) {
+  const firstIndex = contents.indexOf(first)
+  const secondIndex = contents.indexOf(second)
+
+  if (firstIndex === -1) {
+    fail(`${relativePath} is missing first item for order check: ${first}`)
+    return
+  }
+
+  if (secondIndex === -1) {
+    fail(`${relativePath} is missing second item for order check: ${second}`)
+    return
+  }
+
+  if (firstIndex < secondIndex) {
+    pass(`${relativePath} keeps order: ${label}`)
+    return
+  }
+
+  fail(`${relativePath} has wrong order: ${label}`)
+}
+
 function routeFile(routePath) {
   if (routePath === "/") {
     return "index.html"
@@ -208,6 +230,8 @@ const forbiddenVisibleText = [
   "lead magnet",
   "charity",
   "giving",
+  "umjesto nas",
+  "ne potpisujem transakcije za nas",
   words("dobar", "dug"),
   words("jeftin", "dug"),
   words("pametno", "zaduživanje"),
@@ -248,6 +272,16 @@ const homeForbiddenVisibleText = [
   "self-custody",
   "risk tolerance",
   "ROI",
+  "fair value",
+  "undervalued",
+  "overvalued",
+  "signal za kupnju",
+  "signal za prodaju",
+  "market timing",
+  "live signal",
+  "dashboard",
+  "Darivanje",
+  "darivanje",
   "mindset",
   "framework",
   "cash balance",
@@ -326,7 +360,7 @@ const homeChecks = [
     "method path debt",
   ],
   [
-    "Darivanje",
+    "Davanje",
     "method path giving",
   ],
   [
@@ -368,6 +402,42 @@ const homeChecks = [
   [
     "što obitelj treba znati bez predaje kontrole",
     "personal standard family rule",
+  ],
+  [
+    "Cijena kao mjera vremena",
+    "price-time section title",
+  ],
+  [
+    "Ne pokušavamo pogoditi kratkoročnu cijenu Bitcoina. Gledamo odnos cijene, vremena i osobnog proračuna.",
+    "price-time section subtitle",
+  ],
+  [
+    "Dugoročni trend je pomoćni signal, ne prognoza cijene.",
+    "price-time no forecast copy",
+  ],
+  [
+    "Pročitajte vodič “Cijena kao mjera vremena”",
+    "price-time guide link copy",
+  ],
+  [
+    "/vodici/cijena-kao-mjera-vremena/",
+    "price-time guide URL",
+  ],
+  [
+    "Od kratke provjere do pisanog standarda",
+    "offers path title",
+  ],
+  [
+    "Prvi korak",
+    "intro offer eyebrow",
+  ],
+  [
+    "Ako treba dublje",
+    "deep check offer eyebrow",
+  ],
+  [
+    "Cijeli sustav",
+    "main program offer eyebrow",
   ],
   ["Izgradnja osobnog Bitcoin standarda", "main program title"],
   ["4–6 tjedana · 1.500 €", "program price duration"],
@@ -465,6 +535,7 @@ const homeDataLinks = [
   'data-link="security-rules"',
   'data-link="home-guide-teaser"',
   'data-link="home-guides-index"',
+  'data-link="price-time-guide"',
 ]
 
 for (const dataLink of homeDataLinks) {
@@ -505,6 +576,34 @@ assertCount(
   "Provjerite gdje ste u odnosu na osobni Bitcoin standard.",
   1,
   "final CTA title"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Osobni Bitcoin standard je dokument s pravilima.",
+  "Cijena kao mjera vremena",
+  "personal standard before price-time"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Cijena kao mjera vremena",
+  "Od kratke provjere do pisanog standarda",
+  "price-time before offers"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "15-minutni uvodni razgovor",
+  "Dubinska provjera osobnog Bitcoin standarda",
+  "intro offer before deep check"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Dubinska provjera osobnog Bitcoin standarda",
+  "Izgradnja osobnog Bitcoin standarda",
+  "deep check before main program"
 )
 
 if (!home) {
@@ -710,6 +809,14 @@ const focusedGuideChecks = [
     ],
   },
   {
+    path: "vodici/cijena-kao-mjera-vremena/index.html",
+    checks: [
+      "Cijena kao mjera vremena",
+      "Ispod trenda: manja potrošnja i veći priljevi",
+      "Dugoročni trend je pomoćni signal. Osobni proračun nulte osnove ostaje glavni alat.",
+    ],
+  },
+  {
     path: "vodici/pravilo-trecina/index.html",
     checks: ["Pravilo trećina u neto imovini", "Najmanje trećina u novcu"],
   },
@@ -733,6 +840,26 @@ for (const guideCheck of focusedGuideChecks) {
     assertIncludes(guideCheck.path, html, expected, `guide copy: ${expected}`)
   }
 }
+
+const priceTimeGuideHtml = readFile("vodici/cijena-kao-mjera-vremena/index.html")
+assertNotIncludes(
+  "vodici/cijena-kao-mjera-vremena/index.html",
+  priceTimeGuideHtml,
+  "Iza trenda",
+  "old price-time trend heading"
+)
+assertNotIncludes(
+  "vodici/cijena-kao-mjera-vremena/index.html",
+  priceTimeGuideHtml,
+  "iza dugoročnog trenda",
+  "old price-time trend phrasing"
+)
+assertNotIncludes(
+  "vodici/cijena-kao-mjera-vremena/index.html",
+  priceTimeGuideHtml,
+  "Ako je iza",
+  "old price-time short phrasing"
+)
 
 const sitemap = readFile("sitemap.xml")
 

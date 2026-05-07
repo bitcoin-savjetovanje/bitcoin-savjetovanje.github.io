@@ -52,12 +52,12 @@ export const offers: Offer[] = [
       "Za izgradnju cijelog pisanog sustava za novac, dug, Bitcoin, sigurnost i obitelj.",
     detail: "4–6 tjedana rada, razgovori i pisani osobni standard.",
     purpose:
-      "Dobivate pisana pravila za novac, dug, davanje, Bitcoin, kupovnu moć, neto imovinu, sigurnost i obitelj.",
+      "Dobivate pisana pravila za novac, dug, davanje, Bitcoin, kupovnu moć i dugoročni trend, neto imovinu, sigurnost i obitelj.",
     includes: [
       "pisani osobni Bitcoin standard",
       "pravila za proračun, dug i stvarni višak",
-      "pravila za darivanje i rast priljeva",
-      "pravila za Bitcoin kao novac i kupovnu moć",
+      "pravila za davanje i rast priljeva",
+      "pravila za Bitcoin kao novac, kupovnu moć i dugoročni trend",
       "pregled neto imovine",
       "sigurnosni i obiteljski plan",
     ],

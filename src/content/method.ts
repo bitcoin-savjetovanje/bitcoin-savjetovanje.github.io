@@ -61,7 +61,7 @@ export const volatilityStressCards = [
 ]
 
 export const standardWithoutItems = [
-  "sentiment odlučuje umjesto nas",
+  "sentiment odlučuje umjesto vas",
   "dug stvara pritisak",
   "novac na računu izgleda kao višak",
   "prodaja se događa pod stresom",
@@ -238,7 +238,7 @@ export const qualificationQuestions = [
   "Imate li Bitcoin?",
   "Što želite razjasniti?",
   "Imate li dug ili veće buduće troškove?",
-  "Što nas najviše brine: proračun nulte osnove, dug, Bitcoin kao novac, sigurnost ili obitelj?",
+  "Što vas najviše brine: proračun nulte osnove, dug, Bitcoin kao novac, sigurnost ili obitelj?",
   "Želite li jedan razgovor ili cijeli program?",
 ]
 

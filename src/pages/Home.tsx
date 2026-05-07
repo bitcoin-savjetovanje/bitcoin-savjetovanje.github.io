@@ -8,6 +8,7 @@ import { IntroCallSection } from "@/components/home/IntroCallSection"
 import { MethodHintSection } from "@/components/home/MethodHintSection"
 import { OffersSection } from "@/components/home/OffersSection"
 import { PersonalStandardSection } from "@/components/home/PersonalStandardSection"
+import { PriceTimeSection } from "@/components/home/PriceTimeSection"
 import { SecurityTrustSection } from "@/components/home/SecurityTrustSection"
 import { StressTestSection } from "@/components/home/StressTestSection"
 import { homeRoute } from "@/content/routes"
@@ -27,6 +28,7 @@ export function Home() {
       <MethodHintSection />
       <IntroCallSection />
       <PersonalStandardSection />
+      <PriceTimeSection />
       <OffersSection />
       <SecurityTrustSection />
       <AboutSection />

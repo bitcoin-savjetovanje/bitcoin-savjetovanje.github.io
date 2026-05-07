@@ -10,11 +10,11 @@ export function MethodHintSection() {
       <div className="case-panel border-primary/20 bg-card">
         <SectionHeader
           title="Metoda je šira od kupnje Bitcoina."
-          copy="Praktični Bitcoin standard počinje redom u novcu. Svaki euro ima namjenu, dug ima plan izlaska, a darivanje ima stalno mjesto. Tek tada Bitcoin postaje dio šireg sustava: novac, kupovna moć, neto imovina, sigurnost i obitelj."
+          copy="Praktični Bitcoin standard počinje redom u novcu. Svaki euro ima namjenu, dug ima plan izlaska, a davanje ima stalno mjesto. Tek tada Bitcoin postaje dio šireg sustava: novac, kupovna moć, neto imovina, sigurnost i obitelj."
         />
         <div
           className="mt-8 flex flex-wrap items-center gap-2"
-          aria-label="Redoslijed metode: proračun, dug, darivanje, Bitcoin, neto imovina, sigurnost i obitelj"
+          aria-label="Redoslijed metode: proračun, dug, davanje, Bitcoin, neto imovina, sigurnost i obitelj"
         >
           {methodPathSteps.map((step, index) => (
             <div key={step} className="flex items-center gap-2">

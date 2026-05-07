@@ -54,7 +54,7 @@ export function homeSchema() {
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
         serviceType: "Provjera i izgradnja osobnog Bitcoin standarda",
         description:
-          "Savjetodavni rad za osobna pravila o proračunu, dugu, darivanju, Bitcoinu kao novcu, neto imovini, sigurnosti i obitelji. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Savjetodavni rad za osobna pravila o proračunu, dugu, davanju, Bitcoinu kao novcu, neto imovini, sigurnosti i obitelji. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
       },
       {
         "@type": "OfferCatalog",

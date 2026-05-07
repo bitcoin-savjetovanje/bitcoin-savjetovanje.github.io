@@ -16,8 +16,8 @@ export function Hero() {
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
             Pomažem vam izgraditi osobni Bitcoin standard: jasan skup pravila za
-            proračun, dug, darivanje, Bitcoin kao novac, neto imovinu i
-            obiteljski pristup.
+            proračun, dug, davanje, Bitcoin kao novac, neto imovinu i obiteljski
+            pristup.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">

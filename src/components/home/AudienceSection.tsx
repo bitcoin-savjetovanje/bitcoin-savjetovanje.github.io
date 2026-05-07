@@ -21,7 +21,7 @@ export function AudienceSection() {
             ))}
           </div>
           <div className="rounded-xl border border-border/80 bg-card p-5">
-            <h3 className="text-lg font-semibold">Nije za nas ako...</h3>
+            <h3 className="text-lg font-semibold">Nije za vas ako...</h3>
             <div className="mt-4 grid gap-2">
               {notForItems.map((item) => (
                 <div key={item} className="not-for-row">

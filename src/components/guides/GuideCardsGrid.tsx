@@ -64,29 +64,30 @@ export function GuideCardsGrid({
     items ?? (featuredGuides.length > 0 ? featuredGuides : guides)
 
   return (
-    <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <ul className="mt-12 grid list-none gap-4 md:grid-cols-2 xl:grid-cols-3">
       {guideItems.map((guide) => (
-        <a
-          key={guide.slug}
-          href={guideHref(guide.slug)}
-          className="program-card group block transition-colors hover:border-primary/50 hover:text-foreground focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-        >
-          <GuideVisualPreview guide={guide} />
-          <p className="mb-3 text-xs font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-            {guide.category}
-          </p>
-          <h3 className="flex items-start justify-between gap-4">
-            <span>{guide.title}</span>
-            <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground group-hover:text-primary" />
-          </h3>
-          <p className="mt-3 text-sm leading-6 font-semibold text-muted-foreground">
-            {showReadingTime
-              ? `Vrijeme čitanja: ${estimateGuideReadingMinutes(guide)} min`
-              : `${estimateGuideReadingMinutes(guide)} min čitanja`}
-          </p>
-          <p>{guide.excerpt}</p>
-        </a>
+        <li key={guide.slug}>
+          <a
+            href={guideHref(guide.slug)}
+            className="program-card group block h-full transition-colors hover:border-primary/50 hover:text-foreground focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+          >
+            <GuideVisualPreview guide={guide} />
+            <p className="mb-3 text-xs font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              {guide.category}
+            </p>{" "}
+            <h3 className="flex items-start justify-between gap-4">
+              <span>{guide.title}</span>
+              <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground group-hover:text-primary" />
+            </h3>{" "}
+            <p className="mt-3 text-sm leading-6 font-semibold text-muted-foreground">
+              {showReadingTime
+                ? `Vrijeme čitanja: ${estimateGuideReadingMinutes(guide)} min`
+                : `${estimateGuideReadingMinutes(guide)} min čitanja`}
+            </p>{" "}
+            <p>{guide.excerpt}</p>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }

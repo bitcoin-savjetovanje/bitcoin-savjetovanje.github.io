@@ -17,19 +17,19 @@ export function GuidesTeaserSection() {
         title="Želite prvo čitati?"
         copy="Vodiči objašnjavaju moj okvir. Razgovor ga primjenjuje na vašu situaciju."
       />
-      <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+      <ul className="mt-8 grid list-none gap-4 md:grid-cols-2 xl:grid-cols-5">
         {teaserGuides.map((guide) => (
-          <a
-            key={guide.slug}
-            href={guideHref(guide.slug)}
-            className="program-card block hover:border-primary/50 hover:text-foreground"
-            data-link="home-guide-teaser"
-          >
-            <h3>{guide.title}</h3>
-            <p>{guide.excerpt}</p>
-          </a>
+          <li key={guide.slug}>
+            <a
+              href={guideHref(guide.slug)}
+              className="program-card block h-full hover:border-primary/50 hover:text-foreground"
+              data-link="home-guide-teaser"
+            >
+              <h3>{guide.title}</h3> <p>{guide.excerpt}</p>
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
         <a
           href="/vodici/"

@@ -166,6 +166,48 @@ export function Conversation() {
             <ArrowUpRight className="size-4" />
           </a>
         </section>
+
+        <section className="mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">
+            Spremni za uvodni razgovor?
+          </h2>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
+            Odaberite termin i dođite s jednim stvarnim pitanjem. Ako ima smisla
+            nastaviti, dogovorit ćemo sljedeći korak.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Button
+              asChild
+              size="lg"
+              className="cta-primary h-12 rounded-full px-5 text-base"
+            >
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="justify-center text-center"
+                data-cta="conversation-page-final-calendar"
+              >
+                <CalendarDays className="size-4" />
+                Otvorite kalendar i odaberite termin
+              </a>
+            </Button>{" "}
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-12 rounded-full px-5 text-base"
+            >
+              <a
+                href="/sigurnost/"
+                className="justify-center text-center"
+                data-cta="conversation-page-final-security"
+              >
+                Prvo pročitajte sigurnosna pravila
+              </a>
+            </Button>
+          </div>
+        </section>
       </article>
     </>
   )

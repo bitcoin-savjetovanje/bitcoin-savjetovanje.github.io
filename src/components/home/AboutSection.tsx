@@ -112,24 +112,28 @@ export function AboutSection() {
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={logo.name}
             >
               {logo.darkSrc ? (
                 <>
                   <img
                     src={logo.src}
-                    alt={logo.name}
+                    alt=""
+                    aria-hidden="true"
                     className={`${logo.className} credibility-logo-strip__logo--light`}
                   />
                   <img
                     src={logo.darkSrc}
                     alt=""
+                    aria-hidden="true"
                     className={`${logo.className} credibility-logo-strip__logo--dark`}
                   />
                 </>
               ) : (
                 <img
                   src={logo.src}
-                  alt={logo.name}
+                  alt=""
+                  aria-hidden="true"
                   className={logo.className}
                 />
               )}

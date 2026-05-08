@@ -140,19 +140,20 @@ export function GuidePage({ guide }: { guide: Guide }) {
               <p className="mt-3 text-base leading-8 text-muted-foreground">
                 Ako želite nastaviti istim smjerom, krenite od ovih tekstova.
               </p>
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <ul className="mt-6 grid list-none gap-4 md:grid-cols-3">
                 {relatedGuides.map((relatedGuide) => (
-                  <a
-                    key={relatedGuide.slug}
-                    href={guideHref(relatedGuide.slug)}
-                    className="program-card block hover:border-primary/50 hover:text-foreground"
-                    data-link="related-guide"
-                  >
-                    <h3>{relatedGuide.title}</h3>
-                    <p>{relatedGuide.excerpt}</p>
-                  </a>
+                  <li key={relatedGuide.slug}>
+                    <a
+                      href={guideHref(relatedGuide.slug)}
+                      className="program-card block h-full hover:border-primary/50 hover:text-foreground"
+                      data-link="related-guide"
+                    >
+                      <h3>{relatedGuide.title}</h3>{" "}
+                      <p>{relatedGuide.excerpt}</p>
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </section>
           ) : null}
           <div className="mt-14 rounded-2xl border border-border/80 bg-card p-6 shadow-sm">

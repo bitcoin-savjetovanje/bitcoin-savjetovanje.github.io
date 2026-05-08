@@ -325,8 +325,26 @@ const homeChecks = [
     "primary intro call CTA copy",
   ],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
+  ['href="#pitanja"', "hero secondary CTA href"],
   ['data-cta="hero-intro-call"', "hero CTA metadata"],
   ['data-cta="hero-questions"', "hero questions metadata"],
+  [
+    "Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku.",
+    "questions section copy polish",
+  ],
+  ["što vas najviše brine", "conversation problem worry copy"],
+  [
+    "što još nedostaje za mirniju odluku",
+    "conversation problem decision copy",
+  ],
+  [
+    "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak imao smisla.",
+    "hero intro card copy",
+  ],
+  [
+    "Dobivate jasniju sliku što je stvarna prepreka odluci",
+    "FAQ intro call outcome copy",
+  ],
   ['data-cta="questions-intro-call"', "questions CTA metadata"],
   ['data-cta="intro-section-call"', "intro section CTA metadata"],
   ['data-cta="offer-intro-call"', "intro offer CTA metadata"],
@@ -396,6 +414,12 @@ assertNotIncludes(
 assertNotIncludes(
   "index.html",
   homeText,
+  "razgovorPromijeni",
+  "joined header CTA and theme text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
   "razgovorPogledajte",
   "joined hero CTA text"
 )
@@ -410,6 +434,24 @@ assertNotIncludes(
   homeText,
   "vodičePrimijenite",
   "joined guides CTA text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "novcu→",
+  "joined method path arrow text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "višak?Stvarni",
+  "joined home guide teaser text"
+)
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  'alt="Image"',
+  "generic image alt text"
 )
 
 for (const awkwardPhrase of [
@@ -493,11 +535,27 @@ const conversationChecks = [
     "conversation example questions",
   ],
   [
+    "Spremni za uvodni razgovor?",
+    "conversation final CTA title",
+  ],
+  [
+    "Odaberite termin i dođite s jednim stvarnim pitanjem.",
+    "conversation final CTA body",
+  ],
+  [
     "https://cal.com/btcpavao/uvodni-poziv",
     "existing external booking URL",
   ],
   ['data-cta="conversation-page-calendar"', "calendar CTA metadata"],
   ['data-cta="conversation-page-security"', "security CTA metadata"],
+  [
+    'data-cta="conversation-page-final-calendar"',
+    "final calendar CTA metadata",
+  ],
+  [
+    'data-cta="conversation-page-final-security"',
+    "final security CTA metadata",
+  ],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/razgovor/" />',
     "conversation canonical URL",

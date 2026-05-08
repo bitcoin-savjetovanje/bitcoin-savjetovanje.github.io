@@ -87,8 +87,8 @@ export function Header() {
               <CalendarDays className="size-4" />
               Dogovorite razgovor
             </a>
-          </Button>
-          <ThemeToggle />
+          </Button>{" "}
+          <ThemeToggle />{" "}
           <Button
             variant="outline"
             size="icon"

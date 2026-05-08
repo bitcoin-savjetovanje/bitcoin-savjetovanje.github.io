@@ -48,6 +48,6 @@ export const faqs = [
   {
     question: "Što dobivam u uvodnom razgovoru?",
     answer:
-      "Dobivate jasniju sliku onoga što prvo treba razjasniti: je li problem u Bitcoin tezi, osobnoj situaciji, dugu, sigurnosti, obitelji ili nečem drugom. Nakon toga predlažem razuman sljedeći korak ili kažem da trenutno nema smisla nastaviti.",
+      "Dobivate jasniju sliku što je stvarna prepreka odluci: Bitcoin teza, osobna situacija, dug, sigurnost, obitelj ili nešto drugo. Nakon toga predlažem razuman sljedeći korak ili otvoreno kažem da trenutno nema smisla nastaviti.",
   },
 ]

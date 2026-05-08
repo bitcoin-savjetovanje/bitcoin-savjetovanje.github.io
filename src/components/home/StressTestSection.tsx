@@ -10,8 +10,8 @@ export function StressTestSection() {
           <>
             Informacija ima dovoljno. Problem je što knjiga, podcast, graf ili
             objava ne zna vašu situaciju. Ne zna imate li dug, koliko vam je
-            obitelj spremna, što vas točno plaši, koliko razumijete monetarnu
-            tezu i gdje se vaša odluka lomi.
+            obitelj spremna, što vas najviše brine, koliko razumijete monetarnu
+            tezu i što još nedostaje za mirniju odluku.
             <br />
             <br />
             Zato razgovor može vrijediti više od još deset sati samostalnog

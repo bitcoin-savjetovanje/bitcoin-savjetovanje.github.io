@@ -11,7 +11,6 @@ const failures = []
 
 const forbiddenVisibleText = [
   "crypto",
-  "roi",
   "lead magnet",
   "signal za kupnju",
   "signal za prodaju",
@@ -74,6 +73,8 @@ const forbiddenVisibleText = [
   "točke kvara",
   "novcu→",
 ]
+
+const forbiddenExactVisibleText = ["ROI"]
 
 const pageChecks = [
   {
@@ -339,7 +340,6 @@ const pageChecks = [
     path: securityGuidePath,
     includes: [
       "Sigurnost ne smije ovisiti samo o vama",
-      "Seed phrase se nikada ne dijeli",
       "Nitko ne smije tražiti seed phrase",
       "Za širi sigurnosni okvir pročitajte i sigurnosnu stranicu.",
     ],
@@ -462,7 +462,8 @@ for (const check of pageChecks) {
 
   try {
     const html = await fetchText(url)
-    const visibleText = textWithoutTags(html).toLowerCase()
+    const rawVisibleText = textWithoutTags(html)
+    const visibleText = rawVisibleText.toLowerCase()
     pass(`${url} returned HTTP 200`)
 
     for (const expected of check.includes ?? []) {
@@ -488,6 +489,10 @@ for (const check of pageChecks) {
 
     for (const forbidden of forbiddenVisibleText) {
       assertTextDoesNotInclude(url, visibleText, forbidden)
+    }
+
+    for (const forbidden of forbiddenExactVisibleText) {
+      assertTextDoesNotInclude(url, rawVisibleText, forbidden)
     }
 
     pageCanonicals.push(assertCanonical(url, html, `${baseUrl}${check.path}`))

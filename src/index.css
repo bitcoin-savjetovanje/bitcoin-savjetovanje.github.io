@@ -496,11 +496,11 @@
   }
 
   .readiness-question {
-    @apply rounded-xl border border-border/75 bg-background/70 p-4 shadow-sm transition-colors hover:border-primary/25;
+    @apply min-w-0 rounded-xl border border-border/75 bg-background/70 p-4 shadow-sm transition-colors hover:border-primary/25 sm:p-5;
   }
 
-  .readiness-question legend {
-    @apply text-base leading-7 font-semibold text-foreground;
+  .readiness-question__label {
+    @apply max-w-full text-base leading-7 font-semibold text-foreground;
   }
 
   .readiness-answer {
@@ -591,32 +591,40 @@
     content: counter(offer-step);
   }
 
-  .before-after-grid {
-    @apply mt-8 grid list-none gap-4 lg:grid-cols-5;
+  .before-after-selector {
+    @apply mt-8 flex list-none flex-wrap gap-2;
   }
 
-  .before-after-card {
-    @apply h-full rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm;
+  .before-after-selector__button {
+    @apply rounded-full border border-border bg-background/70 px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
   }
 
-  .before-after-card h3 {
-    @apply text-lg leading-tight font-semibold;
+  .before-after-selector__button[aria-pressed="true"] {
+    @apply border-primary/40 bg-primary/10 text-foreground;
+  }
+
+  .before-after-detail {
+    @apply mt-6 rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm sm:p-6;
+  }
+
+  .before-after-detail h3 {
+    @apply text-2xl leading-tight font-semibold tracking-[-0.015em];
   }
 
   .before-after-card__columns {
-    @apply mt-4 grid gap-3;
+    @apply mt-5 grid gap-4 md:grid-cols-2;
   }
 
   .before-after-card__columns > div {
-    @apply rounded-lg border border-border/70 bg-card/82 p-3;
+    @apply min-w-0 rounded-lg border border-border/70 bg-card/82 p-4 sm:p-5;
   }
 
   .before-after-card__label {
     @apply text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase;
   }
 
-  .before-after-card p:not(.before-after-card__label) {
-    @apply mt-2 text-sm leading-6 text-muted-foreground;
+  .before-after-card__columns p:not(.before-after-card__label) {
+    @apply mt-2 text-base leading-7 text-muted-foreground;
   }
 
   .conversation-calendar-card,

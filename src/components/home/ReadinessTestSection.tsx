@@ -62,29 +62,40 @@ export function ReadinessTestSection() {
           </p>
 
           <div className="readiness-question-grid">
-            {questions.map((question) => (
-              <fieldset key={question} className="readiness-question">
-                <legend>{question}</legend>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {answerOptions.map((option) => (
-                    <button
-                      key={option.value}
-                      type="button"
-                      className="readiness-answer"
-                      aria-pressed={answers[question] === option.value}
-                      onClick={() =>
-                        setAnswers((current) => ({
-                          ...current,
-                          [question]: option.value,
-                        }))
-                      }
-                    >
-                      {option.label}
-                    </button>
-                  ))}
+            {questions.map((question, index) => {
+              const questionId = `readiness-question-${index}`
+
+              return (
+                <div
+                  key={question}
+                  className="readiness-question"
+                  role="group"
+                  aria-labelledby={questionId}
+                >
+                  <p id={questionId} className="readiness-question__label">
+                    {question}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {answerOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        className="readiness-answer"
+                        aria-pressed={answers[question] === option.value}
+                        onClick={() =>
+                          setAnswers((current) => ({
+                            ...current,
+                            [question]: option.value,
+                          }))
+                        }
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </fieldset>
-            ))}
+              )
+            })}
           </div>
 
           <div className="readiness-result">

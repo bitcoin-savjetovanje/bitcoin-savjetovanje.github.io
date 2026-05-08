@@ -1,4 +1,5 @@
 import { CalendarDays } from "lucide-react"
+import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { CONVERSATION_PATH } from "@/content/site"
@@ -32,7 +33,15 @@ const scenarios = [
   },
 ] as const
 
+type ScenarioTitle = (typeof scenarios)[number]["title"]
+
 export function BeforeAfterSection() {
+  const [selectedScenarioTitle, setSelectedScenarioTitle] =
+    useState<ScenarioTitle>(scenarios[0].title)
+  const selectedScenario =
+    scenarios.find((scenario) => scenario.title === selectedScenarioTitle) ??
+    scenarios[0]
+
   return (
     <section className="section-shell">
       <div className="case-panel">
@@ -45,29 +54,34 @@ export function BeforeAfterSection() {
           </h2>
         </div>
 
-        <ul className="before-after-grid">
+        <ul className="before-after-selector" aria-label="Scenariji">
           {scenarios.map((scenario) => (
             <li key={scenario.title}>
-              <article className="before-after-card">
-                <h3>{scenario.title}</h3>
-                <div className="before-after-card__columns">
-                  <div>
-                    <p className="before-after-card__label">
-                      Bez osobnog okvira
-                    </p>
-                    <p>{scenario.without}</p>
-                  </div>
-                  <div>
-                    <p className="before-after-card__label">
-                      S osobnim okvirom
-                    </p>
-                    <p>{scenario.with}</p>
-                  </div>
-                </div>
-              </article>
+              <button
+                type="button"
+                className="before-after-selector__button"
+                aria-pressed={selectedScenario.title === scenario.title}
+                onClick={() => setSelectedScenarioTitle(scenario.title)}
+              >
+                {scenario.title}
+              </button>
             </li>
           ))}
         </ul>
+
+        <article className="before-after-detail" aria-live="polite">
+          <h3>{selectedScenario.title}</h3>
+          <div className="before-after-card__columns">
+            <div>
+              <p className="before-after-card__label">Bez osobnog okvira</p>
+              <p>{selectedScenario.without}</p>
+            </div>
+            <div>
+              <p className="before-after-card__label">S osobnim okvirom</p>
+              <p>{selectedScenario.with}</p>
+            </div>
+          </div>
+        </article>
 
         <Button asChild className="cta-primary mt-8 rounded-full">
           <a

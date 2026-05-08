@@ -56,10 +56,17 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3.5 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <a
-          className="min-w-0 font-display text-base font-semibold whitespace-nowrap"
+          className="flex min-w-0 items-center gap-2 font-display text-base font-semibold whitespace-nowrap"
           href="/"
         >
-          Bitcoin Savjetovanje
+          <img
+            src="/bitcoin-logo.png"
+            alt=""
+            aria-hidden="true"
+            className="size-6 shrink-0 rounded-full"
+            draggable="false"
+          />
+          <span className="truncate">Bitcoin Savjetovanje</span>
         </a>
 
         <nav className="hidden lg:block" aria-label="Glavna navigacija">

@@ -14,7 +14,7 @@ const ruleRows = [
   {
     title: "Sigurnost",
     question:
-      "što nikada ne dijeliti i kako spriječiti da pristup ovisi o jednoj osobi, uređaju ili lokaciji",
+      "što nikada ne dijeliti i kako spriječiti da pristup Bitcoinu ovisi o jednoj osobi, uređaju ili lokaciji",
     Icon: ShieldCheck,
   },
   {

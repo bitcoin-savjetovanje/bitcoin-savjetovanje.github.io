@@ -118,10 +118,7 @@ export function GuidesIndex() {
           <ol className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {primaryGuides.map((guide, index) => (
               <li key={guide.slug}>
-                <a
-                  href={guide.href}
-                  className="flex h-full flex-col rounded-2xl border border-border/80 bg-card p-5 text-foreground shadow-sm transition-colors hover:border-primary/50 hover:text-primary focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-                >
+                <article className="flex h-full flex-col rounded-2xl border border-border/80 bg-card p-5 text-foreground shadow-sm transition-colors hover:border-primary/50">
                   <div className="flex items-center justify-between gap-4">
                     <span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
                       {index + 1}
@@ -131,12 +128,18 @@ export function GuidesIndex() {
                     </span>
                   </div>
                   <h3 className="mt-5 text-xl leading-tight font-semibold tracking-[-0.01em]">
-                    {guide.title}
+                    <a
+                      href={guide.href}
+                      className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                      data-link="guide-card"
+                    >
+                      {guide.title}
+                    </a>
                   </h3>
                   <p className="mt-4 text-sm leading-6 text-muted-foreground">
                     {guide.excerpt}
                   </p>
-                </a>
+                </article>
               </li>
             ))}
           </ol>

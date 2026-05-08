@@ -9,8 +9,8 @@ export function OffersSection() {
     <section id="ponude" className="section-shell section-muted">
       <div className="case-panel border-primary/25 bg-card">
         <SectionHeader
-          title="Ako ima smisla nastaviti, postoje dva plaćena puta."
-          copy="Uvodni razgovor služi tome da vidimo ima li uopće smisla raditi dublje. Ako ima, plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
+          title="Ako nakon uvodnog razgovora postoji jasan sljedeći korak, postoje dva plaćena puta."
+          copy="Uvodni razgovor služi tome da vidimo vrijedi li uopće raditi dublje. Ako vrijedi, plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
         />
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
           {offers.map((offer) => (

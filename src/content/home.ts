@@ -1,7 +1,7 @@
 export const conversationProblemCards = [
   {
     title: "Zanima vas Bitcoin, ali nemate mirnu tezu.",
-    copy: "Razumijete dio priče, ali još ne znate što biste sami sebi odgovorili na najvažnije prigovore.",
+    copy: "Razumijete dio priče, ali još nemate jasan odgovor na pitanja koja se stalno vraćaju.",
   },
   {
     title: "Imate novac, ali ne znate koju ulogu Bitcoin treba imati.",
@@ -63,19 +63,19 @@ export const questionGroups = [
 export const introCallSteps = [
   {
     title: "Kažete mi koju odluku pokušavate donijeti.",
-    copy: "Možda razmišljate o većoj ulozi Bitcoina u svojoj imovini. Možda imate pitanje o dugu. Možda vas muči sigurnost. Možda želite objasniti Bitcoin obitelji.",
+    copy: "Možda razmišljate o većoj ulozi Bitcoina u svojoj imovini. Možda imate pitanje o dugu. Možda vas muči sigurnost. Možda želite objasniti Bitcoin partneru ili obitelji.",
   },
   {
-    title: "Postavim nekoliko pitanja da vidim što zapravo nedostaje.",
-    copy: "Nekome nedostaje monetarna teza. Nekome proračun. Nekome sigurnosni plan. Nekome samo treba razbiti jedan krivi prigovor.",
+    title: "Vidimo što nedostaje za mirniju odluku.",
+    copy: "Nekome nedostaje monetarna teza. Nekome proračun. Nekome sigurnosni plan. Nekome treba razjasniti jedan dio Bitcoin teze koji još nije dovoljno čvrst.",
   },
   {
     title: "Dobijete sljedeći razuman korak.",
     copy: "Na kraju znate ima li smisla stati, uzeti jedan dubinski razgovor ili graditi puni osobni Bitcoin standard.",
   },
   {
-    title: "Ako ne mogu pomoći, reći ću vam.",
-    copy: "Ne trebaju mi svi klijenti. Važnije je da razgovor ima smisla.",
+    title: "Dobijete iskrenu procjenu.",
+    copy: "Ako mogu pomoći, predložit ću sljedeći korak. Ako plaćeni nastavak nije koristan za vašu situaciju, reći ću vam to otvoreno.",
   },
 ]
 
@@ -89,9 +89,9 @@ export const homeNeverAskItems = [
 ]
 
 export const homeSecurityReviewItems = [
-  "kako razmišljati o skrbništvu",
+  "kako odabrati način čuvanja Bitcoina",
   "što obitelj treba znati",
-  "kako spriječiti da pristup ovisi o jednoj osobi, uređaju ili lokaciji",
+  "kako spriječiti da pristup Bitcoinu ovisi o jednoj osobi, uređaju ili lokaciji",
   "što nikada ne dijeliti",
   "kako pripremiti upute bez predaje kontrole",
 ]

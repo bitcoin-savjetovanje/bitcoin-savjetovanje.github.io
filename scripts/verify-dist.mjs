@@ -275,13 +275,18 @@ const forbiddenText = [
 ]
 
 const forbiddenPublicCopy = [
+  "ne trebaju mi svi klijenti",
+  "razbiti jedan krivi prigovor",
+  "krivi prigovor",
+  "najvažnije prigovore",
+  "glupu grešku",
+  "partner ili obitelj nije uvjerena",
   "početne riječi",
   "početnih riječi",
   "jedna točka kvara",
   "točka kvara",
   "točku kvara",
   "točke kvara",
-  "darivanje",
   "novcu→",
 ]
 
@@ -338,8 +343,37 @@ const homeChecks = [
   ["Bez zahtjeva za seed phrase.", "seed phrase trust copy"],
   ["Seed phrase se nikada ne dijeli.", "seed phrase red flag copy"],
   [
-    "kako spriječiti da pristup ovisi o jednoj osobi, uređaju ili lokaciji",
+    "Dobijete iskrenu procjenu.",
+    "warmer honest assessment title",
+  ],
+  [
+    "Ako plaćeni nastavak nije koristan za vašu situaciju, reći ću vam to otvoreno.",
+    "warmer honest assessment copy",
+  ],
+  [
+    "Nekome treba razjasniti jedan dio Bitcoin teze koji još nije dovoljno čvrst.",
+    "intro call Bitcoin thesis copy",
+  ],
+  [
+    "Razumijete dio priče, ali još nemate jasan odgovor na pitanja koja se stalno vraćaju.",
+    "conversation problem card copy",
+  ],
+  [
+    "kako odabrati način čuvanja Bitcoina",
+    "plain homepage Bitcoin custody wording",
+  ],
+  [
+    "kako spriječiti da pristup Bitcoinu ovisi o jednoj osobi, uređaju ili lokaciji",
     "natural security recovery copy",
+  ],
+  [
+    "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
+    "Bitcoin jasnoća offer framing",
+  ],
+  ["ne čuvam vaš Bitcoin", "footer no custody disclaimer"],
+  [
+    "ne tražim seed phrase ili privatne ključeve",
+    "footer seed phrase disclaimer",
   ],
   [
     "Praktični Bitcoin standard je radni okvir iza mog savjetovanja.",
@@ -532,7 +566,7 @@ assertBefore(
 assertBefore(
   "index.html",
   homeHtml,
-  "Ako ima smisla nastaviti, postoje dva plaćena puta.",
+  "Ako nakon uvodnog razgovora postoji jasan sljedeći korak, postoje dva plaćena puta.",
   "Vaš Bitcoin ostaje vaš.",
   "offers before security"
 )
@@ -574,6 +608,14 @@ const conversationChecks = [
   [
     "Odaberite termin i dođite s jednim stvarnim pitanjem.",
     "conversation final CTA body",
+  ],
+  [
+    "Imam Bitcoin, ali partner ili obitelj još nisu sigurni.",
+    "conversation family example question",
+  ],
+  [
+    "Brine me sigurnost i ne želim pogriješiti s čuvanjem Bitcoina.",
+    "conversation security example question",
   ],
   [
     "Ne šaljite seed phrase, privatne ključeve, lozinke",
@@ -639,6 +681,7 @@ const guideIndexChecks = [
     "guide index conversion copy",
   ],
   ['href="/razgovor/"', "guide index links to conversation page"],
+  ['data-link="guide-card"', "guide index card link metadata"],
   ['data-cta="guides-index-top-intro-call"', "guide index top CTA metadata"],
   ['data-cta="guides-index-intro-call"', "guide index final CTA metadata"],
   [
@@ -664,6 +707,21 @@ assertCount(
 if (!guidesIndex) {
   fail("Route metadata for guide index is missing")
 }
+
+assertArrayEquals(
+  "vodici/index.html",
+  anchorHrefsByDataLink(guidesIndexHtml, "guide-card"),
+  [
+    "/vodici/svaki-euro-ima-namjenu/",
+    "/vodici/dug-je-buduci-novac/",
+    "/vodici/davanje-u-proracunu-nulte-osnove/",
+    "/vodici/bitcoin-kao-novac/",
+    "/vodici/cijena-kao-mjera-vremena/",
+    "/vodici/bitcoin-u-neto-imovini/",
+    "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
+  ],
+  "guide index card href order"
+)
 
 const securityHtml = readFile("sigurnost/index.html")
 const securityChecks = [

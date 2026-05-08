@@ -46,7 +46,7 @@ export const offers: Offer[] = [
     includes: [
       "Odgovori na glavna pitanja koja želite razjasniti",
       "Razjašnjenje Bitcoin teze na jeziku koji možete ponoviti drugima",
-      "Pregled prepreka: dug, proračun, sigurnost, obitelj, nejasna imovina",
+      "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
       "Jasniji okvir za vlastitu odluku o ulozi Bitcoina",
       "Preporuka treba li stati na tome ili ići u puni osobni Bitcoin standard",
     ],

@@ -14,9 +14,9 @@ const preparationQuestions = [
 
 const exampleQuestions = [
   "Razmišljam treba li Bitcoin imati veću ulogu u mojoj imovini, ali ne znam odakle krenuti.",
-  "Imam Bitcoin, ali partner ili obitelj nije uvjerena.",
+  "Imam Bitcoin, ali partner ili obitelj još nisu sigurni.",
   "Ne znam koliko eura ili drugog državnog novca ostaviti.",
-  "Brine me sigurnost i ne želim napraviti glupu grešku.",
+  "Brine me sigurnost i ne želim pogriješiti s čuvanjem Bitcoina.",
   "Razumijem Bitcoin djelomično, ali još nemam tezu koju mogu mirno objasniti drugima.",
 ]
 
@@ -171,7 +171,7 @@ export function Conversation() {
             Spremni za uvodni razgovor?
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-            Odaberite termin i dođite s jednim stvarnim pitanjem. Ako ima smisla
+            Odaberite termin i dođite s jednim stvarnim pitanjem. Ako vrijedi
             nastaviti, dogovorit ćemo sljedeći korak.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">

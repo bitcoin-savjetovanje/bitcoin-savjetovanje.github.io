@@ -1,34 +1,32 @@
-import { ArrowUpRight } from "lucide-react"
-
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { stressTestCards } from "@/content/home"
-import { BOOKING_URL } from "@/content/site"
+import { conversationProblemCards } from "@/content/home"
 
 export function StressTestSection() {
   return (
-    <section id="provjera" className="section-shell">
+    <section id="zasto-razgovor" className="section-shell">
       <SectionHeader
-        title="Bitcoin standard se vidi kad dođe pritisak."
-        copy="Ne vidi se samo po tome koliko Bitcoina imate. Vidi se po tome znate li što napraviti kada se promijeni cijena, trošak ili životna okolnost."
+        title="Možda vam ne treba još jedan video o Bitcoinu."
+        copy={
+          <>
+            Informacija ima dovoljno. Problem je što knjiga, podcast, graf ili
+            objava ne zna vašu situaciju. Ne zna imate li dug, koliko vam je
+            obitelj spremna, što vas točno plaši, koliko razumijete monetarnu
+            tezu i gdje se vaša odluka lomi.
+            <br />
+            <br />
+            Zato razgovor može vrijediti više od još deset sati samostalnog
+            istraživanja.
+          </>
+        }
       />
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
-        {stressTestCards.map((card) => (
+      <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        {conversationProblemCards.map((card) => (
           <article key={card.title} className="value-card bg-card">
             <h3>{card.title}</h3>
             <p>{card.copy}</p>
           </article>
         ))}
       </div>
-      <a
-        href={BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-        data-cta="stress-test-intro-call"
-      >
-        Provjerite gdje ste
-        <ArrowUpRight className="size-4" />
-      </a>
     </section>
   )
 }

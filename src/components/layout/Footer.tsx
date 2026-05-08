@@ -1,6 +1,7 @@
 import { Copyright } from "lucide-react"
 
 import {
+  CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
   PRACTICAL_BITCOIN_STANDARD_URL,
@@ -18,8 +19,8 @@ export function Footer() {
           <p className="mt-2 text-xs leading-6">
             Ovo nije investicijsko, porezno ni pravno savjetovanje. Ne upravljam
             vašim novcem, ne donosim odluke umjesto vas i ne držim vaše
-            ključeve. Pomažem vam provjeriti i izgraditi osobni Bitcoin
-            standard.
+            ključeve. Pomažem vam razumjeti Bitcoin, vlastitu situaciju i
+            sigurnosni okvir dovoljno jasno da odluka ostane vaša.
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
@@ -27,7 +28,10 @@ export function Footer() {
             href={PRACTICAL_BITCOIN_STANDARD_URL}
             data-link="footer-practical-bitcoin-standard"
           >
-            Praktični Bitcoin standard
+            Vodiči
+          </a>
+          <a href={CONVERSATION_PATH} data-cta="footer-intro-call">
+            Razgovor
           </a>
           <a href="/sigurnost/" data-link="footer-security">
             Sigurnost

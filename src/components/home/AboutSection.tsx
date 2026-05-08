@@ -3,10 +3,9 @@ import { CalendarDays, Mail } from "lucide-react"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import {
   BITCOIN_STANDARD_BOOK_URL,
-  BOOKING_URL,
+  CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
-  PRIMARY_CTA,
   PRACTICAL_BITCOIN_STANDARD_URL,
   SAIFEDEAN_AMMOUS_URL,
   TWENTYONE_URL,
@@ -17,8 +16,8 @@ export function AboutSection() {
   return (
     <section id="o-meni" className="section-shell section-muted">
       <SectionHeader
-        title="Ne pomažem vam postaviti teoriju koju nisam živio."
-        copy="Bitcoin standard treba izdržati običan život, ne samo dobru ideju."
+        title="Razgovarate s nekim tko Bitcoin ne objašnjava izvana."
+        copy="Najčešće pomažem ljudima upravo ondje gdje knjige i podcasti stanu: kada opća Bitcoin teza mora postati osobna odluka."
       />
       <div className="credibility-grid">
         <aside className="profile-panel">
@@ -30,11 +29,9 @@ export function AboutSection() {
               <Mail className="size-4" />
             </a>
             <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={PRIMARY_CTA}
-              data-cta="about-standard-check"
+              href={CONVERSATION_PATH}
+              aria-label="Dogovorite razgovor"
+              data-cta="about-intro-call"
             >
               <CalendarDays className="size-4" />
             </a>
@@ -65,8 +62,13 @@ export function AboutSection() {
             </p>
             <p>
               Moj posao nije reći vam što će cijena napraviti. Moj posao je
-              pomoći vam zapisati pravila po kojima ćete vi donositi bolje
-              odluke.
+              pomoći vam razumjeti Bitcoin i zapisati pravila po kojima ćete vi
+              donositi mirnije odluke.
+            </p>
+            <p>
+              Pomažem vam razumjeti Bitcoin i vlastitu situaciju dovoljno jasno
+              da sami donesete mirnu odluku o ulozi Bitcoina u vašem novcu,
+              imovini i obitelji.
             </p>
             <p>
               Dio tog rada javno razvijam kroz{" "}
@@ -90,6 +92,14 @@ export function AboutSection() {
               </a>
               .
             </p>
+            <a
+              href={CONVERSATION_PATH}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+              data-cta="about-intro-call"
+            >
+              <CalendarDays className="size-4" />
+              Dogovorite razgovor
+            </a>
           </div>
         </div>
         <div

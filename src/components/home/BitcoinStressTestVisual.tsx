@@ -1,20 +1,25 @@
-import { ShieldCheck, WalletCards, Waypoints } from "lucide-react"
+import { CircleHelp, ShieldCheck, Users, WalletCards } from "lucide-react"
 
 const ruleRows = [
   {
-    title: "Novac",
-    question: "svaki euro ima namjenu prije Bitcoin odluke",
+    title: "Bitcoin teza",
+    question: "što vam još nije sjelo u razumijevanju novca",
+    Icon: CircleHelp,
+  },
+  {
+    title: "Osobna situacija",
+    question: "dug, državni novac, obveze i stvarni višak",
     Icon: WalletCards,
   },
   {
-    title: "Dug i višak",
-    question: "prvo stvarni višak, zatim odluka",
-    Icon: Waypoints,
+    title: "Sigurnost",
+    question: "što nikada ne dijeliti i kako izbjeći jednu točku kvara",
+    Icon: ShieldCheck,
   },
   {
-    title: "Sigurnost",
-    question: "obitelj zna pravila bez predaje kontrole",
-    Icon: ShieldCheck,
+    title: "Obitelj",
+    question: "kako objasniti odluku bez pritiska i panike",
+    Icon: Users,
   },
 ]
 
@@ -23,15 +28,15 @@ export function BitcoinStressTestVisual() {
     <div
       className="relative mx-auto w-full max-w-[500px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-6"
       role="img"
-      aria-label="Stres-test osobnog Bitcoin standarda kroz cijenu, novac i obitelj"
+      aria-label="Uvodni Bitcoin razgovor pomaže pronaći glavni čvor u tezi, osobnoj situaciji, sigurnosti ili obitelji"
     >
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">
-            Osobni standard
+            Uvodni razgovor
           </h2>
           <p className="mt-2 text-base leading-6 font-semibold text-foreground sm:text-lg sm:leading-7">
-            Pravila prije pritiska.
+            Pronađemo glavni čvor.
           </p>
         </div>
         <div className="grid size-11 shrink-0 place-items-center overflow-hidden rounded-full border border-primary/30 bg-primary/10">

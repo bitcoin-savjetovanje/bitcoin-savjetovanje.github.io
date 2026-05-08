@@ -1,4 +1,4 @@
-import { PRIMARY_CTA } from "./site"
+import { CONVERSATION_PATH } from "./site"
 
 export type Offer = {
   title: string
@@ -9,58 +9,69 @@ export type Offer = {
   purpose: string
   includes: string[]
   cta: string
+  href: string
+  dataCta: string
 }
 
 export const offers: Offer[] = [
   {
-    title: "15-minutni uvodni razgovor",
+    title: "Uvodni razgovor",
     price: "0 €",
     duration: "15 minuta",
-    forWhom: "Za prvi korak i kvalifikaciju.",
-    detail: "15 minuta. Bez naknade. Bez obveze.",
+    forWhom: "Za prvo pitanje ili odluku koja vas koči.",
+    detail:
+      "Prvi kontakt bez naknade i bez obveze. Kažete gdje ste zapeli, ja postavim nekoliko pitanja i predložim razuman sljedeći korak.",
     purpose:
-      "Provjerimo gdje ste: imate li Bitcoin, postoji li dug, znate li stvarni višak i koji dio sustava trenutno stvara najviše pritiska.",
+      "Kažete gdje ste zapeli, prepoznamo glavni čvor i vidimo ima li smisla nastaviti plaćeno.",
     includes: [
-      "15-minutni uvodni razgovor o osobnom Bitcoin standardu",
-      "glavno pitanje koje treba razjasniti",
-      "što bi bio razuman sljedeći korak",
-      "jasno ne ako ne mogu pomoći",
+      "Za jedno glavno pitanje ili odluku",
+      "Bez slanja osjetljivih podataka",
+      "Bez prodaje Bitcoina, prognoza i upravljanja sredstvima",
     ],
-    cta: PRIMARY_CTA,
+    cta: "Dogovorite uvodni razgovor",
+    href: CONVERSATION_PATH,
+    dataCta: "offer-intro-call",
   },
   {
-    title: "Dubinska provjera osobnog Bitcoin standarda",
+    title: "Bitcoin jasnoća",
     price: "200 €",
-    duration: "60–90 minuta",
-    forWhom: "Za osobu koja želi jedan dublji razgovor i jasne zaključke.",
-    detail: "Jedan dublji razgovor s jasnim zaključcima.",
+    duration: "Jedan dubinski razgovor",
+    forWhom:
+      "Za osobu koja ima ozbiljna pitanja o Bitcoinu i želi jasniju vlastitu tezu prije veće odluke.",
+    detail:
+      "Za osobu koja ima ozbiljna pitanja o Bitcoinu i želi jasniju vlastitu tezu prije veće odluke.",
     purpose:
-      "Prođemo proračun nulte osnove, dug, stvarni višak, davanje, Bitcoin kao novac, sigurnost i obiteljski pristup.",
+      "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
-      "pitanja za provjeru stvarnog viška",
-      "pregled rizika prisilne prodaje",
-      "provjera pravila za rast i pad kupovne moći",
-      "sljedeća pravila koja trebate zapisati",
+      "Odgovori na glavna pitanja koja vas koče",
+      "Razjašnjenje Bitcoin teze na jeziku koji možete ponoviti drugima",
+      "Pregled prepreka: dug, proračun, sigurnost, obitelj, nejasna imovina",
+      "Jasniji okvir za vlastitu odluku o ulozi Bitcoina",
+      "Preporuka treba li stati na tome ili ići u puni osobni Bitcoin standard",
     ],
-    cta: PRIMARY_CTA,
+    cta: "Prvo dogovorite uvodni razgovor",
+    href: CONVERSATION_PATH,
+    dataCta: "offer-bitcoin-jasnoca",
   },
   {
-    title: "Izgradnja osobnog Bitcoin standarda",
+    title: "Osobni Bitcoin standard",
     price: "1.500 €",
     duration: "4–6 tjedana",
     forWhom:
-      "Za izgradnju cijelog pisanog sustava za novac, dug, Bitcoin, sigurnost i obitelj.",
-    detail: "4–6 tjedana rada, razgovori i pisani osobni standard.",
+      "Za osobu ili obitelj koja želi pisana pravila za novac, dug, Bitcoin, sigurnost i obiteljski pristup.",
+    detail:
+      "Za osobu ili obitelj koja ne želi samo odgovore na pitanja, nego pisana pravila za novac, dug, Bitcoin, neto imovinu, sigurnost i obiteljski pristup.",
     purpose:
-      "Dobivate pisana pravila za novac, dug, davanje, Bitcoin, kupovnu moć i dugoročni trend, neto imovinu, sigurnost i obitelj.",
+      "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i obiteljska pravila bez predaje kontrole.",
     includes: [
-      "pisani osobni Bitcoin standard",
-      "pravila za proračun, dug i stvarni višak",
-      "pravila za davanje i rast priljeva",
-      "pravila za Bitcoin kao novac, kupovnu moć i dugoročni trend",
-      "pregled neto imovine",
-      "sigurnosni i obiteljski plan",
+      "Pravila za proračun, stvarni višak i buduće odljeve",
+      "Jasan odnos prema dugu i potrošnji budućeg novca",
+      "Uloga Bitcoina u novcu i neto imovini",
+      "Pravila za padove, rastove i emocionalni pritisak",
+      "Sigurnosni i obiteljski okvir bez predaje kontrole",
     ],
-    cta: PRIMARY_CTA,
+    cta: "Vidimo ima li smisla za vas",
+    href: CONVERSATION_PATH,
+    dataCta: "offer-personal-standard",
   },
 ]

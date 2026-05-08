@@ -7,8 +7,7 @@ import { Hero } from "@/components/home/Hero"
 import { IntroCallSection } from "@/components/home/IntroCallSection"
 import { MethodHintSection } from "@/components/home/MethodHintSection"
 import { OffersSection } from "@/components/home/OffersSection"
-import { PersonalStandardSection } from "@/components/home/PersonalStandardSection"
-import { PriceTimeSection } from "@/components/home/PriceTimeSection"
+import { QuestionsSection } from "@/components/home/QuestionsSection"
 import { SecurityTrustSection } from "@/components/home/SecurityTrustSection"
 import { StressTestSection } from "@/components/home/StressTestSection"
 import { homeRoute } from "@/content/routes"
@@ -25,13 +24,12 @@ export function Home() {
       />
       <Hero />
       <StressTestSection />
-      <MethodHintSection />
+      <QuestionsSection />
       <IntroCallSection />
-      <PersonalStandardSection />
-      <PriceTimeSection />
       <OffersSection />
       <SecurityTrustSection />
       <AboutSection />
+      <MethodHintSection />
       <GuidesTeaserSection />
       <FaqSection />
       <FinalCta />

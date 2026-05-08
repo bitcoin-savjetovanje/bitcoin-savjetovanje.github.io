@@ -9,7 +9,7 @@ import {
   securityReviewItems,
   skrbnistvoAssessmentItems,
 } from "@/content/security"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { CONVERSATION_PATH } from "@/content/site"
 
 function SecurityList({
   items,
@@ -118,14 +118,12 @@ export function Security() {
             className="cta-primary mt-6 w-full rounded-full px-5 text-center sm:w-auto sm:px-6 lg:mt-0"
           >
             <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CONVERSATION_PATH}
               className="justify-center"
-              data-cta="security-standard-check"
+              data-cta="security-intro-call"
             >
               <CalendarDays className="size-4" />
-              {PRIMARY_CTA}
+              Razgovarajmo bez predaje kontrole
             </a>
           </Button>
         </div>

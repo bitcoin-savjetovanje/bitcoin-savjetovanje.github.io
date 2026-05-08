@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta"
 import { Button } from "@/components/ui/button"
+import { Conversation } from "@/pages/Conversation"
 import { Guide } from "@/pages/Guide"
 import { GuidesIndex } from "@/pages/GuidesIndex"
 import { Home } from "@/pages/Home"
@@ -38,6 +39,10 @@ function Route({ path }: { path: string }) {
 
   if (path === "/vodici") {
     return <GuidesIndex />
+  }
+
+  if (path === "/razgovor") {
+    return <Conversation />
   }
 
   if (path.startsWith("/vodici/")) {

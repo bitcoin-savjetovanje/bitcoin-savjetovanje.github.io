@@ -1,13 +1,11 @@
 # Bitcoin Savjetovanje
 
 Stranica za Bitcoin Savjetovanje, izgrađena s Viteom, Reactom, TypeScriptom,
-SSR/prerenderom i GitHub Pagesom. Sadržaj je organiziran oko Praktičnog Bitcoin
-standarda: osobni proračun nulte razine, život bez kredita, sustavno davanje, Bitcoin kao novac,
-kupovna moć, neto imovina, skrbništvo i početne riječi za oporavak.
-Sustavno davanje se obrađuje kao treći temeljni korak nakon reda u novcu i izlaska iz
-kredita: bez očekivanja povrata, iz uređenog proračuna nulte razine i prema ljudima. Vodiči
-uključuju i odnos novca prema ljudima te cijenu kao pomoćni signal za vrijeme i
-proračun nulte razine, bez projekcija i obećanja prinosa.
+SSR/prerenderom i GitHub Pagesom. Glavna javna konverzija je lokalna stranica
+`/razgovor/`, koja posjetitelja priprema za 15-minutni uvodni razgovor prije
+odlaska na vanjski kalendar. Početna stranica je usmjerena na pitanja,
+nejasnoće, sigurnost i mirniju osobnu odluku, dok je Praktični Bitcoin standard
+predstavljen kao dublji okvir rada.
 
 ## Development
 
@@ -61,6 +59,7 @@ Prerender:
 ## Routes
 
 - `/`
+- `/razgovor/`
 - `/vodici/`
 - `/vodici/:slug/`
 - `/sigurnost/`
@@ -69,7 +68,7 @@ Prerender:
 
 - Canonical početne stranice koristi završnu kosu crtu:
   `https://bitcoin-savjetovanje.com/`.
-- Guide index, guide pages and static pages use trailing slash canonicals.
+- Conversation, guide index, guide pages and static pages use trailing slash canonicals.
 - Sitemap URLs must match canonical URLs.
 - Internal guide links should use trailing slash, for example
   `/vodici/stvarni-visak/`.

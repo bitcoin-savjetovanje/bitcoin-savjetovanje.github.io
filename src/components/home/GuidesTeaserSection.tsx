@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
 import { homeGuideSlugs } from "@/content/home"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { CONVERSATION_PATH } from "@/content/site"
 
 const teaserGuides = homeGuideSlugs
   .map((slug) => findGuide(slug))
@@ -15,9 +15,9 @@ export function GuidesTeaserSection() {
     <section id="vodici" className="section-shell section-muted">
       <SectionHeader
         title="Želite prvo čitati?"
-        copy="Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju."
+        copy="Vodiči objašnjavaju moj okvir. Razgovor ga primjenjuje na vašu situaciju."
       />
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
         {teaserGuides.map((guide) => (
           <a
             key={guide.slug}
@@ -35,19 +35,19 @@ export function GuidesTeaserSection() {
           href="/vodici/"
           className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
           data-link="home-guides-index"
+          data-cta="home-guides-index"
         >
-          Pogledajte sve vodiče
+          Pogledajte vodiče
           <ArrowUpRight className="size-4" />
         </a>
         <Button asChild variant="outline" className="rounded-full sm:ml-auto">
           <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cta="guides-intro-call"
+            href={CONVERSATION_PATH}
+            className="justify-center text-center"
+            data-cta="home-guides-call"
           >
             <CalendarDays className="size-4" />
-            {PRIMARY_CTA}
+            Primijenite okvir na svoju situaciju
           </a>
         </Button>
       </div>

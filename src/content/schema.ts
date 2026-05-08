@@ -10,6 +10,7 @@ import {
   EMAIL,
   OG_IMAGE_URL,
   SITE_URL,
+  conversationSeo,
   guidesIndexSeo,
   securitySeo,
 } from "./site"
@@ -59,9 +60,9 @@ export function homeSchema() {
         areaServed: ["Hrvatska", "Online"],
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
         serviceType:
-          "Uvodni razgovor, dubinska provjera i izgradnja osobnog Bitcoin standarda",
+          "Uvodni Bitcoin razgovor, Bitcoin jasnoća i osobni Bitcoin standard",
         description:
-          "Savjetodavni rad za osobna pravila o proračunu, dugu, davanju, Bitcoinu kao novcu, neto imovini, sigurnosti i obitelji. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije licencirano financijsko, porezno ili pravno savjetovanje.",
+          "Savjetodavni rad za razumijevanje Bitcoina, osobna pravila, sigurnost i obiteljski okvir. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije financijsko, porezno ili pravno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
       },
       {
         "@type": "OfferCatalog",
@@ -74,6 +75,30 @@ export function homeSchema() {
           description: offer.purpose,
         })),
       },
+    ],
+  }
+}
+
+export function conversationPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Dogovorite 15-minutni uvodni razgovor",
+        description: conversationSeo.description,
+        url: conversationSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Razgovor", item: conversationSeo.canonical },
+      ]),
     ],
   }
 }

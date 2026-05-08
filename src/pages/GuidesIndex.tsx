@@ -9,7 +9,7 @@ import {
   guidesIndexPrimaryItems,
 } from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
 const primaryGuides = guidesIndexPrimaryItems.flatMap((item) => {
   const guide = findGuide(item.slug)
@@ -81,11 +81,9 @@ export function GuidesIndex() {
               className="cta-primary w-full rounded-full sm:w-auto"
             >
               <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CONVERSATION_PATH}
                 className="justify-center text-center"
-                data-cta="guides-index-top-standard-check"
+                data-cta="guides-index-top-intro-call"
               >
                 <CalendarDays className="size-4" />
                 {PRIMARY_CTA}
@@ -203,11 +201,9 @@ export function GuidesIndex() {
             className="cta-primary mt-6 w-full rounded-full sm:w-auto"
           >
             <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CONVERSATION_PATH}
               className="justify-center text-center"
-              data-cta="guides-index-standard-check"
+              data-cta="guides-index-intro-call"
             >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}

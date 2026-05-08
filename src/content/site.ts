@@ -2,7 +2,8 @@ export const SITE_URL = "https://bitcoin-savjetovanje.com"
 export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
-export const SECONDARY_CTA = "Provjerite gdje ste"
+export const SECONDARY_CTA = "Pogledajte pitanja koja možemo proći"
+export const CONVERSATION_PATH = "/razgovor/"
 export const SITE_UPDATED_AT = "2026-05-07"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
@@ -15,10 +16,17 @@ export const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
 export const TWENTYONE_URL = "https://twentyone.world"
 
 export const homeSeo = {
-  title: "Bitcoin Savjetovanje | Osobni Bitcoin standard",
+  title: "Bitcoin Savjetovanje | Uvodni Bitcoin razgovor",
   description:
-    "Imate Bitcoin, ali nemate jasna pravila? Dogovorite 15-minutni uvodni razgovor i provjerite proračun, dug, davanje, Bitcoin kao novac, kupovnu moć, neto imovinu, sigurnost i obitelj.",
+    "Dođite s Bitcoin pitanjem koje vas koči. U 15 minuta vidimo gdje ste zapeli i ima li smisla nastaviti plaćeno.",
   canonical: `${SITE_URL}/`,
+}
+
+export const conversationSeo = {
+  title: "Uvodni Bitcoin razgovor | Bitcoin Savjetovanje",
+  description:
+    "Dogovorite 15-minutni uvodni razgovor bez naknade i bez obveze. Dođite s Bitcoin pitanjem koje vas koči i vidite ima li smisla nastaviti plaćeno.",
+  canonical: `${SITE_URL}${CONVERSATION_PATH}`,
 }
 
 export const guidesIndexSeo = {
@@ -31,7 +39,7 @@ export const guidesIndexSeo = {
 export const securitySeo = {
   title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
   description:
-    "Sigurnost kao dio osobnog Bitcoin standarda: Bitcoin ostaje pod vašom kontrolom, ali obitelj ima jasna pravila bez dijeljenja početnih riječi i privatnih ključeva.",
+    "Sigurnosna pravila za Bitcoin razgovor: ne tražim početne riječi, privatne ključeve, lozinke, pristup računima ni kontrolu nad vašim Bitcoinom.",
   canonical: `${SITE_URL}/sigurnost/`,
 }
 

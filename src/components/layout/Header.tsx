@@ -4,13 +4,13 @@ import { CalendarDays, Menu, MoonStar, SunMedium, X } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { CONVERSATION_PATH } from "@/content/site"
 
 const tabletNavLinks = [
-  { label: "Program", href: "/#program" },
-  { label: "Vodiči", href: "/vodici/" },
+  { label: "Pitanja", href: "/#pitanja" },
+  { label: "Program", href: "/#ponude" },
   { label: "Sigurnost", href: "/sigurnost/" },
-  { label: "Razgovor", href: "/#razgovor" },
+  { label: "Razgovor", href: "/razgovor/" },
 ]
 
 function ThemeToggle() {
@@ -99,14 +99,9 @@ export function Header() {
             size="lg"
             className="cta-primary hidden rounded-full px-5 xl:inline-flex"
           >
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cta="header-standard-check"
-            >
+            <a href={CONVERSATION_PATH} data-cta="header-intro-call">
               <CalendarDays className="size-4" />
-              {PRIMARY_CTA}
+              Dogovorite razgovor
             </a>
           </Button>
           <ThemeToggle />
@@ -146,14 +141,12 @@ export function Header() {
             </a>
           ))}
           <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CONVERSATION_PATH}
             className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
             onClick={() => setMobileMenuOpen(false)}
-            data-cta="mobile-menu-standard-check"
+            data-cta="mobile-menu-intro-call"
           >
-            {PRIMARY_CTA}
+            Dogovorite razgovor
           </a>
         </nav>
       ) : null}

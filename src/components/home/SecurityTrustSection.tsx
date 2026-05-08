@@ -2,41 +2,22 @@ import { ArrowUpRight, CalendarDays, Check, X } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
-
-const neverAsk = [
-  "početne riječi",
-  "privatne ključeve",
-  "lozinke",
-  "pristup računima",
-  "pristup uređajima",
-  "kontrolu nad vašim Bitcoinom",
-]
-
-const workRules = [
-  "pravila za sigurnost",
-  "obiteljski plan",
-  "što se nikada ne dijeli",
-  "što obitelj smije napraviti",
-]
+import { homeNeverAskItems, homeSecurityReviewItems } from "@/content/home"
+import { CONVERSATION_PATH } from "@/content/site"
 
 export function SecurityTrustSection() {
   return (
-    <section id="sigurnost" className="section-shell">
+    <section id="sigurnost-povjerenje" className="section-shell">
       <div className="case-panel border-primary/25">
         <SectionHeader
-          title="Vaš Bitcoin ostaje pod vašom kontrolom."
-          copy="Ne tražim početne riječi, privatne ključeve, lozinke, pristup računima, pristup uređajima ni kontrolu nad vašim Bitcoinom. Radimo na pravilima, ne na predaji kontrole."
+          title="Vaš Bitcoin ostaje vaš."
+          copy="Ne kupujem, ne prodajem i ne čuvam Bitcoin za vas. Ne tražim početne riječi, privatne ključeve, lozinke ni pristup računima. Radimo na razumijevanju, pravilima i sigurnosnom okviru. Kontrola ostaje kod vas."
         />
-        <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground">
-          Ovo nije investicijsko, porezno ni pravno savjetovanje. Ne predviđam
-          cijenu. Ne upravljam sredstvima. Ne donosim odluke umjesto vas.
-        </p>
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
-            <h3 className="text-xl font-semibold">Nikada ne tražim:</h3>
+            <h3 className="text-xl font-semibold">Nikada ne tražim</h3>
             <div className="mt-5 grid gap-2">
-              {neverAsk.map((item) => (
+              {homeNeverAskItems.map((item) => (
                 <div key={item} className="not-for-row bg-card">
                   <X className="negative-icon size-3.5" />
                   <p>{item}</p>
@@ -45,9 +26,9 @@ export function SecurityTrustSection() {
             </div>
           </section>
           <section className="rounded-2xl border border-primary/25 bg-background/70 p-5 shadow-sm">
-            <h3 className="text-xl font-semibold">Radimo na:</h3>
+            <h3 className="text-xl font-semibold">Možemo proći</h3>
             <div className="mt-5 grid gap-2">
-              {workRules.map((item) => (
+              {homeSecurityReviewItems.map((item) => (
                 <div key={item} className="not-for-row bg-card">
                   <Check className="positive-icon size-3.5" />
                   <p>{item}</p>
@@ -61,19 +42,19 @@ export function SecurityTrustSection() {
             href="/sigurnost/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
             data-link="security-rules"
+            data-cta="home-security-page"
           >
             Pročitajte sigurnosna pravila
             <ArrowUpRight className="size-4" />
           </a>
           <Button asChild variant="outline" className="rounded-full sm:ml-auto">
             <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CONVERSATION_PATH}
+              className="justify-center text-center"
               data-cta="security-intro-call"
             >
               <CalendarDays className="size-4" />
-              {PRIMARY_CTA}
+              Dogovorite razgovor
             </a>
           </Button>
         </div>

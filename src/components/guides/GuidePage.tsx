@@ -3,7 +3,7 @@ import { ArrowRight, CalendarDays } from "lucide-react"
 import { GuideVisual } from "@/components/guides/GuideVisual"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, guides, type Guide } from "@/content/guides"
-import { BOOKING_URL } from "@/content/site"
+import { CONVERSATION_PATH } from "@/content/site"
 import {
   estimateGuideReadingMinutes,
   slugifyHeading,
@@ -160,23 +160,20 @@ export function GuidePage({ guide }: { guide: Guide }) {
               Želite primijeniti okvir na svoju situaciju?
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
-              Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
-              vidjeti gdje ste, što pokušavate odlučiti i ima li smisla
-              nastaviti.
+              Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti gdje se taj
+              okvir odnosi na vas.
             </p>
             <Button
               asChild
               className="cta-primary mt-6 w-full rounded-full sm:w-auto"
             >
               <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CONVERSATION_PATH}
                 className="justify-center text-center"
-                data-cta="guide-standard-check"
+                data-cta="guide-final-intro-call"
               >
                 <CalendarDays className="size-4" />
-                {guide.finalCta}
+                Dogovorite uvodni razgovor
               </a>
             </Button>
           </div>

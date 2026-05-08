@@ -1,5 +1,6 @@
 import { guideHref, guides } from "./guides"
 import {
+  conversationPageSchema,
   guideSchema,
   guidesIndexSchema,
   homeSchema,
@@ -9,6 +10,7 @@ import {
   OG_IMAGE_URL,
   SITE_UPDATED_AT,
   SITE_URL,
+  conversationSeo,
   guidesIndexSeo,
   homeSeo,
   securitySeo,
@@ -16,6 +18,7 @@ import {
 
 export type RouteType =
   | "home"
+  | "conversation"
   | "guides-index"
   | "guide"
   | "security"
@@ -58,6 +61,20 @@ export const guidesIndexRoute: RouteMeta = {
   canonical: guidesIndexSeo.canonical,
   schema: guidesIndexSchema(),
   type: "guides-index",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const conversationRoute: RouteMeta = {
+  path: "/razgovor/",
+  title: conversationSeo.title,
+  description: conversationSeo.description,
+  canonical: conversationSeo.canonical,
+  schema: conversationPageSchema(),
+  type: "conversation",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
   ogImage: OG_IMAGE_URL,
@@ -132,6 +149,7 @@ export const notFoundRoute: RouteMeta = {
 
 export const prerenderRoutes: RouteMeta[] = [
   homeRoute,
+  conversationRoute,
   guidesIndexRoute,
   ...guideRouteMetas,
   ...guideAliasRouteMetas,

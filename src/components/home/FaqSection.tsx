@@ -5,7 +5,7 @@ import { faqs } from "@/content/faq"
 
 export function FaqSection() {
   return (
-    <section id="pitanja" className="section-shell">
+    <section id="faq" className="section-shell">
       <SectionHeader title="Česta pitanja" align="center" />
       <div className="mx-auto mt-12 max-w-4xl divide-y divide-border/70 border-y border-border/70">
         {faqs.map((faq) => (

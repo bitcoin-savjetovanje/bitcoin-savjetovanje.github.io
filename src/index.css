@@ -171,7 +171,7 @@
     position: fixed;
     left: 50%;
     right: auto;
-    bottom: calc(0.18rem + env(safe-area-inset-bottom));
+    bottom: max(0rem, calc(env(safe-area-inset-bottom) - 1rem));
     width: min(22rem, calc(100vw - 1.5rem));
     z-index: 40;
     padding: 0.2rem;
@@ -195,6 +195,13 @@
     opacity: 1;
     pointer-events: auto;
     transform: translate(-50%, var(--mobile-cta-visual-shift, 0px));
+  }
+
+  .back-to-top-button {
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: calc(
+      3.55rem + max(0rem, calc(env(safe-area-inset-bottom) - 1rem))
+    );
   }
 
   .hero-section {
@@ -1277,7 +1284,7 @@
   }
 
   .sticky-mobile-cta {
-    bottom: calc(0.08rem + env(safe-area-inset-bottom));
+    bottom: max(0rem, calc(env(safe-area-inset-bottom) - 1rem));
     width: min(20.75rem, calc(100vw - 2rem));
   }
 

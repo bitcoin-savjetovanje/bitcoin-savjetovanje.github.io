@@ -99,7 +99,7 @@ export function App({ path }: { path?: string }) {
 
     const updateMobileViewportShift = () => {
       const shift = viewport.offsetTop + viewport.height - window.innerHeight
-      const clampedShift = Math.max(-160, Math.min(160, shift))
+      const clampedShift = Math.max(0, Math.min(96, shift))
 
       document.documentElement.style.setProperty(
         "--mobile-cta-visual-shift",
@@ -141,7 +141,7 @@ export function App({ path }: { path?: string }) {
         <Button
           type="button"
           size="icon"
-          className="fixed right-4 bottom-[calc(5.25rem+env(safe-area-inset-bottom))] z-50 size-10 rounded-full border border-border/70 bg-background/94 text-foreground shadow-lg hover:bg-muted hover:text-foreground md:right-6 lg:bottom-6"
+          className="back-to-top-button fixed z-50 size-10 rounded-full border border-border/70 bg-background/94 text-foreground shadow-lg hover:bg-muted hover:text-foreground lg:right-6 lg:bottom-6"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Povratak na vrh"
         >

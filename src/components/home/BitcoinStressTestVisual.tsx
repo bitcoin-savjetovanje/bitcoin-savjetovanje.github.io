@@ -27,7 +27,7 @@ const ruleRows = [
 export function BitcoinStressTestVisual() {
   return (
     <div
-      className="relative mx-auto w-full max-w-[500px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-6"
+      className="relative mx-auto w-full max-w-[460px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-6"
       role="img"
       aria-label="Uvodni Bitcoin razgovor pomaže razjasniti gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman"
     >

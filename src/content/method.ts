@@ -89,7 +89,7 @@ export const foundationCards = [
   },
   {
     title: "Davanje",
-    copy: "Davanje nije ukras osobnog Bitcoin standarda. Ono mijenja odnos prema novcu, ljudima, stvaranju vrijednosti i priljevima.",
+    copy: "Davanje nije ukras osobnog Bitcoin standarda. Ono mijenja odnos prema novcu, ljudima, stvaranju vrijednosti i prihodu.",
   },
 ]
 
@@ -152,7 +152,7 @@ export const programSteps = [
   },
   {
     title: "Korak 2 - Izlazak iz duga",
-    copy: "Pregled duga, budućih odljeva, rizika prisilne prodaje i plan izlaska.",
+    copy: "Pregled duga, budućih plaćanja, rizika prisilne prodaje i plan izlaska.",
   },
   {
     title: "Korak 3 - Sustavno davanje",
@@ -160,7 +160,7 @@ export const programSteps = [
   },
   {
     title: "Korak 4 - Bitcoin kao novac",
-    copy: "Kupovna moć, zakon potencije, trošenje, usklađivanje, pozitivni neto priljev i Bitcoin kao novčana zaliha.",
+    copy: "Kupovna moć, zakon potencije, trošenje, usklađivanje, novac koji ostaje i Bitcoin kao novčana zaliha.",
   },
   {
     title: "Korak 5 - Ravnoteža neto imovine",

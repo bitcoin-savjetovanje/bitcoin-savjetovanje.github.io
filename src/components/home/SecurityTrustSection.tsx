@@ -41,27 +41,34 @@ export function SecurityTrustSection() {
             </div>
           </section>
         </div>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a
-            href="/sigurnost/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-            data-link="security-rules"
-            data-cta="home-security-page"
-          >
-            Pročitajte sigurnosna pravila
-            <ArrowUpRight className="size-4" />
-          </a>{" "}
-          <Button asChild variant="outline" className="rounded-full sm:ml-auto">
+        <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
+          <li>
             <a
-              href={CONVERSATION_PATH}
-              className="justify-center text-center"
-              data-cta="security-intro-call"
+              href="/sigurnost/"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+              data-link="security-rules"
+              data-cta="home-security-page"
             >
-              <CalendarDays className="size-4" />
-              Dogovorite razgovor
+              Pročitajte sigurnosna pravila
+              <ArrowUpRight className="size-4" />
+              <span aria-hidden="true" className="sr-only">
+                {" "}
+              </span>
             </a>
-          </Button>
-        </div>
+          </li>
+          <li className="sm:ml-auto">
+            <Button asChild variant="outline" className="rounded-full">
+              <a
+                href={CONVERSATION_PATH}
+                className="justify-center text-center"
+                data-cta="security-intro-call"
+              >
+                <CalendarDays className="size-4" />
+                Dogovorite razgovor
+              </a>
+            </Button>
+          </li>
+        </ul>
       </div>
     </section>
   )

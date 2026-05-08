@@ -1,6 +1,7 @@
 const baseUrl = "https://bitcoin-savjetovanje.com"
 const bookingUrl = "https://cal.com/btcpavao/uvodni-poziv"
 const representativeGuidePath = "/vodici/stvarni-visak/"
+const positiveMoneyGuidePath = "/vodici/pozitivni-neto-priljev/"
 const debtChoiceGuidePath = "/vodici/dug-ili-bitcoin/"
 const bitcoinMoneyGuidePath = "/vodici/bitcoin-kao-novac/"
 const thirdsGuidePath = "/vodici/pravilo-trecina/"
@@ -30,8 +31,16 @@ const forbiddenVisibleText = [
   "glupu grešku",
   "partner ili obitelj nije uvjerena",
   "dogovorite 15-minutni uvodni razgovorpogledajte",
+  "uvodni razgovorpogledajte",
+  "razgovoršto je bitcoin jasnoća",
+  "praviladogovorite",
+  "vodičeprimijenite",
   "1. 1 proračun",
   "2. 2 dug",
+  "budući odljevi",
+  "pozitivan neto priljev: temelj bitcoin standarda",
+  "priljevi su novac koji ulazi. odljevi su novac koji izlazi. neto priljev je razlika.",
+  "priljevi i odljevi",
   "neuređenog eura",
   "manje je glume",
   "psihološko-duhovna stanja",
@@ -88,6 +97,13 @@ const pageChecks = [
       "što još nedostaje za mirniju odluku",
       "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman.",
       "Dobivate jasniju sliku što je stvarna prepreka odluci",
+      "Provjerite ima li uvodni razgovor smisla",
+      "Ovo je dobro pitanje za uvodni razgovor.",
+      "Što se mijenja kada postoji osobni okvir?",
+      'data-cta="readiness-test-intro-call"',
+      'data-cta="question-selected-intro-call"',
+      'data-cta="before-after-intro-call"',
+      'data-cta="desktop-rail-intro-call"',
     ],
     textMustNotInclude: [
       "razgovorPromijeni",
@@ -111,11 +127,14 @@ const pageChecks = [
       "što prvo treba razjasniti",
       "Prije razgovora razmislite o jednom glavnom pitanju.",
       "Dobra pitanja za uvodni razgovor zvuče ovako",
+      "Razjasnimo glavno pitanje.",
+      "Vidimo što nedostaje za sljedeći korak.",
       "Što se može dogoditi nakon razgovora?",
       "sljedeći korak može biti Bitcoin jasnoća",
       "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
       "Spremni za uvodni razgovor?",
       "Odaberite termin i dođite s jednim stvarnim pitanjem.",
+      "Ne morate imati gotov plan",
       "Ako postoji konkretan način da pomognem, dogovorit ćemo sljedeći korak.",
       "Imam Bitcoin, ali partner ili obitelj još nisu sigurni.",
       "Brine me sigurnost i ne želim pogriješiti s čuvanjem Bitcoina.",
@@ -138,6 +157,9 @@ const pageChecks = [
       "Bitcoin jasnoća",
       "200 €",
       "jedan dubinski razgovor",
+      "Nakon Bitcoin jasnoće najčešće imate",
+      "Što pripremiti",
+      "Kada nije za vas",
       "Krenite od uvodnog razgovora",
       "ne tražim seed phrase",
       "ne prognoziram cijenu",
@@ -148,6 +170,7 @@ const pageChecks = [
     path: "/sigurnost/",
     includes: [
       "Dobar sigurnosni okvir ima dva cilja.",
+      "Seed phrase se nikada ne dijeli. Dobar savjetnik vam pomaže urediti okvir bez preuzimanja kontrole.",
       "nitko ne smije dobiti kontrolu nad vašim Bitcoinom bez vašeg znanja",
       "vaša obitelj ne smije ostati potpuno izgubljena",
       "seed phrase — 12 ili 24 riječi za oporavak novčanika",
@@ -159,6 +182,9 @@ const pageChecks = [
       "ne tražim seed phrase ni privatne ključeve",
       "Za rad nije potrebno dijeliti seed phrase",
       "Razgovarajmo o sigurnosti bez predaje kontrole",
+      "Možemo urediti",
+      "Procjenjujemo rizike",
+      "Odluka ostaje vaša",
     ],
     includesAny: [
       [
@@ -173,6 +199,18 @@ const pageChecks = [
       "Vodiči",
       'data-link="guide-card"',
       "Ako niste sigurni gdje krenuti, krenite od proračuna.",
+      "Korak 1 — Red u novcu",
+      "Korak 2 — Dug i sloboda odluke",
+      "Korak 3 — Davanje",
+      "Korak 4 — Bitcoin kao novac",
+      "Korak 5 — Neto imovina",
+      "Korak 6 — Sigurnost i obitelj",
+      'href="#proracun"',
+      'href="#dug"',
+      'href="#davanje"',
+      'href="#bitcoin"',
+      'href="#neto-imovina"',
+      'href="#sigurnost"',
       "Uvodni razgovor pomaže vidjeti koji dio okvira je za vas trenutno najvažniji.",
     ],
     includesAny: [
@@ -193,7 +231,17 @@ const pageChecks = [
       "Vodič objašnjava okvir",
       "Dogovorite uvodni razgovor",
       "Drugim riječima, stvarni višak je novac bez druge namjene",
+      "ne pripada budućem plaćanju",
       "Manje je nagađanja",
+    ],
+  },
+  {
+    path: positiveMoneyGuidePath,
+    includes: [
+      "Kad više novca ulazi nego što izlazi",
+      "Novac ulazi kroz plaću, posao, klijente, prodaju ili druge izvore.",
+      "Pet načina da više novca ostane u sustavu",
+      "Prvo popravljam prihode, troškove i stanje duga.",
     ],
   },
   {

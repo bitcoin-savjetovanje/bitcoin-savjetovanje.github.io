@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarDays } from "lucide-react"
+import { useEffect, useState } from "react"
 
 import { GuideVisual } from "@/components/guides/GuideVisual"
 import { Button } from "@/components/ui/button"
@@ -10,6 +11,7 @@ import {
 } from "@/utils/readingTime"
 
 export function GuidePage({ guide }: { guide: Guide }) {
+  const [readingProgress, setReadingProgress] = useState(0)
   const relatedGuides = guide.relatedSlugs
     .map((slug) => findGuide(slug))
     .filter((item): item is Guide => Boolean(item))
@@ -19,8 +21,40 @@ export function GuidePage({ guide }: { guide: Guide }) {
   }))
   const nextGuide = guides.find((item) => item.order > guide.order)
 
+  useEffect(() => {
+    function updateProgress() {
+      const article = document.querySelector<HTMLElement>(
+        "[data-guide-article]"
+      )
+
+      if (!article) {
+        setReadingProgress(0)
+        return
+      }
+
+      const start = article.offsetTop
+      const end = start + article.offsetHeight - window.innerHeight
+      const distance = Math.max(end - start, 1)
+      const current = Math.min(Math.max(window.scrollY - start, 0), distance)
+
+      setReadingProgress(Math.round((current / distance) * 100))
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true })
+    window.addEventListener("resize", updateProgress)
+    updateProgress()
+
+    return () => {
+      window.removeEventListener("scroll", updateProgress)
+      window.removeEventListener("resize", updateProgress)
+    }
+  }, [])
+
   return (
-    <article className="section-shell">
+    <article className="section-shell" data-guide-article>
+      <div className="reading-progress" aria-hidden="true">
+        <span style={{ width: `${readingProgress}%` }} />
+      </div>
       <nav
         aria-label="Breadcrumb"
         className="text-sm leading-6 font-medium text-muted-foreground"
@@ -64,7 +98,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
         </p>
       </header>
       {guide.visual ? <GuideVisual visual={guide.visual} /> : null}
-      <div className="mt-10 max-w-4xl">
+      <div className="guide-layout mt-10">
         <div className="min-w-0">
           {sectionLinks.length > 0 ? (
             <nav
@@ -164,7 +198,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                         >
                           {relatedGuide.title}
                         </a>
-                      </h3>{" "}
+                      </h3>
                       <p>{relatedGuide.excerpt}</p>
                     </article>
                   </li>
@@ -194,8 +228,8 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
               {guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : null}
-              Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti gdje se taj
-              okvir odnosi na vas.
+              Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se
+              odnosi na vas.
             </p>
             <Button
               asChild
@@ -212,6 +246,23 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </Button>
           </div>
         </div>
+        <aside className="guide-rail" aria-label="Uvodni razgovor">
+          <div className="guide-rail__card">
+            <h2>Ovo se odnosi na vašu situaciju?</h2>
+            <p>
+              Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se
+              odnosi na vas.
+            </p>
+            <a
+              href={CONVERSATION_PATH}
+              className="cta-primary mt-5 inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold"
+              data-cta="guide-rail-intro-call"
+            >
+              <CalendarDays className="size-4" />
+              Dogovorite uvodni razgovor
+            </a>
+          </div>
+        </aside>
       </div>
     </article>
   )

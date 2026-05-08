@@ -22,8 +22,8 @@ const exampleQuestions = [
 
 const conversationSteps = [
   "Kažete gdje ste sada.",
-  "Prođemo glavno pitanje.",
-  "Vidimo što prvo treba razjasniti.",
+  "Razjasnimo glavno pitanje.",
+  "Vidimo što nedostaje za sljedeći korak.",
   "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
 ]
 
@@ -95,38 +95,42 @@ export function Conversation() {
             Ne morate doći pripremljeni kao stručnjak. Dovoljno je da dođete s
             jednim stvarnim pitanjem.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button
-              asChild
-              size="lg"
-              className="cta-primary h-12 rounded-full px-5 text-base"
-            >
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="justify-center text-center"
-                data-cta="conversation-page-calendar"
+          <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
+            <li>
+              <Button
+                asChild
+                size="lg"
+                className="cta-primary h-12 rounded-full px-5 text-base"
               >
-                <CalendarDays className="size-4" />
-                Otvorite kalendar i odaberite termin
-              </a>
-            </Button>{" "}
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-12 rounded-full px-5 text-base"
-            >
-              <a
-                href="/sigurnost/"
-                className="justify-center text-center"
-                data-cta="conversation-page-security"
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="justify-center text-center"
+                  data-cta="conversation-page-calendar"
+                >
+                  <CalendarDays className="size-4" />
+                  Otvorite kalendar i odaberite termin
+                </a>
+              </Button>
+            </li>
+            <li>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-12 rounded-full px-5 text-base"
               >
-                Prvo pročitajte sigurnosna pravila
-              </a>
-            </Button>
-          </div>
+                <a
+                  href="/sigurnost/"
+                  className="justify-center text-center"
+                  data-cta="conversation-page-security"
+                >
+                  Prvo pročitajte sigurnosna pravila
+                </a>
+              </Button>
+            </li>
+          </ul>
         </section>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -182,7 +186,9 @@ export function Conversation() {
               Bitcoin jasnoća
             </a>
             . Ako je potreban cijeli sustav pravila, razgovaramo o osobnom
-            Bitcoin standardu.
+            Bitcoin standardu. Ako postoji konkretan način da pomognem,
+            dogovorit ćemo sljedeći korak. Ako ne, znat ćete da je za sada
+            dovoljno.
           </p>
         </section>
 
@@ -191,42 +197,47 @@ export function Conversation() {
             Spremni za uvodni razgovor?
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-            Odaberite termin i dođite s jednim stvarnim pitanjem. Ako postoji
-            konkretan način da pomognem, dogovorit ćemo sljedeći korak. Ako ne,
-            znat ćete da je za sada dovoljno.
+            Odaberite termin i dođite s jednim stvarnim pitanjem. Ne morate
+            imati gotov plan — cilj je vidjeti što treba razjasniti prvo. Ako
+            postoji konkretan način da pomognem, dogovorit ćemo sljedeći korak.
+            Ako ne, znat ćete da je za sada dovoljno.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button
-              asChild
-              size="lg"
-              className="cta-primary h-12 rounded-full px-5 text-base"
-            >
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="justify-center text-center"
-                data-cta="conversation-page-final-calendar"
+          <ul className="mt-6 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
+            <li>
+              <Button
+                asChild
+                size="lg"
+                className="cta-primary h-12 rounded-full px-5 text-base"
               >
-                <CalendarDays className="size-4" />
-                Otvorite kalendar i odaberite termin
-              </a>
-            </Button>{" "}
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="h-12 rounded-full px-5 text-base"
-            >
-              <a
-                href="/sigurnost/"
-                className="justify-center text-center"
-                data-cta="conversation-page-final-security"
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="justify-center text-center"
+                  data-cta="conversation-page-final-calendar"
+                >
+                  <CalendarDays className="size-4" />
+                  Otvorite kalendar i odaberite termin
+                </a>
+              </Button>
+            </li>
+            <li>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-12 rounded-full px-5 text-base"
               >
-                Prvo pročitajte sigurnosna pravila
-              </a>
-            </Button>
-          </div>
+                <a
+                  href="/sigurnost/"
+                  className="justify-center text-center"
+                  data-cta="conversation-page-final-security"
+                >
+                  Prvo pročitajte sigurnosna pravila
+                </a>
+              </Button>
+            </li>
+          </ul>
         </section>
       </article>
     </>

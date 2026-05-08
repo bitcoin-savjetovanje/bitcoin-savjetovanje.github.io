@@ -2,33 +2,80 @@ import { CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import {
-  findGuide,
-  guideHref,
-  guidesIndexAdditionalGroups,
-  guidesIndexPrimaryItems,
-} from "@/content/guides"
+import { findGuide, guideHref } from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
 import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
-const primaryGuides = guidesIndexPrimaryItems.flatMap((item) => {
-  const guide = findGuide(item.slug)
+const roadmapGroups = [
+  {
+    id: "proracun",
+    title: "Korak 1 — Red u novcu",
+    slugs: [
+      "svaki-euro-ima-namjenu",
+      "stvarni-visak",
+      "starost-novca",
+      "dca-nije-dovoljan",
+    ],
+  },
+  {
+    id: "dug",
+    title: "Korak 2 — Dug i sloboda odluke",
+    slugs: [
+      "dug-je-buduci-novac",
+      "dug-ili-bitcoin",
+      "ne-zaduzujte-se-za-bitcoin",
+    ],
+  },
+  {
+    id: "davanje",
+    title: "Korak 3 — Davanje",
+    slugs: [
+      "davanje-u-proracunu-nulte-osnove",
+      "davanje-bez-duga",
+      "novac-dolazi-od-ljudi",
+    ],
+  },
+  {
+    id: "bitcoin",
+    title: "Korak 4 — Bitcoin kao novac",
+    slugs: [
+      "bitcoin-kao-novac",
+      "pozitivni-neto-priljev",
+      "uskladivanje-kupovne-moci-bitcoina",
+      "cijena-kao-mjera-vremena",
+    ],
+  },
+  {
+    id: "neto-imovina",
+    title: "Korak 5 — Neto imovina",
+    slugs: [
+      "novac-kapital-potrosnja",
+      "bitcoin-u-neto-imovini",
+      "pravilo-trecina",
+    ],
+  },
+  {
+    id: "sigurnost",
+    title: "Korak 6 — Sigurnost i obitelj",
+    slugs: [
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+      "obiteljski-pristup-bitcoinu",
+    ],
+  },
+] as const
 
-  if (!guide) {
-    return []
-  }
+const guideChips = [
+  { label: "Proračun", href: "#proracun" },
+  { label: "Dug", href: "#dug" },
+  { label: "Davanje", href: "#davanje" },
+  { label: "Bitcoin", href: "#bitcoin" },
+  { label: "Neto imovina", href: "#neto-imovina" },
+  { label: "Sigurnost", href: "#sigurnost" },
+] as const
 
-  return [
-    {
-      ...item,
-      href: guideHref(guide.slug),
-    },
-  ]
-})
-
-const additionalGuideGroups = guidesIndexAdditionalGroups
+const roadmap = roadmapGroups
   .map((group) => ({
-    title: group.title,
+    ...group,
     guides: group.slugs.flatMap((slug) => {
       const guide = findGuide(slug)
 
@@ -40,6 +87,8 @@ const additionalGuideGroups = guidesIndexAdditionalGroups
         {
           slug: guide.slug,
           title: guide.title,
+          category: guide.category,
+          excerpt: guide.excerpt,
           href: guideHref(guide.slug),
         },
       ]
@@ -107,12 +156,8 @@ export function GuidesIndex() {
               id="guides-method-map"
               className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl"
             >
-              Krenite redom
+              Roadmap kroz okvir
             </h2>
-            <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Ovih sedam vodiča daje najkraći put kroz metodu. Ostali tekstovi
-              su dodatne bilješke za dublje čitanje.
-            </p>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
               Ako niste sigurni gdje krenuti, krenite od proračuna. Ako vas
               konkretno muči odluka, dug, sigurnost ili obitelj, možete
@@ -120,72 +165,51 @@ export function GuidesIndex() {
             </p>
           </div>
 
-          <ol className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {primaryGuides.map((guide) => (
-              <li key={guide.slug}>
-                <article className="flex h-full flex-col rounded-2xl border border-border/80 bg-card p-5 text-foreground shadow-sm transition-colors hover:border-primary/50">
-                  <p className="text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
-                    {guide.category}
-                  </p>
-                  <h3 className="mt-5 text-xl leading-tight font-semibold tracking-[-0.01em]">
-                    <a
-                      href={guide.href}
-                      className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-                      data-link="guide-card"
-                    >
-                      {guide.title}
-                    </a>
-                  </h3>
-                  <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                    {guide.excerpt}
-                  </p>
-                </article>
-              </li>
-            ))}
-          </ol>
-        </section>
+          <nav aria-label="Kategorije vodiča" className="mt-8">
+            <ul className="guide-chip-list">
+              {guideChips.map((chip) => (
+                <li key={chip.href}>
+                  <a href={chip.href} className="guide-chip">
+                    {chip.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <section
-          className="mx-auto mt-14 max-w-6xl border-t border-border/70 pt-10"
-          aria-labelledby="guides-additional-notes"
-        >
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-              Sekundarno čitanje
-            </p>
-            <h2
-              id="guides-additional-notes"
-              className="mt-3 text-2xl font-semibold tracking-[-0.015em]"
-            >
-              Dodatne bilješke
-            </h2>
-            <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Ovi tekstovi razrađuju pojedine dijelove metode. Ne morate ih
-              pročitati prije uvodnog razgovora.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {additionalGuideGroups.map((group) => (
+          <div className="mt-10 grid gap-8">
+            {roadmap.map((group) => (
               <section
-                key={group.title}
-                className="rounded-xl border border-border/70 bg-card/70 p-4"
+                key={group.id}
+                id={group.id}
+                className="scroll-mt-24 rounded-2xl border border-border/80 bg-card/78 p-5 shadow-sm sm:p-7"
               >
-                <h3 className="text-sm font-semibold tracking-[0.12em] text-muted-foreground uppercase">
+                <h3 className="text-2xl font-semibold tracking-[-0.015em]">
                   {group.title}
                 </h3>
-                <ul className="mt-4 grid gap-3 text-sm leading-6">
+                <ol className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                   {group.guides.map((guide) => (
                     <li key={guide.slug}>
-                      <a
-                        href={guide.href}
-                        className="text-foreground underline-offset-4 hover:text-primary hover:underline"
-                      >
-                        {guide.title}
-                      </a>
+                      <article className="flex h-full flex-col rounded-xl border border-border/80 bg-background/72 p-5 text-foreground shadow-sm transition-colors hover:border-primary/50">
+                        <p className="text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
+                          {guide.category}
+                        </p>
+                        <h4 className="mt-4 text-lg leading-tight font-semibold tracking-[-0.01em]">
+                          <a
+                            href={guide.href}
+                            className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                            data-link="guide-card"
+                          >
+                            {guide.title}
+                          </a>
+                        </h4>
+                        <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                          {guide.excerpt}
+                        </p>
+                      </article>
                     </li>
                   ))}
-                </ul>
+                </ol>
               </section>
             ))}
           </div>

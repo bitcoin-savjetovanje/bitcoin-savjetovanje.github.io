@@ -291,8 +291,16 @@ const forbiddenPublicCopy = [
   "glupu grešku",
   "partner ili obitelj nije uvjerena",
   "dogovorite 15-minutni uvodni razgovorpogledajte",
+  "uvodni razgovorpogledajte",
+  "razgovoršto je bitcoin jasnoća",
+  "praviladogovorite",
+  "vodičeprimijenite",
   "1. 1 proračun",
   "2. 2 dug",
+  "budući odljevi",
+  "pozitivan neto priljev: temelj bitcoin standarda",
+  "priljevi su novac koji ulazi. odljevi su novac koji izlazi. neto priljev je razlika.",
+  "priljevi i odljevi",
   "neuređenog eura",
   "manje je glume",
   "psihološko-duhovna stanja",
@@ -451,6 +459,34 @@ const homeChecks = [
   [
     "Dobivate jasniju sliku što je stvarna prepreka odluci",
     "FAQ intro call outcome copy",
+  ],
+  [
+    "Provjerite ima li uvodni razgovor smisla",
+    "readiness test title",
+  ],
+  [
+    "Ovo je dobro pitanje za uvodni razgovor.",
+    "selected question panel title",
+  ],
+  [
+    "Što se mijenja kada postoji osobni okvir?",
+    "before after section title",
+  ],
+  [
+    'data-cta="readiness-test-intro-call"',
+    "readiness test CTA metadata",
+  ],
+  [
+    'data-cta="question-selected-intro-call"',
+    "selected question CTA metadata",
+  ],
+  [
+    'data-cta="before-after-intro-call"',
+    "before after CTA metadata",
+  ],
+  [
+    'data-cta="desktop-rail-intro-call"',
+    "desktop conversion rail CTA metadata",
   ],
   ['data-cta="questions-intro-call"', "questions CTA metadata"],
   ['data-cta="intro-section-call"', "intro section CTA metadata"],
@@ -646,6 +682,14 @@ const conversationChecks = [
     "conversation example questions",
   ],
   [
+    "Razjasnimo glavno pitanje.",
+    "conversation main question step",
+  ],
+  [
+    "Vidimo što nedostaje za sljedeći korak.",
+    "conversation next step clarity",
+  ],
+  [
     "Spremni za uvodni razgovor?",
     "conversation final CTA title",
   ],
@@ -664,6 +708,10 @@ const conversationChecks = [
   [
     "Odaberite termin i dođite s jednim stvarnim pitanjem.",
     "conversation final CTA body",
+  ],
+  [
+    "Ne morate imati gotov plan",
+    "conversation final CTA plan reassurance",
   ],
   [
     "Imam Bitcoin, ali partner ili obitelj još nisu sigurni.",
@@ -742,6 +790,12 @@ const bitcoinClarityChecks = [
   ["Bitcoin jasnoća", "Bitcoin clarity page title"],
   ["200 €", "Bitcoin clarity price"],
   ["jedan dubinski razgovor", "Bitcoin clarity duration"],
+  [
+    "Nakon Bitcoin jasnoće najčešće imate",
+    "Bitcoin clarity outcomes section",
+  ],
+  ["Što pripremiti", "Bitcoin clarity preparation section"],
+  ["Kada nije za vas", "Bitcoin clarity not for section"],
   ["Krenite od uvodnog razgovora", "Bitcoin clarity primary CTA"],
   ["ne tražim seed phrase", "Bitcoin clarity no seed phrase copy"],
   ["ne prognoziram cijenu", "Bitcoin clarity no price prediction copy"],
@@ -795,6 +849,18 @@ const guideIndexChecks = [
     "Ako niste sigurni gdje krenuti, krenite od proračuna.",
     "guide index starting point copy",
   ],
+  ["Korak 1 — Red u novcu", "guide roadmap step 1"],
+  ["Korak 2 — Dug i sloboda odluke", "guide roadmap step 2"],
+  ["Korak 3 — Davanje", "guide roadmap step 3"],
+  ["Korak 4 — Bitcoin kao novac", "guide roadmap step 4"],
+  ["Korak 5 — Neto imovina", "guide roadmap step 5"],
+  ["Korak 6 — Sigurnost i obitelj", "guide roadmap step 6"],
+  ['href="#proracun"', "budget category chip"],
+  ['href="#dug"', "debt category chip"],
+  ['href="#davanje"', "giving category chip"],
+  ['href="#bitcoin"', "Bitcoin category chip"],
+  ['href="#neto-imovina"', "net worth category chip"],
+  ['href="#sigurnost"', "security category chip"],
   [
     "Uvodni razgovor pomaže vidjeti koji dio okvira je za vas trenutno najvažniji.",
     "guide index final CTA copy",
@@ -841,12 +907,24 @@ assertArrayEquals(
   anchorHrefsByDataLink(guidesIndexHtml, "guide-card"),
   [
     "/vodici/svaki-euro-ima-namjenu/",
+    "/vodici/stvarni-visak/",
+    "/vodici/starost-novca/",
+    "/vodici/dca-nije-dovoljan/",
     "/vodici/dug-je-buduci-novac/",
+    "/vodici/dug-ili-bitcoin/",
+    "/vodici/ne-zaduzujte-se-za-bitcoin/",
     "/vodici/davanje-u-proracunu-nulte-osnove/",
+    "/vodici/davanje-bez-duga/",
+    "/vodici/novac-dolazi-od-ljudi/",
     "/vodici/bitcoin-kao-novac/",
+    "/vodici/pozitivni-neto-priljev/",
+    "/vodici/uskladivanje-kupovne-moci-bitcoina/",
     "/vodici/cijena-kao-mjera-vremena/",
+    "/vodici/novac-kapital-potrosnja/",
     "/vodici/bitcoin-u-neto-imovini/",
+    "/vodici/pravilo-trecina/",
     "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
+    "/vodici/obiteljski-pristup-bitcoinu/",
   ],
   "guide index card href order"
 )
@@ -863,6 +941,10 @@ const securityChecks = [
     "security two goals title",
   ],
   [
+    "Seed phrase se nikada ne dijeli. Dobar savjetnik vam pomaže urediti okvir bez preuzimanja kontrole.",
+    "security principle box",
+  ],
+  [
     "nitko ne smije dobiti kontrolu nad vašim Bitcoinom bez vašeg znanja",
     "security no control without knowledge copy",
   ],
@@ -871,6 +953,9 @@ const securityChecks = [
     "security family continuity copy",
   ],
   ["Nikada ne tražim", "never ask section"],
+  ["Možemo urediti", "security can organize section"],
+  ["Procjenjujemo rizike", "security risk section"],
+  ["Odluka ostaje vaša", "security decision stays yours section"],
   [
     "seed phrase — 12 ili 24 riječi za oporavak novčanika",
     "seed phrase explanation",
@@ -961,8 +1046,14 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
-    "Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti gdje se taj okvir odnosi na vas.",
+    "Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se odnosi na vas.",
     "guide final CTA text"
+  )
+  assertIncludes(
+    relativePath,
+    html,
+    'data-cta="guide-rail-intro-call"',
+    "guide rail CTA metadata"
   )
   assertIncludes(
     relativePath,
@@ -1010,7 +1101,17 @@ const focusedGuideChecks = [
       "Što je stvarni višak?",
       "Višak nije stanje na računu",
       "Drugim riječima, stvarni višak je novac bez druge namjene",
+      "ne pripada budućem plaćanju",
       "Manje je nagađanja",
+    ],
+  },
+  {
+    path: "vodici/pozitivni-neto-priljev/index.html",
+    checks: [
+      "Kad više novca ulazi nego što izlazi",
+      "Novac ulazi kroz plaću, posao, klijente, prodaju ili druge izvore.",
+      "Pet načina da više novca ostane u sustavu",
+      "Prvo popravljam prihode, troškove i stanje duga.",
     ],
   },
   {

@@ -76,7 +76,7 @@ export const offers: Offer[] = [
     purpose:
       "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i obiteljska pravila bez predaje kontrole.",
     includes: [
-      "Pravila za proračun, stvarni višak i buduće odljeve",
+      "Pravila za proračun, stvarni višak i buduća plaćanja",
       "Jasan odnos prema dugu i potrošnji budućeg novca",
       "Uloga Bitcoina u novcu i neto imovini",
       "Pravila za padove, rastove i emocionalni pritisak",

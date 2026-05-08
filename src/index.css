@@ -196,7 +196,7 @@
   }
 
   .hero-shell {
-    @apply mx-auto grid max-w-7xl gap-9 px-4 py-12 sm:gap-12 sm:px-6 sm:py-20 lg:px-8 xl:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] xl:items-center xl:py-28;
+    @apply mx-auto grid max-w-7xl gap-9 px-4 py-12 sm:gap-12 sm:px-6 sm:py-18 lg:px-8 xl:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] xl:items-center xl:py-24;
   }
 
   .hero-copy {
@@ -445,6 +445,114 @@
   .program-card,
   .comparison-card {
     @apply min-w-0 rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
+  }
+
+  .question-choice {
+    @apply flex w-full gap-3 rounded-lg border border-transparent px-2 py-1.5 text-left text-base leading-7 text-muted-foreground transition-colors hover:border-primary/25 hover:bg-primary/5 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .question-choice[aria-pressed="true"] {
+    @apply border-primary/35 bg-primary/10 text-foreground;
+  }
+
+  .readiness-layout {
+    @apply grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start;
+  }
+
+  .readiness-question {
+    @apply rounded-xl border border-border/75 bg-background/70 p-4 shadow-sm;
+  }
+
+  .readiness-question legend {
+    @apply text-base leading-7 font-semibold text-foreground;
+  }
+
+  .readiness-answer {
+    @apply rounded-full border border-border bg-card px-3 py-1.5 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .readiness-answer[aria-pressed="true"],
+  .framework-tab[aria-selected="true"] {
+    @apply border-primary/40 bg-primary/10 text-foreground;
+  }
+
+  .desktop-conversion-rail {
+    @apply hidden lg:block;
+  }
+
+  .desktop-conversion-rail__card,
+  .guide-rail__card {
+    @apply sticky top-28 rounded-2xl border border-primary/25 bg-card p-5 shadow-sm;
+  }
+
+  .desktop-conversion-rail__card h3,
+  .guide-rail__card h2 {
+    @apply text-xl leading-tight font-semibold;
+  }
+
+  .desktop-conversion-rail__card p,
+  .guide-rail__card p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .framework-tab {
+    @apply rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .offer-path {
+    @apply grid list-none gap-4 lg:grid-cols-3;
+    counter-reset: offer-step;
+  }
+
+  .offer-path__item {
+    @apply relative;
+  }
+
+  .offer-path__item:not(:last-child)::after {
+    content: "";
+    @apply hidden lg:block;
+    position: absolute;
+    top: 2.1rem;
+    right: -0.85rem;
+    width: 1.7rem;
+    height: 1px;
+    background: color-mix(in oklab, var(--primary), transparent 68%);
+  }
+
+  .offer-card {
+    @apply relative min-h-full rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm sm:p-6;
+  }
+
+  .offer-card--featured {
+    @apply border-primary/40 bg-primary/5;
+  }
+
+  .offer-step {
+    @apply grid size-8 place-items-center rounded-full border border-primary/30 bg-primary/10 text-xs font-semibold text-primary;
+  }
+
+  .guide-chip-list {
+    @apply flex list-none gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0;
+  }
+
+  .guide-chip {
+    @apply inline-flex whitespace-nowrap rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .guide-layout {
+    @apply grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start;
+  }
+
+  .guide-rail {
+    @apply hidden lg:block;
+  }
+
+  .reading-progress {
+    @apply fixed top-0 left-0 z-[60] h-1 w-full bg-transparent;
+  }
+
+  .reading-progress span {
+    @apply block h-full bg-primary;
   }
 
   .value-card .icon-mark {

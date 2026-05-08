@@ -16,13 +16,13 @@ function ThemeToggle() {
       size="icon"
       className="size-11 rounded-full border-border/80 bg-background/80 backdrop-blur sm:size-10"
       onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label="Promijeni temu"
     >
       {isDark ? (
         <SunMedium className="size-4" />
       ) : (
         <MoonStar className="size-4" />
       )}
-      <span className="sr-only">Promijeni temu</span>
     </Button>
   )
 }

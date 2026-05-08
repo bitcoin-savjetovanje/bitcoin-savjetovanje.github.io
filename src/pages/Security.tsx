@@ -22,14 +22,14 @@ function SecurityList({
   const iconClass = icon === "check" ? "positive-icon" : "negative-icon"
 
   return (
-    <div className="mt-6 grid gap-2 sm:grid-cols-2">
+    <ul className="mt-6 grid list-none gap-2 sm:grid-cols-2">
       {items.map((item) => (
-        <div key={item} className="not-for-row bg-background/70">
+        <li key={item} className="not-for-row bg-background/70">
           <Icon className={`${iconClass} size-3.5`} />
           <p>{item}</p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 
@@ -73,6 +73,14 @@ export function Security() {
           </p>
         </header>
 
+        <section className="mt-8 max-w-4xl rounded-2xl border border-primary/25 bg-primary/10 p-5 shadow-sm sm:p-6">
+          <h2 className="text-xl font-semibold">Sigurnosno pravilo</h2>
+          <p className="mt-3 text-base leading-8 text-muted-foreground">
+            Seed phrase se nikada ne dijeli. Dobar savjetnik vam pomaže urediti
+            okvir bez preuzimanja kontrole.
+          </p>
+        </section>
+
         <section className="mt-10 max-w-4xl rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Dobar sigurnosni okvir ima dva cilja.
@@ -101,15 +109,15 @@ export function Security() {
             <SecurityList items={neverAskItems} icon="x" />
           </section>
           <section className="case-panel">
-            <h2 className="text-2xl font-semibold">Što možemo proći</h2>
+            <h2 className="text-2xl font-semibold">Možemo urediti</h2>
             <SecurityList items={securityReviewItems} icon="check" />
           </section>
           <section className="case-panel">
-            <h2 className="text-2xl font-semibold">Što procjenjujemo</h2>
+            <h2 className="text-2xl font-semibold">Procjenjujemo rizike</h2>
             <SecurityList items={skrbnistvoAssessmentItems} icon="check" />
           </section>
           <section className="case-panel">
-            <h2 className="text-2xl font-semibold">Što ne radim</h2>
+            <h2 className="text-2xl font-semibold">Odluka ostaje vaša</h2>
             <SecurityList items={notDoingSecurityItems} icon="x" />
           </section>
           <section className="case-panel">

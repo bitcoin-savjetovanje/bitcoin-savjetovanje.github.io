@@ -117,7 +117,7 @@ export const personalStandardRules = [
 export const priceTimeCards = [
   {
     title: "Iznad trenda",
-    copy: "Riješite buduće odljeve koje biste ionako morali pokriti.",
+    copy: "Riješite buduća plaćanja koja biste ionako morali pokriti.",
   },
   {
     title: "Blizu trenda",
@@ -125,7 +125,7 @@ export const priceTimeCards = [
   },
   {
     title: "Ispod trenda",
-    copy: "Smanjite nepotrebne odljeve, jačajte priljeve i vratite se proračunu.",
+    copy: "Smanjite nepotrebne troškove, jačajte prihode i vratite se proračunu.",
   },
 ]
 

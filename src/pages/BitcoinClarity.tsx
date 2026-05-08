@@ -10,7 +10,7 @@ const forWhomItems = [
   "razmišljate o većoj ulozi Bitcoina u svojoj imovini",
   "želite objasniti Bitcoin partneru ili obitelji",
   "brine vas sigurnost",
-  "ne znate kako dug, proračun ili budući odljevi utječu na odluku",
+  "ne znate kako dug, proračun ili buduća plaćanja utječu na odluku",
   "želite znati treba li vam cijeli osobni Bitcoin standard ili je dovoljan jedan razgovor",
 ]
 
@@ -29,6 +29,29 @@ const notDoingItems = [
   "ne upravljam vašim sredstvima",
   "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",
   "ne dajem porezni ni pravni savjet",
+]
+
+const outcomes = [
+  "jasniju Bitcoin tezu koju možete objasniti sebi i drugima",
+  "jasniju sliku kako dug, troškovi, sigurnost i obitelj utječu na odluku",
+  "odgovor treba li stati na jednom razgovoru ili graditi osobni Bitcoin standard",
+  "popis pitanja koja više ne trebaju ostati u glavi",
+]
+
+const preparationItems = [
+  "koju odluku pokušavate donijeti",
+  "koja tri pitanja se stalno vraćaju",
+  "postoji li dug, sigurnosna ili obiteljska tema",
+  "što bi vam značilo da nakon razgovora bude jasnije",
+]
+
+const notForItems = [
+  "tražite kratku uputu kada kupiti ili prodati",
+  "želite prognozu cijene",
+  "tražite upravljanje sredstvima",
+  "tražite porezni ili pravni savjet",
+  "želite da netko odluči umjesto vas",
+  "želite nekome predati seed phrase ili privatne ključeve",
 ]
 
 function Checklist({
@@ -114,6 +137,28 @@ export function BitcoinClarity() {
 
         <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
+            Nakon Bitcoin jasnoće najčešće imate
+          </h2>
+          <Checklist items={outcomes} />
+        </section>
+
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <section className="case-panel">
+            <h2 className="text-2xl font-semibold">Što pripremiti</h2>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              Ne morate slati dokumente. Dovoljno je prije razgovora zapisati:
+            </p>
+            <Checklist items={preparationItems} />
+          </section>
+
+          <section className="case-panel">
+            <h2 className="text-2xl font-semibold">Kada nije za vas</h2>
+            <Checklist items={notForItems} kind="negative" />
+          </section>
+        </div>
+
+        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">
             Kada je dovoljan jedan razgovor
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
@@ -129,34 +174,37 @@ export function BitcoinClarity() {
             Krenite od uvodnog razgovora
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Bitcoin jasnoća nije stranica za izravno plaćanje. Prvo u 15 minuta
-            vidimo što pokušavate razjasniti i je li dubinski razgovor stvarno
-            koristan sljedeći korak.
+            Uvodni razgovor služi tome da vidimo je li Bitcoin jasnoća pravi
+            sljedeći korak ili je za sada dovoljno stati na kratkoj procjeni.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button
-              asChild
-              size="lg"
-              className="cta-primary h-12 rounded-full px-5 text-base"
-            >
-              <a
-                href={CONVERSATION_PATH}
-                className="justify-center text-center"
-                data-cta="bitcoin-clarity-intro-call"
+          <ul className="mt-6 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
+            <li>
+              <Button
+                asChild
+                size="lg"
+                className="cta-primary h-12 rounded-full px-5 text-base"
               >
-                <CalendarDays className="size-4" />
-                Krenite od uvodnog razgovora
+                <a
+                  href={CONVERSATION_PATH}
+                  className="justify-center text-center"
+                  data-cta="bitcoin-clarity-intro-call"
+                >
+                  <CalendarDays className="size-4" />
+                  Krenite od uvodnog razgovora
+                </a>
+              </Button>
+            </li>
+            <li>
+              <a
+                href="/sigurnost/"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
+                data-cta="bitcoin-clarity-security"
+              >
+                Pogledajte sigurnosna pravila
+                <ArrowUpRight className="size-4" />
               </a>
-            </Button>{" "}
-            <a
-              href="/sigurnost/"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
-              data-cta="bitcoin-clarity-security"
-            >
-              Pogledajte sigurnosna pravila
-              <ArrowUpRight className="size-4" />
-            </a>
-          </div>
+            </li>
+          </ul>
         </section>
       </article>
     </>

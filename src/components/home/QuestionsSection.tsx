@@ -1,4 +1,5 @@
 import { CalendarDays, Check } from "lucide-react"
+import { useState } from "react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
@@ -6,6 +7,9 @@ import { questionGroups } from "@/content/home"
 import { CONVERSATION_PATH } from "@/content/site"
 
 export function QuestionsSection() {
+  const firstQuestion = questionGroups[0]?.questions[0] ?? ""
+  const [selectedQuestion, setSelectedQuestion] = useState(firstQuestion)
+
   return (
     <section id="pitanja" className="section-shell section-muted">
       <SectionHeader
@@ -18,14 +22,43 @@ export function QuestionsSection() {
             <h3>{group.title}</h3>
             <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
               {group.questions.map((question) => (
-                <li key={question} className="flex gap-3">
-                  <Check className="positive-icon mt-1 size-4 shrink-0" />
-                  <span>{question}</span>
+                <li key={question}>
+                  <button
+                    type="button"
+                    className="question-choice"
+                    aria-pressed={selectedQuestion === question}
+                    onClick={() => setSelectedQuestion(question)}
+                  >
+                    <Check className="positive-icon mt-1 size-4 shrink-0" />
+                    <span>{question}</span>
+                  </button>
                 </li>
               ))}
             </ul>
           </article>
         ))}
+      </div>
+      <div className="mt-6 rounded-xl border border-primary/25 bg-card p-5 shadow-sm sm:p-6">
+        <h3 className="text-xl font-semibold">
+          Ovo je dobro pitanje za uvodni razgovor.
+        </h3>
+        <p className="mt-3 text-base leading-8 text-muted-foreground">
+          Odabrano pitanje: {selectedQuestion}
+        </p>
+        <p className="mt-2 text-base leading-8 text-muted-foreground">
+          U 15 minuta vidimo je li dovoljan kratak odgovor ili vrijedi ići
+          dublje.
+        </p>
+        <Button asChild className="cta-primary mt-5 rounded-full">
+          <a
+            href={CONVERSATION_PATH}
+            className="justify-center text-center"
+            data-cta="question-selected-intro-call"
+          >
+            <CalendarDays className="size-4" />
+            Dogovorite razgovor s ovim pitanjem
+          </a>
+        </Button>
       </div>
       <div className="mt-8 rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6">
         <p className="max-w-4xl text-base leading-8 text-muted-foreground">

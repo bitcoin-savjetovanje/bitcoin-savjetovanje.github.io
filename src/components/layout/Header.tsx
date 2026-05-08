@@ -7,6 +7,75 @@ import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
 import { CONVERSATION_PATH } from "@/content/site"
 
+function normalizePath(pathname: string) {
+  if (pathname.length > 1 && pathname.endsWith("/")) {
+    return pathname.slice(0, -1)
+  }
+
+  return pathname
+}
+
+function pathFromHref(href: string) {
+  return normalizePath(href.split("#")[0] || "/")
+}
+
+function hashFromHref(href: string) {
+  const hash = href.split("#")[1]
+
+  return hash ? `#${hash}` : ""
+}
+
+function routeActiveHref(pathname: string) {
+  const normalizedPath = normalizePath(pathname)
+
+  return (
+    navLinks.find((link) => {
+      if (hashFromHref(link.href)) {
+        return false
+      }
+
+      return pathFromHref(link.href) === normalizedPath
+    })?.href ?? ""
+  )
+}
+
+function currentActiveHref(fallbackPath: string) {
+  if (typeof window === "undefined") {
+    return routeActiveHref(fallbackPath)
+  }
+
+  const pathname = normalizePath(window.location.pathname)
+
+  if (pathname !== "/") {
+    return routeActiveHref(pathname)
+  }
+
+  const sectionLine = Math.min(180, window.innerHeight * 0.28)
+  let activeHref = ""
+
+  for (const link of navLinks) {
+    const hash = hashFromHref(link.href)
+
+    if (!hash || pathFromHref(link.href) !== "/") {
+      continue
+    }
+
+    const section = document.getElementById(hash.slice(1))
+
+    if (!section) {
+      continue
+    }
+
+    const rect = section.getBoundingClientRect()
+
+    if (rect.top <= sectionLine && rect.bottom >= sectionLine) {
+      activeHref = link.href
+    }
+  }
+
+  return activeHref
+}
+
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const isDark = theme === "dark"
@@ -34,7 +103,34 @@ type HeaderProps = {
 
 export function Header({ currentPath }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeHref, setActiveHref] = useState(() =>
+    routeActiveHref(currentPath)
+  )
   const onConversationPage = currentPath === "/razgovor"
+
+  useEffect(() => {
+    let frame = 0
+
+    function updateActiveHref() {
+      window.cancelAnimationFrame(frame)
+      frame = window.requestAnimationFrame(() => {
+        setActiveHref(currentActiveHref(currentPath))
+      })
+    }
+
+    updateActiveHref()
+
+    window.addEventListener("scroll", updateActiveHref, { passive: true })
+    window.addEventListener("resize", updateActiveHref)
+    window.addEventListener("hashchange", updateActiveHref)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener("scroll", updateActiveHref)
+      window.removeEventListener("resize", updateActiveHref)
+      window.removeEventListener("hashchange", updateActiveHref)
+    }
+  }, [currentPath])
 
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
@@ -77,16 +173,28 @@ export function Header({ currentPath }: HeaderProps) {
 
         <nav className="hidden lg:block" aria-label="Glavna navigacija">
           <ul className="flex list-none items-center gap-3 xl:gap-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-xs whitespace-nowrap text-muted-foreground hover:text-foreground xl:text-sm"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const active = activeHref === link.href
+
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="site-nav-link"
+                    data-active={active ? "true" : undefined}
+                    aria-current={
+                      active
+                        ? hashFromHref(link.href)
+                          ? "location"
+                          : "page"
+                        : undefined
+                    }
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </nav>
 
@@ -134,16 +242,28 @@ export function Header({ currentPath }: HeaderProps) {
           id="mobile-nav"
           className="mx-auto grid max-w-7xl gap-2 border-t border-border/50 px-3 pt-3 pb-4 sm:px-6 lg:hidden"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="rounded-lg border border-border/70 bg-card px-4 py-3.5 text-sm font-medium shadow-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const active = activeHref === link.href
+
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className="mobile-nav-link"
+                data-active={active ? "true" : undefined}
+                aria-current={
+                  active
+                    ? hashFromHref(link.href)
+                      ? "location"
+                      : "page"
+                    : undefined
+                }
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            )
+          })}
           {onConversationPage ? (
             <CalBookingLink
               className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"

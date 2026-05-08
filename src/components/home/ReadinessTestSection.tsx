@@ -37,10 +37,10 @@ function resultCopy(answers: Partial<Record<string, Answer>>) {
   }
 
   if (uncertainCount <= 2) {
-    return "Uvodni razgovor vjerojatno ima smisla jer postoji nekoliko stvari koje vrijedi razjasniti."
+    return "Uvodni razgovor vjerojatno vrijedi jer postoji nekoliko stvari koje treba razjasniti."
   }
 
-  return "Uvodni razgovor vjerojatno ima smisla. Najkorisnije bi bilo prvo odabrati jednu odluku ili pitanje koje želite posložiti."
+  return "Uvodni razgovor vjerojatno vrijedi. Najkorisnije bi bilo prvo odabrati jednu odluku ili pitanje koje želite posložiti."
 }
 
 export function ReadinessTestSection() {

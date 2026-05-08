@@ -75,7 +75,7 @@ export function Conversation() {
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Razgovor je bez naknade i bez obveze. Cilj nije da u 15 minuta
             riješimo cijeli Bitcoin plan, nego da vidimo što prvo treba
-            razjasniti i postoji li konkretan način da pomognem.
+            razjasniti i koji bi sljedeći korak bio razuman.
           </p>
         </header>
 
@@ -179,9 +179,8 @@ export function Conversation() {
             Što se može dogoditi nakon razgovora?
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Ako je pitanje jednostavno, možda je uvodni razgovor dovoljan. Ako
-            treba dublje proći Bitcoin tezu, sigurnost, dug, obitelj ili osobnu
-            odluku, sljedeći korak može biti{" "}
+            Nakon razgovora moguća su tri ishoda: kratak odgovor je dovoljan,
+            sljedeći korak je{" "}
             <a
               href={BITCOIN_CLARITY_PATH}
               className="font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline"
@@ -189,10 +188,8 @@ export function Conversation() {
             >
               Bitcoin jasnoća
             </a>
-            . Ako je potreban cijeli sustav pravila, razgovaramo o osobnom
-            Bitcoin standardu. Ako postoji konkretan način da pomognem,
-            dogovorit ćemo sljedeći korak. Ako ne, znat ćete da je za sada
-            dovoljno.
+            , ili vrijedi razgovarati o osobnom Bitcoin standardu. Ne mora svaki
+            uvodni razgovor završiti plaćenim nastavkom.
           </p>
         </section>
 
@@ -202,9 +199,7 @@ export function Conversation() {
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
             Odaberite termin i dođite s jednim stvarnim pitanjem. Ne morate
-            imati gotov plan — cilj je vidjeti što treba razjasniti prvo. Ako
-            postoji konkretan način da pomognem, dogovorit ćemo sljedeći korak.
-            Ako ne, znat ćete da je za sada dovoljno.
+            imati gotov plan — cilj je vidjeti što treba razjasniti prvo.
           </p>
           <ul className="mt-6 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
             <li>

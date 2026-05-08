@@ -28,9 +28,9 @@ export const offers: Offer[] = [
     detail:
       "Prvi kontakt bez naknade i bez obveze. Kažete što pokušavate odlučiti, ja postavim nekoliko pitanja i predložim razuman sljedeći korak.",
     purpose:
-      "Kažete gdje ste sada, prepoznamo što prvo treba razjasniti i vidimo postoji li konkretan način da pomognem.",
+      "Kažete gdje ste sada, prepoznamo što prvo treba razjasniti i dobijete jasniju procjenu sljedećeg koraka.",
     includes: [
-      "Za jedno glavno pitanje ili odluku",
+      "Za prvo razjašnjenje jedne odluke ili pitanja",
       "Bez slanja osjetljivih podataka",
       "Bez prodaje Bitcoina, prognoza i upravljanja sredstvima",
     ],
@@ -49,7 +49,7 @@ export const offers: Offer[] = [
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
-      "Odgovori na glavna pitanja koja želite razjasniti",
+      "Jasniji odgovori na pitanja koja se stalno vraćaju",
       "Razjašnjenje Bitcoin teze na jeziku koji možete ponoviti drugima",
       "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
       "Jasniji okvir za vlastitu odluku o ulozi Bitcoina",

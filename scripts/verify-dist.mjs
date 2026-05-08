@@ -292,6 +292,7 @@ const forbiddenPublicCopy = [
   "partner ili obitelj nije uvjerena",
   "dogovorite 15-minutni uvodni razgovorpogledajte",
   "uvodni razgovorpogledajte",
+  "dogovorite razgovorpogledajte",
   "razgovoršto je bitcoin jasnoća",
   "uvodni razgovoršto je bitcoin jasnoća",
   "praviladogovorite",
@@ -303,18 +304,24 @@ const forbiddenPublicCopy = [
   "1. 1 proračun",
   "2. 2 dug",
   "budući odljevi",
+  "neto priljev",
   "pozitivan neto priljev: temelj bitcoin standarda",
   "priljevi su novac koji ulazi. odljevi su novac koji izlazi. neto priljev je razlika.",
   "priljevi i odljevi",
   "neuređenog eura",
   "manje je glume",
+  "dug hrani nemir",
   "psihološko-duhovna stanja",
   "duh ropstva",
   "duhovno se gušite",
+  "metafizička imovina",
   "gorak lijek",
   "svake kune",
   "ne povećavam bitcoin odluke",
   "crvena zastava",
+  "nejasna imovina",
+  "razbiti",
+  "prigovor",
   "vidimo ima li smisla za vas",
   "početne riječi",
   "početnih riječi",
@@ -404,7 +411,7 @@ const homeChecks = [
     "intro call title",
   ],
   [
-    "Ako nakon uvodnog razgovora postoji konkretan način da pomognem",
+    "Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta.",
     "offer section title",
   ],
   ["Bitcoin jasnoća", "renamed 200 EUR offer"],
@@ -422,8 +429,20 @@ const homeChecks = [
     "warmer honest assessment copy",
   ],
   [
-    "Nekome treba razjasniti jedan dio Bitcoin teze koji još nije dovoljno čvrst.",
+    "Nekome još nije jasna Bitcoin teza.",
     "intro call Bitcoin thesis copy",
+  ],
+  [
+    "Nekome treba razjasniti jedan dio odluke koji još nije dovoljno čvrst.",
+    "intro call Bitcoin thesis copy",
+  ],
+  [
+    "Jasniji odgovori na pitanja koja se stalno vraćaju",
+    "Bitcoin jasnoća question copy",
+  ],
+  [
+    "Cilj je vidjeti gdje ste, što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
+    "final CTA calmer body",
   ],
   [
     "Razumijete dio priče, ali još nemate jasan odgovor na pitanja koja se stalno vraćaju.",
@@ -484,7 +503,7 @@ const homeChecks = [
     "hero intro card copy",
   ],
   [
-    "Dobivate jasniju sliku što je stvarna prepreka odluci",
+    "Dobivate jasniju sliku što zapravo stoji iza odluke",
     "FAQ intro call outcome copy",
   ],
   [
@@ -514,6 +533,10 @@ const homeChecks = [
   [
     'data-cta="desktop-rail-intro-call"',
     "desktop conversion rail CTA metadata",
+  ],
+  [
+    'data-cta="desktop-rail-questions"',
+    "desktop conversion rail questions CTA metadata",
   ],
   ["Imate Bitcoin pitanje?", "desktop conversion rail title"],
   ['data-cta="questions-intro-call"', "questions CTA metadata"],
@@ -716,7 +739,7 @@ assertBefore(
 assertBefore(
   "index.html",
   homeHtml,
-  "Ako nakon uvodnog razgovora postoji konkretan način da pomognem, postoje dva plaćena puta.",
+  "Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta.",
   "Vaš Bitcoin ostaje vaš.",
   "offers before security"
 )
@@ -768,12 +791,16 @@ const conversationChecks = [
     "conversation outcome section title",
   ],
   [
-    "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
-    "conversation step enough copy",
+    "Nakon razgovora moguća su tri ishoda",
+    "conversation outcome options copy",
   ],
   [
-    "Ako postoji konkretan način da pomognem, dogovorit ćemo sljedeći korak.",
-    "conversation final CTA body",
+    "Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.",
+    "conversation no forced paid continuation copy",
+  ],
+  [
+    "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
+    "conversation step enough copy",
   ],
   [
     "Odaberite termin i dođite s jednim stvarnim pitanjem.",
@@ -828,7 +855,7 @@ for (const [expected, label] of conversationChecks) {
 assertIncludes(
   "razgovor/index.html",
   conversationText,
-  "sljedeći korak može biti Bitcoin jasnoća",
+  "sljedeći korak je Bitcoin jasnoća",
   "Bitcoin jasnoća next step copy"
 )
 
@@ -873,6 +900,17 @@ const bitcoinClarityChecks = [
   [
     "Bitcoin jasnoća ili osobni Bitcoin standard?",
     "Bitcoin clarity comparison section",
+  ],
+  ["Kako razgovor završava", "Bitcoin clarity ending section"],
+  ["Na kraju ne dobivate savjet", "Bitcoin clarity no buy-sell advice copy"],
+  ["što je stvarni rizik", "Bitcoin clarity risk framing"],
+  [
+    "Bitcoin jasnoća je za jedno ozbiljno pitanje",
+    "Bitcoin clarity comparison left copy",
+  ],
+  [
+    "Osobni Bitcoin standard je za pisani sustav pravila",
+    "Bitcoin clarity comparison right copy",
   ],
   ["Krenite od uvodnog razgovora", "Bitcoin clarity primary CTA"],
   ["ne tražim seed phrase", "Bitcoin clarity no seed phrase copy"],
@@ -924,7 +962,7 @@ const guideIndexChecks = [
   ['data-cta="guides-index-top-intro-call"', "guide index top CTA metadata"],
   ['data-cta="guides-index-intro-call"', "guide index final CTA metadata"],
   [
-    "Ako niste sigurni gdje krenuti, krenite od proračuna.",
+    "Ne morate čitati sve odjednom. Ako ne znate gdje krenuti, krenite od proračuna.",
     "guide index starting point copy",
   ],
   ["Korak 1 — Red u novcu", "guide roadmap step 1"],
@@ -939,6 +977,12 @@ const guideIndexChecks = [
   ['href="#bitcoin"', "Bitcoin category chip"],
   ['href="#neto-imovina"', "net worth category chip"],
   ['href="#sigurnost"', "security category chip"],
+  ['id="proracun"', "budget roadmap target id"],
+  ['id="dug"', "debt roadmap target id"],
+  ['id="davanje"', "giving roadmap target id"],
+  ['id="bitcoin"', "Bitcoin roadmap target id"],
+  ['id="neto-imovina"', "net worth roadmap target id"],
+  ['id="sigurnost"', "security roadmap target id"],
   [
     "Uvodni razgovor pomaže vidjeti koji dio okvira je za vas trenutno najvažniji.",
     "guide index final CTA copy",
@@ -1196,7 +1240,8 @@ const focusedGuideChecks = [
   {
     path: "vodici/pozitivni-neto-priljev/index.html",
     checks: [
-      "Kad više novca ulazi nego što izlazi",
+      "Novac koji ostaje",
+      "Bitcoin standard počinje kada mjesec može stajati na vlastitim nogama.",
       "Novac ulazi kroz plaću, posao, klijente, prodaju ili druge izvore.",
       "Pet načina da više novca ostane u sustavu",
       "Prvo popravljam prihode, troškove i stanje duga.",
@@ -1207,6 +1252,8 @@ const focusedGuideChecks = [
     checks: [
       "Dug ili Bitcoin?",
       "Ne pokušavajte istrgovati izlaz",
+      "Dug povećava nemir i skraćuje vrijeme za odluku.",
+      "Dug sužava izbor prije nego što odluka postane mirna.",
       "Težak, ali čistiji put",
       "Ako imate dug i niste sigurni treba li prvo čistiti bilancu ili nastaviti s Bitcoinom",
     ],

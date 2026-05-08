@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: "Mogu li doći samo s pitanjima o Bitcoinu?",
     answer:
-      "Da. Ako imate pitanje koje vam još nije jasno ili utječe na vašu odluku, uvodni razgovor može imati smisla. U 15 minuta vidimo je li dovoljan kratak odgovor ili treba dublji plaćeni razgovor.",
+      "Da. Ako imate pitanje koje utječe na vašu odluku, uvodni razgovor može biti dobar prvi korak. U 15 minuta vidimo je li dovoljan kratak odgovor ili bi dublji razgovor bio korisniji.",
   },
   {
     question: "Hoćete li mi reći koliko Bitcoina da kupim?",
@@ -17,7 +17,7 @@ export const faqs = [
   {
     question: "Je li ovo za početnike?",
     answer:
-      "Ako ste potpuni početnik, prvo je korisno proći osnovne materijale. Ali ako imate ozbiljno pitanje i želite razgovor jedan-na-jedan, uvodni razgovor može pokazati ima li smisla nastaviti.",
+      "Ako ste potpuni početnik, korisno je prvo proći osnovne materijale. Ali ne morate biti stručnjak. Ako imate stvarno pitanje i želite razgovor jedan-na-jedan, uvodni razgovor može pokazati koji je sljedeći korak.",
   },
   {
     question: "Mogu li dovesti partnera ili člana obitelji?",
@@ -27,7 +27,7 @@ export const faqs = [
   {
     question: "Što ako imam dug?",
     answer:
-      "Tada je razgovor možda još važniji. Dug i Bitcoin mogu biti opasna kombinacija ako odluke nisu jasne. Ne znači da je odgovor uvijek isti, ali dug mora biti dio slike.",
+      "Tada je razgovor često još korisniji. Dug mijenja vremenski horizont, pritisak i sposobnost čekanja. Ne znači da je odgovor uvijek isti, ali dug mora biti vidljiv u odluci.",
   },
   {
     question: "Je li ovo porezno ili pravno savjetovanje?",
@@ -48,6 +48,6 @@ export const faqs = [
   {
     question: "Što dobivam u uvodnom razgovoru?",
     answer:
-      "Dobivate jasniju sliku što je stvarna prepreka odluci: Bitcoin teza, osobna situacija, dug, sigurnost, obitelj ili nešto drugo. Nakon toga predlažem razuman sljedeći korak ili otvoreno kažem da trenutno nema smisla nastaviti.",
+      "Dobivate jasniju sliku što zapravo stoji iza odluke: Bitcoin teza, osobna situacija, dug, sigurnost, obitelj ili nešto drugo. Nakon toga predlažem razuman sljedeći korak ili otvoreno kažem da trenutno nema potrebe za plaćenim nastavkom.",
   },
 ]

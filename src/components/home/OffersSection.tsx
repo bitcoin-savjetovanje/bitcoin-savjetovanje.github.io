@@ -9,8 +9,8 @@ export function OffersSection() {
     <section id="ponude" className="section-shell section-muted">
       <div className="case-panel border-primary/25 bg-card">
         <SectionHeader
-          title="Ako nakon uvodnog razgovora postoji konkretan način da pomognem, postoje dva plaćena puta."
-          copy="Uvodni razgovor služi tome da vidimo vrijedi li uopće raditi dublje. Ako vrijedi, plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
+          title="Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta."
+          copy="Uvodni razgovor služi tome da vidimo što pokušavate razjasniti i koji bi nastavak bio koristan. Plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
         />
         <ol className="offer-path mt-10" aria-label="Put savjetovanja">
           {offers.map((offer) => (

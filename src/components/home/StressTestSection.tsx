@@ -10,7 +10,7 @@ export function StressTestSection() {
           <>
             Informacija ima dovoljno. Problem je što knjiga, podcast, graf ili
             objava ne zna vašu situaciju. Ne zna imate li dug, koliko vam je
-            obitelj spremna, što vas najviše brine, koliko razumijete monetarnu
+            obitelj spremna, što vas najviše brine, koliko razumijete Bitcoin
             tezu i što još nedostaje za mirniju odluku.
             <br />
             <br />

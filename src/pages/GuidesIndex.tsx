@@ -155,9 +155,10 @@ export function GuidesIndex() {
               Roadmap kroz okvir
             </h2>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Ako niste sigurni gdje krenuti, krenite od proračuna. Ako vas
-              konkretno muči odluka, dug, sigurnost ili obitelj, možete
-              preskočiti na vodič koji se odnosi na vaše pitanje.
+              Ne morate čitati sve odjednom. Ako ne znate gdje krenuti, krenite
+              od proračuna. Ako vas konkretno muči dug, sigurnost, obitelj ili
+              odluka o ulozi Bitcoina, možete krenuti od vodiča koji se odnosi
+              na to pitanje.
             </p>
           </div>
 

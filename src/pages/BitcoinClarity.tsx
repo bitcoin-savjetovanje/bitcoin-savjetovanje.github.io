@@ -153,6 +153,11 @@ export function BitcoinClarity() {
 
         <section className="clarity-safety-card">
           <h2 className="text-2xl font-semibold">Što ne radimo</h2>
+          <p className="mt-4 text-base leading-8 text-muted-foreground">
+            Bitcoin jasnoća nije dobar izbor ako tražite kratku uputu kada
+            kupiti ili prodati, prognozu cijene, upravljanje sredstvima, porezni
+            ili pravni savjet, ili osobu koja će odlučiti umjesto vas.
+          </p>
           <Checklist items={notDoingItems} kind="negative" />
         </section>
 
@@ -161,6 +166,15 @@ export function BitcoinClarity() {
             Nakon Bitcoin jasnoće najčešće imate
           </h2>
           <Checklist items={outcomes} />
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">Kako razgovor završava</h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Na kraju ne dobivate savjet kupi ili prodaj. Dobivate jasniji okvir:
+            što je pitanje, što je stvarni rizik, koje osobne okolnosti
+            mijenjaju odluku i koji bi sljedeći korak bio razuman.
+          </p>
         </section>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
@@ -186,18 +200,28 @@ export function BitcoinClarity() {
             <article className="rounded-xl border border-primary/25 bg-primary/5 p-5 shadow-sm">
               <h3 className="text-xl font-semibold">Bitcoin jasnoća</h3>
               <p className="mt-3 text-base leading-8 text-muted-foreground">
-                Za jedno ozbiljno pitanje, tezu ili odluku koju želite
-                razjasniti u jednom dubinskom razgovoru.
+                Bitcoin jasnoća je za jedno ozbiljno pitanje, tezu ili odluku
+                koju želite razjasniti u jednom dubinskom razgovoru.
               </p>
             </article>
             <article className="rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm">
               <h3 className="text-xl font-semibold">Osobni Bitcoin standard</h3>
               <p className="mt-3 text-base leading-8 text-muted-foreground">
-                Za pisani sustav pravila kroz 4–6 tjedana: proračun, dug,
-                Bitcoin, neto imovina, sigurnost i obitelj.
+                Osobni Bitcoin standard je za pisani sustav pravila kroz 4–6
+                tjedana: proračun, dug, Bitcoin, neto imovina, sigurnost i
+                obitelj.
               </p>
             </article>
           </div>
+          <ul className="mt-6 grid gap-3 text-base leading-7 text-muted-foreground md:grid-cols-2">
+            <li>Jedna odluka ili pitanje: Bitcoin jasnoća.</li>
+            <li>Jasnija Bitcoin teza za sebe ili partnera: Bitcoin jasnoća.</li>
+            <li>Pisana pravila za cijeli sustav: Osobni Bitcoin standard.</li>
+            <li>
+              Sigurnost i obiteljski pristup trebaju cijeli plan: Osobni Bitcoin
+              standard.
+            </li>
+          </ul>
         </section>
 
         <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">

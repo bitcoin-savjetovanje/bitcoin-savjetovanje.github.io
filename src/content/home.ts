@@ -67,7 +67,7 @@ export const introCallSteps = [
   },
   {
     title: "Vidimo što nedostaje za mirniju odluku.",
-    copy: "Nekome nedostaje monetarna teza. Nekome proračun. Nekome sigurnosni plan. Nekome treba razjasniti jedan dio Bitcoin teze koji još nije dovoljno čvrst.",
+    copy: "Nekome još nije jasna Bitcoin teza. Nekome nedostaje proračun. Nekome sigurnosni plan. Nekome treba razjasniti jedan dio odluke koji još nije dovoljno čvrst.",
   },
   {
     title: "Dobijete sljedeći razuman korak.",

@@ -11,8 +11,8 @@ export function FinalCta() {
           <h2>Imate Bitcoin pitanje koje želite razjasniti?</h2>
           <p>
             Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
-            vidjeti gdje ste, što prvo treba razjasniti i postoji li konkretan
-            način da pomognem.
+            vidjeti gdje ste, što prvo treba razjasniti i koji bi sljedeći korak
+            bio razuman.
           </p>
           <p className="mt-3 text-sm leading-6 text-background/72">
             Bez upravljanja sredstvima. Bez prognoza cijene. Bez zahtjeva za

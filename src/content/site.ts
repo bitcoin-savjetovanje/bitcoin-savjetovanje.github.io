@@ -33,7 +33,7 @@ export const conversationSeo = {
 export const bitcoinClaritySeo = {
   title: "Bitcoin jasnoća | Bitcoin Savjetovanje",
   description:
-    "Jedan dubinski Bitcoin razgovor za ljude koji žele jasniju tezu, sigurnosni okvir i osobni sljedeći korak prije veće odluke.",
+    "Jedan dubinski Bitcoin razgovor za ljude koji žele jasniju Bitcoin tezu, sigurnosni okvir i osobni sljedeći korak prije veće odluke.",
   canonical: `${SITE_URL}${BITCOIN_CLARITY_PATH}`,
 }
 

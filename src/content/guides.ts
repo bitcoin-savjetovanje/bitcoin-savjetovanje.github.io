@@ -179,7 +179,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako ne znate koji je novac stvarno slobodan za Bitcoin odluku, to je dobro pitanje za uvodni razgovor.",
+      "Ako ne znate koji je novac stvarno slobodan za Bitcoin odluku, to vrijedi razjasniti u uvodnom razgovoru.",
   },
   {
     slug: "stvarni-visak",
@@ -247,7 +247,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako niste sigurni koji je novac stvarno višak, a koji već pripada budućim obvezama, to je dobro pitanje za uvodni razgovor.",
+      "Ako niste sigurni koji je novac stvarno višak, a koji već pripada budućim obvezama, uvodni razgovor može pomoći da to stavimo u jasniju sliku.",
   },
   {
     slug: "starost-novca",
@@ -368,13 +368,13 @@ const guideEntries: Guide[] = [
         body: [
           "Dobro pravilo kaže kada se kupnja mijenja. Primjerice: nakon novog duga, promjene prihoda, otplate duga, većeg troška ili promjene uloge Bitcoina u neto imovini. Bez tih uvjeta, odluka se mijenja tek kada emocije postanu jake.",
           "Redovita kupnja može ostati dio sustava. Ali ne smije biti sustav. Osobni Bitcoin standard traži da znate kada kupujete, kada čekate i zašto ne dirate novac koji ima drugu namjenu.",
-          "Ako ne znate kada bi se iznos redovite kupnje trebao promijeniti, to je dobro pitanje za uvodni razgovor.",
+          "Ako ne znate kada bi se iznos redovite kupnje trebao promijeniti, to vrijedi razjasniti u uvodnom razgovoru.",
         ],
       },
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako ne znate kada bi se iznos redovite kupnje trebao promijeniti, to je dobro pitanje za uvodni razgovor.",
+      "Ako ne znate kada bi se iznos redovite kupnje trebao promijeniti, to vrijedi razjasniti u uvodnom razgovoru.",
   },
   {
     slug: "dug-je-buduci-novac",
@@ -400,7 +400,12 @@ const guideEntries: Guide[] = [
       type: "split",
       title: "Dva stanja novca",
       leftLabel: "Život u dugu",
-      leftItems: ["budući novac", "nemir", "zbunjenost", "ropstvo"],
+      leftItems: [
+        "budući novac",
+        "nemir",
+        "zbunjenost",
+        "osjećaj zarobljenosti",
+      ],
       rightLabel: "Život bez duga",
       rightItems: ["prošli novac", "mir", "jasnoća", "sloboda"],
       caption: "Vrijeme zalijeva stanje u kojem živite.",
@@ -452,7 +457,7 @@ const guideEntries: Guide[] = [
         heading: "Dug i Bitcoin: opasna kombinacija",
         body: [
           "Bitcoin može biti snažan oblik štednje, ali Bitcoin i dug su opasna kombinacija. Ne zato što je Bitcoin problem, nego zato što stanje duga mijenja vaše odluke.",
-          "Kad dug postane težak, čovjek može pokušati istrgovati izlaz iz problema. Umjesto da prihvati gorak, ali ispravan lijek, može početi tražiti brze dobitke, riskirati s Bitcoinom i donositi odluke iz očaja. Dug tada više nije samo financijski teret. On postaje izvor ponašanja koje produbljuje problem.",
+          "Kad dug postane težak, čovjek može pokušati istrgovati izlaz iz problema. Umjesto da prihvati težak, ali čistiji put, može početi tražiti brze dobitke, riskirati s Bitcoinom i donositi odluke iz očaja. Dug tada više nije samo financijski teret. On postaje izvor ponašanja koje produbljuje problem.",
         ],
       },
       {
@@ -466,7 +471,7 @@ const guideEntries: Guide[] = [
         heading: "Stanje bez duga",
         body: [
           "Stanje bez duga znači da kupujete samo novcem koji već imate. Ne trošite budući novac. Ne obećavate budući rad sadašnjoj želji. Vaše odluke više ne dolaze iz pritiska obveze prema nekome drugome.",
-          "Desetljeća bez duga stvaraju duboko ukorijenjen duh slobode, mira i jasnoće. Takva osoba ima veći kapacitet za razuman rizik jer ne riskira iz očaja. Ima veću slobodu jer nikome ne duguje.",
+          "Desetljeća bez duga stvaraju duboko ukorijenjen osjećaj slobode, mira i jasnoće. Takva osoba ima veći kapacitet za razuman rizik jer ne riskira iz očaja. Ima veću slobodu jer nikome ne duguje.",
         ],
       },
       {
@@ -506,7 +511,7 @@ const guideEntries: Guide[] = [
         heading: "Pogrešno pitanje",
         body: [
           "Pogrešno pitanje glasi: je li kamata na dug niža od moguće buduće kupovne moći Bitcoina? To je matematički pogled koji propušta stanje osobe koja odlučuje.",
-          "Ne odlučujete između duga i Bitcoina samo matematički. Odlučujete između dva stanja. Dug hrani nemir i zbunjenost. Bitcoin traži mir, vrijeme i jasnoću.",
+          "Ne odlučujete između duga i Bitcoina samo matematički. Odlučujete između dva stanja. Dug povećava nemir i skraćuje vrijeme za odluku. Bitcoin traži mir, vrijeme i jasnoću.",
         ],
       },
       {
@@ -520,7 +525,7 @@ const guideEntries: Guide[] = [
         heading: "Dug može natjerati prodaju",
         body: [
           "Rata ne čeka. Obveza ne pita za cijenu Bitcoina. Ako dug postoji, on može natjerati prodaju u trenutku kada biste inače čekali.",
-          "Tada ne prodajete zato što je to mirna odluka. Prodajete zato što budući novac koji ste već potrošili sada traži naplatu. Dug odlučuje prije nas.",
+          "Tada ne prodajete zato što je to mirna odluka. Prodajete zato što budući novac koji ste već potrošili sada traži naplatu. Dug sužava izbor prije nego što odluka postane mirna.",
         ],
       },
       {
@@ -540,7 +545,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako imate dug i niste sigurni treba li prvo čistiti bilancu ili nastaviti s Bitcoinom, to je dobro pitanje za uvodni razgovor.",
+      "Ako imate dug i niste sigurni treba li prvo čistiti bilancu ili nastaviti s Bitcoinom, to vrijedi razjasniti u uvodnom razgovoru.",
   },
   {
     slug: "ne-zaduzujte-se-za-bitcoin",
@@ -678,14 +683,14 @@ const guideEntries: Guide[] = [
       {
         heading: "Prvo pravilo davanja",
         body: [
-          "Pravilo može biti jednostavno: kada osobni proračun nulte osnove ima red i dug više ne hrani nemir, dio novca dobiva namjenu za davanje bez očekivanja povrata. Ne iz krivnje. Ne zbog povrata. Nego zato što novac treba služiti i drugima.",
+          "Pravilo može biti jednostavno: kada osobni proračun nulte osnove ima red i dug više ne stvara pritisak, dio novca dobiva namjenu za davanje bez očekivanja povrata. Ne iz krivnje. Ne zbog povrata. Nego zato što novac treba služiti i drugima.",
           "Manji i češći darovi često su bolji od velikih i rijetkih. Lakše ih je održati, manje stvaraju pritisak i više nalikuju praksi. Cilj nije dokazati veličinu dara. Cilj je vježbati velikodušnost bez novog duga, bez skrivenih očekivanja i bez narušavanja proračuna nulte osnove.",
         ],
       },
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako vam davanje zvuči važno, ali ne znate kako ga uklopiti bez pritiska, to je dobro pitanje za uvodni razgovor.",
+      "Ako vam davanje zvuči važno, ali ne znate kako ga uklopiti bez pritiska, to je dobar razlog za razgovor.",
   },
   {
     slug: "davanje-bez-duga",
@@ -832,7 +837,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako želite da Bitcoin standard ne zatvori odnos prema ljudima, nego ga učini jasnijim, to je dobro pitanje za razgovor.",
+      "Ako želite da Bitcoin standard ne zatvori odnos prema ljudima, nego ga učini jasnijim, to je pitanje koje ne treba ostati samo u glavi.",
   },
   {
     slug: "bitcoin-kao-novac",
@@ -916,17 +921,17 @@ const guideEntries: Guide[] = [
   },
   {
     slug: "pozitivni-neto-priljev",
-    title: "Kad više novca ulazi nego što izlazi",
+    title: "Novac koji ostaje",
     metaDescription:
-      "Vodič o tome zašto Praktični Bitcoin standard traži da više novca ulazi nego što izlazi i da novčana zaliha u Bitcoinu raste iz reda.",
+      "Zašto Bitcoin standard počinje time da vaš mjesec može stajati na vlastitim nogama: prihodi, troškovi, dug i novac koji ostaje.",
     excerpt:
-      "Bitcoin standard ne počinje većim rizikom. Počinje time da vaš mjesec može stajati na vlastitim nogama.",
+      "Bitcoin standard počinje kada mjesec može stajati na vlastitim nogama.",
     category: "Bitcoin kao novac",
     order: 70,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
     practicalQuestion:
-      "Ulazi li u vaš sustav redovito više novca nego što izlazi, bez oslanjanja na rast cijene Bitcoina?",
+      "Ostaje li vam redovito novac nakon troškova, bez oslanjanja na rast cijene Bitcoina?",
     relatedSlugs: [
       "svaki-euro-ima-namjenu",
       "bitcoin-kao-novac",
@@ -938,13 +943,13 @@ const guideEntries: Guide[] = [
       parts: ["novac ulazi", "novac izlazi"],
       result: "novac koji ostaje",
       caption:
-        "Bitcoin standard počinje kada redovito ulazi više novca nego što izlazi.",
+        "Bitcoin standard počinje kada mjesec može stajati na vlastitim nogama.",
     },
     sections: [
       {
-        heading: "Novac koji ulazi i novac koji izlazi",
+        heading: "Novac koji ostaje",
         body: [
-          "Novac ulazi kroz plaću, posao, klijente, prodaju ili druge izvore. Novac izlazi kroz troškove, račune, dug, obiteljske potrebe i odluke. Ako redovito ulazi više nego što izlazi, sustav diše. Ako redovito izlazi više nego što ulazi, sustav se oslanja na dug, prodaju imovine ili nadu.",
+          "Novac ulazi kroz plaću, posao, klijente, prodaju ili druge izvore. Novac izlazi kroz troškove, račune, dug, obiteljske potrebe i odluke. Ako redovito ulazi više novca nego što izlazi, sustav diše. Ako redovito izlazi više nego što ulazi, sustav se oslanja na dug, prodaju imovine ili nadu.",
           "Gledajte prosjek, ne samo jedan mjesec. Dobar početak je usporediti novac koji ulazi i novac koji izlazi kroz zadnja tri mjeseca.",
           "Praktični Bitcoin standard traži da novac ostaje zato što Bitcoin kao novac treba miran temelj. Ako proračun nulte osnove stalno curi, Bitcoin postaje prva stvar koju morate dirati kada se pojavi pritisak.",
         ],
@@ -967,20 +972,20 @@ const guideEntries: Guide[] = [
         heading: "Kako Bitcoin mijenja novčanu zalihu",
         body: [
           "Kada u sustavu ostaje novac, dio viška može postati novčana zaliha u Bitcoinu. To ne znači da sav višak mora ići u Bitcoin. Znači da Bitcoin može dobiti jasnu ulogu novca u sustavu.",
-          "Ako novčana zaliha raste samo zato što cijena raste, sustav može biti krhak. Ako raste zato što više novca ulazi nego što izlazi i zato što svaki euro ima namjenu, temelj je jači. Tada rast nije samo tržišni događaj, nego posljedica reda.",
+          "Ako novčana zaliha raste samo zato što cijena raste, sustav može biti krhak. Ako raste zato što novac redovito ostaje i zato što svaki euro ima namjenu, temelj je jači. Tada rast nije samo tržišni događaj, nego posljedica reda.",
         ],
       },
       {
         heading: "Prvo pravilo koje treba zapisati",
         body: [
-          "Prvo pravilo može glasiti: ne povećavam ulogu Bitcoina u svojem sustavu ako prosječno ne ulazi više novca nego što izlazi, bez oslanjanja na rast cijene. Prvo popravljam prihode, troškove i stanje duga.",
-          "To pravilo možda zvuči jednostavno. Upravo zato je korisno. Bitcoin standard ne počinje većim rizikom. Počinje mjesecom koji može stajati na vlastitim nogama.",
+          "Prvo pravilo može glasiti: ne povećavam ulogu Bitcoina u svojem sustavu ako mi redovito ne ostaje novac nakon troškova, bez oslanjanja na rast cijene. Prvo popravljam prihode, troškove i stanje duga.",
+          "To pravilo možda zvuči jednostavno. Upravo zato je korisno. Bitcoin standard počinje kada mjesec može stajati na vlastitim nogama.",
         ],
       },
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako ne znate raste li vaš sustav zbog reda ili samo zbog tržišta, to je dobro pitanje za uvodni razgovor.",
+      "Ako ne znate raste li vaš sustav zbog reda ili samo zbog tržišta, uvodni razgovor može pomoći da to stavimo u jasniju sliku.",
   },
   {
     slug: "uskladivanje-kupovne-moci-bitcoina",
@@ -1084,7 +1089,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako ne znate što biste napravili nakon velikog pada ili rasta kupovne moći, to je dobro pitanje za uvodni razgovor.",
+      "Ako ne znate što biste napravili nakon velikog pada ili rasta kupovne moći, to vrijedi razjasniti u uvodnom razgovoru.",
   },
   {
     slug: "cijena-kao-mjera-vremena",
@@ -1250,7 +1255,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako ne znate gdje završava novac, a počinje potrošna ili proizvodna imovina, to je dobro pitanje za uvodni razgovor.",
+      "Ako ne znate gdje završava novac, a počinje potrošna ili proizvodna imovina, to je pitanje koje ne treba ostati samo u glavi.",
   },
   {
     slug: "bitcoin-u-neto-imovini",
@@ -1275,7 +1280,7 @@ const guideEntries: Guide[] = [
         heading: "Bitcoin nije odvojen od života",
         body: [
           "Bitcoin odluke postaju nejasne kada se Bitcoin promatra kao zaseban svijet. Iznos na novčaniku ne govori dovoljno. Njegovo značenje ovisi o dugu, prihodima, obitelji, novčanoj zalihi, potrošnim dobrima i proizvodnoj imovini.",
-          "Dvije osobe mogu imati isti iznos Bitcoina. Jedna ima dug, nestabilan prihod i velike buduće troškove. Druga nema dug, ima više novca koji ulazi nego što izlazi i jasna pravila. Isti Bitcoin saldo u ta dva života nema istu ulogu.",
+          "Dvije osobe mogu imati isti iznos Bitcoina. Jedna ima dug, nestabilan prihod i velike buduće troškove. Druga nema dug, redovito joj ostaje novac nakon troškova i ima jasna pravila. Isti Bitcoin saldo u ta dva života nema istu ulogu.",
           "Neto imovina daje širu sliku. Ona pokazuje što posjedujete i što dugujete. Tek tada se može razumno pitati koju ulogu Bitcoin ima. Je li novac? Je li novčana zaliha? Je li dio budućeg plana? Ili samo stoji sa strane bez pravila?",
         ],
       },
@@ -1310,7 +1315,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako znate koliko Bitcoina imate, ali ne znate koju ulogu ima u neto imovini, to je dobro pitanje za razgovor.",
+      "Ako znate koliko Bitcoina imate, ali ne znate koju ulogu ima u neto imovini, to je dobar razlog za razgovor.",
   },
   {
     slug: "pravilo-trecina",
@@ -1391,7 +1396,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu, to je dobro pitanje za razgovor.",
+      "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu, to vrijedi razjasniti u razgovoru.",
   },
   {
     slug: "obiteljski-pristup-bitcoinu",
@@ -1441,7 +1446,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Informacija nije isto što i pristup",
         body: [
-          "Informacija može glasiti da Bitcoin postoji i da postoje upute. Pristup znači sposobnost pomicanja sredstava. Te dvije stvari ne smiju se miješati.",
+          "Informacija može glasiti da Bitcoin postoji i da postoje upute. Kontrola znači mogućnost pomicanja Bitcoina. Te dvije stvari ne smiju se miješati.",
           "Dobar obiteljski pristup daje dovoljno informacija da osoba ne bude izgubljena, ali ne izlaže osjetljive podatke bez potrebe. To je ravnoteža između kontinuiteta i sigurnosti.",
         ],
       },
@@ -1480,7 +1485,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako obitelj zna da Bitcoin postoji, ali nema jasne upute što smije i ne smije napraviti, to je dobro pitanje za razgovor.",
+      "Ako obitelj zna da Bitcoin postoji, ali nema jasne upute što smije i ne smije napraviti, to je pitanje koje ne treba ostati samo u glavi.",
   },
   {
     slug: "sigurnost-ne-smije-ovisiti-samo-o-vama",
@@ -1538,7 +1543,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Informacija nije isto što i pristup",
         body: [
-          "Osoba od povjerenja može imati informaciju bez pristupa. Može znati da Bitcoin postoji, gdje su opće upute i koga smije kontaktirati, ali ne mora imati mogućnost pomicanja sredstava.",
+          "Osoba od povjerenja može imati informaciju bez pristupa. Može znati da Bitcoin postoji, gdje su opće upute i koga smije kontaktirati, ali ne mora imati mogućnost pomicanja Bitcoina.",
           "Ta razlika čuva sigurnost. Potpuna tajnost može uništiti kontinuitet. Preširoko dijeljenje može uništiti kontrolu. Između toga postoji uređen put.",
         ],
       },
@@ -1559,7 +1564,7 @@ const guideEntries: Guide[] = [
     ],
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
-      "Ako Bitcoin postoji, ali obitelj ne zna što napraviti u izvanrednoj situaciji, to je dobro pitanje za uvodni razgovor.",
+      "Ako Bitcoin postoji, ali obitelj ne zna što napraviti u izvanrednoj situaciji, uvodni razgovor može pomoći da to stavimo u jasniju sliku.",
     extraCta: {
       title: "Širi sigurnosni okvir",
       text: "Za širi sigurnosni okvir pročitajte i sigurnosnu stranicu.",

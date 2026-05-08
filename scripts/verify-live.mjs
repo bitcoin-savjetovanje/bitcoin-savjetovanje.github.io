@@ -30,6 +30,8 @@ const forbiddenVisibleText = [
   "najvažnije prigovore",
   "glupu grešku",
   "partner ili obitelj nije uvjerena",
+  "dođite s bilo kojim bitcoin pitanjem",
+  "u razgovor možete doći s bilo kojim bitcoin pitanjem",
   "dogovorite 15-minutni uvodni razgovorpogledajte",
   "uvodni razgovorpogledajte",
   "dogovorite razgovorpogledajte",
@@ -78,6 +80,7 @@ const pageChecks = [
     path: "/",
     includes: [
       "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
+      "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku. U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
       "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku.",
       "U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
       "što još nije jasno u Bitcoin tezi",
@@ -108,6 +111,7 @@ const pageChecks = [
       "Pogledajte pitanja koja možemo proći",
       'href="#pitanja"',
       'data-cta="hero-questions"',
+      "U razgovor možete doći s jednim stvarnim Bitcoin pitanjem.",
       "Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku.",
       "što vas najviše brine",
       "što još nedostaje za mirniju odluku",
@@ -132,6 +136,7 @@ const pageChecks = [
     ],
     textMustNotInclude: [
       "Dođite s bilo kojim Bitcoin pitanjem",
+      "U razgovor možete doći s bilo kojim Bitcoin pitanjem",
       "razgovorPromijeni",
       "razgovorPogledajte",
       "uvodni razgovorPogledajte",
@@ -422,6 +427,12 @@ function assertHtmlDoesNotMatch(url, html, pattern, label = pattern.source) {
   fail(`${url} HTML matches forbidden markup: ${label}`)
 }
 
+function scriptUrlsFromHtml(html) {
+  return [...html.matchAll(/<script\b[^>]*\bsrc="([^"]+\.js)"[^>]*>/g)].map(
+    (match) => new URL(match[1], baseUrl).href
+  )
+}
+
 function assertCanonical(url, html, expectedCanonical) {
   const canonical = canonicalFromHtml(html)
 
@@ -483,6 +494,27 @@ for (const check of pageChecks) {
   } catch (error) {
     fail(`${url} could not be verified: ${error.message}`)
   }
+}
+
+try {
+  const homeHtml = await fetchText(`${baseUrl}/`)
+  const scriptUrls = scriptUrlsFromHtml(homeHtml)
+
+  if (scriptUrls.length === 0) {
+    fail(`${baseUrl}/ has no JavaScript bundle scripts to inspect`)
+  } else {
+    const bundleText = (
+      await Promise.all(scriptUrls.map((scriptUrl) => fetchText(scriptUrl)))
+    ).join("\n")
+
+    assertIncludes(
+      `${baseUrl}/assets/*.js`,
+      bundleText,
+      "bitcoin-savjetovanje:cta-click"
+    )
+  }
+} catch (error) {
+  fail(`${baseUrl}/assets/*.js could not be verified: ${error.message}`)
 }
 
 try {

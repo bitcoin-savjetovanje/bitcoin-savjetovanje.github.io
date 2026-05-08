@@ -321,6 +321,8 @@ const forbiddenPublicCopy = [
   "najvažnije prigovore",
   "glupu grešku",
   "partner ili obitelj nije uvjerena",
+  "dođite s bilo kojim bitcoin pitanjem",
+  "u razgovor možete doći s bilo kojim bitcoin pitanjem",
   "dogovorite 15-minutni uvodni razgovorpogledajte",
   "uvodni razgovorpogledajte",
   "dogovorite razgovorpogledajte",
@@ -440,6 +442,10 @@ const homeChecks = [
     "new hero title",
   ],
   [
+    "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku. U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
+    "full updated hero supporting sentence",
+  ],
+  [
     "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku.",
     "updated hero supporting sentence",
   ],
@@ -538,6 +544,10 @@ const homeChecks = [
   ['href="#pitanja"', "hero secondary CTA href"],
   ['data-cta="hero-intro-call"', "hero CTA metadata"],
   ['data-cta="hero-questions"', "hero questions metadata"],
+  [
+    "U razgovor možete doći s jednim stvarnim Bitcoin pitanjem.",
+    "updated questions section heading",
+  ],
   [
     "Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku.",
     "questions section copy polish",
@@ -657,6 +667,12 @@ assertNotIncludes(
   homeText,
   "Dođite s bilo kojim Bitcoin pitanjem",
   "old hero supporting sentence"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "U razgovor možete doći s bilo kojim Bitcoin pitanjem",
+  "old questions section heading"
 )
 assertNotIncludes(
   "index.html",
@@ -793,13 +809,13 @@ assertBefore(
   "index.html",
   homeHtml,
   "Možda vam ne treba još jedan video o Bitcoinu.",
-  "U razgovor možete doći s bilo kojim Bitcoin pitanjem.",
+  "U razgovor možete doći s jednim stvarnim Bitcoin pitanjem.",
   "problem before questions"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "U razgovor možete doći s bilo kojim Bitcoin pitanjem.",
+  "U razgovor možete doći s jednim stvarnim Bitcoin pitanjem.",
   "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman.",
   "questions before intro call"
 )

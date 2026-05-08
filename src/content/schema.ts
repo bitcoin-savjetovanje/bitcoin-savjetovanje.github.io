@@ -10,6 +10,7 @@ import {
   EMAIL,
   OG_IMAGE_URL,
   SITE_URL,
+  bitcoinClaritySeo,
   conversationSeo,
   guidesIndexSeo,
   securitySeo,
@@ -98,6 +99,49 @@ export function conversationPageSchema() {
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
         { name: "Razgovor", item: conversationSeo.canonical },
+      ]),
+    ],
+  }
+}
+
+export function bitcoinClarityPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin jasnoća",
+        description: bitcoinClaritySeo.description,
+        url: bitcoinClaritySeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+      },
+      {
+        "@type": "Service",
+        name: "Bitcoin jasnoća",
+        serviceType: "Jedan dubinski Bitcoin razgovor",
+        description:
+          "Jedan dubinski razgovor za razjašnjenje Bitcoin teze, vlastite situacije, sigurnosnog okvira i sljedećeg razumnog koraka. Nije investicijsko, porezno ili pravno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
+        provider: {
+          "@type": "ProfessionalService",
+          "@id": `${SITE_URL}/#service`,
+          name: "Bitcoin Savjetovanje",
+        },
+        offers: {
+          "@type": "Offer",
+          name: "Bitcoin jasnoća",
+          price: "200",
+          priceCurrency: "EUR",
+          url: bitcoinClaritySeo.canonical,
+        },
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Bitcoin jasnoća", item: bitcoinClaritySeo.canonical },
       ]),
     ],
   }

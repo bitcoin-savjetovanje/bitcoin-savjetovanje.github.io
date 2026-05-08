@@ -3,7 +3,7 @@ import { CircleHelp, ShieldCheck, Users, WalletCards } from "lucide-react"
 const ruleRows = [
   {
     title: "Bitcoin teza",
-    question: "što još nije jasno u razumijevanju novca",
+    question: "što još nije jasno u Bitcoin tezi",
     Icon: CircleHelp,
   },
   {
@@ -29,7 +29,7 @@ export function BitcoinStressTestVisual() {
     <div
       className="relative mx-auto w-full max-w-[500px] rounded-3xl border border-border/80 bg-card p-5 shadow-sm sm:p-6"
       role="img"
-      aria-label="Uvodni Bitcoin razgovor pomaže razjasniti gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak imao smisla"
+      aria-label="Uvodni Bitcoin razgovor pomaže razjasniti gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman"
     >
       <div className="flex items-start justify-between gap-3">
         <div>
@@ -38,7 +38,7 @@ export function BitcoinStressTestVisual() {
           </h2>
           <p className="mt-2 text-base leading-6 font-semibold text-foreground sm:text-lg sm:leading-7">
             U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate
-            donijeti i koji bi sljedeći korak imao smisla.
+            donijeti i koji bi sljedeći korak bio razuman.
           </p>
         </div>
         <div className="grid size-11 shrink-0 place-items-center overflow-hidden rounded-full border border-primary/30 bg-primary/10">

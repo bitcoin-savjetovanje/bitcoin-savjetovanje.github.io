@@ -7,6 +7,10 @@ odlaska na vanjski kalendar. Početna stranica je usmjerena na pitanja,
 nejasnoće, sigurnost i mirniju osobnu odluku, dok je Praktični Bitcoin standard
 predstavljen kao dublji okvir rada.
 
+Stranica `/bitcoin-jasnoca/` objašnjava prvi plaćeni korak. Nije checkout i ne
+prima plaćanja; i dalje vodi posjetitelja prema uvodnom razgovoru na
+`/razgovor/`.
+
 ## Development
 
 ```bash
@@ -64,6 +68,7 @@ Prerender:
 
 - `/`
 - `/razgovor/`
+- `/bitcoin-jasnoca/`
 - `/vodici/`
 - `/vodici/:slug/`
 - `/sigurnost/`

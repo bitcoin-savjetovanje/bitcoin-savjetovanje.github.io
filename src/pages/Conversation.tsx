@@ -3,7 +3,7 @@ import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { conversationRoute } from "@/content/routes"
-import { BOOKING_URL } from "@/content/site"
+import { BITCOIN_CLARITY_PATH, BOOKING_URL } from "@/content/site"
 
 const preparationQuestions = [
   "Što pokušavate odlučiti?",
@@ -24,7 +24,7 @@ const conversationSteps = [
   "Kažete gdje ste sada.",
   "Prođemo glavno pitanje.",
   "Vidimo što prvo treba razjasniti.",
-  "Dogovorimo sljedeći korak ili stanemo.",
+  "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
 ]
 
 function Checklist({ items }: { items: string[] }) {
@@ -75,7 +75,7 @@ export function Conversation() {
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Razgovor je bez naknade i bez obveze. Cilj nije da u 15 minuta
             riješimo cijeli Bitcoin plan, nego da vidimo što prvo treba
-            razjasniti i ima li smisla nastaviti.
+            razjasniti i postoji li konkretan način da pomognem.
           </p>
         </header>
 
@@ -166,13 +166,34 @@ export function Conversation() {
           </a>
         </section>
 
+        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">
+            Što se može dogoditi nakon razgovora?
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Ako je pitanje jednostavno, možda je uvodni razgovor dovoljan. Ako
+            treba dublje proći Bitcoin tezu, sigurnost, dug, obitelj ili osobnu
+            odluku, sljedeći korak može biti{" "}
+            <a
+              href={BITCOIN_CLARITY_PATH}
+              className="font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline"
+              data-link="conversation-bitcoin-clarity"
+            >
+              Bitcoin jasnoća
+            </a>
+            . Ako je potreban cijeli sustav pravila, razgovaramo o osobnom
+            Bitcoin standardu.
+          </p>
+        </section>
+
         <section className="mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Spremni za uvodni razgovor?
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-            Odaberite termin i dođite s jednim stvarnim pitanjem. Ako vrijedi
-            nastaviti, dogovorit ćemo sljedeći korak.
+            Odaberite termin i dođite s jednim stvarnim pitanjem. Ako postoji
+            konkretan način da pomognem, dogovorit ćemo sljedeći korak. Ako ne,
+            znat ćete da je za sada dovoljno.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button

@@ -99,6 +99,15 @@ export function GuidePage({ guide }: { guide: Guide }) {
                   {section.body.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
+                  {section.items ? (
+                    <ul className="grid gap-2 pl-5">
+                      {section.items.map((item) => (
+                        <li key={item} className="list-disc pl-1">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               </section>
             ))}
@@ -119,19 +128,22 @@ export function GuidePage({ guide }: { guide: Guide }) {
               <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
                 Sljedeći vodič u redoslijedu
               </p>
-              <a
-                href={guideHref(nextGuide.slug)}
-                className="group mt-3 block"
-                data-link="next-guide"
-              >
-                <h2 className="flex items-start justify-between gap-4 text-2xl font-semibold">
-                  <span>{nextGuide.title}</span>
-                  <ArrowRight className="mt-1 size-5 shrink-0 text-muted-foreground group-hover:text-primary" />
-                </h2>
-                <p className="mt-3 text-base leading-8 text-muted-foreground">
-                  {nextGuide.excerpt}
-                </p>
-              </a>
+              <h2 className="mt-3 flex items-start justify-between gap-4 text-2xl font-semibold">
+                <a
+                  href={guideHref(nextGuide.slug)}
+                  className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                  data-link="next-guide"
+                >
+                  {nextGuide.title}
+                </a>
+                <ArrowRight
+                  className="mt-1 size-5 shrink-0 text-muted-foreground"
+                  aria-hidden="true"
+                />
+              </h2>
+              <p className="mt-3 text-base leading-8 text-muted-foreground">
+                {nextGuide.excerpt}
+              </p>
             </section>
           ) : null}
           {relatedGuides.length > 0 ? (
@@ -160,11 +172,28 @@ export function GuidePage({ guide }: { guide: Guide }) {
               </ul>
             </section>
           ) : null}
+          {guide.extraCta ? (
+            <div className="mt-14 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm">
+              <h2 className="text-2xl font-semibold">{guide.extraCta.title}</h2>
+              <p className="mt-4 text-base leading-8 text-muted-foreground">
+                {guide.extraCta.text}
+              </p>
+              <a
+                href={guide.extraCta.href}
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                data-cta={guide.extraCta.dataCta}
+              >
+                {guide.extraCta.label}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </a>
+            </div>
+          ) : null}
           <div className="mt-14 rounded-2xl border border-border/80 bg-card p-6 shadow-sm">
             <h2 className="text-2xl font-semibold">
               Želite ovo primijeniti na svoju situaciju?
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
+              {guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : null}
               Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti gdje se taj
               okvir odnosi na vas.
             </p>

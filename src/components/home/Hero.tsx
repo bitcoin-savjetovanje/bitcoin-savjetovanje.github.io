@@ -23,7 +23,7 @@ export function Hero() {
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
             Dođite s bilo kojim Bitcoin pitanjem. U 15 minuta vidimo što prvo
-            treba razjasniti i ima li smisla nastaviti plaćeno.
+            treba razjasniti i postoji li konkretan način da pomognem.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">

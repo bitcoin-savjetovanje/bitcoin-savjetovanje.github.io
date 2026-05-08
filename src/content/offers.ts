@@ -1,4 +1,4 @@
-import { CONVERSATION_PATH } from "./site"
+import { BITCOIN_CLARITY_PATH, CONVERSATION_PATH } from "./site"
 
 export type Offer = {
   title: string
@@ -12,6 +12,11 @@ export type Offer = {
   href: string
   dataCta: string
   badge?: string
+  detailLink?: {
+    label: string
+    href: string
+    dataLink: string
+  }
 }
 
 export const offers: Offer[] = [
@@ -23,7 +28,7 @@ export const offers: Offer[] = [
     detail:
       "Prvi kontakt bez naknade i bez obveze. Kažete što pokušavate odlučiti, ja postavim nekoliko pitanja i predložim razuman sljedeći korak.",
     purpose:
-      "Kažete gdje ste sada, prepoznamo što prvo treba razjasniti i vidimo ima li smisla nastaviti plaćeno.",
+      "Kažete gdje ste sada, prepoznamo što prvo treba razjasniti i vidimo postoji li konkretan način da pomognem.",
     includes: [
       "Za jedno glavno pitanje ili odluku",
       "Bez slanja osjetljivih podataka",
@@ -38,9 +43,9 @@ export const offers: Offer[] = [
     price: "200 €",
     duration: "Jedan dubinski razgovor",
     forWhom:
-      "Za osobu koja ima ozbiljna pitanja o Bitcoinu i želi jasniju vlastitu tezu prije veće odluke.",
+      "Za osobu koja želi jedan ozbiljan razgovor o Bitcoinu, vlastitoj situaciji i odluci koju ne želi donositi napamet.",
     detail:
-      "Za osobu koja ima ozbiljna pitanja o Bitcoinu i želi jasniju vlastitu tezu prije veće odluke.",
+      "Za osobu koja želi jedan ozbiljan razgovor o Bitcoinu, vlastitoj situaciji i odluci koju ne želi donositi napamet.",
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
@@ -54,6 +59,11 @@ export const offers: Offer[] = [
     href: CONVERSATION_PATH,
     dataCta: "offer-bitcoin-jasnoca",
     badge: "Prvi plaćeni korak",
+    detailLink: {
+      label: "Što je Bitcoin jasnoća?",
+      href: BITCOIN_CLARITY_PATH,
+      dataLink: "offer-bitcoin-clarity-details",
+    },
   },
   {
     title: "Osobni Bitcoin standard",
@@ -72,7 +82,7 @@ export const offers: Offer[] = [
       "Pravila za padove, rastove i emocionalni pritisak",
       "Sigurnosni i obiteljski okvir bez predaje kontrole",
     ],
-    cta: "Vidimo ima li smisla za vas",
+    cta: "Krenite od uvodnog razgovora",
     href: CONVERSATION_PATH,
     dataCta: "offer-personal-standard",
   },

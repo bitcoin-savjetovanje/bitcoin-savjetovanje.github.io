@@ -73,6 +73,28 @@ export function Security() {
           </p>
         </header>
 
+        <section className="mt-10 max-w-4xl rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">
+            Dobar sigurnosni okvir ima dva cilja.
+          </h2>
+          <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
+            <li className="flex gap-3">
+              <Check className="positive-icon mt-1 size-4 shrink-0" />
+              <span>
+                Prvo, nitko ne smije dobiti kontrolu nad vašim Bitcoinom bez
+                vašeg znanja.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <Check className="positive-icon mt-1 size-4 shrink-0" />
+              <span>
+                Drugo, vaša obitelj ne smije ostati potpuno izgubljena ako se
+                vama nešto dogodi.
+              </span>
+            </li>
+          </ul>
+        </section>
+
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Nikada ne tražim</h2>
@@ -123,7 +145,7 @@ export function Security() {
               data-cta="security-intro-call"
             >
               <CalendarDays className="size-4" />
-              Razgovarajmo bez predaje kontrole
+              Razgovarajmo o sigurnosti bez predaje kontrole
             </a>
           </Button>
         </div>

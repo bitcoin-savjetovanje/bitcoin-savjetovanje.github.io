@@ -197,6 +197,14 @@ function anchorHrefsByDataLink(contents, dataLink) {
     .map((tag) => attributeValue(tag, "href"))
 }
 
+function anchorTextsByDataLink(contents, dataLink) {
+  return [
+    ...contents.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g),
+  ]
+    .filter((match) => attributeValue(match[1], "data-link") === dataLink)
+    .map((match) => textWithoutTags(match[2]).trim().replace(/\s+/g, " "))
+}
+
 function canonicalFromHtml(contents) {
   const match = contents.match(/<link rel="canonical" href="([^"]+)" \/>/)
   return match?.[1] ?? ""
@@ -232,6 +240,7 @@ const routeByCanonical = new Map(
 )
 const home = routeMap.get("/")
 const conversation = routeMap.get("/razgovor/")
+const bitcoinClarity = routeMap.get("/bitcoin-jasnoca/")
 const guidesIndex = routeMap.get("/vodici/")
 const security = routeMap.get("/sigurnost/")
 
@@ -241,6 +250,7 @@ const requiredFiles = [
   "robots.txt",
   "sitemap.xml",
   "razgovor/index.html",
+  "bitcoin-jasnoca/index.html",
   "vodici/index.html",
   "sigurnost/index.html",
   ...requiredGuidePaths.map(routeFile),
@@ -265,7 +275,6 @@ const forbiddenText = [
   "dobar dug",
   "jeftin dug",
   "pogađamo cijenu",
-  "prognoziram cijenu",
   "pošaljite privatne ključeve",
   "pristup vašem novčaniku",
   "regulated investment advice",
@@ -281,6 +290,19 @@ const forbiddenPublicCopy = [
   "najvažnije prigovore",
   "glupu grešku",
   "partner ili obitelj nije uvjerena",
+  "dogovorite 15-minutni uvodni razgovorpogledajte",
+  "1. 1 proračun",
+  "2. 2 dug",
+  "neuređenog eura",
+  "manje je glume",
+  "psihološko-duhovna stanja",
+  "duh ropstva",
+  "duhovno se gušite",
+  "gorak lijek",
+  "svake kune",
+  "ne povećavam bitcoin odluke",
+  "crvena zastava",
+  "vidimo ima li smisla za vas",
   "početne riječi",
   "početnih riječi",
   "jedna točka kvara",
@@ -335,13 +357,31 @@ const homeChecks = [
     "hero intro call framing",
   ],
   [
-    "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji sljedeći korak ima smisla.",
+    "postoji li konkretan način da pomognem",
+    "concrete help framing",
+  ],
+  [
+    "što još nije jasno u Bitcoin tezi",
+    "hero intro card Bitcoin thesis copy",
+  ],
+  [
+    "Ne morate unaprijed znati je li vaše pitanje dovoljno veliko",
+    "questions reassurance copy",
+  ],
+  [
+    "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman.",
     "intro call title",
   ],
+  [
+    "Ako nakon uvodnog razgovora postoji konkretan način da pomognem",
+    "offer section title",
+  ],
   ["Bitcoin jasnoća", "renamed 200 EUR offer"],
+  ["Krenite od uvodnog razgovora", "standard offer CTA copy"],
   ["Vaš Bitcoin ostaje vaš", "security trust title"],
   ["Bez zahtjeva za seed phrase.", "seed phrase trust copy"],
   ["Seed phrase se nikada ne dijeli.", "seed phrase red flag copy"],
+  ["razgovor treba odmah prekinuti", "seed phrase stop conversation copy"],
   [
     "Dobijete iskrenu procjenu.",
     "warmer honest assessment title",
@@ -380,7 +420,7 @@ const homeChecks = [
     "method reframing",
   ],
   [
-    "Vodiči objašnjavaju moj okvir. Razgovor ga primjenjuje na vašu situaciju.",
+    "Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju.",
     "guides conversion copy",
   ],
   [
@@ -405,7 +445,7 @@ const homeChecks = [
     "conversation problem decision copy",
   ],
   [
-    "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak imao smisla.",
+    "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman.",
     "hero intro card copy",
   ],
   [
@@ -416,6 +456,10 @@ const homeChecks = [
   ['data-cta="intro-section-call"', "intro section CTA metadata"],
   ['data-cta="offer-intro-call"', "intro offer CTA metadata"],
   ['data-cta="offer-bitcoin-jasnoca"', "Bitcoin jasnoća CTA metadata"],
+  [
+    'data-link="offer-bitcoin-clarity-details"',
+    "Bitcoin jasnoća detail link metadata",
+  ],
   ['data-cta="offer-personal-standard"', "standard offer CTA metadata"],
   ['data-cta="home-security-page"', "home security CTA metadata"],
   ['data-cta="home-guides-call"', "home guides call CTA metadata"],
@@ -560,13 +604,13 @@ assertBefore(
   "index.html",
   homeHtml,
   "U razgovor možete doći s bilo kojim Bitcoin pitanjem.",
-  "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji sljedeći korak ima smisla.",
+  "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman.",
   "questions before intro call"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "Ako nakon uvodnog razgovora postoji jasan sljedeći korak, postoje dva plaćena puta.",
+  "Ako nakon uvodnog razgovora postoji konkretan način da pomognem, postoje dva plaćena puta.",
   "Vaš Bitcoin ostaje vaš.",
   "offers before security"
 )
@@ -606,6 +650,18 @@ const conversationChecks = [
     "conversation final CTA title",
   ],
   [
+    "Što se može dogoditi nakon razgovora?",
+    "conversation outcome section title",
+  ],
+  [
+    "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
+    "conversation step enough copy",
+  ],
+  [
+    "Ako postoji konkretan način da pomognem, dogovorit ćemo sljedeći korak.",
+    "conversation final CTA body",
+  ],
+  [
     "Odaberite termin i dođite s jednim stvarnim pitanjem.",
     "conversation final CTA body",
   ],
@@ -627,6 +683,7 @@ const conversationChecks = [
   ],
   ['data-cta="conversation-page-calendar"', "calendar CTA metadata"],
   ['data-cta="conversation-page-security"', "security CTA metadata"],
+  ['data-link="conversation-bitcoin-clarity"', "Bitcoin clarity page link"],
   [
     'data-cta="conversation-page-final-calendar"',
     "final calendar CTA metadata",
@@ -645,6 +702,13 @@ const conversationChecks = [
 for (const [expected, label] of conversationChecks) {
   assertIncludes("razgovor/index.html", conversationHtml, expected, label)
 }
+
+assertIncludes(
+  "razgovor/index.html",
+  conversationText,
+  "sljedeći korak može biti Bitcoin jasnoća",
+  "Bitcoin jasnoća next step copy"
+)
 
 for (const awkwardPhrase of [
   "još nije sjelo",
@@ -673,7 +737,50 @@ if (!conversation) {
   fail("Route metadata for /razgovor/ is missing")
 }
 
+const bitcoinClarityHtml = readFile("bitcoin-jasnoca/index.html")
+const bitcoinClarityChecks = [
+  ["Bitcoin jasnoća", "Bitcoin clarity page title"],
+  ["200 €", "Bitcoin clarity price"],
+  ["jedan dubinski razgovor", "Bitcoin clarity duration"],
+  ["Krenite od uvodnog razgovora", "Bitcoin clarity primary CTA"],
+  ["ne tražim seed phrase", "Bitcoin clarity no seed phrase copy"],
+  ["ne prognoziram cijenu", "Bitcoin clarity no price prediction copy"],
+  [
+    "ne upravljam vašim sredstvima",
+    "Bitcoin clarity no asset management copy",
+  ],
+  [
+    'data-cta="bitcoin-clarity-intro-call"',
+    "Bitcoin clarity intro CTA metadata",
+  ],
+  [
+    'data-cta="bitcoin-clarity-security"',
+    "Bitcoin clarity security CTA metadata",
+  ],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-jasnoca/" />',
+    "Bitcoin clarity canonical URL",
+  ],
+]
+
+for (const [expected, label] of bitcoinClarityChecks) {
+  assertIncludes("bitcoin-jasnoca/index.html", bitcoinClarityHtml, expected, label)
+}
+
+assertCount(
+  "bitcoin-jasnoca/index.html",
+  bitcoinClarityHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!bitcoinClarity) {
+  fail("Route metadata for /bitcoin-jasnoca/ is missing")
+}
+
 const guidesIndexHtml = readFile("vodici/index.html")
+const guidesIndexText = textWithoutTags(guidesIndexHtml)
 const guideIndexChecks = [
   ["Vodiči za osobni Bitcoin standard", "guide index title"],
   [
@@ -685,6 +792,14 @@ const guideIndexChecks = [
   ['data-cta="guides-index-top-intro-call"', "guide index top CTA metadata"],
   ['data-cta="guides-index-intro-call"', "guide index final CTA metadata"],
   [
+    "Ako niste sigurni gdje krenuti, krenite od proračuna.",
+    "guide index starting point copy",
+  ],
+  [
+    "Uvodni razgovor pomaže vidjeti koji dio okvira je za vas trenutno najvažniji.",
+    "guide index final CTA copy",
+  ],
+  [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/" />',
     "guide index canonical URL",
   ],
@@ -694,6 +809,19 @@ const guideIndexChecks = [
 
 for (const [expected, label] of guideIndexChecks) {
   assertIncludes("vodici/index.html", guidesIndexHtml, expected, label)
+}
+
+for (const duplicateNumbering of [
+  "1. 1 Proračun",
+  "2. 2 Dug",
+  "3. 3 Davanje",
+]) {
+  assertNotIncludes(
+    "vodici/index.html",
+    guidesIndexText,
+    duplicateNumbering,
+    `duplicate guide numbering: ${duplicateNumbering}`
+  )
 }
 
 assertCount(
@@ -730,6 +858,18 @@ const securityChecks = [
     "Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru.",
     "security family intro",
   ],
+  [
+    "Dobar sigurnosni okvir ima dva cilja.",
+    "security two goals title",
+  ],
+  [
+    "nitko ne smije dobiti kontrolu nad vašim Bitcoinom bez vašeg znanja",
+    "security no control without knowledge copy",
+  ],
+  [
+    "vaša obitelj ne smije ostati potpuno izgubljena",
+    "security family continuity copy",
+  ],
   ["Nikada ne tražim", "never ask section"],
   [
     "seed phrase — 12 ili 24 riječi za oporavak novčanika",
@@ -757,6 +897,10 @@ const securityChecks = [
   ["ne čuvam Bitcoin", "no Bitcoin custody copy"],
   ['href="/razgovor/"', "security page links to conversation"],
   ['data-cta="security-intro-call"', "security CTA metadata"],
+  [
+    "Razgovarajmo o sigurnosti bez predaje kontrole",
+    "security CTA copy",
+  ],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/sigurnost/" />',
     "security canonical URL",
@@ -862,21 +1006,44 @@ for (const alias of aliasGuidePaths) {
 const focusedGuideChecks = [
   {
     path: "vodici/stvarni-visak/index.html",
-    checks: ["Što je stvarni višak?", "Višak nije stanje na računu"],
+    checks: [
+      "Što je stvarni višak?",
+      "Višak nije stanje na računu",
+      "Drugim riječima, stvarni višak je novac bez druge namjene",
+      "Manje je nagađanja",
+    ],
   },
   {
     path: "vodici/dug-ili-bitcoin/index.html",
-    checks: ["Dug ili Bitcoin?", "Ne pokušavajte istrgovati izlaz"],
+    checks: [
+      "Dug ili Bitcoin?",
+      "Ne pokušavajte istrgovati izlaz",
+      "Težak, ali čistiji put",
+      "Ako imate dug i niste sigurni treba li prvo čistiti bilancu ili nastaviti s Bitcoinom",
+    ],
   },
   {
     path: "vodici/bitcoin-kao-novac/index.html",
-    checks: ["Bitcoin je novac", "Bitcoin nije proizvodna imovina"],
+    checks: [
+      "Bitcoin je novac",
+      "Bitcoin nije proizvodna imovina",
+      "Ako ne možete objasniti sebi ili partneru je li Bitcoin za vas novac",
+    ],
   },
   {
     path: "vodici/cijena-kao-mjera-vremena/index.html",
     checks: [
       "Cijena kao mjera vremena",
+      "Ne koristimo cijenu za prognozu. Koristimo je kao signal za provjeru proračuna.",
       "Dugoročni trend je pomoćni signal. Osobni proračun nulte osnove ostaje glavni alat.",
+    ],
+  },
+  {
+    path: "vodici/pravilo-trecina/index.html",
+    checks: [
+      "Ovo nije preporuka da kupujete ili prodajete određenu imovinu.",
+      "Ako je gotovo sve vezano u domu, autu ili poslu",
+      "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu",
     ],
   },
   {
@@ -884,6 +1051,16 @@ const focusedGuideChecks = [
     checks: [
       "Sigurnost ne smije ovisiti samo o vama",
       "Informacija nije isto što i pristup",
+      "Za širi sigurnosni okvir pročitajte i sigurnosnu stranicu.",
+      'data-cta="guide-security-page"',
+    ],
+  },
+  {
+    path: "vodici/obiteljski-pristup-bitcoinu/index.html",
+    checks: [
+      "Minimalna obiteljska uputa",
+      "Bitcoin postoji i dio je neto imovine.",
+      "Ako obitelj zna da Bitcoin postoji, ali nema jasne upute što smije i ne smije napraviti",
     ],
   },
 ]
@@ -895,6 +1072,30 @@ for (const guideCheck of focusedGuideChecks) {
     assertIncludes(guideCheck.path, html, expected, `guide copy: ${expected}`)
   }
 }
+
+assertArrayEquals(
+  "vodici/svaki-euro-ima-namjenu/index.html",
+  anchorTextsByDataLink(
+    readFile("vodici/svaki-euro-ima-namjenu/index.html"),
+    "next-guide"
+  ),
+  ["Što je stvarni višak?"],
+  "next guide link text is title only"
+)
+
+assertArrayEquals(
+  "vodici/dug-ili-bitcoin/index.html",
+  anchorTextsByDataLink(
+    readFile("vodici/dug-ili-bitcoin/index.html"),
+    "related-guide"
+  ),
+  [
+    "Dug je budući novac koji ste već potrošili",
+    "Ne zadužujte se za Bitcoin",
+    "Što je stvarni višak?",
+  ],
+  "related guide link text is title only"
+)
 
 const sitemap = readFile("sitemap.xml")
 const sitemapUrls = [
@@ -909,7 +1110,13 @@ assertArrayEquals(
   "sitemap URLs match route canonicals"
 )
 
-for (const route of ["/", "/razgovor/", "/vodici/", "/sigurnost/"]) {
+for (const route of [
+  "/",
+  "/razgovor/",
+  "/bitcoin-jasnoca/",
+  "/vodici/",
+  "/sigurnost/",
+]) {
   assertIncludes(
     "sitemap.xml",
     sitemap,

@@ -113,20 +113,20 @@ export function GuidesIndex() {
               Ovih sedam vodiča daje najkraći put kroz metodu. Ostali tekstovi
               su dodatne bilješke za dublje čitanje.
             </p>
+            <p className="mt-3 text-base leading-8 text-muted-foreground">
+              Ako niste sigurni gdje krenuti, krenite od proračuna. Ako vas
+              konkretno muči odluka, dug, sigurnost ili obitelj, možete
+              preskočiti na vodič koji se odnosi na vaše pitanje.
+            </p>
           </div>
 
           <ol className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {primaryGuides.map((guide, index) => (
+            {primaryGuides.map((guide) => (
               <li key={guide.slug}>
                 <article className="flex h-full flex-col rounded-2xl border border-border/80 bg-card p-5 text-foreground shadow-sm transition-colors hover:border-primary/50">
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
-                      {index + 1}
-                    </span>
-                    <span className="text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
-                      {guide.category}
-                    </span>
-                  </div>
+                  <p className="text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
+                    {guide.category}
+                  </p>
                   <h3 className="mt-5 text-xl leading-tight font-semibold tracking-[-0.01em]">
                     <a
                       href={guide.href}
@@ -196,8 +196,8 @@ export function GuidesIndex() {
             Želite primijeniti okvir na vlastitu situaciju?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
-            Vodiči objašnjavaju okvir. Uvodni razgovor pokazuje gdje ga prvo
-            treba primijeniti kod vas.
+            Vodiči objašnjavaju okvir. Uvodni razgovor pomaže vidjeti koji dio
+            okvira je za vas trenutno najvažniji.
           </p>
           <Button
             asChild

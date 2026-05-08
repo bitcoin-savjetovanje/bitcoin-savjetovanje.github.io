@@ -1,6 +1,10 @@
 const baseUrl = "https://bitcoin-savjetovanje.com"
 const bookingUrl = "https://cal.com/btcpavao/uvodni-poziv"
 const representativeGuidePath = "/vodici/stvarni-visak/"
+const debtChoiceGuidePath = "/vodici/dug-ili-bitcoin/"
+const bitcoinMoneyGuidePath = "/vodici/bitcoin-kao-novac/"
+const thirdsGuidePath = "/vodici/pravilo-trecina/"
+const familyGuidePath = "/vodici/obiteljski-pristup-bitcoinu/"
 const securityGuidePath = "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"
 const failures = []
 
@@ -25,6 +29,19 @@ const forbiddenVisibleText = [
   "najvažnije prigovore",
   "glupu grešku",
   "partner ili obitelj nije uvjerena",
+  "dogovorite 15-minutni uvodni razgovorpogledajte",
+  "1. 1 proračun",
+  "2. 2 dug",
+  "neuređenog eura",
+  "manje je glume",
+  "psihološko-duhovna stanja",
+  "duh ropstva",
+  "duhovno se gušite",
+  "gorak lijek",
+  "svake kune",
+  "ne povećavam bitcoin odluke",
+  "crvena zastava",
+  "vidimo ima li smisla za vas",
   "početne riječi",
   "početnih riječi",
   "jedna točka kvara",
@@ -41,11 +58,17 @@ const pageChecks = [
       "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
       "Dođite s bilo kojim Bitcoin pitanjem.",
       "U 15 minuta vidimo što prvo treba razjasniti",
-      "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji sljedeći korak ima smisla.",
+      "postoji li konkretan način da pomognem",
+      "što još nije jasno u Bitcoin tezi",
+      "Ne morate unaprijed znati je li vaše pitanje dovoljno veliko",
+      "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman.",
+      "Ako nakon uvodnog razgovora postoji konkretan način da pomognem",
       "Bitcoin jasnoća",
+      "Krenite od uvodnog razgovora",
       "Vaš Bitcoin ostaje vaš.",
       "Bez zahtjeva za seed phrase.",
       "Seed phrase se nikada ne dijeli.",
+      "razgovor treba odmah prekinuti",
       "Dobijete iskrenu procjenu.",
       "Ako plaćeni nastavak nije koristan za vašu situaciju, reći ću vam to otvoreno.",
       "Nekome treba razjasniti jedan dio Bitcoin teze koji još nije dovoljno čvrst.",
@@ -56,14 +79,14 @@ const pageChecks = [
       "ne čuvam vaš Bitcoin",
       "ne tražim seed phrase ili privatne ključeve",
       "Praktični Bitcoin standard je radni okvir iza mog savjetovanja.",
-      "Vodiči objašnjavaju moj okvir. Razgovor ga primjenjuje na vašu situaciju.",
+      "Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju.",
       "Dogovorite 15-minutni uvodni razgovor",
       'href="#pitanja"',
       'data-cta="hero-questions"',
       "Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku.",
       "što vas najviše brine",
       "što još nedostaje za mirniju odluku",
-      "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak imao smisla.",
+      "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman.",
       "Dobivate jasniju sliku što je stvarna prepreka odluci",
     ],
     textMustNotInclude: [
@@ -88,8 +111,12 @@ const pageChecks = [
       "što prvo treba razjasniti",
       "Prije razgovora razmislite o jednom glavnom pitanju.",
       "Dobra pitanja za uvodni razgovor zvuče ovako",
+      "Što se može dogoditi nakon razgovora?",
+      "sljedeći korak može biti Bitcoin jasnoća",
+      "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
       "Spremni za uvodni razgovor?",
       "Odaberite termin i dođite s jednim stvarnim pitanjem.",
+      "Ako postoji konkretan način da pomognem, dogovorit ćemo sljedeći korak.",
       "Imam Bitcoin, ali partner ili obitelj još nisu sigurni.",
       "Brine me sigurnost i ne želim pogriješiti s čuvanjem Bitcoina.",
       "Ne šaljite seed phrase, privatne ključeve, lozinke",
@@ -106,8 +133,23 @@ const pageChecks = [
     ],
   },
   {
+    path: "/bitcoin-jasnoca/",
+    includes: [
+      "Bitcoin jasnoća",
+      "200 €",
+      "jedan dubinski razgovor",
+      "Krenite od uvodnog razgovora",
+      "ne tražim seed phrase",
+      "ne prognoziram cijenu",
+      "ne upravljam vašim sredstvima",
+    ],
+  },
+  {
     path: "/sigurnost/",
     includes: [
+      "Dobar sigurnosni okvir ima dva cilja.",
+      "nitko ne smije dobiti kontrolu nad vašim Bitcoinom bez vašeg znanja",
+      "vaša obitelj ne smije ostati potpuno izgubljena",
       "seed phrase — 12 ili 24 riječi za oporavak novčanika",
       "privatne ključeve",
       "lozinke",
@@ -116,6 +158,7 @@ const pageChecks = [
       "kako složiti oporavak tako da ne ovisi o jednoj osobi, uređaju ili lokaciji",
       "ne tražim seed phrase ni privatne ključeve",
       "Za rad nije potrebno dijeliti seed phrase",
+      "Razgovarajmo o sigurnosti bez predaje kontrole",
     ],
     includesAny: [
       [
@@ -126,7 +169,12 @@ const pageChecks = [
   },
   {
     path: "/vodici/",
-    includes: ["Vodiči", 'data-link="guide-card"'],
+    includes: [
+      "Vodiči",
+      'data-link="guide-card"',
+      "Ako niste sigurni gdje krenuti, krenite od proračuna.",
+      "Uvodni razgovor pomaže vidjeti koji dio okvira je za vas trenutno najvažniji.",
+    ],
     includesAny: [
       [
         "Želite primijeniti okvir na vlastitu situaciju?",
@@ -144,6 +192,35 @@ const pageChecks = [
       'href="/razgovor/"',
       "Vodič objašnjava okvir",
       "Dogovorite uvodni razgovor",
+      "Drugim riječima, stvarni višak je novac bez druge namjene",
+      "Manje je nagađanja",
+    ],
+  },
+  {
+    path: debtChoiceGuidePath,
+    includes: [
+      "Težak, ali čistiji put",
+      "Ako imate dug i niste sigurni treba li prvo čistiti bilancu ili nastaviti s Bitcoinom",
+    ],
+  },
+  {
+    path: bitcoinMoneyGuidePath,
+    includes: [
+      "Ako ne možete objasniti sebi ili partneru je li Bitcoin za vas novac",
+    ],
+  },
+  {
+    path: thirdsGuidePath,
+    includes: [
+      "Ovo nije preporuka da kupujete ili prodajete određenu imovinu.",
+      "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu",
+    ],
+  },
+  {
+    path: familyGuidePath,
+    includes: [
+      "Minimalna obiteljska uputa",
+      "Ako obitelj zna da Bitcoin postoji, ali nema jasne upute što smije i ne smije napraviti",
     ],
   },
   {
@@ -152,6 +229,7 @@ const pageChecks = [
       "Sigurnost ne smije ovisiti samo o vama",
       "Seed phrase se nikada ne dijeli",
       "Nitko ne smije tražiti seed phrase",
+      "Za širi sigurnosni okvir pročitajte i sigurnosnu stranicu.",
     ],
   },
 ]
@@ -295,6 +373,7 @@ try {
   for (const expectedUrl of [
     `${baseUrl}/`,
     `${baseUrl}/razgovor/`,
+    `${baseUrl}/bitcoin-jasnoca/`,
     `${baseUrl}/vodici/`,
     `${baseUrl}/sigurnost/`,
   ]) {

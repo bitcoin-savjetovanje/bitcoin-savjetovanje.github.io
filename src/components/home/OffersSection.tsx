@@ -1,4 +1,4 @@
-import { CalendarDays, Check } from "lucide-react"
+import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
@@ -9,7 +9,7 @@ export function OffersSection() {
     <section id="ponude" className="section-shell section-muted">
       <div className="case-panel border-primary/25 bg-card">
         <SectionHeader
-          title="Ako nakon uvodnog razgovora postoji jasan sljedeći korak, postoje dva plaćena puta."
+          title="Ako nakon uvodnog razgovora postoji konkretan način da pomognem, postoje dva plaćena puta."
           copy="Uvodni razgovor služi tome da vidimo vrijedi li uopće raditi dublje. Ako vrijedi, plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
         />
         <div className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -53,6 +53,16 @@ export function OffersSection() {
                   {offer.cta}
                 </a>
               </Button>
+              {offer.detailLink ? (
+                <a
+                  href={offer.detailLink.href}
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                  data-link={offer.detailLink.dataLink}
+                >
+                  {offer.detailLink.label}
+                  <ArrowUpRight className="size-4" />
+                </a>
+              ) : null}
             </article>
           ))}
         </div>

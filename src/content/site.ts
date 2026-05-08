@@ -4,6 +4,7 @@ export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
 export const SECONDARY_CTA = "Pogledajte pitanja koja možemo proći"
 export const CONVERSATION_PATH = "/razgovor/"
+export const BITCOIN_CLARITY_PATH = "/bitcoin-jasnoca/"
 export const SITE_UPDATED_AT = "2026-05-08"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
@@ -27,6 +28,13 @@ export const conversationSeo = {
   description:
     "Dogovorite 15-minutni uvodni razgovor bez naknade i bez obveze. Dođite s Bitcoin pitanjem i vidite što prvo treba razjasniti.",
   canonical: `${SITE_URL}${CONVERSATION_PATH}`,
+}
+
+export const bitcoinClaritySeo = {
+  title: "Bitcoin jasnoća | Bitcoin Savjetovanje",
+  description:
+    "Jedan dubinski Bitcoin razgovor za ljude koji žele jasniju tezu, sigurnosni okvir i osobni sljedeći korak prije veće odluke.",
+  canonical: `${SITE_URL}${BITCOIN_CLARITY_PATH}`,
 }
 
 export const guidesIndexSeo = {

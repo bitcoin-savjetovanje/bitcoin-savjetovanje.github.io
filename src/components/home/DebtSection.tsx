@@ -31,8 +31,9 @@ export function DebtSection() {
           <div className="space-y-5 text-base leading-8 text-muted-foreground">
             <p>
               Dug nije samo financijska stavka u bilanci. Život u dugu i život
-              bez duga dva su različita psihološko-duhovna stanja. Jedno hrani
-              nemir, ropstvo i zbunjenost. Drugo hrani slobodu, mir i jasnoću.
+              bez duga dva su različita stanja odlučivanja. Jedno pojačava
+              nemir, osjećaj zarobljenosti i zbunjenost. Drugo jača slobodu, mir
+              i jasnoću.
             </p>
             <p className="text-xl leading-8 font-semibold text-foreground">
               Vrijeme zalijeva stanje u kojem živite.

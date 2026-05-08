@@ -23,7 +23,7 @@ export function GivingSection() {
       <div className="case-panel">
         <SectionHeader
           title="Davanje dolazi nakon života bez duga."
-          copy="Prvo prestajete hraniti duh ropstva, nemira i zbunjenosti. Tek tada gradite praksu davanja."
+          copy="Prvo smanjujete osjećaj zarobljenosti, nemira i zbunjenosti. Tek tada gradite praksu davanja."
         />
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-start">
           <div className="space-y-5 text-base leading-8 text-muted-foreground">

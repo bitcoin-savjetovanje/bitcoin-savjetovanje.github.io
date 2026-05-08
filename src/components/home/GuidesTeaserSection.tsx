@@ -15,7 +15,7 @@ export function GuidesTeaserSection() {
     <section id="vodici" className="section-shell section-muted">
       <SectionHeader
         title="Želite prvo čitati?"
-        copy="Vodiči objašnjavaju moj okvir. Razgovor ga primjenjuje na vašu situaciju."
+        copy="Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju."
       />
       <ul className="mt-8 grid list-none gap-4 md:grid-cols-2 xl:grid-cols-5">
         {teaserGuides.map((guide) => (

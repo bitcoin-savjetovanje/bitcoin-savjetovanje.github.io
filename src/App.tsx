@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta"
 import { Button } from "@/components/ui/button"
+import { BitcoinClarity } from "@/pages/BitcoinClarity"
 import { Conversation } from "@/pages/Conversation"
 import { Guide } from "@/pages/Guide"
 import { GuidesIndex } from "@/pages/GuidesIndex"
@@ -43,6 +44,10 @@ function Route({ path }: { path: string }) {
 
   if (path === "/razgovor") {
     return <Conversation />
+  }
+
+  if (path === "/bitcoin-jasnoca") {
+    return <BitcoinClarity />
   }
 
   if (path.startsWith("/vodici/")) {

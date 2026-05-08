@@ -157,7 +157,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
           ) : null}
           <div className="mt-14 rounded-2xl border border-border/80 bg-card p-6 shadow-sm">
             <h2 className="text-2xl font-semibold">
-              Želite primijeniti okvir na svoju situaciju?
+              Želite ovo primijeniti na svoju situaciju?
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
               Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti gdje se taj

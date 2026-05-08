@@ -43,7 +43,7 @@ export const questionGroups = [
   {
     title: "Osobna situacija",
     questions: [
-      "Koliko državnog novca ostaviti?",
+      "Koliko eura ili drugog državnog novca ostaviti?",
       "Što ako imam dug?",
       "Što ako imam nekretninu, posao, mirovinsku štednju ili drugu imovinu?",
       "Kako znati koji je novac stvarno slobodan za Bitcoin odluku?",
@@ -63,7 +63,7 @@ export const questionGroups = [
 export const introCallSteps = [
   {
     title: "Kažete mi koju odluku pokušavate donijeti.",
-    copy: "Možda razmišljate o većoj Bitcoin izloženosti. Možda imate pitanje o dugu. Možda vas muči sigurnost. Možda želite objasniti Bitcoin obitelji.",
+    copy: "Možda razmišljate o većoj ulozi Bitcoina u svojoj imovini. Možda imate pitanje o dugu. Možda vas muči sigurnost. Možda želite objasniti Bitcoin obitelji.",
   },
   {
     title: "Postavim nekoliko pitanja da vidim što zapravo nedostaje.",
@@ -71,7 +71,7 @@ export const introCallSteps = [
   },
   {
     title: "Dobijete sljedeći razuman korak.",
-    copy: "Možda je dovoljan jedan plaćeni dubinski razgovor. Možda ima smisla cijeli program. Možda vam sada ne treba ništa od toga.",
+    copy: "Na kraju znate ima li smisla stati, uzeti jedan dubinski razgovor ili graditi puni osobni Bitcoin standard.",
   },
   {
     title: "Ako ne mogu pomoći, reći ću vam.",

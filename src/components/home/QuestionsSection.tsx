@@ -30,8 +30,8 @@ export function QuestionsSection() {
       <div className="mt-8 rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6">
         <p className="max-w-4xl text-base leading-8 text-muted-foreground">
           Uvodni razgovor ne služi tome da u 15 minuta riješimo sve. Služi tome
-          da nađemo glavni čvor. Ako mogu pomoći, predložit ću plaćeni sljedeći
-          korak. Ako ne mogu, reći ću vam to otvoreno.
+          da prepoznamo što prvo treba razjasniti. Ako mogu pomoći, predložit ću
+          plaćeni sljedeći korak. Ako ne mogu, reći ću vam to otvoreno.
         </p>
         <Button asChild className="cta-primary mt-6 rounded-full">
           <a

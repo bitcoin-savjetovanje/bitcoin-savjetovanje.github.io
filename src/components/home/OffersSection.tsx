@@ -29,6 +29,11 @@ export function OffersSection() {
                   {offer.duration}
                 </p>
               ) : null}
+              {offer.badge ? (
+                <p className="mt-3 inline-flex rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                  {offer.badge}
+                </p>
+              ) : null}
               <p>{offer.detail}</p>
               <ul className="mt-6 grid gap-3 text-base leading-7 text-muted-foreground">
                 {offer.includes.map((item) => (

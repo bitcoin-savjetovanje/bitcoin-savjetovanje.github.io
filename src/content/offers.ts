@@ -11,6 +11,7 @@ export type Offer = {
   cta: string
   href: string
   dataCta: string
+  badge?: string
 }
 
 export const offers: Offer[] = [
@@ -18,11 +19,11 @@ export const offers: Offer[] = [
     title: "Uvodni razgovor",
     price: "0 €",
     duration: "15 minuta",
-    forWhom: "Za prvo pitanje ili odluku koja vas koči.",
+    forWhom: "Za prvo pitanje ili odluku koju želite razjasniti.",
     detail:
-      "Prvi kontakt bez naknade i bez obveze. Kažete gdje ste zapeli, ja postavim nekoliko pitanja i predložim razuman sljedeći korak.",
+      "Prvi kontakt bez naknade i bez obveze. Kažete što pokušavate odlučiti, ja postavim nekoliko pitanja i predložim razuman sljedeći korak.",
     purpose:
-      "Kažete gdje ste zapeli, prepoznamo glavni čvor i vidimo ima li smisla nastaviti plaćeno.",
+      "Kažete gdje ste sada, prepoznamo što prvo treba razjasniti i vidimo ima li smisla nastaviti plaćeno.",
     includes: [
       "Za jedno glavno pitanje ili odluku",
       "Bez slanja osjetljivih podataka",
@@ -43,7 +44,7 @@ export const offers: Offer[] = [
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
-      "Odgovori na glavna pitanja koja vas koče",
+      "Odgovori na glavna pitanja koja želite razjasniti",
       "Razjašnjenje Bitcoin teze na jeziku koji možete ponoviti drugima",
       "Pregled prepreka: dug, proračun, sigurnost, obitelj, nejasna imovina",
       "Jasniji okvir za vlastitu odluku o ulozi Bitcoina",
@@ -52,6 +53,7 @@ export const offers: Offer[] = [
     cta: "Prvo dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
     dataCta: "offer-bitcoin-jasnoca",
+    badge: "Prvi plaćeni korak",
   },
   {
     title: "Osobni Bitcoin standard",

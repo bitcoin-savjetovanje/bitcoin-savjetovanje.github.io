@@ -32,6 +32,9 @@ Nakon live deploya, opcionalna mrežna provjera:
 npm run verify:live
 ```
 
+Ove provjere ne koriste browser automation, Lighthouse, Playwright, Puppeteer
+ni Chrome headless.
+
 ## Content map
 
 Sadržaj početne stranice:
@@ -55,6 +58,7 @@ Prerender:
 
 - `scripts/prerender.mjs`
 - `scripts/verify-dist.mjs`
+- `scripts/verify-live.mjs`
 
 ## Routes
 

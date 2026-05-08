@@ -4,7 +4,7 @@ export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
 export const SECONDARY_CTA = "Pogledajte pitanja koja možemo proći"
 export const CONVERSATION_PATH = "/razgovor/"
-export const SITE_UPDATED_AT = "2026-05-07"
+export const SITE_UPDATED_AT = "2026-05-08"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
@@ -18,14 +18,14 @@ export const TWENTYONE_URL = "https://twentyone.world"
 export const homeSeo = {
   title: "Bitcoin Savjetovanje | Uvodni Bitcoin razgovor",
   description:
-    "Dođite s Bitcoin pitanjem koje vas koči. U 15 minuta vidimo gdje ste zapeli i ima li smisla nastaviti plaćeno.",
+    "Jedan-na-jedan Bitcoin savjetovanje za ljude koji žele razjasniti cijenu, rizik, dug, sigurnost, obitelj ili ulogu Bitcoina u vlastitoj imovini.",
   canonical: `${SITE_URL}/`,
 }
 
 export const conversationSeo = {
   title: "Uvodni Bitcoin razgovor | Bitcoin Savjetovanje",
   description:
-    "Dogovorite 15-minutni uvodni razgovor bez naknade i bez obveze. Dođite s Bitcoin pitanjem koje vas koči i vidite ima li smisla nastaviti plaćeno.",
+    "Dogovorite 15-minutni uvodni razgovor bez naknade i bez obveze. Dođite s Bitcoin pitanjem i vidite što prvo treba razjasniti.",
   canonical: `${SITE_URL}${CONVERSATION_PATH}`,
 }
 

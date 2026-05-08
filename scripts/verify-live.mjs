@@ -1,167 +1,104 @@
 const baseUrl = "https://bitcoin-savjetovanje.com"
+const bookingUrl = "https://cal.com/btcpavao/uvodni-poziv"
+const representativeGuidePath = "/vodici/stvarni-visak/"
 const failures = []
-const words = (...parts) => parts.join(" ")
 
 const forbiddenVisibleText = [
-  words("Bitcoin kao novac,", "kapital i potrošnja"),
-  words("dugoročnog", "kapitala"),
-  "proračun nulte razine",
-  "Strukturirani program",
-  "Savjetodavni razgovor",
-  words("Bitcoin kao", "kapital"),
   "crypto",
-  "ROI",
+  "roi",
+  "lead magnet",
+  "signal za kupnju",
+  "signal za prodaju",
   "custody",
   "self-custody",
   "cash balance",
   "stack",
-  "lead magnet",
-  "charity",
-  "giving",
-  "umjesto nas",
-  "ne potpisujem transakcije za nas",
-  "Kontrola ostaje kod nas",
-  "kontrola ostaje kod nas",
-  "Provjera traje",
-  "dogovorite provjeru",
-  "Dogovorite provjeru",
-  "Krenite s ova tri vodiča",
-  "Razina 1",
-  "Razina 2",
-  "Razina 3",
-  "Svi vodiči po području",
-  "Darivanje",
-  "darivanje",
-  "fair value",
-  "undervalued",
-  "overvalued",
-  "signal za kupnju",
-  "signal za prodaju",
-  "Ako je iza",
-  words("dobar", "dug"),
-  words("jeftin", "dug"),
-  words("pametno", "zaduživanje"),
-  words("optimizacija", "duga"),
-  words("upravljanje", "dugom"),
-  words("kredit kao", "alat"),
-  words("dug se može", "isplatiti"),
-  words("ako je prinos veći od", "kamate"),
-  words("ulaganje u Bitcoin", "kreditom"),
+  "ulaganje u bitcoin kreditom",
+  "ako je prinos veći od kamate",
+  "pametno zaduživanje",
+  "dobar dug",
+  "jeftin dug",
 ]
 
 const pageChecks = [
   {
     path: "/",
     includes: [
-      "Imate Bitcoin. Sada trebate pravila.",
-      "Bitcoin standard se vidi kad dođe pritisak.",
-      "Metoda je šira od kupnje Bitcoina.",
-      "U 15 minuta vidimo gdje sustav najviše škripi.",
-      "Osobni Bitcoin standard je dokument s pravilima.",
-      "Cijena kao mjera vremena",
-      "Od kratke provjere do pisanog standarda",
-      "Izgradnja osobnog Bitcoin standarda",
-      "Vaš Bitcoin ostaje pod vašom kontrolom.",
-      "Ne pomažem vam postaviti teoriju koju nisam živio.",
-      "Želite prvo čitati?",
-      "Provjerite gdje ste u odnosu na osobni Bitcoin standard.",
-      "Dubinska provjera osobnog Bitcoin standarda",
-      "Je li ovo financijsko savjetovanje?",
-      "Moram li već imati Bitcoin?",
-      "Hoćete li upravljati mojim sredstvima?",
+      "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
+      "Dođite s bilo kojim Bitcoin pitanjem.",
+      "U 15 minuta vidimo što prvo treba razjasniti",
+      "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji sljedeći korak ima smisla.",
+      "Bitcoin jasnoća",
+      "Vaš Bitcoin ostaje vaš.",
+      "Praktični Bitcoin standard je radni okvir iza mog savjetovanja.",
+      "Vodiči objašnjavaju moj okvir. Razgovor ga primjenjuje na vašu situaciju.",
       "Dogovorite 15-minutni uvodni razgovor",
+    ],
+    textMustNotInclude: [
+      "razgovorPogledajte",
+      "pravilaDogovorite",
+      "vodičePrimijenite",
+      "još nije sjelo",
+      "glavni čvor",
+      "gdje ste zapeli",
+      "Tražimo gdje je čvor",
+      "pitanje koje vas koči",
     ],
   },
   {
-    path: "/vodici/",
+    path: "/razgovor/",
     includes: [
-      "Vodiči za osobni Bitcoin standard",
-      "Ne morate pročitati sve. Vodiči su mapa metode",
-      "Krenite redom",
-      "Davanje mijenja vaš odnos prema novcu",
-      "Cijena kao mjera vremena",
-      "Bitcoin i ravnoteža neto imovine",
-      "Sigurnost i obiteljski plan",
-      "Dodatne bilješke",
-      "Želite primijeniti okvir na vlastitu situaciju?",
       "Dogovorite 15-minutni uvodni razgovor",
+      "Razgovor je bez naknade i bez obveze.",
+      "što prvo treba razjasniti",
+      "Prije razgovora razmislite o jednom glavnom pitanju.",
+      "Dobra pitanja za uvodni razgovor zvuče ovako",
+      "Otvorite kalendar i odaberite termin",
+      bookingUrl,
+    ],
+    textMustNotInclude: [
+      "još nije sjelo",
+      "glavni čvor",
+      "gdje ste zapeli",
+      "Tražimo gdje je čvor",
+      "pitanje koje vas koči",
     ],
   },
   {
     path: "/sigurnost/",
     includes: [
-      "Bitcoin mora ostati pod vašom kontrolom",
       "početne riječi",
       "privatne ključeve",
+      "lozinke",
       "ne čuvam Bitcoin",
-      "što obitelj smije napraviti",
+    ],
+    includesAny: [
+      [
+        "Bitcoin mora ostati pod vašom kontrolom",
+        "Kontrola ostaje kod vas",
+      ],
     ],
   },
   {
-    path: "/vodici/dug-je-buduci-novac/",
-    includes: ["Dug je budući novac koji ste već potrošili"],
-  },
-  {
-    path: "/vodici/dug-ili-bitcoin/",
-    includes: ["Dug ili Bitcoin?"],
-  },
-  {
-    path: "/vodici/ne-zaduzujte-se-za-bitcoin/",
-    includes: ["Ne zadužujte se za Bitcoin"],
-  },
-  {
-    path: "/vodici/davanje-u-proracunu-nulte-osnove/",
-    includes: ["Davanje mijenja vaš odnos prema novcu"],
-  },
-  {
-    path: "/vodici/davanje-bez-duga/",
-    includes: ["Davanje bez duga"],
-  },
-  {
-    path: "/vodici/uskladivanje-kupovne-moci-bitcoina/",
-    includes: ["Kada kupovna moć pada", "Kada kupovna moć raste"],
-  },
-  {
-    path: "/vodici/cijena-kao-mjera-vremena/",
-    includes: [
-      "Cijena kao mjera vremena",
-      "Ispod trenda: manja potrošnja i veći priljevi",
+    path: "/vodici/",
+    includes: ["Vodiči"],
+    includesAny: [
+      [
+        "Želite primijeniti okvir na vlastitu situaciju?",
+        "Želite ovo primijeniti na svoju situaciju?",
+      ],
+      [
+        "Dogovorite 15-minutni uvodni razgovor",
+        "Dogovorite uvodni razgovor",
+      ],
     ],
   },
   {
-    path: "/vodici/kredit-je-buduci-novac/",
+    path: representativeGuidePath,
     includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/dug-je-buduci-novac/" />',
-    ],
-  },
-  {
-    path: "/vodici/kredit-ili-bitcoin/",
-    includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/dug-ili-bitcoin/" />',
-    ],
-  },
-  {
-    path: "/vodici/ne-uzimajte-kredit-za-bitcoin/",
-    includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/ne-zaduzujte-se-za-bitcoin/" />',
-    ],
-  },
-  {
-    path: "/vodici/sustavno-davanje-u-proracunu-nulte-razine/",
-    includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/davanje-u-proracunu-nulte-osnove/" />',
-    ],
-  },
-  {
-    path: "/vodici/sustavno-davanje-bez-kredita/",
-    includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/davanje-bez-duga/" />',
-    ],
-  },
-  {
-    path: "/vodici/davanje-u-proracunu/",
-    includes: [
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/davanje-u-proracunu-nulte-osnove/" />',
+      'href="/razgovor/"',
+      "Vodič objašnjava okvir",
+      "Dogovorite uvodni razgovor",
     ],
   },
 ]
@@ -189,28 +126,95 @@ async function fetchText(url) {
   return response.text()
 }
 
+function textWithoutTags(contents) {
+  return contents
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+}
+
+function canonicalFromHtml(contents) {
+  const match = contents.match(/<link rel="canonical" href="([^"]+)" \/>/)
+  return match?.[1] ?? ""
+}
+
+function assertIncludes(url, contents, expected) {
+  if (contents.includes(expected)) {
+    pass(`${url} contains ${expected}`)
+    return
+  }
+
+  fail(`${url} is missing ${expected}`)
+}
+
+function assertIncludesAny(url, contents, options) {
+  if (options.some((expected) => contents.includes(expected))) {
+    pass(`${url} contains one expected equivalent phrase`)
+    return
+  }
+
+  fail(`${url} is missing all equivalent phrases: ${options.join(" | ")}`)
+}
+
+function assertTextDoesNotInclude(url, text, forbidden) {
+  if (!text.includes(forbidden)) {
+    pass(`${url} visible text does not contain ${forbidden}`)
+    return
+  }
+
+  fail(`${url} visible text contains forbidden text: ${forbidden}`)
+}
+
+function assertCanonical(url, html, expectedCanonical) {
+  const canonical = canonicalFromHtml(html)
+
+  if (canonical === expectedCanonical) {
+    pass(`${url} canonical is ${expectedCanonical}`)
+  } else {
+    fail(
+      `${url} canonical is ${
+        canonical || "missing"
+      }, expected ${expectedCanonical}`
+    )
+  }
+
+  if (canonical.endsWith("/")) {
+    pass(`${url} canonical uses trailing slash`)
+  } else {
+    fail(`${url} canonical does not use trailing slash`)
+  }
+
+  return canonical
+}
+
+const pageCanonicals = []
+
 for (const check of pageChecks) {
   const url = `${baseUrl}${check.path}`
 
   try {
     const html = await fetchText(url)
+    const visibleText = textWithoutTags(html).toLowerCase()
     pass(`${url} returned HTTP 200`)
 
-    for (const expected of check.includes) {
-      if (html.includes(expected)) {
-        pass(`${url} contains ${expected}`)
-      } else {
-        fail(`${url} is missing ${expected}`)
-      }
+    for (const expected of check.includes ?? []) {
+      assertIncludes(url, html, expected)
+    }
+
+    for (const options of check.includesAny ?? []) {
+      assertIncludesAny(url, html, options)
+    }
+
+    for (const forbidden of check.textMustNotInclude ?? []) {
+      assertTextDoesNotInclude(url, textWithoutTags(html), forbidden)
     }
 
     for (const forbidden of forbiddenVisibleText) {
-      if (html.includes(forbidden)) {
-        fail(`${url} contains forbidden visible text: ${forbidden}`)
-      } else {
-        pass(`${url} does not contain forbidden visible text: ${forbidden}`)
-      }
+      assertTextDoesNotInclude(url, visibleText, forbidden)
     }
+
+    pageCanonicals.push(assertCanonical(url, html, `${baseUrl}${check.path}`))
   } catch (error) {
     fail(`${url} could not be verified: ${error.message}`)
   }
@@ -220,21 +224,36 @@ try {
   const sitemap = await fetchText(`${baseUrl}/sitemap.xml`)
   pass(`${baseUrl}/sitemap.xml returned HTTP 200`)
 
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+    (match) => match[1]
+  )
+
   for (const expectedUrl of [
     `${baseUrl}/`,
+    `${baseUrl}/razgovor/`,
     `${baseUrl}/vodici/`,
     `${baseUrl}/sigurnost/`,
-    `${baseUrl}/vodici/dug-je-buduci-novac/`,
-    `${baseUrl}/vodici/dug-ili-bitcoin/`,
-    `${baseUrl}/vodici/ne-zaduzujte-se-za-bitcoin/`,
-    `${baseUrl}/vodici/davanje-u-proracunu-nulte-osnove/`,
-    `${baseUrl}/vodici/davanje-bez-duga/`,
-    `${baseUrl}/vodici/uskladivanje-kupovne-moci-bitcoina/`,
   ]) {
-    if (sitemap.includes(`<loc>${expectedUrl}</loc>`)) {
+    if (sitemapUrls.includes(expectedUrl)) {
       pass(`sitemap contains ${expectedUrl}`)
     } else {
       fail(`sitemap is missing ${expectedUrl}`)
+    }
+  }
+
+  for (const canonical of pageCanonicals.filter(Boolean)) {
+    if (sitemapUrls.includes(canonical)) {
+      pass(`sitemap contains checked canonical ${canonical}`)
+    } else {
+      fail(`sitemap is missing checked canonical ${canonical}`)
+    }
+  }
+
+  for (const sitemapUrl of sitemapUrls) {
+    if (sitemapUrl.endsWith("/")) {
+      pass(`sitemap URL uses trailing slash: ${sitemapUrl}`)
+    } else {
+      fail(`sitemap URL does not use trailing slash: ${sitemapUrl}`)
     }
   }
 
@@ -246,7 +265,7 @@ try {
     `${baseUrl}/vodici/sustavno-davanje-bez-kredita/`,
     `${baseUrl}/vodici/davanje-u-proracunu/`,
   ]) {
-    if (sitemap.includes(`<loc>${removedUrl}</loc>`)) {
+    if (sitemapUrls.includes(removedUrl)) {
       fail(`sitemap still contains alias URL ${removedUrl}`)
     } else {
       pass(`sitemap does not contain alias URL ${removedUrl}`)

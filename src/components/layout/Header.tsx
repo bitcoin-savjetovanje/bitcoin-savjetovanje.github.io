@@ -6,13 +6,6 @@ import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
 import { CONVERSATION_PATH } from "@/content/site"
 
-const tabletNavLinks = [
-  { label: "Pitanja", href: "/#pitanja" },
-  { label: "Program", href: "/#ponude" },
-  { label: "Sigurnost", href: "/sigurnost/" },
-  { label: "Razgovor", href: "/razgovor/" },
-]
-
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const isDark = theme === "dark"
@@ -69,35 +62,26 @@ export function Header() {
           Bitcoin Savjetovanje
         </a>
 
-        <nav className="hidden items-center gap-6 xl:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm whitespace-nowrap text-muted-foreground hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <nav className="hidden items-center gap-5 lg:flex xl:hidden">
-          {tabletNavLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm whitespace-nowrap text-muted-foreground hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden lg:block" aria-label="Glavna navigacija">
+          <ul className="flex list-none items-center gap-3 xl:gap-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-xs whitespace-nowrap text-muted-foreground hover:text-foreground xl:text-sm"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         <div className="flex items-center gap-2">
           <Button
             asChild
             size="lg"
-            className="cta-primary hidden rounded-full px-5 xl:inline-flex"
+            className="cta-primary hidden rounded-full px-4 text-sm lg:inline-flex xl:px-5"
           >
             <a href={CONVERSATION_PATH} data-cta="header-intro-call">
               <CalendarDays className="size-4" />

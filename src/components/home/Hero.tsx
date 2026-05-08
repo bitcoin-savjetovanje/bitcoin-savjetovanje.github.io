@@ -13,7 +13,8 @@ export function Hero() {
             Bitcoin Savjetovanje jedan-na-jedan
           </p>
           <h1 className="hero-title mt-4">
-            Prije veće Bitcoin odluke, razjasnite ono što vam još nije sjelo.
+            Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu
+            situaciju.
           </h1>
           <p className="hero-subtitle">
             Jedan-na-jedan razgovor za ljude koji vide da je Bitcoin važan, ali
@@ -21,8 +22,8 @@ export function Hero() {
             ulozi Bitcoina u vlastitoj imovini.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Dođite s bilo kojim Bitcoin pitanjem. U 15 minuta vidimo gdje ste
-            zapeli i ima li smisla nastaviti plaćeno.
+            Dođite s bilo kojim Bitcoin pitanjem. U 15 minuta vidimo što prvo
+            treba razjasniti i ima li smisla nastaviti plaćeno.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
@@ -39,7 +40,7 @@ export function Hero() {
                 <CalendarDays className="size-4" />
                 {PRIMARY_CTA}
               </a>
-            </Button>
+            </Button>{" "}
             <Button
               asChild
               variant="outline"

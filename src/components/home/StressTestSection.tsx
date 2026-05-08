@@ -16,6 +16,10 @@ export function StressTestSection() {
             <br />
             Zato razgovor može vrijediti više od još deset sati samostalnog
             istraživanja.
+            <br />
+            <br />
+            Ne zato što razgovor zamjenjuje učenje, nego zato što učenje mora
+            doći do vaše konkretne odluke.
           </>
         }
       />

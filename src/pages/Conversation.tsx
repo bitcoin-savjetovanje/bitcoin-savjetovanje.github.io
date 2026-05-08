@@ -12,10 +12,18 @@ const preparationQuestions = [
   "Je li prepreka razumijevanje Bitcoina, osobna financijska situacija, sigurnost ili obitelj?",
 ]
 
+const exampleQuestions = [
+  "Razmišljam treba li Bitcoin imati veću ulogu u mojoj imovini, ali ne znam odakle krenuti.",
+  "Imam Bitcoin, ali partner ili obitelj nije uvjerena.",
+  "Ne znam koliko eura ili drugog državnog novca ostaviti.",
+  "Brine me sigurnost i ne želim napraviti glupu grešku.",
+  "Razumijem Bitcoin djelomično, ali još nemam tezu koju mogu mirno objasniti drugima.",
+]
+
 const conversationSteps = [
   "Kažete gdje ste sada.",
   "Prođemo glavno pitanje.",
-  "Vidimo što nedostaje.",
+  "Vidimo što prvo treba razjasniti.",
   "Dogovorimo sljedeći korak ili stanemo.",
 ]
 
@@ -66,8 +74,26 @@ export function Conversation() {
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Razgovor je bez naknade i bez obveze. Cilj nije da u 15 minuta
-            riješimo cijeli Bitcoin plan, nego da vidimo gdje ste zapeli i ima
-            li smisla nastaviti.
+            riješimo cijeli Bitcoin plan, nego da vidimo što prvo treba
+            razjasniti i ima li smisla nastaviti.
+          </p>
+        </header>
+
+        <section className="mt-10 max-w-4xl rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">
+            Dobra pitanja za uvodni razgovor zvuče ovako:
+          </h2>
+          <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
+            {exampleQuestions.map((question) => (
+              <li key={question} className="flex gap-3">
+                <Check className="positive-icon mt-1 size-4 shrink-0" />
+                <span>{question}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-base leading-7 font-medium text-foreground">
+            Ne morate doći pripremljeni kao stručnjak. Dovoljno je da dođete s
+            jednim stvarnim pitanjem.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button
@@ -85,7 +111,7 @@ export function Conversation() {
                 <CalendarDays className="size-4" />
                 Otvorite kalendar i odaberite termin
               </a>
-            </Button>
+            </Button>{" "}
             <Button
               asChild
               variant="outline"
@@ -101,7 +127,7 @@ export function Conversation() {
               </a>
             </Button>
           </div>
-        </header>
+        </section>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <section className="case-panel">
@@ -113,12 +139,9 @@ export function Conversation() {
 
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Kako razgovor izgleda</h2>
-            <ol className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
-              {conversationSteps.map((step, index) => (
-                <li key={step} className="flex gap-3">
-                  <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full border border-primary/25 bg-primary/10 text-xs font-semibold text-primary">
-                    {index + 1}
-                  </span>
+            <ol className="mt-5 list-decimal space-y-3 pl-5 text-base leading-7 text-muted-foreground marker:font-semibold marker:text-primary">
+              {conversationSteps.map((step) => (
+                <li key={step} className="pl-1">
                   <span>{step}</span>
                 </li>
               ))}

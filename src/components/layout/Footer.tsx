@@ -29,13 +29,13 @@ export function Footer() {
             data-link="footer-practical-bitcoin-standard"
           >
             Vodiči
-          </a>
+          </a>{" "}
           <a href={CONVERSATION_PATH} data-cta="footer-intro-call">
             Razgovor
-          </a>
+          </a>{" "}
           <a href="/sigurnost/" data-link="footer-security">
             Sigurnost
-          </a>
+          </a>{" "}
           <a
             href={DVADESET_JEDAN_URL}
             target="_blank"
@@ -43,7 +43,7 @@ export function Footer() {
             data-link="footer-dvadesetjedan"
           >
             DvadesetJedan
-          </a>
+          </a>{" "}
           <a href={`mailto:${EMAIL}`} data-link="footer-email">
             {EMAIL}
           </a>

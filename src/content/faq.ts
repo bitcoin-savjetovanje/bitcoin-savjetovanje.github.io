@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: "Mogu li doći samo s pitanjima o Bitcoinu?",
     answer:
-      "Da. Ako imate pitanje koje vas koči u razumijevanju ili odluci, uvodni razgovor može imati smisla. U 15 minuta vidimo je li dovoljno jednostavno za kratak odgovor ili treba dublji plaćeni razgovor.",
+      "Da. Ako imate pitanje koje vam još nije jasno ili utječe na vašu odluku, uvodni razgovor može imati smisla. U 15 minuta vidimo je li dovoljan kratak odgovor ili treba dublji plaćeni razgovor.",
   },
   {
     question: "Hoćete li mi reći koliko Bitcoina da kupim?",
@@ -48,6 +48,6 @@ export const faqs = [
   {
     question: "Što dobivam u uvodnom razgovoru?",
     answer:
-      "Dobivate jasniju sliku glavnog čvora: je li problem u Bitcoin tezi, osobnoj situaciji, dugu, sigurnosti, obitelji ili nečem drugom. Nakon toga predlažem razuman sljedeći korak ili kažem da trenutno nema smisla nastaviti.",
+      "Dobivate jasniju sliku onoga što prvo treba razjasniti: je li problem u Bitcoin tezi, osobnoj situaciji, dugu, sigurnosti, obitelji ili nečem drugom. Nakon toga predlažem razuman sljedeći korak ili kažem da trenutno nema smisla nastaviti.",
   },
 ]

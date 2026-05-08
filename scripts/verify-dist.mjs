@@ -92,6 +92,14 @@ function readFile(relativePath) {
   return fs.readFileSync(filePath(relativePath), "utf8")
 }
 
+function textWithoutTags(contents) {
+  return contents
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+}
+
 function htmlFiles(directory = distDir) {
   const entries = fs.readdirSync(directory, { withFileTypes: true })
   const files = []
@@ -242,6 +250,20 @@ const requiredFiles = [
 requiredFiles.forEach(assertFile)
 
 const forbiddenText = [
+  "crypto",
+  "ROI",
+  "lead magnet",
+  "signal za kupnju",
+  "signal za prodaju",
+  "custody",
+  "self-custody",
+  "cash balance",
+  "stack",
+  "ulaganje u Bitcoin kreditom",
+  "ako je prinos veći od kamate",
+  "pametno zaduživanje",
+  "dobar dug",
+  "jeftin dug",
   "pogađamo cijenu",
   "prognoziram cijenu",
   "pošaljite početne riječi",
@@ -249,8 +271,6 @@ const forbiddenText = [
   "pristup vašem novčaniku",
   "regulated investment advice",
   "asset management",
-  "custody",
-  "ROI",
   "trading signal",
   "trading signali",
 ]
@@ -258,11 +278,12 @@ const forbiddenText = [
 for (const absoluteHtmlPath of htmlFiles()) {
   const relativeHtmlPath = path.relative(distDir, absoluteHtmlPath)
   const html = fs.readFileSync(absoluteHtmlPath, "utf8")
+  const visibleText = textWithoutTags(html)
 
   for (const forbidden of forbiddenText) {
     assertNotIncludes(
       relativeHtmlPath,
-      html,
+      visibleText,
       forbidden,
       `forbidden text: ${forbidden}`
     )
@@ -270,11 +291,19 @@ for (const absoluteHtmlPath of htmlFiles()) {
 }
 
 const homeHtml = readFile("index.html")
+const homeText = textWithoutTags(homeHtml)
 const homeChecks = [
-  ["Prije veće Bitcoin odluke", "new hero title"],
+  [
+    "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
+    "new hero title",
+  ],
   ["Dođite s bilo kojim Bitcoin pitanjem", "hero supporting sentence"],
   [
-    "U 15 minuta ne rješavamo sve. Tražimo gdje je čvor.",
+    "U 15 minuta vidimo što prvo treba razjasniti",
+    "hero intro call framing",
+  ],
+  [
+    "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji sljedeći korak ima smisla.",
     "intro call title",
   ],
   ["Bitcoin jasnoća", "renamed 200 EUR offer"],
@@ -290,6 +319,10 @@ const homeChecks = [
   [
     "Pomažem vam razumjeti Bitcoin i vlastitu situaciju dovoljno jasno",
     "positioning sentence",
+  ],
+  [
+    "Dogovorite 15-minutni uvodni razgovor",
+    "primary intro call CTA copy",
   ],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   ['data-cta="hero-intro-call"', "hero CTA metadata"],
@@ -360,6 +393,40 @@ assertNotIncludes(
   'href="https://cal.com/btcpavao/uvodni-poziv"',
   "direct external booking link on homepage"
 )
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "razgovorPogledajte",
+  "joined hero CTA text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "pravilaDogovorite",
+  "joined security CTA text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "vodičePrimijenite",
+  "joined guides CTA text"
+)
+
+for (const awkwardPhrase of [
+  "još nije sjelo",
+  "glavni čvor",
+  "gdje ste zapeli",
+  "Tražimo gdje je čvor",
+  "pitanje koje vas koči",
+]) {
+  assertNotIncludes(
+    "index.html",
+    homeText,
+    awkwardPhrase,
+    `awkward public copy: ${awkwardPhrase}`
+  )
+}
+
 assertCount("index.html", homeHtml, '<link rel="canonical"', 1, "canonical tag")
 assertArrayEquals(
   "index.html",
@@ -384,7 +451,7 @@ assertBefore(
   "index.html",
   homeHtml,
   "U razgovor možete doći s bilo kojim Bitcoin pitanjem.",
-  "U 15 minuta ne rješavamo sve. Tražimo gdje je čvor.",
+  "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji sljedeći korak ima smisla.",
   "questions before intro call"
 )
 assertBefore(
@@ -407,6 +474,7 @@ if (!home) {
 }
 
 const conversationHtml = readFile("razgovor/index.html")
+const conversationText = textWithoutTags(conversationHtml)
 const conversationChecks = [
   [
     "Dogovorite 15-minutni uvodni razgovor",
@@ -415,6 +483,14 @@ const conversationChecks = [
   [
     "Otvorite kalendar i odaberite termin",
     "calendar CTA label",
+  ],
+  [
+    "što prvo treba razjasniti",
+    "conversation clarification framing",
+  ],
+  [
+    "Dobra pitanja za uvodni razgovor zvuče ovako",
+    "conversation example questions",
   ],
   [
     "https://cal.com/btcpavao/uvodni-poziv",
@@ -431,6 +507,21 @@ const conversationChecks = [
 
 for (const [expected, label] of conversationChecks) {
   assertIncludes("razgovor/index.html", conversationHtml, expected, label)
+}
+
+for (const awkwardPhrase of [
+  "još nije sjelo",
+  "glavni čvor",
+  "gdje ste zapeli",
+  "Tražimo gdje je čvor",
+  "pitanje koje vas koči",
+]) {
+  assertNotIncludes(
+    "razgovor/index.html",
+    conversationText,
+    awkwardPhrase,
+    `awkward public copy: ${awkwardPhrase}`
+  )
 }
 
 assertCount(
@@ -551,7 +642,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
-    "Želite primijeniti okvir na svoju situaciju?",
+    "Želite ovo primijeniti na svoju situaciju?",
     "guide final CTA title"
   )
   assertIncludes(

@@ -39,7 +39,7 @@ export function GuidesTeaserSection() {
         >
           Pogledajte vodiče
           <ArrowUpRight className="size-4" />
-        </a>
+        </a>{" "}
         <Button asChild variant="outline" className="rounded-full sm:ml-auto">
           <a
             href={CONVERSATION_PATH}

@@ -1,9 +1,10 @@
 import { CalendarDays, CircleHelp } from "lucide-react"
 
+import { CalBookingLink } from "@/components/CalBookingLink"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
 import { standardCheckQuestions } from "@/content/method"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { PRIMARY_CTA } from "@/content/site"
 
 export function StandardCheckSection() {
   return (
@@ -38,16 +39,13 @@ export function StandardCheckSection() {
             </p>
           </div>
           <Button asChild className="cta-primary w-full rounded-full sm:w-auto">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalBookingLink
               className="justify-center text-center"
               data-cta="test-standard-check"
             >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}
-            </a>
+            </CalBookingLink>
           </Button>
         </div>
       </div>

@@ -10,6 +10,7 @@ import {
   WalletCards,
 } from "lucide-react"
 
+import { CalBookingLink } from "@/components/CalBookingLink"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
 import {
@@ -17,7 +18,7 @@ import {
   type StandardArea,
   type StandardAreaVisualType,
 } from "@/content/standardAreas"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { PRIMARY_CTA } from "@/content/site"
 import { cn } from "@/lib/utils"
 
 function AreaIcon({ type }: { type: StandardAreaVisualType }) {
@@ -183,16 +184,13 @@ export function StandardAreasSection() {
             pomaže pretvoriti dojam u pravilo.
           </p>
           <Button asChild className="cta-primary w-full rounded-full sm:w-auto">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalBookingLink
               className="justify-center text-center"
               data-cta="standard-area-booking"
             >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}
-            </a>
+            </CalBookingLink>
           </Button>
         </div>
       </div>

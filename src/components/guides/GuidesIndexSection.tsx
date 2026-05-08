@@ -1,9 +1,10 @@
 import { CalendarDays } from "lucide-react"
 
+import { CalBookingLink } from "@/components/CalBookingLink"
 import { GuideCardsGrid } from "@/components/guides/GuideCardsGrid"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { PRIMARY_CTA } from "@/content/site"
 
 export function GuidesIndexSection() {
   return (
@@ -16,15 +17,10 @@ export function GuidesIndexSection() {
       <GuideCardsGrid />
       <div className="mt-10 text-center">
         <Button asChild className="cta-primary rounded-full">
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cta="guides-standard-check"
-          >
+          <CalBookingLink data-cta="guides-standard-check">
             <CalendarDays className="size-4" />
             {PRIMARY_CTA}
-          </a>
+          </CalBookingLink>
         </Button>
       </div>
     </section>

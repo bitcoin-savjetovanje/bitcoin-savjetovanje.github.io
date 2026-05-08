@@ -1,5 +1,7 @@
 export const SITE_URL = "https://bitcoin-savjetovanje.com"
 export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
+export const CAL_BOOKING_LINK = "btcpavao/uvodni-poziv"
+export const CAL_BOOKING_NAMESPACE = "uvodni-poziv"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
 export const SECONDARY_CTA = "Pogledajte pitanja koja možemo proći"

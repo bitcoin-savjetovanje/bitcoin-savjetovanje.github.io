@@ -138,6 +138,15 @@ function assertNotIncludes(relativePath, contents, expected, label = expected) {
   fail(`${relativePath} should not contain ${label}`)
 }
 
+function assertNotMatches(relativePath, contents, pattern, label = pattern.source) {
+  if (!pattern.test(contents)) {
+    pass(`${relativePath} does not match ${label}`)
+    return
+  }
+
+  fail(`${relativePath} should not match ${label}`)
+}
+
 function assertCount(relativePath, contents, expected, count, label = expected) {
   const actual = contents.split(expected).length - 1
 
@@ -830,6 +839,10 @@ const conversationChecks = [
     "https://cal.com/btcpavao/uvodni-poziv",
     "existing external booking URL",
   ],
+  ['data-cal-namespace="uvodni-poziv"', "Cal embed namespace"],
+  ['data-cal-link="btcpavao/uvodni-poziv"', "Cal embed link"],
+  ["data-cal-config=", "Cal embed config attribute"],
+  ["month_view", "Cal embed month view config"],
   ['data-cta="conversation-page-calendar"', "calendar CTA metadata"],
   ['data-cta="conversation-page-security"', "security CTA metadata"],
   ['data-link="conversation-bitcoin-clarity"', "Bitcoin clarity page link"],
@@ -851,6 +864,20 @@ const conversationChecks = [
 for (const [expected, label] of conversationChecks) {
   assertIncludes("razgovor/index.html", conversationHtml, expected, label)
 }
+
+assertCount(
+  "razgovor/index.html",
+  conversationHtml,
+  'data-cal-link="btcpavao/uvodni-poziv"',
+  2,
+  "Cal embed booking triggers"
+)
+assertNotMatches(
+  "razgovor/index.html",
+  conversationHtml,
+  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*target="_blank")[^>]*>/,
+  "Cal booking links opening in a new tab"
+)
 
 assertIncludes(
   "razgovor/index.html",

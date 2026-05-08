@@ -164,7 +164,18 @@ const pageChecks = [
       "Otvorite kalendar i odaberite termin",
       "Otvorit će se kalendar. Odaberite termin",
       'data-cta="conversation-page-final-calendar"',
+      'data-cal-namespace="uvodni-poziv"',
+      'data-cal-link="btcpavao/uvodni-poziv"',
+      "data-cal-config=",
+      "month_view",
       bookingUrl,
+    ],
+    htmlMustNotMatch: [
+      {
+        pattern:
+          /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*target="_blank")[^>]*>/,
+        label: "Cal booking links opening in a new tab",
+      },
     ],
     textMustNotInclude: [
       "još nije sjelo",
@@ -394,6 +405,15 @@ function assertHtmlDoesNotInclude(url, html, forbidden) {
   fail(`${url} HTML contains forbidden markup: ${forbidden}`)
 }
 
+function assertHtmlDoesNotMatch(url, html, pattern, label = pattern.source) {
+  if (!pattern.test(html)) {
+    pass(`${url} HTML does not match ${label}`)
+    return
+  }
+
+  fail(`${url} HTML matches forbidden markup: ${label}`)
+}
+
 function assertCanonical(url, html, expectedCanonical) {
   const canonical = canonicalFromHtml(html)
 
@@ -436,6 +456,10 @@ for (const check of pageChecks) {
 
     for (const forbidden of check.textMustNotInclude ?? []) {
       assertTextDoesNotInclude(url, textWithoutTags(html), forbidden)
+    }
+
+    for (const forbidden of check.htmlMustNotMatch ?? []) {
+      assertHtmlDoesNotMatch(url, html, forbidden.pattern, forbidden.label)
     }
 
     assertHtmlDoesNotInclude(url, html, 'alt="Image"')

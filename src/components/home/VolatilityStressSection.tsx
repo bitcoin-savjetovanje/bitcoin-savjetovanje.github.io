@@ -1,9 +1,10 @@
 import { CalendarDays, Check, TrendingDown, TrendingUp } from "lucide-react"
 
+import { CalBookingLink } from "@/components/CalBookingLink"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
 import { volatilityStressCards } from "@/content/method"
-import { BOOKING_URL, PRIMARY_CTA } from "@/content/site"
+import { PRIMARY_CTA } from "@/content/site"
 
 const lifeScenarios = [
   {
@@ -45,15 +46,10 @@ export function VolatilityStressSection() {
               ravnotežu neto imovine.
             </p>
             <Button asChild className="cta-primary rounded-full">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta="volatility-standard-check"
-              >
+              <CalBookingLink data-cta="volatility-standard-check">
                 <CalendarDays className="size-4" />
                 {PRIMARY_CTA}
-              </a>
+              </CalBookingLink>
             </Button>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">

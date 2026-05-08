@@ -1,9 +1,10 @@
 import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
 
+import { CalBookingLink } from "@/components/CalBookingLink"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { conversationRoute } from "@/content/routes"
-import { BITCOIN_CLARITY_PATH, BOOKING_URL } from "@/content/site"
+import { BITCOIN_CLARITY_PATH } from "@/content/site"
 
 const preparationQuestions = [
   "Što pokušavate odlučiti?",
@@ -102,16 +103,13 @@ export function Conversation() {
                 size="lg"
                 className="cta-primary h-12 rounded-full px-5 text-base"
               >
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <CalBookingLink
                   className="justify-center text-center"
                   data-cta="conversation-page-calendar"
                 >
                   <CalendarDays className="size-4" />
                   Otvorite kalendar i odaberite termin
-                </a>
+                </CalBookingLink>
               </Button>
             </li>
             <li>
@@ -208,16 +206,13 @@ export function Conversation() {
                 size="lg"
                 className="cta-primary h-12 rounded-full px-5 text-base"
               >
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <CalBookingLink
                   className="justify-center text-center"
                   data-cta="conversation-page-final-calendar"
                 >
                   <CalendarDays className="size-4" />
                   Otvorite kalendar i odaberite termin
-                </a>
+                </CalBookingLink>
               </Button>
             </li>
             <li>

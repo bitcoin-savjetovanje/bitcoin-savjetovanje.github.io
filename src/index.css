@@ -480,18 +480,15 @@
     @apply hidden lg:block;
   }
 
-  .desktop-conversion-rail__card,
-  .guide-rail__card {
+  .desktop-conversion-rail__card {
     @apply sticky top-28 rounded-2xl border border-primary/25 bg-card p-5 shadow-sm;
   }
 
-  .desktop-conversion-rail__card h3,
-  .guide-rail__card h2 {
+  .desktop-conversion-rail__card h3 {
     @apply text-xl leading-tight font-semibold;
   }
 
-  .desktop-conversion-rail__card p,
-  .guide-rail__card p {
+  .desktop-conversion-rail__card p {
     @apply mt-3 text-sm leading-6 text-muted-foreground;
   }
 
@@ -506,6 +503,7 @@
 
   .offer-path__item {
     @apply relative;
+    counter-increment: offer-step;
   }
 
   .offer-path__item:not(:last-child)::after {
@@ -531,6 +529,10 @@
     @apply grid size-8 place-items-center rounded-full border border-primary/30 bg-primary/10 text-xs font-semibold text-primary;
   }
 
+  .offer-step::before {
+    content: counter(offer-step);
+  }
+
   .guide-chip-list {
     @apply flex list-none gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0;
   }
@@ -540,11 +542,7 @@
   }
 
   .guide-layout {
-    @apply grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start;
-  }
-
-  .guide-rail {
-    @apply hidden lg:block;
+    @apply max-w-4xl;
   }
 
   .reading-progress {

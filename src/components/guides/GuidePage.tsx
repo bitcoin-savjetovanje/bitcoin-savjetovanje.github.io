@@ -246,23 +246,6 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </Button>
           </div>
         </div>
-        <aside className="guide-rail" aria-label="Uvodni razgovor">
-          <div className="guide-rail__card">
-            <h2>Ovo se odnosi na vašu situaciju?</h2>
-            <p>
-              Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se
-              odnosi na vas.
-            </p>
-            <a
-              href={CONVERSATION_PATH}
-              className="cta-primary mt-5 inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold"
-              data-cta="guide-rail-intro-call"
-            >
-              <CalendarDays className="size-4" />
-              Dogovorite uvodni razgovor
-            </a>
-          </div>
-        </aside>
       </div>
     </article>
   )

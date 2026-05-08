@@ -33,8 +33,13 @@ const forbiddenVisibleText = [
   "dogovorite 15-minutni uvodni razgovorpogledajte",
   "uvodni razgovorpogledajte",
   "razgovoršto je bitcoin jasnoća",
+  "uvodni razgovoršto je bitcoin jasnoća",
   "praviladogovorite",
   "vodičeprimijenite",
+  "1. 1 uvodni razgovor",
+  "2. 2 bitcoin jasnoća",
+  "3. 3 osobni bitcoin standard",
+  "3. 3",
   "1. 1 proračun",
   "2. 2 dug",
   "budući odljevi",
@@ -90,6 +95,7 @@ const pageChecks = [
       "Praktični Bitcoin standard je radni okvir iza mog savjetovanja.",
       "Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju.",
       "Dogovorite 15-minutni uvodni razgovor",
+      "Pogledajte pitanja koja možemo proći",
       'href="#pitanja"',
       'data-cta="hero-questions"',
       "Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku.",
@@ -98,18 +104,22 @@ const pageChecks = [
       "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman.",
       "Dobivate jasniju sliku što je stvarna prepreka odluci",
       "Provjerite ima li uvodni razgovor smisla",
-      "Ovo je dobro pitanje za uvodni razgovor.",
+      "Odaberite pitanje koje vam je najbliže.",
+      "Nakon odabira vidjet ćete zašto je to dobro pitanje za uvodni razgovor.",
       "Što se mijenja kada postoji osobni okvir?",
       'data-cta="readiness-test-intro-call"',
-      'data-cta="question-selected-intro-call"',
       'data-cta="before-after-intro-call"',
       'data-cta="desktop-rail-intro-call"',
     ],
     textMustNotInclude: [
       "razgovorPromijeni",
       "razgovorPogledajte",
+      "uvodni razgovorPogledajte",
+      "razgovorŠto je Bitcoin jasnoća",
+      "uvodni razgovorŠto je Bitcoin jasnoća",
       "pravilaDogovorite",
       "vodičePrimijenite",
+      "Odabrano pitanje:",
       "novcu→",
       "višak?Stvarni",
       "još nije sjelo",
@@ -234,6 +244,7 @@ const pageChecks = [
       "ne pripada budućem plaćanju",
       "Manje je nagađanja",
     ],
+    textMustNotInclude: ["Ovo se odnosi na vašu situaciju?"],
   },
   {
     path: positiveMoneyGuidePath,
@@ -399,6 +410,9 @@ for (const check of pageChecks) {
     }
 
     assertHtmlDoesNotInclude(url, html, 'alt="Image"')
+    assertHtmlDoesNotInclude(url, html, 'alt="image"')
+    assertHtmlDoesNotInclude(url, html, 'alt="Slika"')
+    assertHtmlDoesNotInclude(url, html, 'alt="Logo"')
 
     for (const forbidden of forbiddenVisibleText) {
       assertTextDoesNotInclude(url, visibleText, forbidden)

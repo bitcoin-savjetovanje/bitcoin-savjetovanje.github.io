@@ -13,7 +13,7 @@ export function OffersSection() {
           copy="Uvodni razgovor služi tome da vidimo vrijedi li uopće raditi dublje. Ako vrijedi, plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
         />
         <ol className="offer-path mt-10">
-          {offers.map((offer, index) => (
+          {offers.map((offer) => (
             <li key={offer.title} className="offer-path__item">
               <article
                 className={`offer-card ${
@@ -22,9 +22,7 @@ export function OffersSection() {
                     : ""
                 }`}
               >
-                <span className="offer-step" aria-label={`Korak ${index + 1}`}>
-                  {index + 1}
-                </span>
+                <span className="offer-step" aria-hidden="true" />
                 <div className="mt-4 flex items-start justify-between gap-4">
                   <h3>{offer.title}</h3>
                   <strong className="price-badge price-badge--soft">

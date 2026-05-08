@@ -7,8 +7,7 @@ import { questionGroups } from "@/content/home"
 import { CONVERSATION_PATH } from "@/content/site"
 
 export function QuestionsSection() {
-  const firstQuestion = questionGroups[0]?.questions[0] ?? ""
-  const [selectedQuestion, setSelectedQuestion] = useState(firstQuestion)
+  const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null)
 
   return (
     <section id="pitanja" className="section-shell section-muted">
@@ -40,25 +39,32 @@ export function QuestionsSection() {
       </div>
       <div className="mt-6 rounded-xl border border-primary/25 bg-card p-5 shadow-sm sm:p-6">
         <h3 className="text-xl font-semibold">
-          Ovo je dobro pitanje za uvodni razgovor.
+          {selectedQuestion
+            ? "Ovo je dobro pitanje za uvodni razgovor."
+            : "Odaberite pitanje koje vam je najbliže."}
         </h3>
-        <p className="mt-3 text-base leading-8 text-muted-foreground">
-          Odabrano pitanje: {selectedQuestion}
-        </p>
+        {selectedQuestion ? (
+          <p className="mt-3 text-base leading-8 text-muted-foreground">
+            Odabrano pitanje: {selectedQuestion}
+          </p>
+        ) : null}
         <p className="mt-2 text-base leading-8 text-muted-foreground">
-          U 15 minuta vidimo je li dovoljan kratak odgovor ili vrijedi ići
-          dublje.
+          {selectedQuestion
+            ? "U 15 minuta vidimo je li dovoljan kratak odgovor ili vrijedi ići dublje."
+            : "Nakon odabira vidjet ćete zašto je to dobro pitanje za uvodni razgovor."}
         </p>
-        <Button asChild className="cta-primary mt-5 rounded-full">
-          <a
-            href={CONVERSATION_PATH}
-            className="justify-center text-center"
-            data-cta="question-selected-intro-call"
-          >
-            <CalendarDays className="size-4" />
-            Dogovorite razgovor s ovim pitanjem
-          </a>
-        </Button>
+        {selectedQuestion ? (
+          <Button asChild className="cta-primary mt-5 rounded-full">
+            <a
+              href={CONVERSATION_PATH}
+              className="justify-center text-center"
+              data-cta="question-selected-intro-call"
+            >
+              <CalendarDays className="size-4" />
+              Dogovorite razgovor s ovim pitanjem
+            </a>
+          </Button>
+        ) : null}
       </div>
       <div className="mt-8 rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6">
         <p className="max-w-4xl text-base leading-8 text-muted-foreground">

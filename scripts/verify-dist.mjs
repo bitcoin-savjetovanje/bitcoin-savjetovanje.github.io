@@ -293,8 +293,13 @@ const forbiddenPublicCopy = [
   "dogovorite 15-minutni uvodni razgovorpogledajte",
   "uvodni razgovorpogledajte",
   "razgovoršto je bitcoin jasnoća",
+  "uvodni razgovoršto je bitcoin jasnoća",
   "praviladogovorite",
   "vodičeprimijenite",
+  "1. 1 uvodni razgovor",
+  "2. 2 bitcoin jasnoća",
+  "3. 3 osobni bitcoin standard",
+  "3. 3",
   "1. 1 proračun",
   "2. 2 dug",
   "budući odljevi",
@@ -349,6 +354,24 @@ for (const absoluteHtmlPath of htmlFiles()) {
     html,
     'alt="Image"',
     "generic image alt text"
+  )
+  assertNotIncludes(
+    relativeHtmlPath,
+    html,
+    'alt="image"',
+    "lowercase generic image alt text"
+  )
+  assertNotIncludes(
+    relativeHtmlPath,
+    html,
+    'alt="Slika"',
+    "generic Croatian image alt text"
+  )
+  assertNotIncludes(
+    relativeHtmlPath,
+    html,
+    'alt="Logo"',
+    "generic logo alt text"
   )
 }
 
@@ -439,6 +462,10 @@ const homeChecks = [
     "Dogovorite 15-minutni uvodni razgovor",
     "primary intro call CTA copy",
   ],
+  [
+    "Pogledajte pitanja koja možemo proći",
+    "hero secondary CTA copy",
+  ],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   ['href="#pitanja"', "hero secondary CTA href"],
   ['data-cta="hero-intro-call"', "hero CTA metadata"],
@@ -465,8 +492,12 @@ const homeChecks = [
     "readiness test title",
   ],
   [
-    "Ovo je dobro pitanje za uvodni razgovor.",
-    "selected question panel title",
+    "Odaberite pitanje koje vam je najbliže.",
+    "neutral question selector title",
+  ],
+  [
+    "Nakon odabira vidjet ćete zašto je to dobro pitanje za uvodni razgovor.",
+    "neutral question selector instruction",
   ],
   [
     "Što se mijenja kada postoji osobni okvir?",
@@ -475,10 +506,6 @@ const homeChecks = [
   [
     'data-cta="readiness-test-intro-call"',
     "readiness test CTA metadata",
-  ],
-  [
-    'data-cta="question-selected-intro-call"',
-    "selected question CTA metadata",
   ],
   [
     'data-cta="before-after-intro-call"',
@@ -573,6 +600,24 @@ assertNotIncludes(
 assertNotIncludes(
   "index.html",
   homeText,
+  "uvodni razgovorPogledajte",
+  "joined primary and secondary hero CTA text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "razgovorŠto je Bitcoin jasnoća",
+  "joined offer CTA and detail link text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "uvodni razgovorŠto je Bitcoin jasnoća",
+  "joined Bitcoin jasnoća offer controls"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
   "pravilaDogovorite",
   "joined security CTA text"
 )
@@ -599,6 +644,30 @@ assertNotIncludes(
   homeHtml,
   'alt="Image"',
   "generic image alt text"
+)
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  'alt="image"',
+  "lowercase generic image alt text"
+)
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  'alt="Slika"',
+  "generic Croatian image alt text"
+)
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  'alt="Logo"',
+  "generic logo alt text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "Odabrano pitanje:",
+  "default selected question text"
 )
 
 for (const awkwardPhrase of [
@@ -1049,11 +1118,17 @@ for (const guidePath of requiredGuidePaths) {
     "Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se odnosi na vas.",
     "guide final CTA text"
   )
-  assertIncludes(
+  assertNotIncludes(
     relativePath,
     html,
     'data-cta="guide-rail-intro-call"',
-    "guide rail CTA metadata"
+    "removed duplicate guide rail CTA metadata"
+  )
+  assertNotIncludes(
+    relativePath,
+    html,
+    "Ovo se odnosi na vašu situaciju?",
+    "duplicate guide rail title"
   )
   assertIncludes(
     relativePath,

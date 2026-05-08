@@ -124,7 +124,7 @@ export function App({ path }: { path?: string }) {
     <div
       className={`min-h-screen bg-background text-foreground ${
         hasStickyMobileCta
-          ? "pb-[calc(6.5rem+env(safe-area-inset-bottom))] lg:pb-0"
+          ? "pb-[calc(5.25rem+env(safe-area-inset-bottom))] lg:pb-0"
           : ""
       }`}
     >

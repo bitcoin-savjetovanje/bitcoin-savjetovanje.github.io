@@ -169,19 +169,23 @@
 @layer components {
   .sticky-mobile-cta {
     position: fixed;
-    left: max(0.75rem, env(safe-area-inset-left));
-    right: max(0.75rem, env(safe-area-inset-right));
-    bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    left: 50%;
+    right: auto;
+    bottom: calc(0.18rem + env(safe-area-inset-bottom));
+    width: min(22rem, calc(100vw - 1.5rem));
     z-index: 40;
-    padding: 0.25rem;
+    padding: 0.2rem;
     border: 1px solid color-mix(in oklab, var(--border), transparent 30%);
     border-radius: 9999px;
     background: color-mix(in oklab, var(--background), transparent 8%);
-    box-shadow: 0 16px 34px hsl(0 0% 0% / 0.14);
+    box-shadow: 0 12px 28px hsl(0 0% 0% / 0.13);
     backdrop-filter: blur(18px);
     opacity: 0;
     pointer-events: none;
-    transform: translateY(calc(0.75rem + var(--mobile-cta-visual-shift, 0px)));
+    transform: translate(
+      -50%,
+      calc(0.75rem + var(--mobile-cta-visual-shift, 0px))
+    );
     transition:
       opacity 180ms ease,
       transform 180ms ease;
@@ -190,7 +194,7 @@
   .sticky-mobile-cta.is-visible {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(var(--mobile-cta-visual-shift, 0px));
+    transform: translate(-50%, var(--mobile-cta-visual-shift, 0px));
   }
 
   .hero-section {
@@ -644,6 +648,10 @@
     @apply mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
   }
 
+  .conversation-cta-list {
+    @apply flex list-none flex-col gap-3 sm:flex-row sm:items-center;
+  }
+
   .conversation-two-column {
     @apply mt-12 grid gap-6 lg:grid-cols-2;
   }
@@ -1094,25 +1102,45 @@
 
 @media (max-width: 640px) {
   body {
-    background-size: 56px 56px;
+    background-size: 68px 68px;
   }
 
   .hero-shell {
-    @apply gap-8 px-4 py-10;
+    @apply gap-7 px-4 py-9;
   }
 
   .hero-title {
-    font-size: clamp(2.12rem, 9.2vw, 2.32rem);
-    line-height: 1.06;
-    letter-spacing: -0.02em;
+    font-size: 2.08rem;
+    line-height: 1.08;
+    letter-spacing: -0.018em;
   }
 
   .hero-subtitle {
-    @apply mt-5 text-[0.98rem] leading-7;
+    @apply mt-5 text-[0.94rem] leading-6;
   }
 
   .section-shell {
-    @apply px-4 py-12;
+    @apply px-4 py-10;
+  }
+
+  .section-shell :where(p, li) {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .section-shell :where(.text-lg) {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .section-shell :where(.text-2xl) {
+    font-size: 1.28rem;
+    line-height: 1.25;
+  }
+
+  .section-shell :where(.text-3xl) {
+    font-size: 1.72rem;
+    line-height: 1.14;
   }
 
   .page-hero,
@@ -1120,6 +1148,8 @@
   .pattern-panel,
   .question-panel {
     @apply rounded-xl p-4;
+    border-color: color-mix(in oklab, var(--border), transparent 42%);
+    box-shadow: none;
   }
 
   .case-card,
@@ -1128,6 +1158,8 @@
   .program-card,
   .comparison-card {
     @apply rounded-lg p-4;
+    border-color: color-mix(in oklab, var(--border), transparent 42%);
+    box-shadow: none;
   }
 
   .value-card h3,
@@ -1143,7 +1175,7 @@
   .program-card p,
   .case-card,
   .comparison-card ul {
-    @apply text-[0.98rem] leading-7;
+    @apply text-[0.94rem] leading-6;
   }
 
   .questions-grid {
@@ -1154,6 +1186,8 @@
   .question-response-card,
   .question-note-card {
     @apply rounded-lg p-4;
+    border-color: color-mix(in oklab, var(--border), transparent 42%);
+    box-shadow: none;
   }
 
   .readiness-question-grid {
@@ -1161,19 +1195,22 @@
   }
 
   .readiness-question {
-    @apply flex min-h-[8.75rem] flex-col justify-between gap-4 rounded-lg p-4;
+    @apply flex min-h-[8.15rem] flex-col justify-between gap-3.5 rounded-lg p-4;
+    border-color: color-mix(in oklab, var(--border), transparent 42%);
+    box-shadow: none;
   }
 
   .readiness-question__label {
-    @apply text-[0.96rem] leading-6;
+    @apply text-[0.91rem] leading-6;
   }
 
   .readiness-answer {
-    @apply px-3 py-1.5 text-[0.82rem];
+    @apply px-3 py-1.5 text-[0.78rem];
   }
 
   .readiness-result {
     @apply rounded-lg p-4;
+    box-shadow: none;
   }
 
   .offer-path {
@@ -1186,6 +1223,8 @@
 
   .offer-card {
     @apply rounded-lg p-4;
+    border-color: color-mix(in oklab, var(--border), transparent 38%);
+    box-shadow: none;
   }
 
   .offer-card__heading {
@@ -1193,7 +1232,7 @@
   }
 
   .offer-card ul:not(.offer-cta-list) {
-    @apply mt-5 gap-2.5 text-[0.98rem] leading-7;
+    @apply mt-5 gap-2.5 text-[0.94rem] leading-6;
   }
 
   .offer-step {
@@ -1201,8 +1240,62 @@
   }
 
   .sticky-mobile-cta {
-    left: max(0.5rem, env(safe-area-inset-left));
-    right: max(0.5rem, env(safe-area-inset-right));
+    bottom: calc(0.08rem + env(safe-area-inset-bottom));
+    width: min(20.75rem, calc(100vw - 2rem));
+  }
+
+  .sticky-mobile-cta a {
+    height: 2.45rem;
+    min-height: 2.45rem;
+    font-size: 0.78rem;
+  }
+
+  .conversation-calendar-card,
+  .conversation-final-card,
+  .conversation-outcomes-card,
+  .safety-note-card,
+  .clarity-hero,
+  .clarity-comparison,
+  .clarity-safety-card,
+  .clarity-outcome-card,
+  .security-principle-card,
+  .security-goals-card,
+  .security-technical-note,
+  .guides-roadmap__group,
+  .guide-roadmap-card,
+  .profile-panel,
+  .credibility-logo-strip,
+  .standard-segment,
+  .standard-segment__header,
+  .standard-area-block,
+  .standard-area-visual,
+  .value-summary,
+  .program-summary,
+  .before-after-detail,
+  .before-after-card__columns > div {
+    border-color: color-mix(in oklab, var(--border), transparent 42%);
+    box-shadow: none;
+  }
+
+  .conversation-calendar-card,
+  .conversation-final-card,
+  .conversation-outcomes-card,
+  .safety-note-card {
+    @apply mt-8 rounded-xl p-4;
+  }
+
+  .conversation-two-column {
+    @apply mt-8 gap-4;
+  }
+
+  .conversation-cta-list li {
+    width: 100%;
+  }
+
+  .conversation-cta-list a {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .plan-visual {
@@ -1239,7 +1332,7 @@
 
 @media (max-width: 380px) {
   .hero-title {
-    font-size: 2.32rem;
+    font-size: 1.98rem;
   }
 
   .plan-visual__header {
@@ -1259,8 +1352,8 @@
   }
 
   .sticky-mobile-cta {
-    left: auto;
-    width: min(24rem, calc(100vw - 1.5rem));
+    left: 50%;
+    width: min(20rem, calc(100vw - 1.5rem));
   }
 }
 

@@ -96,15 +96,15 @@ export function Conversation() {
             Ne morate doći pripremljeni kao stručnjak. Dovoljno je da dođete s
             jednim stvarnim pitanjem.
           </p>
-          <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
+          <ul className="conversation-cta-list mt-8">
             <li>
               <Button
                 asChild
                 size="lg"
-                className="cta-primary h-12 rounded-full px-5 text-base"
+                className="cta-primary h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
               >
                 <CalBookingLink
-                  className="justify-center text-center"
+                  className="justify-start text-left sm:justify-center sm:text-center"
                   data-cta="conversation-page-calendar"
                 >
                   <CalendarDays className="size-4" />
@@ -117,11 +117,11 @@ export function Conversation() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-12 rounded-full px-5 text-base"
+                className="h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
               >
                 <a
                   href="/sigurnost/"
-                  className="justify-center text-center"
+                  className="justify-start text-left sm:justify-center sm:text-center"
                   data-cta="conversation-page-security"
                 >
                   Prvo pročitajte sigurnosna pravila
@@ -172,7 +172,7 @@ export function Conversation() {
           </a>
         </section>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="conversation-outcomes-card mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Što se može dogoditi nakon razgovora?
           </h2>
@@ -199,15 +199,15 @@ export function Conversation() {
             Odaberite termin i dođite s jednim stvarnim pitanjem. Ne morate
             imati gotov plan — cilj je vidjeti što treba razjasniti prvo.
           </p>
-          <ul className="mt-6 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
+          <ul className="conversation-cta-list mt-6">
             <li>
               <Button
                 asChild
                 size="lg"
-                className="cta-primary h-12 rounded-full px-5 text-base"
+                className="cta-primary h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
               >
                 <CalBookingLink
-                  className="justify-center text-center"
+                  className="justify-start text-left sm:justify-center sm:text-center"
                   data-cta="conversation-page-final-calendar"
                 >
                   <CalendarDays className="size-4" />
@@ -220,11 +220,11 @@ export function Conversation() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-12 rounded-full px-5 text-base"
+                className="h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
               >
                 <a
                   href="/sigurnost/"
-                  className="justify-center text-center"
+                  className="justify-start text-left sm:justify-center sm:text-center"
                   data-cta="conversation-page-final-security"
                 >
                   Prvo pročitajte sigurnosna pravila

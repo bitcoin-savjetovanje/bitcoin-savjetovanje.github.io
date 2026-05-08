@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { CalendarDays, Menu, MoonStar, SunMedium, X } from "lucide-react"
 
+import { CalBookingLink } from "@/components/CalBookingLink"
 import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
@@ -27,8 +28,13 @@ function ThemeToggle() {
   )
 }
 
-export function Header() {
+type HeaderProps = {
+  currentPath: string
+}
+
+export function Header({ currentPath }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const onConversationPage = currentPath === "/razgovor"
 
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
@@ -90,10 +96,17 @@ export function Header() {
             size="lg"
             className="cta-primary hidden rounded-full px-4 text-sm lg:inline-flex xl:px-5"
           >
-            <a href={CONVERSATION_PATH} data-cta="header-intro-call">
-              <CalendarDays className="size-4" />
-              Dogovorite razgovor
-            </a>
+            {onConversationPage ? (
+              <CalBookingLink data-cta="header-intro-call">
+                <CalendarDays className="size-4" />
+                Dogovorite razgovor
+              </CalBookingLink>
+            ) : (
+              <a href={CONVERSATION_PATH} data-cta="header-intro-call">
+                <CalendarDays className="size-4" />
+                Dogovorite razgovor
+              </a>
+            )}
           </Button>{" "}
           <ThemeToggle />{" "}
           <Button
@@ -131,14 +144,24 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <a
-            href={CONVERSATION_PATH}
-            className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
-            onClick={() => setMobileMenuOpen(false)}
-            data-cta="mobile-menu-intro-call"
-          >
-            Dogovorite razgovor
-          </a>
+          {onConversationPage ? (
+            <CalBookingLink
+              className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
+              onClick={() => setMobileMenuOpen(false)}
+              data-cta="mobile-menu-intro-call"
+            >
+              Dogovorite razgovor
+            </CalBookingLink>
+          ) : (
+            <a
+              href={CONVERSATION_PATH}
+              className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
+              onClick={() => setMobileMenuOpen(false)}
+              data-cta="mobile-menu-intro-call"
+            >
+              Dogovorite razgovor
+            </a>
+          )}
         </nav>
       ) : null}
     </header>

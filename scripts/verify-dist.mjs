@@ -894,6 +894,15 @@ const conversationChecks = [
     "conversation calendar help text",
   ],
   [
+    "Odaberite termin za uvodni razgovor.",
+    "inline calendar section title",
+  ],
+  ['data-cal-inline="uvodni-poziv"', "inline calendar wrapper metadata"],
+  [
+    'data-cta="conversation-inline-calendar-fallback"',
+    "inline calendar fallback CTA metadata",
+  ],
+  [
     "Ne morate imati gotov plan",
     "conversation final CTA plan reassurance",
   ],
@@ -943,8 +952,14 @@ assertCount(
   "razgovor/index.html",
   conversationHtml,
   'data-cal-link="btcpavao/uvodni-poziv"',
-  2,
+  3,
   "Cal embed booking triggers"
+)
+assertMatches(
+  "razgovor/index.html",
+  conversationHtml,
+  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*data-cta="header-intro-call")(?=[^>]*data-cal-link="btcpavao\/uvodni-poziv")[^>]*>/,
+  "conversation header CTA opens Cal booking directly"
 )
 assertMatches(
   "razgovor/index.html",

@@ -648,6 +648,43 @@
     @apply mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
   }
 
+  .cal-inline-section {
+    @apply mt-8 rounded-2xl border border-primary/20 bg-card p-5 shadow-sm sm:p-6;
+  }
+
+  .cal-inline-section__header {
+    @apply flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between;
+  }
+
+  .cal-inline-frame {
+    @apply mt-5 overflow-hidden rounded-xl border border-border/70 bg-background/80;
+    height: min(760px, 84vh);
+    min-height: 620px;
+  }
+
+  .cal-inline-frame > div,
+  .cal-inline-frame__cal,
+  .cal-inline-frame iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .cal-inline-frame iframe {
+    border: 0;
+  }
+
+  .cal-inline-placeholder {
+    @apply grid h-full place-items-center p-6 text-center;
+  }
+
+  .cal-inline-fallback {
+    @apply mt-4 text-sm leading-6 text-muted-foreground;
+  }
+
+  .cal-inline-fallback a {
+    @apply font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline;
+  }
+
   .conversation-cta-list {
     @apply flex list-none flex-col gap-3 sm:flex-row sm:items-center;
   }
@@ -1253,6 +1290,7 @@
   .conversation-calendar-card,
   .conversation-final-card,
   .conversation-outcomes-card,
+  .cal-inline-section,
   .safety-note-card,
   .clarity-hero,
   .clarity-comparison,
@@ -1280,8 +1318,15 @@
   .conversation-calendar-card,
   .conversation-final-card,
   .conversation-outcomes-card,
+  .cal-inline-section,
   .safety-note-card {
     @apply mt-8 rounded-xl p-4;
+  }
+
+  .cal-inline-frame {
+    @apply rounded-lg;
+    height: 660px;
+    min-height: 660px;
   }
 
   .conversation-two-column {
@@ -1333,6 +1378,11 @@
 @media (max-width: 380px) {
   .hero-title {
     font-size: 1.98rem;
+  }
+
+  .cal-inline-frame {
+    height: 620px;
+    min-height: 620px;
   }
 
   .plan-visual__header {

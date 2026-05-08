@@ -1,6 +1,7 @@
 import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
+import { CalInlineEmbed } from "@/components/CalInlineEmbed"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { conversationRoute } from "@/content/routes"
@@ -134,6 +135,8 @@ export function Conversation() {
             pitanje koje želite razjasniti.
           </p>
         </section>
+
+        <CalInlineEmbed />
 
         <div className="conversation-two-column">
           <section className="case-panel">

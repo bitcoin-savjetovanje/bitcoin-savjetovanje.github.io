@@ -128,7 +128,7 @@ export function App({ path }: { path?: string }) {
           : ""
       }`}
     >
-      <Header />
+      <Header currentPath={currentPath} />
       <main id="top">
         <Route path={currentPath} />
       </main>

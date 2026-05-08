@@ -172,7 +172,7 @@ export function Header({ currentPath }: HeaderProps) {
         </a>
 
         <nav className="hidden lg:block" aria-label="Glavna navigacija">
-          <ul className="flex list-none items-center gap-3 xl:gap-6">
+          <ul className="flex list-none items-center gap-1 xl:gap-5">
             {navLinks.map((link) => {
               const active = activeHref === link.href
 

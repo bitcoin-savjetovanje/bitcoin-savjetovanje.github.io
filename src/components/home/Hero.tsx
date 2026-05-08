@@ -27,11 +27,11 @@ export function Hero() {
             sljedeći korak bio razuman.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">
+          <div className="mt-8 flex w-full max-w-2xl flex-col gap-3 sm:mt-9 lg:max-w-none lg:flex-row lg:items-center">
             <Button
               asChild
               size="lg"
-              className="cta-primary h-12 w-full rounded-full px-5 text-base sm:w-auto sm:px-6"
+              className="cta-primary h-12 w-full rounded-full px-5 text-base lg:w-auto lg:px-6"
             >
               <a
                 href={CONVERSATION_PATH}
@@ -46,7 +46,7 @@ export function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="h-12 w-full rounded-full px-5 text-base sm:w-auto sm:px-6"
+              className="h-12 w-full rounded-full px-5 text-base lg:w-auto lg:px-6"
             >
               <a
                 href="#pitanja"

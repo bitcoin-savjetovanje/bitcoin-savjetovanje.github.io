@@ -57,8 +57,8 @@ export function CalInlineEmbed() {
           </h2>
         </div>
         <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-          Kalendar je ugrađen ovdje radi lakšeg odabira termina. Postojeći CTA
-          linkovi ostaju kao sigurni fallback.
+          Odaberite termin koji vam odgovara. U bilješku možete napisati jedno
+          Bitcoin pitanje koje želite razjasniti.
         </p>
       </div>
 

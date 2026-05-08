@@ -16,7 +16,7 @@ export const securityReviewItems = [
   "kako pripremiti obiteljski pristup",
   "što obitelj smije napraviti",
   "što obitelj nikada ne smije napraviti",
-  "oporavak sredstava",
+  "plan oporavka pristupa",
   "koje odluke trebate donijeti sami",
   "kako razgovarati o sigurnosti bez otkrivanja osjetljivih podataka",
 ]

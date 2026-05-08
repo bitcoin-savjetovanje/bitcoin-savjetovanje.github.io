@@ -43,7 +43,7 @@ export function Security() {
         ogType={securityRoute.ogType}
         schema={securityRoute.schema as object}
       />
-      <article className="section-shell">
+      <article className="section-shell page-flow security-page">
         <nav
           aria-label="Breadcrumb"
           className="text-sm font-medium text-muted-foreground"
@@ -61,7 +61,7 @@ export function Security() {
           </ol>
         </nav>
 
-        <header className="mt-8 max-w-4xl">
+        <header className="page-hero mt-8">
           <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
             Sigurnost i povjerljivost
           </h1>
@@ -73,7 +73,7 @@ export function Security() {
           </p>
         </header>
 
-        <section className="mt-8 max-w-4xl rounded-2xl border border-primary/25 bg-primary/10 p-5 shadow-sm sm:p-6">
+        <section className="security-principle-card">
           <h2 className="text-xl font-semibold">Sigurnosno pravilo</h2>
           <p className="mt-3 text-base leading-8 text-muted-foreground">
             Seed phrase se nikada ne dijeli. Dobar savjetnik vam pomaže urediti
@@ -81,7 +81,7 @@ export function Security() {
           </p>
         </section>
 
-        <section className="mt-10 max-w-4xl rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+        <section className="security-goals-card">
           <h2 className="text-2xl font-semibold">
             Dobar sigurnosni okvir ima dva cilja.
           </h2>
@@ -103,7 +103,7 @@ export function Security() {
           </ul>
         </section>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="security-card-grid">
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Nikada ne tražim</h2>
             <SecurityList items={neverAskItems} icon="x" />
@@ -132,6 +132,17 @@ export function Security() {
             </p>
           </section>
         </div>
+
+        <section className="security-technical-note">
+          <h2 className="text-2xl font-semibold">
+            U uvodnom razgovoru ne radimo tehničke promjene.
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Ne mijenjamo wallet, ne diramo uređaje, ne unosimo seed phrase i ne
+            šaljemo transakcije. Prvo razgovaramo o strukturi, rizicima i
+            sljedećem sigurnom koraku.
+          </p>
+        </section>
 
         <div className="mt-12 rounded-2xl border border-border/80 bg-foreground p-6 text-background shadow-sm sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>

@@ -223,6 +223,18 @@
       -100vw 0 0 color-mix(in oklab, var(--muted), transparent 65%);
   }
 
+  .page-flow {
+    @apply max-w-6xl;
+  }
+
+  .page-hero {
+    @apply max-w-4xl rounded-2xl border border-border/80 bg-card/82 p-6 shadow-sm sm:p-8;
+  }
+
+  .page-hero--compact {
+    @apply max-w-3xl;
+  }
+
   .trust-strip {
     @apply border-b border-border/70 bg-card/70;
   }
@@ -455,12 +467,36 @@
     @apply border-primary/35 bg-primary/10 text-foreground;
   }
 
+  .questions-grid {
+    @apply mt-10 grid gap-4 lg:grid-cols-2;
+  }
+
+  .question-group-card {
+    @apply rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
+  }
+
+  .question-group-card h3 {
+    @apply text-xl font-semibold;
+  }
+
+  .question-response-card {
+    @apply mt-6 rounded-xl border border-primary/25 bg-card p-5 shadow-sm sm:p-6;
+  }
+
+  .question-note-card {
+    @apply mt-8 rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm sm:p-6;
+  }
+
   .readiness-layout {
-    @apply grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start;
+    @apply grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start;
+  }
+
+  .readiness-question-grid {
+    @apply mt-8 grid gap-4 md:grid-cols-2;
   }
 
   .readiness-question {
-    @apply rounded-xl border border-border/75 bg-background/70 p-4 shadow-sm;
+    @apply rounded-xl border border-border/75 bg-background/70 p-4 shadow-sm transition-colors hover:border-primary/25;
   }
 
   .readiness-question legend {
@@ -474,6 +510,10 @@
   .readiness-answer[aria-pressed="true"],
   .framework-tab[aria-selected="true"] {
     @apply border-primary/40 bg-primary/10 text-foreground;
+  }
+
+  .readiness-result {
+    @apply mt-6 rounded-xl border border-primary/25 bg-primary/10 p-5 shadow-sm sm:mt-8;
   }
 
   .desktop-conversion-rail {
@@ -497,7 +537,7 @@
   }
 
   .offer-path {
-    @apply grid list-none gap-4 lg:grid-cols-3;
+    @apply grid list-none gap-5 lg:grid-cols-3;
     counter-reset: offer-step;
   }
 
@@ -508,21 +548,39 @@
 
   .offer-path__item:not(:last-child)::after {
     content: "";
-    @apply hidden lg:block;
     position: absolute;
-    top: 2.1rem;
-    right: -0.85rem;
-    width: 1.7rem;
-    height: 1px;
-    background: color-mix(in oklab, var(--primary), transparent 68%);
+    top: 2.35rem;
+    bottom: -1.55rem;
+    left: 1rem;
+    width: 1px;
+    background: color-mix(in oklab, var(--primary), transparent 72%);
+  }
+
+  @media (min-width: 1024px) {
+    .offer-path__item:not(:last-child)::after {
+      top: 2.1rem;
+      right: -0.85rem;
+      bottom: auto;
+      left: auto;
+      width: 1.7rem;
+      height: 1px;
+    }
   }
 
   .offer-card {
-    @apply relative min-h-full rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm sm:p-6;
+    @apply relative min-h-full rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm transition-colors sm:p-6;
   }
 
   .offer-card--featured {
-    @apply border-primary/40 bg-primary/5;
+    @apply border-primary/40 bg-primary/5 shadow-md;
+  }
+
+  .offer-card__heading {
+    @apply mt-4 flex items-start justify-between gap-4;
+  }
+
+  .offer-cta-list {
+    @apply mt-6 grid list-none gap-3;
   }
 
   .offer-step {
@@ -531,6 +589,119 @@
 
   .offer-step::before {
     content: counter(offer-step);
+  }
+
+  .before-after-grid {
+    @apply mt-8 grid list-none gap-4 lg:grid-cols-5;
+  }
+
+  .before-after-card {
+    @apply h-full rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm;
+  }
+
+  .before-after-card h3 {
+    @apply text-lg leading-tight font-semibold;
+  }
+
+  .before-after-card__columns {
+    @apply mt-4 grid gap-3;
+  }
+
+  .before-after-card__columns > div {
+    @apply rounded-lg border border-border/70 bg-card/82 p-3;
+  }
+
+  .before-after-card__label {
+    @apply text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase;
+  }
+
+  .before-after-card p:not(.before-after-card__label) {
+    @apply mt-2 text-sm leading-6 text-muted-foreground;
+  }
+
+  .conversation-calendar-card,
+  .conversation-final-card {
+    @apply mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
+  }
+
+  .conversation-two-column {
+    @apply mt-12 grid gap-6 lg:grid-cols-2;
+  }
+
+  .conversation-stepper {
+    @apply mt-5 grid list-decimal gap-3 pl-5 text-base leading-7 text-muted-foreground marker:font-semibold marker:text-primary;
+  }
+
+  .conversation-stepper li {
+    @apply rounded-lg border border-border/70 bg-background/70 px-3 py-2 pl-2;
+  }
+
+  .safety-note-card {
+    @apply mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-6 shadow-sm sm:p-8;
+  }
+
+  .clarity-hero {
+    @apply grid gap-6 rounded-2xl border border-border/80 bg-card/82 p-6 shadow-sm sm:p-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center;
+  }
+
+  .clarity-price-card {
+    @apply rounded-xl border border-primary/25 bg-primary/10 p-5 shadow-sm;
+  }
+
+  .clarity-comparison {
+    @apply mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8;
+  }
+
+  .clarity-safety-card {
+    @apply mt-8 rounded-2xl border border-border/80 bg-background/70 p-6 shadow-sm sm:p-8;
+  }
+
+  .clarity-outcome-card {
+    @apply mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
+  }
+
+  .security-principle-card {
+    @apply mt-8 max-w-4xl rounded-2xl border border-primary/25 bg-primary/10 p-5 shadow-sm sm:p-6;
+  }
+
+  .security-goals-card {
+    @apply mt-10 max-w-4xl rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
+  }
+
+  .security-card-grid {
+    @apply mt-12 grid gap-6 lg:grid-cols-2;
+  }
+
+  .security-technical-note {
+    @apply mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-6 shadow-sm sm:p-8;
+  }
+
+  .guides-roadmap {
+    @apply mx-auto mt-14 max-w-6xl;
+  }
+
+  .guides-roadmap__groups {
+    @apply mt-10 grid gap-7 lg:grid-cols-2;
+  }
+
+  .guides-roadmap__group {
+    @apply scroll-mt-24 rounded-2xl border border-border/80 bg-card/78 p-5 shadow-sm sm:p-7;
+  }
+
+  .guides-roadmap__list {
+    @apply mt-6 grid gap-4;
+  }
+
+  .guide-roadmap-card {
+    @apply flex h-full flex-col rounded-xl border border-border/80 bg-background/72 p-5 text-foreground shadow-sm transition-colors hover:border-primary/50;
+  }
+
+  .guide-roadmap-card h4 {
+    @apply text-lg leading-tight font-semibold tracking-[-0.01em];
+  }
+
+  .guide-roadmap-card p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
   }
 
   .guide-chip-list {
@@ -542,7 +713,7 @@
   }
 
   .guide-layout {
-    @apply max-w-4xl;
+    @apply max-w-3xl;
   }
 
   .reading-progress {

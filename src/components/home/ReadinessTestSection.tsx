@@ -61,7 +61,7 @@ export function ReadinessTestSection() {
             savjet — samo brza provjera gdje možda nedostaje jasnoća.
           </p>
 
-          <div className="mt-8 grid gap-5">
+          <div className="readiness-question-grid">
             {questions.map((question) => (
               <fieldset key={question} className="readiness-question">
                 <legend>{question}</legend>
@@ -87,7 +87,7 @@ export function ReadinessTestSection() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-xl border border-primary/25 bg-primary/10 p-5">
+          <div className="readiness-result">
             <h3 className="text-xl font-semibold">Rezultat</h3>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
               {resultCopy(answers)}

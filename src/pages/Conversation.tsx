@@ -50,7 +50,7 @@ export function Conversation() {
         ogType={conversationRoute.ogType}
         schema={conversationRoute.schema as object}
       />
-      <article className="section-shell">
+      <article className="section-shell page-flow">
         <nav
           aria-label="Breadcrumb"
           className="text-sm font-medium text-muted-foreground"
@@ -68,7 +68,7 @@ export function Conversation() {
           </ol>
         </nav>
 
-        <header className="mt-8 max-w-4xl">
+        <header className="page-hero page-hero--compact mt-8">
           <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
             Dogovorite 15-minutni uvodni razgovor.
           </h1>
@@ -79,7 +79,7 @@ export function Conversation() {
           </p>
         </header>
 
-        <section className="mt-10 max-w-4xl rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+        <section className="conversation-calendar-card">
           <h2 className="text-2xl font-semibold">
             Dobra pitanja za uvodni razgovor zvuče ovako:
           </h2>
@@ -131,9 +131,13 @@ export function Conversation() {
               </Button>
             </li>
           </ul>
+          <p className="mt-4 text-sm leading-6 text-muted-foreground">
+            Otvorit će se kalendar. Odaberite termin i u bilješku napišite jedno
+            pitanje koje želite razjasniti.
+          </p>
         </section>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="conversation-two-column">
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">
               Prije razgovora razmislite o jednom glavnom pitanju.
@@ -143,9 +147,9 @@ export function Conversation() {
 
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Kako razgovor izgleda</h2>
-            <ol className="mt-5 list-decimal space-y-3 pl-5 text-base leading-7 text-muted-foreground marker:font-semibold marker:text-primary">
+            <ol className="conversation-stepper">
               {conversationSteps.map((step) => (
-                <li key={step} className="pl-1">
+                <li key={step}>
                   <span>{step}</span>
                 </li>
               ))}
@@ -153,7 +157,7 @@ export function Conversation() {
           </section>
         </div>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="safety-note-card">
           <h2 className="text-2xl font-semibold">Sigurnosna napomena</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
             Ne šaljite seed phrase, privatne ključeve, lozinke, pristup računima
@@ -192,7 +196,7 @@ export function Conversation() {
           </p>
         </section>
 
-        <section className="mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+        <section className="conversation-final-card">
           <h2 className="text-2xl font-semibold">
             Spremni za uvodni razgovor?
           </h2>

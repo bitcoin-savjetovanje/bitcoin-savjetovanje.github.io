@@ -86,7 +86,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
       >
         Natrag na vodiče
       </a>
-      <header className="mt-8 max-w-4xl">
+      <header className="mt-8 max-w-3xl">
         <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
           {guide.title}
         </h1>

@@ -87,7 +87,6 @@ const roadmap = roadmapGroups
         {
           slug: guide.slug,
           title: guide.title,
-          category: guide.category,
           excerpt: guide.excerpt,
           href: guideHref(guide.slug),
         },
@@ -144,10 +143,7 @@ export function GuidesIndex() {
           </div>
         </header>
 
-        <section
-          className="mx-auto mt-14 max-w-6xl"
-          aria-labelledby="guides-method-map"
-        >
+        <section className="guides-roadmap" aria-labelledby="guides-method-map">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
               Mapa metode
@@ -177,24 +173,21 @@ export function GuidesIndex() {
             </ul>
           </nav>
 
-          <div className="mt-10 grid gap-8">
+          <div className="guides-roadmap__groups">
             {roadmap.map((group) => (
               <section
                 key={group.id}
                 id={group.id}
-                className="scroll-mt-24 rounded-2xl border border-border/80 bg-card/78 p-5 shadow-sm sm:p-7"
+                className="guides-roadmap__group"
               >
                 <h3 className="text-2xl font-semibold tracking-[-0.015em]">
                   {group.title}
                 </h3>
-                <ol className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                <ol className="guides-roadmap__list">
                   {group.guides.map((guide) => (
                     <li key={guide.slug}>
-                      <article className="flex h-full flex-col rounded-xl border border-border/80 bg-background/72 p-5 text-foreground shadow-sm transition-colors hover:border-primary/50">
-                        <p className="text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
-                          {guide.category}
-                        </p>
-                        <h4 className="mt-4 text-lg leading-tight font-semibold tracking-[-0.01em]">
+                      <article className="guide-roadmap-card">
+                        <h4>
                           <a
                             href={guide.href}
                             className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
@@ -203,9 +196,7 @@ export function GuidesIndex() {
                             {guide.title}
                           </a>
                         </h4>
-                        <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                          {guide.excerpt}
-                        </p>
+                        <p>{guide.excerpt}</p>
                       </article>
                     </li>
                   ))}

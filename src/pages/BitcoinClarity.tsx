@@ -86,7 +86,7 @@ export function BitcoinClarity() {
         ogType={bitcoinClarityRoute.ogType}
         schema={bitcoinClarityRoute.schema as object}
       />
-      <article className="section-shell">
+      <article className="section-shell page-flow">
         <nav
           aria-label="Breadcrumb"
           className="text-sm font-medium text-muted-foreground"
@@ -104,18 +104,39 @@ export function BitcoinClarity() {
           </ol>
         </nav>
 
-        <header className="mt-8 max-w-4xl">
-          <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Bitcoin jasnoća
-          </h1>
-          <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Jedan dubinski razgovor za osobu koja želi ozbiljno razjasniti
-            Bitcoin tezu, vlastitu situaciju i odluku koju ne želi donositi
-            napamet.
-          </p>
-          <p className="mt-4 inline-flex rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-            200 € · jedan dubinski razgovor
-          </p>
+        <header className="clarity-hero mt-8">
+          <div>
+            <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
+              Bitcoin jasnoća
+            </h1>
+            <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
+              Jedan dubinski razgovor za osobu koja želi ozbiljno razjasniti
+              Bitcoin tezu, vlastitu situaciju i odluku koju ne želi donositi
+              napamet.
+            </p>
+          </div>
+          <aside
+            className="clarity-price-card"
+            aria-label="Cijena i sljedeći korak"
+          >
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Prvi plaćeni korak
+            </p>
+            <p className="mt-3 text-3xl font-semibold text-foreground">200 €</p>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              jedan dubinski razgovor
+            </p>
+            <Button asChild className="cta-primary mt-6 w-full rounded-full">
+              <a
+                href={CONVERSATION_PATH}
+                className="justify-center text-center"
+                data-cta="bitcoin-clarity-intro-call"
+              >
+                <CalendarDays className="size-4" />
+                Krenite od uvodnog razgovora
+              </a>
+            </Button>
+          </aside>
         </header>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -130,12 +151,12 @@ export function BitcoinClarity() {
           </section>
         </div>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="clarity-safety-card">
           <h2 className="text-2xl font-semibold">Što ne radimo</h2>
           <Checklist items={notDoingItems} kind="negative" />
         </section>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="clarity-outcome-card">
           <h2 className="text-2xl font-semibold">
             Nakon Bitcoin jasnoće najčešće imate
           </h2>
@@ -156,6 +177,28 @@ export function BitcoinClarity() {
             <Checklist items={notForItems} kind="negative" />
           </section>
         </div>
+
+        <section className="clarity-comparison">
+          <h2 className="text-2xl font-semibold">
+            Bitcoin jasnoća ili osobni Bitcoin standard?
+          </h2>
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <article className="rounded-xl border border-primary/25 bg-primary/5 p-5 shadow-sm">
+              <h3 className="text-xl font-semibold">Bitcoin jasnoća</h3>
+              <p className="mt-3 text-base leading-8 text-muted-foreground">
+                Za jedno ozbiljno pitanje, tezu ili odluku koju želite
+                razjasniti u jednom dubinskom razgovoru.
+              </p>
+            </article>
+            <article className="rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm">
+              <h3 className="text-xl font-semibold">Osobni Bitcoin standard</h3>
+              <p className="mt-3 text-base leading-8 text-muted-foreground">
+                Za pisani sustav pravila kroz 4–6 tjedana: proračun, dug,
+                Bitcoin, neto imovina, sigurnost i obitelj.
+              </p>
+            </article>
+          </div>
+        </section>
 
         <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">

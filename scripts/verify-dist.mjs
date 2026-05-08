@@ -515,6 +515,7 @@ const homeChecks = [
     'data-cta="desktop-rail-intro-call"',
     "desktop conversion rail CTA metadata",
   ],
+  ["Imate Bitcoin pitanje?", "desktop conversion rail title"],
   ['data-cta="questions-intro-call"', "questions CTA metadata"],
   ['data-cta="intro-section-call"', "intro section CTA metadata"],
   ['data-cta="offer-intro-call"', "intro offer CTA metadata"],
@@ -779,6 +780,10 @@ const conversationChecks = [
     "conversation final CTA body",
   ],
   [
+    "Otvorit će se kalendar. Odaberite termin",
+    "conversation calendar help text",
+  ],
+  [
     "Ne morate imati gotov plan",
     "conversation final CTA plan reassurance",
   ],
@@ -865,6 +870,10 @@ const bitcoinClarityChecks = [
   ],
   ["Što pripremiti", "Bitcoin clarity preparation section"],
   ["Kada nije za vas", "Bitcoin clarity not for section"],
+  [
+    "Bitcoin jasnoća ili osobni Bitcoin standard?",
+    "Bitcoin clarity comparison section",
+  ],
   ["Krenite od uvodnog razgovora", "Bitcoin clarity primary CTA"],
   ["ne tražim seed phrase", "Bitcoin clarity no seed phrase copy"],
   ["ne prognoziram cijenu", "Bitcoin clarity no price prediction copy"],
@@ -1041,6 +1050,10 @@ const securityChecks = [
   [
     "Za rad nije potrebno dijeliti seed phrase",
     "confidentiality seed phrase copy",
+  ],
+  [
+    "U uvodnom razgovoru ne radimo tehničke promjene.",
+    "security technical note title",
   ],
   ["privatne ključeve", "private keys copy"],
   ["lozinke", "passwords copy"],

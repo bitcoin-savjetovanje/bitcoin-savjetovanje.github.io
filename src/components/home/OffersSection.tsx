@@ -12,7 +12,7 @@ export function OffersSection() {
           title="Ako nakon uvodnog razgovora postoji konkretan način da pomognem, postoje dva plaćena puta."
           copy="Uvodni razgovor služi tome da vidimo vrijedi li uopće raditi dublje. Ako vrijedi, plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
         />
-        <ol className="offer-path mt-10">
+        <ol className="offer-path mt-10" aria-label="Put savjetovanja">
           {offers.map((offer) => (
             <li key={offer.title} className="offer-path__item">
               <article
@@ -23,7 +23,7 @@ export function OffersSection() {
                 }`}
               >
                 <span className="offer-step" aria-hidden="true" />
-                <div className="mt-4 flex items-start justify-between gap-4">
+                <div className="offer-card__heading">
                   <h3>{offer.title}</h3>
                   <strong className="price-badge price-badge--soft">
                     {offer.price}
@@ -48,31 +48,35 @@ export function OffersSection() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 grid gap-3">
-                  <Button asChild className="cta-primary rounded-full">
-                    <a
-                      href={offer.href}
-                      className="justify-center text-center"
-                      data-cta={offer.dataCta}
-                    >
-                      <CalendarDays className="size-4" />
-                      {offer.cta}
-                      <span aria-hidden="true" className="sr-only">
-                        {" "}
-                      </span>
-                    </a>
-                  </Button>
+                <ul className="offer-cta-list">
+                  <li>
+                    <Button asChild className="cta-primary rounded-full">
+                      <a
+                        href={offer.href}
+                        className="justify-center text-center"
+                        data-cta={offer.dataCta}
+                      >
+                        <CalendarDays className="size-4" />
+                        {offer.cta}
+                        <span aria-hidden="true" className="sr-only">
+                          {" "}
+                        </span>
+                      </a>
+                    </Button>
+                  </li>
                   {offer.detailLink ? (
-                    <a
-                      href={offer.detailLink.href}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-                      data-link={offer.detailLink.dataLink}
-                    >
-                      {offer.detailLink.label}
-                      <ArrowUpRight className="size-4" />
-                    </a>
+                    <li>
+                      <a
+                        href={offer.detailLink.href}
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                        data-link={offer.detailLink.dataLink}
+                      >
+                        {offer.detailLink.label}
+                        <ArrowUpRight className="size-4" />
+                      </a>
+                    </li>
                   ) : null}
-                </div>
+                </ul>
               </article>
             </li>
           ))}

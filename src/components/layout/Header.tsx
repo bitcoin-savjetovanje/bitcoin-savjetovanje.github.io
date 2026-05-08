@@ -14,7 +14,7 @@ function ThemeToggle() {
     <Button
       variant="outline"
       size="icon"
-      className="size-11 rounded-full border-border/80 bg-background/80 backdrop-blur sm:size-10"
+      className="size-11 rounded-full border-transparent bg-transparent text-muted-foreground shadow-none hover:bg-muted hover:text-foreground sm:size-10"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Promijeni temu"
     >

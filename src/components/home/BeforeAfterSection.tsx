@@ -1,5 +1,4 @@
 import { CalendarDays } from "lucide-react"
-import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { CONVERSATION_PATH } from "@/content/site"
@@ -33,13 +32,7 @@ const scenarios = [
   },
 ] as const
 
-type Mode = "without" | "with"
-
 export function BeforeAfterSection() {
-  const [mode, setMode] = useState<Mode>("without")
-  const heading =
-    mode === "without" ? "Bez osobnog okvira" : "S osobnim okvirom"
-
   return (
     <section className="section-shell">
       <div className="case-panel">
@@ -52,41 +45,29 @@ export function BeforeAfterSection() {
           </h2>
         </div>
 
-        <div
-          className="mt-8 inline-flex rounded-full border border-border bg-background p-1"
-          role="tablist"
-          aria-label="Usporedba osobnog okvira"
-        >
-          {[
-            { value: "without" as const, label: "Bez osobnog okvira" },
-            { value: "with" as const, label: "S osobnim okvirom" },
-          ].map((tab) => (
-            <button
-              key={tab.value}
-              type="button"
-              className="framework-tab"
-              role="tab"
-              aria-selected={mode === tab.value}
-              onClick={() => setMode(tab.value)}
-            >
-              {tab.label}
-            </button>
+        <ul className="before-after-grid">
+          {scenarios.map((scenario) => (
+            <li key={scenario.title}>
+              <article className="before-after-card">
+                <h3>{scenario.title}</h3>
+                <div className="before-after-card__columns">
+                  <div>
+                    <p className="before-after-card__label">
+                      Bez osobnog okvira
+                    </p>
+                    <p>{scenario.without}</p>
+                  </div>
+                  <div>
+                    <p className="before-after-card__label">
+                      S osobnim okvirom
+                    </p>
+                    <p>{scenario.with}</p>
+                  </div>
+                </div>
+              </article>
+            </li>
           ))}
-        </div>
-
-        <div className="mt-8">
-          <h3 className="text-2xl font-semibold">{heading}</h3>
-          <ul className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-            {scenarios.map((scenario) => (
-              <li key={scenario.title}>
-                <article className="program-card h-full bg-background/70">
-                  <h4>{scenario.title}</h4>
-                  <p>{mode === "without" ? scenario.without : scenario.with}</p>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </div>
+        </ul>
 
         <Button asChild className="cta-primary mt-8 rounded-full">
           <a

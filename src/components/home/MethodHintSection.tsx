@@ -3,7 +3,7 @@ import { methodPathSteps } from "@/content/home"
 
 export function MethodHintSection() {
   return (
-    <section id="metoda" className="section-shell section-muted">
+    <section id="metoda" className="section-shell">
       <div className="case-panel border-primary/20 bg-card">
         <SectionHeader
           title="Ako nastavimo dublje, koristim okvir Praktičnog Bitcoin standarda."

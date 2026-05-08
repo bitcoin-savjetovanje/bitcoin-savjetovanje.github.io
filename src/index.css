@@ -1327,7 +1327,7 @@
 
   .back-to-top-button {
     right: max(0.65rem, env(safe-area-inset-right));
-    bottom: max(0rem, calc(env(safe-area-inset-bottom) - 1rem));
+    bottom: calc(max(0rem, calc(env(safe-area-inset-bottom) - 1rem)) + 0.24rem);
   }
 
   .sticky-mobile-cta a {

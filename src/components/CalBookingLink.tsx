@@ -19,8 +19,8 @@ function ensureCalEmbed() {
     return
   }
 
-  calEmbedPromise ??= getCalApi({ namespace: CAL_BOOKING_NAMESPACE }).then(
-    (cal) => {
+  calEmbedPromise ??= getCalApi({ namespace: CAL_BOOKING_NAMESPACE })
+    .then((cal) => {
       cal("ui", {
         cssVarsPerTheme: {
           light: { "cal-brand": "#F7931A" },
@@ -29,8 +29,15 @@ function ensureCalEmbed() {
         hideEventTypeDetails: false,
         layout: "month_view",
       })
-    }
-  )
+    })
+    .catch((error: unknown) => {
+      if (import.meta.env.DEV) {
+        console.info(
+          "Cal embed could not initialize; href fallback remains.",
+          error
+        )
+      }
+    })
 }
 
 type CalBookingLinkProps = Omit<

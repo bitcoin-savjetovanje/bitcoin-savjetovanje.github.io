@@ -120,6 +120,19 @@ function htmlFiles(directory = distDir) {
   return files
 }
 
+function assetFiles(extension) {
+  const assetsDir = path.join(distDir, "assets")
+
+  if (!fs.existsSync(assetsDir)) {
+    return []
+  }
+
+  return fs
+    .readdirSync(assetsDir)
+    .filter((fileName) => fileName.endsWith(extension))
+    .map((fileName) => path.join(assetsDir, fileName))
+}
+
 function assertIncludes(relativePath, contents, expected, label = expected) {
   if (contents.includes(expected)) {
     pass(`${relativePath} contains ${label}`)
@@ -136,6 +149,15 @@ function assertNotIncludes(relativePath, contents, expected, label = expected) {
   }
 
   fail(`${relativePath} should not contain ${label}`)
+}
+
+function assertMatches(relativePath, contents, pattern, label = pattern.source) {
+  if (pattern.test(contents)) {
+    pass(`${relativePath} matches ${label}`)
+    return
+  }
+
+  fail(`${relativePath} should match ${label}`)
 }
 
 function assertNotMatches(relativePath, contents, pattern, label = pattern.source) {
@@ -327,6 +349,7 @@ const forbiddenPublicCopy = [
   "gorak lijek",
   "svake kune",
   "ne povećavam bitcoin odluke",
+  "ovo se odnosi na vašu situaciju?",
   "crvena zastava",
   "nejasna imovina",
   "razbiti",
@@ -393,19 +416,36 @@ for (const absoluteHtmlPath of htmlFiles()) {
 
 const homeHtml = readFile("index.html")
 const homeText = textWithoutTags(homeHtml)
+const ctaEventsSource = path.join(root, "src", "lib", "ctaEvents.ts")
+const clientBundleText = assetFiles(".js")
+  .map((assetPath) => fs.readFileSync(assetPath, "utf8"))
+  .join("\n")
+
+if (fs.existsSync(ctaEventsSource)) {
+  pass("src/lib/ctaEvents.ts exists")
+} else {
+  fail("src/lib/ctaEvents.ts is missing")
+}
+
+assertIncludes(
+  "dist/assets/*.js",
+  clientBundleText,
+  "bitcoin-savjetovanje:cta-click",
+  "CTA click CustomEvent name"
+)
+
 const homeChecks = [
   [
     "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
     "new hero title",
   ],
-  ["Dođite s bilo kojim Bitcoin pitanjem", "hero supporting sentence"],
   [
-    "U 15 minuta vidimo što prvo treba razjasniti",
-    "hero intro call framing",
+    "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku.",
+    "updated hero supporting sentence",
   ],
   [
-    "postoji li konkretan način da pomognem",
-    "concrete help framing",
+    "U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
+    "hero intro call framing",
   ],
   [
     "što još nije jasno u Bitcoin tezi",
@@ -614,9 +654,27 @@ assertNotIncludes(
 )
 assertNotIncludes(
   "index.html",
+  homeText,
+  "Dođite s bilo kojim Bitcoin pitanjem",
+  "old hero supporting sentence"
+)
+assertNotIncludes(
+  "index.html",
   homeHtml,
   'href="https://cal.com/btcpavao/uvodni-poziv"',
   "direct external booking link on homepage"
+)
+assertNotMatches(
+  "index.html",
+  homeHtml,
+  /<div\b(?=[^>]*bitcoin-stress-test-visual)(?=[^>]*role="img")[^>]*>/,
+  "role=img on readable hero visual"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  'src="/bitcoin-logo.png" alt="" aria-hidden="true"',
+  "decorative Bitcoin logo alt text"
 )
 assertNotIncludes(
   "index.html",
@@ -871,6 +929,18 @@ assertCount(
   'data-cal-link="btcpavao/uvodni-poziv"',
   2,
   "Cal embed booking triggers"
+)
+assertMatches(
+  "razgovor/index.html",
+  conversationHtml,
+  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*data-cal-link="btcpavao\/uvodni-poziv")[^>]*>/,
+  "Cal booking CTA real href fallback"
+)
+assertNotMatches(
+  "razgovor/index.html",
+  conversationHtml,
+  /<a\b(?=[^>]*data-cal-link="btcpavao\/uvodni-poziv")(?=[^>]*href="javascript:)[^>]*>/,
+  "JavaScript-only Cal booking CTA"
 )
 assertNotMatches(
   "razgovor/index.html",

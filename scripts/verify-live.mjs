@@ -58,6 +58,7 @@ const forbiddenVisibleText = [
   "gorak lijek",
   "svake kune",
   "ne povećavam bitcoin odluke",
+  "ovo se odnosi na vašu situaciju?",
   "crvena zastava",
   "nejasna imovina",
   "razbiti",
@@ -77,9 +78,8 @@ const pageChecks = [
     path: "/",
     includes: [
       "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
-      "Dođite s bilo kojim Bitcoin pitanjem.",
-      "U 15 minuta vidimo što prvo treba razjasniti",
-      "postoji li konkretan način da pomognem",
+      "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku.",
+      "U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
       "što još nije jasno u Bitcoin tezi",
       "Ne morate unaprijed znati je li vaše pitanje dovoljno veliko",
       "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman.",
@@ -123,7 +123,15 @@ const pageChecks = [
       'data-cta="desktop-rail-intro-call"',
       'data-cta="desktop-rail-questions"',
     ],
+    htmlMustNotMatch: [
+      {
+        pattern:
+          /<div\b(?=[^>]*bitcoin-stress-test-visual)(?=[^>]*role="img")[^>]*>/,
+        label: "role=img on readable hero visual",
+      },
+    ],
     textMustNotInclude: [
+      "Dođite s bilo kojim Bitcoin pitanjem",
       "razgovorPromijeni",
       "razgovorPogledajte",
       "uvodni razgovorPogledajte",

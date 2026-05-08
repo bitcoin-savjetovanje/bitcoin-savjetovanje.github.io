@@ -4,6 +4,9 @@ import { createRoot, hydrateRoot } from "react-dom/client"
 import App from "./App"
 import "./index.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { initCtaClickEvents } from "@/lib/ctaEvents"
+
+initCtaClickEvents()
 
 const root = document.getElementById("root")
 

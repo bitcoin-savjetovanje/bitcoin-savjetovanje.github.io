@@ -22,8 +22,9 @@ export function Hero() {
             ulozi Bitcoina u vlastitoj imovini.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Dođite s bilo kojim Bitcoin pitanjem. U 15 minuta vidimo što prvo
-            treba razjasniti i postoji li konkretan način da pomognem.
+            Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu
+            odluku. U 15 minuta vidimo što prvo treba razjasniti i koji bi
+            sljedeći korak bio razuman.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center">

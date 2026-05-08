@@ -1338,7 +1338,7 @@ const guideEntries: Guide[] = [
         },
         {
           label: "što ne dirati",
-          description: "početne riječi i ključevi",
+          description: "seed phrase i privatni ključevi",
         },
         {
           label: "kome se javiti",
@@ -1363,10 +1363,10 @@ const guideEntries: Guide[] = [
         ],
       },
       {
-        heading: "Početne riječi se ne dijele",
+        heading: "Seed phrase se nikada ne dijeli",
         body: [
-          "Početne riječi, privatni ključevi i lozinke ne dijele se olako. Ako se pošalju porukom, fotografiraju ili upišu na pogrešno mjesto, šteta može biti trajna.",
-          "Obitelj treba znati da nitko ozbiljan neće tražiti početne riječi u poruci, pozivu ili mrežnom obrascu. To pravilo mora biti kratko, jasno i zapisano.",
+          "Seed phrase, privatni ključevi i lozinke ne dijele se olako. Ako se pošalju porukom, fotografiraju ili upišu na pogrešno mjesto, šteta može biti trajna.",
+          "Obitelj treba znati da nitko ozbiljan neće tražiti seed phrase u poruci, pozivu ili mrežnom obrascu. To pravilo mora biti kratko, jasno i zapisano.",
         ],
       },
       {
@@ -1407,7 +1407,7 @@ const guideEntries: Guide[] = [
     ],
     visual: {
       type: "safety",
-      title: "Sigurnost bez jedne točke loma",
+      title: "Sigurnost s jasnim oporavkom",
       zones: [
         {
           label: "kontrola",
@@ -1428,14 +1428,14 @@ const guideEntries: Guide[] = [
       {
         heading: "Kontrola ostaje kod vas",
         body: [
-          "Sigurnost u osobnom Bitcoin standardu počinje od jednostavne granice: kontrola ostaje kod vas. Nitko ne treba početne riječi, privatne ključeve, lozinke ili pristup računu da bi s vama razgovarao o sustavu.",
+          "Sigurnost u osobnom Bitcoin standardu počinje od jednostavne granice: kontrola ostaje kod vas. Nitko ne treba seed phrase, privatne ključeve, lozinke ili pristup računu da bi s vama razgovarao o sustavu.",
           "Ali kontrola ne znači izolaciju. Ako nitko ne zna što postoji, gdje su opće upute i što nikada ne smije napraviti, sustav ovisi samo o vama. To nije dovoljno za ozbiljnu neto imovinu.",
         ],
       },
       {
         heading: "Jedna osoba nije sustav",
         body: [
-          "Ako sve znate samo vi, tada vaša nedostupnost postaje jedna točka kvara. Bolest, nesreća, smrt ili obična pogreška mogu ostaviti obitelj bez smjera.",
+          "Ako sve znate samo vi, nastaje situacija u kojoj jedna greška znači gubitak pristupa. Bolest, nesreća, smrt ili obična pogreška mogu ostaviti obitelj bez smjera.",
           "Dobar sustav ne predaje kontrolu drugima, ali uklanja potpunu ovisnost o jednoj osobi. Postoje upute, osobe od povjerenja i jasna pravila opreza. To je praktična nadogradnja Bitcoin standarda.",
         ],
       },
@@ -1456,7 +1456,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Što nitko ne smije tražiti",
         body: [
-          "Nitko ne smije tražiti početne riječi, privatne ključeve, lozinke, pristup burzi, pristup novčaniku ili slanje Bitcoina na svoju adresu radi čuvanja. Ta pravila trebaju biti kratka i razumljiva.",
+          "Nitko ne smije tražiti seed phrase, privatne ključeve, lozinke, pristup burzi, pristup novčaniku ili slanje Bitcoina na svoju adresu radi čuvanja. Ta pravila trebaju biti kratka i razumljiva.",
           "Ako osoba od povjerenja zapamti samo jedno, neka zapamti ovo: prvo stati, ne žuriti, ne slati osjetljive podatke i ne vjerovati nikome tko traži kontrolu. Sigurnost počinje jasnim ne.",
         ],
       },

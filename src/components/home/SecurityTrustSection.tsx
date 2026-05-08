@@ -11,11 +11,11 @@ export function SecurityTrustSection() {
       <div className="case-panel border-primary/25">
         <SectionHeader
           title="Vaš Bitcoin ostaje vaš."
-          copy="Ne kupujem, ne prodajem i ne čuvam Bitcoin za vas. Ne tražim početne riječi, privatne ključeve, lozinke ni pristup računima. Radimo na razumijevanju, pravilima i sigurnosnom okviru. Kontrola ostaje kod vas."
+          copy="Ne kupujem, ne prodajem i ne čuvam Bitcoin za vas. Ne tražim seed phrase, privatne ključeve, lozinke ni pristup računima. Radimo na razumijevanju, pravilima i sigurnosnom okviru. Kontrola ostaje kod vas."
         />
         <p className="mt-6 rounded-2xl border border-destructive/20 bg-destructive/5 p-4 text-sm leading-6 font-semibold text-foreground">
-          Ako netko traži vaše početne riječi, privatne ključeve ili pristup
-          novčaniku, to nije savjetovanje nego crvena zastava.
+          Seed phrase se nikada ne dijeli. Ako ga netko traži, to nije
+          savjetovanje nego crvena zastava.
         </p>
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">

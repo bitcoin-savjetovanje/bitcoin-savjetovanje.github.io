@@ -41,9 +41,9 @@ export const faqs = [
   },
   {
     question:
-      "Tražite li početne riječi, privatne ključeve ili pristup novčaniku?",
+      "Tražite li seed phrase, privatne ključeve ili pristup novčaniku?",
     answer:
-      "Ne. To se nikada ne traži. Bitcoin mora ostati pod vašom kontrolom.",
+      "Ne. Seed phrase se nikada ne dijeli. Ne tražim privatne ključeve, pristup novčaniku, pristup burzi ni kontrolu nad vašim Bitcoinom.",
   },
   {
     question: "Što dobivam u uvodnom razgovoru?",

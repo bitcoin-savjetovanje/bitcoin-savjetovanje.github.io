@@ -266,7 +266,6 @@ const forbiddenText = [
   "jeftin dug",
   "pogađamo cijenu",
   "prognoziram cijenu",
-  "pošaljite početne riječi",
   "pošaljite privatne ključeve",
   "pristup vašem novčaniku",
   "regulated investment advice",
@@ -275,10 +274,22 @@ const forbiddenText = [
   "trading signali",
 ]
 
+const forbiddenPublicCopy = [
+  "početne riječi",
+  "početnih riječi",
+  "jedna točka kvara",
+  "točka kvara",
+  "točku kvara",
+  "točke kvara",
+  "darivanje",
+  "novcu→",
+]
+
 for (const absoluteHtmlPath of htmlFiles()) {
   const relativeHtmlPath = path.relative(distDir, absoluteHtmlPath)
   const html = fs.readFileSync(absoluteHtmlPath, "utf8")
   const visibleText = textWithoutTags(html)
+  const lowerVisibleText = visibleText.toLowerCase()
 
   for (const forbidden of forbiddenText) {
     assertNotIncludes(
@@ -288,6 +299,22 @@ for (const absoluteHtmlPath of htmlFiles()) {
       `forbidden text: ${forbidden}`
     )
   }
+
+  for (const forbidden of forbiddenPublicCopy) {
+    assertNotIncludes(
+      relativeHtmlPath,
+      lowerVisibleText,
+      forbidden,
+      `forbidden public copy: ${forbidden}`
+    )
+  }
+
+  assertNotIncludes(
+    relativeHtmlPath,
+    html,
+    'alt="Image"',
+    "generic image alt text"
+  )
 }
 
 const homeHtml = readFile("index.html")
@@ -308,6 +335,12 @@ const homeChecks = [
   ],
   ["Bitcoin jasnoća", "renamed 200 EUR offer"],
   ["Vaš Bitcoin ostaje vaš", "security trust title"],
+  ["Bez zahtjeva za seed phrase.", "seed phrase trust copy"],
+  ["Seed phrase se nikada ne dijeli.", "seed phrase red flag copy"],
+  [
+    "kako spriječiti da pristup ovisi o jednoj osobi, uređaju ili lokaciji",
+    "natural security recovery copy",
+  ],
   [
     "Praktični Bitcoin standard je radni okvir iza mog savjetovanja.",
     "method reframing",
@@ -543,6 +576,10 @@ const conversationChecks = [
     "conversation final CTA body",
   ],
   [
+    "Ne šaljite seed phrase, privatne ključeve, lozinke",
+    "conversation safety note",
+  ],
+  [
     "https://cal.com/btcpavao/uvodni-poziv",
     "existing external booking URL",
   ],
@@ -632,11 +669,27 @@ const securityHtml = readFile("sigurnost/index.html")
 const securityChecks = [
   ["Sigurnost i povjerljivost", "security title"],
   [
-    "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
+    "Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru.",
     "security family intro",
   ],
   ["Nikada ne tražim", "never ask section"],
-  ["početne riječi", "recovery words copy"],
+  [
+    "seed phrase — 12 ili 24 riječi za oporavak novčanika",
+    "seed phrase explanation",
+  ],
+  [
+    "način čuvanja prikladan za vašu situaciju",
+    "plain custody wording",
+  ],
+  [
+    "kako složiti oporavak tako da ne ovisi o jednoj osobi, uređaju ili lokaciji",
+    "natural recovery dependency copy",
+  ],
+  ["ne tražim seed phrase ni privatne ključeve", "no seed phrase ask copy"],
+  [
+    "Za rad nije potrebno dijeliti seed phrase",
+    "confidentiality seed phrase copy",
+  ],
   ["privatne ključeve", "private keys copy"],
   ["lozinke", "passwords copy"],
   ["pristup burzi", "exchange access copy"],

@@ -59,7 +59,7 @@ export function Hero() {
           </div>
           <p className="mt-5 max-w-3xl text-sm leading-6 font-medium text-muted-foreground">
             15 minuta. Bez naknade. Bez obveze. Bez upravljanja sredstvima. Bez
-            prognoza cijene. Bez traženja početnih riječi.
+            prognoza cijene. Bez zahtjeva za seed phrase.
           </p>
         </div>
         <BitcoinStressTestVisual />

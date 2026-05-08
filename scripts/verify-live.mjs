@@ -1,6 +1,7 @@
 const baseUrl = "https://bitcoin-savjetovanje.com"
 const bookingUrl = "https://cal.com/btcpavao/uvodni-poziv"
 const representativeGuidePath = "/vodici/stvarni-visak/"
+const securityGuidePath = "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"
 const failures = []
 
 const forbiddenVisibleText = [
@@ -18,6 +19,14 @@ const forbiddenVisibleText = [
   "pametno zaduživanje",
   "dobar dug",
   "jeftin dug",
+  "početne riječi",
+  "početnih riječi",
+  "jedna točka kvara",
+  "točka kvara",
+  "točku kvara",
+  "točke kvara",
+  "darivanje",
+  "novcu→",
 ]
 
 const pageChecks = [
@@ -30,6 +39,9 @@ const pageChecks = [
       "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji sljedeći korak ima smisla.",
       "Bitcoin jasnoća",
       "Vaš Bitcoin ostaje vaš.",
+      "Bez zahtjeva za seed phrase.",
+      "Seed phrase se nikada ne dijeli.",
+      "kako spriječiti da pristup ovisi o jednoj osobi, uređaju ili lokaciji",
       "Praktični Bitcoin standard je radni okvir iza mog savjetovanja.",
       "Vodiči objašnjavaju moj okvir. Razgovor ga primjenjuje na vašu situaciju.",
       "Dogovorite 15-minutni uvodni razgovor",
@@ -65,6 +77,7 @@ const pageChecks = [
       "Dobra pitanja za uvodni razgovor zvuče ovako",
       "Spremni za uvodni razgovor?",
       "Odaberite termin i dođite s jednim stvarnim pitanjem.",
+      "Ne šaljite seed phrase, privatne ključeve, lozinke",
       "Otvorite kalendar i odaberite termin",
       'data-cta="conversation-page-final-calendar"',
       bookingUrl,
@@ -80,10 +93,14 @@ const pageChecks = [
   {
     path: "/sigurnost/",
     includes: [
-      "početne riječi",
+      "seed phrase — 12 ili 24 riječi za oporavak novčanika",
       "privatne ključeve",
       "lozinke",
       "ne čuvam Bitcoin",
+      "način čuvanja prikladan za vašu situaciju",
+      "kako složiti oporavak tako da ne ovisi o jednoj osobi, uređaju ili lokaciji",
+      "ne tražim seed phrase ni privatne ključeve",
+      "Za rad nije potrebno dijeliti seed phrase",
     ],
     includesAny: [
       [
@@ -112,6 +129,14 @@ const pageChecks = [
       'href="/razgovor/"',
       "Vodič objašnjava okvir",
       "Dogovorite uvodni razgovor",
+    ],
+  },
+  {
+    path: securityGuidePath,
+    includes: [
+      "Sigurnost ne smije ovisiti samo o vama",
+      "Seed phrase se nikada ne dijeli",
+      "Nitko ne smije tražiti seed phrase",
     ],
   },
 ]
@@ -179,6 +204,15 @@ function assertTextDoesNotInclude(url, text, forbidden) {
   fail(`${url} visible text contains forbidden text: ${forbidden}`)
 }
 
+function assertHtmlDoesNotInclude(url, html, forbidden) {
+  if (!html.includes(forbidden)) {
+    pass(`${url} HTML does not contain ${forbidden}`)
+    return
+  }
+
+  fail(`${url} HTML contains forbidden markup: ${forbidden}`)
+}
+
 function assertCanonical(url, html, expectedCanonical) {
   const canonical = canonicalFromHtml(html)
 
@@ -222,6 +256,8 @@ for (const check of pageChecks) {
     for (const forbidden of check.textMustNotInclude ?? []) {
       assertTextDoesNotInclude(url, textWithoutTags(html), forbidden)
     }
+
+    assertHtmlDoesNotInclude(url, html, 'alt="Image"')
 
     for (const forbidden of forbiddenVisibleText) {
       assertTextDoesNotInclude(url, visibleText, forbidden)

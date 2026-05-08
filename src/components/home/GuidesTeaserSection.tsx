@@ -20,13 +20,18 @@ export function GuidesTeaserSection() {
       <ul className="mt-8 grid list-none gap-4 md:grid-cols-2 xl:grid-cols-5">
         {teaserGuides.map((guide) => (
           <li key={guide.slug}>
-            <a
-              href={guideHref(guide.slug)}
-              className="program-card block h-full hover:border-primary/50 hover:text-foreground"
-              data-link="home-guide-teaser"
-            >
-              <h3>{guide.title}</h3> <p>{guide.excerpt}</p>
-            </a>
+            <article className="program-card h-full hover:border-primary/50">
+              <h3>
+                <a
+                  href={guideHref(guide.slug)}
+                  className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                  data-link="home-guide-teaser"
+                >
+                  {guide.title}
+                </a>
+              </h3>{" "}
+              <p>{guide.excerpt}</p>
+            </article>
           </li>
         ))}
       </ul>

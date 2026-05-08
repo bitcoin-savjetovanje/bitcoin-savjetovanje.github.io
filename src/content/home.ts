@@ -80,7 +80,7 @@ export const introCallSteps = [
 ]
 
 export const homeNeverAskItems = [
-  "početne riječi",
+  "seed phrase",
   "privatne ključeve",
   "lozinke",
   "pristup uređajima",
@@ -91,7 +91,7 @@ export const homeNeverAskItems = [
 export const homeSecurityReviewItems = [
   "kako razmišljati o skrbništvu",
   "što obitelj treba znati",
-  "kako izbjeći jednu točku kvara",
+  "kako spriječiti da pristup ovisi o jednoj osobi, uređaju ili lokaciji",
   "što nikada ne dijeliti",
   "kako pripremiti upute bez predaje kontrole",
 ]

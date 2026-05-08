@@ -39,7 +39,7 @@ export const guidesIndexSeo = {
 export const securitySeo = {
   title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
   description:
-    "Sigurnosna pravila za Bitcoin razgovor: ne tražim početne riječi, privatne ključeve, lozinke, pristup računima ni kontrolu nad vašim Bitcoinom.",
+    "Sigurnosni okvir za Bitcoin bez dijeljenja seed phrase, privatnih ključeva, lozinki ili pristupa novčaniku.",
   canonical: `${SITE_URL}/sigurnost/`,
 }
 

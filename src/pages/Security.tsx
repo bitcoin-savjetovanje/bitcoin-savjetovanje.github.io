@@ -66,10 +66,10 @@ export function Security() {
             Sigurnost i povjerljivost
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti
-            samo o vama. Cilj nije da netko drugi ima kontrolu, nego da postoji
-            jasan plan koji obitelj razumije bez otkrivanja osjetljivih
-            podataka.
+            Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije
+            ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru. Cilj
+            nije da netko drugi ima kontrolu, nego da postoji jasan plan koji
+            obitelj može razumjeti bez otkrivanja osjetljivih podataka.
           </p>
         </header>
 
@@ -95,7 +95,7 @@ export function Security() {
             <p className="mt-5 text-base leading-8 text-muted-foreground">
               Razgovori su povjerljivi. Ne objavljujem osobne podatke,
               financijsku situaciju ni pojedinosti razgovora. Za rad nije
-              potrebno dijeliti početne riječi, privatne ključeve, lozinke ili
+              potrebno dijeliti seed phrase, privatne ključeve, lozinke ili
               pristup računima. Obitelj treba znati što smije napraviti i što
               nikada ne smije napraviti, ali savjetnik ne treba kontrolu nad
               vašim Bitcoinom.

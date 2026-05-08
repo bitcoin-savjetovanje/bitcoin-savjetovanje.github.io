@@ -152,10 +152,9 @@ export function Conversation() {
         <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">Sigurnosna napomena</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Ne šaljite početne riječi, privatne ključeve, lozinke, pristup
-            računima ni osjetljive dokumente. Ako bude potreban detaljniji rad,
-            dogovorit ćemo siguran način razgovora o strukturi bez predaje
-            kontrole.
+            Ne šaljite seed phrase, privatne ključeve, lozinke, pristup računima
+            ni osjetljive dokumente. Ako bude potreban detaljniji rad, dogovorit
+            ćemo siguran način razgovora o strukturi bez predaje kontrole.
           </p>
           <a
             href="/sigurnost/"

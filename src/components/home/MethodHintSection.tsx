@@ -14,27 +14,17 @@ export function MethodHintSection() {
               <br />
               <br />
               Okvir je jednostavan: prvo red u novcu, zatim izlazak iz duga,
-              zatim darivanje, zatim Bitcoin kao novac, neto imovina, sigurnost
-              i obitelj.
+              zatim davanje, zatim Bitcoin kao novac, neto imovina, sigurnost i
+              obitelj.
             </>
           }
         />
-        <ol className="mt-8 flex list-decimal flex-wrap items-center gap-2 pl-5">
-          {methodPathSteps.map((step, index) => (
+        <ol className="mt-8 grid list-decimal gap-2 pl-5 sm:grid-cols-2 xl:grid-cols-3">
+          {methodPathSteps.map((step) => (
             <li key={step} className="pl-1">
-              <div className="flex items-center gap-2">
-                <span className="rounded-full border border-border/80 bg-background/80 px-3 py-2 text-sm font-semibold text-foreground shadow-sm">
-                  {step}
-                </span>{" "}
-                {index < methodPathSteps.length - 1 ? (
-                  <span
-                    className="text-sm text-muted-foreground"
-                    aria-hidden="true"
-                  >
-                    →
-                  </span>
-                ) : null}
-              </div>
+              <span className="inline-flex rounded-full border border-border/80 bg-background/80 px-3 py-2 text-sm font-semibold text-foreground shadow-sm">
+                {step}
+              </span>
             </li>
           ))}
         </ol>

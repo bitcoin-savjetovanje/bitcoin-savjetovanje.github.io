@@ -143,14 +143,18 @@ export function GuidePage({ guide }: { guide: Guide }) {
               <ul className="mt-6 grid list-none gap-4 md:grid-cols-3">
                 {relatedGuides.map((relatedGuide) => (
                   <li key={relatedGuide.slug}>
-                    <a
-                      href={guideHref(relatedGuide.slug)}
-                      className="program-card block h-full hover:border-primary/50 hover:text-foreground"
-                      data-link="related-guide"
-                    >
-                      <h3>{relatedGuide.title}</h3>{" "}
+                    <article className="program-card h-full hover:border-primary/50">
+                      <h3>
+                        <a
+                          href={guideHref(relatedGuide.slug)}
+                          className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                          data-link="related-guide"
+                        >
+                          {relatedGuide.title}
+                        </a>
+                      </h3>{" "}
                       <p>{relatedGuide.excerpt}</p>
-                    </a>
+                    </article>
                   </li>
                 ))}
               </ul>

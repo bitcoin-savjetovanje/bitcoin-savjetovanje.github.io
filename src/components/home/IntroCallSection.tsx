@@ -34,7 +34,7 @@ export function IntroCallSection() {
           </Button>
           <p className="text-sm leading-6 text-muted-foreground">
             Bez naknade. Bez obveze. Ne morate slati iznose, dokumente, lozinke,
-            privatne ključeve ni početne riječi.
+            privatne ključeve ni seed phrase.
           </p>
         </div>
       </div>

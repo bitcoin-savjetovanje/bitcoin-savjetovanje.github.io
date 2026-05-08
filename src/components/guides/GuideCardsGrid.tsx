@@ -67,17 +67,22 @@ export function GuideCardsGrid({
     <ul className="mt-12 grid list-none gap-4 md:grid-cols-2 xl:grid-cols-3">
       {guideItems.map((guide) => (
         <li key={guide.slug}>
-          <a
-            href={guideHref(guide.slug)}
-            className="program-card group block h-full transition-colors hover:border-primary/50 hover:text-foreground focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-          >
+          <article className="program-card group h-full transition-colors hover:border-primary/50">
             <GuideVisualPreview guide={guide} />
             <p className="mb-3 text-xs font-semibold tracking-[0.14em] text-muted-foreground uppercase">
               {guide.category}
-            </p>{" "}
+            </p>
             <h3 className="flex items-start justify-between gap-4">
-              <span>{guide.title}</span>
-              <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground group-hover:text-primary" />
+              <a
+                href={guideHref(guide.slug)}
+                className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+              >
+                {guide.title}
+              </a>
+              <ArrowUpRight
+                className="mt-1 size-4 shrink-0 text-muted-foreground group-hover:text-primary"
+                aria-hidden="true"
+              />
             </h3>{" "}
             <p className="mt-3 text-sm leading-6 font-semibold text-muted-foreground">
               {showReadingTime
@@ -85,7 +90,7 @@ export function GuideCardsGrid({
                 : `${estimateGuideReadingMinutes(guide)} min čitanja`}
             </p>{" "}
             <p>{guide.excerpt}</p>
-          </a>
+          </article>
         </li>
       ))}
     </ul>

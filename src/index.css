@@ -171,7 +171,7 @@
     position: fixed;
     left: max(0.75rem, env(safe-area-inset-left));
     right: max(0.75rem, env(safe-area-inset-right));
-    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    bottom: calc(0.5rem + env(safe-area-inset-bottom));
     z-index: 40;
     padding: 0.25rem;
     border: 1px solid color-mix(in oklab, var(--border), transparent 30%);
@@ -179,6 +179,18 @@
     background: color-mix(in oklab, var(--background), transparent 8%);
     box-shadow: 0 16px 34px hsl(0 0% 0% / 0.14);
     backdrop-filter: blur(18px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(0.75rem + var(--mobile-cta-visual-shift, 0px)));
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
+  }
+
+  .sticky-mobile-cta.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(var(--mobile-cta-visual-shift, 0px));
   }
 
   .hero-section {
@@ -1083,6 +1095,114 @@
 @media (max-width: 640px) {
   body {
     background-size: 56px 56px;
+  }
+
+  .hero-shell {
+    @apply gap-8 px-4 py-10;
+  }
+
+  .hero-title {
+    font-size: clamp(2.12rem, 9.2vw, 2.32rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    @apply mt-5 text-[0.98rem] leading-7;
+  }
+
+  .section-shell {
+    @apply px-4 py-12;
+  }
+
+  .page-hero,
+  .case-panel,
+  .pattern-panel,
+  .question-panel {
+    @apply rounded-xl p-4;
+  }
+
+  .case-card,
+  .value-card,
+  .process-card,
+  .program-card,
+  .comparison-card {
+    @apply rounded-lg p-4;
+  }
+
+  .value-card h3,
+  .process-card h3,
+  .program-card h3,
+  .comparison-card h3,
+  .question-group-card h3 {
+    @apply text-lg leading-snug;
+  }
+
+  .value-card p,
+  .process-card p,
+  .program-card p,
+  .case-card,
+  .comparison-card ul {
+    @apply text-[0.98rem] leading-7;
+  }
+
+  .questions-grid {
+    @apply mt-7 gap-3;
+  }
+
+  .question-group-card,
+  .question-response-card,
+  .question-note-card {
+    @apply rounded-lg p-4;
+  }
+
+  .readiness-question-grid {
+    @apply mt-6 gap-3;
+  }
+
+  .readiness-question {
+    @apply flex min-h-[8.75rem] flex-col justify-between gap-4 rounded-lg p-4;
+  }
+
+  .readiness-question__label {
+    @apply text-[0.96rem] leading-6;
+  }
+
+  .readiness-answer {
+    @apply px-3 py-1.5 text-[0.82rem];
+  }
+
+  .readiness-result {
+    @apply rounded-lg p-4;
+  }
+
+  .offer-path {
+    @apply gap-4;
+  }
+
+  .offer-path__item:not(:last-child)::after {
+    display: none;
+  }
+
+  .offer-card {
+    @apply rounded-lg p-4;
+  }
+
+  .offer-card__heading {
+    @apply mt-3 gap-3;
+  }
+
+  .offer-card ul:not(.offer-cta-list) {
+    @apply mt-5 gap-2.5 text-[0.98rem] leading-7;
+  }
+
+  .offer-step {
+    @apply size-7;
+  }
+
+  .sticky-mobile-cta {
+    left: max(0.5rem, env(safe-area-inset-left));
+    right: max(0.5rem, env(safe-area-inset-right));
   }
 
   .plan-visual {

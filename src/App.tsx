@@ -69,11 +69,17 @@ function Route({ path }: { path: string }) {
 
 export function App({ path }: { path?: string }) {
   const [showBackToTop, setShowBackToTop] = useState(false)
+  const [showStickyMobileCta, setShowStickyMobileCta] = useState(false)
   const currentPath = getInitialPath(path)
+  const hasStickyMobileCta = currentPath !== "/razgovor"
+  const stickyMobileCtaVisible = hasStickyMobileCta && showStickyMobileCta
 
   useEffect(() => {
     function handleScroll() {
-      setShowBackToTop(window.scrollY > 480)
+      const scrollY = window.scrollY
+
+      setShowStickyMobileCta(scrollY > 320)
+      setShowBackToTop(scrollY > 640)
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -84,14 +90,52 @@ export function App({ path }: { path?: string }) {
     }
   }, [])
 
+  useEffect(() => {
+    const viewport = window.visualViewport
+
+    if (!viewport) {
+      return
+    }
+
+    const updateMobileViewportShift = () => {
+      const shift = viewport.offsetTop + viewport.height - window.innerHeight
+      const clampedShift = Math.max(-160, Math.min(160, shift))
+
+      document.documentElement.style.setProperty(
+        "--mobile-cta-visual-shift",
+        `${clampedShift}px`
+      )
+    }
+
+    viewport.addEventListener("resize", updateMobileViewportShift)
+    viewport.addEventListener("scroll", updateMobileViewportShift)
+    window.addEventListener("resize", updateMobileViewportShift)
+    updateMobileViewportShift()
+
+    return () => {
+      viewport.removeEventListener("resize", updateMobileViewportShift)
+      viewport.removeEventListener("scroll", updateMobileViewportShift)
+      window.removeEventListener("resize", updateMobileViewportShift)
+      document.documentElement.style.removeProperty("--mobile-cta-visual-shift")
+    }
+  }, [])
+
   return (
-    <div className="min-h-screen bg-background pb-[calc(6.5rem+env(safe-area-inset-bottom))] text-foreground lg:pb-0">
+    <div
+      className={`min-h-screen bg-background text-foreground ${
+        hasStickyMobileCta
+          ? "pb-[calc(6.5rem+env(safe-area-inset-bottom))] lg:pb-0"
+          : ""
+      }`}
+    >
       <Header />
       <main id="top">
         <Route path={currentPath} />
       </main>
       <Footer />
-      <StickyMobileCta />
+      {hasStickyMobileCta ? (
+        <StickyMobileCta visible={stickyMobileCtaVisible} />
+      ) : null}
 
       {showBackToTop ? (
         <Button

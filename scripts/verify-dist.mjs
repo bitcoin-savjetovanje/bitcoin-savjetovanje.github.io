@@ -979,6 +979,7 @@ const conversationChecks = [
   ],
   ['data-cal-namespace="uvodni-bitcoin-razgovor"', "Cal embed namespace"],
   ['data-cal-link="btcpavao/uvodni-bitcoin-razgovor"', "Cal embed link"],
+  ['data-cal-mode="modal"', "Cal booking CTA modal mode"],
   ["data-cal-config=", "Cal embed config attribute"],
   ["month_view", "Cal embed month view config"],
   ['data-cta="conversation-page-calendar"', "calendar CTA metadata"],

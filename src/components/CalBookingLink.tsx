@@ -1,5 +1,10 @@
 import { getCalApi } from "@calcom/embed-react"
-import { forwardRef, type ComponentPropsWithoutRef, useEffect } from "react"
+import {
+  forwardRef,
+  type ComponentPropsWithoutRef,
+  type MouseEvent,
+  useEffect,
+} from "react"
 
 import {
   BOOKING_URL,
@@ -13,11 +18,25 @@ const calBookingConfig = JSON.stringify({
   theme: "light",
 })
 
-let calEmbedPromise: Promise<void> | null = null
+const calModalConfig = {
+  layout: "month_view",
+  useSlotsViewOnSmallScreen: "true",
+  theme: "light",
+} as const
+
+type CalModalApi = (
+  instruction: "modal",
+  options: {
+    calLink: string
+    config: typeof calModalConfig
+  }
+) => void
+
+let calEmbedPromise: Promise<CalModalApi | null> | null = null
 
 function ensureCalEmbed() {
   if (typeof window === "undefined") {
-    return
+    return Promise.resolve(null)
   }
 
   calEmbedPromise ??= getCalApi({ namespace: CAL_BOOKING_NAMESPACE })
@@ -31,6 +50,7 @@ function ensureCalEmbed() {
         hideEventTypeDetails: false,
         layout: "month_view",
       })
+      return cal as CalModalApi
     })
     .catch((error: unknown) => {
       if (import.meta.env.DEV) {
@@ -39,7 +59,10 @@ function ensureCalEmbed() {
           error
         )
       }
+      return null
     })
+
+  return calEmbedPromise
 }
 
 type CalBookingLinkProps = Omit<
@@ -50,16 +73,48 @@ type CalBookingLinkProps = Omit<
 export const CalBookingLink = forwardRef<
   HTMLAnchorElement,
   CalBookingLinkProps
->(function CalBookingLink({ children, ...props }, ref) {
+>(function CalBookingLink({ children, onClick, ...props }, ref) {
   useEffect(() => {
     ensureCalEmbed()
   }, [])
+
+  function handleClick(event: MouseEvent<HTMLAnchorElement>) {
+    onClick?.(event)
+
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return
+    }
+
+    event.preventDefault()
+    event.stopPropagation()
+
+    ensureCalEmbed().then((cal) => {
+      if (!cal) {
+        window.location.assign(BOOKING_URL)
+        return
+      }
+
+      cal("modal", {
+        calLink: CAL_BOOKING_LINK,
+        config: calModalConfig,
+      })
+    })
+  }
 
   return (
     <a
       ref={ref}
       href={BOOKING_URL}
       {...props}
+      onClick={handleClick}
+      data-cal-mode="modal"
       data-cal-namespace={CAL_BOOKING_NAMESPACE}
       data-cal-link={CAL_BOOKING_LINK}
       data-cal-config={calBookingConfig}

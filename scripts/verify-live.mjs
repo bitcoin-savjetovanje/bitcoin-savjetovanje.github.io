@@ -206,6 +206,7 @@ const pageChecks = [
       'data-cta="conversation-page-final-calendar"',
       'data-cal-namespace="uvodni-bitcoin-razgovor"',
       'data-cal-link="btcpavao/uvodni-bitcoin-razgovor"',
+      'data-cal-mode="modal"',
       "data-cal-config=",
       "month_view",
       bookingUrl,

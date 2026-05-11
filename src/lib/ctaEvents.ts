@@ -14,6 +14,7 @@ export const ctaEventRegistry = {
   "call-security": { kind: "cta", surface: "razgovor" },
   "conversation-page-calendar": { kind: "cta", surface: "razgovor" },
   "conversation-referral-calendar": { kind: "cta", surface: "razgovor" },
+  "conversation-inline-calendar-mobile": { kind: "cta", surface: "razgovor" },
   "conversation-page-final-calendar": { kind: "cta", surface: "razgovor" },
   "conversation-bitcoin-consultation": { kind: "link", surface: "razgovor" },
   "conversation-page-security": { kind: "cta", surface: "razgovor" },

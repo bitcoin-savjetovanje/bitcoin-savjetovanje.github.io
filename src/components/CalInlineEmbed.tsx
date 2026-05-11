@@ -1,6 +1,9 @@
 import Cal, { getCalApi } from "@calcom/embed-react"
+import { CalendarDays } from "lucide-react"
 import { useEffect, type CSSProperties } from "react"
 
+import { CalBookingLink } from "@/components/CalBookingLink"
+import { Button } from "@/components/ui/button"
 import {
   BOOKING_URL,
   CAL_BOOKING_LINK,
@@ -65,6 +68,23 @@ export function CalInlineEmbed() {
           pitanje koje želite razjasniti. Ne šaljite seed phrase, privatne
           ključeve, iznose ni osjetljive dokumente.
         </p>
+      </div>
+
+      <div className="cal-inline-mobile-cta">
+        <p className="text-sm leading-6 text-muted-foreground">
+          Na mobitelu je odabir termina najpregledniji u zasebnom prozoru preko
+          stranice. Nakon odabira možete ga zatvoriti i nastaviti gdje ste
+          stali.
+        </p>
+        <Button asChild size="lg" className="cta-primary mt-4 rounded-full">
+          <CalBookingLink
+            className="justify-center text-center"
+            data-cta="conversation-inline-calendar-mobile"
+          >
+            <CalendarDays className="size-4" />
+            Otvorite kalendar
+          </CalBookingLink>
+        </Button>
       </div>
 
       <div className="cal-inline-frame">

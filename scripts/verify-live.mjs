@@ -202,6 +202,7 @@ const pageChecks = [
       "Odaberite termin za uvodni razgovor.",
       'data-cal-inline="uvodni-bitcoin-razgovor"',
       'data-cta="conversation-inline-calendar-fallback"',
+      'data-cta="conversation-inline-calendar-mobile"',
       'data-cta="header-intro-call"',
       'data-cta="conversation-page-final-calendar"',
       'data-cal-namespace="uvodni-bitcoin-razgovor"',

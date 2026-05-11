@@ -958,6 +958,10 @@ const conversationChecks = [
     "inline calendar fallback CTA metadata",
   ],
   [
+    'data-cta="conversation-inline-calendar-mobile"',
+    "inline calendar mobile modal CTA metadata",
+  ],
+  [
     "Ne morate imati gotov plan",
     "conversation final CTA plan reassurance",
   ],
@@ -1012,7 +1016,7 @@ assertCount(
   "razgovor/index.html",
   conversationHtml,
   'data-cal-link="btcpavao/uvodni-bitcoin-razgovor"',
-  3,
+  4,
   "Cal embed booking triggers"
 )
 assertMatches(

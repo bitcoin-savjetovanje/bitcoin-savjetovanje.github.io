@@ -42,7 +42,353 @@ function createBitcoinSavjetovanjeSalesOS() {
   addSampleRows(spreadsheet);
 
   spreadsheet.setActiveSheet(spreadsheet.getSheetByName('Dashboard'));
+  PropertiesService.getScriptProperties().setProperty('SALES_OS_SPREADSHEET_ID', spreadsheet.getId());
   Logger.log('Bitcoin Savjetovanje — Sales OS created: ' + spreadsheet.getUrl());
+  Logger.log('Run doGet as a web app, or open the Sales OS UI from the Apps Script project after adding SalesOsUi.html.');
+}
+
+function doGet() {
+  return HtmlService.createTemplateFromFile('SalesOsUi')
+    .evaluate()
+    .setTitle('Bitcoin Savjetovanje — Sales OS')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+function showSalesOsUi() {
+  var html = HtmlService.createTemplateFromFile('SalesOsUi')
+    .evaluate()
+    .setTitle('Bitcoin Savjetovanje — Sales OS')
+    .setWidth(1180)
+    .setHeight(760);
+  SpreadsheetApp.getUi().showModalDialog(html, 'Bitcoin Savjetovanje — Sales OS');
+}
+
+function onOpen() {
+  try {
+    SpreadsheetApp.getUi().createMenu('Sales OS').addItem('Otvori UI za unos', 'showSalesOsUi').addToUi();
+  } catch (error) {
+    Logger.log('Sales OS menu skipped: ' + error);
+  }
+}
+
+function getSalesOsUiState() {
+  var spreadsheet = getSalesOsSpreadsheet();
+  var dashboard = spreadsheet.getSheetByName('Dashboard');
+  var crm = spreadsheet.getSheetByName('CRM');
+
+  return {
+    spreadsheetUrl: spreadsheet.getUrl(),
+    metrics: {
+      contacts: dashboard.getRange('B4').getDisplayValue(),
+      contacted: dashboard.getRange('B5').getDisplayValue(),
+      replies: dashboard.getRange('B6').getDisplayValue(),
+      booked: dashboard.getRange('B7').getDisplayValue(),
+      completed: dashboard.getRange('B8').getDisplayValue(),
+      revenue: dashboard.getRange('B26').getDisplayValue(),
+      bookedRate: dashboard.getRange('B17').getDisplayValue(),
+      consultationRate: dashboard.getRange('B18').getDisplayValue(),
+    },
+    lists: getSalesOsLists(spreadsheet),
+    contacts: getRecentSalesOsContacts(crm),
+  };
+}
+
+function saveSalesOsEntry(type, payload) {
+  var spreadsheet = getSalesOsSpreadsheet();
+  payload = payload || {};
+  assertNoSensitiveSalesOsData(payload);
+
+  if (type === 'contact') {
+    return appendSalesOsContact(spreadsheet, payload);
+  }
+  if (type === 'outreach') {
+    return appendSalesOsOutreach(spreadsheet, payload);
+  }
+  if (type === 'call') {
+    return appendSalesOsCall(spreadsheet, payload);
+  }
+  if (type === 'followUp') {
+    return appendSalesOsFollowUp(spreadsheet, payload);
+  }
+  if (type === 'contentIdea') {
+    return appendSalesOsContentIdea(spreadsheet, payload);
+  }
+  if (type === 'referral') {
+    return appendSalesOsReferral(spreadsheet, payload);
+  }
+  if (type === 'weeklyReview') {
+    return appendSalesOsWeeklyReview(spreadsheet, payload);
+  }
+
+  throw new Error('Nepoznata vrsta unosa: ' + type);
+}
+
+function appendSalesOsContact(spreadsheet, payload) {
+  var sheet = spreadsheet.getSheetByName('CRM');
+  var now = new Date();
+  var row = [
+    nextSalesOsId(sheet, 'CRM'),
+    payload.firstName || '',
+    payload.lastName || '',
+    payload.organization || '',
+    payload.segment || '',
+    payload.source || '',
+    payload.channel || '',
+    payload.contactDetail || '',
+    parseSalesOsDate(payload.firstContactDate) || now,
+    payload.status || 'Novi kontakt',
+    payload.mainQuestion || '',
+    payload.mainTopic || '',
+    payload.hasBitcoin || '',
+    payload.withFamily || '',
+    parseSalesOsDate(payload.introDate) || '',
+    payload.introOutcome || '',
+    payload.nextRecommendation || '',
+    payload.consultationStatus || 'Nije predložena',
+    payload.standardStatus || 'Nije predložen',
+    Number(payload.revenue || 0),
+    payload.nextStep || '',
+    parseSalesOsDate(payload.followUpDate) || '',
+    payload.referralPotential || '',
+    payload.notes || '',
+    now,
+  ];
+  sheet.appendRow(row);
+  return successSalesOsResponse('Kontakt je dodan u CRM.', row[0]);
+}
+
+function appendSalesOsOutreach(spreadsheet, payload) {
+  var sheet = spreadsheet.getSheetByName('Outreach');
+  var row = [
+    nextSalesOsId(sheet, 'OUT'),
+    payload.contactId || '',
+    payload.name || '',
+    payload.segment || '',
+    payload.channel || '',
+    parseSalesOsDate(payload.sentDate) || new Date(),
+    payload.messageType || 'Prva poruka',
+    payload.sent || 'Da',
+    payload.replied || 'Ne',
+    parseSalesOsDate(payload.replyDate) || '',
+    parseSalesOsDate(payload.nextFollowUpDate) || '',
+    payload.outcome || 'Nema odgovora',
+    payload.notes || '',
+  ];
+  sheet.appendRow(row);
+  return successSalesOsResponse('Outreach je zabilježen.', row[0]);
+}
+
+function appendSalesOsCall(spreadsheet, payload) {
+  var sheet = spreadsheet.getSheetByName('Calls');
+  var row = [
+    nextSalesOsId(sheet, 'CALL'),
+    payload.contactId || '',
+    payload.name || '',
+    payload.callType || 'Uvodni razgovor',
+    parseSalesOsDate(payload.callDate) || new Date(),
+    payload.callStatus || 'Bookiran',
+    payload.mainQuestion || '',
+    payload.mainTopic || '',
+    payload.situationSummary || '',
+    payload.observation || '',
+    payload.nextRecommendation || '',
+    payload.priceProposed || 'Ne',
+    Number(payload.amount || 0),
+    payload.accepted || 'Neodlučeno',
+    payload.followUpSent || 'Ne',
+    payload.nextStep || '',
+    payload.notes || '',
+  ];
+  sheet.appendRow(row);
+  return successSalesOsResponse('Razgovor je zabilježen.', row[0]);
+}
+
+function appendSalesOsFollowUp(spreadsheet, payload) {
+  var sheet = spreadsheet.getSheetByName('Follow-up');
+  var row = [
+    nextSalesOsId(sheet, 'FU'),
+    payload.contactId || '',
+    payload.name || '',
+    parseSalesOsDate(payload.followUpDate) || new Date(),
+    payload.status || 'Treba poslati',
+    payload.followUpType || '',
+    payload.suggestedText || '',
+    payload.sent || 'Ne',
+    parseSalesOsDate(payload.sentDate) || '',
+    payload.outcome || '',
+    payload.notes || '',
+  ];
+  sheet.appendRow(row);
+  return successSalesOsResponse('Follow-up je dodan.', row[0]);
+}
+
+function appendSalesOsContentIdea(spreadsheet, payload) {
+  var sheet = spreadsheet.getSheetByName('Content ideas');
+  var row = [
+    nextSalesOsId(sheet, 'CONTENT'),
+    parseSalesOsDate(payload.date) || new Date(),
+    payload.source || '',
+    payload.topic || '',
+    payload.category || '',
+    Number(payload.repeats || 1),
+    payload.format || '',
+    payload.priority || 'Srednji',
+    payload.status || 'Ideja',
+    payload.notes || '',
+  ];
+  sheet.appendRow(row);
+  return successSalesOsResponse('Content ideja je dodana.', row[0]);
+}
+
+function appendSalesOsReferral(spreadsheet, payload) {
+  var sheet = spreadsheet.getSheetByName('Referral sources');
+  var row = [
+    nextSalesOsId(sheet, 'REF'),
+    payload.firstName || '',
+    payload.lastName || '',
+    payload.segment || '',
+    payload.relationship || '',
+    payload.contact || '',
+    parseSalesOsDate(payload.contactDate) || new Date(),
+    payload.messageSent || 'Ne',
+    Number(payload.leadCount || 0),
+    payload.leadQuality || 'Nema još',
+    parseSalesOsDate(payload.nextContactDate) || '',
+    payload.notes || '',
+  ];
+  sheet.appendRow(row);
+  return successSalesOsResponse('Referral izvor je dodan.', row[0]);
+}
+
+function appendSalesOsWeeklyReview(spreadsheet, payload) {
+  var sheet = spreadsheet.getSheetByName('Weekly review');
+  var row = [
+    parseSalesOsDate(payload.week) || new Date(),
+    Number(payload.personalMessages || 0),
+    Number(payload.followUpMessages || 0),
+    Number(payload.newReplies || 0),
+    Number(payload.newBookings || 0),
+    Number(payload.completedIntroCalls || 0),
+    Number(payload.proposedConsultations || 0),
+    Number(payload.acceptedConsultations || 0),
+    Number(payload.proposedStandards || 0),
+    Number(payload.acceptedStandards || 0),
+    Number(payload.revenue || 0),
+    payload.commonTopics || '',
+    payload.learned || '',
+    payload.helpedTooMuch || '',
+    payload.offerClarity || '',
+    payload.nextFocus || '',
+  ];
+  sheet.appendRow(row);
+  return successSalesOsResponse('Tjedni pregled je spremljen.', 'Weekly review');
+}
+
+function getSalesOsSpreadsheet() {
+  var id = PropertiesService.getScriptProperties().getProperty('SALES_OS_SPREADSHEET_ID');
+  if (id) {
+    return SpreadsheetApp.openById(id);
+  }
+
+  var active = SpreadsheetApp.getActiveSpreadsheet();
+  if (active) {
+    return active;
+  }
+
+  throw new Error('Nije pronađen Sales OS spreadsheet. Prvo pokreni createBitcoinSavjetovanjeSalesOS().');
+}
+
+function getSalesOsLists(spreadsheet) {
+  var sheet = spreadsheet.getSheetByName('Lists');
+  var values = sheet.getDataRange().getValues();
+  var lists = {};
+  values[0].forEach(function (name, index) {
+    if (!name) {
+      return;
+    }
+    lists[name] = [];
+    for (var row = 1; row < values.length; row += 1) {
+      if (values[row][index]) {
+        lists[name].push(values[row][index]);
+      }
+    }
+  });
+  return lists;
+}
+
+function getRecentSalesOsContacts(sheet) {
+  var lastRow = sheet.getLastRow();
+  if (lastRow < 2) {
+    return [];
+  }
+
+  var start = Math.max(2, lastRow - 24);
+  var rows = sheet.getRange(start, 1, lastRow - start + 1, 10).getDisplayValues();
+  return rows
+    .filter(function (row) {
+      return row[0] || row[1];
+    })
+    .map(function (row) {
+      return {
+        id: row[0],
+        name: [row[1], row[2]].filter(Boolean).join(' ') || row[1] || row[0],
+        segment: row[4],
+        status: row[9],
+      };
+    })
+    .reverse();
+}
+
+function nextSalesOsId(sheet, prefix) {
+  var count = Math.max(1, sheet.getLastRow());
+  return prefix + '-' + Utilities.formatString('%03d', count);
+}
+
+function parseSalesOsDate(value) {
+  if (!value) {
+    return '';
+  }
+  var parsed = new Date(value);
+  if (isNaN(parsed.getTime())) {
+    return '';
+  }
+  return parsed;
+}
+
+function successSalesOsResponse(message, id) {
+  return {
+    ok: true,
+    message: message,
+    id: id,
+  };
+}
+
+function assertNoSensitiveSalesOsData(payload) {
+  var text = JSON.stringify(payload).toLowerCase();
+  var forbidden = [
+    'seed phrase',
+    'private key',
+    'privatni ključ',
+    'privatne ključeve',
+    'lozinka',
+    'password',
+    'screenshot novčanika',
+    'screenshotove novčanika',
+    'wallet screenshot',
+    'točan iznos bitcoina',
+    'exact bitcoin holdings',
+    'exchange login',
+    'pristup burzi',
+    'pristup burzama',
+  ];
+
+  forbidden.forEach(function (term) {
+    if (text.indexOf(term) !== -1) {
+      throw new Error(
+        'Sigurnosno pravilo: ne unositi seed phrase, privatne ključeve, lozinke, screenshotove novčanika, točne iznose Bitcoina, pristup burzama ili osjetljive dokumente.'
+      );
+    }
+  });
 }
 
 function setupCrm(spreadsheet) {

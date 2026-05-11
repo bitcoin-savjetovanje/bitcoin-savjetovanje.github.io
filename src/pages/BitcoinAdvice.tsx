@@ -115,15 +115,18 @@ export function BitcoinAdvice() {
               <Button
                 asChild
                 size="lg"
-                className="cta-primary h-12 rounded-full px-5 text-base"
+                className="cta-primary h-12 w-full max-w-full rounded-full px-4 text-sm sm:w-auto sm:px-5 sm:text-base"
               >
                 <a
                   href={CONVERSATION_PATH}
-                  className="justify-center text-center"
+                  className="min-w-0 justify-center text-center"
                   data-cta="bitcoin-advice-hero-intro-call"
                 >
                   <CalendarDays className="size-4" />
-                  Dogovorite 15-minutni uvodni razgovor
+                  <span className="sm:hidden">Dogovorite uvodni razgovor</span>
+                  <span className="hidden sm:inline">
+                    Dogovorite 15-minutni uvodni razgovor
+                  </span>
                 </a>
               </Button>
             </li>
@@ -155,7 +158,7 @@ export function BitcoinAdvice() {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:mt-12 sm:p-8">
           <div className="flex max-w-4xl gap-4">
             <ShieldCheck className="mt-1 size-6 shrink-0 text-primary" />
             <div>
@@ -180,7 +183,7 @@ export function BitcoinAdvice() {
           </div>
         </section>
 
-        <section>
+        <section className="mt-12 sm:mt-14">
           <h2 className="text-2xl font-semibold">Tri moguća oblika rada</h2>
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
             {paths.map((path) => (
@@ -203,7 +206,7 @@ export function BitcoinAdvice() {
           </div>
         </section>
 
-        <section className="rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-12 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:mt-14 sm:p-8">
           <h2 className="text-2xl font-semibold">Što ne radimo</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
             Bitcoin savjetovanje ovdje nije upravljanje imovinom, kratka tržišna
@@ -213,7 +216,7 @@ export function BitcoinAdvice() {
           <CheckList items={notDoingItems} />
         </section>
 
-        <section className="rounded-2xl border border-foreground/10 bg-foreground p-6 text-background shadow-sm sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+        <section className="mt-12 rounded-2xl border border-foreground/10 bg-foreground p-6 text-background shadow-sm sm:mt-14 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
             <h2 className="max-w-3xl text-3xl leading-tight font-semibold">
               Imate Bitcoin pitanje koje utječe na stvarnu odluku?

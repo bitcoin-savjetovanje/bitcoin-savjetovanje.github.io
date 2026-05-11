@@ -10,11 +10,13 @@ import {
   EMAIL,
   OG_IMAGE_URL,
   SITE_URL,
+  bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   conversationSeo,
   guidesIndexSeo,
   securitySeo,
 } from "./site"
+import { faqs } from "./faq"
 
 type BreadcrumbItem = {
   name: string
@@ -76,6 +78,66 @@ export function homeSchema() {
           description: offer.purpose,
         })),
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  }
+}
+
+export function bitcoinAdvicePageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin savjetovanje u Hrvatskoj",
+        description: bitcoinAdviceSeo.description,
+        url: bitcoinAdviceSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin savjetovanje",
+          "Bitcoin sigurnost",
+          "Bitcoin konzultacije",
+          "osobni Bitcoin standard",
+          "Bitcoin nasljeđivanje",
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Bitcoin savjetovanje",
+        serviceType:
+          "Bitcoin savjetovanje jedan-na-jedan, uvodni razgovor i Bitcoin konzultacija",
+        description:
+          "Savjetodavni rad za ljude koji žele razjasniti Bitcoin, sigurnost, obitelj, dug, proračun i osobni okvir za odluke. Ne uključuje upravljanje sredstvima, prognoze cijene, porezni ili pravni savjet.",
+        provider: {
+          "@type": "ProfessionalService",
+          "@id": `${SITE_URL}/#service`,
+          name: "Bitcoin Savjetovanje",
+        },
+        areaServed: ["Hrvatska", "Online"],
+        url: bitcoinAdviceSeo.canonical,
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "Bitcoin savjetovanje",
+          item: bitcoinAdviceSeo.canonical,
+        },
+      ]),
     ],
   }
 }

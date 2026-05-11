@@ -1,6 +1,7 @@
 import { guideHref, guides } from "./guides"
 import {
   bitcoinConsultationPageSchema,
+  bitcoinAdvicePageSchema,
   conversationPageSchema,
   guideSchema,
   guidesIndexSchema,
@@ -11,6 +12,7 @@ import {
   OG_IMAGE_URL,
   SITE_UPDATED_AT,
   SITE_URL,
+  bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   conversationSeo,
   guidesIndexSeo,
@@ -20,6 +22,7 @@ import {
 
 export type RouteType =
   | "home"
+  | "bitcoin-advice"
   | "conversation"
   | "bitcoin-consultation"
   | "guides-index"
@@ -71,6 +74,20 @@ export const guidesIndexRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
+export const bitcoinAdviceRoute: RouteMeta = {
+  path: "/bitcoin-savjetovanje/",
+  title: bitcoinAdviceSeo.title,
+  description: bitcoinAdviceSeo.description,
+  canonical: bitcoinAdviceSeo.canonical,
+  schema: bitcoinAdvicePageSchema(),
+  type: "bitcoin-advice",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
 export const conversationRoute: RouteMeta = {
   path: "/razgovor/",
   title: conversationSeo.title,
@@ -101,7 +118,7 @@ export const bitcoinConsultationRoute: RouteMeta = {
 
 export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   path: `/vodici/${guide.slug}`,
-  title: `${guide.title} | Bitcoin Savjetovanje`,
+  title: `${guide.seoTitle ?? guide.title} | Bitcoin Savjetovanje`,
   description: guide.metaDescription,
   canonical: `${SITE_URL}${guideHref(guide.slug)}`,
   schema: guideSchema(guide),
@@ -166,6 +183,7 @@ export const notFoundRoute: RouteMeta = {
 
 export const prerenderRoutes: RouteMeta[] = [
   homeRoute,
+  bitcoinAdviceRoute,
   conversationRoute,
   bitcoinConsultationRoute,
   guidesIndexRoute,

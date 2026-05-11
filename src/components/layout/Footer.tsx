@@ -1,6 +1,7 @@
 import { Copyright } from "lucide-react"
 
 import {
+  BITCOIN_ADVICE_PATH,
   CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
@@ -25,6 +26,9 @@ export function Footer() {
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
+          <a href={BITCOIN_ADVICE_PATH} data-link="footer-bitcoin-advice">
+            Savjetovanje
+          </a>{" "}
           <a
             href={PRACTICAL_BITCOIN_STANDARD_URL}
             data-link="footer-practical-bitcoin-standard"

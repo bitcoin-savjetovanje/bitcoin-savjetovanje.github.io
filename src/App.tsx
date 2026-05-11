@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 
 export type RouteComponents = {
   Home: ComponentType
+  BitcoinAdvice: ComponentType
   GuidesIndex: ComponentType
   Conversation: ComponentType
   BitcoinConsultation: ComponentType
@@ -19,6 +20,11 @@ export type RouteComponents = {
 const lazyRouteComponents = {
   Home: lazy(() =>
     import("@/pages/Home").then((module) => ({ default: module.Home }))
+  ),
+  BitcoinAdvice: lazy(() =>
+    import("@/pages/BitcoinAdvice").then((module) => ({
+      default: module.BitcoinAdvice,
+    }))
   ),
   GuidesIndex: lazy(() =>
     import("@/pages/GuidesIndex").then((module) => ({
@@ -75,6 +81,7 @@ function Route({
 }) {
   const {
     Home,
+    BitcoinAdvice,
     GuidesIndex,
     Conversation,
     BitcoinConsultation,
@@ -89,6 +96,10 @@ function Route({
 
   if (path === "/vodici") {
     return <GuidesIndex />
+  }
+
+  if (path === "/bitcoin-savjetovanje") {
+    return <BitcoinAdvice />
   }
 
   if (path === "/razgovor") {

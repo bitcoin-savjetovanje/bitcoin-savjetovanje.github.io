@@ -9,6 +9,7 @@ let routeComponentsPromise: Promise<RouteComponents> | null = null
 function loadRouteComponents() {
   routeComponentsPromise ??= Promise.all([
     import("@/pages/Home"),
+    import("@/pages/BitcoinAdvice"),
     import("@/pages/GuidesIndex"),
     import("@/pages/Conversation"),
     import("@/pages/BitcoinConsultation"),
@@ -18,6 +19,7 @@ function loadRouteComponents() {
   ]).then(
     ([
       home,
+      bitcoinAdvice,
       guidesIndex,
       conversation,
       bitcoinConsultation,
@@ -26,6 +28,7 @@ function loadRouteComponents() {
       notFound,
     ]) => ({
       Home: home.Home,
+      BitcoinAdvice: bitcoinAdvice.BitcoinAdvice,
       GuidesIndex: guidesIndex.GuidesIndex,
       Conversation: conversation.Conversation,
       BitcoinConsultation: bitcoinConsultation.BitcoinConsultation,

@@ -91,6 +91,7 @@ export type Guide = {
   slug: string
   previousSlugs?: string[]
   title: string
+  seoTitle?: string
   metaDescription: string
   excerpt: string
   category: GuideCategory
@@ -990,6 +991,7 @@ const guideEntries: Guide[] = [
   {
     slug: "uskladivanje-kupovne-moci-bitcoina",
     title: "Usklađivanje kupovne moći: što raditi kad Bitcoin raste ili pada?",
+    seoTitle: "Kad Bitcoin raste ili pada",
     metaDescription:
       "Vodič o tome kako uskladiti osobni proračun nulte osnove s promjenama kupovne moći Bitcoina, bez pogađanja cijene i impulzivnih odluka.",
     excerpt:
@@ -1401,6 +1403,7 @@ const guideEntries: Guide[] = [
   {
     slug: "obiteljski-pristup-bitcoinu",
     title: "Kako obitelj može pristupiti Bitcoinu ako vam se nešto dogodi?",
+    seoTitle: "Bitcoin nasljeđivanje i obitelj",
     metaDescription:
       "Kako razmišljati o obiteljskom pristupu Bitcoinu bez otkrivanja osjetljivih podataka, žurbe i prepuštanja kontrole.",
     excerpt:

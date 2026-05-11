@@ -688,6 +688,7 @@
   }
 
   .conversation-calendar-card,
+  .conversation-referral-card,
   .conversation-final-card {
     @apply mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
   }
@@ -1337,6 +1338,7 @@
   }
 
   .conversation-calendar-card,
+  .conversation-referral-card,
   .conversation-final-card,
   .conversation-outcomes-card,
   .cal-inline-section,
@@ -1365,6 +1367,7 @@
   }
 
   .conversation-calendar-card,
+  .conversation-referral-card,
   .conversation-final-card,
   .conversation-outcomes-card,
   .cal-inline-section,

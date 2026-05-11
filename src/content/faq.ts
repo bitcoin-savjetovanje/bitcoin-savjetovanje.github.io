@@ -25,6 +25,11 @@ export const faqs = [
       "Da, osobito ako je prepreka obiteljsko razumijevanje, sigurnost ili nasljeđivanje.",
   },
   {
+    question: "Mogu li ovu stranicu poslati nekome tko ima Bitcoin pitanje?",
+    answer:
+      "Da. Najbolje je poslati stranicu za uvodni razgovor i reći osobi da dođe s jednim stvarnim pitanjem koje utječe na odluku. Ne mora znati stručne izraze i ne treba slati iznose, dokumente, seed phrase ili privatne ključeve.",
+  },
+  {
     question: "Što ako imam dug?",
     answer:
       "Tada je razgovor često još korisniji. Dug mijenja vremenski horizont, pritisak i sposobnost čekanja. Ne znači da je odgovor uvijek isti, ali dug mora biti vidljiv u odluci.",

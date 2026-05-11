@@ -43,6 +43,7 @@ export function CalInlineEmbed() {
 
   return (
     <section
+      id="kalendar"
       className="cal-inline-section"
       aria-labelledby="cal-inline-title"
       data-cal-inline={CAL_BOOKING_NAMESPACE}
@@ -57,8 +58,9 @@ export function CalInlineEmbed() {
           </h2>
         </div>
         <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-          Odaberite termin koji vam odgovara. U bilješku možete napisati jedno
-          Bitcoin pitanje koje želite razjasniti.
+          Odaberite termin koji vam odgovara. U bilješku napišite jedno Bitcoin
+          pitanje koje želite razjasniti. Ne šaljite seed phrase, privatne
+          ključeve, iznose ni osjetljive dokumente.
         </p>
       </div>
 

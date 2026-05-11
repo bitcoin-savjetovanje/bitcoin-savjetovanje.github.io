@@ -13,6 +13,7 @@ export const ctaEventRegistry = {
   "call-bitcoin-clarity": { kind: "link", surface: "razgovor" },
   "call-security": { kind: "cta", surface: "razgovor" },
   "conversation-page-calendar": { kind: "cta", surface: "razgovor" },
+  "conversation-referral-calendar": { kind: "cta", surface: "razgovor" },
   "conversation-page-final-calendar": { kind: "cta", surface: "razgovor" },
   "conversation-bitcoin-clarity": { kind: "link", surface: "razgovor" },
   "conversation-page-security": { kind: "cta", surface: "razgovor" },

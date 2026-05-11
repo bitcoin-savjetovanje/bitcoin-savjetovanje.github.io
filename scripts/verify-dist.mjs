@@ -356,6 +356,8 @@ const forbiddenPublicCopy = [
   "nejasna imovina",
   "razbiti",
   "prigovor",
+  "gdje ste zapeli",
+  "monetarna teza",
   "vidimo ima li smisla za vas",
   "početne riječi",
   "početnih riječi",
@@ -564,6 +566,14 @@ const homeChecks = [
   [
     "Dobivate jasniju sliku što zapravo stoji iza odluke",
     "FAQ intro call outcome copy",
+  ],
+  [
+    "Mogu li ovu stranicu poslati nekome tko ima Bitcoin pitanje?",
+    "referral FAQ question",
+  ],
+  [
+    "Najbolje je poslati stranicu za uvodni razgovor",
+    "referral FAQ answer",
   ],
   [
     "Provjerite ima li uvodni razgovor smisla",
@@ -893,6 +903,24 @@ const conversationChecks = [
     "Otvorit će se kalendar. Odaberite termin",
     "conversation calendar help text",
   ],
+  [
+    "Ako vam je netko poslao ovu stranicu",
+    "warm referral section title",
+  ],
+  [
+    "Koju odluku pokušavate donijeti?",
+    "warm referral booking note prompt",
+  ],
+  [
+    "Ne šaljite seed phrase",
+    "warm referral safety copy",
+  ],
+  ['href="#kalendar"', "warm referral calendar anchor"],
+  [
+    'data-cta="conversation-referral-calendar"',
+    "warm referral calendar CTA metadata",
+  ],
+  ['id="kalendar"', "inline calendar anchor id"],
   [
     "Odaberite termin za uvodni razgovor.",
     "inline calendar section title",

@@ -136,6 +136,47 @@ export function Conversation() {
           </p>
         </section>
 
+        <section className="conversation-referral-card">
+          <h2 className="text-2xl font-semibold">
+            Ako vam je netko poslao ovu stranicu
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Ne morate znati je li razgovor pravi za vas. Dovoljno je da imate
+            jedno stvarno Bitcoin pitanje koje utječe na vašu odluku — oko
+            Bitcoin teze, cijene, duga, sigurnosti, obitelji ili uloge Bitcoina
+            u imovini.
+          </p>
+          <p className="mt-5 text-base leading-7 font-medium text-foreground">
+            U bilješku kod odabira termina možete napisati:
+          </p>
+          <Checklist
+            items={[
+              "Koju odluku pokušavate donijeti?",
+              "Što vam još nije jasno ili što vas najviše brine?",
+              "Dolazite li sami ili s partnerom/članom obitelji?",
+            ]}
+          />
+          <p className="mt-5 text-sm leading-6 text-muted-foreground">
+            Ne šaljite seed phrase, privatne ključeve, lozinke, screenshotove
+            novčanika, iznose ni osjetljive dokumente.
+          </p>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="mt-6 h-11 w-full rounded-full px-4 text-sm sm:w-auto sm:px-5 sm:text-base"
+          >
+            <a
+              href="#kalendar"
+              className="justify-center text-center"
+              data-cta="conversation-referral-calendar"
+            >
+              <CalendarDays className="size-4" />
+              Odaberite termin
+            </a>
+          </Button>
+        </section>
+
         <CalInlineEmbed />
 
         <div className="conversation-two-column">

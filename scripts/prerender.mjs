@@ -68,7 +68,10 @@ function routeHead(route) {
 }
 
 function injectHead(html, route) {
-  return stripRouteHead(html).replace("</head>", `${routeHead(route)}\n  </head>`)
+  return stripRouteHead(html).replace(
+    "</head>",
+    `${routeHead(route)}\n  </head>`
+  )
 }
 
 function injectApp(template, appHtml) {
@@ -133,7 +136,7 @@ const { render, prerenderRoutes, notFoundRoute } = await import(
 
 await Promise.all(
   prerenderRoutes.map(async (route) => {
-    const appHtml = render(route.path)
+    const appHtml = await render(route.path)
     const html = injectHead(injectApp(template, appHtml), route)
     const filePath = outputPath(route.path)
     await fs.mkdir(path.dirname(filePath), { recursive: true })
@@ -142,7 +145,7 @@ await Promise.all(
 )
 
 const notFoundHtml = injectHead(
-  injectApp(template, render(notFoundRoute.path)),
+  injectApp(template, await render(notFoundRoute.path)),
   notFoundRoute
 )
 await fs.writeFile(path.join(distDir, "404.html"), notFoundHtml)

@@ -1,17 +1,50 @@
-import { useEffect, useState } from "react"
+import { Suspense, lazy, useEffect, useState, type ComponentType } from "react"
 import { ArrowUp } from "lucide-react"
 
 import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta"
 import { Button } from "@/components/ui/button"
-import { BitcoinConsultation } from "@/pages/BitcoinConsultation"
-import { Conversation } from "@/pages/Conversation"
-import { Guide } from "@/pages/Guide"
-import { GuidesIndex } from "@/pages/GuidesIndex"
-import { Home } from "@/pages/Home"
-import { NotFound } from "@/pages/NotFound"
-import { Security } from "@/pages/Security"
+
+export type RouteComponents = {
+  Home: ComponentType
+  GuidesIndex: ComponentType
+  Conversation: ComponentType
+  BitcoinConsultation: ComponentType
+  Guide: ComponentType<{ slug: string }>
+  Security: ComponentType
+  NotFound: ComponentType
+}
+
+const lazyRouteComponents = {
+  Home: lazy(() =>
+    import("@/pages/Home").then((module) => ({ default: module.Home }))
+  ),
+  GuidesIndex: lazy(() =>
+    import("@/pages/GuidesIndex").then((module) => ({
+      default: module.GuidesIndex,
+    }))
+  ),
+  Conversation: lazy(() =>
+    import("@/pages/Conversation").then((module) => ({
+      default: module.Conversation,
+    }))
+  ),
+  BitcoinConsultation: lazy(() =>
+    import("@/pages/BitcoinConsultation").then((module) => ({
+      default: module.BitcoinConsultation,
+    }))
+  ),
+  Guide: lazy(() =>
+    import("@/pages/Guide").then((module) => ({ default: module.Guide }))
+  ),
+  Security: lazy(() =>
+    import("@/pages/Security").then((module) => ({ default: module.Security }))
+  ),
+  NotFound: lazy(() =>
+    import("@/pages/NotFound").then((module) => ({ default: module.NotFound }))
+  ),
+} satisfies RouteComponents
 
 function normalizePath(pathname: string) {
   if (pathname.length > 1 && pathname.endsWith("/")) {
@@ -33,7 +66,23 @@ function getInitialPath(path?: string) {
   return normalizePath(window.location.pathname)
 }
 
-function Route({ path }: { path: string }) {
+function Route({
+  path,
+  routeComponents,
+}: {
+  path: string
+  routeComponents: RouteComponents
+}) {
+  const {
+    Home,
+    GuidesIndex,
+    Conversation,
+    BitcoinConsultation,
+    Guide,
+    Security,
+    NotFound,
+  } = routeComponents
+
   if (path === "/") {
     return <Home />
   }
@@ -67,7 +116,13 @@ function Route({ path }: { path: string }) {
   return <NotFound />
 }
 
-export function App({ path }: { path?: string }) {
+export function App({
+  path,
+  routeComponents = lazyRouteComponents,
+}: {
+  path?: string
+  routeComponents?: RouteComponents
+}) {
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [showStickyMobileCta, setShowStickyMobileCta] = useState(false)
   const currentPath = getInitialPath(path)
@@ -130,7 +185,9 @@ export function App({ path }: { path?: string }) {
     >
       <Header currentPath={currentPath} />
       <main id="top">
-        <Route path={currentPath} />
+        <Suspense fallback={null}>
+          <Route path={currentPath} routeComponents={routeComponents} />
+        </Suspense>
       </main>
       <Footer />
       {hasStickyMobileCta ? (

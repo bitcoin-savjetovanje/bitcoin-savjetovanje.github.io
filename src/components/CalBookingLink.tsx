@@ -1,9 +1,7 @@
-import { getCalApi } from "@calcom/embed-react"
 import {
   forwardRef,
   type ComponentPropsWithoutRef,
   type MouseEvent,
-  useEffect,
 } from "react"
 
 import {
@@ -39,7 +37,8 @@ function ensureCalEmbed() {
     return Promise.resolve(null)
   }
 
-  calEmbedPromise ??= getCalApi({ namespace: CAL_BOOKING_NAMESPACE })
+  calEmbedPromise ??= import("@calcom/embed-react")
+    .then(({ getCalApi }) => getCalApi({ namespace: CAL_BOOKING_NAMESPACE }))
     .then((cal) => {
       cal("ui", {
         theme: "light",
@@ -74,10 +73,6 @@ export const CalBookingLink = forwardRef<
   HTMLAnchorElement,
   CalBookingLinkProps
 >(function CalBookingLink({ children, onClick, ...props }, ref) {
-  useEffect(() => {
-    ensureCalEmbed()
-  }, [])
-
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     onClick?.(event)
 

@@ -10,6 +10,7 @@ import {
 const calInlineConfig = {
   layout: "month_view",
   useSlotsViewOnSmallScreen: "true",
+  theme: "light",
 } as const
 
 const calInlineStyle = {
@@ -23,6 +24,7 @@ export function CalInlineEmbed() {
     getCalApi({ namespace: CAL_BOOKING_NAMESPACE })
       .then((cal) => {
         cal("ui", {
+          theme: "light",
           cssVarsPerTheme: {
             light: { "cal-brand": "#F7931A" },
             dark: { "cal-brand": "#F7931A" },

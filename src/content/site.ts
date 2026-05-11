@@ -1,12 +1,12 @@
 export const SITE_URL = "https://bitcoin-savjetovanje.com"
-export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-poziv"
-export const CAL_BOOKING_LINK = "btcpavao/uvodni-poziv"
-export const CAL_BOOKING_NAMESPACE = "uvodni-poziv"
+export const BOOKING_URL = "https://cal.com/btcpavao/uvodni-bitcoin-razgovor"
+export const CAL_BOOKING_LINK = "btcpavao/uvodni-bitcoin-razgovor"
+export const CAL_BOOKING_NAMESPACE = "uvodni-bitcoin-razgovor"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
 export const SECONDARY_CTA = "Pogledajte pitanja koja možemo proći"
 export const CONVERSATION_PATH = "/razgovor/"
-export const BITCOIN_CLARITY_PATH = "/bitcoin-jasnoca/"
+export const BITCOIN_CONSULTATION_PATH = "/bitcoin-konzultacija/"
 export const SITE_UPDATED_AT = "2026-05-08"
 export const OG_IMAGE_PATH = "/og-image.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
@@ -32,11 +32,11 @@ export const conversationSeo = {
   canonical: `${SITE_URL}${CONVERSATION_PATH}`,
 }
 
-export const bitcoinClaritySeo = {
-  title: "Bitcoin jasnoća | Bitcoin Savjetovanje",
+export const bitcoinConsultationSeo = {
+  title: "Bitcoin konzultacija | Bitcoin Savjetovanje",
   description:
-    "Jedan dubinski Bitcoin razgovor za ljude koji žele jasniju Bitcoin tezu, sigurnosni okvir i osobni sljedeći korak prije veće odluke.",
-  canonical: `${SITE_URL}${BITCOIN_CLARITY_PATH}`,
+    "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku. Bez savjeta ‘kupi’ ili ‘prodaj’, bez prognoza cijene i bez traženja seed phrase.",
+  canonical: `${SITE_URL}${BITCOIN_CONSULTATION_PATH}`,
 }
 
 export const guidesIndexSeo = {

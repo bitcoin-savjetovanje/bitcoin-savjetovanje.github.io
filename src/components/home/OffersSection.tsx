@@ -17,7 +17,7 @@ export function OffersSection() {
             <li key={offer.title} className="offer-path__item">
               <article
                 className={`offer-card ${
-                  offer.title === "Bitcoin jasnoća"
+                  offer.title === "Bitcoin konzultacija"
                     ? "offer-card--featured"
                     : ""
                 }`}

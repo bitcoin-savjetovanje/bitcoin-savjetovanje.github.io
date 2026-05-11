@@ -1,4 +1,4 @@
-import { BITCOIN_CLARITY_PATH, CONVERSATION_PATH } from "./site"
+import { BITCOIN_CONSULTATION_PATH, CONVERSATION_PATH } from "./site"
 
 export type Offer = {
   title: string
@@ -39,13 +39,13 @@ export const offers: Offer[] = [
     dataCta: "offer-intro-call",
   },
   {
-    title: "Bitcoin jasnoća",
+    title: "Bitcoin konzultacija",
     price: "200 €",
     duration: "Jedan dubinski razgovor",
     forWhom:
-      "Za osobu koja želi jedan ozbiljan razgovor o Bitcoinu, vlastitoj situaciji i odluci koju ne želi donositi napamet.",
+      "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku.",
     detail:
-      "Za osobu koja želi jedan ozbiljan razgovor o Bitcoinu, vlastitoj situaciji i odluci koju ne želi donositi napamet.",
+      "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku.",
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
@@ -57,12 +57,12 @@ export const offers: Offer[] = [
     ],
     cta: "Prvo dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
-    dataCta: "offer-bitcoin-jasnoca",
+    dataCta: "offer-bitcoin-consultation",
     badge: "Prvi plaćeni korak",
     detailLink: {
-      label: "Što je Bitcoin jasnoća?",
-      href: BITCOIN_CLARITY_PATH,
-      dataLink: "offer-bitcoin-clarity-details",
+      label: "Što je Bitcoin konzultacija?",
+      href: BITCOIN_CONSULTATION_PATH,
+      dataLink: "offer-bitcoin-consultation-details",
     },
   },
   {

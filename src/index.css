@@ -750,23 +750,23 @@
     @apply mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-6 shadow-sm sm:p-8;
   }
 
-  .clarity-hero {
+  .consultation-hero {
     @apply grid gap-6 rounded-2xl border border-border/80 bg-card/82 p-6 shadow-sm sm:p-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center;
   }
 
-  .clarity-price-card {
+  .consultation-price-card {
     @apply rounded-xl border border-primary/25 bg-primary/10 p-5 shadow-sm;
   }
 
-  .clarity-comparison {
+  .consultation-comparison {
     @apply mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8;
   }
 
-  .clarity-safety-card {
+  .consultation-safety-card {
     @apply mt-8 rounded-2xl border border-border/80 bg-background/70 p-6 shadow-sm sm:p-8;
   }
 
-  .clarity-outcome-card {
+  .consultation-outcome-card {
     @apply mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
   }
 
@@ -1343,10 +1343,10 @@
   .conversation-outcomes-card,
   .cal-inline-section,
   .safety-note-card,
-  .clarity-hero,
-  .clarity-comparison,
-  .clarity-safety-card,
-  .clarity-outcome-card,
+  .consultation-hero,
+  .consultation-comparison,
+  .consultation-safety-card,
+  .consultation-outcome-card,
   .security-principle-card,
   .security-goals-card,
   .security-technical-note,

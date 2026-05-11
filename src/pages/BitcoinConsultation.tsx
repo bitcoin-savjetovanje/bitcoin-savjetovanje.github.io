@@ -2,7 +2,7 @@ import { ArrowUpRight, CalendarDays, Check, X } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import { bitcoinClarityRoute } from "@/content/routes"
+import { bitcoinConsultationRoute } from "@/content/routes"
 import { CONVERSATION_PATH } from "@/content/site"
 
 const forWhomItems = [
@@ -76,15 +76,15 @@ function Checklist({
   )
 }
 
-export function BitcoinClarity() {
+export function BitcoinConsultation() {
   return (
     <>
       <Seo
-        title={bitcoinClarityRoute.title}
-        description={bitcoinClarityRoute.description}
-        canonical={bitcoinClarityRoute.canonical}
-        ogType={bitcoinClarityRoute.ogType}
-        schema={bitcoinClarityRoute.schema as object}
+        title={bitcoinConsultationRoute.title}
+        description={bitcoinConsultationRoute.description}
+        canonical={bitcoinConsultationRoute.canonical}
+        ogType={bitcoinConsultationRoute.ogType}
+        schema={bitcoinConsultationRoute.schema as object}
       />
       <article className="section-shell page-flow">
         <nav
@@ -99,24 +99,23 @@ export function BitcoinClarity() {
             </li>
             <li aria-hidden="true">/</li>
             <li aria-current="page" className="text-foreground">
-              Bitcoin jasnoća
+              Bitcoin konzultacija
             </li>
           </ol>
         </nav>
 
-        <header className="clarity-hero mt-8">
+        <header className="consultation-hero mt-8">
           <div>
             <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-              Bitcoin jasnoća
+              Bitcoin konzultacija
             </h1>
             <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-              Jedan dubinski razgovor za osobu koja želi ozbiljno razjasniti
-              Bitcoin tezu, vlastitu situaciju i odluku koju ne želi donositi
-              napamet.
+              Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje
+              utječe na vašu odluku.
             </p>
           </div>
           <aside
-            className="clarity-price-card"
+            className="consultation-price-card"
             aria-label="Cijena i sljedeći korak"
           >
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
@@ -130,7 +129,7 @@ export function BitcoinClarity() {
               <a
                 href={CONVERSATION_PATH}
                 className="justify-center text-center"
-                data-cta="bitcoin-clarity-intro-call"
+                data-cta="bitcoin-consultation-intro-call"
               >
                 <CalendarDays className="size-4" />
                 Krenite od uvodnog razgovora
@@ -151,19 +150,19 @@ export function BitcoinClarity() {
           </section>
         </div>
 
-        <section className="clarity-safety-card">
+        <section className="consultation-safety-card">
           <h2 className="text-2xl font-semibold">Što ne radimo</h2>
           <p className="mt-4 text-base leading-8 text-muted-foreground">
-            Bitcoin jasnoća nije dobar izbor ako tražite kratku uputu kada
+            Bitcoin konzultacija nije dobar izbor ako tražite kratku uputu kada
             kupiti ili prodati, prognozu cijene, upravljanje sredstvima, porezni
             ili pravni savjet, ili osobu koja će odlučiti umjesto vas.
           </p>
           <Checklist items={notDoingItems} kind="negative" />
         </section>
 
-        <section className="clarity-outcome-card">
+        <section className="consultation-outcome-card">
           <h2 className="text-2xl font-semibold">
-            Nakon Bitcoin jasnoće najčešće imate
+            Nakon Bitcoin konzultacije najčešće imate
           </h2>
           <Checklist items={outcomes} />
         </section>
@@ -171,8 +170,8 @@ export function BitcoinClarity() {
         <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">Kako razgovor završava</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Na kraju ne dobivate savjet kupi ili prodaj. Dobivate jasniji okvir:
-            što je pitanje, što je stvarni rizik, koje osobne okolnosti
+            Na kraju ne dobivate savjet ‘kupi’ ili ‘prodaj’. Dobivate jasniji
+            okvir: što je pitanje, gdje je stvarni rizik, koje osobne okolnosti
             mijenjaju odluku i koji bi sljedeći korak bio razuman.
           </p>
         </section>
@@ -192,16 +191,16 @@ export function BitcoinClarity() {
           </section>
         </div>
 
-        <section className="clarity-comparison">
+        <section className="consultation-comparison">
           <h2 className="text-2xl font-semibold">
-            Bitcoin jasnoća ili osobni Bitcoin standard?
+            Bitcoin konzultacija ili osobni Bitcoin standard?
           </h2>
           <div className="mt-6 grid gap-4 lg:grid-cols-2">
             <article className="rounded-xl border border-primary/25 bg-primary/5 p-5 shadow-sm">
-              <h3 className="text-xl font-semibold">Bitcoin jasnoća</h3>
+              <h3 className="text-xl font-semibold">Bitcoin konzultacija</h3>
               <p className="mt-3 text-base leading-8 text-muted-foreground">
-                Bitcoin jasnoća je za jedno ozbiljno pitanje, tezu ili odluku
-                koju želite razjasniti u jednom dubinskom razgovoru.
+                Bitcoin konzultacija je za jedno ozbiljno pitanje, tezu ili
+                odluku koju želite razjasniti u jednom dubinskom razgovoru.
               </p>
             </article>
             <article className="rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm">
@@ -214,8 +213,10 @@ export function BitcoinClarity() {
             </article>
           </div>
           <ul className="mt-6 grid gap-3 text-base leading-7 text-muted-foreground md:grid-cols-2">
-            <li>Jedna odluka ili pitanje: Bitcoin jasnoća.</li>
-            <li>Jasnija Bitcoin teza za sebe ili partnera: Bitcoin jasnoća.</li>
+            <li>Jedna odluka ili pitanje: Bitcoin konzultacija.</li>
+            <li>
+              Jasnija Bitcoin teza za sebe ili partnera: Bitcoin konzultacija.
+            </li>
             <li>Pisana pravila za cijeli sustav: Osobni Bitcoin standard.</li>
             <li>
               Sigurnost i obiteljski pristup trebaju cijeli plan: Osobni Bitcoin
@@ -241,8 +242,9 @@ export function BitcoinClarity() {
             Krenite od uvodnog razgovora
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Uvodni razgovor služi tome da vidimo je li Bitcoin jasnoća pravi
-            sljedeći korak ili je za sada dovoljno stati na kratkoj procjeni.
+            Uvodni razgovor služi tome da vidimo je li Bitcoin konzultacija
+            pravi sljedeći korak ili je za sada dovoljno stati na kratkoj
+            procjeni.
           </p>
           <ul className="mt-6 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
             <li>
@@ -254,7 +256,7 @@ export function BitcoinClarity() {
                 <a
                   href={CONVERSATION_PATH}
                   className="justify-center text-center"
-                  data-cta="bitcoin-clarity-intro-call"
+                  data-cta="bitcoin-consultation-final-intro-call"
                 >
                   <CalendarDays className="size-4" />
                   Krenite od uvodnog razgovora
@@ -265,7 +267,7 @@ export function BitcoinClarity() {
               <a
                 href="/sigurnost/"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
-                data-cta="bitcoin-clarity-security"
+                data-cta="bitcoin-consultation-security"
               >
                 Pogledajte sigurnosna pravila
                 <ArrowUpRight className="size-4" />

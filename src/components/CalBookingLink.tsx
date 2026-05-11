@@ -10,6 +10,7 @@ import {
 const calBookingConfig = JSON.stringify({
   layout: "month_view",
   useSlotsViewOnSmallScreen: "true",
+  theme: "light",
 })
 
 let calEmbedPromise: Promise<void> | null = null
@@ -22,6 +23,7 @@ function ensureCalEmbed() {
   calEmbedPromise ??= getCalApi({ namespace: CAL_BOOKING_NAMESPACE })
     .then((cal) => {
       cal("ui", {
+        theme: "light",
         cssVarsPerTheme: {
           light: { "cal-brand": "#F7931A" },
           dark: { "cal-brand": "#F7931A" },

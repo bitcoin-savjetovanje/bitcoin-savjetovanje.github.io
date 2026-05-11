@@ -7,9 +7,11 @@ odlaska na vanjski kalendar. Početna stranica je usmjerena na pitanja,
 nejasnoće, sigurnost i mirniju osobnu odluku, dok je Praktični Bitcoin standard
 predstavljen kao dublji okvir rada.
 
-Stranica `/bitcoin-jasnoca/` objašnjava prvi plaćeni korak. Nije checkout i ne
+Stranica `/bitcoin-konzultacija/` objašnjava prvi plaćeni korak:
+“Bitcoin konzultacija”, jedan dubinski razgovor od 200 €. Nije checkout i ne
 prima plaćanja; i dalje vodi posjetitelja prema uvodnom razgovoru na
-`/razgovor/`.
+`/razgovor/`. Funnel ostaje: početna stranica -> `/razgovor/` ->
+`/bitcoin-konzultacija/` ako je relevantno -> Osobni Bitcoin standard.
 
 ## Development
 
@@ -68,7 +70,7 @@ Prerender:
 
 - `/`
 - `/razgovor/`
-- `/bitcoin-jasnoca/`
+- `/bitcoin-konzultacija/`
 - `/vodici/`
 - `/vodici/:slug/`
 - `/sigurnost/`

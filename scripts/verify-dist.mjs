@@ -84,6 +84,16 @@ function assertFile(relativePath) {
   return false
 }
 
+function assertNoFile(relativePath) {
+  if (!fs.existsSync(filePath(relativePath))) {
+    pass(`${relativePath} does not exist`)
+    return true
+  }
+
+  fail(`${relativePath} should not exist`)
+  return false
+}
+
 function readFile(relativePath) {
   if (!assertFile(relativePath)) {
     return ""
@@ -271,7 +281,7 @@ const routeByCanonical = new Map(
 )
 const home = routeMap.get("/")
 const conversation = routeMap.get("/razgovor/")
-const bitcoinClarity = routeMap.get("/bitcoin-jasnoca/")
+const bitcoinConsultation = routeMap.get("/bitcoin-konzultacija/")
 const guidesIndex = routeMap.get("/vodici/")
 const security = routeMap.get("/sigurnost/")
 
@@ -281,7 +291,7 @@ const requiredFiles = [
   "robots.txt",
   "sitemap.xml",
   "razgovor/index.html",
-  "bitcoin-jasnoca/index.html",
+  "bitcoin-konzultacija/index.html",
   "vodici/index.html",
   "sigurnost/index.html",
   ...requiredGuidePaths.map(routeFile),
@@ -289,6 +299,7 @@ const requiredFiles = [
 ]
 
 requiredFiles.forEach(assertFile)
+assertNoFile("bitcoin-jasnoca/index.html")
 
 const forbiddenText = [
   "crypto",
@@ -323,15 +334,20 @@ const forbiddenPublicCopy = [
   "partner ili obitelj nije uvjerena",
   "dođite s bilo kojim bitcoin pitanjem",
   "u razgovor možete doći s bilo kojim bitcoin pitanjem",
+  "bitcoin jasnoća",
+  "bitcoin jasnoca",
+  "što je bitcoin jasnoća?",
   "dogovorite 15-minutni uvodni razgovorpogledajte",
   "uvodni razgovorpogledajte",
   "dogovorite razgovorpogledajte",
   "razgovoršto je bitcoin jasnoća",
   "uvodni razgovoršto je bitcoin jasnoća",
+  "razgovoršto je bitcoin konzultacija",
+  "uvodni razgovoršto je bitcoin konzultacija",
   "praviladogovorite",
   "vodičeprimijenite",
   "1. 1 uvodni razgovor",
-  "2. 2 bitcoin jasnoća",
+  "2. 2 bitcoin konzultacija",
   "3. 3 osobni bitcoin standard",
   "3. 3",
   "1. 1 proračun",
@@ -471,7 +487,7 @@ const homeChecks = [
     "Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta.",
     "offer section title",
   ],
-  ["Bitcoin jasnoća", "renamed 200 EUR offer"],
+  ["Bitcoin konzultacija", "renamed 200 EUR offer"],
   ["Krenite od uvodnog razgovora", "standard offer CTA copy"],
   ["Vaš Bitcoin ostaje vaš", "security trust title"],
   ["Bez zahtjeva za seed phrase.", "seed phrase trust copy"],
@@ -495,8 +511,16 @@ const homeChecks = [
   ],
   [
     "Jasniji odgovori na pitanja koja se stalno vraćaju",
-    "Bitcoin jasnoća question copy",
+    "Bitcoin konzultacija question copy",
   ],
+  ["Bitcoin konzultacija", "Bitcoin konzultacija offer title"],
+  ["Što je Bitcoin konzultacija?", "Bitcoin konzultacija detail link copy"],
+  ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija detail link href"],
+  [
+    "Jedan dubinski razgovor",
+    "Bitcoin konzultacija offer format",
+  ],
+  ["200 €", "Bitcoin konzultacija price"],
   [
     "Cilj je vidjeti gdje ste, što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
     "final CTA calmer body",
@@ -515,7 +539,7 @@ const homeChecks = [
   ],
   [
     "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
-    "Bitcoin jasnoća offer framing",
+    "Bitcoin konzultacija offer framing",
   ],
   ["ne čuvam vaš Bitcoin", "footer no custody disclaimer"],
   [
@@ -611,10 +635,13 @@ const homeChecks = [
   ['data-cta="questions-intro-call"', "questions CTA metadata"],
   ['data-cta="intro-section-call"', "intro section CTA metadata"],
   ['data-cta="offer-intro-call"', "intro offer CTA metadata"],
-  ['data-cta="offer-bitcoin-jasnoca"', "Bitcoin jasnoća CTA metadata"],
   [
-    'data-link="offer-bitcoin-clarity-details"',
-    "Bitcoin jasnoća detail link metadata",
+    'data-cta="offer-bitcoin-consultation"',
+    "Bitcoin konzultacija CTA metadata",
+  ],
+  [
+    'data-link="offer-bitcoin-consultation-details"',
+    "Bitcoin konzultacija detail link metadata",
   ],
   ['data-cta="offer-personal-standard"', "standard offer CTA metadata"],
   ['data-cta="home-security-page"', "home security CTA metadata"],
@@ -687,7 +714,7 @@ assertNotIncludes(
 assertNotIncludes(
   "index.html",
   homeHtml,
-  'href="https://cal.com/btcpavao/uvodni-poziv"',
+  'href="https://cal.com/btcpavao/uvodni-bitcoin-razgovor"',
   "direct external booking link on homepage"
 )
 assertNotMatches(
@@ -723,14 +750,14 @@ assertNotIncludes(
 assertNotIncludes(
   "index.html",
   homeText,
-  "razgovorŠto je Bitcoin jasnoća",
+  "razgovorŠto je Bitcoin konzultacija",
   "joined offer CTA and detail link text"
 )
 assertNotIncludes(
   "index.html",
   homeText,
-  "uvodni razgovorŠto je Bitcoin jasnoća",
-  "joined Bitcoin jasnoća offer controls"
+  "uvodni razgovorŠto je Bitcoin konzultacija",
+  "joined Bitcoin konzultacija offer controls"
 )
 assertNotIncludes(
   "index.html",
@@ -873,7 +900,7 @@ const conversationChecks = [
   ],
   [
     "Vidimo što nedostaje za sljedeći korak.",
-    "conversation next step clarity",
+    "conversation next step framing",
   ],
   [
     "Spremni za uvodni razgovor?",
@@ -925,7 +952,7 @@ const conversationChecks = [
     "Odaberite termin za uvodni razgovor.",
     "inline calendar section title",
   ],
-  ['data-cal-inline="uvodni-poziv"', "inline calendar wrapper metadata"],
+  ['data-cal-inline="uvodni-bitcoin-razgovor"', "inline calendar wrapper metadata"],
   [
     'data-cta="conversation-inline-calendar-fallback"',
     "inline calendar fallback CTA metadata",
@@ -947,16 +974,20 @@ const conversationChecks = [
     "conversation safety note",
   ],
   [
-    "https://cal.com/btcpavao/uvodni-poziv",
+    "https://cal.com/btcpavao/uvodni-bitcoin-razgovor",
     "existing external booking URL",
   ],
-  ['data-cal-namespace="uvodni-poziv"', "Cal embed namespace"],
-  ['data-cal-link="btcpavao/uvodni-poziv"', "Cal embed link"],
+  ['data-cal-namespace="uvodni-bitcoin-razgovor"', "Cal embed namespace"],
+  ['data-cal-link="btcpavao/uvodni-bitcoin-razgovor"', "Cal embed link"],
   ["data-cal-config=", "Cal embed config attribute"],
   ["month_view", "Cal embed month view config"],
   ['data-cta="conversation-page-calendar"', "calendar CTA metadata"],
   ['data-cta="conversation-page-security"', "security CTA metadata"],
-  ['data-link="conversation-bitcoin-clarity"', "Bitcoin clarity page link"],
+  [
+    'data-link="conversation-bitcoin-consultation"',
+    "Bitcoin konzultacija page link",
+  ],
+  ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija href"],
   [
     'data-cta="conversation-page-final-calendar"',
     "final calendar CTA metadata",
@@ -979,40 +1010,40 @@ for (const [expected, label] of conversationChecks) {
 assertCount(
   "razgovor/index.html",
   conversationHtml,
-  'data-cal-link="btcpavao/uvodni-poziv"',
+  'data-cal-link="btcpavao/uvodni-bitcoin-razgovor"',
   3,
   "Cal embed booking triggers"
 )
 assertMatches(
   "razgovor/index.html",
   conversationHtml,
-  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*data-cta="header-intro-call")(?=[^>]*data-cal-link="btcpavao\/uvodni-poziv")[^>]*>/,
+  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-bitcoin-razgovor")(?=[^>]*data-cta="header-intro-call")(?=[^>]*data-cal-link="btcpavao\/uvodni-bitcoin-razgovor")[^>]*>/,
   "conversation header CTA opens Cal booking directly"
 )
 assertMatches(
   "razgovor/index.html",
   conversationHtml,
-  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*data-cal-link="btcpavao\/uvodni-poziv")[^>]*>/,
+  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-bitcoin-razgovor")(?=[^>]*data-cal-link="btcpavao\/uvodni-bitcoin-razgovor")[^>]*>/,
   "Cal booking CTA real href fallback"
 )
 assertNotMatches(
   "razgovor/index.html",
   conversationHtml,
-  /<a\b(?=[^>]*data-cal-link="btcpavao\/uvodni-poziv")(?=[^>]*href="javascript:)[^>]*>/,
+  /<a\b(?=[^>]*data-cal-link="btcpavao\/uvodni-bitcoin-razgovor")(?=[^>]*href="javascript:)[^>]*>/,
   "JavaScript-only Cal booking CTA"
 )
 assertNotMatches(
   "razgovor/index.html",
   conversationHtml,
-  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*target="_blank")[^>]*>/,
+  /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-bitcoin-razgovor")(?=[^>]*target="_blank")[^>]*>/,
   "Cal booking links opening in a new tab"
 )
 
 assertIncludes(
   "razgovor/index.html",
   conversationText,
-  "sljedeći korak je Bitcoin jasnoća",
-  "Bitcoin jasnoća next step copy"
+  "sljedeći korak je Bitcoin konzultacija",
+  "Bitcoin konzultacija next step copy"
 )
 
 for (const awkwardPhrase of [
@@ -1042,67 +1073,81 @@ if (!conversation) {
   fail("Route metadata for /razgovor/ is missing")
 }
 
-const bitcoinClarityHtml = readFile("bitcoin-jasnoca/index.html")
-const bitcoinClarityChecks = [
-  ["Bitcoin jasnoća", "Bitcoin clarity page title"],
-  ["200 €", "Bitcoin clarity price"],
-  ["jedan dubinski razgovor", "Bitcoin clarity duration"],
+const bitcoinConsultationHtml = readFile("bitcoin-konzultacija/index.html")
+const bitcoinConsultationChecks = [
+  ["Bitcoin konzultacija", "Bitcoin konzultacija page title"],
+  ["200 €", "Bitcoin konzultacija price"],
+  ["jedan dubinski razgovor", "Bitcoin konzultacija duration"],
   [
-    "Nakon Bitcoin jasnoće najčešće imate",
-    "Bitcoin clarity outcomes section",
+    "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje",
+    "Bitcoin konzultacija short description",
   ],
-  ["Što pripremiti", "Bitcoin clarity preparation section"],
-  ["Kada nije za vas", "Bitcoin clarity not for section"],
   [
-    "Bitcoin jasnoća ili osobni Bitcoin standard?",
-    "Bitcoin clarity comparison section",
+    "Nakon Bitcoin konzultacije najčešće imate",
+    "Bitcoin konzultacija outcomes section",
   ],
-  ["Kako razgovor završava", "Bitcoin clarity ending section"],
-  ["Na kraju ne dobivate savjet", "Bitcoin clarity no buy-sell advice copy"],
-  ["što je stvarni rizik", "Bitcoin clarity risk framing"],
+  ["Što pripremiti", "Bitcoin konzultacija preparation section"],
+  ["Kada nije za vas", "Bitcoin konzultacija not for section"],
   [
-    "Bitcoin jasnoća je za jedno ozbiljno pitanje",
-    "Bitcoin clarity comparison left copy",
+    "Bitcoin konzultacija ili osobni Bitcoin standard?",
+    "Bitcoin konzultacija comparison section",
+  ],
+  ["Kako razgovor završava", "Bitcoin konzultacija ending section"],
+  [
+    "Na kraju ne dobivate savjet",
+    "Bitcoin konzultacija no buy-sell advice copy",
+  ],
+  ["kupi", "Bitcoin konzultacija no-buy framing"],
+  ["prodaj", "Bitcoin konzultacija no-sell framing"],
+  ["gdje je stvarni rizik", "Bitcoin konzultacija risk framing"],
+  ["sljedeći korak bio razuman", "Bitcoin konzultacija reasonable next step"],
+  [
+    "Bitcoin konzultacija je za jedno ozbiljno pitanje",
+    "Bitcoin konzultacija comparison left copy",
   ],
   [
     "Osobni Bitcoin standard je za pisani sustav pravila",
-    "Bitcoin clarity comparison right copy",
+    "Bitcoin konzultacija comparison right copy",
   ],
-  ["Krenite od uvodnog razgovora", "Bitcoin clarity primary CTA"],
-  ["ne tražim seed phrase", "Bitcoin clarity no seed phrase copy"],
-  ["ne prognoziram cijenu", "Bitcoin clarity no price prediction copy"],
+  ["Krenite od uvodnog razgovora", "Bitcoin konzultacija primary CTA"],
+  ["ne tražim seed phrase", "Bitcoin konzultacija no seed phrase copy"],
+  ["ne prognoziram cijenu", "Bitcoin konzultacija no price prediction copy"],
   [
     "ne upravljam vašim sredstvima",
-    "Bitcoin clarity no asset management copy",
+    "Bitcoin konzultacija no asset management copy",
   ],
   [
-    'data-cta="bitcoin-clarity-intro-call"',
-    "Bitcoin clarity intro CTA metadata",
+    'data-cta="bitcoin-consultation-intro-call"',
+    "Bitcoin konzultacija intro CTA metadata",
   ],
   [
-    'data-cta="bitcoin-clarity-security"',
-    "Bitcoin clarity security CTA metadata",
+    'data-cta="bitcoin-consultation-final-intro-call"',
+    "Bitcoin konzultacija final intro CTA metadata",
   ],
   [
-    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-jasnoca/" />',
-    "Bitcoin clarity canonical URL",
+    'data-cta="bitcoin-consultation-security"',
+    "Bitcoin konzultacija security CTA metadata",
+  ],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-konzultacija/" />',
+    "Bitcoin konzultacija canonical URL",
   ],
 ]
 
-for (const [expected, label] of bitcoinClarityChecks) {
-  assertIncludes("bitcoin-jasnoca/index.html", bitcoinClarityHtml, expected, label)
+for (const [expected, label] of bitcoinConsultationChecks) {
+  assertIncludes("bitcoin-konzultacija/index.html", bitcoinConsultationHtml, expected, label)
 }
 
 assertCount(
-  "bitcoin-jasnoca/index.html",
-  bitcoinClarityHtml,
+  "bitcoin-konzultacija/index.html",
+  bitcoinConsultationHtml,
   '<link rel="canonical"',
   1,
   "canonical tag"
 )
 
-if (!bitcoinClarity) {
-  fail("Route metadata for /bitcoin-jasnoca/ is missing")
+if (!bitcoinConsultation) {
+  fail("Route metadata for /bitcoin-konzultacija/ is missing")
 }
 
 const guidesIndexHtml = readFile("vodici/index.html")
@@ -1505,7 +1550,7 @@ assertArrayEquals(
 for (const route of [
   "/",
   "/razgovor/",
-  "/bitcoin-jasnoca/",
+  "/bitcoin-konzultacija/",
   "/vodici/",
   "/sigurnost/",
 ]) {
@@ -1516,6 +1561,13 @@ for (const route of [
     `${route} sitemap URL`
   )
 }
+
+assertNotIncludes(
+  "sitemap.xml",
+  sitemap,
+  "https://bitcoin-savjetovanje.com/bitcoin-jasnoca/",
+  "/bitcoin-jasnoca/ sitemap URL"
+)
 
 for (const guidePath of requiredGuidePaths) {
   assertIncludes(
@@ -1540,6 +1592,19 @@ for (const relativeHtmlPath of htmlFiles().map((htmlPath) =>
 )) {
   const html = fs.readFileSync(filePath(relativeHtmlPath), "utf8")
   const canonical = canonicalFromHtml(html)
+
+  for (const oldConsultationRoute of [
+    "/bitcoin-jasnoca/",
+    "bitcoin-jasnoca",
+    "https://bitcoin-savjetovanje.com/bitcoin-jasnoca/",
+  ]) {
+    assertNotIncludes(
+      relativeHtmlPath,
+      html,
+      oldConsultationRoute,
+      `old Bitcoin consultation route: ${oldConsultationRoute}`
+    )
+  }
 
   if (!canonical) {
     fail(`${relativeHtmlPath} is missing canonical URL`)

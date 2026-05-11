@@ -1,6 +1,6 @@
 import { guideHref, guides } from "./guides"
 import {
-  bitcoinClarityPageSchema,
+  bitcoinConsultationPageSchema,
   conversationPageSchema,
   guideSchema,
   guidesIndexSchema,
@@ -11,7 +11,7 @@ import {
   OG_IMAGE_URL,
   SITE_UPDATED_AT,
   SITE_URL,
-  bitcoinClaritySeo,
+  bitcoinConsultationSeo,
   conversationSeo,
   guidesIndexSeo,
   homeSeo,
@@ -21,7 +21,7 @@ import {
 export type RouteType =
   | "home"
   | "conversation"
-  | "bitcoin-clarity"
+  | "bitcoin-consultation"
   | "guides-index"
   | "guide"
   | "security"
@@ -85,13 +85,13 @@ export const conversationRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
-export const bitcoinClarityRoute: RouteMeta = {
-  path: "/bitcoin-jasnoca/",
-  title: bitcoinClaritySeo.title,
-  description: bitcoinClaritySeo.description,
-  canonical: bitcoinClaritySeo.canonical,
-  schema: bitcoinClarityPageSchema(),
-  type: "bitcoin-clarity",
+export const bitcoinConsultationRoute: RouteMeta = {
+  path: "/bitcoin-konzultacija/",
+  title: bitcoinConsultationSeo.title,
+  description: bitcoinConsultationSeo.description,
+  canonical: bitcoinConsultationSeo.canonical,
+  schema: bitcoinConsultationPageSchema(),
+  type: "bitcoin-consultation",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
   ogImage: OG_IMAGE_URL,
@@ -167,7 +167,7 @@ export const notFoundRoute: RouteMeta = {
 export const prerenderRoutes: RouteMeta[] = [
   homeRoute,
   conversationRoute,
-  bitcoinClarityRoute,
+  bitcoinConsultationRoute,
   guidesIndexRoute,
   ...guideRouteMetas,
   ...guideAliasRouteMetas,

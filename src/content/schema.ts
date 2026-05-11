@@ -10,7 +10,7 @@ import {
   EMAIL,
   OG_IMAGE_URL,
   SITE_URL,
-  bitcoinClaritySeo,
+  bitcoinConsultationSeo,
   conversationSeo,
   guidesIndexSeo,
   securitySeo,
@@ -61,7 +61,7 @@ export function homeSchema() {
         areaServed: ["Hrvatska", "Online"],
         founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
         serviceType:
-          "Uvodni Bitcoin razgovor, Bitcoin jasnoća i osobni Bitcoin standard",
+          "Uvodni Bitcoin razgovor, Bitcoin konzultacija i osobni Bitcoin standard",
         description:
           "Savjetodavni rad za razumijevanje Bitcoina, osobna pravila, sigurnost i obiteljski okvir. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije financijsko, porezno ili pravno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
       },
@@ -104,15 +104,15 @@ export function conversationPageSchema() {
   }
 }
 
-export function bitcoinClarityPageSchema() {
+export function bitcoinConsultationPageSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Bitcoin jasnoća",
-        description: bitcoinClaritySeo.description,
-        url: bitcoinClaritySeo.canonical,
+        name: "Bitcoin konzultacija",
+        description: bitcoinConsultationSeo.description,
+        url: bitcoinConsultationSeo.canonical,
         inLanguage: "hr-HR",
         isPartOf: {
           "@type": "WebSite",
@@ -122,10 +122,10 @@ export function bitcoinClarityPageSchema() {
       },
       {
         "@type": "Service",
-        name: "Bitcoin jasnoća",
+        name: "Bitcoin konzultacija",
         serviceType: "Jedan dubinski Bitcoin razgovor",
         description:
-          "Jedan dubinski razgovor za razjašnjenje Bitcoin teze, vlastite situacije, sigurnosnog okvira i sljedećeg razumnog koraka. Nije investicijsko, porezno ili pravno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
+          "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku. Bez savjeta kupi ili prodaj, bez prognoza cijene i bez traženja seed phrase.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -133,15 +133,18 @@ export function bitcoinClarityPageSchema() {
         },
         offers: {
           "@type": "Offer",
-          name: "Bitcoin jasnoća",
+          name: "Bitcoin konzultacija",
           price: "200",
           priceCurrency: "EUR",
-          url: bitcoinClaritySeo.canonical,
+          url: bitcoinConsultationSeo.canonical,
         },
       },
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
-        { name: "Bitcoin jasnoća", item: bitcoinClaritySeo.canonical },
+        {
+          name: "Bitcoin konzultacija",
+          item: bitcoinConsultationSeo.canonical,
+        },
       ]),
     ],
   }

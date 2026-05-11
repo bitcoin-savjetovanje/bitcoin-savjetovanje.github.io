@@ -5,7 +5,7 @@ import { CalInlineEmbed } from "@/components/CalInlineEmbed"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { conversationRoute } from "@/content/routes"
-import { BITCOIN_CLARITY_PATH } from "@/content/site"
+import { BITCOIN_CONSULTATION_PATH } from "@/content/site"
 
 const preparationQuestions = [
   "Što pokušavate odlučiti?",
@@ -224,11 +224,11 @@ export function Conversation() {
             Nakon razgovora moguća su tri ishoda: kratak odgovor je dovoljan,
             sljedeći korak je{" "}
             <a
-              href={BITCOIN_CLARITY_PATH}
+              href={BITCOIN_CONSULTATION_PATH}
               className="font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline"
-              data-link="conversation-bitcoin-clarity"
+              data-link="conversation-bitcoin-consultation"
             >
-              Bitcoin jasnoća
+              Bitcoin konzultacija
             </a>
             , ili vrijedi razgovarati o osobnom Bitcoin standardu. Ne mora svaki
             uvodni razgovor završiti plaćenim nastavkom.

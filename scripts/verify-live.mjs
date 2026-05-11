@@ -1,5 +1,5 @@
 const baseUrl = "https://bitcoin-savjetovanje.com"
-const bookingUrl = "https://cal.com/btcpavao/uvodni-poziv"
+const bookingUrl = "https://cal.com/btcpavao/uvodni-bitcoin-razgovor"
 const representativeGuidePath = "/vodici/stvarni-visak/"
 const positiveMoneyGuidePath = "/vodici/pozitivni-neto-priljev/"
 const debtChoiceGuidePath = "/vodici/dug-ili-bitcoin/"
@@ -31,15 +31,20 @@ const forbiddenVisibleText = [
   "partner ili obitelj nije uvjerena",
   "dođite s bilo kojim bitcoin pitanjem",
   "u razgovor možete doći s bilo kojim bitcoin pitanjem",
+  "bitcoin jasnoća",
+  "bitcoin jasnoca",
+  "što je bitcoin jasnoća?",
   "dogovorite 15-minutni uvodni razgovorpogledajte",
   "uvodni razgovorpogledajte",
   "dogovorite razgovorpogledajte",
   "razgovoršto je bitcoin jasnoća",
   "uvodni razgovoršto je bitcoin jasnoća",
+  "razgovoršto je bitcoin konzultacija",
+  "uvodni razgovoršto je bitcoin konzultacija",
   "praviladogovorite",
   "vodičeprimijenite",
   "1. 1 uvodni razgovor",
-  "2. 2 bitcoin jasnoća",
+  "2. 2 bitcoin konzultacija",
   "3. 3 osobni bitcoin standard",
   "3. 3",
   "1. 1 proračun",
@@ -90,7 +95,11 @@ const pageChecks = [
       "Ne morate unaprijed znati je li vaše pitanje dovoljno veliko",
       "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman.",
       "Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta.",
-      "Bitcoin jasnoća",
+      "Bitcoin konzultacija",
+      "Što je Bitcoin konzultacija?",
+      'href="/bitcoin-konzultacija/"',
+      "Jedan dubinski razgovor",
+      "200 €",
       "Krenite od uvodnog razgovora",
       "Vaš Bitcoin ostaje vaš.",
       "Bez zahtjeva za seed phrase.",
@@ -145,8 +154,8 @@ const pageChecks = [
       "razgovorPromijeni",
       "razgovorPogledajte",
       "uvodni razgovorPogledajte",
-      "razgovorŠto je Bitcoin jasnoća",
-      "uvodni razgovorŠto je Bitcoin jasnoća",
+      "razgovorŠto je Bitcoin konzultacija",
+      "uvodni razgovorŠto je Bitcoin konzultacija",
       "pravilaDogovorite",
       "vodičePrimijenite",
       "Odabrano pitanje:",
@@ -171,6 +180,8 @@ const pageChecks = [
       "Vidimo što nedostaje za sljedeći korak.",
       "Što se može dogoditi nakon razgovora?",
       "Nakon razgovora moguća su tri ishoda",
+      "sljedeći korak je Bitcoin konzultacija",
+      'href="/bitcoin-konzultacija/"',
       "Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.",
       "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
       "Spremni za uvodni razgovor?",
@@ -187,12 +198,12 @@ const pageChecks = [
       'data-cta="conversation-referral-calendar"',
       'id="kalendar"',
       "Odaberite termin za uvodni razgovor.",
-      'data-cal-inline="uvodni-poziv"',
+      'data-cal-inline="uvodni-bitcoin-razgovor"',
       'data-cta="conversation-inline-calendar-fallback"',
       'data-cta="header-intro-call"',
       'data-cta="conversation-page-final-calendar"',
-      'data-cal-namespace="uvodni-poziv"',
-      'data-cal-link="btcpavao/uvodni-poziv"',
+      'data-cal-namespace="uvodni-bitcoin-razgovor"',
+      'data-cal-link="btcpavao/uvodni-bitcoin-razgovor"',
       "data-cal-config=",
       "month_view",
       bookingUrl,
@@ -200,7 +211,7 @@ const pageChecks = [
     htmlMustNotMatch: [
       {
         pattern:
-          /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-poziv")(?=[^>]*target="_blank")[^>]*>/,
+          /<a\b(?=[^>]*href="https:\/\/cal\.com\/btcpavao\/uvodni-bitcoin-razgovor")(?=[^>]*target="_blank")[^>]*>/,
         label: "Cal booking links opening in a new tab",
       },
     ],
@@ -213,19 +224,23 @@ const pageChecks = [
     ],
   },
   {
-    path: "/bitcoin-jasnoca/",
+    path: "/bitcoin-konzultacija/",
     includes: [
-      "Bitcoin jasnoća",
+      "Bitcoin konzultacija",
       "200 €",
       "jedan dubinski razgovor",
-      "Nakon Bitcoin jasnoće najčešće imate",
+      "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje",
+      "Nakon Bitcoin konzultacije najčešće imate",
       "Što pripremiti",
       "Kada nije za vas",
-      "Bitcoin jasnoća ili osobni Bitcoin standard?",
+      "Bitcoin konzultacija ili osobni Bitcoin standard?",
       "Kako razgovor završava",
       "Na kraju ne dobivate savjet",
-      "što je stvarni rizik",
-      "Bitcoin jasnoća je za jedno ozbiljno pitanje",
+      "kupi",
+      "prodaj",
+      "gdje je stvarni rizik",
+      "sljedeći korak bio razuman",
+      "Bitcoin konzultacija je za jedno ozbiljno pitanje",
       "Osobni Bitcoin standard je za pisani sustav pravila",
       "Krenite od uvodnog razgovora",
       "ne tražim seed phrase",
@@ -499,6 +514,8 @@ for (const check of pageChecks) {
     assertHtmlDoesNotInclude(url, html, 'alt="image"')
     assertHtmlDoesNotInclude(url, html, 'alt="Slika"')
     assertHtmlDoesNotInclude(url, html, 'alt="Logo"')
+    assertHtmlDoesNotInclude(url, html, "/bitcoin-jasnoca/")
+    assertHtmlDoesNotInclude(url, html, "bitcoin-jasnoca")
 
     for (const forbidden of forbiddenVisibleText) {
       assertTextDoesNotInclude(url, visibleText, forbidden)
@@ -546,7 +563,7 @@ try {
   for (const expectedUrl of [
     `${baseUrl}/`,
     `${baseUrl}/razgovor/`,
-    `${baseUrl}/bitcoin-jasnoca/`,
+    `${baseUrl}/bitcoin-konzultacija/`,
     `${baseUrl}/vodici/`,
     `${baseUrl}/sigurnost/`,
   ]) {
@@ -574,6 +591,7 @@ try {
   }
 
   for (const removedUrl of [
+    `${baseUrl}/bitcoin-jasnoca/`,
     `${baseUrl}/vodici/kredit-je-buduci-novac/`,
     `${baseUrl}/vodici/kredit-ili-bitcoin/`,
     `${baseUrl}/vodici/ne-uzimajte-kredit-za-bitcoin/`,

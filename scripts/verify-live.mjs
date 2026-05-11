@@ -169,6 +169,40 @@ const pageChecks = [
     ],
   },
   {
+    path: "/bitcoin-savjetovanje/",
+    includes: [
+      "<title>Bitcoin savjetovanje u Hrvatskoj | Bitcoin Savjetovanje</title>",
+      'content="Bitcoin savjetovanje jedan-na-jedan za ljude u Hrvatskoj koji žele razjasniti Bitcoin, sigurnost, dug, obitelj i osobni okvir za odluke."',
+      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-savjetovanje/" />',
+      '"@type":"WebPage"',
+      '"@type":"Service"',
+      '"@type":"BreadcrumbList"',
+      "Bitcoin savjetovanje Hrvatska",
+      "Bitcoin savjetovanje za jasnije odluke, sigurnost i osobni okvir.",
+      "Kada Bitcoin savjetovanje ima smisla",
+      "Što bi nakon razgovora trebalo biti jasnije",
+      "Sigurnost bez predaje kontrole",
+      "Tri moguća oblika rada",
+      "Što ne radimo",
+      "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",
+      'href="/razgovor/"',
+      'href="/bitcoin-konzultacija/"',
+      'href="/vodici/"',
+      'href="/sigurnost/"',
+      'data-cta="bitcoin-advice-hero-intro-call"',
+      'data-cta="bitcoin-advice-consultation"',
+      'data-cta="bitcoin-advice-final-intro-call"',
+      'data-link="bitcoin-advice-guides-index"',
+      'data-link="bitcoin-advice-security"',
+    ],
+    textMustNotInclude: [
+      "trading signal",
+      "dogovorite 15-minutni uvodni razgovorpogledajte",
+      "uvodni razgovorpogledajte",
+      "seed phrase se dijeli",
+    ],
+  },
+  {
     path: "/razgovor/",
     includes: [
       "Dogovorite 15-minutni uvodni razgovor",
@@ -274,10 +308,7 @@ const pageChecks = [
       "Odluka ostaje vaša",
     ],
     includesAny: [
-      [
-        "Bitcoin mora ostati pod vašom kontrolom",
-        "Kontrola ostaje kod vas",
-      ],
+      ["Bitcoin mora ostati pod vašom kontrolom", "Kontrola ostaje kod vas"],
     ],
   },
   {
@@ -311,10 +342,7 @@ const pageChecks = [
         "Želite primijeniti okvir na vlastitu situaciju?",
         "Želite ovo primijeniti na svoju situaciju?",
       ],
-      [
-        "Dogovorite 15-minutni uvodni razgovor",
-        "Dogovorite uvodni razgovor",
-      ],
+      ["Dogovorite 15-minutni uvodni razgovor", "Dogovorite uvodni razgovor"],
     ],
   },
   {

@@ -705,16 +705,21 @@
     @apply mt-5 overflow-hidden rounded-xl border border-border/70 bg-background/80;
     height: min(760px, 84vh);
     min-height: 620px;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .cal-inline-frame > div,
   .cal-inline-frame__cal,
   .cal-inline-frame iframe {
     width: 100%;
+    max-width: 100%;
     height: 100%;
+    min-width: 0;
   }
 
   .cal-inline-frame iframe {
+    display: block;
     border: 0;
   }
 

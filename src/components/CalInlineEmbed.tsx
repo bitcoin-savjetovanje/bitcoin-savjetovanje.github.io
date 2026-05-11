@@ -16,7 +16,8 @@ const calInlineConfig = {
 const calInlineStyle = {
   width: "100%",
   height: "100%",
-  overflow: "scroll",
+  maxWidth: "100%",
+  overflow: "hidden",
 } satisfies CSSProperties
 
 export function CalInlineEmbed() {

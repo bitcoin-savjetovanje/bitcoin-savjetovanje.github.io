@@ -745,8 +745,6 @@
   .cal-inline-frame iframe {
     display: block;
     border: 0;
-    height: calc(100% + 18px);
-    margin-bottom: -18px;
   }
 
   .cal-inline-placeholder {
@@ -771,6 +769,15 @@
 
   .conversation-stepper {
     @apply mt-5 grid list-decimal gap-3 pl-5 text-base leading-7 text-muted-foreground marker:font-semibold marker:text-primary;
+  }
+
+  @media (min-width: 1024px) {
+    .cal-inline-section {
+      width: min(82rem, calc(100vw - 4rem));
+      max-width: calc(100vw - 4rem);
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .conversation-stepper li {

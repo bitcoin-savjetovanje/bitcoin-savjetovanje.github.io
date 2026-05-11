@@ -5,6 +5,20 @@ import { Button } from "@/components/ui/button"
 import { homeNeverAskItems, homeSecurityReviewItems } from "@/content/home"
 import { CONVERSATION_PATH } from "@/content/site"
 
+const workingPrinciples = [
+  "povjerljivost prije detalja",
+  "kontrola ostaje kod vas",
+  "odluka ostaje vaša",
+  "sljedeći korak mora biti razuman",
+]
+
+const notForItems = [
+  "tražite uputu kada kupiti ili prodati",
+  "želite prognozu cijene",
+  "treba vam porezni ili pravni savjet",
+  "želite predati seed phrase, privatne ključeve ili pristup novčaniku",
+]
+
 export function SecurityTrustSection() {
   return (
     <section id="sigurnost-povjerenje" className="section-shell">
@@ -17,7 +31,7 @@ export function SecurityTrustSection() {
           Seed phrase se nikada ne dijeli. Ako ga netko traži, razgovor treba
           odmah prekinuti.
         </p>
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <div className="mt-10 grid gap-5 xl:grid-cols-3">
           <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
             <h3 className="text-xl font-semibold">Nikada ne tražim</h3>
             <div className="mt-5 grid gap-2">
@@ -40,7 +54,33 @@ export function SecurityTrustSection() {
               ))}
             </div>
           </section>
+          <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
+            <h3 className="text-xl font-semibold">Kako radim</h3>
+            <div className="mt-5 grid gap-2">
+              {workingPrinciples.map((item) => (
+                <div key={item} className="not-for-row bg-card">
+                  <Check className="positive-icon size-3.5" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
+        <section className="mt-6 rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
+          <h3 className="text-xl font-semibold">Kada ovo nije za vas</h3>
+          <div className="mt-5 grid gap-2 md:grid-cols-2">
+            {notForItems.map((item) => (
+              <div key={item} className="not-for-row bg-card">
+                <X className="negative-icon size-3.5" />
+                <p>{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <p className="mt-6 max-w-3xl text-base leading-8 font-semibold text-foreground">
+          Praktični Bitcoin standard je radni okvir iza mog savjetovanja:
+          proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.
+        </p>
         <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
           <li>
             <a

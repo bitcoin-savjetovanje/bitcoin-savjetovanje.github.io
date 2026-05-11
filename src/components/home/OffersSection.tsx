@@ -50,10 +50,13 @@ export function OffersSection() {
                 </ul>
                 <ul className="offer-cta-list">
                   <li>
-                    <Button asChild className="cta-primary rounded-full">
+                    <Button
+                      asChild
+                      className="cta-primary h-auto min-h-8 max-w-full rounded-full px-4 py-2 whitespace-normal"
+                    >
                       <a
                         href={offer.href}
-                        className="justify-center text-center"
+                        className="min-w-0 justify-center text-center leading-tight"
                         data-cta={offer.dataCta}
                       >
                         <CalendarDays className="size-4" />

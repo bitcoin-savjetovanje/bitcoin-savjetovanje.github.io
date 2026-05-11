@@ -45,6 +45,28 @@ const preparationItems = [
   "što bi vam značilo da nakon razgovora bude jasnije",
 ]
 
+const consultationFlow = [
+  {
+    title: "Prije razgovora",
+    copy: "Ne šaljete seed phrase, privatne ključeve, lozinke ni dokumente. Dovoljno je zapisati jednu odluku i pitanja koja se stalno vraćaju.",
+  },
+  {
+    title: "Tijekom razgovora",
+    copy: "Razdvajamo Bitcoin tezu, osobnu situaciju, dug, proračun, sigurnost i obiteljski kontekst. Ne tražimo savršen odgovor, nego jasniju sliku.",
+  },
+  {
+    title: "Nakon razgovora",
+    copy: "Znate je li dovoljno stati na jednom razgovoru, treba li dublja Bitcoin konzultacija ili ima smisla graditi osobni Bitcoin standard.",
+  },
+]
+
+const exampleQuestions = [
+  "Kako znati ima li Bitcoin preveliku ili premalu ulogu u mojoj imovini?",
+  "Kako objasniti Bitcoin partneru bez pritiska i bez žargona?",
+  "Što ako imam dug, a istovremeno ne želim izgubiti dugoročni Bitcoin pogled?",
+  "Kako složiti sigurnost tako da obitelj ne ostane izgubljena?",
+]
+
 const notForItems = [
   "tražite kratku uputu kada kupiti ili prodati",
   "želite prognozu cijene",
@@ -165,6 +187,39 @@ export function BitcoinConsultation() {
             Nakon Bitcoin konzultacije najčešće imate
           </h2>
           <Checklist items={outcomes} />
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">
+            Prije, tijekom i poslije razgovora
+          </h2>
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            {consultationFlow.map((step, index) => (
+              <article
+                key={step.title}
+                className="rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm"
+              >
+                <span className="grid size-8 place-items-center rounded-full border border-primary/25 bg-primary/10 text-xs font-semibold text-primary">
+                  {index + 1}
+                </span>
+                <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>
+                <p className="mt-3 text-base leading-8 text-muted-foreground">
+                  {step.copy}
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold">
+            Dobra pitanja za Bitcoin konzultaciju
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Najkorisnija pitanja nisu općenita. Dobra su ona koja mijenjaju
+            stvarnu odluku, razgovor s obitelji ili sigurnosni okvir.
+          </p>
+          <Checklist items={exampleQuestions} />
         </section>
 
         <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">

@@ -6,7 +6,6 @@ import { FinalCta } from "@/components/home/FinalCta"
 import { GuidesTeaserSection } from "@/components/home/GuidesTeaserSection"
 import { Hero } from "@/components/home/Hero"
 import { IntroCallSection } from "@/components/home/IntroCallSection"
-import { MethodHintSection } from "@/components/home/MethodHintSection"
 import { OffersSection } from "@/components/home/OffersSection"
 import { QuestionsSection } from "@/components/home/QuestionsSection"
 import { ReadinessTestSection } from "@/components/home/ReadinessTestSection"
@@ -32,7 +31,6 @@ export function Home() {
       <OffersSection />
       <SecurityTrustSection />
       <AboutSection />
-      <MethodHintSection />
       <BeforeAfterSection />
       <GuidesTeaserSection />
       <FaqSection />

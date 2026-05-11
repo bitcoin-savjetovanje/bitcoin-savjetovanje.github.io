@@ -240,6 +240,7 @@ export function Header({ currentPath }: HeaderProps) {
       {mobileMenuOpen ? (
         <nav
           id="mobile-nav"
+          aria-label="Mobilna navigacija"
           className="mx-auto grid max-w-7xl gap-2 border-t border-border/50 px-3 pt-3 pb-4 sm:px-6 lg:hidden"
         >
           {navLinks.map((link) => {

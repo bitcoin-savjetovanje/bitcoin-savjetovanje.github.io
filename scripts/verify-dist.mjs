@@ -51,8 +51,7 @@ const aliasGuidePaths = [
   },
   {
     oldPath: "/vodici/sustavno-davanje-bez-kredita",
-    newCanonical:
-      "https://bitcoin-savjetovanje.com/vodici/davanje-bez-duga/",
+    newCanonical: "https://bitcoin-savjetovanje.com/vodici/davanje-bez-duga/",
   },
   {
     oldPath: "/vodici/davanje-u-proracunu",
@@ -161,7 +160,12 @@ function assertNotIncludes(relativePath, contents, expected, label = expected) {
   fail(`${relativePath} should not contain ${label}`)
 }
 
-function assertMatches(relativePath, contents, pattern, label = pattern.source) {
+function assertMatches(
+  relativePath,
+  contents,
+  pattern,
+  label = pattern.source
+) {
   if (pattern.test(contents)) {
     pass(`${relativePath} matches ${label}`)
     return
@@ -170,7 +174,12 @@ function assertMatches(relativePath, contents, pattern, label = pattern.source) 
   fail(`${relativePath} should match ${label}`)
 }
 
-function assertNotMatches(relativePath, contents, pattern, label = pattern.source) {
+function assertNotMatches(
+  relativePath,
+  contents,
+  pattern,
+  label = pattern.source
+) {
   if (!pattern.test(contents)) {
     pass(`${relativePath} does not match ${label}`)
     return
@@ -179,7 +188,13 @@ function assertNotMatches(relativePath, contents, pattern, label = pattern.sourc
   fail(`${relativePath} should not match ${label}`)
 }
 
-function assertCount(relativePath, contents, expected, count, label = expected) {
+function assertCount(
+  relativePath,
+  contents,
+  expected,
+  count,
+  label = expected
+) {
   const actual = contents.split(expected).length - 1
 
   if (actual === count) {
@@ -239,9 +254,7 @@ function anchorHrefsByDataLink(contents, dataLink) {
 }
 
 function anchorTextsByDataLink(contents, dataLink) {
-  return [
-    ...contents.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g),
-  ]
+  return [...contents.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
     .filter((match) => attributeValue(match[1], "data-link") === dataLink)
     .map((match) => textWithoutTags(match[2]).trim().replace(/\s+/g, " "))
 }
@@ -471,10 +484,7 @@ const homeChecks = [
     "U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
     "hero intro call framing",
   ],
-  [
-    "što još nije jasno u Bitcoin tezi",
-    "hero intro card Bitcoin thesis copy",
-  ],
+  ["što još nije jasno u Bitcoin tezi", "hero intro card Bitcoin thesis copy"],
   [
     "Ne morate unaprijed znati je li vaše pitanje dovoljno veliko",
     "questions reassurance copy",
@@ -493,18 +503,12 @@ const homeChecks = [
   ["Bez zahtjeva za seed phrase.", "seed phrase trust copy"],
   ["Seed phrase se nikada ne dijeli.", "seed phrase red flag copy"],
   ["razgovor treba odmah prekinuti", "seed phrase stop conversation copy"],
-  [
-    "Dobijete iskrenu procjenu.",
-    "warmer honest assessment title",
-  ],
+  ["Dobijete iskrenu procjenu.", "warmer honest assessment title"],
   [
     "Ako plaćeni nastavak nije koristan za vašu situaciju, reći ću vam to otvoreno.",
     "warmer honest assessment copy",
   ],
-  [
-    "Nekome još nije jasna Bitcoin teza.",
-    "intro call Bitcoin thesis copy",
-  ],
+  ["Nekome još nije jasna Bitcoin teza.", "intro call Bitcoin thesis copy"],
   [
     "Nekome treba razjasniti jedan dio odluke koji još nije dovoljno čvrst.",
     "intro call Bitcoin thesis copy",
@@ -516,10 +520,7 @@ const homeChecks = [
   ["Bitcoin konzultacija", "Bitcoin konzultacija offer title"],
   ["Što je Bitcoin konzultacija?", "Bitcoin konzultacija detail link copy"],
   ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija detail link href"],
-  [
-    "Jedan dubinski razgovor",
-    "Bitcoin konzultacija offer format",
-  ],
+  ["Jedan dubinski razgovor", "Bitcoin konzultacija offer format"],
   ["200 €", "Bitcoin konzultacija price"],
   [
     "Cilj je vidjeti gdje ste, što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
@@ -547,25 +548,21 @@ const homeChecks = [
     "footer seed phrase disclaimer",
   ],
   [
-    "Praktični Bitcoin standard je radni okvir iza mog savjetovanja.",
-    "method reframing",
+    "Praktični Bitcoin standard je radni okvir iza mog savjetovanja: proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
+    "trust framework framing",
   ],
+  ["Kako radim", "working principles card"],
+  ["Kada ovo nije za vas", "not for you trust card"],
   [
-    "Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju.",
-    "guides conversion copy",
+    "želite predati seed phrase, privatne ključeve ili pristup novčaniku",
+    "not for you seed phrase copy",
   ],
   [
     "Pomažem vam razumjeti Bitcoin i vlastitu situaciju dovoljno jasno",
     "positioning sentence",
   ],
-  [
-    "Dogovorite 15-minutni uvodni razgovor",
-    "primary intro call CTA copy",
-  ],
-  [
-    "Pogledajte pitanja koja možemo proći",
-    "hero secondary CTA copy",
-  ],
+  ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
+  ["Pogledajte pitanja koja možemo proći", "hero secondary CTA copy"],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   ['href="#pitanja"', "hero secondary CTA href"],
   ['data-cta="hero-intro-call"', "hero CTA metadata"],
@@ -579,10 +576,7 @@ const homeChecks = [
     "questions section copy polish",
   ],
   ["što vas najviše brine", "conversation problem worry copy"],
-  [
-    "što još nedostaje za mirniju odluku",
-    "conversation problem decision copy",
-  ],
+  ["što još nedostaje za mirniju odluku", "conversation problem decision copy"],
   [
     "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman.",
     "hero intro card copy",
@@ -595,14 +589,8 @@ const homeChecks = [
     "Mogu li ovu stranicu poslati nekome tko ima Bitcoin pitanje?",
     "referral FAQ question",
   ],
-  [
-    "Najbolje je poslati stranicu za uvodni razgovor",
-    "referral FAQ answer",
-  ],
-  [
-    "Provjerite ima li uvodni razgovor smisla",
-    "readiness test title",
-  ],
+  ["Najbolje je poslati stranicu za uvodni razgovor", "referral FAQ answer"],
+  ["Provjerite ima li uvodni razgovor smisla", "readiness test title"],
   [
     "Odaberite pitanje koje vam je najbliže.",
     "neutral question selector title",
@@ -611,18 +599,9 @@ const homeChecks = [
     "Nakon odabira vidjet ćete zašto je to dobro pitanje za uvodni razgovor.",
     "neutral question selector instruction",
   ],
-  [
-    "Što se mijenja kada postoji osobni okvir?",
-    "before after section title",
-  ],
-  [
-    'data-cta="readiness-test-intro-call"',
-    "readiness test CTA metadata",
-  ],
-  [
-    'data-cta="before-after-intro-call"',
-    "before after CTA metadata",
-  ],
+  ["Što se mijenja kada postoji osobni okvir?", "before after section title"],
+  ['data-cta="readiness-test-intro-call"', "readiness test CTA metadata"],
+  ['data-cta="before-after-intro-call"', "before after CTA metadata"],
   [
     'data-cta="desktop-rail-intro-call"',
     "desktop conversion rail CTA metadata",
@@ -801,12 +780,7 @@ assertNotIncludes(
   'alt="Slika"',
   "generic Croatian image alt text"
 )
-assertNotIncludes(
-  "index.html",
-  homeHtml,
-  'alt="Logo"',
-  "generic logo alt text"
-)
+assertNotIncludes("index.html", homeHtml, 'alt="Logo"', "generic logo alt text")
 assertNotIncludes(
   "index.html",
   homeText,
@@ -866,9 +840,9 @@ assertBefore(
 assertBefore(
   "index.html",
   homeHtml,
+  "Kako radim",
   "Razgovarate s nekim tko Bitcoin ne objašnjava izvana.",
-  "Ako nastavimo dublje, koristim okvir Praktičnog Bitcoin standarda.",
-  "about before method"
+  "working principles before about"
 )
 
 if (!home) {
@@ -878,42 +852,21 @@ if (!home) {
 const conversationHtml = readFile("razgovor/index.html")
 const conversationText = textWithoutTags(conversationHtml)
 const conversationChecks = [
-  [
-    "Dogovorite 15-minutni uvodni razgovor",
-    "conversation page title",
-  ],
-  [
-    "Otvorite kalendar i odaberite termin",
-    "calendar CTA label",
-  ],
-  [
-    "što prvo treba razjasniti",
-    "conversation clarification framing",
-  ],
+  ["Dogovorite 15-minutni uvodni razgovor", "conversation page title"],
+  ["Otvorite kalendar i odaberite termin", "calendar CTA label"],
+  ["što prvo treba razjasniti", "conversation clarification framing"],
   [
     "Dobra pitanja za uvodni razgovor zvuče ovako",
     "conversation example questions",
   ],
-  [
-    "Razjasnimo glavno pitanje.",
-    "conversation main question step",
-  ],
-  [
-    "Vidimo što nedostaje za sljedeći korak.",
-    "conversation next step framing",
-  ],
-  [
-    "Spremni za uvodni razgovor?",
-    "conversation final CTA title",
-  ],
+  ["Razjasnimo glavno pitanje.", "conversation main question step"],
+  ["Vidimo što nedostaje za sljedeći korak.", "conversation next step framing"],
+  ["Spremni za uvodni razgovor?", "conversation final CTA title"],
   [
     "Što se može dogoditi nakon razgovora?",
     "conversation outcome section title",
   ],
-  [
-    "Nakon razgovora moguća su tri ishoda",
-    "conversation outcome options copy",
-  ],
+  ["Nakon razgovora moguća su tri ishoda", "conversation outcome options copy"],
   [
     "Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.",
     "conversation no forced paid continuation copy",
@@ -930,29 +883,20 @@ const conversationChecks = [
     "Otvorit će se kalendar. Odaberite termin",
     "conversation calendar help text",
   ],
-  [
-    "Ako vam je netko poslao ovu stranicu",
-    "warm referral section title",
-  ],
-  [
-    "Koju odluku pokušavate donijeti?",
-    "warm referral booking note prompt",
-  ],
-  [
-    "Ne šaljite seed phrase",
-    "warm referral safety copy",
-  ],
+  ["Ako vam je netko poslao ovu stranicu", "warm referral section title"],
+  ["Koju odluku pokušavate donijeti?", "warm referral booking note prompt"],
+  ["Ne šaljite seed phrase", "warm referral safety copy"],
   ['href="#kalendar"', "warm referral calendar anchor"],
   [
     'data-cta="conversation-referral-calendar"',
     "warm referral calendar CTA metadata",
   ],
   ['id="kalendar"', "inline calendar anchor id"],
+  ["Odaberite termin za uvodni razgovor.", "inline calendar section title"],
   [
-    "Odaberite termin za uvodni razgovor.",
-    "inline calendar section title",
+    'data-cal-inline="uvodni-bitcoin-razgovor"',
+    "inline calendar wrapper metadata",
   ],
-  ['data-cal-inline="uvodni-bitcoin-razgovor"', "inline calendar wrapper metadata"],
   [
     'data-cta="conversation-inline-calendar-fallback"',
     "inline calendar fallback CTA metadata",
@@ -961,10 +905,7 @@ const conversationChecks = [
     'data-cta="conversation-inline-calendar-mobile"',
     "inline calendar mobile modal CTA metadata",
   ],
-  [
-    "Ne morate imati gotov plan",
-    "conversation final CTA plan reassurance",
-  ],
+  ["Ne morate imati gotov plan", "conversation final CTA plan reassurance"],
   [
     "Imam Bitcoin, ali partner ili obitelj još nisu sigurni.",
     "conversation family example question",
@@ -1140,7 +1081,12 @@ const bitcoinConsultationChecks = [
 ]
 
 for (const [expected, label] of bitcoinConsultationChecks) {
-  assertIncludes("bitcoin-konzultacija/index.html", bitcoinConsultationHtml, expected, label)
+  assertIncludes(
+    "bitcoin-konzultacija/index.html",
+    bitcoinConsultationHtml,
+    expected,
+    label
+  )
 }
 
 assertCount(
@@ -1264,10 +1210,7 @@ const securityChecks = [
     "Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru.",
     "security family intro",
   ],
-  [
-    "Dobar sigurnosni okvir ima dva cilja.",
-    "security two goals title",
-  ],
+  ["Dobar sigurnosni okvir ima dva cilja.", "security two goals title"],
   [
     "Seed phrase se nikada ne dijeli. Dobar savjetnik vam pomaže urediti okvir bez preuzimanja kontrole.",
     "security principle box",
@@ -1288,10 +1231,7 @@ const securityChecks = [
     "seed phrase — 12 ili 24 riječi za oporavak novčanika",
     "seed phrase explanation",
   ],
-  [
-    "način čuvanja prikladan za vašu situaciju",
-    "plain custody wording",
-  ],
+  ["način čuvanja prikladan za vašu situaciju", "plain custody wording"],
   [
     "kako složiti oporavak tako da ne ovisi o jednoj osobi, uređaju ili lokaciji",
     "natural recovery dependency copy",
@@ -1314,10 +1254,7 @@ const securityChecks = [
   ["ne čuvam Bitcoin", "no Bitcoin custody copy"],
   ['href="/razgovor/"', "security page links to conversation"],
   ['data-cta="security-intro-call"', "security CTA metadata"],
-  [
-    "Razgovarajmo o sigurnosti bez predaje kontrole",
-    "security CTA copy",
-  ],
+  ["Razgovarajmo o sigurnosti bez predaje kontrole", "security CTA copy"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/sigurnost/" />',
     "security canonical URL",
@@ -1541,7 +1478,9 @@ assertArrayEquals(
 
 const sitemap = readFile("sitemap.xml")
 const sitemapUrls = [
-  ...sitemap.matchAll(/<loc>(https:\/\/bitcoin-savjetovanje\.com[^<]+)<\/loc>/g),
+  ...sitemap.matchAll(
+    /<loc>(https:\/\/bitcoin-savjetovanje\.com[^<]+)<\/loc>/g
+  ),
 ].map((match) => match[1])
 const expectedSitemapUrls = [...routeByCanonical.keys()]
 
@@ -1624,7 +1563,9 @@ for (const relativeHtmlPath of htmlFiles().map((htmlPath) =>
   ) {
     fail(`${relativeHtmlPath} canonical does not use trailing slash`)
   } else {
-    pass(`${relativeHtmlPath} canonical uses expected trailing-slash convention`)
+    pass(
+      `${relativeHtmlPath} canonical uses expected trailing-slash convention`
+    )
   }
 }
 

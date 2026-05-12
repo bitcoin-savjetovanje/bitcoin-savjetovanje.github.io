@@ -2,6 +2,8 @@ import { useEffect, useId, useRef, useState } from "react"
 
 import type { GlossaryTerm } from "@/content/glossary"
 
+type TooltipPlacement = "center" | "start" | "end"
+
 export function InlineGlossaryTerm({
   children,
   term,
@@ -10,8 +12,34 @@ export function InlineGlossaryTerm({
   term: GlossaryTerm
 }) {
   const [open, setOpen] = useState(false)
+  const [placement, setPlacement] = useState<TooltipPlacement>("center")
+  const buttonRef = useRef<HTMLButtonElement>(null)
   const termRef = useRef<HTMLSpanElement>(null)
   const tooltipId = useId()
+
+  function updateTooltipPlacement() {
+    const trigger = buttonRef.current
+
+    if (!trigger) {
+      return
+    }
+
+    const rect = trigger.getBoundingClientRect()
+    const safePadding = 24
+    const tooltipHalfWidth = 176
+
+    if (rect.left < tooltipHalfWidth + safePadding) {
+      setPlacement("start")
+      return
+    }
+
+    if (window.innerWidth - rect.right < tooltipHalfWidth + safePadding) {
+      setPlacement("end")
+      return
+    }
+
+    setPlacement("center")
+  }
 
   useEffect(() => {
     if (!open) {
@@ -44,14 +72,21 @@ export function InlineGlossaryTerm({
       ref={termRef}
       className="glossary-term-wrap"
       data-open={open ? "true" : undefined}
+      data-placement={placement}
     >
       <button
+        ref={buttonRef}
         type="button"
         className="glossary-term"
         aria-label={`Objasni pojam: ${term.title}`}
         aria-describedby={tooltipId}
         aria-expanded={open}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => {
+          updateTooltipPlacement()
+          setOpen((current) => !current)
+        }}
+        onFocus={updateTooltipPlacement}
+        onMouseEnter={updateTooltipPlacement}
       >
         {children}
       </button>

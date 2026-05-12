@@ -2131,7 +2131,7 @@ const guideEntries: Guide[] = [
         heading: "Zašto Sparrow?",
         body: [
           "Sparrow je odabran jer je vrlo dobar koordinacijski novčanik za ozbiljniji Bitcoin sustav.",
-          "On dobro radi s hardverskim novčanicima, višepotpisnim sustavima, PSBT transakcijama, vlastitim čvorom i privatnim Electrum poslužiteljem.",
+          "On dobro radi s hardverskim novčanicima, višepotpisnim sustavima, PSBT transakcijama, vlastitim nodeom i privatnim Electrum poslužiteljem.",
           "Alternativno, moguće je koristiti i Electrum, koji je star, ozbiljan i dokazan novčanik. Ipak, za obiteljski višepotpisni sustav Sparrow je često jasniji jer bolje prikazuje strukturu novčanika, UTXO-e i postupak potpisivanja.",
         ],
       },
@@ -2177,7 +2177,7 @@ const guideEntries: Guide[] = [
         body: [
           "Ni jedan dio ovog sustava nije svetinja.",
           "Može se promijeniti proizvođač računala. Može se promijeniti Linux distribucija. Može se promijeniti Electrum poslužitelj. Može se promijeniti treći hardverski novčanik.",
-          "Ali ne bih mijenjao glavnu logiku: odvojeno računalo za Bitcoin čvor, odvojeno računalo za Sparrow, privatni ključevi na hardverskim novčanicima, 2 od 3 višepotpisni sustav, tri različita proizvođača, odvojene lokacije, fizičke pričuvne kopije, Sparrow descriptor, obiteljske upute i godišnja provjera.",
+          "Ali ne bih mijenjao glavnu logiku: odvojeno računalo za Bitcoin node, odvojeno računalo za Sparrow, privatni ključevi na hardverskim novčanicima, 2 od 3 višepotpisni sustav, tri različita proizvođača, odvojene lokacije, fizičke pričuvne kopije, Sparrow descriptor, obiteljske upute i godišnja provjera.",
           "To je srž sustava. Proizvodi su zamjenjivi. Načelo nije.",
         ],
       },
@@ -2419,7 +2419,7 @@ const guideEntries: Guide[] = [
     metaDescription:
       "Vodič koji objašnjava kada Bitkey ima smisla, gdje su njegovi kompromisi i kako ga usporediti s burzom, običnim hardverskim novčanikom i vlastitim obiteljskim Bitcoin trezorom.",
     excerpt:
-      "Bitkey uklanja seed riječi i uvodi 2 od 3 sigurnosni model, ali nije isto što i vlastiti Bitcoin trezor sa Sparrowom, vlastitim čvorom i neovisnim ključevima.",
+      "Bitkey uklanja seed riječi i uvodi 2 od 3 sigurnosni model, ali nije isto što i vlastiti Bitcoin trezor sa Sparrowom, vlastitim nodeom i neovisnim ključevima.",
     category: "Sigurnost i obitelj",
     order: 104,
     publishedAt: "2026-05-12",
@@ -2522,14 +2522,14 @@ const guideEntries: Guide[] = [
         body: [
           "Bitkey ima smisla za osobu koja kaže: želim držati bitcoin izvan burze, ali ne želim samostalno voditi složen sigurnosni sustav.",
           "To je velika skupina ljudi.",
-          "Za takvu osobu Bitkey može biti velik korak naprijed. Posebno u Hrvatskoj, gdje većina ljudi neće sama složiti vlastiti Bitcoin čvor, privatni Electrum poslužitelj, Sparrow i višepotpisni sustav s tri različita hardverska novčanika.",
+          "Za takvu osobu Bitkey može biti velik korak naprijed. Posebno u Hrvatskoj, gdje većina ljudi neće sama složiti vlastiti Bitcoin node, privatni Electrum poslužitelj, Sparrow i višepotpisni sustav s tri različita hardverska novčanika.",
           "Za tu osobu Bitkey može biti puno bolji od dvije najčešće loše opcije: bitcoin na burzi ili jedan seed u ladici.",
           "To je najjači argument za Bitkey.",
         ],
         items: [
           "ne želi držati bitcoin na burzi",
           "boji se seed riječi",
-          "ne zna sama složiti Sparrow, hardverske novčanike i vlastiti čvor",
+          "ne zna sama složiti Sparrow, hardverske novčanike i vlastiti node",
           "želi Bitcoin-only rješenje",
           "želi bolju sigurnost od obične aplikacije na mobitelu",
           "želi oporavak ako izgubi mobitel ili uređaj",
@@ -2561,7 +2561,7 @@ const guideEntries: Guide[] = [
           label: "obiteljski Bitcoin trezor",
           href: "/vodici/obiteljski-bitcoin-trezor/",
           after:
-            "koji pokazuje kako izgleda vlastiti sustav sa Sparrowom, vlastitim čvorom i neovisnim ključevima.",
+            "koji pokazuje kako izgleda vlastiti sustav sa Sparrowom, vlastitim nodeom i neovisnim ključevima.",
         },
       },
       {
@@ -2570,7 +2570,7 @@ const guideEntries: Guide[] = [
           "Ovo je najvažnija razlika. Bitkey i vlastiti 2 od 3 sustav mogu na papiru zvučati slično.",
           "Oba koriste tri ključa. Oba traže dva potpisa. Oba smanjuju rizik da jedna greška odmah znači gubitak svega.",
           "Ali nisu isti.",
-          "Kod vlastitog sustava vi birate sve: koji su uređaji, gdje su ključevi, gdje su pričuvne kopije, koji se softver koristi, na koji se čvor spajate, kako izgleda dokumentacija, tko zna što i što se događa u slučaju smrti.",
+          "Kod vlastitog sustava vi birate sve: koji su uređaji, gdje su ključevi, gdje su pričuvne kopije, na koji se node spajate, koji se softver koristi, kako izgleda dokumentacija, tko zna što i što se događa u slučaju smrti.",
           "Kod Bitkeya dobar dio toga je upakiran u proizvod. To je prednost za jednostavnost. To je kompromis za suverenost.",
           "Vlastiti sustav je kao da sami dizajnirate obiteljski trezor. Bitkey je kao gotov trezor s ugrađenim pravilima, oporavkom i korisničkim iskustvom.",
           "Za mnoge ljude gotov trezor je bolji od loše složenog vlastitog trezora. Ali nije isto što i potpuno vlastiti sustav.",
@@ -2582,7 +2582,7 @@ const guideEntries: Guide[] = [
           "Kod vlastitog Sparrow sustava s vlastitim Bitcoin Coreom i Fulcrumom, vaš novčanik ne mora pitati tuđe poslužitelje koje adrese i UTXO-e imate.",
           "To je velika privatnosna prednost.",
           "Kod Bitkeya koristite Bitkeyevu aplikaciju i infrastrukturu. To ne znači da je Bitkey isto što i burza.",
-          "Ali u savjetodavnom kontekstu treba reći jednostavno: privatnost Bitkeya vjerojatno je bolja od držanja bitcoina na burzi, ali nije isto što i vlastiti čvor i vlastiti poslužitelj.",
+          "Ali u savjetodavnom kontekstu treba reći jednostavno: privatnost Bitkeya vjerojatno je bolja od držanja bitcoina na burzi, ali nije isto što i vlastiti node i vlastiti poslužitelj.",
           "To nije napad na Bitkey. To je samo razlika između gotovog proizvoda i vlastite infrastrukture.",
         ],
       },
@@ -2611,7 +2611,7 @@ const guideEntries: Guide[] = [
           "U Hrvatskoj je realno da jedna osoba u obitelji razumije Bitcoin, a ostali članovi samo djelomično.",
           "To stvara problem. Ako ta osoba složi složen višepotpisni sustav, ali obitelj ne zna što je napravljeno, sustav je možda tehnički dobar, ali obiteljski loš.",
           "Bitkey može biti zanimljiv upravo za takvu obitelj. Ne zato što je najtvrđi mogući model. Nego zato što je manje vjerojatno da će obitelj potpuno pogriješiti.",
-          "U praksi, Bitkey može biti razuman za supružnika koji ne želi učiti Sparrow, roditelje koji ne žele čuvati seed riječi, osobu koja želi otići s burze, obitelj kojoj treba jednostavan nasljedni plan i korisnika kojemu je vlastiti čvor previše.",
+          "U praksi, Bitkey može biti razuman za supružnika koji ne želi učiti Sparrow, roditelje koji ne žele čuvati seed riječi, osobu koja želi otići s burze, obitelj kojoj treba jednostavan nasljedni plan i korisnika kojemu je vlastiti node previše.",
           "Ali za vrlo velik iznos i za osobu koja želi osobni Bitcoin standard bez oslanjanja na tuđu infrastrukturu, Bitkey nije kraj puta. Može biti prijelazna stepenica.",
         ],
       },
@@ -2634,7 +2634,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Bitkey protiv Sparrow 2 od 3 sustava",
         body: [
-          "Sparrow 2 od 3 sustav s vlastitim čvorom je jači za osobu koja želi punu kontrolu.",
+          "Sparrow 2 od 3 sustav s vlastitim nodeom je jači za osobu koja želi punu kontrolu.",
           "Bitkey je bolji za osobu koja želi jednostavnost.",
           "Zato pitanje nije što je objektivno najbolje. Pitanje je: koji sustav će ova konkretna osoba stvarno znati koristiti i oporaviti?",
         ],
@@ -2645,7 +2645,7 @@ const guideEntries: Guide[] = [
           "Bitkey mi se sviđa.",
           "Ne kao zamjena za najbolji mogući osobni Bitcoin trezor, nego kao dobar odgovor na stvarni problem: većina ljudi nije spremna za potpunu samostalnu skrb.",
           "Ako je izbor bitcoin na burzi ili Bitkey, izabrao bih Bitkey. Ako je izbor jedan seed u ladici ili Bitkey, za mnoge obitelji bih opet izabrao Bitkey.",
-          "Ako je izbor dobro složen Sparrow, vlastiti čvor i 2 od 3 s tri neovisna hardverska novčanika ili Bitkey, za veći obiteljski iznos bih izabrao vlastiti sustav.",
+          "Ako je izbor dobro složen Sparrow, vlastiti node i 2 od 3 s tri neovisna hardverska novčanika ili Bitkey, za veći obiteljski iznos bih izabrao vlastiti sustav.",
           "To je bitna razlika. Bitkey nije loše rješenje zato što ima kompromise. Svaki sustav ima kompromise. Bitkey je dobar ako su njegovi kompromisi svjesno prihvaćeni.",
         ],
       },
@@ -2679,7 +2679,7 @@ const guideEntries: Guide[] = [
           "Ako razmišljate o Bitkeyu, pravo pitanje nije: je li Bitkey savršen?",
           "Pravo pitanje je: u odnosu na što ga uspoređujete?",
           "Ako ga uspoređujete s burzom, Bitkey je veliki korak naprijed. Ako ga uspoređujete s jednim seedom u ladici, Bitkey može biti praktičniji i sigurniji za mnoge obitelji.",
-          "Ako ga uspoređujete s potpuno vlastitim 2 od 3 sustavom, vlastitim čvorom i jasno dokumentiranim nasljeđivanjem, Bitkey je jednostavniji, ali manje neovisan.",
+          "Ako ga uspoređujete s potpuno vlastitim 2 od 3 sustavom, vlastitim nodeom i jasno dokumentiranim nasljeđivanjem, Bitkey je jednostavniji, ali manje neovisan.",
           "Bitcoin sigurnost nije potraga za savršenim proizvodom. To je potraga za sustavom koji konkretna osoba i konkretna obitelj mogu razumjeti, održavati i oporaviti bez panike.",
         ],
       },

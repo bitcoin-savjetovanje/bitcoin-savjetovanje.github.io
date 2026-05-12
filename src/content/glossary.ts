@@ -118,25 +118,35 @@ export const glossaryTerms: GlossaryTerm[] = [
       "Nepotpuna Bitcoin transakcija koja čeka potpise. Korisna je kada Sparrow pripremi transakciju, a hardverski novčanici je zatim potpisuju.",
   },
   {
-    id: "vlastiti-cvor",
-    terms: ["vlastiti čvor", "Bitcoin čvor", "full node", "node"],
-    title: "Vlastiti čvor",
+    id: "node",
+    terms: [
+      "vlastiti node",
+      "vlastitim nodeom",
+      "Bitcoin node",
+      "full node",
+      "node",
+      "nodeom",
+      "nodeu",
+      "vlastiti čvor",
+      "Bitcoin čvor",
+    ],
+    title: "Node (vlastiti Bitcoin čvor)",
     description:
-      "Računalo koje samostalno provjerava Bitcoin pravila i blockchain. To smanjuje potrebu da vjerujete tuđem poslužitelju što se događa s vašim novcem.",
+      "Računalo koje samostalno provjerava Bitcoin pravila i blockchain. Kad koristite vlastiti node, manje ovisite o tuđem poslužitelju za provjeru svog novca.",
   },
   {
     id: "bitcoin-core",
     terms: ["Bitcoin Core"],
     title: "Bitcoin Core",
     description:
-      "Najpoznatiji program za pokretanje vlastitog Bitcoin čvora. Preuzima i provjerava Bitcoin blockchain prema pravilima mreže.",
+      "Najpoznatiji program za pokretanje Bitcoin nodea. Preuzima i provjerava Bitcoin blockchain prema pravilima mreže.",
   },
   {
     id: "fulcrum",
     terms: ["Fulcrum"],
     title: "Fulcrum",
     description:
-      "Privatni Electrum poslužitelj koji radi uz vlastiti Bitcoin čvor. Sparrowu omogućuje brzo i privatnije čitanje stanja novčanika.",
+      "Privatni Electrum poslužitelj koji radi uz vlastiti Bitcoin node. Sparrowu omogućuje brzo i privatnije čitanje stanja novčanika.",
   },
   {
     id: "electrum-posluzitelj",
@@ -437,7 +447,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["Start9"],
     title: "Start9",
     description:
-      "Gotov sustav za pokretanje vlastitog Bitcoin čvora i povezanih usluga. Jednostavniji je za početak, ali i dalje traži razumijevanje što se pokreće.",
+      "Gotov sustav za pokretanje vlastitog Bitcoin nodea i povezanih usluga. Jednostavniji je za početak, ali i dalje traži razumijevanje što se pokreće.",
   },
   {
     id: "umbrel",

@@ -99,28 +99,28 @@ export function GuidePage({ guide }: { guide: Guide }) {
         </p>
       </header>
       {guide.visual ? <GuideVisual visual={guide.visual} /> : null}
-      <div className="guide-layout mt-10">
+      {sectionLinks.length > 0 ? (
+        <nav
+          aria-labelledby="guide-toc-heading"
+          className="mt-10 max-w-3xl rounded-xl border border-border/80 bg-card p-5 shadow-sm"
+        >
+          <h2 id="guide-toc-heading" className="text-lg font-semibold">
+            U ovom vodiču
+          </h2>
+          <ol className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground sm:grid-cols-2">
+            {sectionLinks.map((section) => (
+              <li key={section.id}>
+                <a href={`#${section.id}`} className="hover:text-primary">
+                  {section.heading}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      ) : null}
+      <div className="guide-layout mt-12">
         <div className="min-w-0">
-          {sectionLinks.length > 0 ? (
-            <nav
-              aria-labelledby="guide-toc-heading"
-              className="rounded-xl border border-border/80 bg-card p-5 shadow-sm"
-            >
-              <h2 id="guide-toc-heading" className="text-lg font-semibold">
-                U ovom vodiču
-              </h2>
-              <ol className="mt-4 grid gap-2 text-sm leading-6 text-muted-foreground sm:grid-cols-2">
-                {sectionLinks.map((section) => (
-                  <li key={section.id}>
-                    <a href={`#${section.id}`} className="hover:text-primary">
-                      {section.heading}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </nav>
-          ) : null}
-          <div className="mt-12 space-y-12">
+          <div className="space-y-12">
             {guide.sections.map((section) => (
               <section
                 key={section.heading}

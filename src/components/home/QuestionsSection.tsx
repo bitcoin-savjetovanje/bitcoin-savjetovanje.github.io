@@ -13,7 +13,7 @@ export function QuestionsSection() {
     <section id="pitanja" className="section-shell section-muted">
       <SectionHeader
         title="U razgovor možete doći s jednim stvarnim Bitcoin pitanjem."
-        copy="Ne morate poznavati moj okvir. Ne morate čitati knjigu. Ne morate znati stručne izraze. Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku. Ne morate unaprijed znati je li vaše pitanje dovoljno veliko. To je upravo ono što uvodni razgovor treba pokazati."
+        copy="Ne morate poznavati moj okvir. Ne morate čitati knjigu. Ne morate znati stručne izraze. Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku. Ne morate unaprijed znati je li vaše pitanje dovoljno veliko. Uvodni razgovor postoji upravo zato da to razjasnimo."
       />
       <div className="questions-grid">
         {questionGroups.map((group) => (
@@ -40,7 +40,7 @@ export function QuestionsSection() {
       <div className="question-response-card">
         <h3 className="text-xl font-semibold">
           {selectedQuestion
-            ? "Ovo je dobro pitanje za uvodni razgovor."
+            ? "S tim pitanjem možemo početi razgovor."
             : "Odaberite pitanje koje vam je najbliže."}
         </h3>
         {selectedQuestion ? (

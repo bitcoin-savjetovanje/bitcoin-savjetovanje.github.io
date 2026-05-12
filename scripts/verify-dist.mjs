@@ -1460,7 +1460,7 @@ const focusedGuideChecks = [
   {
     path: "vodici/pravilo-trecina/index.html",
     checks: [
-      "Ovo nije preporuka da kupujete ili prodajete određenu imovinu.",
+      "Ne preporučujem kupnju ili prodaju određene imovine.",
       "Ako je gotovo sve vezano u domu, autu ili poslu",
       "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu",
     ],
@@ -1492,7 +1492,7 @@ const focusedGuideChecks = [
     path: "vodici/obiteljski-bitcoin-trezor/index.html",
     checks: [
       "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
-      "Ovo nije univerzalni recept. Ovo je primjer kako razmišljati o obiteljskoj sigurnosti.",
+      "Nije univerzalni recept, nego primjer za razmišljanje o obiteljskoj sigurnosti.",
       "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
       "višepotpisni sustav 2 od 3",
       "Ako Passport Core nije dostupan",

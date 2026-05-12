@@ -151,7 +151,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Proračun nulte osnove nije kazna",
         body: [
-          "Mnogi ljudi osobni proračun nulte osnove čuju kao zabranu. Kao popis stvari koje više ne smiju raditi. U Praktičnom Bitcoin standardu proračun nulte osnove ima drukčiju ulogu. On nije kazna. On je red. Pokazuje što vaš novac treba napraviti prije nego što ga potrošite, darujete, čuvate ili pretvorite u Bitcoin.",
+          "Mnogi ljudi osobni proračun nulte osnove čuju kao zabranu. Kao popis stvari koje više ne smiju raditi. U Praktičnom Bitcoin standardu proračun nulte osnove ima drukčiju ulogu: ne služi kao kazna, nego kao način da se uvede red. Pokazuje što vaš novac treba napraviti prije nego što ga potrošite, darujete, čuvate ili pretvorite u Bitcoin.",
           "Bez proračuna nulte osnove, odluka izgleda slobodno, ali često nije slobodna. Novac na računu stvara osjećaj prostora. Onda dođe rata, popravak, porez, zdravstveni trošak ili obiteljska potreba. Ono što je izgledalo kao višak odjednom postaje novac koji je već trebao imati namjenu.",
         ],
       },
@@ -234,7 +234,7 @@ const guideEntries: Guide[] = [
         heading: "Dug mijenja značenje viška",
         body: [
           "Ako postoji dug, višak se mora gledati strože. Dug je budući novac koji ste već potrošili. On ima pravo na dio budućih prihoda prije nego što vi donesete novu odluku. Zato dug može učiniti da novac koji izgleda slobodno zapravo nije slobodan.",
-          "To ne znači da osoba u dugu nikada ne smije kupovati Bitcoin. Znači da stanje duga mora biti u slici. Ako ga nema u slici, dug odlučuje skriveno. A skriveni dug često odlučuje u najgorem trenutku.",
+          "To ne znači da osoba u dugu nikada ne smije kupovati Bitcoin, nego da stanje duga mora biti u slici. Ako ga nema u slici, dug odlučuje skriveno. A skriveni dug često odlučuje u najgorem trenutku.",
         ],
       },
       {
@@ -308,7 +308,7 @@ const guideEntries: Guide[] = [
         heading: "Zašto ovo mijenja Bitcoin odluke",
         body: [
           "Bitcoin traži sposobnost čekanja. Ako svaka uplata odmah mora pokriti nekoliko obveza, teško je čekati. Kupnja može biti prenapeta, prodaja može biti prebrza, a pad kupovne moći može izgledati kao osobna kriza.",
-          "Kada novac ima veću starost, Bitcoin odluka ima mirniji temelj. Možete gledati osobni proračun nulte osnove, dug i neto imovinu bez osjećaja da svaka promjena traži hitan potez. To je bliže osobnom Bitcoin standardu.",
+          "Kada novac ima veću starost, Bitcoin odluka ima mirniji temelj. Možete gledati osobni proračun nulte osnove, dug i neto imovinu bez osjećaja da svaka promjena traži hitan potez. Tada osobni Bitcoin standard počinje biti stvaran, a ne samo ideja.",
         ],
       },
       {
@@ -352,7 +352,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Iznos mora imati razlog",
         body: [
-          "Pitanje nije samo kupujete li redovito. Pitanje je zašto kupujete baš taj iznos. Je li nastao iz stvarnog viška? Je li stanje duga vidljivo? Jesu li buduća plaćanja vidljiva? Je li sigurnosna zaliha dovoljna?",
+          "Ne gledajte samo kupujete li redovito. Važnije je zašto kupujete baš taj iznos. Je li nastao iz stvarnog viška? Je li stanje duga vidljivo? Jesu li buduća plaćanja vidljiva? Je li sigurnosna zaliha dovoljna?",
           "Ako ne možete odgovoriti u jednoj jasnoj rečenici, iznos možda nije pravilo. Možda je navika. Navika može biti korisna, ali bez razloga ne može nositi ozbiljne Bitcoin odluke kroz vrijeme.",
         ],
       },
@@ -517,7 +517,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Pogrešno pitanje",
         body: [
-          "Pogrešno pitanje glasi: je li kamata na dug niža od moguće buduće kupovne moći Bitcoina? To je matematički pogled koji propušta stanje osobe koja odlučuje.",
+          "Pogrešno pitanje glasi: je li kamata na dug niža od moguće buduće kupovne moći Bitcoina? Takav matematički pogled propušta stanje osobe koja odlučuje.",
           "Ne odlučujete između duga i Bitcoina samo matematički. Odlučujete između dva stanja. Dug povećava nemir i skraćuje vrijeme za odluku. Bitcoin traži mir, vrijeme i jasnoću.",
         ],
       },
@@ -545,7 +545,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Težak, ali čistiji put",
         body: [
-          "Težak, ali čistiji put može biti smanjiti standard, prodati što treba prodati, očistiti bilancu i vratiti zrak, mir i jasnoću. To nije ugodno, ali vraća odluke iz očaja u red.",
+          "Težak, ali čistiji put može biti smanjiti standard, prodati što treba prodati, očistiti bilancu i vratiti zrak, mir i jasnoću. Nije ugodno, ali vraća odluke iz očaja u red.",
           "Pravilo je jednostavno: ako dug stvara nemir, prvo dug. Bitcoin standard počinje kada ne trošite budući novac. Nakon izlaska iz duga Bitcoin odluke postaju mirnije jer više ne pokušavate spasiti sadašnjost budućim novcem.",
         ],
       },
@@ -582,7 +582,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Bitcoin nije opravdanje za dug",
         body: [
-          "Zadužiti se za Bitcoin znači pokušati kupiti novac budućim novcem. To nije Bitcoin standard. To je fiat ponašanje primijenjeno na Bitcoin.",
+          "Zadužiti se za Bitcoin znači pokušati kupiti novac budućim novcem. To nije Bitcoin standard, nego fiat ponašanje primijenjeno na Bitcoin.",
           "Bitcoin nije opravdanje za dug. Ako se pravilo slomi zato što vjerujete u buduću cijenu, tada Bitcoin više nije novac u sustavu. Postaje razlog za trošenje novca koji još niste zaradili.",
         ],
       },
@@ -597,7 +597,7 @@ const guideEntries: Guide[] = [
         heading: "Dug mijenja vaše odluke",
         body: [
           "Ne zato što je Bitcoin problem, nego zato što stanje duga mijenja vaše odluke. Dug pojačava nemir, osjećaj zarobljenosti i zbunjenost. Kada se to stanje spoji s promjenjivom kupovnom moći Bitcoina, odluke lako postanu očajne.",
-          "Tada se više ne pitate što je ispravno pravilo, nego što će nas izvući do sljedeće rate. To nije sloboda. To je pritisak obučen u Bitcoin jezik.",
+          "Tada se više ne pitate što je ispravno pravilo, nego što će nas izvući do sljedeće rate. Umjesto slobode dobivate pritisak obučen u Bitcoin jezik.",
         ],
       },
       {
@@ -655,7 +655,7 @@ const guideEntries: Guide[] = [
         heading: "Davanje nije ostatak",
         body: [
           "Davanje nije ono što se dogodi ako nešto slučajno ostane. Ako je samo ostatak, tada ovisi o raspoloženju, krivnji ili pritisku trenutka. Jedan mjesec postoji, drugi mjesec nestane. Nema pravilo i nema mir.",
-          "Ovo nije poziv da dokazujete dobrotu novcem. Ovo je praksa koja ima smisla tek kada proračun i dug ne stvaraju pritisak.",
+          "Ne radi se o dokazivanju dobrote novcem. Ova praksa ima smisla tek kada proračun i dug ne stvaraju pritisak.",
           "U Praktičnom Bitcoin standardu davanje dobiva mjesto u osobnom proračunu nulte osnove. Ne zato da bi netko dokazao dobrotu, nego zato da novac prestane biti nejasan. Svaki euro treba namjenu. Dio novca, kada je temelj uređen, može dobiti namjenu za druge ljude.",
         ],
       },
@@ -663,13 +663,13 @@ const guideEntries: Guide[] = [
         heading: "Davanje dolazi nakon izlaska iz duga",
         body: [
           "Dug stvara pritisak. Dug traži buduća plaćanja. Dug može učiniti da i dobra odluka postane izvor nemira. Zato davanje u ovom okviru ne smije usporiti izlazak iz duga niti prikriti neuređen proračun nulte osnove.",
-          "Redoslijed je važan. Prvo osobni proračun nulte osnove. Zatim život bez duga. Tek tada redovito davanje. To ne znači da osoba u dugu ne smije nikada pomoći nikome. Znači da davanje kao praksa osobnog Bitcoin standarda dolazi iz reda i slobode, a ne iz pritiska.",
+          "Redoslijed je važan. Prvo osobni proračun nulte osnove. Zatim život bez duga. Tek tada redovito davanje. Osoba u dugu i dalje može pomoći nekome, ali davanje kao praksa osobnog Bitcoin standarda dolazi iz reda i slobode, a ne iz pritiska.",
         ],
       },
       {
         heading: "Bez očekivanja povrata",
         body: [
-          "Ako očekujete povrat, to nije davanje. To je dogovor, razmjena ili skrivena obveza. Davanje u ovom okviru ne traži da primatelj vrati uslugu, zahvalnost, naklonost ili buduću korist.",
+          "Ako očekujete povrat, ne govorimo više o davanju, nego o dogovoru, razmjeni ili skrivenoj obvezi. Davanje u ovom okviru ne traži da primatelj vrati uslugu, zahvalnost, naklonost ili buduću korist.",
           "To čuva dostojanstvo primatelja. Dar ne smije postati nevidljiv dug. Ako poklon stvara obvezu, više nije čist dar. Zato pravilo mora biti jasno: darujem bez očekivanja povrata i bez stvaranja pritiska na osobu koja prima.",
         ],
       },
@@ -757,8 +757,8 @@ const guideEntries: Guide[] = [
       {
         heading: "Prvi mali dar",
         body: [
-          "Kada se temelj uredi, početak može biti malen. To je dobro. Velikodušnost se ne mora dokazivati veličinom. Često je bolje darivati manje i češće nego rijetko napraviti veliki potez koji optereti proračun nulte osnove.",
-          "Prvi mali dar uči nas primijetiti osobu, potrebu i trenutak. Uči nas dati bez unutarnjeg računa. Uči nas da novac ima ljudsku stranu. To je vježba, a ne predstava.",
+          "Kada se temelj uredi, početak može biti malen. To je često i bolje: velikodušnost se ne mora dokazivati veličinom. Često je bolje darivati manje i češće nego rijetko napraviti veliki potez koji optereti proračun nulte osnove.",
+          "Prvi mali dar uči nas primijetiti osobu, potrebu i trenutak. Uči nas dati bez unutarnjeg računa. Uči nas da novac ima ljudsku stranu. Više je vježba nego predstava.",
         ],
       },
       {
@@ -802,7 +802,7 @@ const guideEntries: Guide[] = [
         heading: "Novac nije odvojen od ljudi",
         body: [
           "Novac ne dolazi iz magle, aplikacije ili apstraktnog sustava. U stvarnom životu dolazi kroz dobrovoljnu razmjenu s ljudima. Netko vidi vrijednost u onome što nudite i odluči dati svoj novac jer ono što prima vrijedi više od novca koji predaje.",
-          "To je jednostavna, ali važna misao. Kada gledate samo saldo, lako zaboravite da iza svakog eura koji ulazi postoji osoba, obitelj, kupac, klijent ili zajednica. Osobni Bitcoin standard zato ne zatvara čovjeka u stanje na računu. Vraća ga pitanju: kome stvaram vrijednost?",
+          "Misao je jednostavna, ali važna. Kada gledate samo saldo, lako zaboravite da iza svakog eura koji ulazi postoji osoba, obitelj, kupac, klijent ili zajednica. Osobni Bitcoin standard zato ne zatvara čovjeka u stanje na računu. Vraća ga pitanju: kome stvaram vrijednost?",
         ],
       },
       {
@@ -965,7 +965,7 @@ const guideEntries: Guide[] = [
         heading: "Zašto mjesec koji se troši nije standard",
         body: [
           "Ako redovito izlazi više novca nego što ulazi, sustav se troši. Možda to nije odmah vidljivo. Možda ga skriva dug, štednja ili rast cijene Bitcoina. Ali ako troškovi stalno pobjeđuju prihode, osobni Bitcoin standard nije stabilan.",
-          "To nije moralna osuda. To je tehnička stvarnost osobnog novca. Ne možete dugoročno živjeti kao da budući novac uvijek može spasiti sadašnji nered. Dugoročni standard traži da sadašnji mjesec nosi sam sebe.",
+          "To nije moralna osuda, nego tehnička stvarnost osobnog novca. Ne možete dugoročno živjeti kao da budući novac uvijek može spasiti sadašnji nered. Dugoročni standard traži da sadašnji mjesec nosi sam sebe.",
         ],
       },
       {
@@ -978,7 +978,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Kako Bitcoin mijenja novčanu zalihu",
         body: [
-          "Kada u sustavu ostaje novac, dio viška može postati novčana zaliha u Bitcoinu. To ne znači da sav višak mora ići u Bitcoin. Znači da Bitcoin može dobiti jasnu ulogu novca u sustavu.",
+          "Kada u sustavu ostaje novac, dio viška može postati novčana zaliha u Bitcoinu. Ne mora sav višak ići u Bitcoin, ali Bitcoin može dobiti jasnu ulogu novca u sustavu.",
           "Ako novčana zaliha raste samo zato što cijena raste, sustav može biti krhak. Ako raste zato što novac redovito ostaje i zato što svaki euro ima namjenu, temelj je jači. Tada rast nije samo tržišni događaj, nego posljedica reda.",
         ],
       },
@@ -1057,7 +1057,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Ako kupovna moć pada, provjerite",
         body: [
-          "Pad kupovne moći nije zapovijed za prodaju. To je poziv da mirno provjerite osnovne dijelove sustava.",
+          "Pad kupovne moći nije zapovijed za prodaju, nego poziv da mirno provjerite osnovne dijelove sustava.",
         ],
         items: [
           "troškove",
@@ -1091,7 +1091,7 @@ const guideEntries: Guide[] = [
         heading: "Pravilo za provjeru",
         body: [
           "Dobro pravilo može glasiti: kada se kupovna moć Bitcoina znatno promijeni, prvo pregledavam proračun nulte osnove, dug, buduća plaćanja i novčanu zalihu. Ne kupujem ni ne prodajem samo zato što me cijena pomaknula.",
-          "Takvo pravilo vraća odluku vama. Bitcoin ostaje novac u sustavu, a ne izvor stalne hitnosti. Usklađivanje kupovne moći nije pogađanje. To je održavanje reda.",
+          "Takvo pravilo vraća odluku vama. Bitcoin ostaje novac u sustavu, a ne izvor stalne hitnosti. Usklađivanje kupovne moći nije pogađanje, nego održavanje reda.",
         ],
       },
     ],
@@ -1148,7 +1148,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Dugoročni trend nije jamstvo",
         body: [
-          "Dugoročni potencijski obrazac (Bitcoin power law) nije obećanje cijene. Nije plan za kratkoročnu kupnju ili prodaju. To je pomoćni način razmišljanja o odnosu cijene i vremena, posebno kada želite vidjeti je li kupovna moć ispred, blizu ili ispod dugoročnog ritma.",
+          "Dugoročni potencijski obrazac (Bitcoin power law) nije obećanje cijene ni plan za kratkoročnu kupnju ili prodaju. Koristan je kao pomoćni način razmišljanja o odnosu cijene i vremena, posebno kada želite vidjeti je li kupovna moć ispred, blizu ili ispod dugoročnog ritma.",
           "Takav pogled može biti koristan samo ako ostane na svome mjestu. Ne smije zamijeniti osobni proračun nulte osnove. Ne smije potisnuti dug. Ne smije stvoriti osjećaj sigurnosti koji ne postoji. Dugoročni trend je signal za provjeru, ne zapovijed.",
         ],
       },
@@ -1331,7 +1331,7 @@ const guideEntries: Guide[] = [
     metaDescription:
       "Vodič o pravilu trećina u Praktičnom Bitcoin standardu: najmanje trećina u novcu, najviše trećina u potrošnji i proizvodnoj imovini.",
     excerpt:
-      "Pravilo trećina nije naredba. To je ogledalo koje pokazuje je li vaša neto imovina u ravnoteži.",
+      "Pravilo trećina nije naredba, nego ogledalo koje pokazuje je li vaša neto imovina u ravnoteži.",
     category: "Neto imovina",
     order: 90,
     featured: true,
@@ -1369,14 +1369,14 @@ const guideEntries: Guide[] = [
         body: [
           "Bez pravila, neto imovina lako postane zbroj stvari. Malo novca, malo potrošnje, malo duga, malo Bitcoina, malo posla. Sve izgleda poznato, ali nije jasno ima li ravnoteže.",
           "Pravilo trećina u okviru Praktičnog Bitcoin standarda nije univerzalna naredba. Ono je ogledalo. Pomaže vidjeti je li previše neto imovine vezano u potrošnji, premalo u novcu ili nedovoljno u proizvodnoj imovini.",
-          "Ovo nije preporuka da kupujete ili prodajete određenu imovinu. Pravilo trećina je pitanje za provjeru ravnoteže, ne formula koju treba slijepo provesti.",
+          "Ne preporučujem kupnju ili prodaju određene imovine. Pravilo trećina služi za provjeru ravnoteže, ne kao formula koju treba slijepo provesti.",
         ],
       },
       {
         heading: "Najmanje trećina u novcu",
         body: [
           "Novac je dobro koje držite radi buduće razmjene. U ovom okviru Bitcoin ima ulogu novca. Najmanje trećina u novcu znači da sustav treba dovoljno kupovne moći koja nije vezana u potrošnim dobrima ili proizvodnoj imovini.",
-          "To ne znači da svaka osoba mora odmah imati isti udio. Znači da se treba pitati imate li dovoljno novca za buduće odluke. Ako je novca premalo, svaka promjena života može nas prisiliti na loš potez.",
+          "Ne mora svaka osoba odmah imati isti udio. Važnije je pitati imate li dovoljno novca za buduće odluke. Ako je novca premalo, svaka promjena života može nas prisiliti na loš potez.",
         ],
       },
       {
@@ -1398,7 +1398,7 @@ const guideEntries: Guide[] = [
         body: [
           "Pravilo treba preispitati kada se promijeni život: novi dug, prodaja imovine, veća kupnja, promjena prihoda, rast ili pad kupovne moći Bitcoina, nova obiteljska odgovornost ili promjena sigurnosnog modela.",
           "Ako je gotovo sve vezano u domu, autu ili poslu, pitanje nije što sada prodati, nego imate li dovoljno novca za buduće odluke.",
-          "Preispitivanje ne znači da morate nešto kupiti ili prodati. Možda je zaključak da ne dirate ništa. Ali tada znate zašto. To je razlika između imovine koja se samo dogodila i osobnog Bitcoin standarda.",
+          "Preispitivanje ne znači da morate nešto kupiti ili prodati. Možda je zaključak da ne dirate ništa. Ali tada znate zašto. Tako se imovina koja se samo dogodila razlikuje od osobnog Bitcoin standarda.",
         ],
       },
     ],
@@ -1445,7 +1445,7 @@ const guideEntries: Guide[] = [
         },
       ],
       caption:
-        "Ovo je edukativni okvir za razmišljanje, ne investicijski, porezni ili pravni savjet.",
+        "Edukativni okvir za razmišljanje, bez investicijskog, poreznog ili pravnog savjeta.",
     },
     sections: [
       {
@@ -1454,7 +1454,7 @@ const guideEntries: Guide[] = [
           "Nakon 2024. godine pitanje Bitcoina u osobnoj imovini postalo je šire.",
           "Prije su glavne opcije bile jednostavnije: kupiti bitcoin na burzi, ostaviti ga tamo ili ga povući u vlastiti novčanik.",
           "Danas postoji više slojeva. Postoje Bitcoin ETF-ovi. Postoje brokerski računi. Postoje burze. Postoje kompanije koje drže Bitcoin u vlastitoj riznici. Postoje povlaštene dionice i drugi proizvodi povezani s kompanijama koje koriste Bitcoin kao temelj kapitalne strukture.",
-          "To ne znači da su svi ti proizvodi isto što i Bitcoin. Nisu.",
+          "Ti proizvodi, naravno, nisu isto što i Bitcoin.",
           "Ali znači da osoba ili obitelj danas može imati različite oblike izloženosti Bitcoinu.",
           "Neki oblici pripadaju području novca pod osobnom kontrolom. Neki pripadaju području kapitalnih dobara. Neki su prijelazna rješenja. Neki su prikladni samo za osobe koje razumiju dodatne rizike.",
           "Zato ih treba jasno razdvojiti.",
@@ -1467,7 +1467,7 @@ const guideEntries: Guide[] = [
           "Među najpoznatijim proizvodima su BlackRock iShares Bitcoin Trust — IBIT, Fidelity Wise Origin Bitcoin Fund — FBTC, Bitwise Bitcoin ETF — BITB, ARK 21Shares Bitcoin ETF — ARKB, Franklin Bitcoin ETF — EZBC, Invesco Galaxy Bitcoin ETF — BTCO, VanEck Bitcoin Trust — HODL, WisdomTree Bitcoin Fund — BTCW i Grayscale Bitcoin Trust — GBTC.",
           "Za osobu koja već ima brokerski račun i portfelj vrijednosnih papira, to je velika promjena.",
           "Bitcoin više nije dostupan samo kroz burze za kriptoimovinu ili vlastiti novčanik. Može biti i dio portfelja vrijednosnih papira.",
-          "To ima prednosti. Ima i mane.",
+          "Prednosti postoje, ali i mane.",
         ],
       },
       {
@@ -1484,12 +1484,12 @@ const guideEntries: Guide[] = [
         heading: "Mane Bitcoin ETF-a",
         body: [
           "Glavna mana je jasna: nemate privatne ključeve. Imate vrijednosni papir.",
-          "To može biti korisno. Ali nije isto što i bitcoin u vlastitom posjedu.",
+          "To može biti korisno, samo ga ne treba izjednačiti s bitcoinom u vlastitom posjedu.",
           "ETF ne daje istu otpornost na cenzuru. Ne možete poslati bitcoin iz ETF-a izravno drugoj osobi. Ne možete koristiti Bitcoin mrežu bez posrednika.",
           "Ovisite o brokeru, izdavatelju, skrbniku, tržišnoj infrastrukturi, regulatornom okruženju i pravilima proizvoda.",
           "Također, ETF ima troškove, strukturu, pravila, moguće razlike između tržišne cijene i vrijednosti imovine u pozadini te pravni okvir koji nije isti kao izravno držanje bitcoina.",
           "Za hrvatske i europske ulagače postoji još jedan praktičan sloj: američki ETF-ovi nisu nužno dostupni svakom malom ulagaču u Europskoj uniji. Konkretna dostupnost ovisi o brokeru, statusu klijenta, jurisdikciji i dokumentaciji proizvoda.",
-          "Ovo nije porezni, pravni ni investicijski savjet. Ovo je okvir za razmišljanje.",
+          "Shvatite ovo kao okvir za razmišljanje, a ne kao porezni, pravni ili investicijski savjet.",
         ],
       },
       {
@@ -1500,17 +1500,17 @@ const guideEntries: Guide[] = [
           "To može biti razumno ako je jasno zašto se svaki dio drži.",
           "ETF može biti dio koji je administrativno lakši, uklopljen u postojeći brokerski sustav i obitelji razumljiviji.",
           "Vlastiti bitcoin može biti dio koji daje suverenost, otpornost na cenzuru i kontrolu.",
-          "To nisu isti dijelovi. I ne moraju imati istu funkciju.",
+          "Ti dijelovi ne moraju imati istu funkciju.",
         ],
       },
       {
         heading: "Burze i mjenjačnice",
         body: [
-          "Burza ili mjenjačnica često je prvi dodir s Bitcoinom. To je normalno.",
+          "Burza ili mjenjačnica često je prvi dodir s Bitcoinom, i u tome nema ništa neobično.",
           "Problem nastaje kada burza postane trajna pohrana velikog iznosa bez jasnog razloga.",
           "Burza je korisna za kupnju, prodaju i likvidnost. Ali ako dugoročno držite bitcoin na burzi, preuzimate rizik burze.",
           "Rizik može biti poslovni rizik, regulatorni rizik, sigurnosni rizik, rizik zamrzavanja računa, rizik povlačenja sredstava, rizik da burza nema ono što tvrdi i rizik da obitelj ne zna pristupiti računu.",
-          "Zato pitanje nije je li burza uvijek loša. Pitanje je: zašto je taj iznos tamo i koliko dugo treba ostati tamo?",
+          "Zato se ne treba pitati je li burza uvijek loša, nego zašto je taj iznos tamo i koliko dugo treba ostati tamo.",
           "Mali iznos radi likvidnosti može imati smisla. Velik dugoročni iznos bez plana obično nema.",
         ],
       },
@@ -1520,7 +1520,7 @@ const guideEntries: Guide[] = [
           "Zadnjih godina nastao je još jedan sloj: kompanije koje drže Bitcoin kao ključnu imovinu u svojoj riznici.",
           "Najpoznatiji primjer je Strategy, ranije MicroStrategy, s oznakom MSTR.",
           "Ova kompanija nije samo dionica softverske firme. Tržište je sve više gleda kao kompaniju čija je kapitalna struktura izgrađena oko Bitcoina.",
-          "To ne znači da je MSTR isto što i bitcoin. Nije.",
+          "MSTR ipak nije bitcoin.",
           "MSTR je dionica kompanije. Ali vrijednost i rizik kompanije snažno su povezani s Bitcoinom.",
         ],
       },
@@ -1532,7 +1532,7 @@ const guideEntries: Guide[] = [
           "Svaki proizvod ima drugačiju namjenu, kupca, cijenu, rizik i potražnju.",
           "Slična ideja stoji iza Bitcoin rizničke kompanije. Bitcoin je osnovna sirovina. Kompanija zatim koristi kapitalna tržišta da oko tog Bitcoina stvori različite vrijednosne papire: običnu dionicu, povlaštene dionice, kreditne instrumente i proizvode s različitim profilom prinosa i volatilnosti.",
           "Neki ulagači žele snažniju izloženost Bitcoinu. Neki žele prihod. Neki žele manju volatilnost. Neki žele likvidan vrijednosni papir u brokerskom računu. Neki žele proizvod koji se ponaša drukčije od samog Bitcoina.",
-          "To je logika rafinerije. Ali treba razumjeti: to više nije čisti Bitcoin. To je kapitalna struktura kompanije koja koristi Bitcoin kao temelj.",
+          "U tome je smisao usporedbe s rafinerijom. Samo treba biti jasno: ovdje više ne govorimo o čistom Bitcoinu, nego o kapitalnoj strukturi kompanije koja Bitcoin koristi kao temelj.",
         ],
       },
       {
@@ -1541,7 +1541,7 @@ const guideEntries: Guide[] = [
           "Dionica MSTR-a često se ponaša kao pojačana izloženost Bitcoinu.",
           "Kada Bitcoin raste, MSTR može rasti jače. Kada Bitcoin pada, MSTR može padati jače.",
           "Razlog je što kompanija ne drži samo bitcoin pasivno. Ona koristi dug, izdavanje dionica, povlaštene instrumente i tržišnu premiju kako bi povećavala količinu bitcoina po dionici.",
-          "To može stvoriti dodatnu vrijednost. Ali može stvoriti i dodatni rizik.",
+          "Takav pristup može stvoriti dodatnu vrijednost, ali i dodatni rizik.",
           "MSTR nije bitcoin. MSTR je dionica kompanije s poslovnom, financijskom, tržišnom i upravljačkom složenošću.",
           "Zato ga ne treba promatrati kao zamjenu za bitcoin u vlastitom posjedu. Više ima smisla promatrati ga kao kapitalno dobro povezano s Bitcoinom.",
         ],
@@ -1552,11 +1552,11 @@ const guideEntries: Guide[] = [
           "STRC je Strategyjev Stretch, promjenjiva povlaštena dionica bez dospijeća.",
           "Strategy ga opisuje kao kratkoročni visokoprinosni kreditni proizvod koji trenutačno plaća 11,50% godišnje dividende u gotovini, mjesečno, s promjenjivom stopom koja se prilagođava kako bi se trgovanje održavalo oko 100 dolara nominalne vrijednosti i smanjila volatilnost cijene.",
           "Tu treba biti vrlo oprezan. Trenutna stopa od 11,50% nije zajamčena zauvijek. Stopa se može mijenjati. Dividenda se isplaćuje samo ako je proglasi nadležno tijelo kompanije i ako postoje zakonski raspoloživa sredstva.",
-          "Ovo nije obveznica bez rizika. Ovo nije novac. Ovo nije bitcoin u vlastitom posjedu.",
+          "Drugim riječima: nije riječ o obveznici bez rizika, novcu ili bitcoinu u vlastitom posjedu.",
           "Strategy je predložio češću, polumjesečnu isplatu dividendi, s ciljem poboljšanja likvidnosti i stabilnosti cijene.",
-          "To je drukčiji proizvod od MSTR obične dionice. MSTR privlači veću volatilnost. STRC pokušava ponuditi drukčiji profil: bliže nominalnoj vrijednosti od 100 dolara i s redovitim novčanim tokom.",
+          "Zato ga treba čitati drukčije od obične dionice MSTR-a. MSTR privlači veću volatilnost, dok STRC pokušava ponuditi profil bliži nominalnoj vrijednosti od 100 dolara i redovitom novčanom toku.",
           "U pojednostavljenom jeziku: MSTR je više pojačana dionica povezana s Bitcoinom, a STRC je više prihodovni proizvod povezan s kapitalnom strukturom Bitcoin kompanije.",
-          "To nije preporuka. To je opis razlike.",
+          "Ne preporučujem kupnju ili prodaju; ovdje samo razdvajam pojmove.",
         ],
       },
       {
@@ -1566,7 +1566,7 @@ const guideEntries: Guide[] = [
           "Možda joj 10% godišnjeg prinosa, ako bi se takav prinos u nekom razdoblju stabilizirao, izgleda kao zanimljiv dio kapitalnog portfelja.",
           "Ali tu treba biti vrlo oprezan. Dividenda nije isto što i sigurnost. Visok prinos nikada ne dolazi bez rizika.",
           "STRC ima rizike: rizik Strategyja kao kompanije, rizik Bitcoin cijene, rizik kapitalne strukture, rizik sposobnosti isplate dividendi, rizik promjene tržišnih uvjeta, rizik likvidnosti, rizik regulatornih promjena, rizik da se cijena ne održi oko 100 dolara i rizik da ulagač ne razumije senioritet i uvjete instrumenta.",
-          "Zato STRC ne bih stavio u kategoriju novca. To nije novac. To je kapitalno dobro, odnosno vrijednosni papir.",
+          "Zato STRC ne bih stavio u kategoriju novca, nego u kategoriju kapitalnih dobara, odnosno vrijednosnih papira.",
           "Može imati mjesto u portfelju. Ali nije zamjena za bitcoin pod osobnom kontrolom.",
         ],
       },
@@ -1576,7 +1576,7 @@ const guideEntries: Guide[] = [
           "U okviru Praktičnog Bitcoin standarda razlikujemo novac, kapitalna dobra i potrošačka dobra.",
           "Bitcoin u vlastitom posjedu najčišće pripada dijelu novca.",
           "ETF, MSTR, STRC i slični proizvodi više pripadaju dijelu kapitala, odnosno proizvodne imovine ili financijskih instrumenata.",
-          "To je važna razlika. Ako osoba kaže da ima bitcoin, treba pitati u kojem obliku.",
+          "Ta razlika je važna. Kad osoba kaže da ima bitcoin, prvo treba pitati u kojem obliku.",
           "Bitcoin u vlastitoj pohrani nije isto što i Bitcoin ETF. Bitcoin ETF nije isto što i MSTR. MSTR nije isto što i STRC. STRC nije isto što i bitcoin u višepotpisnom trezoru.",
           "Svi ti oblici mogu biti povezani s Bitcoinom. Ali nemaju istu funkciju.",
         ],
@@ -1599,7 +1599,7 @@ const guideEntries: Guide[] = [
         heading: "Kako ovo može izgledati u osobnom planu?",
         body: [
           "Primjer obiteljskog plana mogao bi izgledati ovako: dio bitcoina u vlastitoj pohrani kao novac, dio izloženosti kroz ETF u brokerskom portfelju, manji dio kroz Bitcoin rizničke kompanije kao kapitalni rizik, mali dio na burzi samo radi likvidnosti i jasan plan prijelaza prema većoj samostalnoj pohrani ako znanje i obiteljska spremnost porastu.",
-          "To nije preporuka. To je primjer razmišljanja.",
+          "Navedeno nije preporuka, nego primjer kako razmišljati o ulogama različitih dijelova imovine.",
           "Svačija situacija je drukčija. Netko nema obitelj. Netko ima malu djecu. Netko ima supružnika koji ne želi ništa znati o Bitcoinu. Netko ima postojeći portfelj vrijednosnih papira. Netko ima firmu. Netko ima većinu neto imovine u nekretnini. Netko ima dug. Netko tek počinje.",
           "Zato plan ne može biti isti.",
         ],
@@ -1634,7 +1634,7 @@ const guideEntries: Guide[] = [
           "Jedan dio može biti novac pod osobnom kontrolom. Jedan dio može biti kapitalna izloženost. Jedan dio može biti prijelazno rješenje. Jedan dio može biti neprikladan, ako rizik nije shvaćen.",
           "ETF-ovi, burze i Bitcoin rizničke kompanije imaju svoje mjesto. Ali samo ako znamo što jesu.",
           "Nisu isto što i bitcoin u vlastitom posjedu. Nisu isto što i obiteljski višepotpisni trezor. Nisu nužno loši. Nisu nužno dobri.",
-          "Oni su alati. A alati imaju smisla samo kada znamo zašto ih koristimo.",
+          "To su alati, a alati imaju smisla samo kada znamo zašto ih koristimo.",
         ],
         link: {
           before: "Za primjer vlastitog obiteljskog sustava pročitajte",
@@ -1686,7 +1686,7 @@ const guideEntries: Guide[] = [
         },
       ],
       caption:
-        "Ovo nije univerzalni recept. Ovo je primjer kako razmišljati o obiteljskoj sigurnosti.",
+        "Nije univerzalni recept, nego primjer za razmišljanje o obiteljskoj sigurnosti.",
     },
     sections: [
       {
@@ -1867,7 +1867,7 @@ const guideEntries: Guide[] = [
         heading: "Konkretan primjer raspodjele u Hrvatskoj",
         body: [
           "Zamislimo realnu obitelj u Hrvatskoj. Postoji glavni dom. Postoji druga obiteljska lokacija. Postoji bankovni sef ili odvjetnik. Postoji još jedna lokacija kod pouzdane osobe ili u drugom gradu.",
-          "Ovo nije jedina moguća raspodjela. Ali pokazuje glavno pravilo: ne držati sve na jednom mjestu.",
+          "Raspodjela može izgledati i drukčije. Važno je glavno pravilo: ne držati sve na jednom mjestu.",
         ],
         items: [
           "Lokacija A, dom: Lenovo mini PC, ThinkPad, COLDCARD Q, obiteljska uputa bez seed riječi i kopija Sparrow descriptora.",
@@ -1880,7 +1880,7 @@ const guideEntries: Guide[] = [
         heading: "Što je Sparrow descriptor?",
         body: [
           "Kod 2 od 3 sustava nisu dovoljna samo tri seeda. Treba znati kako su ta tri ključa spojena u jedan novčanik.",
-          "To je uloga Sparrow descriptora, wallet policyja ili izvoza novčanika.",
+          "Tu služi Sparrow descriptor, wallet policy ili izvoz novčanika.",
           "On opisuje strukturu novčanika.",
           "Descriptor sam po sebi ne bi trebao biti dovoljan za krađu, jer ne sadrži privatne ključeve. Ali otkriva privatnost novčanika. Zato ga ne treba držati javno ili u cloud folderu.",
           "Za nasljeđivanje je iznimno važan. Bez njega nasljednici mogu imati seedove, ali ne znati kako rekonstruirati novčanik.",
@@ -1916,7 +1916,7 @@ const guideEntries: Guide[] = [
         heading: "Kako izgleda slanje bitcoina?",
         body: [
           "Slanje traži dva potpisa. Primjerice, koristite COLDCARD i BitBox.",
-          "Ako COLDCARD nije dostupan, možete koristiti BitBox i Passport. Ako BitBox nije dostupan, možete koristiti COLDCARD i Passport. Ako Passport nije dostupan, možete koristiti COLDCARD i BitBox. To je poanta 2 od 3 sustava.",
+          "Ako COLDCARD nije dostupan, možete koristiti BitBox i Passport. Ako BitBox nije dostupan, možete koristiti COLDCARD i Passport. Ako Passport nije dostupan, možete koristiti COLDCARD i BitBox. U tome je poanta 2 od 3 sustava.",
         ],
         items: [
           "Upalite ThinkPad.",
@@ -1944,14 +1944,14 @@ const guideEntries: Guide[] = [
         heading: "Što ako netko ukrade jedan uređaj?",
         body: [
           "Ako netko ukrade COLDCARD, nema dovoljno za krađu. Treba mu još jedan ključ. Ako netko ukrade jedan seed backup, opet nema dovoljno za krađu.",
-          "To je ogromna razlika u odnosu na jednostavni novčanik gdje jedan seed znači sve.",
+          "Razlika u odnosu na jednostavni novčanik je ogromna: tamo jedan seed znači sve.",
           "Ali to ne znači da kompromitaciju ignorirate. Ako posumnjate da je jedan ključ otkriven, treba mirno napraviti novi sustav i premjestiti sredstva u novi 2 od 3 trezor.",
         ],
       },
       {
         heading: "Što ako se vama nešto dogodi?",
         body: [
-          "Ovo je najvažniji test. Ako se vama nešto dogodi, obitelj ne smije ostati s rečenicom: znamo da postoji bitcoin, ali ne znamo što sada.",
+          "Najvažniji test dolazi tek ako se vama nešto dogodi. Obitelj tada ne smije ostati s rečenicom: znamo da postoji bitcoin, ali ne znamo što sada.",
           "Zato mora postojati obiteljski dokument. Taj dokument ne mora sadržavati seed riječi. Dapače, ne bi trebao sadržavati sve što je potrebno za krađu. Ali mora objasniti sustav.",
           "Obitelj ne mora odmah razumjeti UTXO, PSBT, descriptor i derivation path. Ali mora znati što ne smije napraviti.",
         ],
@@ -1975,7 +1975,7 @@ const guideEntries: Guide[] = [
         body: [
           "Za obiteljski Bitcoin trezor trebaju dvije vrste uputa.",
           "Obiteljska uputa pisana je jednostavnim jezikom. Sadrži što postoji, što se ne smije napraviti, gdje su opće lokacije, koga kontaktirati, koji je redoslijed koraka i zašto ne treba žuriti. Ne sadrži sve seed riječi i ne sadrži sve privatne tajne na jednom mjestu.",
-          "Tehnički dodatak pisan je za osobu koja zna Sparrow i Bitcoin. To nije dokument za svakodnevno čitanje. To je dokument za oporavak.",
+          "Tehnički dodatak pisan je za osobu koja zna Sparrow i Bitcoin. Ne piše se za svakodnevno čitanje, nego za oporavak u izvanrednoj situaciji.",
         ],
         items: [
           "naziv novčanika",
@@ -2012,7 +2012,7 @@ const guideEntries: Guide[] = [
         heading: "Tehnička osoba od povjerenja",
         body: [
           "Dobro je imati jednu osobu koja razumije Bitcoin dovoljno da pomogne obitelji. Ali ta osoba ne bi trebala sama imati pristup sredstvima.",
-          "To je važna razlika. Tehnička osoba zna pomoći, ali nema dva ključa, nema sve seedove i nema potpunu kontrolu.",
+          "Ta razlika je važna: tehnička osoba zna pomoći, ali nema dva ključa, nema sve seedove i nema potpunu kontrolu.",
           "Tako obitelj ima pomoć, ali ne stvara se nova točka povjerenja.",
         ],
       },
@@ -2029,7 +2029,7 @@ const guideEntries: Guide[] = [
         heading: "Godišnja provjera",
         body: [
           "Obiteljski Bitcoin trezor treba provjeriti barem jednom godišnje. Ne zato što Bitcoin treba održavanje. Bitcoin mreža radi bez vas. Ali vaši uređaji, dokumenti, lokacije i ljudi trebaju provjeru.",
-          "Može se napraviti i mali test s malim iznosom. Cilj nije stalno micati veliki bitcoin. Cilj je provjeriti da sustav radi.",
+          "Može se napraviti i mali test s malim iznosom. Ne provjeravate sustav zato da stalno mičete veliki bitcoin, nego da znate da oporavak i potpisivanje stvarno rade.",
         ],
         items: [
           "Lenovo mini PC se pali",
@@ -2078,7 +2078,7 @@ const guideEntries: Guide[] = [
         heading: "Napomena o odabiru uređaja i softvera",
         body: [
           "U ovom vodiču predložen je konkretan sustav: Lenovo mini PC, Debian, Bitcoin Core, Fulcrum, ThinkPad, Linux Mint, Sparrow, COLDCARD Q, BitBox02 Bitcoin-only i Foundation Passport Core.",
-          "To nije jedini mogući sustav. To je jedan razuman primjer koji pokušava spojiti sigurnost, jednostavnost, dugoročnu održivost i obiteljsku razumljivost.",
+          "To nije jedini mogući sustav, nego jedan razuman primjer koji pokušava spojiti sigurnost, jednostavnost, dugoročnu održivost i obiteljsku razumljivost.",
           "Kod ovakvog plana nije dovoljno pitati koji je proizvod najsigurniji na papiru. Treba pitati može li se sustav održavati godinama, može li ga obitelj razumjeti, postoje li upute, postoje li zamjene ako nešto nije dostupno i može li se sustav oporaviti bez jedne osobe.",
         ],
       },
@@ -2113,7 +2113,7 @@ const guideEntries: Guide[] = [
         heading: "Zašto ThinkPad?",
         body: [
           "ThinkPad je odabran jer je poslovni laptop, ima dobru Linux podršku, dobru tipkovnicu i dobar omjer trajnosti i praktičnosti.",
-          "To je računalo na kojem obitelj otvara Sparrow, provjerava stanje i potpisuje transakcije.",
+          "Na tom računalu obitelj otvara Sparrow, provjerava stanje i potpisuje transakcije.",
           "Alternativno, to može biti drugi ThinkPad, Framework laptop, Dell Latitude, HP EliteBook ili MacBook ako obitelj bolje poznaje macOS.",
           "Važno je da to bude odvojeno računalo koje se ne koristi za svakodnevni kaos: e-mail, poruke, društvene mreže, nasumična preuzimanja i sve ostalo što povećava rizik.",
         ],
@@ -2167,7 +2167,7 @@ const guideEntries: Guide[] = [
           "Jade Plus je gotov uređaj, podržava zračni QR način rada i lakše ga je uklopiti u obiteljsku dokumentaciju nego ručno sastavljene uređaje.",
           "Ako se želi više otvorenosti i ručne provjerljivosti, moguće su i naprednije zamjene: Specter DIY i SeedSigner.",
           "Specter DIY je ručno sastavljen potpisni uređaj koji može imati smisla za tehnički naprednu osobu. Dobar je za učenje, provjerljivost i zračni rad, ali traži više discipline pri sastavljanju, postavljanju i održavanju.",
-          "SeedSigner je još posebniji jer ne sprema seed trajno na uređaju. Seed se učita privremeno, najčešće preko QR koda, koristi se za potpisivanje i briše se kada se uređaj ugasi. To je sigurnosno zanimljivo, ali obiteljski zahtjevnije jer nasljednik mora razumjeti kako učitati seed i koristiti uređaj bez improvizacije.",
+          "SeedSigner je još posebniji jer ne sprema seed trajno na uređaju. Seed se učita privremeno, najčešće preko QR koda, koristi se za potpisivanje i briše se kada se uređaj ugasi. Sigurnosno je zanimljiv, ali obiteljski zahtjevniji jer nasljednik mora razumjeti kako učitati seed i koristiti uređaj bez improvizacije.",
           "Zato bih redoslijed za obiteljski trezor postavio ovako: Passport Core, Blockstream Jade Plus, Specter DIY, SeedSigner.",
           "Za tehnički naprednu osobu koja želi učiti, sama provjeravati i graditi, Specter DIY i SeedSigner mogu biti vrlo zanimljivi. Za obiteljsku jednostavnost, Jade Plus je bolja zamjena.",
         ],
@@ -2178,17 +2178,17 @@ const guideEntries: Guide[] = [
           "Ni jedan dio ovog sustava nije svetinja.",
           "Može se promijeniti proizvođač računala. Može se promijeniti Linux distribucija. Može se promijeniti Electrum poslužitelj. Može se promijeniti treći hardverski novčanik.",
           "Ali ne bih mijenjao glavnu logiku: odvojeno računalo za Bitcoin node, odvojeno računalo za Sparrow, privatni ključevi na hardverskim novčanicima, 2 od 3 višepotpisni sustav, tri različita proizvođača, odvojene lokacije, fizičke pričuvne kopije, Sparrow descriptor, obiteljske upute i godišnja provjera.",
-          "To je srž sustava. Proizvodi su zamjenjivi. Načelo nije.",
+          "Tu je srž sustava: proizvodi su zamjenjivi, načelo nije.",
         ],
       },
       {
         heading: "Zašto je ovo dio osobnog Bitcoin standarda?",
         body: [
-          "Bitcoin standard nije samo odluka da imate bitcoin. To je odluka da vaš novac ima mjesto u životu.",
+          "Bitcoin standard nije samo odluka da imate bitcoin. To znači dati novcu jasno mjesto u životu.",
           "Prvo dolazi proračun. Zatim izlazak iz duga. Zatim davanje. Zatim ravnoteža u neto imovini. Zatim pitanje sigurnosti, obitelji i nasljeđivanja.",
-          "Ako bitcoin postane značajan dio neto imovine, pitanje sigurnosti više nije tehničko pitanje. To je obiteljsko pitanje.",
+          "Ako bitcoin postane značajan dio neto imovine, sigurnost više nije samo tehnička tema. Postaje obiteljsko pitanje.",
           "Tko zna da bitcoin postoji? Tko zna što treba napraviti? Tko ima previše pristupa? Tko nema dovoljno informacija? Što se događa u slučaju smrti? Što se događa u slučaju požara? Što se događa ako jedan uređaj nestane? Što se događa ako obitelj ne zna razlikovati pravi Sparrow od lažne aplikacije?",
-          "To su pitanja osobnog Bitcoin standarda.",
+          "Takva pitanja pripadaju osobnom Bitcoin standardu.",
         ],
       },
       {
@@ -2197,7 +2197,7 @@ const guideEntries: Guide[] = [
           "Za veći obiteljski iznos ne bih koristio jedan mobitel, jednu aplikaciju, jedan seed i jednu ladicu.",
           "Koristio bih sustav: Lenovo mini PC s Bitcoin Coreom i Fulcrumom, ThinkPad s Linux Mintom i Sparrowom, COLDCARD Q, BitBox02 Bitcoin-only, Passport Core ili Blockstream Jade Plus, 2 od 3 višepotpisni novčanik, odvojene lokacije, metalni seed backupi, Sparrow descriptor, obiteljsku uputu, tehnički dodatak i godišnju provjeru.",
           "Najjednostavnije rečeno: Bitcoin mora ostati pod vašom kontrolom, ali ne smije ovisiti samo o vama.",
-          "To je razlika između “imam bitcoin” i obiteljskog Bitcoin trezora.",
+          "Tu počinje razlika između “imam bitcoin” i obiteljskog Bitcoin trezora.",
         ],
       },
       {
@@ -2253,7 +2253,7 @@ const guideEntries: Guide[] = [
         "izloženost bez punih Bitcoin svojstava",
       ],
       caption:
-        "Ovo je edukativni okvir za razmišljanje, ne investicijski, porezni ili pravni savjet.",
+        "Edukativni okvir za razmišljanje, bez investicijskog, poreznog ili pravnog savjeta.",
     },
     sections: [
       {
@@ -2261,8 +2261,8 @@ const guideEntries: Guide[] = [
         body: [
           "U Bitcoinu se često čuje rečenica: ako nemate svoje ključeve, nemate svoj bitcoin.",
           "Ta rečenica ima važnu ulogu. Ona podsjeća da Bitcoin nije isto što i stanje na računu kod burze, brokera ili druge institucije. Ako netko drugi drži ključeve, vi ne držite bitcoin izravno. Imate potraživanje, udio, izloženost ili obećanje da će vam netko drugi omogućiti pristup.",
-          "To treba razumjeti. Ali iz toga ne slijedi da je samostalna pohrana uvijek najbolji prvi korak za svaku osobu, u svakoj fazi i za svaki iznos.",
-          "Bitcoin sigurnost nije ideološko pitanje. Ona je praktično pitanje.",
+          "To treba razumjeti, ali iz toga ne slijedi da je samostalna pohrana uvijek najbolji prvi korak za svaku osobu, u svakoj fazi i za svaki iznos.",
+          "Bitcoin sigurnost nije ideološko pitanje, nego praktično.",
           "Pitanje glasi: koji oblik čuvanja bitcoina ima smisla za ovu osobu, ovu obitelj, ovaj iznos, ovu razinu znanja i ovu životnu situaciju?",
           "Za nekoga je najbolji prvi korak povući bitcoin u vlastiti novčanik. Za nekoga je bolji prvi korak smanjiti iznos na burzi, ali ne prelaziti odmah u složeni obiteljski sustav.",
           "Za nekoga ima smisla dio držati samostalno, a dio kroz brokera, fond ili drugu skrbničku strukturu. Za nekoga je trenutačno bolje imati izloženost Bitcoinu kroz vrijednosni papir nego preuzeti tehničku odgovornost koju ne razumije.",
@@ -2273,22 +2273,22 @@ const guideEntries: Guide[] = [
         heading: "Što znači samostalna pohrana?",
         body: [
           "Samostalna pohrana znači da vi kontrolirate privatne ključeve.",
-          "To ne znači da bitcoin stoji na uređaju. Bitcoin je na Bitcoin mreži. Uređaj, seed riječi ili višepotpisni sustav omogućuju vam potpisivanje transakcije.",
+          "Bitcoin pritom ne stoji na uređaju. On je na Bitcoin mreži, a uređaj, seed riječi ili višepotpisni sustav omogućuju vam potpisivanje transakcije.",
           "Prednost samostalne pohrane je velika: ne ovisite o burzi, brokeru, banci, fondu ili tome hoće li vam netko dopustiti isplatu. Imate otpornost na cenzuru, možete premjestiti bitcoin bez dopuštenja i možete ga čuvati izvan financijskog sustava.",
-          "To su posebna svojstva Bitcoina.",
+          "Upravo su to posebna svojstva Bitcoina.",
           "Ali samostalna pohrana nosi i odgovornost. Ako izgubite seed, nema korisničke podrške koja vam može vratiti sredstva. Ako seed spremite u oblak, napravili ste digitalni rizik. Ako sve ovisi o vama, obitelj možda neće moći doći do sredstava.",
           "Ako je sustav presložen, nitko ga neće znati koristiti u stresu. Ako nemate plan nasljeđivanja, tehnički ispravna samostalna pohrana može postati obiteljski problem.",
-          "Zato samostalna pohrana nije samo pitanje uređaja. To je pitanje sustava.",
+          "Zato samostalna pohrana nije samo pitanje uređaja, nego cijelog sustava.",
         ],
       },
       {
         heading: "Što znači pohrana kod skrbnika?",
         body: [
           "Pohrana kod skrbnika znači da privatne ključeve ne držite vi.",
-          "To može biti burza ili mjenjačnica, brokerski račun, fond kojim se trguje na burzi, institucionalni skrbnik, financijski proizvod koji ima Bitcoin u pozadini ili kompanija koja drži Bitcoin u vlastitoj riznici.",
-          "To nije isto u svakom slučaju. Burza na kojoj kupujete bitcoin i ostavljate ga tamo nije isto što i regulirani fond kojim se trguje na burzi. Brokerski račun nije isto što i vlastiti novčanik. Bitcoin ETF nije isto što i bitcoin u vašem višepotpisnom trezoru.",
+          "U praksi to može biti burza ili mjenjačnica, brokerski račun, fond kojim se trguje na burzi, institucionalni skrbnik, financijski proizvod koji ima Bitcoin u pozadini ili kompanija koja drži Bitcoin u vlastitoj riznici.",
+          "Ti oblici nisu međusobno jednaki. Burza na kojoj kupujete bitcoin i ostavljate ga tamo nije isto što i regulirani fond kojim se trguje na burzi. Brokerski račun nije isto što i vlastiti novčanik. Bitcoin ETF nije isto što i bitcoin u vašem višepotpisnom trezoru.",
           "Ali zajednička crta je ova: vi nemate izravnu kontrolu nad privatnim ključevima.",
-          "To je mana. Ali može imati i prednosti.",
+          "To je mana, premda u nekim situacijama takav oblik može imati i prednosti.",
         ],
       },
       {
@@ -2297,11 +2297,11 @@ const guideEntries: Guide[] = [
           "Pohrana kod skrbnika može imati smisla kada osoba još nije spremna za samostalnu pohranu.",
           "Primjerice, osoba tek uči Bitcoin, ne razumije seed riječi, nema sigurnu lokaciju za pričuvnu kopiju, nema jasan obiteljski plan, ima velik strah od tehničke pogreške ili već ima brokerski račun i portfelj vrijednosnih papira.",
           "Možda želi izloženost Bitcoinu u postojećem investicijskom okviru, jednostavnije izvještavanje ili dio imovine u obliku koji obitelj već razumije.",
-          "To ne znači da je skrbnik bolji. Znači da u određenoj fazi može biti razumniji.",
+          "Ne znači da je skrbnik bolji, nego da u određenoj fazi može biti razumniji.",
           "Loše izvedena samostalna pohrana nije automatski bolja od dobrog skrbničkog rješenja.",
           "Ako netko ima ozbiljan iznos bitcoina na hardverskom novčaniku, ali seed drži u istoj ladici, obitelj ne zna ništa, nema upute i sve ovisi o jednoj osobi, taj sustav možda izgleda suvereno, ali nije dobro posložen.",
           "S druge strane, osoba koja ima dio izloženosti kroz ozbiljnog brokera ili fond možda nema punu Bitcoin suverenost, ali ima sustav koji njezina obitelj razumije i zna naslijediti.",
-          "Cilj savjetovanja nije gurati svakoga u istu kutiju. Cilj je razumjeti rizik.",
+          "Cilj savjetovanja nije gurati svakoga u istu kutiju, nego razumjeti rizik.",
         ],
       },
       {
@@ -2319,10 +2319,10 @@ const guideEntries: Guide[] = [
         heading: "Problem s ideološkim pristupom",
         body: [
           "Ideološki pristup kaže: svi moraju odmah u samostalnu pohranu.",
-          "To zvuči čisto. Ali u praksi može biti neodgovorno.",
+          "To zvuči čisto, ali u praksi može biti neodgovorno.",
           "Ako osoba ne zna što radi, može izgubiti sredstva. Ako obitelj ne zna da bitcoin postoji, nasljednici mogu izgubiti pristup. Ako se velik iznos prebaci u samostalnu pohranu bez plana, rizik se možda nije smanjio. Samo se promijenio.",
           "Prije je rizik bio skrbnik. Sada je rizik korisnik.",
-          "To može biti napredak. Ali samo ako je korisnik spreman.",
+          "Napredak postoji samo ako je korisnik spreman.",
           "Bitcoin ne oprašta tehničku nepažnju.",
           "Zato je moja pozicija drukčija: samostalna pohrana je cilj za ozbiljnu Bitcoin imovinu, ali prijelaz prema njoj mora biti promišljen.",
           "Ne mora sve biti odmah. Ne mora sve biti u jednom obliku. Ne mora svaka osoba imati isti put.",
@@ -2344,9 +2344,9 @@ const guideEntries: Guide[] = [
         body: [
           "Za mnoge ljude najbolji odgovor nije sve kod skrbnika ili sve u samostalnoj pohrani. Najbolji odgovor može biti hibrid.",
           "Primjer: manji operativni iznos u mobilnom novčaniku, glavni dugoročni iznos u vlastitoj pohrani, dio izloženosti kroz ETF u brokerskom portfelju, dio kroz proizvodnu imovinu ili kapitalna dobra povezana s Bitcoinom i jasan plan prijelaza prema većoj samostalnoj pohrani.",
-          "To nije kontradikcija. To je priznanje da različiti dijelovi imovine mogu imati različite uloge.",
+          "To nije kontradikcija, nego priznanje da različiti dijelovi imovine mogu imati različite uloge.",
           "Bitcoin koji držite u vlastitoj pohrani ima ulogu novca pod vašom kontrolom. Bitcoin ETF u brokerskom računu ima ulogu financijske izloženosti. Dionica Bitcoin rizničke kompanije ima ulogu kapitalnog dobra ili poslovnog rizika.",
-          "To nisu iste stvari. Ali sve mogu biti dio šire slike.",
+          "Nisu iste stvari, ali sve mogu biti dio šire slike.",
         ],
         link: {
           before: "Za razliku između tih slojeva korisno je pročitati i vodič",
@@ -2365,7 +2365,7 @@ const guideEntries: Guide[] = [
           "Druga faza je smanjiti očite rizike: ne držati prevelik iznos na burzi bez razloga, ne držati seed digitalno, ne držati sve na jednoj lokaciji, ne imati sustav koji zna samo jedna osoba i zapisati osnovne upute.",
           "Treća faza je podijeliti uloge: što je novac, što je kapital, što je potrošnja, što je kratkoročna likvidnost, što je dugoročna štednja, što je obiteljski trezor i što je prijelazna izloženost.",
           "Četvrta faza je izgraditi konačni sustav: vlastita pohrana za dio koji treba biti pod osobnom kontrolom, skrbnička rješenja samo ondje gdje imaju jasnu ulogu, obiteljske upute, nasljedni plan i godišnja provjera.",
-          "To je drukčije od impulzivnog pristupa. Ne radi se o tome da se odmah kupi uređaj. Radi se o tome da se složi sustav.",
+          "To je sporiji i razumniji pristup od impulzivne kupnje uređaja. Poanta je složiti sustav, ne samo dodati još jedan komad opreme.",
         ],
       },
       {
@@ -2392,7 +2392,7 @@ const guideEntries: Guide[] = [
           "Moja uloga nije da nekoga ideološki guram prema samostalnoj pohrani prije nego je spreman.",
           "Moja uloga nije dati investicijski, porezni ili pravni savjet o tome što točno kupiti, prodati ili prijaviti.",
           "Moja uloga je pomoći osobi razumjeti koje opcije postoje, koji rizici dolaze s kojom opcijom, što je novac, a što kapital, što je stvarna kontrola, a što izloženost, što obitelj može razumjeti, gdje skrbnik ima mjesto, gdje je skrbnik rizik i kako postupno prijeći prema boljem sustavu.",
-          "Bitcoin savjetovanje nije samo pitanje uređaja. To je pitanje odluke.",
+          "Bitcoin savjetovanje nije samo pitanje uređaja, nego odluke.",
           "I često je najbolja odluka ona koja ne izgleda ideološki najčišće, nego ona koju konkretna osoba i konkretna obitelj mogu stvarno provesti.",
         ],
       },
@@ -2400,11 +2400,11 @@ const guideEntries: Guide[] = [
         heading: "Zaključak",
         body: [
           "Samostalna pohrana je jedan od najvažnijih darova koje Bitcoin nudi.",
-          "Ali samostalna pohrana bez znanja, bez obiteljskog plana i bez pričuvne kopije nije sloboda. To je novi rizik.",
-          "Pohrana kod skrbnika nije isto što i držanje bitcoina u vlastitom posjedu. Ali može imati svoje mjesto.",
+          "Ali samostalna pohrana bez znanja, obiteljskog plana i pričuvne kopije ne donosi slobodu, nego novi rizik.",
+          "Pohrana kod skrbnika nije isto što i držanje bitcoina u vlastitom posjedu, ali može imati svoje mjesto.",
           "ETF, broker, burza, hardverski novčanik i višepotpisni sustav nisu ista stvar. Svaki oblik ima drugačiju ulogu.",
-          "Pitanje nije je li skrbnik uvijek loš. Pitanje je: koji rizik preuzimam, što dobivam zauzvrat i ima li to mjesto u mom Bitcoin standardu?",
-          "To je razgovor koji vrijedi voditi prije nego se napravi veliki korak.",
+          "Umjesto pitanja je li skrbnik uvijek loš, važnije je pitati: koji rizik preuzimam, što dobivam zauzvrat i ima li to mjesto u mom Bitcoin standardu?",
+          "Takav razgovor vrijedi voditi prije nego se napravi veliki korak.",
         ],
       },
     ],
@@ -2470,9 +2470,9 @@ const guideEntries: Guide[] = [
           "Bitkey je Bitcoin-only sustav za čuvanje bitcoina koji se sastoji od mobilne aplikacije, hardverskog uređaja i poslužiteljskog ključa koji služi za oporavak i pomoćne sigurnosne funkcije.",
           "Bitkey koristi 2 od 3 višepotpisni model. To znači da postoje tri ključa, a za pomicanje bitcoina trebaju bilo koja dva.",
           "Jedan ključ je na hardverskom uređaju. Jedan ključ je u mobilnoj aplikaciji. Jedan ključ je na Bitkey poslužitelju.",
-          "To je velika razlika u odnosu na burzu. Na burzi vi nemate ključeve. Burza kontrolira bitcoin, a vi imate potraživanje prema burzi.",
+          "Razlika u odnosu na burzu je velika. Na burzi vi nemate ključeve. Burza kontrolira bitcoin, a vi imate potraživanje prema burzi.",
           "Kod Bitkeya, model je drukčiji. Bitkey drži jedan od tri ključa, ali taj jedan ključ nije dovoljan da pomakne sredstva. Za svaku transakciju trebaju dva ključa.",
-          "To je važno. Ali nije isto kao da sve ključeve držite potpuno samostalno.",
+          "Važno je to razlikovati od modela u kojem sve ključeve držite potpuno samostalno.",
         ],
       },
       {
@@ -2483,7 +2483,7 @@ const guideEntries: Guide[] = [
           "Ako ih izgubite, možete izgubiti pristup. Ako ih netko nađe, može ukrasti bitcoin. Ako ih spremite u cloud, napravili ste digitalni rizik.",
           "Ako ih sakrijete predobro, obitelj ih možda nikada neće pronaći. Ako ih ostavite u ladici, lopov ih može pronaći. Ako ih zna samo jedna osoba, nasljednici mogu ostati bez pristupa.",
           "Bitkey pokušava ukloniti taj problem tako da uopće ne koristi klasične seed riječi. Umjesto jednog moćnog seeda, koristi tri odvojena ključa i više puteva oporavka.",
-          "To je dobra dijagnoza. Mnogi ljudi nisu spremni čuvati jedan papir deset ili dvadeset godina. Još manje su spremni objasniti obitelji što taj papir znači.",
+          "Dijagnoza je dobra: mnogi ljudi nisu spremni čuvati jedan papir deset ili dvadeset godina. Još manje su spremni objasniti obitelji što taj papir znači.",
         ],
       },
       {
@@ -2494,7 +2494,7 @@ const guideEntries: Guide[] = [
           "Ako izgubi mobitel, može koristiti hardverski uređaj i Bitkeyev oporavak. Ako izgubi hardverski uređaj, može koristiti aplikaciju i Bitkeyev oporavak.",
           "Ako izgubi i mobitel i uređaj, Bitkey ima poseban postupak s kontaktima za oporavak.",
           "Bitkey također ima Emergency Exit Kit, koji služi kao izlazni plan ako korisnik mora premjestiti sredstva bez oslanjanja na Bitkey poslužitelje.",
-          "To je praktično. Bitkey je napravljen za stvarne greške: izgubljen mobitel, izgubljen uređaj, zaboravljen plan, obitelj koja ne zna gdje je seed. To je njegova snaga.",
+          "To je praktično jer je Bitkey napravljen za stvarne greške: izgubljen mobitel, izgubljen uređaj, zaboravljen plan, obitelj koja ne zna gdje je seed. Tu je njegova snaga.",
         ],
       },
       {
@@ -2502,18 +2502,18 @@ const guideEntries: Guide[] = [
         body: [
           "Bitkey je 2026. predstavio novu verziju hardverskog uređaja.",
           "Novi Bitkey zadržava 2 od 3 višepotpisni model, nema seed riječi, ima biometrijski pristup, oporavak za gubitak mobitela, uređaja ili oba, ugrađeno nasljeđivanje i Emergency Exit Kit.",
-          "Novi hardver ima ekran. To je važan korak jer korisnik može provjeravati što odobrava izravno na uređaju, a ne samo gledati mobitel.",
+          "Novi hardver ima ekran, što je važan korak jer korisnik može provjeravati što odobrava izravno na uređaju, a ne samo gledati mobitel.",
           "To ne uklanja sve kompromise, ali poboljšava model.",
         ],
       },
       {
         heading: "Bitkey i nasljeđivanje",
         body: [
-          "Bitkey je posebno zanimljiv zato što ima ugrađenu funkciju nasljeđivanja. To je rijetko kod Bitcoin novčanika.",
+          "Bitkey je posebno zanimljiv zato što ima ugrađenu funkciju nasljeđivanja, što je rijetko kod Bitcoin novčanika.",
           "Većina rješenja kaže: evo vam seed, snađite se. Ali nasljeđivanje nije samo pitanje gdje je seed.",
           "Nasljeđivanje znači tko zna da bitcoin postoji, tko može pokrenuti postupak, koliko dugo se čeka, kako se sprječava lažni zahtjev, kako se nasljedniku daje pristup bez da ga ima prerano, što se događa ako vlasnik ipak nije umro i što se događa ako netko pokuša zloupotrijebiti postupak.",
           "Bitkeyev model nasljeđivanja pokušava riješiti upravo taj problem: nasljednik ne dobiva pristup odmah, vlasnik ima vrijeme za zaustavljanje postupka, a prijenos se događa tek nakon definiranog razdoblja.",
-          "To je vrlo zanimljivo za obiteljski kontekst. Ali ima važan uvjet: ako želite koristiti Bitkey za nasljeđivanje, treba pripremiti i osobu koja će jednog dana biti korisnik tog plana.",
+          "Za obiteljski kontekst to je vrlo zanimljivo, uz važan uvjet: ako želite koristiti Bitkey za nasljeđivanje, treba pripremiti i osobu koja će jednog dana biti korisnik tog plana.",
           "Drugim riječima, nije dovoljno da vi kupite uređaj. Obitelj mora znati da plan postoji. Nasljednik mora razumjeti što treba napraviti. I mora biti jasno što se događa ako se promijene obiteljske okolnosti.",
         ],
       },
@@ -2521,10 +2521,10 @@ const guideEntries: Guide[] = [
         heading: "Za koga je Bitkey dobar?",
         body: [
           "Bitkey ima smisla za osobu koja kaže: želim držati bitcoin izvan burze, ali ne želim samostalno voditi složen sigurnosni sustav.",
-          "To je velika skupina ljudi.",
+          "Takvih ljudi ima puno.",
           "Za takvu osobu Bitkey može biti velik korak naprijed. Posebno u Hrvatskoj, gdje većina ljudi neće sama složiti vlastiti Bitcoin node, privatni Electrum poslužitelj, Sparrow i višepotpisni sustav s tri različita hardverska novčanika.",
           "Za tu osobu Bitkey može biti puno bolji od dvije najčešće loše opcije: bitcoin na burzi ili jedan seed u ladici.",
-          "To je najjači argument za Bitkey.",
+          "Tu je najjači argument za Bitkey.",
         ],
         items: [
           "ne želi držati bitcoin na burzi",
@@ -2541,7 +2541,7 @@ const guideEntries: Guide[] = [
         body: [
           "Bitkey nije idealan za osobu koja želi maksimalnu samostalnost.",
           "Ako želite vlastiti Bitcoin Core, vlastiti Electrum poslužitelj, Sparrow, tri neovisna hardverska novčanika, vlastitu dokumentaciju, vlastite lokacije i potpunu kontrolu nad svim ključevima, Bitkey nije isti model.",
-          "Bitkeyev treći ključ je na Bitkey poslužitelju. To je bolji model od običnog skrbništva. Ali i dalje je ovisnost o Bitkey i Block infrastrukturi.",
+          "Bitkeyev treći ključ nalazi se na Bitkey poslužitelju. Model je bolji od običnog skrbništva, ali i dalje postoji ovisnost o Bitkey i Block infrastrukturi.",
           "Za neke korisnike to je prihvatljiv kompromis. Za druge nije.",
           "Ako je cilj najviši stupanj neovisnosti, tada bih radije složio vlastiti obiteljski Bitcoin trezor.",
         ],
@@ -2567,11 +2567,11 @@ const guideEntries: Guide[] = [
       {
         heading: "Bitkey nije isto što i vlastiti višepotpisni trezor",
         body: [
-          "Ovo je najvažnija razlika. Bitkey i vlastiti 2 od 3 sustav mogu na papiru zvučati slično.",
+          "Ovdje je najvažnija razlika. Bitkey i vlastiti 2 od 3 sustav mogu na papiru zvučati slično.",
           "Oba koriste tri ključa. Oba traže dva potpisa. Oba smanjuju rizik da jedna greška odmah znači gubitak svega.",
           "Ali nisu isti.",
           "Kod vlastitog sustava vi birate sve: koji su uređaji, gdje su ključevi, gdje su pričuvne kopije, na koji se node spajate, koji se softver koristi, kako izgleda dokumentacija, tko zna što i što se događa u slučaju smrti.",
-          "Kod Bitkeya dobar dio toga je upakiran u proizvod. To je prednost za jednostavnost. To je kompromis za suverenost.",
+          "Kod Bitkeya dobar dio toga dolazi upakiran u proizvod. Dobivate jednostavnost, ali dio suverenosti mijenjate za gotov sustav.",
           "Vlastiti sustav je kao da sami dizajnirate obiteljski trezor. Bitkey je kao gotov trezor s ugrađenim pravilima, oporavkom i korisničkim iskustvom.",
           "Za mnoge ljude gotov trezor je bolji od loše složenog vlastitog trezora. Ali nije isto što i potpuno vlastiti sustav.",
         ],
@@ -2580,10 +2580,10 @@ const guideEntries: Guide[] = [
         heading: "Privatnost",
         body: [
           "Kod vlastitog Sparrow sustava s vlastitim Bitcoin Coreom i Fulcrumom, vaš novčanik ne mora pitati tuđe poslužitelje koje adrese i UTXO-e imate.",
-          "To je velika privatnosna prednost.",
+          "Za privatnost je to velika prednost.",
           "Kod Bitkeya koristite Bitkeyevu aplikaciju i infrastrukturu. To ne znači da je Bitkey isto što i burza.",
           "Ali u savjetodavnom kontekstu treba reći jednostavno: privatnost Bitkeya vjerojatno je bolja od držanja bitcoina na burzi, ali nije isto što i vlastiti node i vlastiti poslužitelj.",
-          "To nije napad na Bitkey. To je samo razlika između gotovog proizvoda i vlastite infrastrukture.",
+          "To nije napad na Bitkey, nego razlika između gotovog proizvoda i vlastite infrastrukture.",
         ],
       },
       {
@@ -2592,7 +2592,7 @@ const guideEntries: Guide[] = [
           "Najveća prednost Bitkeya je što rješava stvaran ljudski problem.",
           "Većina ljudi neće pravilno čuvati seed. Većina ljudi neće redovito testirati oporavak. Većina ljudi neće napraviti obiteljsku uputu. Većina ljudi neće znati što je descriptor. Većina ljudi neće imati tri lokacije, tri uređaja i godišnju provjeru.",
           "Bitkey kaže: pokušajmo maknuti tu složenost iz ruku korisnika.",
-          "To je dobro. Za osobu koja bi inače ostala na burzi ili držala jedan seed na loš način, Bitkey može biti veliko poboljšanje.",
+          "Za osobu koja bi inače ostala na burzi ili držala jedan seed na loš način, to može biti veliko poboljšanje.",
         ],
       },
       {
@@ -2636,7 +2636,7 @@ const guideEntries: Guide[] = [
         body: [
           "Sparrow 2 od 3 sustav s vlastitim nodeom je jači za osobu koja želi punu kontrolu.",
           "Bitkey je bolji za osobu koja želi jednostavnost.",
-          "Zato pitanje nije što je objektivno najbolje. Pitanje je: koji sustav će ova konkretna osoba stvarno znati koristiti i oporaviti?",
+          "Zato nije dovoljno pitati što je objektivno najbolje. Važnije je pitati koji sustav će ova konkretna osoba stvarno znati koristiti i oporaviti.",
         ],
       },
       {
@@ -2646,14 +2646,14 @@ const guideEntries: Guide[] = [
           "Ne kao zamjena za najbolji mogući osobni Bitcoin trezor, nego kao dobar odgovor na stvarni problem: većina ljudi nije spremna za potpunu samostalnu skrb.",
           "Ako je izbor bitcoin na burzi ili Bitkey, izabrao bih Bitkey. Ako je izbor jedan seed u ladici ili Bitkey, za mnoge obitelji bih opet izabrao Bitkey.",
           "Ako je izbor dobro složen Sparrow, vlastiti node i 2 od 3 s tri neovisna hardverska novčanika ili Bitkey, za veći obiteljski iznos bih izabrao vlastiti sustav.",
-          "To je bitna razlika. Bitkey nije loše rješenje zato što ima kompromise. Svaki sustav ima kompromise. Bitkey je dobar ako su njegovi kompromisi svjesno prihvaćeni.",
+          "To je bitna razlika. Bitkey nije loše rješenje samo zato što ima kompromise; svaki ih sustav ima. Dobar je onda kada su ti kompromisi svjesno prihvaćeni.",
         ],
       },
       {
         heading: "Kada bih preporučio Bitkey?",
         body: [
           "Preporučio bih ga osobi koja ne želi držati bitcoin na burzi, ne vjeruje si da će dobro čuvati seed riječi, ne želi učiti složen višepotpisni sustav, želi nešto što obitelj može razumjeti, želi Bitcoin-only rješenje i prihvaća da dio oporavka ovisi o Bitkey sustavu.",
-          "To je pošten profil korisnika. Za takvu osobu Bitkey može biti vrlo dobar izbor.",
+          "To je pošten profil korisnika, i za takvu osobu Bitkey može biti vrlo dobar izbor.",
         ],
       },
       {
@@ -2667,7 +2667,7 @@ const guideEntries: Guide[] = [
         heading: "Zaključak",
         body: [
           "Bitkey je jedan od zanimljivijih pokušaja da se Bitcoin sigurnost približi normalnim ljudima.",
-          "Njegova glavna vrijednost nije u tome što je najsamostalniji mogući model. Njegova vrijednost je u tome što pokušava riješiti ono gdje ljudi najčešće griješe: seed riječi, oporavak, izgubljeni uređaji i nasljeđivanje.",
+          "Njegova glavna vrijednost nije u tome da bude najsamostalniji mogući model, nego u pokušaju da riješi ono gdje ljudi najčešće griješe: seed riječi, oporavak, izgubljene uređaje i nasljeđivanje.",
           "Za manji i srednji iznos, ili za osobu koja tek prelazi s burze prema osobnom čuvanju bitcoina, Bitkey može biti vrlo razuman izbor.",
           "Za veći obiteljski iznos i puni osobni Bitcoin standard, i dalje bih preferirao vlastiti sustav: Sparrow, vlastiti Bitcoin Core, privatni Fulcrum, 2 od 3 višepotpisni novčanik, tri neovisna hardverska novčanika, odvojene lokacije i obiteljske upute.",
           "Najkraće: Bitkey je bolji od burze i bolji od loše izvedenog novčanika s jednim potpisom. Ali nije bolji od dobro izvedenog obiteljskog Bitcoin trezora.",
@@ -2680,7 +2680,7 @@ const guideEntries: Guide[] = [
           "Pravo pitanje je: u odnosu na što ga uspoređujete?",
           "Ako ga uspoređujete s burzom, Bitkey je veliki korak naprijed. Ako ga uspoređujete s jednim seedom u ladici, Bitkey može biti praktičniji i sigurniji za mnoge obitelji.",
           "Ako ga uspoređujete s potpuno vlastitim 2 od 3 sustavom, vlastitim nodeom i jasno dokumentiranim nasljeđivanjem, Bitkey je jednostavniji, ali manje neovisan.",
-          "Bitcoin sigurnost nije potraga za savršenim proizvodom. To je potraga za sustavom koji konkretna osoba i konkretna obitelj mogu razumjeti, održavati i oporaviti bez panike.",
+          "Bitcoin sigurnost nije potraga za savršenim proizvodom, nego za sustavom koji konkretna osoba i konkretna obitelj mogu razumjeti, održavati i oporaviti bez panike.",
         ],
       },
     ],
@@ -2731,14 +2731,14 @@ const guideEntries: Guide[] = [
         heading: "Nije dovoljno da samo vi znate",
         body: [
           "Ako Bitcoin ima ozbiljnu ulogu u neto imovini, sustav nije dovršen ako postoji samo u vašoj glavi. Vi možda znate gdje je što, ali osoba od povjerenja može ostati bez osnovnog smjera u izvanrednoj situaciji.",
-          "To ne znači da obitelji treba dati pristup svemu. Znači da treba postojati put: što postoji, gdje su opće upute, kome se smije javiti i što se nikada ne smije napraviti.",
+          "Obitelji ne treba dati pristup svemu. Treba joj dati put: što postoji, gdje su opće upute, kome se smije javiti i što se nikada ne smije napraviti.",
         ],
       },
       {
         heading: "Informacija nije isto što i pristup",
         body: [
           "Informacija može glasiti da Bitcoin postoji i da postoje upute. Kontrola znači mogućnost pomicanja Bitcoina. Te dvije stvari ne smiju se miješati.",
-          "Dobar obiteljski pristup daje dovoljno informacija da osoba ne bude izgubljena, ali ne izlaže osjetljive podatke bez potrebe. To je ravnoteža između kontinuiteta i sigurnosti.",
+          "Dobar obiteljski pristup daje dovoljno informacija da osoba ne bude izgubljena, ali ne izlaže osjetljive podatke bez potrebe. Tu se traži ravnoteža između kontinuiteta i sigurnosti.",
         ],
       },
       {
@@ -2821,14 +2821,14 @@ const guideEntries: Guide[] = [
         heading: "Kontrola ostaje kod vas",
         body: [
           "Sigurnost u osobnom Bitcoin standardu počinje od jednostavne granice: kontrola ostaje kod vas. Nitko ne treba seed phrase, privatne ključeve, lozinke ili pristup računu da bi s vama razgovarao o sustavu.",
-          "Ali kontrola ne znači izolaciju. Ako nitko ne zna što postoji, gdje su opće upute i što nikada ne smije napraviti, sustav ovisi samo o vama. To nije dovoljno za ozbiljnu neto imovinu.",
+          "Ali kontrola ne znači izolaciju. Ako nitko ne zna što postoji, gdje su opće upute i što nikada ne smije napraviti, sustav ovisi samo o vama. Za ozbiljnu neto imovinu to nije dovoljno.",
         ],
       },
       {
         heading: "Jedna osoba nije sustav",
         body: [
           "Ako sve znate samo vi, nastaje situacija u kojoj jedna greška znači gubitak pristupa. Bolest, nesreća, smrt ili obična pogreška mogu ostaviti obitelj bez smjera.",
-          "Dobar sustav ne predaje kontrolu drugima, ali uklanja potpunu ovisnost o jednoj osobi. Postoje upute, osobe od povjerenja i jasna pravila opreza. To je praktična nadogradnja Bitcoin standarda.",
+          "Dobar sustav ne predaje kontrolu drugima, ali uklanja potpunu ovisnost o jednoj osobi. Postoje upute, osobe od povjerenja i jasna pravila opreza. Takav pristup praktično nadograđuje Bitcoin standard.",
         ],
       },
       {
@@ -2841,7 +2841,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Što obitelj smije znati",
         body: [
-          "Obitelj smije znati osnovni kontekst: Bitcoin postoji, dio je neto imovine, ne treba žuriti, postoje upute i postoje stvari koje nitko ne smije tražiti. To je dovoljno za prvi korak.",
+          "Obitelj smije znati osnovni kontekst: Bitcoin postoji, dio je neto imovine, ne treba žuriti, postoje upute i postoje stvari koje nitko ne smije tražiti. Za prvi korak, toliko je dovoljno.",
           "Ne mora znati sve detalje. Ne mora čuvati osjetljive podatke ako za to nije spremna. Cilj nije prebaciti odgovornost, nego ukloniti paniku i pogrešne prve poteze.",
         ],
       },

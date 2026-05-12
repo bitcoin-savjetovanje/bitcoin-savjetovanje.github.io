@@ -1441,8 +1441,10 @@ const focusedGuideChecks = [
     checks: [
       "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
       "Ovo nije univerzalni recept. Ovo je primjer kako razmišljati o obiteljskoj sigurnosti.",
-      "Seed riječi nikada ne idu u mobitel, mrežnu pohranu, e-mail ili fotografiju.",
-      "višepotpisni sustav, primjerice 2 od 3",
+      "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
+      "višepotpisni sustav 2 od 3",
+      "Ako Passport Core nije dostupan",
+      "Blockstream Jade Plus",
       "Dogovorite uvodni Bitcoin razgovor",
       "Ako imate značajniji iznos u Bitcoinu, sigurnost više nije samo pitanje uređaja.",
     ],

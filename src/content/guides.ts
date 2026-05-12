@@ -1462,7 +1462,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Jednostavna slika: sef s tri ključa",
         body: [
-          "Za veći obiteljski iznos dobar model može biti višepotpisni sustav, primjerice 2 od 3. To znači da postoje tri ključa, a za pomicanje bitcoina trebaju bilo koja dva.",
+          "Za veći obiteljski iznos dobar model je višepotpisni sustav 2 od 3. To znači da postoje tri ključa, a za pomicanje bitcoina trebaju bilo koja dva.",
           "Ako imate ključ A i ključ B, možete pomaknuti bitcoin. Ako imate ključ A i ključ C, možete pomaknuti bitcoin. Ako imate ključ B i ključ C, možete pomaknuti bitcoin. Ali jedan ključ sam po sebi nije dovoljan.",
           "To je kao obiteljski sef koji se ne može otvoriti jednim ključem. Trebaju dva od tri.",
           "U stvarnom životu stvari nestaju. Uređaj se može pokvariti. Jedna lokacija može izgorjeti. Jedan papir može biti izgubljen. Jedna osoba može postati nedostupna. Jedan proizvođač uređaja može nestati. Jedan član obitelji može pogriješiti.",
@@ -1506,6 +1506,7 @@ const guideEntries: Guide[] = [
           "Njegova uloga je druga: služi da sami provjeravate Bitcoin mrežu i da ne morate pitati tuđi poslužitelj koliko bitcoina imate.",
           "Na njemu rade Bitcoin Core i Fulcrum. Bitcoin Core preuzima i provjerava Bitcoin lanac blokova. Fulcrum služi kao privatni Electrum poslužitelj koji Sparrowu brzo odgovara na pitanja: koje adrese imaju povijest, koji su UTXO-i dostupni i kakvo je stanje novčanika.",
           "Za ozbiljan dugoročan sustav ima smisla koristiti mini PC s barem 2 TB NVMe diskom, žičnom mrežom i stabilnim napajanjem.",
+          "Mini računalo ne mora biti posebno snažno. Važnije je da bude stabilno, tiho, pouzdano i da godinama može raditi jednu stvar.",
         ],
       },
       {
@@ -1514,7 +1515,8 @@ const guideEntries: Guide[] = [
           "Ako Sparrow koristite preko javnog poslužitelja, taj poslužitelj ne može ukrasti bitcoin. Nema privatne ključeve. Ali može vidjeti previše.",
           "Može vidjeti koje adrese provjeravate. Može povezati vaše UTXO-e. Može znati kada otvarate novčanik. Ako ne koristite dodatnu zaštitu, može povezati upite s vašom mrežnom adresom.",
           "Kod malog iznosa to možda nije presudno. Kod većeg obiteljskog trezora jest.",
-          "Bolji model je: Sparrow pita vaš Fulcrum, Fulcrum pita vaš Bitcoin Core, a Bitcoin Core provjerava Bitcoin mrežu. To znači da vaš novčanik ne pita nepoznati javni poslužitelj što posjedujete. Pita vaš vlastiti poslužitelj.",
+          "Bolji model je: Sparrow → vaš Fulcrum → vaš Bitcoin Core → Bitcoin mreža.",
+          "To znači da vaš novčanik ne pita nepoznati javni poslužitelj što posjedujete. Pita vaš vlastiti poslužitelj.",
         ],
       },
       {
@@ -1524,6 +1526,7 @@ const guideEntries: Guide[] = [
           "To računalo ne služi za posao, e-mail, dopisivanje, YouTube, društvene mreže, bankarstvo i svakodnevno surfanje. Ako postane svakodnevno računalo, sigurnosna korist se smanjuje.",
           "Njegova uloga je jednostavna: otvoriti Sparrow, spojiti se na privatni Fulcrum, vidjeti stanje trezora, pripremiti transakciju, potpisati je s dva hardverska novčanika, zatvoriti Sparrow i ugasiti računalo.",
           "Za poslužitelj ima smisla koristiti Debian. Za laptop koji netko stvarno treba otvoriti i koristiti, Linux Mint je pristupačniji izbor.",
+          "Ovo računalo treba biti dovoljno jednostavno da ga član obitelji može upaliti i slijediti upute. Ne treba biti tehnički eksperiment.",
         ],
       },
       {
@@ -1547,7 +1550,7 @@ const guideEntries: Guide[] = [
       {
         heading: "COLDCARD Q",
         body: [
-          "COLDCARD Q bih koristio kao glavni sigurnosni potpisnik. To je uređaj za osobu koja razumije Bitcoin i želi stroži način rada. Ima fizičku tipkovnicu, veliki ekran, QR čitač, dva microSD utora i može raditi na baterije.",
+          "COLDCARD Q bih koristio kao glavni sigurnosni potpisnik. To je uređaj za osobu koja razumije Bitcoin i želi stroži način rada. Ima fizičku tipkovnicu, veći ekran, QR čitač, microSD utore i može raditi na baterije.",
           "Njegova uloga u obitelji može biti ključ A: glavni sigurnosni ključ, najbolje kod osobe koja vodi sustav. Ne mora ga svaki član obitelji koristiti svakodnevno.",
           "COLDCARD je odličan, ali nije najjednostavniji uređaj za početnika. Zato ne bih cijeli obiteljski plan gradio tako da ga svi moraju znati koristiti pod stresom.",
         ],
@@ -1566,6 +1569,8 @@ const guideEntries: Guide[] = [
           "Passport Core bih koristio kao treći ključ. Njegova prednost je zračni način rada preko QR kodova. To znači da za potpisivanje ne mora biti izravno spojen kabelom na računalo.",
           "Njegova uloga može biti ključ C: treći obiteljski ključ, dobar za zračni QR način rada i dobar za nasljedni plan.",
           "Passport je dobar jer je vizualno razumljiviji od COLDCARD-a, a ipak ostaje ozbiljan uređaj.",
+          "Ako Passport Core trenutačno nije dostupan, to ne ruši cijeli plan. Važno je razumjeti zašto je odabran: ne zato što sustav ovisi baš o Passportu, nego zato što treba treći neovisan ključ koji je dovoljno siguran, razumljiv i odvojen od prva dva proizvođača.",
+          "O tome više u napomeni pri kraju vodiča.",
         ],
       },
       {
@@ -1585,12 +1590,12 @@ const guideEntries: Guide[] = [
         ],
       },
       {
-        heading: "Kako se čuvaju seed riječi?",
+        heading: "Kako se backupaju seed riječi?",
         body: [
-          "Seed riječi se čuvaju fizički. Ne digitalno.",
-          "Za ozbiljan obiteljski sustav, seed se prvo zapiše na papir radi provjere, a zatim se trajno spremi na metalnu pričuvnu kopiju.",
-          "Papir je dobar za početak, ali može izgorjeti, smočiti se ili propasti. Metalna pričuvna kopija je bolja za dugoročnu pohranu.",
-          "Seed riječi nikada ne idu u mobitel, mrežnu pohranu, e-mail ili fotografiju.",
+          "Seed riječi se backupaju fizički. Ne digitalno.",
+          "Za ozbiljan obiteljski sustav, seed se prvo zapiše na papir radi provjere, a zatim se trajno spremi na metalni backup.",
+          "Papir je dobar za početak, ali može izgorjeti, smočiti se ili propasti. Metalni backup je bolji za dugoročnu pohranu.",
+          "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
         ],
         items: [
           "ne slikati mobitelom",
@@ -1603,10 +1608,10 @@ const guideEntries: Guide[] = [
         ],
       },
       {
-        heading: "Seed i uređaj ne stoje zajedno",
+        heading: "Što znači da seed ne bude na istoj lokaciji kao uređaj?",
         body: [
-          "Hardverski novčanik i njegove seed riječi ne držite zajedno. Loš primjer je ladica doma u kojoj stoje COLDCARD Q, COLDCARD seed riječi i upute. Ako lopov pronađe tu ladicu, pronašao je previše.",
-          "Bolji primjer je da kod kuće stoji COLDCARD Q, a na drugoj lokaciji COLDCARD seed pričuvna kopija. Uređaj i njegova pričuvna kopija trebaju biti razdvojeni.",
+          "To znači da hardverski novčanik i njegove seed riječi ne držite zajedno. Loš primjer je ladica doma u kojoj stoje COLDCARD Q, COLDCARD seed riječi i upute. Ako lopov pronađe tu ladicu, pronašao je previše.",
+          "Bolji primjer je da kod kuće stoji COLDCARD Q, a na drugoj lokaciji COLDCARD seed backup. Uređaj i njegov backup trebaju biti razdvojeni.",
           "Ako netko ukrade uređaj, nema njegov seed. Ako netko pronađe seed, nema ostale ključeve. Kod 2 od 3 sustava jedan seed nije dovoljan za krađu, ali svejedno ne treba olakšavati napad.",
         ],
       },
@@ -1617,18 +1622,19 @@ const guideEntries: Guide[] = [
           "Ovo nije jedina moguća raspodjela. Ali pokazuje glavno pravilo: ne držati sve na jednom mjestu.",
         ],
         items: [
-          "Lokacija A, dom: Lenovo mini PC, ThinkPad, COLDCARD Q, obiteljska uputa bez seed riječi i kopija Sparrow opisnika.",
-          "Lokacija B, bankovni sef: BitBox02, COLDCARD seed pričuvna kopija i zapečaćena uputa za nasljednike.",
-          "Lokacija C, odvjetnik ili osoba od povjerenja: Passport Core, BitBox02 seed pričuvna kopija i kontakt tehničke osobe.",
-          "Lokacija D, druga obiteljska lokacija: Passport seed pričuvna kopija, dodatna kopija Sparrow opisnika i tehnički dodatak.",
+          "Lokacija A, dom: Lenovo mini PC, ThinkPad, COLDCARD Q, obiteljska uputa bez seed riječi i kopija Sparrow descriptora.",
+          "Lokacija B, bankovni sef: BitBox02, COLDCARD seed backup i zapečaćena uputa za nasljednike.",
+          "Lokacija C, odvjetnik ili osoba od povjerenja: Passport Core, BitBox02 seed backup i kontakt tehničke osobe.",
+          "Lokacija D, druga obiteljska lokacija: Passport seed backup, dodatna kopija Sparrow descriptora i tehnički dodatak.",
         ],
       },
       {
-        heading: "Što je Sparrow opisnik?",
+        heading: "Što je Sparrow descriptor?",
         body: [
           "Kod 2 od 3 sustava nisu dovoljna samo tri seeda. Treba znati kako su ta tri ključa spojena u jedan novčanik.",
-          "To je uloga Sparrow opisnika, pravila novčanika ili izvoza novčanika. U tehničkim alatima često ćete vidjeti riječ descriptor. Ovdje ga zovemo opisnik jer opisuje strukturu novčanika.",
-          "Opisnik sam po sebi ne bi trebao biti dovoljan za krađu, jer ne sadrži privatne ključeve. Ali otkriva privatnost novčanika. Zato ga ne treba držati javno ili u mapi za mrežnu pohranu.",
+          "To je uloga Sparrow descriptora, wallet policyja ili izvoza novčanika.",
+          "On opisuje strukturu novčanika.",
+          "Descriptor sam po sebi ne bi trebao biti dovoljan za krađu, jer ne sadrži privatne ključeve. Ali otkriva privatnost novčanika. Zato ga ne treba držati javno ili u cloud folderu.",
           "Za nasljeđivanje je iznimno važan. Bez njega nasljednici mogu imati seedove, ali ne znati kako rekonstruirati novčanik.",
         ],
         items: [
@@ -1821,6 +1827,113 @@ const guideEntries: Guide[] = [
         ],
       },
       {
+        heading: "Napomena o odabiru uređaja i softvera",
+        body: [
+          "U ovom vodiču predložen je konkretan sustav: Lenovo mini PC, Debian, Bitcoin Core, Fulcrum, ThinkPad, Linux Mint, Sparrow, COLDCARD Q, BitBox02 Bitcoin-only i Foundation Passport Core.",
+          "To nije jedini mogući sustav. To je jedan razuman primjer koji pokušava spojiti sigurnost, jednostavnost, dugoročnu održivost i obiteljsku razumljivost.",
+          "Kod ovakvog plana nije dovoljno pitati koji je proizvod najsigurniji na papiru. Treba pitati može li se sustav održavati godinama, može li ga obitelj razumjeti, postoje li upute, postoje li zamjene ako nešto nije dostupno i može li se sustav oporaviti bez jedne osobe.",
+        ],
+      },
+      {
+        heading: "Zašto Lenovo mini PC?",
+        body: [
+          "Lenovo mini PC je odabran jer je dosadan poslovni hardver.",
+          "Za Bitcoin Core i Fulcrum ne treba gaming računalo, jaka grafička kartica ni najnoviji procesor. Važnije je da uređaj bude stabilan, tih, popravljiv, dovoljno snažan i prikladan za rad godinama.",
+          "Alternativno, tu ulogu mogu imati HP EliteDesk Mini, Dell OptiPlex Micro, Intel NUC ili drugi kvalitetan mini PC.",
+          "Važnije od marke je da uređaj ima dovoljno prostora, dobar SSD, dovoljno radne memorije, stabilnu mrežu i da se ne koristi za svakodnevni rad.",
+        ],
+      },
+      {
+        heading: "Zašto Debian na mini računalu?",
+        body: [
+          "Debian je odabran zato što je dobar poslužiteljski sustav: stabilan, konzervativan i predvidljiv.",
+          "Na mini računalu ne treba lijepo radno okruženje. Ono treba vrtjeti Bitcoin Core i Fulcrum.",
+          "Alternativno, može se koristiti Ubuntu Server, Fedora Server, Linux Mint ako korisnik želi grafičko sučelje ili gotov node sustav poput Start9 ili Umbrel.",
+          "Za tehnički čistiji dugoročni poslužitelj, Debian ima smisla. Za korisnika kojem treba jednostavniji početak, gotov node sustav može biti praktičniji.",
+        ],
+      },
+      {
+        heading: "Zašto Bitcoin Core i Fulcrum?",
+        body: [
+          "Bitcoin Core je temelj: on samostalno provjerava Bitcoin mrežu.",
+          "Fulcrum služi da Sparrow brzo i privatno čita stanje novčanika preko vašeg vlastitog poslužitelja.",
+          "Alternativno, umjesto Fulcruma mogu se koristiti i drugi Electrum poslužitelji, primjerice electrs. Za jednostavnije sustave, Sparrow se može spojiti i izravno na Bitcoin Core, iako privatni Electrum poslužitelj obično daje bolji korisnički doživljaj.",
+          "Nije presudno da to bude baš Fulcrum. Presudno je da novčanik ne ovisi o javnom poslužitelju koji vidi vašu povijest i adrese.",
+        ],
+      },
+      {
+        heading: "Zašto ThinkPad?",
+        body: [
+          "ThinkPad je odabran jer je poslovni laptop, ima dobru Linux podršku, dobru tipkovnicu i dobar omjer trajnosti i praktičnosti.",
+          "To je računalo na kojem obitelj otvara Sparrow, provjerava stanje i potpisuje transakcije.",
+          "Alternativno, to može biti drugi ThinkPad, Framework laptop, Dell Latitude, HP EliteBook ili MacBook ako obitelj bolje poznaje macOS.",
+          "Važno je da to bude odvojeno računalo koje se ne koristi za svakodnevni kaos: e-mail, poruke, društvene mreže, nasumična preuzimanja i sve ostalo što povećava rizik.",
+        ],
+      },
+      {
+        heading: "Zašto Linux Mint na ThinkPadu?",
+        body: [
+          "Linux Mint je odabran jer je jednostavan za korištenje, dovoljno stabilan i razumljiv osobi koja nije duboko tehnička.",
+          "Za poslužitelj je bolji Debian. Za obiteljski laptop na kojem se stvarno sjedi i koristi Sparrow, Linux Mint je pristupačniji.",
+          "Alternativno, mogu se koristiti Ubuntu, Debian s grafičkim sučeljem, Fedora ili macOS ako se koristi MacBook.",
+          "Važno je da sustav bude čist, ažuran i odvojen od svakodnevne uporabe.",
+        ],
+      },
+      {
+        heading: "Zašto Sparrow?",
+        body: [
+          "Sparrow je odabran jer je vrlo dobar koordinacijski novčanik za ozbiljniji Bitcoin sustav.",
+          "On dobro radi s hardverskim novčanicima, višepotpisnim sustavima, PSBT transakcijama, vlastitim čvorom i privatnim Electrum poslužiteljem.",
+          "Alternativno, moguće je koristiti i Electrum, koji je star, ozbiljan i dokazan novčanik. Ipak, za obiteljski višepotpisni sustav Sparrow je često jasniji jer bolje prikazuje strukturu novčanika, UTXO-e i postupak potpisivanja.",
+        ],
+      },
+      {
+        heading: "Zašto COLDCARD Q?",
+        body: [
+          "COLDCARD Q je odabran kao najtvrđi sigurnosni potpisnik.",
+          "Dobar je za osobu koja vodi sustav i želi veću kontrolu. Ima zračni način rada, microSD, QR mogućnosti, dobar ekran i fizičku tipkovnicu.",
+          "Alternativno, može se koristiti i COLDCARD Mk4 ili drugi ozbiljan Bitcoin-only uređaj.",
+        ],
+      },
+      {
+        heading: "Zašto BitBox02 Bitcoin-only?",
+        body: [
+          "BitBox02 Bitcoin-only je odabran jer je jednostavniji i obiteljski razumljiviji.",
+          "U ovakvom sustavu dobro je imati barem jedan uređaj koji ne izgleda kao tehnički projekt. BitBox02 je dobar drugi ključ jer je jednostavan, Bitcoin-only i dobro radi sa Sparrowom.",
+          "Alternativno, tu ulogu može imati i drugi jednostavniji Bitcoin hardverski novčanik, ali treba paziti da dobro radi sa Sparrowom i višepotpisnim sustavom.",
+        ],
+      },
+      {
+        heading: "Zašto Passport Core?",
+        body: [
+          "Passport Core je odabran kao treći zračni QR ključ.",
+          "Dobar je za obiteljski plan jer je ozbiljan, Bitcoin-only, vizualno razumljiv i ne mora se izravno spajati kabelom na računalo.",
+          "Ali ako Passport Core nije dostupan, to ne mijenja glavnu logiku sustava. Treći ključ može biti i drugi uređaj.",
+        ],
+      },
+      {
+        heading: "Ako Passport Core nije dostupan",
+        body: [
+          "Ako Passport Core nije dostupan, prvi praktični izbor za obiteljsku zamjenu bio bi Blockstream Jade Plus.",
+          "U tom slučaju sustav izgleda ovako: COLDCARD Q, BitBox02 Bitcoin-only i Blockstream Jade Plus.",
+          "Jade Plus je gotov uređaj, podržava zračni QR način rada i lakše ga je uklopiti u obiteljsku dokumentaciju nego ručno sastavljene uređaje.",
+          "Ako se želi više otvorenosti i ručne provjerljivosti, moguće su i naprednije zamjene: Specter DIY i SeedSigner.",
+          "Specter DIY je ručno sastavljen potpisni uređaj koji može imati smisla za tehnički naprednu osobu. Dobar je za učenje, provjerljivost i zračni rad, ali traži više discipline pri sastavljanju, postavljanju i održavanju.",
+          "SeedSigner je još posebniji jer ne sprema seed trajno na uređaju. Seed se učita privremeno, najčešće preko QR koda, koristi se za potpisivanje i briše se kada se uređaj ugasi. To je sigurnosno zanimljivo, ali obiteljski zahtjevnije jer nasljednik mora razumjeti kako učitati seed i koristiti uređaj bez improvizacije.",
+          "Zato bih redoslijed za obiteljski trezor postavio ovako: Passport Core, Blockstream Jade Plus, Specter DIY, SeedSigner.",
+          "Za tehnički naprednu osobu koja želi učiti, sama provjeravati i graditi, Specter DIY i SeedSigner mogu biti vrlo zanimljivi. Za obiteljsku jednostavnost, Jade Plus je bolja zamjena.",
+        ],
+      },
+      {
+        heading: "Glavna poruka ove napomene",
+        body: [
+          "Ni jedan dio ovog sustava nije svetinja.",
+          "Može se promijeniti proizvođač računala. Može se promijeniti Linux distribucija. Može se promijeniti Electrum poslužitelj. Može se promijeniti treći hardverski novčanik.",
+          "Ali ne bih mijenjao glavnu logiku: odvojeno računalo za Bitcoin čvor, odvojeno računalo za Sparrow, privatni ključevi na hardverskim novčanicima, 2 od 3 višepotpisni sustav, tri različita proizvođača, odvojene lokacije, fizičke pričuvne kopije, Sparrow descriptor, obiteljske upute i godišnja provjera.",
+          "To je srž sustava. Proizvodi su zamjenjivi. Načelo nije.",
+        ],
+      },
+      {
         heading: "Zašto je ovo dio osobnog Bitcoin standarda?",
         body: [
           "Bitcoin standard nije samo odluka da imate bitcoin. To je odluka da vaš novac ima mjesto u životu.",
@@ -1834,8 +1947,20 @@ const guideEntries: Guide[] = [
         heading: "Zaključak",
         body: [
           "Za veći obiteljski iznos ne bih koristio jedan mobitel, jednu aplikaciju, jedan seed i jednu ladicu.",
-          "Koristio bih sustav: Lenovo mini PC s Bitcoin Coreom i Fulcrumom, ThinkPad s Linux Mintom i Sparrowom, COLDCARD Q, BitBox02 Bitcoin-only, Passport Core, 2 od 3 višepotpisni novčanik, odvojene lokacije, metalne seed pričuvne kopije, Sparrow opisnik, obiteljsku uputu, tehnički dodatak i godišnju provjeru.",
+          "Koristio bih sustav: Lenovo mini PC s Bitcoin Coreom i Fulcrumom, ThinkPad s Linux Mintom i Sparrowom, COLDCARD Q, BitBox02 Bitcoin-only, Passport Core ili Blockstream Jade Plus, 2 od 3 višepotpisni novčanik, odvojene lokacije, metalni seed backupi, Sparrow descriptor, obiteljsku uputu, tehnički dodatak i godišnju provjeru.",
           "Najjednostavnije rečeno: Bitcoin mora ostati pod vašom kontrolom, ali ne smije ovisiti samo o vama.",
+          "To je razlika između “imam bitcoin” i obiteljskog Bitcoin trezora.",
+        ],
+      },
+      {
+        heading: "Završna napomena",
+        body: [
+          "Ovaj vodič nije poziv da svaka osoba odmah složi ovakav sustav.",
+          "Za manji iznos, ovakav sustav može biti previše.",
+          "Za osobu koja tek uči, prvo treba razumjeti osnove: što je seed, što je hardverski novčanik, što znači potpisati transakciju i kako izgleda oporavak.",
+          "Ali za obitelj kojoj bitcoin postaje značajan dio neto imovine, sigurnost više nije samo pitanje uređaja.",
+          "Pitanje je: može li vaša obitelj razumjeti i oporaviti sustav bez panike?",
+          "Ako je odgovor ne, sustav još nije dovršen.",
         ],
       },
     ],

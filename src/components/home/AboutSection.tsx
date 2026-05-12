@@ -61,8 +61,8 @@ export function AboutSection() {
               bude samo nešto što držim, nego novac s kojim stvarno živim.
             </p>
             <p>
-              Moj posao nije reći vam što će cijena napraviti. Moj posao je
-              pomoći vam razumjeti Bitcoin i zapisati pravila po kojima ćete vi
+              Ovdje ne pogađamo sljedeći pomak cijene. Radimo na tome da
+              razumijete Bitcoin, vlastitu situaciju i pravila koja vam pomažu
               donositi mirnije odluke.
             </p>
             <p>

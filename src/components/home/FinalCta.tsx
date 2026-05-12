@@ -15,8 +15,8 @@ export function FinalCta() {
             bio razuman.
           </p>
           <p className="mt-3 text-sm leading-6 text-background/72">
-            Bez upravljanja sredstvima. Bez prognoza cijene. Bez zahtjeva za
-            seed phrase.
+            Ne upravljam vašim sredstvima, ne prognoziram cijenu i nikada ne
+            tražim seed phrase.
           </p>
         </div>
         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center">

@@ -142,7 +142,8 @@ export function GuidesIndex() {
               </a>
             </Button>
             <p className="text-sm leading-6 text-muted-foreground">
-              Bez naknade. Bez obveze. Bez upravljanja vašim sredstvima.
+              Razgovor je bez naknade i obveze, a kontrola nad sredstvima ostaje
+              kod vas.
             </p>
           </div>
         </header>

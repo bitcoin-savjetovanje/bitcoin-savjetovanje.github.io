@@ -119,7 +119,7 @@ export function ReadinessTestSection() {
         <aside className="desktop-conversion-rail" aria-label="Uvodni razgovor">
           <div className="desktop-conversion-rail__card">
             <h3>Imate Bitcoin pitanje?</h3>
-            <p>15 minuta. Bez naknade. Bez zahtjeva za seed phrase.</p>
+            <p>U 15 minuta, bez naknade, možemo razjasniti prvi korak.</p>
             <a
               href={CONVERSATION_PATH}
               className="cta-primary mt-5 inline-flex items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold"

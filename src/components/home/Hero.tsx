@@ -59,8 +59,8 @@ export function Hero() {
             </Button>
           </div>
           <p className="mt-5 max-w-3xl text-sm leading-6 font-medium text-muted-foreground">
-            15 minuta. Bez naknade. Bez obveze. Bez upravljanja sredstvima. Bez
-            prognoza cijene. Bez zahtjeva za seed phrase.
+            Uvodni razgovor traje 15 minuta i nema naknade ni obveze. Ne
+            upravljam sredstvima, ne prognoziram cijenu i ne tražim seed phrase.
           </p>
         </div>
         <BitcoinStressTestVisual />

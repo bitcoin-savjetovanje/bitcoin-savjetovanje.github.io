@@ -14,12 +14,12 @@ export function StressTestSection() {
             tezu i što još nedostaje za mirniju odluku.
             <br />
             <br />
-            Zato razgovor može vrijediti više od još deset sati samostalnog
-            istraživanja.
+            Zato ponekad jedan dobar razgovor skrati put koji bi inače trajao
+            deset sati samostalnog istraživanja.
             <br />
             <br />
-            Ne zato što razgovor zamjenjuje učenje, nego zato što učenje mora
-            doći do vaše konkretne odluke.
+            Ne zato da preskočite učenje, nego da ga povežete s odlukom koju
+            stvarno trebate donijeti.
           </>
         }
       />

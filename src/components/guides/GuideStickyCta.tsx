@@ -31,7 +31,8 @@ export function GuideStickyCta({
           </a>
         </Button>
         <p className="guide-sticky-cta__note">
-          Bez naknade. Bez obveze. Bez upravljanja vašim sredstvima.
+          Razgovor je bez naknade i obveze; sredstva ostaju isključivo pod vašom
+          kontrolom.
         </p>
       </div>
     </aside>

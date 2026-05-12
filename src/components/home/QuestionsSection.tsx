@@ -13,7 +13,7 @@ export function QuestionsSection() {
     <section id="pitanja" className="section-shell section-muted">
       <SectionHeader
         title="U razgovor možete doći s jednim stvarnim Bitcoin pitanjem."
-        copy="Ne morate poznavati moj okvir. Ne morate čitati knjigu. Ne morate znati stručne izraze. Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku. Ne morate unaprijed znati je li vaše pitanje dovoljno veliko. Uvodni razgovor postoji upravo zato da to razjasnimo."
+        copy="Ne trebate prije razgovora proučiti moj okvir, pročitati knjigu ni znati stručne izraze. Dovoljno je da donesete jedno stvarno pitanje koje utječe na vašu odluku. Ako niste sigurni je li pitanje dovoljno veliko, i to možemo razjasniti u uvodnom razgovoru."
       />
       <div className="questions-grid">
         {questionGroups.map((group) => (

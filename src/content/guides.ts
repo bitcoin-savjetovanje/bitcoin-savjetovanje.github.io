@@ -4,6 +4,7 @@ export type GuideSection = {
   heading: string
   body: string[]
   items?: string[]
+  visual?: GuideSectionVisual
   link?: {
     before: string
     label: string
@@ -11,6 +12,43 @@ export type GuideSection = {
     after?: string
   }
 }
+
+export type GuideSectionVisual =
+  | {
+      type: "logo-grid"
+      title: string
+      caption?: string
+      items: Array<{
+        name: string
+        description?: string
+        src: string
+        alt: string
+        href?: string
+        credit?: string
+      }>
+    }
+  | {
+      type: "image-card"
+      title: string
+      caption: string
+      src: string
+      alt: string
+      href?: string
+      credit?: string
+    }
+  | {
+      type: "image-grid"
+      title: string
+      caption?: string
+      items: Array<{
+        name: string
+        description?: string
+        src: string
+        alt: string
+        href?: string
+        credit?: string
+      }>
+    }
 
 export type GuideVisual =
   | {
@@ -1469,6 +1507,38 @@ const guideEntries: Guide[] = [
           "Bitcoin više nije dostupan samo kroz burze za kriptoimovinu ili vlastiti novčanik. Može biti i dio portfelja vrijednosnih papira.",
           "Prednosti postoje, ali i mane.",
         ],
+        visual: {
+          type: "logo-grid",
+          title: "ETF je vrijednosni papir, ne vlastiti ključ",
+          caption:
+            "Logotipi izdavatelja pomažu vidjeti da ovdje govorimo o financijskim proizvodima unutar brokerskog sustava, a ne o bitcoinu u vlastitom novčaniku.",
+          items: [
+            {
+              name: "BlackRock",
+              description: "iShares Bitcoin Trust, IBIT",
+              src: "/guide-assets/blackrock-logo.svg",
+              alt: "BlackRock logo",
+              href: "https://www.blackrock.com/",
+              credit: "Logo: Wikimedia Commons",
+            },
+            {
+              name: "Fidelity",
+              description: "Wise Origin Bitcoin Fund, FBTC",
+              src: "/guide-assets/fidelity-logo.svg",
+              alt: "Fidelity logo",
+              href: "https://www.fidelity.com/",
+              credit: "Logo: Wikimedia Commons",
+            },
+            {
+              name: "Grayscale",
+              description: "Grayscale Bitcoin Trust, GBTC",
+              src: "/guide-assets/grayscale-logo.svg",
+              alt: "Grayscale logo",
+              href: "https://www.grayscale.com/",
+              credit: "Logo: Wikimedia Commons",
+            },
+          ],
+        },
       },
       {
         heading: "Prednosti Bitcoin ETF-a",
@@ -1523,6 +1593,22 @@ const guideEntries: Guide[] = [
           "MSTR ipak nije bitcoin.",
           "MSTR je dionica kompanije. Ali vrijednost i rizik kompanije snažno su povezani s Bitcoinom.",
         ],
+        visual: {
+          type: "logo-grid",
+          title: "Riznička kompanija nije isto što i bitcoin",
+          caption:
+            "Logo pomaže razdvojiti pojmove: Strategy je kompanija i vrijednosni papir, dok je bitcoin novac pod vlastitom kontrolom samo kada držite ključeve.",
+          items: [
+            {
+              name: "Strategy",
+              description: "kompanija s Bitcoin riznicom i oznakom MSTR",
+              src: "/guide-assets/strategy-logo.svg",
+              alt: "Strategy logo",
+              href: "https://www.strategy.com/",
+              credit: "Logo: Strategy",
+            },
+          ],
+        },
       },
       {
         heading: "Rafinerija nafte kao usporedba",
@@ -1737,6 +1823,46 @@ const guideEntries: Guide[] = [
           "Foundation Passport Core",
           "višepotpisni novčanik 2 od 3",
         ],
+        visual: {
+          type: "logo-grid",
+          title: "Softverski sloj obiteljskog trezora",
+          caption:
+            "Ovi logotipi ne znače preporuku proizvoda za svaku obitelj. Služe da se tehnički pojmovi lakše povežu s konkretnim alatima u primjeru sustava.",
+          items: [
+            {
+              name: "Debian",
+              description: "stabilan poslužiteljski operativni sustav",
+              src: "/guide-assets/debian-logo.svg",
+              alt: "Debian logo",
+              href: "https://www.debian.org/",
+              credit: "Logo: Debian Open Use",
+            },
+            {
+              name: "Bitcoin Core",
+              description: "program koji samostalno provjerava Bitcoin mrežu",
+              src: "/guide-assets/bitcoin-core-logo.svg",
+              alt: "Bitcoin Core logo",
+              href: "https://bitcoincore.org/",
+              credit: "Logo: Bitcoin Core",
+            },
+            {
+              name: "Linux Mint",
+              description: "pristupačniji Linux za obiteljsko Bitcoin računalo",
+              src: "/guide-assets/linux-mint-logo.svg",
+              alt: "Linux Mint logo",
+              href: "https://linuxmint.com/",
+              credit: "Logo: Linux Mint, CC BY 3.0",
+            },
+            {
+              name: "Sparrow",
+              description: "koordinacijski novčanik za prikaz i potpisivanje",
+              src: "/guide-assets/sparrow-wallet-logo.png",
+              alt: "Sparrow Wallet logo",
+              href: "https://sparrowwallet.com/",
+              credit: "Logo: Sparrow Wallet",
+            },
+          ],
+        },
       },
       {
         heading: "Zašto ne samo aplikacija na mobitelu?",
@@ -1794,6 +1920,38 @@ const guideEntries: Guide[] = [
           "Ne bih kupio tri ista uređaja. Ne želite da cijeli obiteljski trezor ovisi o jednom proizvođaču, jednom ugrađenom softveru, jednom načinu rada i jednom mogućem problemu.",
           "Tri različita uređaja smanjuju ovisnost o jednoj točki kvara.",
         ],
+        visual: {
+          type: "image-grid",
+          title: "Tri različita potpisnika",
+          caption:
+            "Kod obiteljskog 2 od 3 sustava uređaji nisu ukras. Svaki je jedan neovisan ključ u istom trezoru.",
+          items: [
+            {
+              name: "COLDCARD Q",
+              description: "stroži potpisnik za osobu koja vodi sustav",
+              src: "/guide-assets/coldcard-q.png",
+              alt: "COLDCARD Q hardverski novčanik",
+              href: "https://coldcard.com/q",
+              credit: "Slika: COLDCARD",
+            },
+            {
+              name: "BitBox02 Bitcoin-only",
+              description: "jednostavniji obiteljski potpisnik",
+              src: "/guide-assets/bitbox02-bitcoin-only.png",
+              alt: "BitBox02 Bitcoin-only hardverski novčanik",
+              href: "https://bitbox.swiss/bitbox02/bitcoin-only/",
+              credit: "Slika: BitBox",
+            },
+            {
+              name: "Passport Core",
+              description: "treći QR potpisnik za airgapped rad",
+              src: "/guide-assets/passport-core.webp",
+              alt: "Foundation Passport Core hardverski novčanik",
+              href: "https://foundation.xyz/passport-core/",
+              credit: "Slika: Foundation",
+            },
+          ],
+        },
       },
       {
         heading: "COLDCARD Q",
@@ -1808,14 +1966,14 @@ const guideEntries: Guide[] = [
         body: [
           "BitBox02 Bitcoin-only bih koristio kao najjednostavniji obiteljski potpisnik. Prednost Bitcoin-only inačice je manja složenost. Manje mogućnosti znači manje stvari koje mogu zbuniti korisnika.",
           "Njegova uloga može biti ključ B: jednostavniji obiteljski ključ, dobar za člana obitelji koji ne želi tehnički kompleksan uređaj i koristi se preko USB-a sa Sparrowom.",
-          "BitBox02 nije najstroži zračni uređaj, ali je praktičan i razumljiv. U 2 od 3 sustavu to je prednost.",
+          "BitBox02 nije najstroži airgapped uređaj, ali je praktičan i razumljiv. U 2 od 3 sustavu to je prednost.",
         ],
       },
       {
         heading: "Foundation Passport Core",
         body: [
-          "Passport Core bih koristio kao treći ključ. Njegova prednost je zračni način rada preko QR kodova. To znači da za potpisivanje ne mora biti izravno spojen kabelom na računalo.",
-          "Njegova uloga može biti ključ C: treći obiteljski ključ, dobar za zračni QR način rada i dobar za nasljedni plan.",
+          "Passport Core bih koristio kao treći ključ. Njegova prednost je airgapped rad preko QR kodova. To znači da za potpisivanje ne mora biti izravno spojen kabelom na računalo.",
+          "Njegova uloga može biti ključ C: treći obiteljski ključ, dobar za airgapped QR potpisivanje i dobar za nasljedni plan.",
           "Passport je dobar jer je vizualno razumljiviji od COLDCARD-a, a ipak ostaje ozbiljan uređaj.",
           "Ako Passport Core trenutačno nije dostupan, to ne ruši cijeli plan. Važno je razumjeti zašto je odabran: ne zato što sustav ovisi baš o Passportu, nego zato što treba treći neovisan ključ koji je dovoljno siguran, razumljiv i odvojen od prva dva proizvođača.",
           "O tome više u napomeni pri kraju vodiča.",
@@ -2139,7 +2297,7 @@ const guideEntries: Guide[] = [
         heading: "Zašto COLDCARD Q?",
         body: [
           "COLDCARD Q je odabran kao najtvrđi sigurnosni potpisnik.",
-          "Dobar je za osobu koja vodi sustav i želi veću kontrolu. Ima zračni način rada, microSD, QR mogućnosti, dobar ekran i fizičku tipkovnicu.",
+          "Dobar je za osobu koja vodi sustav i želi veću kontrolu. Ima airgapped rad, microSD, QR mogućnosti, dobar ekran i fizičku tipkovnicu.",
           "Alternativno, može se koristiti i COLDCARD Mk4 ili drugi ozbiljan Bitcoin-only uređaj.",
         ],
       },
@@ -2154,7 +2312,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Zašto Passport Core?",
         body: [
-          "Passport Core je odabran kao treći zračni QR ključ.",
+          "Passport Core je odabran kao treći airgapped QR ključ.",
           "Dobar je za obiteljski plan jer je ozbiljan, Bitcoin-only, vizualno razumljiv i ne mora se izravno spajati kabelom na računalo.",
           "Ali ako Passport Core nije dostupan, to ne mijenja glavnu logiku sustava. Treći ključ može biti i drugi uređaj.",
         ],
@@ -2164,13 +2322,29 @@ const guideEntries: Guide[] = [
         body: [
           "Ako Passport Core nije dostupan, prvi praktični izbor za obiteljsku zamjenu bio bi Blockstream Jade Plus.",
           "U tom slučaju sustav izgleda ovako: COLDCARD Q, BitBox02 Bitcoin-only i Blockstream Jade Plus.",
-          "Jade Plus je gotov uređaj, podržava zračni QR način rada i lakše ga je uklopiti u obiteljsku dokumentaciju nego ručno sastavljene uređaje.",
+          "Jade Plus je gotov uređaj, podržava airgapped QR rad i lakše ga je uklopiti u obiteljsku dokumentaciju nego ručno sastavljene uređaje.",
           "Ako se želi više otvorenosti i ručne provjerljivosti, moguće su i naprednije zamjene: Specter DIY i SeedSigner.",
-          "Specter DIY je ručno sastavljen potpisni uređaj koji može imati smisla za tehnički naprednu osobu. Dobar je za učenje, provjerljivost i zračni rad, ali traži više discipline pri sastavljanju, postavljanju i održavanju.",
+          "Specter DIY je ručno sastavljen potpisni uređaj koji može imati smisla za tehnički naprednu osobu. Dobar je za učenje, provjerljivost i airgapped rad, ali traži više discipline pri sastavljanju, postavljanju i održavanju.",
           "SeedSigner je još posebniji jer ne sprema seed trajno na uređaju. Seed se učita privremeno, najčešće preko QR koda, koristi se za potpisivanje i briše se kada se uređaj ugasi. Sigurnosno je zanimljiv, ali obiteljski zahtjevniji jer nasljednik mora razumjeti kako učitati seed i koristiti uređaj bez improvizacije.",
           "Zato bih redoslijed za obiteljski trezor postavio ovako: Passport Core, Blockstream Jade Plus, Specter DIY, SeedSigner.",
           "Za tehnički naprednu osobu koja želi učiti, sama provjeravati i graditi, Specter DIY i SeedSigner mogu biti vrlo zanimljivi. Za obiteljsku jednostavnost, Jade Plus je bolja zamjena.",
         ],
+        visual: {
+          type: "image-grid",
+          title: "Zamjena ako treći uređaj nije dostupan",
+          caption:
+            "Zamjena uređaja ne mijenja načelo: treći ključ treba biti dovoljno neovisan, razumljiv i dokumentiran za obitelj.",
+          items: [
+            {
+              name: "Blockstream Jade Plus",
+              description: "praktična obiteljska zamjena za treći ključ",
+              src: "/guide-assets/jade-plus.png",
+              alt: "Blockstream Jade Plus hardverski novčanik",
+              href: "https://blockstream.com/jade/jade-plus/",
+              credit: "Slika: Blockstream",
+            },
+          ],
+        },
       },
       {
         heading: "Glavna poruka ove napomene",
@@ -2474,6 +2648,16 @@ const guideEntries: Guide[] = [
           "Kod Bitkeya, model je drukčiji. Bitkey drži jedan od tri ključa, ali taj jedan ključ nije dovoljan da pomakne sredstva. Za svaku transakciju trebaju dva ključa.",
           "Važno je to razlikovati od modela u kojem sve ključeve držite potpuno samostalno.",
         ],
+        visual: {
+          type: "image-card",
+          title: "Bitkey kao gotov proizvod.",
+          caption:
+            "Za razliku od vlastitog Sparrow sustava, Bitkey je integriran proizvod: aplikacija, uređaj i oporavak dolaze kao jedan paket.",
+          src: "/guide-assets/bitkey-device.png",
+          alt: "Bitkey hardverski uređaj",
+          href: "https://bitkey.world/",
+          credit: "Slika: Bitkey",
+        },
       },
       {
         heading: "Zašto je Bitkey zanimljiv?",

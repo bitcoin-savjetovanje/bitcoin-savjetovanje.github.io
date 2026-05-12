@@ -259,15 +259,20 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: "zracni-nacin-rada",
     terms: [
-      "zračni način rada",
+      "airgapped način rada",
+      "airgapped potpisnik",
+      "airgapped uređaj",
+      "airgapped rad",
+      "airgapped",
       "air-gapped",
       "air gap",
+      "zračni način rada",
       "zračno odvojen",
       "zračno odvojeni",
     ],
-    title: "Zračni način rada",
+    title: "Airgapped",
     description:
-      "Način korištenja u kojem uređaj nije izravno spojen na računalo ili internet. Podaci se često prenose QR kodom ili memorijskom karticom.",
+      "Airgapped znači da uređaj nije izravno spojen na računalo ili internet. Podaci se obično prenose QR kodom ili memorijskom karticom.",
   },
   {
     id: "qr-kod",

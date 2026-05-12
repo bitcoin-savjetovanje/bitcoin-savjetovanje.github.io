@@ -2,6 +2,7 @@ import { ArrowRight, CalendarDays } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { GuideVisual } from "@/components/guides/GuideVisual"
+import { GuideSectionVisual } from "@/components/guides/GuideSectionVisual"
 import { GuideStickyCta } from "@/components/guides/GuideStickyCta"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, guides, type Guide } from "@/content/guides"
@@ -155,6 +156,9 @@ export function GuidePage({ guide }: { guide: Guide }) {
                       </a>
                       {section.link.after ? ` ${section.link.after}` : null}
                     </p>
+                  ) : null}
+                  {section.visual ? (
+                    <GuideSectionVisual visual={section.visual} />
                   ) : null}
                 </div>
               </section>

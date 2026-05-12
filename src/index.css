@@ -952,6 +952,106 @@
     @apply mt-4 text-xs leading-5;
   }
 
+  .guide-section-visual {
+    @apply mt-7 rounded-2xl border border-border/80 bg-card p-4 shadow-sm sm:p-5;
+  }
+
+  .guide-section-visual__header h3 {
+    @apply text-base leading-tight font-semibold text-foreground;
+  }
+
+  .guide-section-visual__header p {
+    @apply mt-2 text-sm leading-6 text-muted-foreground;
+  }
+
+  .guide-logo-grid {
+    @apply mt-4 grid gap-3 sm:grid-cols-2;
+  }
+
+  .guide-logo-card {
+    @apply flex items-center gap-4 rounded-xl border border-border/75 bg-background/72 p-4 text-foreground transition-colors hover:border-primary/45 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .guide-logo-card__mark {
+    @apply grid size-14 shrink-0 place-items-center rounded-xl border border-border/70 bg-white p-2 shadow-sm;
+  }
+
+  .guide-logo-card__mark img {
+    @apply max-h-10 max-w-10 object-contain;
+  }
+
+  .guide-logo-card__body {
+    @apply min-w-0;
+  }
+
+  .guide-logo-card__name {
+    @apply block text-sm leading-tight font-semibold text-foreground;
+  }
+
+  .guide-logo-card__description {
+    @apply mt-1 block text-xs leading-5 text-muted-foreground;
+  }
+
+  .guide-logo-card__credit {
+    @apply mt-2 block text-[0.68rem] leading-4 text-muted-foreground/75;
+  }
+
+  .guide-section-visual--image {
+    @apply overflow-hidden p-0;
+  }
+
+  .guide-section-image-link {
+    @apply block bg-background/70;
+  }
+
+  .guide-section-visual--image img {
+    @apply mx-auto block max-h-[22rem] w-full object-contain p-5 sm:p-7;
+  }
+
+  .guide-section-visual--image figcaption {
+    @apply border-t border-border/70 bg-card px-4 py-4 text-sm leading-6 text-muted-foreground sm:px-5;
+  }
+
+  .guide-section-visual--image figcaption span {
+    @apply mr-2 font-semibold text-foreground;
+  }
+
+  .guide-section-visual--image figcaption small {
+    @apply mt-2 block text-xs leading-5 text-muted-foreground/75;
+  }
+
+  .guide-product-grid {
+    @apply mt-4 grid gap-3 sm:grid-cols-3;
+  }
+
+  .guide-product-card {
+    @apply overflow-hidden rounded-xl border border-border/75 bg-background/72 text-foreground transition-colors hover:border-primary/45 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .guide-product-card__image {
+    @apply flex aspect-[4/3] items-center justify-center border-b border-border/70 bg-white p-4;
+  }
+
+  .guide-product-card__image img {
+    @apply max-h-full max-w-full object-contain;
+  }
+
+  .guide-product-card__body {
+    @apply block p-4;
+  }
+
+  .guide-product-card__name {
+    @apply block text-sm leading-tight font-semibold text-foreground;
+  }
+
+  .guide-product-card__description {
+    @apply mt-2 block text-xs leading-5 text-muted-foreground;
+  }
+
+  .guide-product-card__credit {
+    @apply mt-3 block text-[0.68rem] leading-4 text-muted-foreground/75;
+  }
+
   .glossary-term-wrap {
     @apply relative inline-block;
   }

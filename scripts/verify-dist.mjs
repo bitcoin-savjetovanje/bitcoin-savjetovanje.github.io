@@ -504,7 +504,7 @@ const homeChecks = [
   ],
   ["što još nije jasno u Bitcoin tezi", "hero intro card Bitcoin thesis copy"],
   [
-    "Ne morate unaprijed znati je li vaše pitanje dovoljno veliko",
+    "Ako niste sigurni je li pitanje dovoljno veliko",
     "questions reassurance copy",
   ],
   [
@@ -518,7 +518,7 @@ const homeChecks = [
   ["Bitcoin konzultacija", "renamed 200 EUR offer"],
   ["Krenite od uvodnog razgovora", "standard offer CTA copy"],
   ["Vaš Bitcoin ostaje vaš", "security trust title"],
-  ["Bez zahtjeva za seed phrase.", "seed phrase trust copy"],
+  ["Ne tražim seed phrase", "seed phrase trust copy"],
   ["Seed phrase se nikada ne dijeli.", "seed phrase red flag copy"],
   ["razgovor treba odmah prekinuti", "seed phrase stop conversation copy"],
   ["Dobijete iskrenu procjenu.", "warmer honest assessment title"],
@@ -590,7 +590,7 @@ const homeChecks = [
     "updated questions section heading",
   ],
   [
-    "Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku.",
+    "Dovoljno je da donesete jedno stvarno pitanje koje utječe na vašu odluku.",
     "questions section copy polish",
   ],
   ["što vas najviše brine", "conversation problem worry copy"],
@@ -1373,7 +1373,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
-    "Bez naknade. Bez obveze. Bez upravljanja vašim sredstvima.",
+    "Razgovor je bez naknade i obveze; sredstva ostaju isključivo pod vašom kontrolom.",
     "guide sticky sidebar footnote"
   )
   assertIncludes(

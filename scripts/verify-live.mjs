@@ -6,6 +6,7 @@ const debtChoiceGuidePath = "/vodici/dug-ili-bitcoin/"
 const bitcoinMoneyGuidePath = "/vodici/bitcoin-kao-novac/"
 const thirdsGuidePath = "/vodici/pravilo-trecina/"
 const familyVaultGuidePath = "/vodici/obiteljski-bitcoin-trezor/"
+const bitkeyGuidePath = "/vodici/bitkey-bitcoin-sigurnost/"
 const familyGuidePath = "/vodici/obiteljski-pristup-bitcoinu/"
 const securityGuidePath = "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"
 const failures = []
@@ -403,6 +404,16 @@ const pageChecks = [
       "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
       "Ako Passport Core nije dostupan",
       "Blockstream Jade Plus",
+      "Dogovorite uvodni Bitcoin razgovor",
+    ],
+  },
+  {
+    path: bitkeyGuidePath,
+    includes: [
+      "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
+      "Bitkey uklanja seed riječi i uvodi 2 od 3 sigurnosni model",
+      'href="/vodici/obiteljski-bitcoin-trezor/"',
+      "Emergency Exit Kit",
       "Dogovorite uvodni Bitcoin razgovor",
     ],
   },

@@ -60,6 +60,7 @@ const roadmapGroups = [
     slugs: [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "obiteljski-bitcoin-trezor",
+      "bitkey-bitcoin-sigurnost",
       "obiteljski-pristup-bitcoinu",
     ],
   },

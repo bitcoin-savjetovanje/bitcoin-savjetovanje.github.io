@@ -4,6 +4,12 @@ export type GuideSection = {
   heading: string
   body: string[]
   items?: string[]
+  link?: {
+    before: string
+    label: string
+    href: string
+    after?: string
+  }
 }
 
 export type GuideVisual =
@@ -1969,6 +1975,282 @@ const guideEntries: Guide[] = [
       "Ako imate značajniji iznos u Bitcoinu, sigurnost više nije samo pitanje uređaja. Pitanje je može li vaša obitelj razumjeti i oporaviti sustav bez panike.",
   },
   {
+    slug: "bitkey-bitcoin-sigurnost",
+    title: "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
+    seoTitle: "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
+    metaDescription:
+      "Vodič koji objašnjava kada Bitkey ima smisla, gdje su njegovi kompromisi i kako ga usporediti s burzom, običnim hardverskim novčanikom i vlastitim obiteljskim Bitcoin trezorom.",
+    excerpt:
+      "Bitkey uklanja seed riječi i uvodi 2 od 3 sigurnosni model, ali nije isto što i vlastiti Bitcoin trezor sa Sparrowom, vlastitim čvorom i neovisnim ključevima.",
+    category: "Sigurnost i obitelj",
+    order: 104,
+    publishedAt: "2026-05-12",
+    updatedAt: "2026-05-12",
+    practicalQuestion:
+      "Je li Bitkey dovoljno dobar za vaš iznos, vašu obitelj i rizike koje stvarno pokušavate smanjiti?",
+    relatedSlugs: [
+      "obiteljski-bitcoin-trezor",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+      "obiteljski-pristup-bitcoinu",
+    ],
+    visual: {
+      type: "safety",
+      title: "Bitkey model",
+      zones: [
+        {
+          label: "mobitel",
+          description: "jedan ključ i svakodnevno korisničko iskustvo",
+        },
+        {
+          label: "uređaj",
+          description: "hardverski ključ za potvrdu transakcija",
+        },
+        {
+          label: "Bitkey",
+          description: "poslužiteljski ključ za oporavak i pomoćne funkcije",
+        },
+      ],
+      caption:
+        "Bitkey može biti odličan kompromis, ali nije isto što i potpuno vlastiti višepotpisni trezor.",
+    },
+    sections: [
+      {
+        heading: "Zašto uopće govoriti o Bitkeyu?",
+        body: [
+          "Većina ljudi ne izgubi bitcoin zato što je Bitcoin zakazao. Izgube ga zato što su loše čuvali pristup.",
+          "Jedan papir. Jedan mobitel. Jedna aplikacija. Jedna lozinka. Jedna ladica. Jedna osoba koja jedina zna što treba napraviti.",
+          "Kod malog iznosa to može biti prihvatljiv rizik. Kod većeg iznosa, a posebno kod obiteljskog bitcoina, to više nije dovoljno.",
+          "Zato se sve češće pojavljuju rješenja koja pokušavaju riješiti najveći problem osobnog čuvanja bitcoina: kako zadržati kontrolu, a istovremeno ne napraviti sustav koji obična obitelj ne može razumjeti.",
+          "Jedno od takvih rješenja je Bitkey.",
+          "Bitkey nije burza. Nije običan mobilni novčanik. Nije ni klasični hardverski novčanik sa seed riječima.",
+          "Bitkey je pokušaj da se napravi srednji put: dovoljno jednostavan za normalnog korisnika, a sigurniji od modela u kojem sve ovisi o jednom seedu ili jednom uređaju.",
+        ],
+      },
+      {
+        heading: "Što je Bitkey?",
+        body: [
+          "Bitkey je Bitcoin-only sustav za čuvanje bitcoina koji se sastoji od mobilne aplikacije, hardverskog uređaja i poslužiteljskog ključa koji služi za oporavak i pomoćne sigurnosne funkcije.",
+          "Bitkey koristi 2 od 3 višepotpisni model. To znači da postoje tri ključa, a za pomicanje bitcoina trebaju bilo koja dva.",
+          "Jedan ključ je na hardverskom uređaju. Jedan ključ je u mobilnoj aplikaciji. Jedan ključ je na Bitkey poslužitelju.",
+          "To je velika razlika u odnosu na burzu. Na burzi vi nemate ključeve. Burza kontrolira bitcoin, a vi imate potraživanje prema burzi.",
+          "Kod Bitkeya, model je drukčiji. Bitkey drži jedan od tri ključa, ali taj jedan ključ nije dovoljan da pomakne sredstva. Za svaku transakciju trebaju dva ključa.",
+          "To je važno. Ali nije isto kao da sve ključeve držite potpuno samostalno.",
+        ],
+      },
+      {
+        heading: "Zašto je Bitkey zanimljiv?",
+        body: [
+          "Bitkey je zanimljiv zato što napada jedan od najvećih praktičnih problema u Bitcoinu: što obična osoba radi sa seed riječima?",
+          "Kod većine hardverskih novčanika dobijete 12 ili 24 riječi. Te riječi su pričuvna kopija vašeg novčanika.",
+          "Ako ih izgubite, možete izgubiti pristup. Ako ih netko nađe, može ukrasti bitcoin. Ako ih spremite u cloud, napravili ste digitalni rizik.",
+          "Ako ih sakrijete predobro, obitelj ih možda nikada neće pronaći. Ako ih ostavite u ladici, lopov ih može pronaći. Ako ih zna samo jedna osoba, nasljednici mogu ostati bez pristupa.",
+          "Bitkey pokušava ukloniti taj problem tako da uopće ne koristi klasične seed riječi. Umjesto jednog moćnog seeda, koristi tri odvojena ključa i više puteva oporavka.",
+          "To je dobra dijagnoza. Mnogi ljudi nisu spremni čuvati jedan papir deset ili dvadeset godina. Još manje su spremni objasniti obitelji što taj papir znači.",
+        ],
+      },
+      {
+        heading: "Kako Bitkey funkcionira u jednostavnim riječima?",
+        body: [
+          "Zamislite da postoje tri ključa: ključ u mobitelu, ključ u Bitkey uređaju i ključ kod Bitkeya.",
+          "Za slanje bitcoina trebaju dva od tri. U normalnoj situaciji korisnik koristi mobitel i hardverski uređaj.",
+          "Ako izgubi mobitel, može koristiti hardverski uređaj i Bitkeyev oporavak. Ako izgubi hardverski uređaj, može koristiti aplikaciju i Bitkeyev oporavak.",
+          "Ako izgubi i mobitel i uređaj, Bitkey ima poseban postupak s kontaktima za oporavak.",
+          "Bitkey također ima Emergency Exit Kit, koji služi kao izlazni plan ako korisnik mora premjestiti sredstva bez oslanjanja na Bitkey poslužitelje.",
+          "To je praktično. Bitkey je napravljen za stvarne greške: izgubljen mobitel, izgubljen uređaj, zaboravljen plan, obitelj koja ne zna gdje je seed. To je njegova snaga.",
+        ],
+      },
+      {
+        heading: "Što je novo kod Bitkeya?",
+        body: [
+          "Bitkey je 2026. predstavio novu verziju hardverskog uređaja.",
+          "Novi Bitkey zadržava 2 od 3 višepotpisni model, nema seed riječi, ima biometrijski pristup, oporavak za gubitak mobitela, uređaja ili oba, ugrađeno nasljeđivanje i Emergency Exit Kit.",
+          "Novi hardver ima ekran. To je važan korak jer korisnik može provjeravati što odobrava izravno na uređaju, a ne samo gledati mobitel.",
+          "To ne uklanja sve kompromise, ali poboljšava model.",
+        ],
+      },
+      {
+        heading: "Bitkey i nasljeđivanje",
+        body: [
+          "Bitkey je posebno zanimljiv zato što ima ugrađenu funkciju nasljeđivanja. To je rijetko kod Bitcoin novčanika.",
+          "Većina rješenja kaže: evo vam seed, snađite se. Ali nasljeđivanje nije samo pitanje gdje je seed.",
+          "Nasljeđivanje znači tko zna da bitcoin postoji, tko može pokrenuti postupak, koliko dugo se čeka, kako se sprječava lažni zahtjev, kako se nasljedniku daje pristup bez da ga ima prerano, što se događa ako vlasnik ipak nije umro i što se događa ako netko pokuša zloupotrijebiti postupak.",
+          "Bitkeyev model nasljeđivanja pokušava riješiti upravo taj problem: nasljednik ne dobiva pristup odmah, vlasnik ima vrijeme za zaustavljanje postupka, a prijenos se događa tek nakon definiranog razdoblja.",
+          "To je vrlo zanimljivo za obiteljski kontekst. Ali ima važan uvjet: ako želite koristiti Bitkey za nasljeđivanje, treba pripremiti i osobu koja će jednog dana biti korisnik tog plana.",
+          "Drugim riječima, nije dovoljno da vi kupite uređaj. Obitelj mora znati da plan postoji. Nasljednik mora razumjeti što treba napraviti. I mora biti jasno što se događa ako se promijene obiteljske okolnosti.",
+        ],
+      },
+      {
+        heading: "Za koga je Bitkey dobar?",
+        body: [
+          "Bitkey ima smisla za osobu koja kaže: želim držati bitcoin izvan burze, ali ne želim samostalno voditi složen sigurnosni sustav.",
+          "To je velika skupina ljudi.",
+          "Za takvu osobu Bitkey može biti velik korak naprijed. Posebno u Hrvatskoj, gdje većina ljudi neće sama složiti vlastiti Bitcoin čvor, privatni Electrum poslužitelj, Sparrow i višepotpisni sustav s tri različita hardverska novčanika.",
+          "Za tu osobu Bitkey može biti puno bolji od dvije najčešće loše opcije: bitcoin na burzi ili jedan seed u ladici.",
+          "To je najjači argument za Bitkey.",
+        ],
+        items: [
+          "ne želi držati bitcoin na burzi",
+          "boji se seed riječi",
+          "ne zna sama složiti Sparrow, hardverske novčanike i vlastiti čvor",
+          "želi Bitcoin-only rješenje",
+          "želi bolju sigurnost od obične aplikacije na mobitelu",
+          "želi oporavak ako izgubi mobitel ili uređaj",
+          "želi jednostavniji put prema obiteljskom nasljeđivanju",
+        ],
+      },
+      {
+        heading: "Za koga Bitkey nije idealan?",
+        body: [
+          "Bitkey nije idealan za osobu koja želi maksimalnu samostalnost.",
+          "Ako želite vlastiti Bitcoin Core, vlastiti Electrum poslužitelj, Sparrow, tri neovisna hardverska novčanika, vlastitu dokumentaciju, vlastite lokacije i potpunu kontrolu nad svim ključevima, Bitkey nije isti model.",
+          "Bitkeyev treći ključ je na Bitkey poslužitelju. To je bolji model od običnog skrbništva. Ali i dalje je ovisnost o Bitkey i Block infrastrukturi.",
+          "Za neke korisnike to je prihvatljiv kompromis. Za druge nije.",
+          "Ako je cilj najviši stupanj neovisnosti, tada bih radije složio vlastiti obiteljski Bitcoin trezor.",
+        ],
+        items: [
+          "Sparrow",
+          "vlastiti Bitcoin Core",
+          "vlastiti Fulcrum",
+          "COLDCARD Q",
+          "BitBox02 Bitcoin-only",
+          "Passport Core ili Jade Plus",
+          "2 od 3 višepotpisni sustav",
+          "odvojene lokacije",
+          "obiteljske upute",
+        ],
+        link: {
+          before: "Detaljnije o tom modelu opisuje vodič",
+          label: "obiteljski Bitcoin trezor",
+          href: "/vodici/obiteljski-bitcoin-trezor/",
+          after:
+            "koji pokazuje kako izgleda vlastiti sustav sa Sparrowom, vlastitim čvorom i neovisnim ključevima.",
+        },
+      },
+      {
+        heading: "Bitkey nije isto što i vlastiti višepotpisni trezor",
+        body: [
+          "Ovo je najvažnija razlika. Bitkey i vlastiti 2 od 3 sustav mogu na papiru zvučati slično.",
+          "Oba koriste tri ključa. Oba traže dva potpisa. Oba smanjuju rizik da jedna greška odmah znači gubitak svega.",
+          "Ali nisu isti.",
+          "Kod vlastitog sustava vi birate sve: koji su uređaji, gdje su ključevi, gdje su pričuvne kopije, koji se softver koristi, na koji se čvor spajate, kako izgleda dokumentacija, tko zna što i što se događa u slučaju smrti.",
+          "Kod Bitkeya dobar dio toga je upakiran u proizvod. To je prednost za jednostavnost. To je kompromis za suverenost.",
+          "Vlastiti sustav je kao da sami dizajnirate obiteljski trezor. Bitkey je kao gotov trezor s ugrađenim pravilima, oporavkom i korisničkim iskustvom.",
+          "Za mnoge ljude gotov trezor je bolji od loše složenog vlastitog trezora. Ali nije isto što i potpuno vlastiti sustav.",
+        ],
+      },
+      {
+        heading: "Privatnost",
+        body: [
+          "Kod vlastitog Sparrow sustava s vlastitim Bitcoin Coreom i Fulcrumom, vaš novčanik ne mora pitati tuđe poslužitelje koje adrese i UTXO-e imate.",
+          "To je velika privatnosna prednost.",
+          "Kod Bitkeya koristite Bitkeyevu aplikaciju i infrastrukturu. To ne znači da je Bitkey isto što i burza.",
+          "Ali u savjetodavnom kontekstu treba reći jednostavno: privatnost Bitkeya vjerojatno je bolja od držanja bitcoina na burzi, ali nije isto što i vlastiti čvor i vlastiti poslužitelj.",
+          "To nije napad na Bitkey. To je samo razlika između gotovog proizvoda i vlastite infrastrukture.",
+        ],
+      },
+      {
+        heading: "Najveća prednost Bitkeya",
+        body: [
+          "Najveća prednost Bitkeya je što rješava stvaran ljudski problem.",
+          "Većina ljudi neće pravilno čuvati seed. Većina ljudi neće redovito testirati oporavak. Većina ljudi neće napraviti obiteljsku uputu. Većina ljudi neće znati što je descriptor. Većina ljudi neće imati tri lokacije, tri uređaja i godišnju provjeru.",
+          "Bitkey kaže: pokušajmo maknuti tu složenost iz ruku korisnika.",
+          "To je dobro. Za osobu koja bi inače ostala na burzi ili držala jedan seed na loš način, Bitkey može biti veliko poboljšanje.",
+        ],
+      },
+      {
+        heading: "Najveći kompromis Bitkeya",
+        body: [
+          "Najveći kompromis je povjerenje u proizvodni sustav.",
+          "Ne povjerenje u smislu da Bitkey može sam ukrasti sredstva. Prema njihovom modelu, jedan ključ nije dovoljan.",
+          "Nego povjerenje u širi sustav: aplikaciju, oporavak, poslužiteljski ključ, oblak za pričuvnu kopiju aplikacijskog ključa, nasljedni postupak, dostupnost Bitkey usluge, pravila proizvoda i dugoročnu održivost kompanije.",
+          "Bitkey ima Emergency Exit Kit, što je važno jer smanjuje rizik ovisnosti o Bitkey poslužiteljima.",
+          "Ali opet, prosječan korisnik mora znati da taj izlaz postoji i mora razumjeti kada i kako bi se koristio. Ako korisnik ne zna koristiti vlastiti izlaz iz sustava, on praktično i dalje ovisi o dobrom korisničkom iskustvu aplikacije.",
+        ],
+      },
+      {
+        heading: "Bitkey u hrvatskom obiteljskom kontekstu",
+        body: [
+          "U Hrvatskoj je realno da jedna osoba u obitelji razumije Bitcoin, a ostali članovi samo djelomično.",
+          "To stvara problem. Ako ta osoba složi složen višepotpisni sustav, ali obitelj ne zna što je napravljeno, sustav je možda tehnički dobar, ali obiteljski loš.",
+          "Bitkey može biti zanimljiv upravo za takvu obitelj. Ne zato što je najtvrđi mogući model. Nego zato što je manje vjerojatno da će obitelj potpuno pogriješiti.",
+          "U praksi, Bitkey može biti razuman za supružnika koji ne želi učiti Sparrow, roditelje koji ne žele čuvati seed riječi, osobu koja želi otići s burze, obitelj kojoj treba jednostavan nasljedni plan i korisnika kojemu je vlastiti čvor previše.",
+          "Ali za vrlo velik iznos i za osobu koja želi osobni Bitcoin standard bez oslanjanja na tuđu infrastrukturu, Bitkey nije kraj puta. Može biti prijelazna stepenica.",
+        ],
+      },
+      {
+        heading: "Bitkey protiv burze",
+        body: [
+          "Bitkey je puno bolji od burze za osobu koja želi stvarnu osobnu kontrolu.",
+          "Na burzi ne držite ključeve. Kod Bitkeya držite dva od tri ključa, a kompanija ne može sama premjestiti sredstva.",
+        ],
+      },
+      {
+        heading: "Bitkey protiv običnog hardverskog novčanika",
+        body: [
+          "Bitkey može biti bolji od loše korištenog hardverskog novčanika.",
+          "Ako netko kupi hardverski novčanik, zapiše seed na papir i stavi ga u ladicu, to nije ozbiljan obiteljski plan.",
+          "Bitkey barem uklanja jedan moćni seed kao jedini presudni rizik i uvodi više puteva oporavka.",
+          "Ali dobro korišten hardverski novčanik, s jasnom pričuvnom kopijom i uputama, može biti suvereniji.",
+        ],
+      },
+      {
+        heading: "Bitkey protiv Sparrow 2 od 3 sustava",
+        body: [
+          "Sparrow 2 od 3 sustav s vlastitim čvorom je jači za osobu koja želi punu kontrolu.",
+          "Bitkey je bolji za osobu koja želi jednostavnost.",
+          "Zato pitanje nije što je objektivno najbolje. Pitanje je: koji sustav će ova konkretna osoba stvarno znati koristiti i oporaviti?",
+        ],
+      },
+      {
+        heading: "Moj sud",
+        body: [
+          "Bitkey mi se sviđa.",
+          "Ne kao zamjena za najbolji mogući osobni Bitcoin trezor, nego kao dobar odgovor na stvarni problem: većina ljudi nije spremna za potpunu samostalnu skrb.",
+          "Ako je izbor bitcoin na burzi ili Bitkey, izabrao bih Bitkey. Ako je izbor jedan seed u ladici ili Bitkey, za mnoge obitelji bih opet izabrao Bitkey.",
+          "Ako je izbor dobro složen Sparrow, vlastiti čvor i 2 od 3 s tri neovisna hardverska novčanika ili Bitkey, za veći obiteljski iznos bih izabrao vlastiti sustav.",
+          "To je bitna razlika. Bitkey nije loše rješenje zato što ima kompromise. Svaki sustav ima kompromise. Bitkey je dobar ako su njegovi kompromisi svjesno prihvaćeni.",
+        ],
+      },
+      {
+        heading: "Kada bih preporučio Bitkey?",
+        body: [
+          "Preporučio bih ga osobi koja ne želi držati bitcoin na burzi, ne vjeruje si da će dobro čuvati seed riječi, ne želi učiti složen višepotpisni sustav, želi nešto što obitelj može razumjeti, želi Bitcoin-only rješenje i prihvaća da dio oporavka ovisi o Bitkey sustavu.",
+          "To je pošten profil korisnika. Za takvu osobu Bitkey može biti vrlo dobar izbor.",
+        ],
+      },
+      {
+        heading: "Kada ga ne bih preporučio kao glavni trezor?",
+        body: [
+          "Ne bih ga stavio kao glavni trezor za osobu koja želi svoj Bitcoin Core, svoj Electrum poslužitelj, tri neovisna hardverska novčanika, nijedan ključ kod kompanije, vlastitu dokumentaciju nasljeđivanja i maksimalnu neovisnost.",
+          "Za tu osobu Bitkey je previše zatvoren kao sustav, čak i ako je bolji od burze.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Bitkey je jedan od zanimljivijih pokušaja da se Bitcoin sigurnost približi normalnim ljudima.",
+          "Njegova glavna vrijednost nije u tome što je najsamostalniji mogući model. Njegova vrijednost je u tome što pokušava riješiti ono gdje ljudi najčešće griješe: seed riječi, oporavak, izgubljeni uređaji i nasljeđivanje.",
+          "Za manji i srednji iznos, ili za osobu koja tek prelazi s burze prema osobnom čuvanju bitcoina, Bitkey može biti vrlo razuman izbor.",
+          "Za veći obiteljski iznos i puni osobni Bitcoin standard, i dalje bih preferirao vlastiti sustav: Sparrow, vlastiti Bitcoin Core, privatni Fulcrum, 2 od 3 višepotpisni novčanik, tri neovisna hardverska novčanika, odvojene lokacije i obiteljske upute.",
+          "Najkraće: Bitkey je bolji od burze i bolji od loše izvedenog novčanika s jednim potpisom. Ali nije bolji od dobro izvedenog obiteljskog Bitcoin trezora.",
+        ],
+      },
+      {
+        heading: "Završna napomena",
+        body: [
+          "Ako razmišljate o Bitkeyu, pravo pitanje nije: je li Bitkey savršen?",
+          "Pravo pitanje je: u odnosu na što ga uspoređujete?",
+          "Ako ga uspoređujete s burzom, Bitkey je veliki korak naprijed. Ako ga uspoređujete s jednim seedom u ladici, Bitkey može biti praktičniji i sigurniji za mnoge obitelji.",
+          "Ako ga uspoređujete s potpuno vlastitim 2 od 3 sustavom, vlastitim čvorom i jasno dokumentiranim nasljeđivanjem, Bitkey je jednostavniji, ali manje neovisan.",
+          "Bitcoin sigurnost nije potraga za savršenim proizvodom. To je potraga za sustavom koji konkretna osoba i konkretna obitelj mogu razumjeti, održavati i oporaviti bez panike.",
+        ],
+      },
+    ],
+    finalCta: "Dogovorite uvodni Bitcoin razgovor",
+    finalCtaPrompt:
+      "Ako niste sigurni je li Bitkey dovoljan za vaš iznos, obitelj i razinu rizika, prvo treba razjasniti što točno pokušavate zaštititi i od čega.",
+  },
+  {
     slug: "obiteljski-pristup-bitcoinu",
     title: "Kako obitelj može pristupiti Bitcoinu ako vam se nešto dogodi?",
     seoTitle: "Bitcoin nasljeđivanje i obitelj",
@@ -2236,7 +2518,11 @@ export const guidesIndexAdditionalGroups = [
   },
   {
     title: "Sigurnost i obitelj",
-    slugs: ["obiteljski-bitcoin-trezor", "obiteljski-pristup-bitcoinu"],
+    slugs: [
+      "obiteljski-bitcoin-trezor",
+      "bitkey-bitcoin-sigurnost",
+      "obiteljski-pristup-bitcoinu",
+    ],
   },
 ] as const
 
@@ -2260,6 +2546,7 @@ export const guidesIndexOrderedSlugs = [
   "pravilo-trecina",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "obiteljski-bitcoin-trezor",
+  "bitkey-bitcoin-sigurnost",
   "obiteljski-pristup-bitcoinu",
 ]
 
@@ -2275,6 +2562,7 @@ export const recommendedGuideSlugs = [
   "pravilo-trecina",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "obiteljski-bitcoin-trezor",
+  "bitkey-bitcoin-sigurnost",
   "obiteljski-pristup-bitcoinu",
 ]
 

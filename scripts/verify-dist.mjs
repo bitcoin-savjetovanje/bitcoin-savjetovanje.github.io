@@ -26,6 +26,7 @@ const requiredGuidePaths = [
   "/vodici/pravilo-trecina",
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
   "/vodici/obiteljski-bitcoin-trezor",
+  "/vodici/bitkey-bitcoin-sigurnost",
   "/vodici/obiteljski-pristup-bitcoinu",
   "/vodici/novac-kapital-potrosnja",
 ]
@@ -1200,6 +1201,7 @@ assertArrayEquals(
     "/vodici/pravilo-trecina/",
     "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
     "/vodici/obiteljski-bitcoin-trezor/",
+    "/vodici/bitkey-bitcoin-sigurnost/",
     "/vodici/obiteljski-pristup-bitcoinu/",
   ],
   "guide index card href order"
@@ -1447,6 +1449,18 @@ const focusedGuideChecks = [
       "Blockstream Jade Plus",
       "Dogovorite uvodni Bitcoin razgovor",
       "Ako imate značajniji iznos u Bitcoinu, sigurnost više nije samo pitanje uređaja.",
+    ],
+  },
+  {
+    path: "vodici/bitkey-bitcoin-sigurnost/index.html",
+    checks: [
+      "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
+      "Bitkey uklanja seed riječi i uvodi 2 od 3 sigurnosni model",
+      "nije isto što i vlastiti Bitcoin trezor sa Sparrowom",
+      'href="/vodici/obiteljski-bitcoin-trezor/"',
+      "Emergency Exit Kit",
+      "Dogovorite uvodni Bitcoin razgovor",
+      "Ako niste sigurni je li Bitkey dovoljan za vaš iznos",
     ],
   },
   {

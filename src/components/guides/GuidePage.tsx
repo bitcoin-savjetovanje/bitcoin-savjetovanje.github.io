@@ -142,6 +142,18 @@ export function GuidePage({ guide }: { guide: Guide }) {
                       ))}
                     </ul>
                   ) : null}
+                  {section.link ? (
+                    <p>
+                      {section.link.before}{" "}
+                      <a
+                        href={section.link.href}
+                        className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary"
+                      >
+                        {section.link.label}
+                      </a>
+                      {section.link.after ? ` ${section.link.after}` : null}
+                    </p>
+                  ) : null}
                 </div>
               </section>
             ))}

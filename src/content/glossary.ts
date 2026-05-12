@@ -1,0 +1,405 @@
+export type GlossaryTerm = {
+  id: string
+  terms: string[]
+  title: string
+  description: string
+}
+
+export const glossaryTerms: GlossaryTerm[] = [
+  {
+    id: "seed-rijeci",
+    terms: ["seed riječi", "seed phrase", "recovery phrase"],
+    title: "Seed riječi",
+    description:
+      "Popis riječi koji služi kao pričuvna kopija ključa. Tko ima te riječi, može obnoviti pristup tom ključu, zato se ne smiju slikati, slati ni spremati u oblak.",
+  },
+  {
+    id: "pricuvna-kopija",
+    terms: [
+      "backup",
+      "backupi",
+      "backupom",
+      "pričuvna kopija",
+      "pričuvne kopije",
+      "pričuvnom kopijom",
+    ],
+    title: "Pričuvna kopija",
+    description:
+      "Rezervni primjerak važnog podatka ili ključa. Kod Bitcoina to nije običan dokument, nego nešto što može omogućiti oporavak pristupa novcu.",
+  },
+  {
+    id: "privatni-kljuc",
+    terms: [
+      "privatni ključ",
+      "privatne ključeve",
+      "privatnih ključeva",
+      "privatnim ključem",
+      "privatni ključevi",
+    ],
+    title: "Privatni ključ",
+    description:
+      "Tajni podatak kojim se potpisuje Bitcoin transakcija. Možete ga zamisliti kao ključ sefa: tko ga ima, može pomaknuti bitcoin.",
+  },
+  {
+    id: "javni-kljuc",
+    terms: [
+      "javni ključ",
+      "javnog ključa",
+      "javne ključeve",
+      "javnih ključeva",
+      "javni ključevi",
+    ],
+    title: "Javni ključ",
+    description:
+      "Podatak iz kojeg se mogu izvesti adrese i provjeriti potpisi. Javni ključ ne smije trošiti bitcoin, ali može otkrivati privatnost ako se neoprezno dijeli.",
+  },
+  {
+    id: "visepotpisni-sustav",
+    terms: [
+      "višepotpisni sustav",
+      "višepotpisni novčanik",
+      "multisig",
+      "2 od 3",
+      "2-of-3",
+    ],
+    title: "Višepotpisni sustav",
+    description:
+      "Novčanik koji traži više od jednog potpisa za slanje bitcoina. Primjer 2 od 3 znači da postoje tri ključa, a za slanje trebaju bilo koja dva.",
+  },
+  {
+    id: "descriptor",
+    terms: [
+      "Sparrow descriptor",
+      "wallet descriptor",
+      "descriptor",
+      "deskriptor",
+      "Sparrow descriptora",
+      "Sparrow opisnik",
+      "opisnik",
+    ],
+    title: "Descriptor",
+    description:
+      "Opis konstrukcije novčanika. Ne čuva privatne ključeve, ali govori kako su javni ključevi povezani i kako se novčanik može ponovno složiti.",
+  },
+  {
+    id: "derivation-path",
+    terms: [
+      "derivation path",
+      "derivacijski put",
+      "put izvedbe",
+      "derivation pathovi",
+      "derivation pathove",
+    ],
+    title: "Derivation path",
+    description:
+      "Pravilo koje govori kojim se redom iz jednog glavnog ključa izvode pojedini računi i adrese. Kao oznaka police i ladice u velikom arhivu ključeva.",
+  },
+  {
+    id: "xpub",
+    terms: ["xpub", "xpubovi", "xpubove", "xpubovima"],
+    title: "Xpub",
+    description:
+      "Prošireni javni ključ. Omogućuje prikaz adresa i stanja novčanika, ali ne omogućuje trošenje bitcoina. Ipak ga treba čuvati jer otkriva privatnost.",
+  },
+  {
+    id: "utxo",
+    terms: ["UTXO", "UTXO-i", "UTXO-e", "UTXO-a"],
+    title: "UTXO",
+    description:
+      "Pojedini komad bitcoina koji još nije potrošen. Možete ga zamisliti kao novčanicu ili kovanicu u novčaniku, samo u Bitcoin sustavu.",
+  },
+  {
+    id: "psbt",
+    terms: ["PSBT", "PSBT-a", "PSBT transakcija", "PSBT transakcije"],
+    title: "PSBT",
+    description:
+      "Nepotpuna Bitcoin transakcija koja čeka potpise. Korisna je kada Sparrow pripremi transakciju, a hardverski novčanici je zatim potpisuju.",
+  },
+  {
+    id: "vlastiti-cvor",
+    terms: ["vlastiti čvor", "Bitcoin čvor", "full node", "node"],
+    title: "Vlastiti čvor",
+    description:
+      "Računalo koje samostalno provjerava Bitcoin pravila i blockchain. To smanjuje potrebu da vjerujete tuđem poslužitelju što se događa s vašim novcem.",
+  },
+  {
+    id: "bitcoin-core",
+    terms: ["Bitcoin Core"],
+    title: "Bitcoin Core",
+    description:
+      "Najpoznatiji program za pokretanje vlastitog Bitcoin čvora. Preuzima i provjerava Bitcoin blockchain prema pravilima mreže.",
+  },
+  {
+    id: "fulcrum",
+    terms: ["Fulcrum"],
+    title: "Fulcrum",
+    description:
+      "Privatni Electrum poslužitelj koji radi uz vlastiti Bitcoin čvor. Sparrowu omogućuje brzo i privatnije čitanje stanja novčanika.",
+  },
+  {
+    id: "electrum-posluzitelj",
+    terms: [
+      "privatni Electrum poslužitelj",
+      "javni Electrum poslužitelj",
+      "Electrum poslužitelj",
+      "Electrum server",
+    ],
+    title: "Electrum poslužitelj",
+    description:
+      "Poslužitelj koji novčaniku brzo odgovara koje adrese i transakcije postoje. Ako je vaš, bolji je za privatnost; ako je javni, operator može vidjeti previše.",
+  },
+  {
+    id: "skrbnik",
+    terms: [
+      "skrbnik",
+      "skrbnika",
+      "skrbniku",
+      "skrbnikom",
+      "skrbnički",
+      "skrbnička",
+      "skrbničko",
+    ],
+    title: "Skrbnik",
+    description:
+      "Treća strana koja čuva bitcoin ili ključeve umjesto vas. To može biti praktično, ali znači da dio kontrole prepuštate drugome.",
+  },
+  {
+    id: "samostalna-pohrana",
+    terms: ["samostalna pohrana", "samostalnoj pohrani", "samostalnu pohranu"],
+    title: "Samostalna pohrana",
+    description:
+      "Način čuvanja u kojem vi kontrolirate ključeve. Daje više slobode, ali traži dobar plan, pričuvne kopije i nasljeđivanje.",
+  },
+  {
+    id: "etf",
+    terms: ["ETF", "ETF-ovi", "ETF-a", "ETF-u", "ETF-om"],
+    title: "ETF",
+    description:
+      "Vrijednosni papir kojim se trguje na burzi i koji prati neku imovinu, primjerice bitcoin. Lakše se drži u brokerskom računu, ali nije isto što i bitcoin u vlastitom posjedu.",
+  },
+  {
+    id: "broker",
+    terms: [
+      "brokerski račun",
+      "brokerskog računa",
+      "broker",
+      "brokera",
+      "brokeru",
+    ],
+    title: "Broker",
+    description:
+      "Posrednik preko kojeg kupujete i držite vrijednosne papire. Može olakšati ulaganje, ali nije isto što i vlastiti Bitcoin novčanik.",
+  },
+  {
+    id: "kapitalna-dobra",
+    terms: [
+      "kapitalna dobra",
+      "kapitalnih dobara",
+      "kapitalna imovina",
+      "proizvodna imovina",
+      "proizvodne imovine",
+    ],
+    title: "Kapitalna dobra",
+    description:
+      "Imovina koja bi trebala stvarati budući prihod ili vrijednost. U Praktičnom Bitcoin standardu razlikuje se od novca i potrošačkih dobara.",
+  },
+  {
+    id: "neto-imovina",
+    terms: ["neto imovina", "neto imovine", "neto imovini"],
+    title: "Neto imovina",
+    description:
+      "Ono što stvarno posjedujete nakon što od ukupne imovine oduzmete dugove. Pomaže vidjeti odnos novca, kapitala i potrošačkih dobara.",
+  },
+  {
+    id: "volatilnost",
+    terms: [
+      "volatilnost",
+      "volatilnosti",
+      "volatilan",
+      "volatilna",
+      "volatilno",
+    ],
+    title: "Volatilnost",
+    description:
+      "Mjera koliko se cijena može brzo i snažno mijenjati. Visoka volatilnost znači da vrijednost može jako rasti, ali i jako padati u kratkom vremenu.",
+  },
+  {
+    id: "burza-mjenjacnica",
+    terms: [
+      "mjenjačnica",
+      "mjenjačnice",
+      "mjenjačnici",
+      "burza",
+      "burze",
+      "burzi",
+    ],
+    title: "Burza ili mjenjačnica",
+    description:
+      "Mjesto gdje kupujete ili prodajete bitcoin. Dobra je za razmjenu, ali nije nužno dobro mjesto za dugoročno čuvanje većeg iznosa.",
+  },
+  {
+    id: "oporavak",
+    terms: ["oporavak", "oporavka", "oporavku", "recovery"],
+    title: "Oporavak",
+    description:
+      "Postupak kojim ponovno dolazite do pristupa novčaniku ako se uređaj izgubi, pokvari ili više nije dostupan.",
+  },
+  {
+    id: "zracni-nacin-rada",
+    terms: [
+      "zračni način rada",
+      "air-gapped",
+      "air gap",
+      "zračno odvojen",
+      "zračno odvojeni",
+    ],
+    title: "Zračni način rada",
+    description:
+      "Način korištenja u kojem uređaj nije izravno spojen na računalo ili internet. Podaci se često prenose QR kodom ili memorijskom karticom.",
+  },
+  {
+    id: "qr-kod",
+    terms: ["QR kod", "QR koda", "QR kodovi", "QR kodova"],
+    title: "QR kod",
+    description:
+      "Kvadratni slikovni kod koji uređaji mogu skenirati. U Bitcoin sigurnosti često služi za prijenos podataka bez kabela.",
+  },
+  {
+    id: "hardverski-novcanik",
+    terms: [
+      "hardverski novčanik",
+      "hardverskog novčanika",
+      "hardverski novčanici",
+      "hardverskim novčanicima",
+    ],
+    title: "Hardverski novčanik",
+    description:
+      "Poseban uređaj koji čuva ključeve i potpisuje transakcije. Bitcoin nije u uređaju; uređaj čuva mogućnost potpisivanja.",
+  },
+  {
+    id: "potpisivanje-transakcije",
+    terms: [
+      "potpisivanje transakcije",
+      "potpisati transakciju",
+      "potpisuje transakciju",
+      "potpiše transakciju",
+    ],
+    title: "Potpisivanje transakcije",
+    description:
+      "Dokazivanje da imate pravo poslati određeni bitcoin. Kao potpis na nalogu za plaćanje, ali matematički provjerljiv u Bitcoin mreži.",
+  },
+  {
+    id: "nasljedivanje",
+    terms: [
+      "nasljeđivanje",
+      "nasljeđivanja",
+      "nasljednik",
+      "nasljednici",
+      "nasljednicima",
+    ],
+    title: "Nasljeđivanje",
+    description:
+      "Plan što se događa s bitcoinom ako vlasnika više nema. Dobar plan mora pomoći obitelji bez toga da svima odmah da pristup svemu.",
+  },
+  {
+    id: "novcana-zaliha",
+    terms: [
+      "novčana zaliha",
+      "novčane zalihe",
+      "sigurnosna zaliha",
+      "sigurnosne zalihe",
+    ],
+    title: "Novčana zaliha",
+    description:
+      "Dio novca koji postoji za sigurnost i buduće potrebe. Smanjuje pritisak da se bitcoin prodaje u lošem trenutku.",
+  },
+  {
+    id: "vrijednosni-papir",
+    terms: [
+      "vrijednosni papir",
+      "vrijednosnog papira",
+      "vrijednosni papiri",
+      "vrijednosnih papira",
+    ],
+    title: "Vrijednosni papir",
+    description:
+      "Financijski instrument poput dionice, ETF-a ili obveznice. Može dati izloženost Bitcoinu, ali nije isto što i bitcoin u vlastitom posjedu.",
+  },
+  {
+    id: "sparrow",
+    terms: ["Sparrow"],
+    title: "Sparrow",
+    description:
+      "Bitcoin novčanik za računalo koji dobro radi s hardverskim novčanicima i višepotpisnim sustavima. Često služi kao kontrolna ploča, a ne kao mjesto gdje žive privatni ključevi.",
+  },
+  {
+    id: "bitcoin-blockchain",
+    terms: ["Bitcoin blockchain", "blockchain", "lanac blokova"],
+    title: "Bitcoin blockchain",
+    description:
+      "Javna povijest Bitcoin transakcija koju provjeravaju čvorovi. Možete ga zamisliti kao zajedničku knjigu zapisa koju nitko ne smije samovoljno mijenjati.",
+  },
+  {
+    id: "bitcoin-adresa",
+    terms: ["Bitcoin adresa", "adrese", "adresu", "adresa"],
+    title: "Bitcoin adresa",
+    description:
+      "Podatak na koji se prima bitcoin. Adresa je kao uputa gdje poslati uplatu, ali nije isto što i privatni ključ.",
+  },
+  {
+    id: "transakcija",
+    terms: ["transakcija", "transakcije", "transakciju", "transakcijama"],
+    title: "Transakcija",
+    description:
+      "Zapis kojim se bitcoin premješta s jedne adrese na drugu. Da bi bila valjana, mora biti ispravno potpisana.",
+  },
+  {
+    id: "likvidnost",
+    terms: ["likvidnost", "likvidnosti"],
+    title: "Likvidnost",
+    description:
+      "Koliko brzo i lako nešto možete pretvoriti u novac bez velikog gubitka vrijednosti. Gotovina je obično likvidnija od nekretnine.",
+  },
+  {
+    id: "portfelj",
+    terms: ["portfelj", "portfelja", "portfelju"],
+    title: "Portfelj",
+    description:
+      "Skup imovine koju osoba ili obitelj drži. Može uključivati novac, bitcoin, vrijednosne papire, nekretnine i poslovnu imovinu.",
+  },
+  {
+    id: "povlastena-dionica",
+    terms: ["povlaštena dionica", "povlaštene dionice", "povlaštenih dionica"],
+    title: "Povlaštena dionica",
+    description:
+      "Vrsta dionice koja obično ima drukčija prava od obične dionice, često vezana uz dividendu. Nije isto što i obveznica i nije bez rizika.",
+  },
+  {
+    id: "dividenda",
+    terms: ["dividenda", "dividende", "dividendi"],
+    title: "Dividenda",
+    description:
+      "Isplata koju kompanija može dati vlasnicima određenih dionica. Nije zajamčena ako uvjeti proizvoda i odluke kompanije to ne dopuštaju.",
+  },
+  {
+    id: "dca",
+    terms: ["DCA"],
+    title: "DCA",
+    description:
+      "Kupnja istog iznosa u pravilnim razmacima, primjerice svaki mjesec. Može smanjiti potrebu za pogađanjem cijene, ali ne rješava proračun ni sigurnost.",
+  },
+  {
+    id: "mstr",
+    terms: ["MSTR"],
+    title: "MSTR",
+    description:
+      "Oznaka obične dionice kompanije Strategy. Povezana je s Bitcoinom, ali je i dalje dionica kompanije, a ne bitcoin u vlastitom posjedu.",
+  },
+  {
+    id: "strc",
+    terms: ["STRC", "Stretch"],
+    title: "STRC",
+    description:
+      "Strategyjev prihodovni vrijednosni papir povezan s kapitalnom strukturom kompanije. Nije bitcoin, nije novac i nije proizvod bez rizika.",
+  },
+]

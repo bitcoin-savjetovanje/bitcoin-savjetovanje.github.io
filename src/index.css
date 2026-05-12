@@ -952,6 +952,50 @@
     @apply mt-4 text-xs leading-5;
   }
 
+  .glossary-term-wrap {
+    @apply relative inline-block;
+  }
+
+  .glossary-term {
+    @apply relative inline rounded-sm border-0 bg-transparent p-0 text-inherit underline decoration-primary/55 decoration-dotted underline-offset-4 transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2 focus-visible:outline-none;
+    font: inherit;
+    line-height: inherit;
+    cursor: help;
+  }
+
+  .glossary-term__tooltip {
+    @apply invisible absolute bottom-[calc(100%+0.65rem)] left-1/2 z-[80] block w-max max-w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 rounded-xl border border-border/80 bg-card px-4 py-3 text-left text-card-foreground opacity-0 shadow-lg transition duration-150;
+    pointer-events: none;
+  }
+
+  .glossary-term__tooltip::after {
+    @apply absolute top-full left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-r border-b border-border/80 bg-card content-[''];
+  }
+
+  .glossary-term-wrap:hover .glossary-term__tooltip,
+  .glossary-term-wrap:focus-within .glossary-term__tooltip,
+  .glossary-term-wrap[data-open="true"] .glossary-term__tooltip {
+    @apply visible opacity-100;
+  }
+
+  .glossary-term__title {
+    @apply block text-sm leading-5 font-semibold text-foreground;
+  }
+
+  .glossary-term__description {
+    @apply mt-1.5 block text-sm leading-6 text-muted-foreground;
+  }
+
+  @media (max-width: 767px) {
+    .glossary-term__tooltip {
+      @apply fixed right-4 bottom-20 left-4 w-auto max-w-none translate-x-0;
+    }
+
+    .glossary-term__tooltip::after {
+      @apply hidden;
+    }
+  }
+
   .reading-progress {
     @apply fixed top-0 left-0 z-[60] h-1 w-full bg-transparent;
   }

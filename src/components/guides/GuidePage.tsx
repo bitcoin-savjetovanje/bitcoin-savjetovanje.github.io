@@ -10,6 +10,7 @@ import {
   estimateGuideReadingMinutes,
   slugifyHeading,
 } from "@/utils/readingTime"
+import { renderWithGlossary } from "@/utils/glossary"
 
 export function GuidePage({ guide }: { guide: Guide }) {
   const [readingProgress, setReadingProgress] = useState(0)
@@ -132,13 +133,13 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 </h2>
                 <div className="mt-4 space-y-5 text-base leading-8 text-muted-foreground">
                   {section.body.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                    <p key={paragraph}>{renderWithGlossary(paragraph)}</p>
                   ))}
                   {section.items ? (
                     <ul className="grid gap-2 pl-5">
                       {section.items.map((item) => (
                         <li key={item} className="list-disc pl-1">
-                          {item}
+                          {renderWithGlossary(item)}
                         </li>
                       ))}
                     </ul>

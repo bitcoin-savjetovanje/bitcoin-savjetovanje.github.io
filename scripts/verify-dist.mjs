@@ -113,6 +113,20 @@ function textWithoutTags(contents) {
     .replace(/&nbsp;/g, " ")
 }
 
+function guideVisibleText(contents) {
+  return textWithoutTags(
+    contents
+      .replace(
+        /<span[^>]*class="[^"]*glossary-term__title[^"]*"[^>]*>[\s\S]*?<\/span>/gi,
+        ""
+      )
+      .replace(
+        /<span[^>]*class="[^"]*glossary-term__description[^"]*"[^>]*>[\s\S]*?<\/span>/gi,
+        ""
+      )
+  )
+}
+
 function htmlFiles(directory = distDir) {
   const entries = fs.readdirSync(directory, { withFileTypes: true })
   const files = []
@@ -1523,9 +1537,17 @@ const focusedGuideChecks = [
 
 for (const guideCheck of focusedGuideChecks) {
   const html = readFile(guideCheck.path)
+  const visibleText = guideVisibleText(html)
 
   for (const expected of guideCheck.checks) {
-    assertIncludes(guideCheck.path, html, expected, `guide copy: ${expected}`)
+    const contents =
+      expected.includes("<") ||
+      expected.startsWith("href=") ||
+      expected.startsWith("data-")
+        ? html
+        : visibleText
+
+    assertIncludes(guideCheck.path, contents, expected, `guide copy: ${expected}`)
   }
 }
 

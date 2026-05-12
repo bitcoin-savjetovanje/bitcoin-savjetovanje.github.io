@@ -2,6 +2,7 @@ import { ArrowRight, CalendarDays } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { GuideVisual } from "@/components/guides/GuideVisual"
+import { GuideStickyCta } from "@/components/guides/GuideStickyCta"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, guides, type Guide } from "@/content/guides"
 import { CONVERSATION_PATH } from "@/content/site"
@@ -258,6 +259,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </Button>
           </div>
         </div>
+        <GuideStickyCta readingProgress={readingProgress} />
       </div>
     </article>
   )

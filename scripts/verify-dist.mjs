@@ -1343,6 +1343,24 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
+    'data-cta="guide-sticky-sidebar"',
+    "guide sticky sidebar CTA metadata"
+  )
+  assertIncludes(
+    relativePath,
+    html,
+    "Uvodni Bitcoin razgovor",
+    "guide sticky sidebar title"
+  )
+  assertIncludes(
+    relativePath,
+    html,
+    "Bez naknade. Bez obveze. Bez upravljanja vašim sredstvima.",
+    "guide sticky sidebar footnote"
+  )
+  assertIncludes(
+    relativePath,
+    html,
     'href="/razgovor/"',
     "guide final CTA href"
   )

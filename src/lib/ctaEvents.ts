@@ -36,6 +36,7 @@ export const ctaEventRegistry = {
   "guides-intro-call": { kind: "cta", surface: "vodici" },
   "guides-index-top-intro-call": { kind: "cta", surface: "vodici" },
   "guides-index-intro-call": { kind: "cta", surface: "vodici" },
+  "guide-sticky-sidebar": { kind: "cta", surface: "vodici" },
   "guide-final-intro-call": { kind: "cta", surface: "vodici" },
 } as const satisfies Record<
   string,

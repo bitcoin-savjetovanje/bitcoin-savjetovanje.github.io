@@ -1,5 +1,6 @@
 export type GlossaryTerm = {
   id: string
+  priority?: number
   terms: string[]
   title: string
   description: string
@@ -23,7 +24,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "pričuvne kopije",
       "pričuvnom kopijom",
     ],
-    title: "Pričuvna kopija",
+    title: "Backup (pričuvna kopija)",
     description:
       "Rezervni primjerak važnog podatka ili ključa. Kod Bitcoina to nije običan dokument, nego nešto što može omogućiti oporavak pristupa novcu.",
   },
@@ -68,21 +69,22 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "descriptor",
+    priority: 30,
     terms: [
       "Sparrow descriptor",
       "wallet descriptor",
       "descriptor",
       "deskriptor",
       "Sparrow descriptora",
-      "Sparrow opisnik",
       "opisnik",
     ],
-    title: "Descriptor",
+    title: "Descriptor (opis novčanika)",
     description:
       "Opis konstrukcije novčanika. Ne čuva privatne ključeve, ali govori kako su javni ključevi povezani i kako se novčanik može ponovno složiti.",
   },
   {
     id: "derivation-path",
+    priority: 40,
     terms: [
       "derivation path",
       "derivacijski put",
@@ -90,7 +92,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "derivation pathovi",
       "derivation pathove",
     ],
-    title: "Derivation path",
+    title: "Derivation path (put izvedbe)",
     description:
       "Pravilo koje govori kojim se redom iz jednog glavnog ključa izvode pojedini računi i adrese. Kao oznaka police i ladice u velikom arhivu ključeva.",
   },
@@ -401,5 +403,108 @@ export const glossaryTerms: GlossaryTerm[] = [
     title: "STRC",
     description:
       "Strategyjev prihodovni vrijednosni papir povezan s kapitalnom strukturom kompanije. Nije bitcoin, nije novac i nije proizvod bez rizika.",
+  },
+  {
+    id: "debian",
+    terms: ["Debian"],
+    title: "Debian",
+    description:
+      "Linux operativni sustav poznat po stabilnosti i predvidljivosti. U Bitcoin sustavu često ima smisla za računalo koje dugo radi kao poslužitelj.",
+  },
+  {
+    id: "linux-mint",
+    terms: ["Linux Mint"],
+    title: "Linux Mint",
+    description:
+      "Linux operativni sustav s jednostavnim grafičkim sučeljem. Praktičan je za računalo na kojem obitelj otvara Sparrow i slijedi upute.",
+  },
+  {
+    id: "ubuntu-server",
+    terms: ["Ubuntu Server"],
+    title: "Ubuntu Server",
+    description:
+      "Poslužiteljska verzija Ubuntu Linuxa. Može služiti kao alternativa Debianu za računalo koje pokreće Bitcoin Core i Fulcrum.",
+  },
+  {
+    id: "fedora-server",
+    terms: ["Fedora Server"],
+    title: "Fedora Server",
+    description:
+      "Linux sustav za poslužitelje koji brže uvodi novije verzije softvera. Može biti dobar izbor za tehnički sigurniju osobu.",
+  },
+  {
+    id: "start9",
+    terms: ["Start9"],
+    title: "Start9",
+    description:
+      "Gotov sustav za pokretanje vlastitog Bitcoin čvora i povezanih usluga. Jednostavniji je za početak, ali i dalje traži razumijevanje što se pokreće.",
+  },
+  {
+    id: "umbrel",
+    terms: ["Umbrel"],
+    title: "Umbrel",
+    description:
+      "Gotov kućni poslužiteljski sustav s aplikacijama za Bitcoin i druge usluge. Može olakšati početak, ali nije zamjena za razumijevanje sigurnosti.",
+  },
+  {
+    id: "thinkpad",
+    terms: ["ThinkPad", "ThinkPada", "ThinkPadu"],
+    title: "ThinkPad",
+    description:
+      "Lenovova poslovna linija laptopa, često dobro podržana na Linuxu. U vodiču je primjer odvojenog računala za Sparrow.",
+  },
+  {
+    id: "lenovo-mini-pc",
+    terms: ["Lenovo mini PC"],
+    title: "Lenovo mini PC",
+    description:
+      "Malo stolno računalo poslovne klase. U ovom kontekstu služi kao miran, odvojen stroj za Bitcoin Core i Fulcrum.",
+  },
+  {
+    id: "coldcard",
+    terms: ["COLDCARD Q", "COLDCARD", "COLDCARD Mk4"],
+    title: "COLDCARD",
+    description:
+      "Bitcoin-only hardverski novčanik za korisnike koji žele stroži sigurnosni način rada. Dobar je kao jedan od potpisnika u višepotpisnom sustavu.",
+  },
+  {
+    id: "bitbox02",
+    terms: ["BitBox02 Bitcoin-only", "BitBox02", "BitBox"],
+    title: "BitBox02 Bitcoin-only",
+    description:
+      "Jednostavniji Bitcoin-only hardverski novčanik. U obiteljskom sustavu može biti praktičan ključ za osobu koja ne želi tehnički složen uređaj.",
+  },
+  {
+    id: "passport-core",
+    terms: [
+      "Foundation Passport Core",
+      "Passport Core",
+      "Passport",
+      "Foundation",
+    ],
+    title: "Foundation Passport Core",
+    description:
+      "Bitcoin-only hardverski novčanik koji može raditi preko QR kodova. Koristan je kao treći, odvojeni potpisnik u obiteljskom planu.",
+  },
+  {
+    id: "blockstream-jade-plus",
+    terms: ["Blockstream Jade Plus", "Jade Plus", "Jade"],
+    title: "Blockstream Jade Plus",
+    description:
+      "Bitcoin hardverski novčanik koji može biti praktična zamjena za treći ključ. Važna je njegova uloga u sustavu, a ne samo naziv uređaja.",
+  },
+  {
+    id: "specter-diy",
+    terms: ["Specter DIY"],
+    title: "Specter DIY",
+    description:
+      "Potpisni uređaj koji se više oslanja na ručno sastavljanje i provjeru. Zanimljiv je za napredne korisnike, ali obitelji može biti zahtjevniji.",
+  },
+  {
+    id: "seedsigner",
+    terms: ["SeedSigner"],
+    title: "SeedSigner",
+    description:
+      "Potpisni uređaj koji seed obično ne sprema trajno na sam uređaj. Sigurnosno je zanimljiv, ali traži vrlo jasne upute za oporavak.",
   },
 ]

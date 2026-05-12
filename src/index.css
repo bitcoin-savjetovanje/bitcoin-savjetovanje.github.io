@@ -1135,7 +1135,7 @@
   }
 
   .profile-panel img {
-    @apply size-28 rounded-full border border-border object-cover;
+    @apply size-36 rounded-full border border-border object-cover sm:size-48 lg:size-52;
   }
 
   .profile-panel h3 {

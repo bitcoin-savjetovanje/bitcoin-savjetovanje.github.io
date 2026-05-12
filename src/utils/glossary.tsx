@@ -75,21 +75,30 @@ function glossaryMatchesForText(text: string) {
       return b.text.length - a.text.length
     })
 
-  const selectedMatches: GlossaryMatch[] = []
+  const nonOverlappingMatches: GlossaryMatch[] = []
 
   for (const match of matches) {
-    if (selectedMatches.length >= MAX_GLOSSARY_TERMS_PER_TEXT) {
-      break
-    }
-
-    if (selectedMatches.some((selected) => matchesOverlap(selected, match))) {
+    if (
+      nonOverlappingMatches.some((selected) => matchesOverlap(selected, match))
+    ) {
       continue
     }
 
-    selectedMatches.push(match)
+    nonOverlappingMatches.push(match)
   }
 
-  return selectedMatches.sort((a, b) => a.index - b.index)
+  return nonOverlappingMatches
+    .sort((a, b) => {
+      const priorityDifference = (b.term.priority ?? 0) - (a.term.priority ?? 0)
+
+      if (priorityDifference !== 0) {
+        return priorityDifference
+      }
+
+      return a.index - b.index
+    })
+    .slice(0, MAX_GLOSSARY_TERMS_PER_TEXT)
+    .sort((a, b) => a.index - b.index)
 }
 
 export function renderWithGlossary(text: string): ReactNode[] {

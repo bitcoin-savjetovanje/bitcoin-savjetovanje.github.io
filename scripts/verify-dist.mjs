@@ -25,6 +25,7 @@ const requiredGuidePaths = [
   "/vodici/cijena-kao-mjera-vremena",
   "/vodici/pravilo-trecina",
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "/vodici/obiteljski-bitcoin-trezor",
   "/vodici/obiteljski-pristup-bitcoinu",
   "/vodici/novac-kapital-potrosnja",
 ]
@@ -1198,6 +1199,7 @@ assertArrayEquals(
     "/vodici/bitcoin-u-neto-imovini/",
     "/vodici/pravilo-trecina/",
     "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
+    "/vodici/obiteljski-bitcoin-trezor/",
     "/vodici/obiteljski-pristup-bitcoinu/",
   ],
   "guide index card href order"
@@ -1432,6 +1434,17 @@ const focusedGuideChecks = [
       "Informacija nije isto što i pristup",
       "Za širi sigurnosni okvir pročitajte i sigurnosnu stranicu.",
       'data-cta="guide-security-page"',
+    ],
+  },
+  {
+    path: "vodici/obiteljski-bitcoin-trezor/index.html",
+    checks: [
+      "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
+      "Ovo nije univerzalni recept. Ovo je primjer kako razmišljati o obiteljskoj sigurnosti.",
+      "Seed riječi nikada ne idu u mobitel, mrežnu pohranu, e-mail ili fotografiju.",
+      "višepotpisni sustav, primjerice 2 od 3",
+      "Dogovorite uvodni Bitcoin razgovor",
+      "Ako imate značajniji iznos u Bitcoinu, sigurnost više nije samo pitanje uređaja.",
     ],
   },
   {

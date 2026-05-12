@@ -1401,6 +1401,449 @@ const guideEntries: Guide[] = [
       "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu, to vrijedi razjasniti u razgovoru.",
   },
   {
+    slug: "obiteljski-bitcoin-trezor",
+    title: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
+    seoTitle: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
+    metaDescription:
+      "Vodič za obitelji koje žele složiti Bitcoin sigurnost tako da sredstva ne ovise o jednoj osobi, jednom uređaju ili jednoj lokaciji.",
+    excerpt:
+      "Bitcoin mora ostati pod vašom kontrolom, ali ne smije ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiriću.",
+    category: "Sigurnost i obitelj",
+    order: 102,
+    featured: true,
+    publishedAt: "2026-05-12",
+    updatedAt: "2026-05-12",
+    practicalQuestion:
+      "Može li vaša obitelj razumjeti i oporaviti Bitcoin sustav bez panike, nagađanja i predaje kontrole pogrešnoj osobi?",
+    relatedSlugs: [
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+      "obiteljski-pristup-bitcoinu",
+      "bitcoin-u-neto-imovini",
+    ],
+    visual: {
+      type: "safety",
+      title: "Obiteljski trezor",
+      zones: [
+        {
+          label: "ključevi",
+          description: "jedan ključ nije dovoljan za pomicanje sredstava",
+        },
+        {
+          label: "lokacije",
+          description: "jedna lokacija nije dovoljna za gubitak svega",
+        },
+        {
+          label: "upute",
+          description: "obitelj zna što ne smije napraviti u panici",
+        },
+      ],
+      caption:
+        "Ovo nije univerzalni recept. Ovo je primjer kako razmišljati o obiteljskoj sigurnosti.",
+    },
+    sections: [
+      {
+        heading: "Bitcoin sloboda ima drugu stranu",
+        body: [
+          "Bitcoin donosi slobodu koju prije nismo imali. Možete držati novac bez banke. Možete ga poslati bez dopuštenja. Možete ga čuvati izvan financijskog sustava. Možete ga prenijeti preko granice kao informaciju. Možete ga ostaviti obitelji.",
+          "Ali ta sloboda ima drugu stranu. Ako krivo složite sigurnost, nitko vam ne može vratiti izgubljene ključeve. Ako sve ovisi o vama, obitelj možda neće moći doći do bitcoina ako vam se nešto dogodi. Ako sve stavite na jedno mjesto, jedan požar, jedna krađa ili jedna greška mogu uništiti godine štednje.",
+          "Zato veći iznos bitcoina ne treba promatrati kao aplikaciju na mobitelu. Treba ga promatrati kao obiteljski trezor. Ne trezor u banci. Ne trezor kojemu drugi imaju ključ. Nego osobni sustav u kojem su jasno odvojeni ključevi, uređaji, pričuvne kopije, upute, obiteljski plan, tehnička pomoć i nasljeđivanje.",
+          "Cilj nije napraviti sustav koji izgleda pametno. Cilj je napraviti sustav koji preživi stvarni život.",
+        ],
+      },
+      {
+        heading: "Prvo pitanje nije koji uređaj kupiti",
+        body: [
+          "Većina ljudi sigurnost Bitcoina počinje pitanjem: koji hardverski novčanik kupiti? To nije loše pitanje. Ali nije prvo pitanje.",
+          "Prvo pitanje glasi: što se mora dogoditi ako ja više nisam tu? Ako je odgovor da nitko ne zna, sustav nije dobar. Ako je odgovor da je sve u vašoj glavi, sustav nije dobar. Ako su seed riječi negdje skrivene, ali nitko ne zna gdje, sustav nije dobar.",
+          "Ako obitelj zna da postoji plan, zna gdje su upute, zna koga kontaktirati i zna što ne smije napraviti, tada sustav počinje imati smisla.",
+          "Bitcoin sigurnost nije samo zaštita od lopova. Bitcoin sigurnost je i zaštita od zaborava, požara, smrti, panike, loših uputa i obiteljske nejasnoće.",
+        ],
+      },
+      {
+        heading: "Jednostavna slika: sef s tri ključa",
+        body: [
+          "Za veći obiteljski iznos dobar model može biti višepotpisni sustav, primjerice 2 od 3. To znači da postoje tri ključa, a za pomicanje bitcoina trebaju bilo koja dva.",
+          "Ako imate ključ A i ključ B, možete pomaknuti bitcoin. Ako imate ključ A i ključ C, možete pomaknuti bitcoin. Ako imate ključ B i ključ C, možete pomaknuti bitcoin. Ali jedan ključ sam po sebi nije dovoljan.",
+          "To je kao obiteljski sef koji se ne može otvoriti jednim ključem. Trebaju dva od tri.",
+          "U stvarnom životu stvari nestaju. Uređaj se može pokvariti. Jedna lokacija može izgorjeti. Jedan papir može biti izgubljen. Jedna osoba može postati nedostupna. Jedan proizvođač uređaja može nestati. Jedan član obitelji može pogriješiti.",
+          "Kod jednog ključa, jedna ozbiljna greška može biti kraj. Kod 2 od 3 sustava, jedna greška ne mora biti kraj.",
+        ],
+      },
+      {
+        heading: "Predloženi sustav",
+        body: [
+          "Za ozbiljan obiteljski Bitcoin trezor primjer sustava može izgledati tehnički, ali ideja je jednostavna: jedno računalo provjerava Bitcoin mrežu, drugo služi za rad sa Sparrowom, a tri hardverska novčanika čuvaju ključeve.",
+          "Lenovo mini PC služi za provjeru Bitcoin mreže. ThinkPad služi za otvaranje Sparrowa i pripremu transakcija. Tri hardverska novčanika čuvaju ključeve. Sparrow povezuje sve u jedan obiteljski trezor.",
+          "Sparrow ne treba biti mjesto gdje nastaju ili žive privatni ključevi. Njegova uloga je koordinacija.",
+        ],
+        items: [
+          "Lenovo mini PC",
+          "Debian",
+          "Bitcoin Core",
+          "Fulcrum",
+          "ThinkPad laptop",
+          "Linux Mint",
+          "Sparrow",
+          "COLDCARD Q",
+          "BitBox02 Bitcoin-only",
+          "Foundation Passport Core",
+          "višepotpisni novčanik 2 od 3",
+        ],
+      },
+      {
+        heading: "Zašto ne samo aplikacija na mobitelu?",
+        body: [
+          "Mobitel je dobar za mali iznos. Mobitel nije dobar za obiteljski trezor.",
+          "Na mobitelu su poruke, e-mail, fotografije, aplikacije, poveznice, lažne poruke, ažuriranja, svakodnevna nepažnja i previše navika. Mobitel je stalno povezan s internetom. Često ga nosimo svugdje. Djeca ga diraju. Pada na pod. Može biti ukraden. Može biti kompromitiran.",
+          "Za manji iznos koji koristite svakodnevno, mobilni novčanik može imati smisla. Za obiteljski Bitcoin trezor, ne.",
+          "Obiteljski trezor treba biti dosadan. Treba se koristiti rijetko. Treba biti odvojen od svakodnevnog života.",
+        ],
+      },
+      {
+        heading: "Uloga mini računala",
+        body: [
+          "Lenovo mini PC nije novčanik. On ne čuva bitcoin. Ne čuva seed riječi. Ne potpisuje transakcije.",
+          "Njegova uloga je druga: služi da sami provjeravate Bitcoin mrežu i da ne morate pitati tuđi poslužitelj koliko bitcoina imate.",
+          "Na njemu rade Bitcoin Core i Fulcrum. Bitcoin Core preuzima i provjerava Bitcoin lanac blokova. Fulcrum služi kao privatni Electrum poslužitelj koji Sparrowu brzo odgovara na pitanja: koje adrese imaju povijest, koji su UTXO-i dostupni i kakvo je stanje novčanika.",
+          "Za ozbiljan dugoročan sustav ima smisla koristiti mini PC s barem 2 TB NVMe diskom, žičnom mrežom i stabilnim napajanjem.",
+        ],
+      },
+      {
+        heading: "Zašto privatni Electrum poslužitelj?",
+        body: [
+          "Ako Sparrow koristite preko javnog poslužitelja, taj poslužitelj ne može ukrasti bitcoin. Nema privatne ključeve. Ali može vidjeti previše.",
+          "Može vidjeti koje adrese provjeravate. Može povezati vaše UTXO-e. Može znati kada otvarate novčanik. Ako ne koristite dodatnu zaštitu, može povezati upite s vašom mrežnom adresom.",
+          "Kod malog iznosa to možda nije presudno. Kod većeg obiteljskog trezora jest.",
+          "Bolji model je: Sparrow pita vaš Fulcrum, Fulcrum pita vaš Bitcoin Core, a Bitcoin Core provjerava Bitcoin mrežu. To znači da vaš novčanik ne pita nepoznati javni poslužitelj što posjedujete. Pita vaš vlastiti poslužitelj.",
+        ],
+      },
+      {
+        heading: "Uloga ThinkPada",
+        body: [
+          "ThinkPad s Linux Mintom je obiteljsko Bitcoin računalo. Na njemu je Sparrow.",
+          "To računalo ne služi za posao, e-mail, dopisivanje, YouTube, društvene mreže, bankarstvo i svakodnevno surfanje. Ako postane svakodnevno računalo, sigurnosna korist se smanjuje.",
+          "Njegova uloga je jednostavna: otvoriti Sparrow, spojiti se na privatni Fulcrum, vidjeti stanje trezora, pripremiti transakciju, potpisati je s dva hardverska novčanika, zatvoriti Sparrow i ugasiti računalo.",
+          "Za poslužitelj ima smisla koristiti Debian. Za laptop koji netko stvarno treba otvoriti i koristiti, Linux Mint je pristupačniji izbor.",
+        ],
+      },
+      {
+        heading: "Uloga Sparrowa",
+        body: [
+          "Sparrow je kontrolna ploča. On pokazuje stanje, adrese, transakcije, UTXO-e, naknade i strukturu novčanika. On priprema transakciju.",
+          "Ali Sparrow ne bi trebao čuvati privatne ključeve za obiteljski trezor.",
+          "Dobar model je jednostavan: Sparrow vidi i priprema, hardverski novčanici potpisuju, privatni ključevi ostaju izvan računala.",
+          "Zato je Sparrow dobar za obiteljski trezor: dovoljno je moćan za ozbiljan sustav, ali ne mora biti mjesto najvećeg rizika.",
+        ],
+      },
+      {
+        heading: "Tri hardverska novčanika",
+        body: [
+          "Za 2 od 3 sustav ima smisla koristiti tri različita proizvođača: COLDCARD Q, BitBox02 Bitcoin-only i Foundation Passport Core.",
+          "Ne zato što su to jedini mogući uređaji. Nego zato što daju dobar omjer sigurnosti, različitosti i praktičnosti.",
+          "Ne bih kupio tri ista uređaja. Ne želite da cijeli obiteljski trezor ovisi o jednom proizvođaču, jednom ugrađenom softveru, jednom načinu rada i jednom mogućem problemu.",
+          "Tri različita uređaja smanjuju ovisnost o jednoj točki kvara.",
+        ],
+      },
+      {
+        heading: "COLDCARD Q",
+        body: [
+          "COLDCARD Q bih koristio kao glavni sigurnosni potpisnik. To je uređaj za osobu koja razumije Bitcoin i želi stroži način rada. Ima fizičku tipkovnicu, veliki ekran, QR čitač, dva microSD utora i može raditi na baterije.",
+          "Njegova uloga u obitelji može biti ključ A: glavni sigurnosni ključ, najbolje kod osobe koja vodi sustav. Ne mora ga svaki član obitelji koristiti svakodnevno.",
+          "COLDCARD je odličan, ali nije najjednostavniji uređaj za početnika. Zato ne bih cijeli obiteljski plan gradio tako da ga svi moraju znati koristiti pod stresom.",
+        ],
+      },
+      {
+        heading: "BitBox02 Bitcoin-only",
+        body: [
+          "BitBox02 Bitcoin-only bih koristio kao najjednostavniji obiteljski potpisnik. Prednost Bitcoin-only inačice je manja složenost. Manje mogućnosti znači manje stvari koje mogu zbuniti korisnika.",
+          "Njegova uloga može biti ključ B: jednostavniji obiteljski ključ, dobar za člana obitelji koji ne želi tehnički kompleksan uređaj i koristi se preko USB-a sa Sparrowom.",
+          "BitBox02 nije najstroži zračni uređaj, ali je praktičan i razumljiv. U 2 od 3 sustavu to je prednost.",
+        ],
+      },
+      {
+        heading: "Foundation Passport Core",
+        body: [
+          "Passport Core bih koristio kao treći ključ. Njegova prednost je zračni način rada preko QR kodova. To znači da za potpisivanje ne mora biti izravno spojen kabelom na računalo.",
+          "Njegova uloga može biti ključ C: treći obiteljski ključ, dobar za zračni QR način rada i dobar za nasljedni plan.",
+          "Passport je dobar jer je vizualno razumljiviji od COLDCARD-a, a ipak ostaje ozbiljan uređaj.",
+        ],
+      },
+      {
+        heading: "Zašto 2 od 3, a ne 3 od 3?",
+        body: [
+          "3 od 3 izgleda sigurnije, ali u stvarnom životu često nije. Ako su potrebna sva tri ključa, gubitak jednog ključa znači problem.",
+          "Kod 2 od 3 sustava gubitak jednog ključa nije kraj. Ako se jedan uređaj pokvari, ako jedna lokacija izgori ili ako jedna pričuvna kopija nestane, i dalje postoje dva ključa.",
+          "Za obitelj je to važno. Cilj nije samo spriječiti krađu. Cilj je spriječiti i gubitak pristupa.",
+        ],
+      },
+      {
+        heading: "Što su seed riječi?",
+        body: [
+          "Seed riječi su pričuvna kopija ključa. Hardverski novčanik je uređaj. Može se pokvariti, izgubiti ili prestati raditi. Seed riječi omogućuju da se isti ključ obnovi na novom uređaju.",
+          "Zato seed riječi treba čuvati ozbiljnije od samog uređaja.",
+          "Bitcoin nije na uređaju. Bitcoin je na Bitcoin mreži. Uređaj čuva ključ kojim se može potpisati transakcija. Seed riječi su pričuvna kopija tog ključa.",
+        ],
+      },
+      {
+        heading: "Kako se čuvaju seed riječi?",
+        body: [
+          "Seed riječi se čuvaju fizički. Ne digitalno.",
+          "Za ozbiljan obiteljski sustav, seed se prvo zapiše na papir radi provjere, a zatim se trajno spremi na metalnu pričuvnu kopiju.",
+          "Papir je dobar za početak, ali može izgorjeti, smočiti se ili propasti. Metalna pričuvna kopija je bolja za dugoročnu pohranu.",
+          "Seed riječi nikada ne idu u mobitel, mrežnu pohranu, e-mail ili fotografiju.",
+        ],
+        items: [
+          "ne slikati mobitelom",
+          "ne spremati u bilješke na mobitelu",
+          "ne spremati u Google Drive",
+          "ne slati e-mailom",
+          "ne stavljati u upravitelj lozinki",
+          "ne printati preko tuđeg printera",
+          "ne diktirati preko telefona",
+        ],
+      },
+      {
+        heading: "Seed i uređaj ne stoje zajedno",
+        body: [
+          "Hardverski novčanik i njegove seed riječi ne držite zajedno. Loš primjer je ladica doma u kojoj stoje COLDCARD Q, COLDCARD seed riječi i upute. Ako lopov pronađe tu ladicu, pronašao je previše.",
+          "Bolji primjer je da kod kuće stoji COLDCARD Q, a na drugoj lokaciji COLDCARD seed pričuvna kopija. Uređaj i njegova pričuvna kopija trebaju biti razdvojeni.",
+          "Ako netko ukrade uređaj, nema njegov seed. Ako netko pronađe seed, nema ostale ključeve. Kod 2 od 3 sustava jedan seed nije dovoljan za krađu, ali svejedno ne treba olakšavati napad.",
+        ],
+      },
+      {
+        heading: "Konkretan primjer raspodjele u Hrvatskoj",
+        body: [
+          "Zamislimo realnu obitelj u Hrvatskoj. Postoji glavni dom. Postoji druga obiteljska lokacija. Postoji bankovni sef ili odvjetnik. Postoji još jedna lokacija kod pouzdane osobe ili u drugom gradu.",
+          "Ovo nije jedina moguća raspodjela. Ali pokazuje glavno pravilo: ne držati sve na jednom mjestu.",
+        ],
+        items: [
+          "Lokacija A, dom: Lenovo mini PC, ThinkPad, COLDCARD Q, obiteljska uputa bez seed riječi i kopija Sparrow opisnika.",
+          "Lokacija B, bankovni sef: BitBox02, COLDCARD seed pričuvna kopija i zapečaćena uputa za nasljednike.",
+          "Lokacija C, odvjetnik ili osoba od povjerenja: Passport Core, BitBox02 seed pričuvna kopija i kontakt tehničke osobe.",
+          "Lokacija D, druga obiteljska lokacija: Passport seed pričuvna kopija, dodatna kopija Sparrow opisnika i tehnički dodatak.",
+        ],
+      },
+      {
+        heading: "Što je Sparrow opisnik?",
+        body: [
+          "Kod 2 od 3 sustava nisu dovoljna samo tri seeda. Treba znati kako su ta tri ključa spojena u jedan novčanik.",
+          "To je uloga Sparrow opisnika, pravila novčanika ili izvoza novčanika. U tehničkim alatima često ćete vidjeti riječ descriptor. Ovdje ga zovemo opisnik jer opisuje strukturu novčanika.",
+          "Opisnik sam po sebi ne bi trebao biti dovoljan za krađu, jer ne sadrži privatne ključeve. Ali otkriva privatnost novčanika. Zato ga ne treba držati javno ili u mapi za mrežnu pohranu.",
+          "Za nasljeđivanje je iznimno važan. Bez njega nasljednici mogu imati seedove, ali ne znati kako rekonstruirati novčanik.",
+        ],
+        items: [
+          "ovo je 2 od 3 višepotpisni novčanik",
+          "ovo su javni ključevi",
+          "ovo su fingerprinti",
+          "ovo su derivation pathovi",
+          "ovo je tip adresa",
+          "ovo je način na koji se novčanik rekonstruira",
+        ],
+      },
+      {
+        heading: "Kako izgleda primanje bitcoina?",
+        body: [
+          "Primanje je jednostavno. Za primanje ne trebaju hardverski novčanici.",
+          "Kod ozbiljnog iznosa ne žuri se. Prvo mali test. Zatim veći prijenos.",
+        ],
+        items: [
+          "Upalite ThinkPad.",
+          "Otvorite Sparrow.",
+          "Sparrow se spoji na vaš Fulcrum.",
+          "Kliknete Receive.",
+          "Sparrow pokaže novu adresu.",
+          "Provjerite adresu.",
+          "Pošaljete mali testni iznos.",
+          "Pričekate potvrdu.",
+          "Tek zatim šaljete veći iznos.",
+        ],
+      },
+      {
+        heading: "Kako izgleda slanje bitcoina?",
+        body: [
+          "Slanje traži dva potpisa. Primjerice, koristite COLDCARD i BitBox.",
+          "Ako COLDCARD nije dostupan, možete koristiti BitBox i Passport. Ako BitBox nije dostupan, možete koristiti COLDCARD i Passport. Ako Passport nije dostupan, možete koristiti COLDCARD i BitBox. To je poanta 2 od 3 sustava.",
+        ],
+        items: [
+          "Upalite ThinkPad.",
+          "Otvorite Sparrow.",
+          "Sparrow pokaže stanje trezora.",
+          "Unesete adresu primatelja.",
+          "Provjerite adresu više puta.",
+          "Sparrow pripremi nepotpisanu transakciju.",
+          "COLDCARD potpiše transakciju.",
+          "BitBox potpiše transakciju.",
+          "Sparrow pošalje transakciju u Bitcoin mrežu.",
+          "Zapišete što ste napravili.",
+        ],
+      },
+      {
+        heading: "Što ako izgori dom?",
+        body: [
+          "Ako izgori dom, možda ste izgubili ThinkPad, Lenovo mini PC i COLDCARD Q. Ali niste izgubili bitcoin.",
+          "I dalje mogu postojati BitBox02 na lokaciji B, Passport Core na lokaciji C, COLDCARD seed pričuvna kopija na lokaciji B, BitBox seed pričuvna kopija na lokaciji C, Passport seed pričuvna kopija na lokaciji D i Sparrow opisnik na lokaciji D.",
+          "Tada kupite novi laptop, instalirate Sparrow, učitate opisnik i koristite dva dostupna ključa za premještanje sredstava u novi sustav.",
+          "Bitcoin nije nestao jer jedna lokacija nije bila dovoljna za uništenje cijelog sustava.",
+        ],
+      },
+      {
+        heading: "Što ako netko ukrade jedan uređaj?",
+        body: [
+          "Ako netko ukrade COLDCARD, nema dovoljno za krađu. Treba mu još jedan ključ. Ako netko ukrade jednu seed pričuvnu kopiju, opet nema dovoljno za krađu.",
+          "To je ogromna razlika u odnosu na jednostavni novčanik gdje jedan seed znači sve.",
+          "Ali to ne znači da kompromitaciju ignorirate. Ako posumnjate da je jedan ključ otkriven, treba mirno napraviti novi sustav i premjestiti sredstva u novi 2 od 3 trezor.",
+        ],
+      },
+      {
+        heading: "Što ako se vama nešto dogodi?",
+        body: [
+          "Ovo je najvažniji test. Ako se vama nešto dogodi, obitelj ne smije ostati s rečenicom: znamo da postoji bitcoin, ali ne znamo što sada.",
+          "Zato mora postojati obiteljski dokument. Taj dokument ne mora sadržavati seed riječi. Dapače, ne bi trebao sadržavati sve što je potrebno za krađu. Ali mora objasniti sustav.",
+          "Obitelj ne mora odmah razumjeti UTXO, PSBT, opisnik i derivation path. Ali mora znati što ne smije napraviti.",
+        ],
+        items: [
+          "Ova obitelj ima Bitcoin trezor složen kao 2 od 3 višepotpisni sustav.",
+          "Za pomicanje sredstava trebaju dva od tri ključa.",
+          "Ključ A: COLDCARD Q.",
+          "Ključ B: BitBox02 Bitcoin-only.",
+          "Ključ C: Passport Core.",
+          "Ne unositi seed riječi u mobitel.",
+          "Ne slikati seed riječi.",
+          "Ne slati seed riječi nikome.",
+          "Ne tražiti pomoć na Telegramu.",
+          "Ne vjerovati nikome tko se javlja kao podrška.",
+          "Ne žuriti.",
+          "Prvo otvoriti upute, zatim kontaktirati osobu X i odvjetnika Y.",
+        ],
+      },
+      {
+        heading: "Dvije razine dokumentacije",
+        body: [
+          "Za obiteljski Bitcoin trezor trebaju dvije vrste uputa.",
+          "Obiteljska uputa pisana je jednostavnim jezikom. Sadrži što postoji, što se ne smije napraviti, gdje su opće lokacije, koga kontaktirati, koji je redoslijed koraka i zašto ne treba žuriti. Ne sadrži sve seed riječi i ne sadrži sve privatne tajne na jednom mjestu.",
+          "Tehnički dodatak pisan je za osobu koja zna Sparrow i Bitcoin. To nije dokument za svakodnevno čitanje. To je dokument za oporavak.",
+        ],
+        items: [
+          "naziv novčanika",
+          "2 od 3 struktura",
+          "tip adresa",
+          "fingerprinti",
+          "xpubovi",
+          "derivation pathovi",
+          "opisnik novčanika",
+          "Sparrow izvoz novčanika",
+          "upute za uvoz u Sparrow",
+          "upute za spajanje na privatni Fulcrum",
+          "upute za potpisivanje s dva uređaja",
+        ],
+      },
+      {
+        heading: "Gdje stoji obiteljska uputa?",
+        body: [
+          "Obiteljska uputa može stajati doma, u bankovnom sefu, kod odvjetnika, kod javnog bilježnika ili kod osobe od povjerenja.",
+          "Ali treba paziti: nitko ne smije imati sve dijelove sam.",
+          "Dobar plan dopušta obitelji pristup u slučaju smrti, ali ne dopušta jednoj osobi jednostavnu krađu.",
+        ],
+      },
+      {
+        heading: "Što s odvjetnikom ili javnim bilježnikom?",
+        body: [
+          "U Hrvatskoj je realno koristiti odvjetnika, javnog bilježnika ili bankovni sef kao dio obiteljskog plana.",
+          "Ali treba biti jasan: većina odvjetnika i javnih bilježnika ne razumije Bitcoin višepotpisni sustav. Zato im se ne daje tehnička odgovornost koju ne mogu nositi.",
+          "Njihova uloga može biti čuvati zapečaćenu uputu, potvrditi identitet nasljednika, otvoriti dokument u slučaju smrti ili držati jedan fizički dio plana.",
+          "Ne bih očekivao da odvjetnik zna rekonstruirati Sparrow novčanik. Za to treba posebna tehnička osoba od povjerenja.",
+        ],
+      },
+      {
+        heading: "Tehnička osoba od povjerenja",
+        body: [
+          "Dobro je imati jednu osobu koja razumije Bitcoin dovoljno da pomogne obitelji. Ali ta osoba ne bi trebala sama imati pristup sredstvima.",
+          "To je važna razlika. Tehnička osoba zna pomoći, ali nema dva ključa, nema sve seedove i nema potpunu kontrolu.",
+          "Tako obitelj ima pomoć, ali ne stvara se nova točka povjerenja.",
+        ],
+      },
+      {
+        heading: "Treba li koristiti passphrase?",
+        body: [
+          "Za obiteljski sustav bio bih oprezan. Passphrase može povećati sigurnost, ali može uništiti nasljeđivanje.",
+          "Ako passphrase zna samo jedna osoba i ta osoba umre, obitelj može imati uređaje, seedove i upute, ali i dalje izgubiti pristup.",
+          "Kod 2 od 3 sustava već postoji jaka sigurnost. Zato bih u prvoj verziji radije imao čist 2 od 3 bez dodatne passphrase komplikacije.",
+          "Passphrase ima smisla tek ako je i njezin oporavak savršeno dokumentiran. Za većinu obitelji vrijedi pravilo: bolji je sustav koji obitelj stvarno može oporaviti nego savršeno tvrd sustav koji nitko ne zna koristiti.",
+        ],
+      },
+      {
+        heading: "Godišnja provjera",
+        body: [
+          "Obiteljski Bitcoin trezor treba provjeriti barem jednom godišnje. Ne zato što Bitcoin treba održavanje. Bitcoin mreža radi bez vas. Ali vaši uređaji, dokumenti, lokacije i ljudi trebaju provjeru.",
+          "Može se napraviti i mali test s malim iznosom. Cilj nije stalno micati veliki bitcoin. Cilj je provjeriti da sustav radi.",
+        ],
+        items: [
+          "Lenovo mini PC se pali",
+          "Bitcoin Core radi",
+          "Fulcrum radi",
+          "ThinkPad se pali",
+          "Sparrow se otvara",
+          "novčanik pokazuje očekivano stanje",
+          "COLDCARD se pali",
+          "BitBox se pali",
+          "Passport se pali",
+          "zna se gdje su seed pričuvne kopije",
+          "obiteljska uputa je ažurna",
+          "tehnička osoba je dostupna",
+          "lokacije su i dalje valjane",
+        ],
+      },
+      {
+        heading: "Najveće greške",
+        body: [
+          "Najveće greške nisu uvijek tehničke. Najveće greške su često ljudske.",
+          "Dobar sustav smanjuje potrebu za improvizacijom.",
+        ],
+        items: [
+          "svi seedovi u istoj kuverti",
+          "sva tri uređaja u istoj ladici",
+          "seed riječi fotografirane mobitelom",
+          "seed riječi spremljene u mrežnu pohranu",
+          "Sparrow bez opisnika",
+          "passphrase koju zna samo jedna osoba",
+          "obitelj ne zna da plan postoji",
+          "obitelj zna da bitcoin postoji, ali ne zna što ne smije napraviti",
+          "tehnička osoba ima previše kontrole",
+          "sve se radi u panici",
+        ],
+      },
+      {
+        heading: "Kako ovo objasniti obitelji?",
+        body: [
+          "Ne treba početi s tehnologijom. Treba reći jednostavno: imamo obiteljski Bitcoin sef. Ne otvara se jednim ključem. Postoje tri ključa, a trebaju dva. Jedan ključ sam po sebi nije dovoljan.",
+          "Ako se meni nešto dogodi, postoje upute. Ne smijete slikati riječi, slati ih nikome ni unositi ih u aplikacije. Ne treba žuriti. Prvo se čitaju upute i zove se osoba navedena u dokumentu.",
+          "Obitelj ne mora odmah znati sve. Ali mora znati da sustav postoji i da se ne smije dirati panično.",
+        ],
+      },
+      {
+        heading: "Zašto je ovo dio osobnog Bitcoin standarda?",
+        body: [
+          "Bitcoin standard nije samo odluka da imate bitcoin. To je odluka da vaš novac ima mjesto u životu.",
+          "Prvo dolazi proračun. Zatim izlazak iz duga. Zatim davanje. Zatim ravnoteža u neto imovini. Zatim pitanje sigurnosti, obitelji i nasljeđivanja.",
+          "Ako bitcoin postane značajan dio neto imovine, pitanje sigurnosti više nije tehničko pitanje. To je obiteljsko pitanje.",
+          "Tko zna da bitcoin postoji? Tko zna što treba napraviti? Tko ima previše pristupa? Tko nema dovoljno informacija? Što se događa u slučaju smrti? Što se događa u slučaju požara? Što se događa ako jedan uređaj nestane? Što se događa ako obitelj ne zna razlikovati pravi Sparrow od lažne aplikacije?",
+          "To su pitanja osobnog Bitcoin standarda.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Za veći obiteljski iznos ne bih koristio jedan mobitel, jednu aplikaciju, jedan seed i jednu ladicu.",
+          "Koristio bih sustav: Lenovo mini PC s Bitcoin Coreom i Fulcrumom, ThinkPad s Linux Mintom i Sparrowom, COLDCARD Q, BitBox02 Bitcoin-only, Passport Core, 2 od 3 višepotpisni novčanik, odvojene lokacije, metalne seed pričuvne kopije, Sparrow opisnik, obiteljsku uputu, tehnički dodatak i godišnju provjeru.",
+          "Najjednostavnije rečeno: Bitcoin mora ostati pod vašom kontrolom, ali ne smije ovisiti samo o vama.",
+        ],
+      },
+    ],
+    finalCta: "Dogovorite uvodni Bitcoin razgovor",
+    finalCtaPrompt:
+      "Ako imate značajniji iznos u Bitcoinu, sigurnost više nije samo pitanje uređaja. Pitanje je može li vaša obitelj razumjeti i oporaviti sustav bez panike.",
+  },
+  {
     slug: "obiteljski-pristup-bitcoinu",
     title: "Kako obitelj može pristupiti Bitcoinu ako vam se nešto dogodi?",
     seoTitle: "Bitcoin nasljeđivanje i obitelj",
@@ -1668,7 +2111,7 @@ export const guidesIndexAdditionalGroups = [
   },
   {
     title: "Sigurnost i obitelj",
-    slugs: ["obiteljski-pristup-bitcoinu"],
+    slugs: ["obiteljski-bitcoin-trezor", "obiteljski-pristup-bitcoinu"],
   },
 ] as const
 
@@ -1691,6 +2134,7 @@ export const guidesIndexOrderedSlugs = [
   "bitcoin-u-neto-imovini",
   "pravilo-trecina",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "obiteljski-bitcoin-trezor",
   "obiteljski-pristup-bitcoinu",
 ]
 
@@ -1705,6 +2149,7 @@ export const recommendedGuideSlugs = [
   "uskladivanje-kupovne-moci-bitcoina",
   "pravilo-trecina",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "obiteljski-bitcoin-trezor",
   "obiteljski-pristup-bitcoinu",
 ]
 

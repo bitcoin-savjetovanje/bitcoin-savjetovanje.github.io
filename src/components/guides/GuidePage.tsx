@@ -241,7 +241,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 data-cta="guide-final-intro-call"
               >
                 <CalendarDays className="size-4" />
-                Dogovorite uvodni razgovor
+                {guide.finalCta}
               </a>
             </Button>
           </div>

@@ -5,6 +5,7 @@ const positiveMoneyGuidePath = "/vodici/pozitivni-neto-priljev/"
 const debtChoiceGuidePath = "/vodici/dug-ili-bitcoin/"
 const bitcoinMoneyGuidePath = "/vodici/bitcoin-kao-novac/"
 const thirdsGuidePath = "/vodici/pravilo-trecina/"
+const familyVaultGuidePath = "/vodici/obiteljski-bitcoin-trezor/"
 const familyGuidePath = "/vodici/obiteljski-pristup-bitcoinu/"
 const securityGuidePath = "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"
 const failures = []
@@ -392,6 +393,15 @@ const pageChecks = [
     includes: [
       "Ovo nije preporuka da kupujete ili prodajete određenu imovinu.",
       "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu",
+    ],
+  },
+  {
+    path: familyVaultGuidePath,
+    includes: [
+      "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
+      "Ovo nije univerzalni recept. Ovo je primjer kako razmišljati o obiteljskoj sigurnosti.",
+      "Seed riječi nikada ne idu u mobitel, mrežnu pohranu, e-mail ili fotografiju.",
+      "Dogovorite uvodni Bitcoin razgovor",
     ],
   },
   {

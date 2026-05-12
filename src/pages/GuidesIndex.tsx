@@ -59,6 +59,7 @@ const roadmapGroups = [
     title: "Korak 6 — Sigurnost i obitelj",
     slugs: [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
+      "obiteljski-bitcoin-trezor",
       "obiteljski-pristup-bitcoinu",
     ],
   },

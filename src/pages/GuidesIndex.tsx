@@ -52,6 +52,7 @@ const roadmapGroups = [
       "novac-kapital-potrosnja",
       "bitcoin-u-neto-imovini",
       "pravilo-trecina",
+      "bitcoin-etfovi-i-riznicke-kompanije",
     ],
   },
   {
@@ -60,6 +61,7 @@ const roadmapGroups = [
     slugs: [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "obiteljski-bitcoin-trezor",
+      "samostalna-pohrana-ili-skrbnik",
       "bitkey-bitcoin-sigurnost",
       "obiteljski-pristup-bitcoinu",
     ],

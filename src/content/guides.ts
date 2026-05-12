@@ -1407,6 +1407,248 @@ const guideEntries: Guide[] = [
       "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu, to vrijedi razjasniti u razgovoru.",
   },
   {
+    slug: "bitcoin-etfovi-i-riznicke-kompanije",
+    title:
+      "Bitcoin ETF-ovi i rizničke kompanije: gdje prestaje Bitcoin, a počinje kapital",
+    seoTitle:
+      "Bitcoin ETF-ovi i rizničke kompanije: gdje prestaje Bitcoin, a počinje kapital",
+    metaDescription:
+      "Vodič koji objašnjava razliku između bitcoina u vlastitoj pohrani, ETF-ova, burzi i Bitcoin rizničkih kompanija poput Strategyja i MSTR-a.",
+    excerpt:
+      "ETF-ovi, brokeri, burze i Bitcoin rizničke kompanije mogu imati mjesto u imovini, ali nisu isto što i bitcoin u vlastitom posjedu.",
+    category: "Neto imovina",
+    order: 92,
+    publishedAt: "2026-05-12",
+    updatedAt: "2026-05-12",
+    practicalQuestion:
+      "Znate li posjedujete li bitcoin, vrijednosni papir, potraživanje ili kapitalnu izloženost povezanu s Bitcoinom?",
+    relatedSlugs: [
+      "samostalna-pohrana-ili-skrbnik",
+      "novac-kapital-potrosnja",
+      "bitcoin-u-neto-imovini",
+    ],
+    visual: {
+      type: "thirds",
+      title: "Tri oblika Bitcoin izloženosti",
+      columns: [
+        {
+          label: "bitcoin",
+          description: "novac pod osobnom kontrolom",
+        },
+        {
+          label: "ETF ili burza",
+          description: "financijska izloženost uz skrbnika",
+        },
+        {
+          label: "riznička kompanija",
+          description: "kapitalno dobro povezano s Bitcoinom",
+        },
+      ],
+      caption:
+        "Ovo je edukativni okvir za razmišljanje, ne investicijski, porezni ili pravni savjet.",
+    },
+    sections: [
+      {
+        heading: "Bitcoin pitanje je postalo šire",
+        body: [
+          "Nakon 2024. godine pitanje Bitcoina u osobnoj imovini postalo je šire.",
+          "Prije su glavne opcije bile jednostavnije: kupiti bitcoin na burzi, ostaviti ga tamo ili ga povući u vlastiti novčanik.",
+          "Danas postoji više slojeva. Postoje Bitcoin ETF-ovi. Postoje brokerski računi. Postoje burze. Postoje kompanije koje drže Bitcoin u vlastitoj riznici. Postoje povlaštene dionice i drugi proizvodi povezani s kompanijama koje koriste Bitcoin kao temelj kapitalne strukture.",
+          "To ne znači da su svi ti proizvodi isto što i Bitcoin. Nisu.",
+          "Ali znači da osoba ili obitelj danas može imati različite oblike izloženosti Bitcoinu.",
+          "Neki oblici pripadaju području novca pod osobnom kontrolom. Neki pripadaju području kapitalnih dobara. Neki su prijelazna rješenja. Neki su prikladni samo za osobe koje razumiju dodatne rizike.",
+          "Zato ih treba jasno razdvojiti.",
+        ],
+      },
+      {
+        heading: "Spot Bitcoin ETF-ovi",
+        body: [
+          "U siječnju 2024. američka Komisija za vrijednosne papire odobrila je uvrštenje i trgovanje više spot Bitcoin proizvoda kojima se trguje na burzi. Time je Bitcoin ušao u standardni brokerski i institucionalni okvir na način koji prije nije postojao u SAD-u.",
+          "Među najpoznatijim proizvodima su BlackRock iShares Bitcoin Trust — IBIT, Fidelity Wise Origin Bitcoin Fund — FBTC, Bitwise Bitcoin ETF — BITB, ARK 21Shares Bitcoin ETF — ARKB, Franklin Bitcoin ETF — EZBC, Invesco Galaxy Bitcoin ETF — BTCO, VanEck Bitcoin Trust — HODL, WisdomTree Bitcoin Fund — BTCW i Grayscale Bitcoin Trust — GBTC.",
+          "Za osobu koja već ima brokerski račun i portfelj vrijednosnih papira, to je velika promjena.",
+          "Bitcoin više nije dostupan samo kroz burze za kriptoimovinu ili vlastiti novčanik. Može biti i dio portfelja vrijednosnih papira.",
+          "To ima prednosti. Ima i mane.",
+        ],
+      },
+      {
+        heading: "Prednosti Bitcoin ETF-a",
+        body: [
+          "Prva prednost je jednostavnost. Ako obitelj već ima brokerski račun, vrijednosne papire i naviku ulaganja kroz brokera, Bitcoin ETF je razumljiviji od seed riječi, hardverskih novčanika i višepotpisnih sustava.",
+          "Druga prednost je administracija. ETF se uklapa u brokerske izvještaje, portfelj, nasljeđivanje vrijednosnih papira i uobičajene investicijske procese.",
+          "Treća prednost je skrbnička infrastruktura. Kod velikih izdavatelja postoje revizori, skrbnici, brokeri, regulatori, tržišni sudionici i javna izvješća. To ne uklanja rizik, ali znači da proizvod ne ovisi o jednoj osobi koja kod kuće čuva papirić.",
+          "Četvrta prednost je psihološka. Za obitelj koja se boji samostalne pohrane, ETF može biti prvi korak prema razumijevanju Bitcoina.",
+          "ETF ne uklanja volatilnost Bitcoina. On uklanja dio operativne složenosti.",
+        ],
+      },
+      {
+        heading: "Mane Bitcoin ETF-a",
+        body: [
+          "Glavna mana je jasna: nemate privatne ključeve. Imate vrijednosni papir.",
+          "To može biti korisno. Ali nije isto što i bitcoin u vlastitom posjedu.",
+          "ETF ne daje istu otpornost na cenzuru. Ne možete poslati bitcoin iz ETF-a izravno drugoj osobi. Ne možete koristiti Bitcoin mrežu bez posrednika.",
+          "Ovisite o brokeru, izdavatelju, skrbniku, tržišnoj infrastrukturi, regulatornom okruženju i pravilima proizvoda.",
+          "Također, ETF ima troškove, strukturu, pravila, moguće razlike između tržišne cijene i vrijednosti imovine u pozadini te pravni okvir koji nije isti kao izravno držanje bitcoina.",
+          "Za hrvatske i europske ulagače postoji još jedan praktičan sloj: američki ETF-ovi nisu nužno dostupni svakom malom ulagaču u Europskoj uniji. Konkretna dostupnost ovisi o brokeru, statusu klijenta, jurisdikciji i dokumentaciji proizvoda.",
+          "Ovo nije porezni, pravni ni investicijski savjet. Ovo je okvir za razmišljanje.",
+        ],
+      },
+      {
+        heading: "ETF kao dio obiteljskog portfelja",
+        body: [
+          "Za obitelj koja već ima portfelj vrijednosnih papira, ETF može imati mjesto.",
+          "Primjerice, obitelj može imati dio imovine u dionicama, dio u obveznicama ili novčanim fondovima, dio u nekretnini, dio u bitcoinu u vlastitoj pohrani i dio u Bitcoin ETF-u.",
+          "To može biti razumno ako je jasno zašto se svaki dio drži.",
+          "ETF može biti dio koji je administrativno lakši, uklopljen u postojeći brokerski sustav i obitelji razumljiviji.",
+          "Vlastiti bitcoin može biti dio koji daje suverenost, otpornost na cenzuru i kontrolu.",
+          "To nisu isti dijelovi. I ne moraju imati istu funkciju.",
+        ],
+      },
+      {
+        heading: "Burze i mjenjačnice",
+        body: [
+          "Burza ili mjenjačnica često je prvi dodir s Bitcoinom. To je normalno.",
+          "Problem nastaje kada burza postane trajna pohrana velikog iznosa bez jasnog razloga.",
+          "Burza je korisna za kupnju, prodaju i likvidnost. Ali ako dugoročno držite bitcoin na burzi, preuzimate rizik burze.",
+          "Rizik može biti poslovni rizik, regulatorni rizik, sigurnosni rizik, rizik zamrzavanja računa, rizik povlačenja sredstava, rizik da burza nema ono što tvrdi i rizik da obitelj ne zna pristupiti računu.",
+          "Zato pitanje nije je li burza uvijek loša. Pitanje je: zašto je taj iznos tamo i koliko dugo treba ostati tamo?",
+          "Mali iznos radi likvidnosti može imati smisla. Velik dugoročni iznos bez plana obično nema.",
+        ],
+      },
+      {
+        heading: "Bitcoin rizničke kompanije",
+        body: [
+          "Zadnjih godina nastao je još jedan sloj: kompanije koje drže Bitcoin kao ključnu imovinu u svojoj riznici.",
+          "Najpoznatiji primjer je Strategy, ranije MicroStrategy, s oznakom MSTR.",
+          "Ova kompanija nije samo dionica softverske firme. Tržište je sve više gleda kao kompaniju čija je kapitalna struktura izgrađena oko Bitcoina.",
+          "To ne znači da je MSTR isto što i bitcoin. Nije.",
+          "MSTR je dionica kompanije. Ali vrijednost i rizik kompanije snažno su povezani s Bitcoinom.",
+        ],
+      },
+      {
+        heading: "Rafinerija nafte kao usporedba",
+        body: [
+          "Michael Saylor često koristi usporedbu s rafinerijom.",
+          "Rafinerija ne prodaje samo sirovu naftu. Ona uzima naftu kao ulaznu sirovinu i iz nje proizvodi benzin, dizel, kerozin, motorna ulja, plastiku i kemijske proizvode.",
+          "Svaki proizvod ima drugačiju namjenu, kupca, cijenu, rizik i potražnju.",
+          "Slična ideja stoji iza Bitcoin rizničke kompanije. Bitcoin je osnovna sirovina. Kompanija zatim koristi kapitalna tržišta da oko tog Bitcoina stvori različite vrijednosne papire: običnu dionicu, povlaštene dionice, kreditne instrumente i proizvode s različitim profilom prinosa i volatilnosti.",
+          "Neki ulagači žele snažniju izloženost Bitcoinu. Neki žele prihod. Neki žele manju volatilnost. Neki žele likvidan vrijednosni papir u brokerskom računu. Neki žele proizvod koji se ponaša drukčije od samog Bitcoina.",
+          "To je logika rafinerije. Ali treba razumjeti: to više nije čisti Bitcoin. To je kapitalna struktura kompanije koja koristi Bitcoin kao temelj.",
+        ],
+      },
+      {
+        heading: "MSTR kao pojačana izloženost Bitcoinu",
+        body: [
+          "Dionica MSTR-a često se ponaša kao pojačana izloženost Bitcoinu.",
+          "Kada Bitcoin raste, MSTR može rasti jače. Kada Bitcoin pada, MSTR može padati jače.",
+          "Razlog je što kompanija ne drži samo bitcoin pasivno. Ona koristi dug, izdavanje dionica, povlaštene instrumente i tržišnu premiju kako bi povećavala količinu bitcoina po dionici.",
+          "To može stvoriti dodatnu vrijednost. Ali može stvoriti i dodatni rizik.",
+          "MSTR nije bitcoin. MSTR je dionica kompanije s poslovnom, financijskom, tržišnom i upravljačkom složenošću.",
+          "Zato ga ne treba promatrati kao zamjenu za bitcoin u vlastitom posjedu. Više ima smisla promatrati ga kao kapitalno dobro povezano s Bitcoinom.",
+        ],
+      },
+      {
+        heading: "STRC: Stretch kao drukčiji proizvod",
+        body: [
+          "STRC je Strategyjev Stretch, promjenjiva povlaštena dionica bez dospijeća.",
+          "Strategy ga opisuje kao kratkoročni visokoprinosni kreditni proizvod koji trenutačno plaća 11,50% godišnje dividende u gotovini, mjesečno, s promjenjivom stopom koja se prilagođava kako bi se trgovanje održavalo oko 100 dolara nominalne vrijednosti i smanjila volatilnost cijene.",
+          "Tu treba biti vrlo oprezan. Trenutna stopa od 11,50% nije zajamčena zauvijek. Stopa se može mijenjati. Dividenda se isplaćuje samo ako je proglasi nadležno tijelo kompanije i ako postoje zakonski raspoloživa sredstva.",
+          "Ovo nije obveznica bez rizika. Ovo nije novac. Ovo nije bitcoin u vlastitom posjedu.",
+          "Strategy je predložio češću, polumjesečnu isplatu dividendi, s ciljem poboljšanja likvidnosti i stabilnosti cijene.",
+          "To je drukčiji proizvod od MSTR obične dionice. MSTR privlači veću volatilnost. STRC pokušava ponuditi drukčiji profil: bliže nominalnoj vrijednosti od 100 dolara i s redovitim novčanim tokom.",
+          "U pojednostavljenom jeziku: MSTR je više pojačana dionica povezana s Bitcoinom, a STRC je više prihodovni proizvod povezan s kapitalnom strukturom Bitcoin kompanije.",
+          "To nije preporuka. To je opis razlike.",
+        ],
+      },
+      {
+        heading: "Zašto bi obitelj gledala STRC?",
+        body: [
+          "Neka obitelj možda ne želi samo držati bitcoin. Možda želi dio portfelja koji ima novčani tok. Možda želi manju volatilnost od MSTR-a. Možda želi vrijednosni papir koji se pokušava održavati oko 100 dolara.",
+          "Možda joj 10% godišnjeg prinosa, ako bi se takav prinos u nekom razdoblju stabilizirao, izgleda kao zanimljiv dio kapitalnog portfelja.",
+          "Ali tu treba biti vrlo oprezan. Dividenda nije isto što i sigurnost. Visok prinos nikada ne dolazi bez rizika.",
+          "STRC ima rizike: rizik Strategyja kao kompanije, rizik Bitcoin cijene, rizik kapitalne strukture, rizik sposobnosti isplate dividendi, rizik promjene tržišnih uvjeta, rizik likvidnosti, rizik regulatornih promjena, rizik da se cijena ne održi oko 100 dolara i rizik da ulagač ne razumije senioritet i uvjete instrumenta.",
+          "Zato STRC ne bih stavio u kategoriju novca. To nije novac. To je kapitalno dobro, odnosno vrijednosni papir.",
+          "Može imati mjesto u portfelju. Ali nije zamjena za bitcoin pod osobnom kontrolom.",
+        ],
+      },
+      {
+        heading: "Gdje ovo pripada u Praktičnom Bitcoin standardu?",
+        body: [
+          "U okviru Praktičnog Bitcoin standarda razlikujemo novac, kapitalna dobra i potrošačka dobra.",
+          "Bitcoin u vlastitom posjedu najčišće pripada dijelu novca.",
+          "ETF, MSTR, STRC i slični proizvodi više pripadaju dijelu kapitala, odnosno proizvodne imovine ili financijskih instrumenata.",
+          "To je važna razlika. Ako osoba kaže da ima bitcoin, treba pitati u kojem obliku.",
+          "Bitcoin u vlastitoj pohrani nije isto što i Bitcoin ETF. Bitcoin ETF nije isto što i MSTR. MSTR nije isto što i STRC. STRC nije isto što i bitcoin u višepotpisnom trezoru.",
+          "Svi ti oblici mogu biti povezani s Bitcoinom. Ali nemaju istu funkciju.",
+        ],
+        link: {
+          before: "Za temeljnu podjelu uloga imovine pročitajte vodič",
+          label: "Novac, potrošna dobra i proizvodna imovina",
+          href: "/vodici/novac-kapital-potrosnja/",
+          after: "jer je to osnova ove razlike.",
+        },
+      },
+      {
+        heading: "Kako razmišljati o riziku i prinosu?",
+        body: [
+          "Kod svakog od ovih proizvoda treba pitati što točno posjedujem, tko drži bitcoin, tko ima ključeve, gdje je rizik skrbnika, gdje je pravni rizik i gdje je tržišni rizik.",
+          "Treba pitati postoji li prihod, odakle dolazi taj prihod, što se događa ako Bitcoin padne 50%, što se događa ako tržište izgubi povjerenje, što se događa ako kompanija ne može izdavati nove instrumente i što se događa ako obitelj mora naslijediti taj proizvod.",
+          "Nije dovoljno gledati samo očekivani prinos. Treba gledati što se događa u lošem scenariju.",
+        ],
+      },
+      {
+        heading: "Kako ovo može izgledati u osobnom planu?",
+        body: [
+          "Primjer obiteljskog plana mogao bi izgledati ovako: dio bitcoina u vlastitoj pohrani kao novac, dio izloženosti kroz ETF u brokerskom portfelju, manji dio kroz Bitcoin rizničke kompanije kao kapitalni rizik, mali dio na burzi samo radi likvidnosti i jasan plan prijelaza prema većoj samostalnoj pohrani ako znanje i obiteljska spremnost porastu.",
+          "To nije preporuka. To je primjer razmišljanja.",
+          "Svačija situacija je drukčija. Netko nema obitelj. Netko ima malu djecu. Netko ima supružnika koji ne želi ništa znati o Bitcoinu. Netko ima postojeći portfelj vrijednosnih papira. Netko ima firmu. Netko ima većinu neto imovine u nekretnini. Netko ima dug. Netko tek počinje.",
+          "Zato plan ne može biti isti.",
+        ],
+        link: {
+          before: "Za razliku između samostalne pohrane i skrbnika pogledajte",
+          label: "Samostalna pohrana ili skrbnik",
+          href: "/vodici/samostalna-pohrana-ili-skrbnik/",
+          after: "kao povezani okvir odluke.",
+        },
+      },
+      {
+        heading: "Uloga savjetovanja",
+        body: [
+          "U Bitcoin savjetovanju možemo razgovarati o ovim pitanjima bez ideološkog pritiska.",
+          "Ne moramo odmah zaključiti da sve mora biti u samostalnoj pohrani. Ne moramo zaključiti ni da je ETF dovoljan.",
+          "Prvo treba razumjeti koliki je iznos, što je cilj, koji je vremenski horizont, koliko obitelj razumije, postoji li brokerski portfelj, postoji li postojeći porezni ili pravni okvir, koliko osoba želi tehničke odgovornosti, koliko je važna otpornost na cenzuru, koliko je važna jednostavnost nasljeđivanja, koliko je važna likvidnost i koliko je važan prihod.",
+          "Ja ne mogu dati investicijski, porezni ili pravni savjet o tome što točno kupiti, držati ili prodati.",
+          "Ali mogu pomoći razjasniti logiku. Mogu pomoći razlikovati novac od kapitala. Mogu pomoći vidjeti gdje skrbnik ima mjesto, a gdje je nepotreban rizik. Mogu pomoći napraviti plan prijelaza. Mogu pomoći da odluka bude mirnija.",
+        ],
+        link: {
+          before: "Ako želite razgovarati o vlastitoj situaciji, krenite od",
+          label: "uvodnog Bitcoin razgovora",
+          href: "/razgovor/",
+          after: "bez potrebe da unaprijed imate gotov odgovor.",
+        },
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Bitcoin nije samo jedna odluka. Nije samo kupiti ili ne kupiti. Nije samo burza ili hardverski novčanik. Nije samo ETF ili vlastiti ključevi.",
+          "Za ozbiljnu osobu i obitelj, Bitcoin postaje pitanje strukture imovine.",
+          "Jedan dio može biti novac pod osobnom kontrolom. Jedan dio može biti kapitalna izloženost. Jedan dio može biti prijelazno rješenje. Jedan dio može biti neprikladan, ako rizik nije shvaćen.",
+          "ETF-ovi, burze i Bitcoin rizničke kompanije imaju svoje mjesto. Ali samo ako znamo što jesu.",
+          "Nisu isto što i bitcoin u vlastitom posjedu. Nisu isto što i obiteljski višepotpisni trezor. Nisu nužno loši. Nisu nužno dobri.",
+          "Oni su alati. A alati imaju smisla samo kada znamo zašto ih koristimo.",
+        ],
+        link: {
+          before: "Za primjer vlastitog obiteljskog sustava pročitajte",
+          label: "obiteljski Bitcoin trezor",
+          href: "/vodici/obiteljski-bitcoin-trezor/",
+          after: "kao kontrast financijskoj izloženosti Bitcoinu.",
+        },
+      },
+    ],
+    finalCta: "Dogovorite uvodni Bitcoin razgovor",
+    finalCtaPrompt:
+      "Ako imate Bitcoin izloženost kroz ETF, burzu, brokera ili Bitcoin rizničku kompaniju, vrijedi razjasniti što točno posjedujete i koju ulogu to ima u vašoj neto imovini.",
+  },
+  {
     slug: "obiteljski-bitcoin-trezor",
     title: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
     seoTitle: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
@@ -1975,6 +2217,202 @@ const guideEntries: Guide[] = [
       "Ako imate značajniji iznos u Bitcoinu, sigurnost više nije samo pitanje uređaja. Pitanje je može li vaša obitelj razumjeti i oporaviti sustav bez panike.",
   },
   {
+    slug: "samostalna-pohrana-ili-skrbnik",
+    title:
+      "Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti",
+    seoTitle:
+      "Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti",
+    metaDescription:
+      "Vodič koji objašnjava kada ima smisla držati Bitcoin u vlastitoj pohrani, kada kod skrbnika i kako razmišljati o prijelaznom planu bez ideološkog pritiska.",
+    excerpt:
+      "Samostalna pohrana je važan cilj, ali nije uvijek najbolji prvi korak za svaku osobu, obitelj i iznos.",
+    category: "Sigurnost i obitelj",
+    order: 103,
+    publishedAt: "2026-05-12",
+    updatedAt: "2026-05-12",
+    practicalQuestion:
+      "Koji oblik čuvanja bitcoina ima smisla za vašu razinu znanja, obitelj, iznos i stvarne rizike?",
+    relatedSlugs: [
+      "obiteljski-bitcoin-trezor",
+      "bitkey-bitcoin-sigurnost",
+      "bitcoin-etfovi-i-riznicke-kompanije",
+    ],
+    visual: {
+      type: "split",
+      title: "Dvije vrste rizika",
+      leftLabel: "samostalna pohrana",
+      leftItems: [
+        "izravna kontrola privatnih ključeva",
+        "veća osobna odgovornost",
+        "potreban obiteljski plan",
+      ],
+      rightLabel: "pohrana kod skrbnika",
+      rightItems: [
+        "jednostavniji početak",
+        "ovisnost o instituciji",
+        "izloženost bez punih Bitcoin svojstava",
+      ],
+      caption:
+        "Ovo je edukativni okvir za razmišljanje, ne investicijski, porezni ili pravni savjet.",
+    },
+    sections: [
+      {
+        heading: "Dobar Bitcoin plan ne počinje sloganom",
+        body: [
+          "U Bitcoinu se često čuje rečenica: ako nemate svoje ključeve, nemate svoj bitcoin.",
+          "Ta rečenica ima važnu ulogu. Ona podsjeća da Bitcoin nije isto što i stanje na računu kod burze, brokera ili druge institucije. Ako netko drugi drži ključeve, vi ne držite bitcoin izravno. Imate potraživanje, udio, izloženost ili obećanje da će vam netko drugi omogućiti pristup.",
+          "To treba razumjeti. Ali iz toga ne slijedi da je samostalna pohrana uvijek najbolji prvi korak za svaku osobu, u svakoj fazi i za svaki iznos.",
+          "Bitcoin sigurnost nije ideološko pitanje. Ona je praktično pitanje.",
+          "Pitanje glasi: koji oblik čuvanja bitcoina ima smisla za ovu osobu, ovu obitelj, ovaj iznos, ovu razinu znanja i ovu životnu situaciju?",
+          "Za nekoga je najbolji prvi korak povući bitcoin u vlastiti novčanik. Za nekoga je bolji prvi korak smanjiti iznos na burzi, ali ne prelaziti odmah u složeni obiteljski sustav.",
+          "Za nekoga ima smisla dio držati samostalno, a dio kroz brokera, fond ili drugu skrbničku strukturu. Za nekoga je trenutačno bolje imati izloženost Bitcoinu kroz vrijednosni papir nego preuzeti tehničku odgovornost koju ne razumije.",
+          "Dobar Bitcoin plan ne počinje sloganom. Počinje procjenom stvarnosti.",
+        ],
+      },
+      {
+        heading: "Što znači samostalna pohrana?",
+        body: [
+          "Samostalna pohrana znači da vi kontrolirate privatne ključeve.",
+          "To ne znači da bitcoin stoji na uređaju. Bitcoin je na Bitcoin mreži. Uređaj, seed riječi ili višepotpisni sustav omogućuju vam potpisivanje transakcije.",
+          "Prednost samostalne pohrane je velika: ne ovisite o burzi, brokeru, banci, fondu ili tome hoće li vam netko dopustiti isplatu. Imate otpornost na cenzuru, možete premjestiti bitcoin bez dopuštenja i možete ga čuvati izvan financijskog sustava.",
+          "To su posebna svojstva Bitcoina.",
+          "Ali samostalna pohrana nosi i odgovornost. Ako izgubite seed, nema korisničke podrške koja vam može vratiti sredstva. Ako seed spremite u oblak, napravili ste digitalni rizik. Ako sve ovisi o vama, obitelj možda neće moći doći do sredstava.",
+          "Ako je sustav presložen, nitko ga neće znati koristiti u stresu. Ako nemate plan nasljeđivanja, tehnički ispravna samostalna pohrana može postati obiteljski problem.",
+          "Zato samostalna pohrana nije samo pitanje uređaja. To je pitanje sustava.",
+        ],
+      },
+      {
+        heading: "Što znači pohrana kod skrbnika?",
+        body: [
+          "Pohrana kod skrbnika znači da privatne ključeve ne držite vi.",
+          "To može biti burza ili mjenjačnica, brokerski račun, fond kojim se trguje na burzi, institucionalni skrbnik, financijski proizvod koji ima Bitcoin u pozadini ili kompanija koja drži Bitcoin u vlastitoj riznici.",
+          "To nije isto u svakom slučaju. Burza na kojoj kupujete bitcoin i ostavljate ga tamo nije isto što i regulirani fond kojim se trguje na burzi. Brokerski račun nije isto što i vlastiti novčanik. Bitcoin ETF nije isto što i bitcoin u vašem višepotpisnom trezoru.",
+          "Ali zajednička crta je ova: vi nemate izravnu kontrolu nad privatnim ključevima.",
+          "To je mana. Ali može imati i prednosti.",
+        ],
+      },
+      {
+        heading: "Kada pohrana kod skrbnika ima smisla?",
+        body: [
+          "Pohrana kod skrbnika može imati smisla kada osoba još nije spremna za samostalnu pohranu.",
+          "Primjerice, osoba tek uči Bitcoin, ne razumije seed riječi, nema sigurnu lokaciju za pričuvnu kopiju, nema jasan obiteljski plan, ima velik strah od tehničke pogreške ili već ima brokerski račun i portfelj vrijednosnih papira.",
+          "Možda želi izloženost Bitcoinu u postojećem investicijskom okviru, jednostavnije izvještavanje ili dio imovine u obliku koji obitelj već razumije.",
+          "To ne znači da je skrbnik bolji. Znači da u određenoj fazi može biti razumniji.",
+          "Loše izvedena samostalna pohrana nije automatski bolja od dobrog skrbničkog rješenja.",
+          "Ako netko ima ozbiljan iznos bitcoina na hardverskom novčaniku, ali seed drži u istoj ladici, obitelj ne zna ništa, nema upute i sve ovisi o jednoj osobi, taj sustav možda izgleda suvereno, ali nije dobro posložen.",
+          "S druge strane, osoba koja ima dio izloženosti kroz ozbiljnog brokera ili fond možda nema punu Bitcoin suverenost, ali ima sustav koji njezina obitelj razumije i zna naslijediti.",
+          "Cilj savjetovanja nije gurati svakoga u istu kutiju. Cilj je razumjeti rizik.",
+        ],
+      },
+      {
+        heading: "Kada pohrana kod skrbnika nije dovoljna?",
+        body: [
+          "Pohrana kod skrbnika nije dovoljna ako želite ona svojstva zbog kojih je Bitcoin poseban.",
+          "Primjerice: otpornost na cenzuru, mogućnost slanja bez dopuštenja, držanje novca izvan bankarskog sustava, zaštitu od zamrzavanja računa, izravnu kontrolu nad privatnim ključevima, mogućnost prijenosa vrijednosti bez posrednika i dugoročnu neovisnost o financijskim institucijama.",
+          "Ako držite Bitcoin kroz skrbnika, nemate sve to.",
+          "Možda imate izloženost cijeni. Možda imate regulirani instrument. Možda imate jednostavnije porezno i administrativno okruženje.",
+          "Ali nemate potpuno isto svojstvo kao kada držite bitcoin u vlastitom posjedu.",
+          "Bitcoin u vlastitoj pohrani i izloženost Bitcoinu kroz vrijednosni papir nisu ista stvar. Mogu imati mjesto u istoj strategiji, ali nisu isto.",
+        ],
+      },
+      {
+        heading: "Problem s ideološkim pristupom",
+        body: [
+          "Ideološki pristup kaže: svi moraju odmah u samostalnu pohranu.",
+          "To zvuči čisto. Ali u praksi može biti neodgovorno.",
+          "Ako osoba ne zna što radi, može izgubiti sredstva. Ako obitelj ne zna da bitcoin postoji, nasljednici mogu izgubiti pristup. Ako se velik iznos prebaci u samostalnu pohranu bez plana, rizik se možda nije smanjio. Samo se promijenio.",
+          "Prije je rizik bio skrbnik. Sada je rizik korisnik.",
+          "To može biti napredak. Ali samo ako je korisnik spreman.",
+          "Bitcoin ne oprašta tehničku nepažnju.",
+          "Zato je moja pozicija drukčija: samostalna pohrana je cilj za ozbiljnu Bitcoin imovinu, ali prijelaz prema njoj mora biti promišljen.",
+          "Ne mora sve biti odmah. Ne mora sve biti u jednom obliku. Ne mora svaka osoba imati isti put.",
+        ],
+      },
+      {
+        heading: "Tri razine Bitcoina u osobnoj imovini",
+        body: [
+          "U praksi, korisno je razlikovati tri razine.",
+          "Prva razina je Bitcoin kao izloženost. Ovdje osoba želi sudjelovati u promjeni cijene Bitcoina, ali ne želi držati ključeve. To može biti ETF, brokerski proizvod, dionica kompanije s Bitcoin riznicom ili drugi vrijednosni papir. Prednost je jednostavnost. Mana je izostanak izravne kontrole.",
+          "Druga razina je Bitcoin kao osobni novac. Ovdje osoba drži bitcoin u vlastitom novčaniku. To može biti jednostavan hardverski novčanik ili napredniji višepotpisni sustav. Prednost je izravna kontrola. Mana je veća odgovornost.",
+          "Treća razina je Bitcoin kao obiteljski standard. Ovdje Bitcoin više nije samo investicija, nego značajan dio neto imovine i obiteljskog plana.",
+          "Tu se mora razmišljati o proračunu, dugu, davanju, ravnoteži neto imovine, sigurnosti, nasljeđivanju i ulozi Bitcoina u odnosu na kapitalna i potrošačka dobra.",
+          "Na toj razini pitanje više nije gdje kupiti bitcoin, nego kako bitcoin uklopiti u život tako da sustav bude razumljiv, održiv i prenosiv na obitelj.",
+        ],
+      },
+      {
+        heading: "Hibridni pristup",
+        body: [
+          "Za mnoge ljude najbolji odgovor nije sve kod skrbnika ili sve u samostalnoj pohrani. Najbolji odgovor može biti hibrid.",
+          "Primjer: manji operativni iznos u mobilnom novčaniku, glavni dugoročni iznos u vlastitoj pohrani, dio izloženosti kroz ETF u brokerskom portfelju, dio kroz proizvodnu imovinu ili kapitalna dobra povezana s Bitcoinom i jasan plan prijelaza prema većoj samostalnoj pohrani.",
+          "To nije kontradikcija. To je priznanje da različiti dijelovi imovine mogu imati različite uloge.",
+          "Bitcoin koji držite u vlastitoj pohrani ima ulogu novca pod vašom kontrolom. Bitcoin ETF u brokerskom računu ima ulogu financijske izloženosti. Dionica Bitcoin rizničke kompanije ima ulogu kapitalnog dobra ili poslovnog rizika.",
+          "To nisu iste stvari. Ali sve mogu biti dio šire slike.",
+        ],
+        link: {
+          before: "Za razliku između tih slojeva korisno je pročitati i vodič",
+          label:
+            "Bitcoin ETF-ovi i rizničke kompanije: gdje prestaje Bitcoin, a počinje kapital",
+          href: "/vodici/bitcoin-etfovi-i-riznicke-kompanije/",
+          after:
+            "jer razdvaja bitcoin u vlastitoj pohrani od financijske izloženosti Bitcoinu.",
+        },
+      },
+      {
+        heading: "Plan prijelaza",
+        body: [
+          "U savjetovanju se može napraviti plan prijelaza. Ne mora se sve riješiti u jednom danu.",
+          "Prva faza je razumjeti stanje: gdje je bitcoin sada, tko ima pristup, tko zna da postoji, koliki je iznos, koja je svrha tog iznosa, što bi se dogodilo u slučaju smrti, što bi se dogodilo u slučaju gubitka uređaja i koliko obitelj razumije.",
+          "Druga faza je smanjiti očite rizike: ne držati prevelik iznos na burzi bez razloga, ne držati seed digitalno, ne držati sve na jednoj lokaciji, ne imati sustav koji zna samo jedna osoba i zapisati osnovne upute.",
+          "Treća faza je podijeliti uloge: što je novac, što je kapital, što je potrošnja, što je kratkoročna likvidnost, što je dugoročna štednja, što je obiteljski trezor i što je prijelazna izloženost.",
+          "Četvrta faza je izgraditi konačni sustav: vlastita pohrana za dio koji treba biti pod osobnom kontrolom, skrbnička rješenja samo ondje gdje imaju jasnu ulogu, obiteljske upute, nasljedni plan i godišnja provjera.",
+          "To je drukčije od impulzivnog pristupa. Ne radi se o tome da se odmah kupi uređaj. Radi se o tome da se složi sustav.",
+        ],
+      },
+      {
+        heading: "ETF, burza i vlastiti novčanik nisu neprijatelji",
+        body: [
+          "Često se o ovim opcijama govori kao da jedna mora isključiti drugu. Ali u stvarnom životu to nije tako.",
+          "Osoba može imati nešto bitcoina u vlastitom posjedu, nešto izloženosti kroz ETF, brokerski račun za vrijednosne papire, mali operativni novčanik i dugoročni obiteljski trezor.",
+          "Važno je da svaka stvar ima jasnu funkciju.",
+          "Problem nastaje kada ljudi ne znaju što imaju. Misle da imaju bitcoin, a zapravo imaju potraživanje prema burzi. Misle da imaju sigurnost, a zapravo imaju jedan seed u ladici. Misle da imaju investiciju, a zapravo imaju visokorizični proizvod koji ne razumiju.",
+          "Misle da imaju obiteljski plan, a zapravo obitelj ne zna ništa.",
+          "Dobar plan počinje imenovanjem stvari pravim imenom.",
+        ],
+        link: {
+          before: "Za tehnički ozbiljniji model vlastite pohrane pročitajte",
+          label: "obiteljski Bitcoin trezor",
+          href: "/vodici/obiteljski-bitcoin-trezor/",
+          after: "kao primjer dugoročnog obiteljskog sustava.",
+        },
+      },
+      {
+        heading: "Uloga savjetovanja",
+        body: [
+          "Moja uloga nije da svima kažem isto.",
+          "Moja uloga nije da nekoga ideološki guram prema samostalnoj pohrani prije nego je spreman.",
+          "Moja uloga nije dati investicijski, porezni ili pravni savjet o tome što točno kupiti, prodati ili prijaviti.",
+          "Moja uloga je pomoći osobi razumjeti koje opcije postoje, koji rizici dolaze s kojom opcijom, što je novac, a što kapital, što je stvarna kontrola, a što izloženost, što obitelj može razumjeti, gdje skrbnik ima mjesto, gdje je skrbnik rizik i kako postupno prijeći prema boljem sustavu.",
+          "Bitcoin savjetovanje nije samo pitanje uređaja. To je pitanje odluke.",
+          "I često je najbolja odluka ona koja ne izgleda ideološki najčišće, nego ona koju konkretna osoba i konkretna obitelj mogu stvarno provesti.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Samostalna pohrana je jedan od najvažnijih darova koje Bitcoin nudi.",
+          "Ali samostalna pohrana bez znanja, bez obiteljskog plana i bez pričuvne kopije nije sloboda. To je novi rizik.",
+          "Pohrana kod skrbnika nije isto što i držanje bitcoina u vlastitom posjedu. Ali može imati svoje mjesto.",
+          "ETF, broker, burza, hardverski novčanik i višepotpisni sustav nisu ista stvar. Svaki oblik ima drugačiju ulogu.",
+          "Pitanje nije je li skrbnik uvijek loš. Pitanje je: koji rizik preuzimam, što dobivam zauzvrat i ima li to mjesto u mom Bitcoin standardu?",
+          "To je razgovor koji vrijedi voditi prije nego se napravi veliki korak.",
+        ],
+      },
+    ],
+    finalCta: "Dogovorite uvodni Bitcoin razgovor",
+    finalCtaPrompt:
+      "Ako niste sigurni treba li vaš Bitcoin biti u samostalnoj pohrani, kod skrbnika ili u prijelaznom sustavu, prvo treba razumjeti vašu stvarnu situaciju, obitelj i rizike.",
+  },
+  {
     slug: "bitkey-bitcoin-sigurnost",
     title: "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
     seoTitle: "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
@@ -2514,12 +2952,17 @@ export const guidesIndexAdditionalGroups = [
   },
   {
     title: "Neto imovina",
-    slugs: ["novac-kapital-potrosnja", "pravilo-trecina"],
+    slugs: [
+      "novac-kapital-potrosnja",
+      "bitcoin-etfovi-i-riznicke-kompanije",
+      "pravilo-trecina",
+    ],
   },
   {
     title: "Sigurnost i obitelj",
     slugs: [
       "obiteljski-bitcoin-trezor",
+      "samostalna-pohrana-ili-skrbnik",
       "bitkey-bitcoin-sigurnost",
       "obiteljski-pristup-bitcoinu",
     ],
@@ -2544,8 +2987,10 @@ export const guidesIndexOrderedSlugs = [
   "novac-kapital-potrosnja",
   "bitcoin-u-neto-imovini",
   "pravilo-trecina",
+  "bitcoin-etfovi-i-riznicke-kompanije",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "obiteljski-bitcoin-trezor",
+  "samostalna-pohrana-ili-skrbnik",
   "bitkey-bitcoin-sigurnost",
   "obiteljski-pristup-bitcoinu",
 ]
@@ -2560,8 +3005,10 @@ export const recommendedGuideSlugs = [
   "bitcoin-kao-novac",
   "uskladivanje-kupovne-moci-bitcoina",
   "pravilo-trecina",
+  "bitcoin-etfovi-i-riznicke-kompanije",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "obiteljski-bitcoin-trezor",
+  "samostalna-pohrana-ili-skrbnik",
   "bitkey-bitcoin-sigurnost",
   "obiteljski-pristup-bitcoinu",
 ]

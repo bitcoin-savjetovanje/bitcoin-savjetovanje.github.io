@@ -356,7 +356,7 @@ const pageChecks = [
     includes: [
       'href="/razgovor/"',
       "Vodič objašnjava okvir",
-      "Dogovorite uvodni razgovor",
+      "Dogovorite 15-minutni uvodni razgovor",
       "Drugim riječima, stvarni višak je novac bez druge namjene",
       "ne pripada budućem plaćanju",
       "Manje je nagađanja",

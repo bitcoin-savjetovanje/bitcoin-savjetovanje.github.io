@@ -13,6 +13,8 @@ export const SITE_UPDATED_AT = "2026-05-13"
 export const OG_IMAGE_PATH = "/og-bitcoin-logo.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
+export const OPEN_MANUSCRIPT_URL =
+  "https://btcpavao.gitbook.io/practical-bitcoin-standard"
 export const DVADESET_JEDAN_URL = "https://dvadesetjedan.com"
 export const SAIFEDEAN_AMMOUS_URL = "https://saifedean.com"
 export const SAIF_HOUSE_URL = "https://thesaifhouse.com/"

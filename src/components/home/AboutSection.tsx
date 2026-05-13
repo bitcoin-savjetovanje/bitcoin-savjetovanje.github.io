@@ -6,6 +6,7 @@ import {
   CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
+  OPEN_MANUSCRIPT_URL,
   PRACTICAL_BITCOIN_STANDARD_URL,
   SAIFEDEAN_AMMOUS_URL,
   TWENTYONE_URL,
@@ -141,11 +142,11 @@ export function AboutSection() {
             <div className="mt-6 grid gap-5 text-base leading-7 text-muted-foreground lg:grid-cols-2">
               <div className="space-y-4">
                 <p>
-                  U Bitcoinu sam od 2014., a od 2018. ga proučavam ozbiljno i
-                  sustavno. Od 2020. živim na Bitcoin standardu. U tom razdoblju
-                  proveo sam više od 10.000 sati u Bitcoinu: kroz vlastito
-                  učenje, rad u industriji, razgovore, seminare, zajednicu i
-                  praktičnu primjenu.
+                  U Bitcoinu sam od 2014., a od 2018. ga proučavam ozbiljno,
+                  sustavno i gotovo svakodnevno. Od 2020. živim na Bitcoin
+                  standardu. Iza tog puta stoji više od 10.000 sati učenja, rada
+                  u industriji, razgovora, seminara, rada sa zajednicom i
+                  praktične primjene.
                 </p>
                 <p>
                   Šest godina radio sam sa Saifedeanom Ammousom, autorom knjige{" "}
@@ -157,9 +158,9 @@ export function AboutSection() {
                   >
                     The Bitcoin Standard
                   </a>
-                  , na njegovoj internetskoj akademiji, tečajevima, seminarima,
-                  podcastu i izdavanju knjiga. Sudjelovao sam u radu oko knjiga
-                  koje su došle nakon{" "}
+                  , na njegovoj internetskoj akademiji, tečajevima, tjednim
+                  seminarima, podcastu i izdavačkim projektima. Sudjelovao sam i
+                  u radu na knjigama koje su uslijedile nakon{" "}
                   <a
                     href="https://saifedean.com/tbs"
                     target="_blank"
@@ -168,7 +169,7 @@ export function AboutSection() {
                   >
                     The Bitcoin Standard
                   </a>
-                  :{" "}
+                  a:{" "}
                   <a
                     href="https://saifedean.com/tfs"
                     target="_blank"
@@ -200,20 +201,7 @@ export function AboutSection() {
               </div>
               <div className="space-y-4">
                 <p>
-                  Prije Bitcoina bio sam suosnivač i direktor{" "}
-                  <a
-                    href="https://www.linkedin.com/company/stemi---learning-by-creating/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-foreground no-underline hover:text-primary"
-                  >
-                    STEMI-ja
-                  </a>
-                  . To iskustvo mi je dalo praktičan pogled na poduzetništvo,
-                  prodaju, vođenje tima, kapital, rizik i donošenje odluka.
-                </p>
-                <p>
-                  Od 2022. gradim regionalnu Bitcoin otvorenu zajednicu{" "}
+                  Od 2022. gradim{" "}
                   <a
                     href={DVADESET_JEDAN_URL}
                     target="_blank"
@@ -221,8 +209,9 @@ export function AboutSection() {
                     className="font-semibold text-foreground no-underline hover:text-primary"
                   >
                     DvadesetJedan
-                  </a>{" "}
-                  kao dio svjetske mreže zajednica{" "}
+                  </a>
+                  , otvorenu regionalnu Bitcoin zajednicu, kao dio svjetske
+                  mreže zajednica{" "}
                   <a
                     href={TWENTYONE_URL}
                     target="_blank"
@@ -234,8 +223,37 @@ export function AboutSection() {
                   .
                 </p>
                 <p>
-                  To iskustvo danas koristim kako bih Bitcoin spustio iz teorije
-                  u stvarne odluke o novcu, dugu, imovini, sigurnosti i
+                  Dio tog okvira razvijam javno kroz vodiče i{" "}
+                  <a
+                    href={OPEN_MANUSCRIPT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                    data-link="about-open-manuscript"
+                  >
+                    otvoreni radni rukopis knjige Practical Bitcoin Standard
+                  </a>
+                  . Hrvatska verzija knjige još nastaje, a razgovori kroz
+                  savjetovanje pomažu mi da okvir ostane vezan uz stvarna
+                  pitanja ljudi, a ne samo uz teoriju.
+                </p>
+                <p>
+                  Prije nego što sam se u potpunosti posvetio Bitcoinu, bio sam
+                  suosnivač i direktor{" "}
+                  <a
+                    href="https://www.linkedin.com/company/stemi---learning-by-creating/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    STEMI-ja
+                  </a>
+                  . Ondje sam stekao praktičan pogled na poduzetništvo, prodaju,
+                  vođenje tima, kapital, rizik i donošenje odluka.
+                </p>
+                <p>
+                  Danas sve to povezujem u pristup koji Bitcoin spušta iz
+                  teorije u stvarne odluke o novcu, dugu, imovini, sigurnosti i
                   obitelji.
                 </p>
               </div>

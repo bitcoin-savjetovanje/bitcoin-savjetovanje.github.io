@@ -1,11 +1,15 @@
-import { CalendarDays } from "lucide-react"
+import { ArrowUpRight, CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref } from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
-import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
+import {
+  CONVERSATION_PATH,
+  OPEN_MANUSCRIPT_URL,
+  PRIMARY_CTA,
+} from "@/content/site"
 
 const roadmapGroups = [
   {
@@ -150,6 +154,54 @@ export function GuidesIndex() {
             </p>
           </div>
         </header>
+
+        <section
+          className="case-panel mx-auto mt-12 max-w-5xl border-primary/20 bg-card"
+          aria-labelledby="open-manuscript-title"
+        >
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(220px,280px)] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+                Knjiga u nastajanju
+              </p>
+              <h2
+                id="open-manuscript-title"
+                className="mt-3 text-2xl font-semibold tracking-[-0.015em] text-foreground sm:text-3xl"
+              >
+                Otvoreni rukopis knjige
+              </h2>
+              <div className="mt-4 space-y-4 text-base leading-8 text-muted-foreground">
+                <p>
+                  Praktični Bitcoin standard razvijam i kao javno dostupan radni
+                  rukopis knjige. Trenutna javna verzija dostupna je na
+                  engleskom jeziku, dok hrvatsku verziju još pišem i uređujem.
+                </p>
+                <p>
+                  Knjiga, vodiči i savjetovanje nastaju iz istog okvira:
+                  proračun, dug, davanje, Bitcoin kao novac, neto imovina,
+                  volatilnost, sigurnost i obitelj. Razgovori sa stvarnim
+                  ljudima pomažu mi vidjeti koja pitanja treba objasniti
+                  jasnije, praktičnije i boljim redoslijedom.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
+              <a
+                href={OPEN_MANUSCRIPT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                data-link="guides-open-manuscript"
+              >
+                Pogledajte otvoreni rukopis
+                <ArrowUpRight className="size-4" />
+              </a>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                Hrvatska verzija knjige još je u procesu pisanja.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <section className="guides-roadmap" aria-labelledby="guides-method-map">
           <div className="max-w-3xl">

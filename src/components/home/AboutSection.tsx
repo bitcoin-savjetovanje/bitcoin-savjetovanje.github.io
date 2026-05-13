@@ -18,8 +18,8 @@ const experienceHighlights = [
   { label: "Bitcoin standard od 2020." },
   { label: "6 godina rada sa Saifedeanom Ammousom" },
   {
-    label: "Poduzetničko iskustvo prije Bitcoina",
-    href: "https://www.linkedin.com/company/stemi---learning-by-creating/",
+    label: "DvadesetJedan od 2022.",
+    href: DVADESET_JEDAN_URL,
   },
 ]
 
@@ -32,7 +32,7 @@ export function AboutSection() {
       />
       <div className="credibility-grid">
         <aside className="profile-panel">
-          <img src="/pavao-pahljina.jpg" alt="Pavao Pahljina" />
+          <img src="/pavao-pahljina.jpg" alt="Portret Pavla Pahljine" />
           <h3>Pavao Pahljina</h3>
           <p>Bitcoin savjetnik · u Bitcoinu od 2014.</p>
           <div className="profile-socials" aria-label="Kontakt i profili">
@@ -51,25 +51,10 @@ export function AboutSection() {
         <div>
           <div className="credibility-copy">
             <p>
-              U Bitcoinu sam od 2014. Od 2020. živim na Bitcoin standardu. Radio
-              sam u Bitcoin industriji i sa{" "}
-              <a
-                href={SAIFEDEAN_AMMOUS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Saifedeanom Ammousom
-              </a>
-              , autorom knjige{" "}
-              <a
-                href={BITCOIN_STANDARD_BOOK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                The Bitcoin Standard
-              </a>
-              . Praktični Bitcoin standard nastao je iz pokušaja da Bitcoin ne
-              bude samo nešto što držim, nego novac s kojim stvarno živim.
+              Praktični Bitcoin standard nastao je iz pokušaja da Bitcoin ne
+              bude samo nešto što držim, nego novac oko kojega uređujem
+              proračun, dug, davanje, neto imovinu, sigurnost i obiteljski
+              pristup.
             </p>
             <p>
               Ovdje ne pogađamo sljedeći pomak cijene. Radimo na tome da
@@ -77,17 +62,21 @@ export function AboutSection() {
               donositi mirnije odluke.
             </p>
             <p>
-              Pomažem vam razumjeti Bitcoin i vlastitu situaciju dovoljno jasno
-              da sami donesete mirnu odluku o ulozi Bitcoina u vašem novcu,
-              imovini i obitelji.
-            </p>
-            <p>
               Dio tog rada javno razvijam kroz{" "}
               <a
                 href={PRACTICAL_BITCOIN_STANDARD_URL}
                 data-link="practical-bitcoin-standard"
               >
-                Praktični Bitcoin standard
+                vodiče
+              </a>
+              {", "}
+              <a
+                href={OPEN_MANUSCRIPT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-link="about-open-manuscript"
+              >
+                otvoreni radni rukopis knjige Practical Bitcoin Standard
               </a>{" "}
               i{" "}
               <a
@@ -97,11 +86,7 @@ export function AboutSection() {
               >
                 DvadesetJedan
               </a>{" "}
-              zajednicu u sklopu mreže{" "}
-              <a href={TWENTYONE_URL} target="_blank" rel="noopener noreferrer">
-                TwentyOne World
-              </a>
-              .
+              zajednicu.
             </p>
             <a
               href={CONVERSATION_PATH}
@@ -143,13 +128,21 @@ export function AboutSection() {
               <div className="space-y-4">
                 <p>
                   U Bitcoinu sam od 2014., a od 2018. ga proučavam ozbiljno,
-                  sustavno i gotovo svakodnevno. Od 2020. živim na Bitcoin
-                  standardu. Iza tog puta stoji više od 10.000 sati učenja, rada
-                  u industriji, razgovora, seminara, rada sa zajednicom i
-                  praktične primjene.
+                  sustavno i gotovo svakodnevno. Iza tog puta stoje godine
+                  učenja, rada u industriji, seminara, razgovora, rada sa
+                  zajednicom i praktične primjene.
                 </p>
                 <p>
-                  Šest godina radio sam sa Saifedeanom Ammousom, autorom knjige{" "}
+                  Šest godina radio sam sa{" "}
+                  <a
+                    href={SAIFEDEAN_AMMOUS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    Saifedeanom Ammousom
+                  </a>
+                  {", autorom knjige "}
                   <a
                     href={BITCOIN_STANDARD_BOOK_URL}
                     target="_blank"
@@ -158,45 +151,8 @@ export function AboutSection() {
                   >
                     The Bitcoin Standard
                   </a>
-                  , na njegovoj internetskoj akademiji, tečajevima, tjednim
-                  seminarima, podcastu i izdavačkim projektima. Sudjelovao sam i
-                  u radu na knjigama koje su uslijedile nakon{" "}
-                  <a
-                    href="https://saifedean.com/tbs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-foreground no-underline hover:text-primary"
-                  >
-                    The Bitcoin Standard
-                  </a>
-                  a:{" "}
-                  <a
-                    href="https://saifedean.com/tfs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-foreground no-underline hover:text-primary"
-                  >
-                    The Fiat Standard
-                  </a>
-                  ,{" "}
-                  <a
-                    href="https://saifedean.com/poe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-foreground no-underline hover:text-primary"
-                  >
-                    Principles of Economics
-                  </a>{" "}
-                  i{" "}
-                  <a
-                    href="https://saifedean.com/tgs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-foreground no-underline hover:text-primary"
-                  >
-                    The Gold Standard
-                  </a>
-                  .
+                  {", "}na njegovoj internetskoj akademiji, tečajevima, tjednim
+                  seminarima, podcastu i izdavačkim projektima.
                 </p>
               </div>
               <div className="space-y-4">
@@ -210,7 +166,7 @@ export function AboutSection() {
                   >
                     DvadesetJedan
                   </a>
-                  , otvorenu regionalnu Bitcoin zajednicu, kao dio svjetske
+                  {", "}otvorenu regionalnu Bitcoin zajednicu, kao dio svjetske
                   mreže zajednica{" "}
                   <a
                     href={TWENTYONE_URL}
@@ -220,22 +176,7 @@ export function AboutSection() {
                   >
                     TwentyOne World
                   </a>
-                  .
-                </p>
-                <p>
-                  Dio tog okvira razvijam javno kroz vodiče i{" "}
-                  <a
-                    href={OPEN_MANUSCRIPT_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-foreground no-underline hover:text-primary"
-                    data-link="about-open-manuscript"
-                  >
-                    otvoreni radni rukopis knjige Practical Bitcoin Standard
-                  </a>
-                  . Hrvatska verzija knjige još nastaje, a razgovori kroz
-                  savjetovanje pomažu mi da okvir ostane vezan uz stvarna
-                  pitanja ljudi, a ne samo uz teoriju.
+                  {"."}
                 </p>
                 <p>
                   Prije nego što sam se u potpunosti posvetio Bitcoinu, bio sam
@@ -248,13 +189,13 @@ export function AboutSection() {
                   >
                     STEMI-ja
                   </a>
-                  . To mi je dalo praktičan pogled na poduzetništvo, kapital,
-                  rizik i odluke koje imaju stvarne posljedice.
+                  {". "}To mi je dalo praktičan pogled na poduzetništvo,
+                  kapital, rizik i odluke koje imaju stvarne posljedice.
                 </p>
                 <p>
-                  Danas sve to povezujem u pristup koji Bitcoin spušta iz
-                  teorije u stvarne odluke o novcu, dugu, imovini, sigurnosti i
-                  obitelji.
+                  Zato savjetovanje ovdje nije samo objašnjavanje Bitcoina. Cilj
+                  je povezati Bitcoin s konkretnim odlukama o novcu, dugu,
+                  imovini, sigurnosti i obitelji.
                 </p>
               </div>
             </div>

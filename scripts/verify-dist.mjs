@@ -578,7 +578,7 @@ const homeChecks = [
     "not for you seed phrase copy",
   ],
   [
-    "Pomažem vam razumjeti Bitcoin i vlastitu situaciju dovoljno jasno",
+    "Cilj je povezati Bitcoin s konkretnim odlukama o novcu, dugu, imovini, sigurnosti i obitelji.",
     "positioning sentence",
   ],
   ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],

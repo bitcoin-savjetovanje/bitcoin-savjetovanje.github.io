@@ -13,10 +13,13 @@ import {
 } from "@/content/site"
 
 const experienceHighlights = [
-  "10.000+ sati u Bitcoinu",
-  "Bitcoin standard od 2020.",
-  "6 godina rada sa Saifedeanom Ammousom",
-  "suosnivač i bivši direktor STEMI-ja",
+  { label: "10.000+ sati u Bitcoinu" },
+  { label: "Bitcoin standard od 2020." },
+  { label: "6 godina rada sa Saifedeanom Ammousom" },
+  {
+    label: "suosnivač i bivši direktor STEMI-ja",
+    href: "https://www.linkedin.com/company/stemi---learning-by-creating/",
+  },
 ]
 
 export function AboutSection() {
@@ -116,11 +119,22 @@ export function AboutSection() {
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               {experienceHighlights.map((item) => (
                 <div
-                  key={item}
+                  key={item.label}
                   className="flex gap-3 rounded-lg border border-border/70 bg-background/70 px-3.5 py-3 text-sm leading-6 font-medium text-foreground"
                 >
                   <Check className="positive-icon mt-1 size-3.5 shrink-0" />
-                  <span>{item}</span>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-foreground no-underline hover:text-primary"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
                 </div>
               ))}
             </div>
@@ -145,15 +159,79 @@ export function AboutSection() {
                   </a>
                   , na njegovoj internetskoj akademiji, tečajevima, seminarima,
                   podcastu i izdavanju knjiga. Sudjelovao sam u radu oko knjiga
-                  koje su došle nakon The Bitcoin Standard: The Fiat Standard,
-                  Principles of Economics i The Gold Standard.
+                  koje su došle nakon{" "}
+                  <a
+                    href="https://saifedean.com/tbs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    The Bitcoin Standard
+                  </a>
+                  :{" "}
+                  <a
+                    href="https://saifedean.com/tfs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    The Fiat Standard
+                  </a>
+                  ,{" "}
+                  <a
+                    href="https://saifedean.com/poe"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    Principles of Economics
+                  </a>{" "}
+                  i{" "}
+                  <a
+                    href="https://saifedean.com/tgs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    The Gold Standard
+                  </a>
+                  .
                 </p>
               </div>
               <div className="space-y-4">
                 <p>
-                  Prije Bitcoina bio sam suosnivač i direktor STEMI-ja. To
-                  iskustvo mi je dalo praktičan pogled na poduzetništvo,
+                  Prije Bitcoina bio sam suosnivač i direktor{" "}
+                  <a
+                    href="https://www.linkedin.com/company/stemi---learning-by-creating/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    STEMI-ja
+                  </a>
+                  . To iskustvo mi je dalo praktičan pogled na poduzetništvo,
                   prodaju, vođenje tima, kapital, rizik i donošenje odluka.
+                </p>
+                <p>
+                  Od 2022. gradim regionalnu Bitcoin otvorenu zajednicu{" "}
+                  <a
+                    href={DVADESET_JEDAN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    DvadesetJedan
+                  </a>{" "}
+                  kao dio svjetske mreže zajednica{" "}
+                  <a
+                    href={TWENTYONE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    TwentyOne World
+                  </a>
+                  .
                 </p>
                 <p>
                   Danas taj poslovni okvir povezujem s Bitcoinom, osobnim

@@ -248,8 +248,8 @@ export function AboutSection() {
                   >
                     STEMI-ja
                   </a>
-                  . Ondje sam stekao praktičan pogled na poduzetništvo, prodaju,
-                  vođenje tima, kapital, rizik i donošenje odluka.
+                  . To mi je dalo praktičan pogled na poduzetništvo, kapital,
+                  rizik i odluke koje imaju stvarne posljedice.
                 </p>
                 <p>
                   Danas sve to povezujem u pristup koji Bitcoin spušta iz

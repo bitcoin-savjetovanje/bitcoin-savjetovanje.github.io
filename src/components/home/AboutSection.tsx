@@ -18,7 +18,7 @@ const experienceHighlights = [
   { label: "Bitcoin standard od 2020." },
   { label: "6 godina rada sa Saifedeanom Ammousom" },
   {
-    label: "suosnivač i bivši direktor STEMI-ja",
+    label: "Poduzetničko iskustvo prije Bitcoina",
     href: "https://www.linkedin.com/company/stemi---learning-by-creating/",
   },
 ]

@@ -5,6 +5,11 @@ export const faqs = [
       "Da. Ako imate pitanje koje utječe na vašu odluku, uvodni razgovor može biti dobar prvi korak. U 15 minuta vidimo je li dovoljan kratak odgovor ili bi dublji razgovor bio korisniji.",
   },
   {
+    question: "Zašto platiti razgovor ako mogu sam učiti o Bitcoinu?",
+    answer:
+      "Možete učiti sami i to je potpuno legitiman put. Ali nije bez troška. Plaća se vremenom, pažnjom, šumom, pogrešnim tragovima i mogućim odgodama. Razgovor ne zamjenjuje učenje, nego ga skraćuje i povezuje s vašom stvarnom odlukom.",
+  },
+  {
     question: "Hoćete li mi reći koliko Bitcoina da kupim?",
     answer:
       "Ne donosim odluku umjesto vas. Mogu vam pomoći razumjeti Bitcoin, rizike, vlastitu situaciju, dug, proračun, sigurnost i moguće posljedice različitih odluka. Odluka ostaje vaša.",

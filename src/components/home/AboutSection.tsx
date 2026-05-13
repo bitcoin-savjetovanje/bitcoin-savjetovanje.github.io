@@ -1,4 +1,4 @@
-import { CalendarDays, Mail } from "lucide-react"
+import { CalendarDays, Check, Mail } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import {
@@ -11,6 +11,13 @@ import {
   TWENTYONE_URL,
   credibilityLogos,
 } from "@/content/site"
+
+const experienceHighlights = [
+  "10.000+ sati u Bitcoinu",
+  "Bitcoin standard od 2020.",
+  "6 godina rada sa Saifedeanom Ammousom",
+  "suosnivač i bivši direktor STEMI-ja",
+]
 
 export function AboutSection() {
   return (
@@ -100,6 +107,60 @@ export function AboutSection() {
               <CalendarDays className="size-4" />
               Dogovorite razgovor
             </a>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-border/80 bg-card/82 p-5 shadow-sm sm:p-6">
+            <h3 className="text-xl font-semibold text-foreground">
+              Iskustvo iza razgovora
+            </h3>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {experienceHighlights.map((item) => (
+                <div
+                  key={item}
+                  className="flex gap-3 rounded-lg border border-border/70 bg-background/70 px-3.5 py-3 text-sm leading-6 font-medium text-foreground"
+                >
+                  <Check className="positive-icon mt-1 size-3.5 shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 grid gap-5 text-base leading-7 text-muted-foreground lg:grid-cols-2">
+              <div className="space-y-4">
+                <p>
+                  U Bitcoinu sam od 2014., a od 2018. ga proučavam ozbiljno i
+                  sustavno. Od 2020. živim na Bitcoin standardu. U tom razdoblju
+                  proveo sam više od 10.000 sati u Bitcoinu: kroz vlastito
+                  učenje, rad u industriji, razgovore, seminare, zajednicu i
+                  praktičnu primjenu.
+                </p>
+                <p>
+                  Šest godina radio sam sa Saifedeanom Ammousom, autorom knjige{" "}
+                  <a
+                    href={BITCOIN_STANDARD_BOOK_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground no-underline hover:text-primary"
+                  >
+                    The Bitcoin Standard
+                  </a>
+                  , na njegovoj internetskoj akademiji, tečajevima, seminarima,
+                  podcastu i izdavanju knjiga. Sudjelovao sam u radu oko knjiga
+                  koje su došle nakon The Bitcoin Standard: The Fiat Standard,
+                  Principles of Economics i The Gold Standard.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <p>
+                  Prije Bitcoina bio sam suosnivač i direktor STEMI-ja. To
+                  iskustvo mi je dalo praktičan pogled na poduzetništvo,
+                  prodaju, vođenje tima, kapital, rizik i donošenje odluka.
+                </p>
+                <p>
+                  Danas taj poslovni okvir povezujem s Bitcoinom, osobnim
+                  novcem, dugom, neto imovinom, sigurnošću i obitelji.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         <div

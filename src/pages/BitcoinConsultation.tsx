@@ -160,6 +160,42 @@ export function BitcoinConsultation() {
           </aside>
         </header>
 
+        <section className="consultation-safety-card">
+          <h2 className="text-2xl font-semibold">
+            Što zapravo plaćate u Bitcoin konzultaciji?
+          </h2>
+          <div className="mt-5 grid gap-4 text-base leading-8 text-muted-foreground">
+            <p>
+              Ne plaćate pristup tajnoj informaciji. Većina osnovnih informacija
+              o Bitcoinu javno je dostupna. Plaćate skraćivanje puta između
+              pitanja i razumijevanja.
+            </p>
+            <p>
+              Razlika je u tome što javni materijal ne poznaje vašu situaciju.
+              Knjiga ne zna imate li dug. Podcast ne zna kako vaša obitelj gleda
+              na Bitcoin. Graf ne zna koliko državnog novca trebate ostaviti za
+              kratke potrebe. Forum ne zna jeste li poduzetnik, zaposlenik,
+              roditelj, vlasnik firme ili netko tko prvi put pokušava urediti
+              sigurnost i nasljeđivanje.
+            </p>
+            <p>
+              U razgovoru povezujemo Bitcoin tezu s vašim stvarnim životom:
+              proračunom, dugom, vremenom, sigurnošću, obitelji, neto imovinom i
+              odlukom koju pokušavate donijeti.
+            </p>
+            <p>
+              Možete sve istraživati sami. To je legitiman put. Ali nije
+              besplatan. Plaća se vremenom, pažnjom, šumom i mogućom odgodom.
+              Ako je vaše vrijeme vrijedno, dobar razgovor može biti jeftiniji
+              put do jasnije odluke.
+            </p>
+          </div>
+          <div className="mt-6 rounded-xl border border-primary/25 bg-primary/5 p-5 text-base leading-7 font-semibold text-foreground shadow-sm">
+            Bitcoin je dovoljno široka tema da nitko ne mora znati sve. Važno je
+            znati dovoljno za odluku koju stvarno trebate donijeti.
+          </div>
+        </section>
+
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Za koga je</h2>

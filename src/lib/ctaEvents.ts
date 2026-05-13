@@ -3,6 +3,8 @@ const CTA_CLICK_EVENT_NAME = "bitcoin-savjetovanje:cta-click"
 export const ctaEventRegistry = {
   "hero-intro-call": { kind: "cta", surface: "homepage" },
   "hero-questions": { kind: "cta", surface: "homepage" },
+  "information-cost-intro-call": { kind: "cta", surface: "homepage" },
+  "information-cost-consultation": { kind: "link", surface: "homepage" },
   "readiness-intro-call": { kind: "cta", surface: "homepage" },
   "readiness-test-intro-call": { kind: "cta", surface: "homepage" },
   "desktop-rail-intro-call": { kind: "cta", surface: "homepage" },

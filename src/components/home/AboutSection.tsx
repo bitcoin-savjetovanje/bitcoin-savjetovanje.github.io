@@ -234,8 +234,9 @@ export function AboutSection() {
                   .
                 </p>
                 <p>
-                  Danas taj poslovni okvir povezujem s Bitcoinom, osobnim
-                  novcem, dugom, neto imovinom, sigurnošću i obitelji.
+                  To iskustvo danas koristim kako bih Bitcoin spustio iz teorije
+                  u stvarne odluke o novcu, dugu, imovini, sigurnosti i
+                  obitelji.
                 </p>
               </div>
             </div>

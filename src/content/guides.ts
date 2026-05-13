@@ -116,6 +116,8 @@ export const guideCategories = [
 ] as const
 
 export type GuideCategory = (typeof guideCategories)[number]
+export type GuideDifficulty = "Početno" | "Srednje" | "Napredno"
+export type GuideFreshness = "stabilno" | "često se mijenja"
 
 export const guideCategoryDescriptions: Record<GuideCategory, string> = {
   "Osobni proračun nulte osnove":
@@ -139,6 +141,9 @@ export type Guide = {
   metaDescription: string
   excerpt: string
   category: GuideCategory
+  difficulty?: GuideDifficulty
+  freshness?: GuideFreshness
+  safetyNote?: string
   order: number
   featured?: boolean
   publishedAt: string
@@ -158,6 +163,9 @@ export type Guide = {
   }
 }
 
+const advancedSecuritySafetyNote =
+  "Ovo nije početna preporuka za svakoga. Napredniji sigurnosni sustav može smanjiti neke rizike, ali može povećati rizik gubitka pristupa ako osoba nije spremna za njega. Prvo treba razumjeti što se nikada ne dijeli, tko smije znati što i kako se pristup oporavlja bez predaje kontrole."
+
 const guideEntries: Guide[] = [
   {
     slug: "svaki-euro-ima-namjenu",
@@ -167,6 +175,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Praktični Bitcoin standard ne počinje pitanjem koliko Bitcoina kupiti. Počinje pitanjem zna li svaki euro što treba raditi.",
     category: "Osobni proračun nulte osnove",
+    difficulty: "Početno",
+    freshness: "stabilno",
     order: 10,
     featured: true,
     publishedAt: "2026-05-01",
@@ -234,6 +244,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Stvarni višak je novac koji je slobodan tek nakon što svaki euro ima namjenu i nakon što su buduća plaćanja vidljiva.",
     category: "Osobni proračun nulte osnove",
+    difficulty: "Početno",
+    freshness: "stabilno",
     order: 15,
     publishedAt: "2026-04-30",
     updatedAt: "2026-05-01",
@@ -302,6 +314,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Novac koji mora odmah nestati ne daje slobodu. Što je novac stariji, to je lakše donositi mirne Bitcoin odluke.",
     category: "Osobni proračun nulte osnove",
+    difficulty: "Početno",
+    freshness: "stabilno",
     order: 20,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
@@ -369,6 +383,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Redovita kupnja može smanjiti impulzivnost, ali ne zamjenjuje osobni proračun nulte osnove, stvarni višak i pravila kupovne moći.",
     category: "Osobni proračun nulte osnove",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 25,
     publishedAt: "2026-04-30",
     updatedAt: "2026-05-01",
@@ -430,6 +446,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Dug nije samo financijska stavka. Dug je budući novac koji ste već potrošili i stanje koje oblikuje odluke.",
     category: "Život bez duga",
+    difficulty: "Početno",
+    freshness: "stabilno",
     order: 30,
     featured: true,
     publishedAt: "2026-05-01",
@@ -541,6 +559,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Ne odlučujete između duga i Bitcoina samo matematički. Odlučujete između dva stanja.",
     category: "Život bez duga",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 35,
     publishedAt: "2026-04-30",
     updatedAt: "2026-05-01",
@@ -601,6 +621,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Zadužiti se za Bitcoin znači pokušati kupiti novac budućim novcem. To nije Bitcoin standard.",
     category: "Život bez duga",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 40,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
@@ -670,6 +692,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Davanje nije ostatak novca niti moralni pritisak. U Praktičnom Bitcoin standardu ono dolazi nakon reda i izlaska iz duga.",
     category: "Davanje",
+    difficulty: "Početno",
+    freshness: "stabilno",
     order: 50,
     featured: true,
     publishedAt: "2026-05-01",
@@ -746,6 +770,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Kad se smanji osjećaj zarobljenosti, nemira i zbunjenosti, možete graditi praksu velikodušnosti.",
     category: "Davanje",
+    difficulty: "Početno",
+    freshness: "stabilno",
     order: 55,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
@@ -819,6 +845,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Prihod ne dolazi iz apstraktnog sustava. Prihod dolazi od ljudi kojima ste pružili vrijednost.",
     category: "Davanje",
+    difficulty: "Početno",
+    freshness: "stabilno",
     order: 57,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
@@ -892,6 +920,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Bitcoin nije samo imovina koju držite. U Praktičnom Bitcoin standardu Bitcoin ima ulogu novca.",
     category: "Bitcoin kao novac",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 60,
     featured: true,
     publishedAt: "2026-05-01",
@@ -972,6 +1002,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Bitcoin standard počinje kada mjesec može stajati na vlastitim nogama.",
     category: "Bitcoin kao novac",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 70,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-01",
@@ -1041,6 +1073,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Kada se kupovna moć Bitcoina mijenja, ne pogađate tržište. Usklađujete osobni proračun nulte osnove.",
     category: "Bitcoin kao novac",
+    difficulty: "Napredno",
+    freshness: "stabilno",
     order: 75,
     publishedAt: "2026-04-30",
     updatedAt: "2026-05-01",
@@ -1145,6 +1179,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Ne pokušavamo pogoditi kratkoročnu cijenu. Gledamo odnos cijene, vremena i proračuna nulte osnove.",
     category: "Bitcoin kao novac",
+    difficulty: "Napredno",
+    freshness: "stabilno",
     order: 77,
     publishedAt: "2026-05-01",
     updatedAt: "2026-05-07",
@@ -1231,6 +1267,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Ne služi svaka imovina istoj svrsi. Bitcoin je novac. Potrošna dobra i proizvodna imovina imaju druga pravila.",
     category: "Neto imovina",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 80,
     featured: true,
     publishedAt: "2026-04-30",
@@ -1311,6 +1349,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Bitcoin ne stoji izvan ostatka imovine. Njegova uloga postaje jasnija kada znate što je novac, što je potrošnja, a što proizvodna imovina.",
     category: "Neto imovina",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 85,
     publishedAt: "2026-04-30",
     updatedAt: "2026-05-01",
@@ -1371,6 +1411,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Pravilo trećina nije naredba, nego ogledalo koje pokazuje je li vaša neto imovina u ravnoteži.",
     category: "Neto imovina",
+    difficulty: "Napredno",
+    freshness: "stabilno",
     order: 90,
     featured: true,
     publishedAt: "2026-05-01",
@@ -1455,6 +1497,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "ETF-ovi, brokeri, burze i Bitcoin rizničke kompanije mogu imati mjesto u imovini, ali nisu isto što i bitcoin u vlastitom posjedu.",
     category: "Neto imovina",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
     order: 92,
     publishedAt: "2026-05-12",
     updatedAt: "2026-05-12",
@@ -1743,6 +1787,9 @@ const guideEntries: Guide[] = [
     excerpt:
       "Bitcoin mora ostati pod vašom kontrolom, ali ne smije ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiriću.",
     category: "Sigurnost i obitelj",
+    difficulty: "Napredno",
+    freshness: "stabilno",
+    safetyNote: advancedSecuritySafetyNote,
     order: 102,
     featured: true,
     publishedAt: "2026-05-12",
@@ -2401,6 +2448,9 @@ const guideEntries: Guide[] = [
     excerpt:
       "Samostalna pohrana je važan cilj, ali nije uvijek najbolji prvi korak za svaku osobu, obitelj i iznos.",
     category: "Sigurnost i obitelj",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
+    safetyNote: advancedSecuritySafetyNote,
     order: 103,
     publishedAt: "2026-05-12",
     updatedAt: "2026-05-12",
@@ -2595,6 +2645,9 @@ const guideEntries: Guide[] = [
     excerpt:
       "Bitkey uklanja seed riječi i uvodi 2 od 3 sigurnosni model, ali nije isto što i vlastiti Bitcoin trezor sa Sparrowom, vlastitim nodeom i neovisnim ključevima.",
     category: "Sigurnost i obitelj",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
+    safetyNote: advancedSecuritySafetyNote,
     order: 104,
     publishedAt: "2026-05-12",
     updatedAt: "2026-05-12",
@@ -2881,6 +2934,9 @@ const guideEntries: Guide[] = [
     excerpt:
       "Ako Bitcoin ima važnu ulogu u neto imovini, osobni sustav mora biti razumljiv osobi od povjerenja u izvanrednim okolnostima.",
     category: "Sigurnost i obitelj",
+    difficulty: "Napredno",
+    freshness: "stabilno",
+    safetyNote: advancedSecuritySafetyNote,
     order: 105,
     publishedAt: "2026-04-30",
     updatedAt: "2026-05-01",
@@ -2970,6 +3026,8 @@ const guideEntries: Guide[] = [
     excerpt:
       "Vaš Bitcoin mora ostati pod vašom kontrolom. Ali ako nitko ne zna što napraviti u izvanrednoj situaciji, sustav nije dovršen.",
     category: "Sigurnost i obitelj",
+    difficulty: "Srednje",
+    freshness: "stabilno",
     order: 100,
     featured: true,
     publishedAt: "2026-05-01",

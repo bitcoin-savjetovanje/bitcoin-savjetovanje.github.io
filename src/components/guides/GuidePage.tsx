@@ -2,6 +2,7 @@ import { ArrowRight, CalendarDays } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { GuideVisual } from "@/components/guides/GuideVisual"
+import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { GuideSectionVisual } from "@/components/guides/GuideSectionVisual"
 import { GuideStickyCta } from "@/components/guides/GuideStickyCta"
 import { Button } from "@/components/ui/button"
@@ -96,10 +97,24 @@ export function GuidePage({ guide }: { guide: Guide }) {
         <p className="mt-5 text-sm font-semibold text-muted-foreground">
           Vrijeme čitanja: {estimateGuideReadingMinutes(guide)} min
         </p>
+        <GuideMetaBadges guide={guide} />
         <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
           {guide.excerpt}
         </p>
       </header>
+      {guide.freshness === "često se mijenja" ? (
+        <section className="guide-info-note">
+          <p>
+            Napomena: ovaj vodič govori o temi čiji se detalji mogu mijenjati.
+            Prije odluke provjerite aktualne uvjete i izvore.
+          </p>
+        </section>
+      ) : null}
+      {guide.safetyNote ? (
+        <section className="guide-safety-note">
+          <p>{guide.safetyNote}</p>
+        </section>
+      ) : null}
       {guide.visual ? <GuideVisual visual={guide.visual} /> : null}
       {sectionLinks.length > 0 ? (
         <nav

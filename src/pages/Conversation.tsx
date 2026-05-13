@@ -1,4 +1,5 @@
 import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
+import { useState } from "react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
 import { CalInlineEmbed } from "@/components/CalInlineEmbed"
@@ -42,7 +43,61 @@ function Checklist({ items }: { items: string[] }) {
   )
 }
 
+function selectedQuestionFromUrl() {
+  if (typeof window === "undefined") {
+    return ""
+  }
+
+  const params = new URLSearchParams(window.location.search)
+
+  return params.get("pitanje")?.trim() ?? ""
+}
+
+function SelectedQuestionCard({ question }: { question: string }) {
+  const [copyLabel, setCopyLabel] = useState("Kopiraj pitanje")
+
+  async function copyQuestion() {
+    if (typeof navigator === "undefined" || !navigator.clipboard) {
+      return
+    }
+
+    try {
+      await navigator.clipboard.writeText(question)
+      setCopyLabel("Kopirano")
+      window.setTimeout(() => setCopyLabel("Kopiraj pitanje"), 2200)
+    } catch {
+      setCopyLabel("Kopiranje nije dostupno")
+      window.setTimeout(() => setCopyLabel("Kopiraj pitanje"), 2200)
+    }
+  }
+
+  return (
+    <section className="selected-question-card" aria-label="Odabrano pitanje">
+      <div>
+        <h2 className="text-xl font-semibold">Odabrano pitanje</h2>
+        <p className="mt-3 text-base leading-7 text-muted-foreground">
+          Odabrali ste pitanje:{" "}
+          <span className="text-foreground">{question}</span>
+        </p>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+          To pitanje možete kopirati u bilješku pri odabiru termina.
+        </p>
+      </div>
+      <Button
+        type="button"
+        variant="outline"
+        className="w-full rounded-full sm:w-auto"
+        onClick={copyQuestion}
+      >
+        {copyLabel}
+      </Button>
+    </section>
+  )
+}
+
 export function Conversation() {
+  const [selectedQuestion] = useState(selectedQuestionFromUrl)
+
   return (
     <>
       <Seo
@@ -177,6 +232,9 @@ export function Conversation() {
           </Button>
         </section>
 
+        {selectedQuestion ? (
+          <SelectedQuestionCard question={selectedQuestion} />
+        ) : null}
         <CalInlineEmbed />
 
         <div className="conversation-two-column">

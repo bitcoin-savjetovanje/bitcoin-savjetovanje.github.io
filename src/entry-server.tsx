@@ -15,6 +15,7 @@ function loadRouteComponents() {
     import("@/pages/BitcoinConsultation"),
     import("@/pages/Guide"),
     import("@/pages/Security"),
+    import("@/pages/Privacy"),
     import("@/pages/NotFound"),
   ]).then(
     ([
@@ -25,6 +26,7 @@ function loadRouteComponents() {
       bitcoinConsultation,
       guide,
       security,
+      privacy,
       notFound,
     ]) => ({
       Home: home.Home,
@@ -34,6 +36,7 @@ function loadRouteComponents() {
       BitcoinConsultation: bitcoinConsultation.BitcoinConsultation,
       Guide: guide.Guide,
       Security: security.Security,
+      Privacy: privacy.Privacy,
       NotFound: notFound.NotFound,
     })
   )

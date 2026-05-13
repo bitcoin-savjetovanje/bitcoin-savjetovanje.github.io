@@ -27,16 +27,16 @@ export const questionGroups = [
     questions: [
       "Zašto bi Bitcoin dugoročno bio bolji novac?",
       "Što Bitcoin ima što zlato, dionice, nekretnine ili državni novac nemaju?",
-      "Je li Bitcoin još uvijek rano ili je već kasno?",
+      "Je li za Bitcoin već kasno?",
       "Kako razlikovati Bitcoin od ostale digitalne imovine?",
     ],
   },
   {
     title: "Cijena i volatilnost",
     questions: [
-      "Što ako kupim, a cijena padne 50% ili 80%?",
+      "Što ako kupim, a cijena padne za 50% ili više?",
       "Kako razmišljati o rastu bez euforije?",
-      "Kako gledati dugoročni trend bez pokušaja pogađanja cijene?",
+      "Koliki je zapravo dugoročni trend rasta cijene Bitcoina, i što mogu realno očekivati?",
       "Kada je promjena cijene korisna informacija, a kada samo buka?",
     ],
   },

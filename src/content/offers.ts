@@ -24,15 +24,15 @@ export const offers: Offer[] = [
     title: "Uvodni razgovor",
     price: "0 €",
     duration: "15 minuta",
-    forWhom: "Za prvo pitanje ili odluku koju želite razjasniti.",
+    forWhom: "Bez naknade i bez obveze.",
     detail:
-      "Prvi kontakt bez naknade i bez obveze. Kažete što pokušavate odlučiti, ja postavim nekoliko pitanja i predložim razuman sljedeći korak.",
+      "Bez naknade i bez obveze. Cilj je vidjeti što prvo treba razjasniti i ima li smisla ići dublje.",
     purpose:
       "Kažete gdje ste sada, prepoznamo što prvo treba razjasniti i dobijete jasniju procjenu sljedećeg koraka.",
     includes: [
-      "Za prvo razjašnjenje jedne odluke ili pitanja",
-      "Bez slanja osjetljivih podataka",
-      "Bez prodaje Bitcoina, prognoza i upravljanja sredstvima",
+      "15 minuta",
+      "Bez naknade i bez obveze",
+      "Cilj: vidjeti što prvo treba razjasniti i ima li smisla ići dublje",
     ],
     cta: "Dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
@@ -49,11 +49,9 @@ export const offers: Offer[] = [
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
-      "Jasniji odgovori na pitanja koja se stalno vraćaju",
-      "Razjašnjenje Bitcoin teze na jeziku koji možete ponoviti drugima",
-      "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
-      "Jasniji okvir za vlastitu odluku o ulozi Bitcoina",
-      "Preporuka treba li stati na tome ili ići u puni osobni Bitcoin standard",
+      "Jedan dubinski razgovor",
+      "Za jedno ozbiljno Bitcoin pitanje",
+      "Razjašnjenje osobne situacije bez preuzimanja odluke",
     ],
     cta: "Prvo dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
@@ -76,11 +74,9 @@ export const offers: Offer[] = [
     purpose:
       "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i obiteljska pravila bez predaje kontrole.",
     includes: [
-      "Pravila za proračun, stvarni višak i buduća plaćanja",
-      "Jasan odnos prema dugu i potrošnji budućeg novca",
-      "Uloga Bitcoina u novcu i neto imovini",
-      "Pravila za padove, rastove i emocionalni pritisak",
-      "Sigurnosni i obiteljski okvir bez predaje kontrole",
+      "4–6 tjedana",
+      "Pisani okvir za proračun, dug, Bitcoin, neto imovinu, sigurnost i obitelj",
+      "Ozbiljniji nastavak kada jedno pitanje više nije dovoljno",
     ],
     cta: "Krenite od uvodnog razgovora",
     href: CONVERSATION_PATH,

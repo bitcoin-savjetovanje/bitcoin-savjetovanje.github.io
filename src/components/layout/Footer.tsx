@@ -6,6 +6,7 @@ import {
   DVADESET_JEDAN_URL,
   EMAIL,
   PRACTICAL_BITCOIN_STANDARD_URL,
+  PRIVACY_PATH,
 } from "@/content/site"
 
 export function Footer() {
@@ -40,6 +41,9 @@ export function Footer() {
           </a>{" "}
           <a href="/sigurnost/" data-link="footer-security">
             Sigurnost
+          </a>{" "}
+          <a href={PRIVACY_PATH} data-link="footer-privacy">
+            Privatnost
           </a>{" "}
           <a
             href={DVADESET_JEDAN_URL}

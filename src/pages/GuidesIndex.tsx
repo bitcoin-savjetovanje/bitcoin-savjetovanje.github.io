@@ -1,6 +1,7 @@
 import { CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref } from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
@@ -93,6 +94,8 @@ const roadmap = roadmapGroups
           title: guide.title,
           excerpt: guide.excerpt,
           href: guideHref(guide.slug),
+          difficulty: guide.difficulty,
+          freshness: guide.freshness,
         },
       ]
     }),
@@ -203,6 +206,7 @@ export function GuidesIndex() {
                           </a>
                         </h4>
                         <p>{guide.excerpt}</p>
+                        <GuideMetaBadges guide={guide} />
                       </article>
                     </li>
                   ))}

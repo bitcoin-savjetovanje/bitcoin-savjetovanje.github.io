@@ -34,7 +34,15 @@ function routeActiveHref(pathname: string) {
         return false
       }
 
-      return pathFromHref(link.href) === normalizedPath
+      const linkPath = pathFromHref(link.href)
+
+      if (linkPath === "/vodici") {
+        return (
+          normalizedPath === "/vodici" || normalizedPath.startsWith("/vodici/")
+        )
+      }
+
+      return linkPath === normalizedPath
     })?.href ?? ""
   )
 }

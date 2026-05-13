@@ -14,6 +14,7 @@ import {
   bitcoinConsultationSeo,
   conversationSeo,
   guidesIndexSeo,
+  privacySeo,
   securitySeo,
 } from "./site"
 import { faqs } from "./faq"
@@ -329,6 +330,30 @@ export function securityPageSchema() {
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
         { name: "Sigurnost i povjerljivost", item: securitySeo.canonical },
+      ]),
+    ],
+  }
+}
+
+export function privacyPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Privatnost i podaci",
+        description: privacySeo.description,
+        url: privacySeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Privatnost i podaci", item: privacySeo.canonical },
       ]),
     ],
   }

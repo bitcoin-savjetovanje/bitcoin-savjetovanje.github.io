@@ -14,6 +14,7 @@ export type RouteComponents = {
   BitcoinConsultation: ComponentType
   Guide: ComponentType<{ slug: string }>
   Security: ComponentType
+  Privacy: ComponentType
   NotFound: ComponentType
 }
 
@@ -46,6 +47,9 @@ const lazyRouteComponents = {
   ),
   Security: lazy(() =>
     import("@/pages/Security").then((module) => ({ default: module.Security }))
+  ),
+  Privacy: lazy(() =>
+    import("@/pages/Privacy").then((module) => ({ default: module.Privacy }))
   ),
   NotFound: lazy(() =>
     import("@/pages/NotFound").then((module) => ({ default: module.NotFound }))
@@ -87,6 +91,7 @@ function Route({
     BitcoinConsultation,
     Guide,
     Security,
+    Privacy,
     NotFound,
   } = routeComponents
 
@@ -122,6 +127,10 @@ function Route({
 
   if (path === "/sigurnost") {
     return <Security />
+  }
+
+  if (path === "/privatnost") {
+    return <Privacy />
   }
 
   return <NotFound />

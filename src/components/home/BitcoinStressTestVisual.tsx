@@ -3,7 +3,7 @@ import { CircleHelp, ShieldCheck, Users, WalletCards } from "lucide-react"
 const ruleRows = [
   {
     title: "Bitcoin teza",
-    question: "što još nije jasno u Bitcoin tezi",
+    question: "što još nije jasno u razumijevanju Bitcoina",
     Icon: CircleHelp,
   },
   {
@@ -14,7 +14,7 @@ const ruleRows = [
   {
     title: "Sigurnost",
     question:
-      "što nikada ne dijeliti i kako spriječiti da pristup Bitcoinu ovisi o jednoj osobi, uređaju ili lokaciji",
+      "što nikada ne dijeliti i kako pristup ne smije ovisiti o jednoj osobi",
     Icon: ShieldCheck,
   },
   {
@@ -33,8 +33,8 @@ export function BitcoinStressTestVisual() {
             Uvodni razgovor
           </h2>
           <p className="mt-2 text-base leading-6 font-semibold text-foreground sm:text-lg sm:leading-7">
-            U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate
-            donijeti i koji bi sljedeći korak bio razuman.
+            Jedno stvarno pitanje dovoljno je za početak. U 15 minuta vidimo što
+            prvo treba razjasniti i koji je sljedeći korak razuman.
           </p>
         </div>
         <div className="grid size-11 shrink-0 place-items-center overflow-hidden rounded-full border border-primary/30 bg-primary/10">

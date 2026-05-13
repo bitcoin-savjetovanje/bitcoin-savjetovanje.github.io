@@ -8,7 +8,8 @@ export const SECONDARY_CTA = "Pogledajte pitanja koja možemo proći"
 export const BITCOIN_ADVICE_PATH = "/bitcoin-savjetovanje/"
 export const CONVERSATION_PATH = "/razgovor/"
 export const BITCOIN_CONSULTATION_PATH = "/bitcoin-konzultacija/"
-export const SITE_UPDATED_AT = "2026-05-11"
+export const PRIVACY_PATH = "/privatnost/"
+export const SITE_UPDATED_AT = "2026-05-13"
 export const OG_IMAGE_PATH = "/og-bitcoin-logo.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
@@ -22,7 +23,7 @@ export const TWENTYONE_URL = "https://twentyone.world"
 export const homeSeo = {
   title: "Bitcoin Savjetovanje | Uvodni Bitcoin razgovor",
   description:
-    "Jedan-na-jedan Bitcoin savjetovanje za ljude koji žele razjasniti cijenu, rizik, dug, sigurnost, obitelj ili ulogu Bitcoina u vlastitoj imovini.",
+    "Jedan-na-jedan Bitcoin savjetovanje za ljude koji imaju stvarno Bitcoin pitanje o odluci, cijeni, dugu, sigurnosti, obitelji ili ulozi Bitcoina u vlastitoj imovini.",
   canonical: `${SITE_URL}/`,
 }
 
@@ -59,6 +60,13 @@ export const securitySeo = {
   description:
     "Sigurnosni okvir za Bitcoin bez dijeljenja seed phrase, privatnih ključeva, lozinki ili pristupa novčaniku.",
   canonical: `${SITE_URL}/sigurnost/`,
+}
+
+export const privacySeo = {
+  title: "Privatnost i podaci | Bitcoin Savjetovanje",
+  description:
+    "Što trebate podijeliti za uvodni Bitcoin razgovor, što nikada ne šaljete i kako se čuvaju povjerljivost i sigurnosna pravila.",
+  canonical: `${SITE_URL}${PRIVACY_PATH}`,
 }
 
 export const heroOutcomes = [

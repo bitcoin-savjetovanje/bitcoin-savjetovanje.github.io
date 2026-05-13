@@ -315,6 +315,7 @@ const conversation = routeMap.get("/razgovor/")
 const bitcoinConsultation = routeMap.get("/bitcoin-konzultacija/")
 const guidesIndex = routeMap.get("/vodici/")
 const security = routeMap.get("/sigurnost/")
+const privacy = routeMap.get("/privatnost/")
 
 const requiredFiles = [
   "index.html",
@@ -325,6 +326,7 @@ const requiredFiles = [
   "bitcoin-konzultacija/index.html",
   "vodici/index.html",
   "sigurnost/index.html",
+  "privatnost/index.html",
   ...requiredGuidePaths.map(routeFile),
   ...aliasGuidePaths.map((route) => routeFile(route.oldPath)),
 ]
@@ -487,22 +489,25 @@ assertIncludes(
 
 const homeChecks = [
   [
-    "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
+    "Imate Bitcoin pitanje koje utječe na stvarnu odluku?",
     "new hero title",
   ],
   [
-    "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku. U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
+    "Dođite s jednim pitanjem. U 15 minuta razjasnimo što prvo treba posložiti: Bitcoin tezu, dug, proračun, sigurnost, obitelj ili ulogu Bitcoina u vašoj imovini.",
     "full updated hero supporting sentence",
   ],
   [
-    "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku.",
+    "Ne morate unaprijed znati trebate li konzultaciju, program ili samo kratak odgovor.",
     "updated hero supporting sentence",
   ],
   [
-    "U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
+    "Uvodni razgovor postoji da to razjasnimo.",
     "hero intro call framing",
   ],
-  ["što još nije jasno u Bitcoin tezi", "hero intro card Bitcoin thesis copy"],
+  [
+    "što još nije jasno u razumijevanju Bitcoina",
+    "hero intro card Bitcoin thesis copy",
+  ],
   [
     "Ako niste sigurni je li pitanje dovoljno veliko",
     "questions reassurance copy",
@@ -512,7 +517,7 @@ const homeChecks = [
     "intro call title",
   ],
   [
-    "Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta.",
+    "Prvo razjasnite pitanje. Tek onda biramo nastavak.",
     "offer section title",
   ],
   ["Bitcoin konzultacija", "renamed 200 EUR offer"],
@@ -531,10 +536,7 @@ const homeChecks = [
     "Nekome treba razjasniti jedan dio odluke koji još nije dovoljno čvrst.",
     "intro call Bitcoin thesis copy",
   ],
-  [
-    "Jasniji odgovori na pitanja koja se stalno vraćaju",
-    "Bitcoin konzultacija question copy",
-  ],
+  ["Za jedno ozbiljno Bitcoin pitanje", "Bitcoin konzultacija question copy"],
   ["Bitcoin konzultacija", "Bitcoin konzultacija offer title"],
   ["Što je Bitcoin konzultacija?", "Bitcoin konzultacija detail link copy"],
   ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija detail link href"],
@@ -557,7 +559,7 @@ const homeChecks = [
     "natural security recovery copy",
   ],
   [
-    "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
+    "Razjašnjenje osobne situacije bez preuzimanja odluke",
     "Bitcoin konzultacija offer framing",
   ],
   ["ne čuvam vaš Bitcoin", "footer no custody disclaimer"],
@@ -596,7 +598,7 @@ const homeChecks = [
   ["što vas najviše brine", "conversation problem worry copy"],
   ["što još nedostaje za mirniju odluku", "conversation problem decision copy"],
   [
-    "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman.",
+    "Jedno stvarno pitanje dovoljno je za početak. U 15 minuta vidimo što prvo treba razjasniti i koji je sljedeći korak razuman.",
     "hero intro card copy",
   ],
   [
@@ -646,6 +648,10 @@ const homeChecks = [
   ['data-cta="final-intro-call"', "final CTA metadata"],
   ['data-link="home-guide-teaser"', "home guide link metadata"],
   ['data-link="footer-security"', "footer security link metadata"],
+  ['data-link="footer-privacy"', "footer privacy link metadata"],
+  ["Kako se ovo slaže?", "how it fits section title"],
+  ["Praktični Bitcoin standard", "how it fits guide card"],
+  ["Dogovorite uvodni razgovor", "how it fits intro CTA"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
     "home canonical URL",
@@ -660,12 +666,11 @@ for (const [expected, label] of homeChecks) {
 }
 
 const homeNavLinks = [
-  ['href="/#pitanja"', "questions nav link"],
-  ['href="/#uvodni-razgovor"', "intro call nav link"],
-  ['href="/#ponude"', "program/offers nav link"],
+  ['href="/bitcoin-savjetovanje/"', "advice nav link"],
+  ['href="/vodici/"', "guides nav link"],
+  ['href="/razgovor/"', "conversation nav link"],
   ['href="/sigurnost/"', "security nav link"],
   ['href="/#o-meni"', "about nav link"],
-  ['href="/razgovor/"', "conversation nav link"],
 ]
 
 for (const [expected, label] of homeNavLinks) {
@@ -851,7 +856,7 @@ assertBefore(
 assertBefore(
   "index.html",
   homeHtml,
-  "Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta.",
+  "Prvo razjasnite pitanje. Tek onda biramo nastavak.",
   "Vaš Bitcoin ostaje vaš.",
   "offers before security"
 )
@@ -1299,6 +1304,46 @@ if (!security) {
   fail("Route metadata for security page is missing")
 }
 
+const privacyHtml = readFile("privatnost/index.html")
+const privacyChecks = [
+  ["Privatnost i podaci", "privacy page title"],
+  [
+    "Za rezervaciju termina obično su dovoljni ime, email, termin i kratka bilješka",
+    "privacy booking data copy",
+  ],
+  ["seed phrase", "privacy seed phrase copy"],
+  ["privatne ključeve", "privacy private keys copy"],
+  ["Povjerljivost razgovora", "privacy confidentiality section"],
+  ["Za dogovor termina koristi se Cal.com", "privacy tools section"],
+  ["Brisanje ili izmjena podataka", "privacy deletion section"],
+  [
+    "Seed phrase i privatni ključevi se nikada ne šalju",
+    "privacy safety rule",
+  ],
+  ['href="/razgovor/"', "privacy page links to conversation"],
+  ['data-cta="privacy-intro-call"', "privacy CTA metadata"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/privatnost/" />',
+    "privacy canonical URL",
+  ],
+]
+
+for (const [expected, label] of privacyChecks) {
+  assertIncludes("privatnost/index.html", privacyHtml, expected, label)
+}
+
+assertCount(
+  "privatnost/index.html",
+  privacyHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!privacy) {
+  fail("Route metadata for privacy page is missing")
+}
+
 for (const guidePath of requiredGuidePaths) {
   const route = routeMap.get(guidePath)
   const relativePath = routeFile(guidePath)
@@ -1319,6 +1364,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(relativePath, html, '"@type":"Article"', "Article schema")
   assertIncludes(relativePath, html, "BreadcrumbList", "BreadcrumbList schema")
   assertIncludes(relativePath, html, "Vrijeme čitanja", "reading time")
+  assertIncludes(relativePath, html, "guide-meta-badges", "guide metadata badges")
   assertIncludes(relativePath, html, "U ovom vodiču", "table of contents")
   assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
   assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
@@ -1473,6 +1519,8 @@ const focusedGuideChecks = [
       "STRC je Strategyjev Stretch",
       "11,50%",
       "Strategy je predložio češću, polumjesečnu isplatu dividendi",
+      "Često se mijenja",
+      "Napomena: ovaj vodič govori o temi čiji se detalji mogu mijenjati.",
       'href="/vodici/samostalna-pohrana-ili-skrbnik/"',
       'href="/vodici/obiteljski-bitcoin-trezor/"',
       'href="/razgovor/"',
@@ -1495,6 +1543,7 @@ const focusedGuideChecks = [
       "Nije univerzalni recept, nego primjer za razmišljanje o obiteljskoj sigurnosti.",
       "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
       "višepotpisni sustav 2 od 3",
+      "Ovo nije početna preporuka za svakoga.",
       "Ako Passport Core nije dostupan",
       "Blockstream Jade Plus",
       "Dogovorite uvodni Bitcoin razgovor",
@@ -1507,6 +1556,8 @@ const focusedGuideChecks = [
       "Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti",
       "Samostalna pohrana je važan cilj",
       "pohrana kod skrbnika",
+      "Često se mijenja",
+      "Ovo nije početna preporuka za svakoga.",
       'href="/vodici/obiteljski-bitcoin-trezor/"',
       'href="/vodici/bitcoin-etfovi-i-riznicke-kompanije/"',
       "Dogovorite uvodni Bitcoin razgovor",
@@ -1521,6 +1572,8 @@ const focusedGuideChecks = [
       "nije isto što i vlastiti Bitcoin trezor sa Sparrowom",
       'href="/vodici/obiteljski-bitcoin-trezor/"',
       "Emergency Exit Kit",
+      "Često se mijenja",
+      "Ovo nije početna preporuka za svakoga.",
       "Dogovorite uvodni Bitcoin razgovor",
       "Ako niste sigurni je li Bitkey dovoljan za vaš iznos",
     ],
@@ -1529,6 +1582,7 @@ const focusedGuideChecks = [
     path: "vodici/obiteljski-pristup-bitcoinu/index.html",
     checks: [
       "Minimalna obiteljska uputa",
+      "Ovo nije početna preporuka za svakoga.",
       "Bitcoin postoji i dio je neto imovine.",
       "Ako obitelj zna da Bitcoin postoji, ali nema jasne upute što smije i ne smije napraviti",
     ],
@@ -1596,6 +1650,7 @@ for (const route of [
   "/bitcoin-konzultacija/",
   "/vodici/",
   "/sigurnost/",
+  "/privatnost/",
 ]) {
   assertIncludes(
     "sitemap.xml",

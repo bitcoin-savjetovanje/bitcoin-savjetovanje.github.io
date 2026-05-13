@@ -10,21 +10,19 @@ export function Hero() {
       <div className="hero-shell">
         <div className="hero-copy">
           <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-            Bitcoin Savjetovanje jedan-na-jedan
+            Bitcoin savjetovanje jedan-na-jedan
           </p>
           <h1 className="hero-title mt-4">
-            Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu
-            situaciju.
+            Imate Bitcoin pitanje koje utječe na stvarnu odluku?
           </h1>
           <p className="hero-subtitle">
-            Jedan-na-jedan razgovor za ljude koji vide da je Bitcoin važan, ali
-            još imaju pitanja o cijeni, riziku, dugu, sigurnosti, obitelji ili
-            ulozi Bitcoina u vlastitoj imovini.
+            Dođite s jednim pitanjem. U 15 minuta razjasnimo što prvo treba
+            posložiti: Bitcoin tezu, dug, proračun, sigurnost, obitelj ili ulogu
+            Bitcoina u vašoj imovini.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu
-            odluku. U 15 minuta vidimo što prvo treba razjasniti i koji bi
-            sljedeći korak bio razuman.
+            Ne morate unaprijed znati trebate li konzultaciju, program ili samo
+            kratak odgovor. Uvodni razgovor postoji da to razjasnimo.
           </p>
 
           <div className="mt-8 flex w-full max-w-2xl flex-col gap-3 sm:mt-9 lg:max-w-none lg:flex-row lg:items-center">
@@ -59,8 +57,9 @@ export function Hero() {
             </Button>
           </div>
           <p className="mt-5 max-w-3xl text-sm leading-6 font-medium text-muted-foreground">
-            Uvodni razgovor traje 15 minuta i nema naknade ni obveze. Ne
-            upravljam sredstvima, ne prognoziram cijenu i ne tražim seed phrase.
+            Uvodni razgovor je bez naknade i bez obveze. Ne upravljam
+            sredstvima, ne prognoziram cijenu i ne tražim seed phrase, privatne
+            ključeve ni pristup novčaniku.
           </p>
         </div>
         <BitcoinStressTestVisual />

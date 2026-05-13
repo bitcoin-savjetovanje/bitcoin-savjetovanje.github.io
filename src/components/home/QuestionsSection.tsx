@@ -6,6 +6,12 @@ import { Button } from "@/components/ui/button"
 import { questionGroups } from "@/content/home"
 import { CONVERSATION_PATH } from "@/content/site"
 
+function conversationHref(question: string) {
+  const search = new URLSearchParams({ pitanje: question }).toString()
+
+  return `${CONVERSATION_PATH}?${search}`
+}
+
 export function QuestionsSection() {
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null)
 
@@ -56,7 +62,7 @@ export function QuestionsSection() {
         {selectedQuestion ? (
           <Button asChild className="cta-primary mt-5 rounded-full">
             <a
-              href={CONVERSATION_PATH}
+              href={conversationHref(selectedQuestion)}
               className="justify-center text-center"
               data-cta="question-selected-intro-call"
             >

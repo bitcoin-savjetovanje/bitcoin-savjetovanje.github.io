@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react"
 
 import { featuredGuides, guideHref, guides, type Guide } from "@/content/guides"
 import { estimateGuideReadingMinutes } from "@/utils/readingTime"
+import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 
 function GuideVisualPreview({ guide }: { guide: Guide }) {
   const type = guide.visual?.type ?? "sequence"
@@ -72,6 +73,7 @@ export function GuideCardsGrid({
             <p className="mb-3 text-xs font-semibold tracking-[0.14em] text-muted-foreground uppercase">
               {guide.category}
             </p>
+            <GuideMetaBadges guide={guide} />
             <h3 className="flex items-start justify-between gap-4">
               <a
                 href={guideHref(guide.slug)}

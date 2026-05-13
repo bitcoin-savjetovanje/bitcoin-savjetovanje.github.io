@@ -6,6 +6,7 @@ import {
   guideSchema,
   guidesIndexSchema,
   homeSchema,
+  privacyPageSchema,
   securityPageSchema,
 } from "./schema"
 import {
@@ -17,6 +18,7 @@ import {
   conversationSeo,
   guidesIndexSeo,
   homeSeo,
+  privacySeo,
   securitySeo,
 } from "./site"
 
@@ -28,6 +30,7 @@ export type RouteType =
   | "guides-index"
   | "guide"
   | "security"
+  | "privacy"
   | "not-found"
 export type RouteOgType = "website" | "article"
 
@@ -161,6 +164,20 @@ export const securityRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
+export const privacyRoute: RouteMeta = {
+  path: "/privatnost/",
+  title: privacySeo.title,
+  description: privacySeo.description,
+  canonical: privacySeo.canonical,
+  schema: privacyPageSchema(),
+  type: "privacy",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
 export const notFoundRoute: RouteMeta = {
   path: "/404",
   title: "Stranica nije pronađena | Bitcoin Savjetovanje",
@@ -190,6 +207,7 @@ export const prerenderRoutes: RouteMeta[] = [
   ...guideRouteMetas,
   ...guideAliasRouteMetas,
   securityRoute,
+  privacyRoute,
 ]
 
 export function findGuideRouteMeta(slug: string | undefined) {

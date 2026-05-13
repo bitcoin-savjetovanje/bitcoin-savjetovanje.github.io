@@ -5,6 +5,11 @@ export const faqs = [
       "Da. Ako imate pitanje koje utječe na vašu odluku, uvodni razgovor može biti dobar prvi korak. U 15 minuta vidimo je li dovoljan kratak odgovor ili bi dublji razgovor bio korisniji.",
   },
   {
+    question: "Jesam li zakasnio u Bitcoin?",
+    answer:
+      "Ne nužno. Prije je cijena bila niža, ali je razumijevanje bilo skuplje: manje kvalitetnih materijala, više šuma i manje ljudi s praktičnim iskustvom. Danas je lakše doći do jasnog okvira za odluku. Važnije pitanje nije “što bi bilo da sam ušao ranije”, nego “što sada trebam napraviti s novcem, dugom, sigurnošću i ulogom Bitcoina u imovini”.",
+  },
+  {
     question: "Zašto platiti razgovor ako mogu sam učiti o Bitcoinu?",
     answer:
       "Možete učiti sami i to je potpuno legitiman put. Ali nije bez troška. Plaća se vremenom, pažnjom, šumom, pogrešnim tragovima i mogućim odgodama. Razgovor ne zamjenjuje učenje, nego ga skraćuje i povezuje s vašom stvarnom odlukom.",
@@ -13,6 +18,11 @@ export const faqs = [
     question: "Hoćete li mi reći koliko Bitcoina da kupim?",
     answer:
       "Ne donosim odluku umjesto vas. Mogu vam pomoći razumjeti Bitcoin, rizike, vlastitu situaciju, dug, proračun, sigurnost i moguće posljedice različitih odluka. Odluka ostaje vaša.",
+  },
+  {
+    question: "Savjetujete li ulaganje u druge kriptovalute?",
+    answer:
+      "Ne. Ovo je Bitcoin savjetovanje. Bitcoin tretiram kao novac. Druge kriptovalute, ako ih uopće razmatrate, treba promatrati kao rizične investicije koje moraju ostvariti pozitivan povrat u Bitcoinu. To zahtijeva posebno znanje, vrijeme, tezu ulaska i izlaska te razumijevanje rizika. Za većinu ljudi korisnije je prvo urediti Bitcoin, proračun, dug, sigurnost i vlastitu sposobnost stvaranja prihoda.",
   },
   {
     question: "Je li ovo financijsko savjetovanje?",

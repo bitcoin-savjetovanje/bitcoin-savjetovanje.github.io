@@ -913,6 +913,282 @@ const guideEntries: Guide[] = [
       "Ako želite da Bitcoin standard ne zatvori odnos prema ljudima, nego ga učini jasnijim, to je pitanje koje ne treba ostati samo u glavi.",
   },
   {
+    slug: "niste-zakasnili-u-bitcoin",
+    title: "Niste zakasnili u Bitcoin",
+    seoTitle: "Niste zakasnili u Bitcoin",
+    metaDescription:
+      "Prije deset godina Bitcoin je bio jeftiniji u državnom novcu, ali je razumijevanje bilo skuplje u vremenu. Danas je lakše doći do jasnog okvira za odluku i primjenu.",
+    excerpt:
+      "Bitcoin je prije bio jeftiniji, ali je razumijevanje bilo skuplje. Danas je lakše doći do jasnog okvira za odluku, proračun, dug, sigurnost i ulogu Bitcoina u imovini.",
+    category: "Bitcoin kao novac",
+    difficulty: "Početno",
+    freshness: "stabilno",
+    order: 58,
+    publishedAt: "2026-05-13",
+    updatedAt: "2026-05-13",
+    practicalQuestion:
+      "Gledate li samo cijenu koju ste propustili ili i cijenu razumijevanja koju danas možete skratiti?",
+    relatedSlugs: [
+      "bitcoin-kao-novac",
+      "dca-nije-dovoljan",
+      "uskladivanje-kupovne-moci-bitcoina",
+      "svaki-euro-ima-namjenu",
+    ],
+    visual: {
+      type: "split",
+      title: "Cijena i razumijevanje",
+      leftLabel: "Prije",
+      leftItems: [
+        "niža cijena",
+        "manje signala",
+        "više šuma",
+        "dulji put do razumijevanja",
+      ],
+      rightLabel: "Danas",
+      rightItems: [
+        "više materijala",
+        "više iskustva",
+        "jasniji okvir",
+        "brža primjena",
+      ],
+      caption:
+        "Ranije nije značilo nužno lakše. Cijena je bila niža, ali je razumijevanje bilo skuplje.",
+    },
+    sections: [
+      {
+        heading: "Niža cijena nije isto što i bolji trenutak",
+        body: [
+          "Jedna od najčešćih rečenica koju ljudi izgovore kada počnu ozbiljnije gledati Bitcoin glasi: “Da sam barem ušao ranije.” Na prvi pogled, ta rečenica zvuči razumno. Bitcoin je nekada vrijedio nekoliko dolara, zatim nekoliko stotina dolara, zatim nekoliko tisuća dolara. Tko danas gleda povijesni graf, lako može steći dojam da je pravi trenutak već prošao.",
+          "Ali taj pogled propušta najvažniji dio priče. Kada sam prvi put kupio Bitcoin u srpnju 2014., cijena je bila oko 600 dolara po Bitcoinu. Kupio sam oko 20 dolara vrijednosti Bitcoina, više kao pokus nego kao ozbiljan financijski korak. Cijena je bila niska, ali moje razumijevanje nije bilo dovoljno za veliku odluku.",
+          "Nije dovoljno da je cijena niska. Trebate znati što radite, zašto to radite, koliko rizika preuzimate, što očekujete i što ćete napraviti ako cijena snažno poraste ili snažno padne. Niska cijena bez razumijevanja često ne vodi do dobre odluke. Vodi do pokusa, zaborava, panike, prerane prodaje ili potpunog odustajanja.",
+        ],
+      },
+      {
+        heading: "Prije je signal bio slabiji",
+        body: [
+          "Godine 2014. nije bilo ni približno toliko kvalitetnog Bitcoin sadržaja kao danas. Bilo je manje knjiga, manje dobrih razgovora, manje jasnih objašnjenja i manje ljudi koji su prošli više ciklusa. Netko tko je tada htio doći do ozbiljnog razumijevanja morao je sam prolaziti kroz mnogo šuma.",
+          "Godine 2017. šuma je bilo još više: altcoini, ICO-ovi, kratke priče o brzom bogaćenju i stalno miješanje Bitcoina s ostatkom digitalne imovine. Tek nakon toga, osobito od 2018., počeo se jasnije razvijati Bitcoin-only signal kroz knjige, podcaste i ozbiljnije razgovore.",
+          "Danas je situacija drukčija. Bitcoin je zreliji. Materijala ima više. Iskustva ima više. Puno toga što je prije bilo nejasno danas se može objasniti brže, jednostavnije i praktičnije. Ranije je cijena bila niža, ali je put do razumijevanja bio skuplji.",
+        ],
+      },
+      {
+        heading: "Razumijevanje ima svoju cijenu",
+        body: [
+          "Informacije o Bitcoinu često su besplatne. Možete čitati knjige, slušati podcaste, gledati predavanja i razgovarati s ljudima. Ali to ne znači da je put besplatan. Plaćate ga vremenom.",
+          "Ako trebate stotine sati da razdvojite signal od šuma, taj put ima cijenu. Ako godinama odgađate odluku jer još niste sigurni, i to ima cijenu. Ako napravite pogrešne korake jer niste imali redoslijed, i to ima cijenu.",
+          "Zato pitanje “zašto bih platio razgovor ako mogu sam učiti” nije potpuno. Bolje pitanje glasi: koliko me košta da do istog stupnja jasnoće dođem sam? Za nekoga tko ima ozbiljan posao, obitelj, imovinu, obveze ili firmu, vrijeme nije neograničeno.",
+        ],
+      },
+      {
+        heading: "Ne morate postati Bitcoin stručnjak za sve",
+        body: [
+          "Kod Bitcoina postoji česta pogreška: ljudi misle da moraju razumjeti sve prije nego što ga mogu koristiti. Ne moraju.",
+          "Da biste vozili auto, ne morate biti automobilski inženjer. Ne morate znati projektirati motor, proizvoditi gume ili popravljati elektroniku. Trebate znati kako sigurno koristiti auto: kako krenuti, kočiti, skretati, gledati retrovizore i doći od točke A do točke B.",
+          "Slično vrijedi i za mobitel. Milijarde ljudi koriste mobitele svaki dan, a vrlo mali broj njih može objasniti kako rade čipovi, antene, operativni sustav i proizvodni lanac. To ih ne sprječava da imaju veliku korist od tehnologije.",
+          "S Bitcoinom je slično. Dobro je razumjeti osnovnu Bitcoin tezu. Dobro je razumjeti zašto novac postoji, zašto državni novac gubi kupovnu moć, zašto je Bitcoin ograničen i zašto se privatni ključevi ne dijele. Ali ne morate postati stručnjak za svaki dio Bitcoin sustava. Trebate znati dovoljno da ga koristite mudro.",
+        ],
+      },
+      {
+        heading: "Važnije pitanje: što ćete napraviti s Bitcoinom?",
+        body: [
+          "Najvažnije pitanje nije koliko duboko možete objasniti svaki tehnički dio Bitcoina. Najvažnije pitanje je: što ćete napraviti s Bitcoinom u vlastitom životu?",
+          "Hoće li Bitcoin biti samo imovina koju držite sa strane? Hoće li postati dio vaše novčane zalihe? Koliko državnog novca trebate ostaviti za kratke potrebe? Imate li dug? Vodite li proračun? Znate li što je stvarni višak? Kako ćete reagirati ako kupovna moć Bitcoina padne? Što ćete napraviti ako snažno poraste? Kako je Bitcoin uklopljen u vašu neto imovinu? Zna li obitelj što smije i što ne smije napraviti?",
+          "To su praktična pitanja. Ona često imaju veću vrijednost od dodatnih sati teorijskog proučavanja. Možete imati veliko tehničko razumijevanje Bitcoina, a svejedno donositi loše osobne odluke. Možete razumjeti proof of work, ali ne voditi proračun. Možete znati objasniti rudarenje, ali imati dug koji vas prisiljava na prodaju u lošem trenutku.",
+        ],
+        link: {
+          before: "Za početak osobnog okvira pročitajte vodič ",
+          label: "Svaki euro ima namjenu",
+          href: "/vodici/svaki-euro-ima-namjenu/",
+          after: ".",
+        },
+      },
+      {
+        heading: "Prvo red, zatim Bitcoin kao novac",
+        body: [
+          "U autoškoli ne počinjete s dubokom teorijom motora. Prvo učite kako se auto koristi. Gdje je kočnica. Kako se kreće. Kako se gleda mrtvi kut. Kako se ulazi u promet. Kako se sigurno zaustavlja.",
+          "Slično je i s Bitcoinom kao novcem. Na početku morate svjesno urediti osnovne stvari: proračun, dug, stvarni višak, buduća plaćanja, sigurnost i pravila za obitelj. Možda se čini da to nema izravne veze s Bitcoinom, ali ima. Bez toga Bitcoinova volatilnost može pojačati nered koji već postoji.",
+          "Ako ne znate koji novac ima koju namjenu, ne znate ni koji novac stvarno može postati Bitcoin. Ako imate dug, dio vaše budućnosti već je potrošen. Ako obitelj ne zna što ne smije napraviti sa seed phrase, sigurnost ovisi o sreći. Ako ne znate što ćete napraviti pri velikom rastu ili padu, cijena će voditi odluku umjesto pravila.",
+          "Zato je redoslijed važan: prvo proračun, zatim izlazak iz duga, zatim davanje, zatim Bitcoin kao novac, neto imovina, volatilnost, sigurnost i obitelj.",
+        ],
+        link: {
+          before: "Kada dođete do pitanja uloge Bitcoina, nastavite s vodičem ",
+          label: "Bitcoin je novac",
+          href: "/vodici/bitcoin-kao-novac/",
+          after: ".",
+        },
+      },
+      {
+        heading: "Danas je lakše početi nego prije",
+        body: [
+          "Netko tko danas ulazi u Bitcoin ima prednost koju raniji korisnici nisu imali. Ne mora sam prolaziti kroz isti kaos. Ne mora godinama skupljati fragmente. Ne mora ponavljati sve pogreške. Ne mora postati stručnjak za svaku tehničku i industrijsku granu Bitcoina.",
+          "Može krenuti jasnije. Može naučiti osnovnu Bitcoin tezu, razumjeti zašto je Bitcoin novac u procesu monetizacije, vidjeti zašto je volatilnost prirodan dio tog procesa i naučiti kako ga uklopiti u vlastiti proračun, dug, neto imovinu i sigurnosni plan.",
+          "Bitcoin savjetovanje nije zamjena za učenje. Nije ni prečac kojim se preskače odgovornost. Ono je skraćivanje puta između pitanja i primjene. Cilj nije da izađete iz razgovora kao Bitcoin stručnjak za sve. Cilj je da izađete s jasnijim sljedećim korakom.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Niste zakasnili u Bitcoin samo zato što je cijena danas viša nego što je bila prije deset godina. Prije je cijena bila niža, ali je razumijevanje bilo skuplje. Danas je cijena viša, ali je put do jasnog okvira kraći. To je važna razlika.",
+          "Bitcoin nije samo nešto što treba razumjeti. Bitcoin je novac koji treba znati uklopiti u vlastiti život. Ne morate znati sve. Ali trebate znati dovoljno da donesete mirnije odluke o novcu, dugu, imovini, sigurnosti i obitelji.",
+          "Ako imate jedno stvarno Bitcoin pitanje koje utječe na odluku, to je dovoljno dobar početak.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+    finalCtaPrompt:
+      "Ako imate osjećaj da ste zakasnili u Bitcoin, uvodni razgovor može pomoći razjasniti što danas stvarno trebate napraviti.",
+  },
+  {
+    slug: "bitcoin-nije-kripto-portfelj",
+    title: "Bitcoin nije kripto portfelj",
+    seoTitle: "Bitcoin nije kripto portfelj",
+    metaDescription:
+      "Bitcoin u ovom okviru tretiramo kao novac. Sve ostalo, ako se uopće razmatra, treba promatrati kao rizičnu investiciju koja mora ostvariti pozitivan povrat u Bitcoinu.",
+    excerpt:
+      "Bitcoin nije jedna stavka u kripto portfelju. U osobnom Bitcoin standardu Bitcoin je novac, a sve ostalo je eventualno rizična investicija s vlastitim troškom, rizikom i mjerilom povrata u Bitcoinu.",
+    category: "Bitcoin kao novac",
+    difficulty: "Početno",
+    freshness: "stabilno",
+    order: 59,
+    publishedAt: "2026-05-13",
+    updatedAt: "2026-05-13",
+    practicalQuestion:
+      "Mjerite li druge kriptovalute u eurima ili u Bitcoinu koji ste mogli zadržati?",
+    relatedSlugs: [
+      "bitcoin-kao-novac",
+      "niste-zakasnili-u-bitcoin",
+      "novac-kapital-potrosnja",
+      "bitcoin-u-neto-imovini",
+      "pravilo-trecina",
+      "dca-nije-dovoljan",
+    ],
+    visual: {
+      type: "split",
+      title: "Novac i investicija",
+      leftLabel: "Bitcoin kao novac",
+      leftItems: [
+        "novčana zaliha",
+        "mjerilo povrata",
+        "dugoročna teza o novcu",
+        "pravila koja se teško mijenjaju",
+      ],
+      rightLabel: "Kriptovalute kao investicija",
+      rightItems: [
+        "veći specifični rizik",
+        "potreba za tezom ulaska i izlaska",
+        "oportunitetni trošak proučavanja",
+        "povrat se mora mjeriti u Bitcoinu",
+      ],
+      caption:
+        "Ako Bitcoin tretirate kao novac, tada se i sve druge investicije moraju mjeriti u Bitcoinu.",
+    },
+    sections: [
+      {
+        heading: "Najčešće pitanje: što je s ostalim kriptovalutama?",
+        body: [
+          "Jedno od čestih pitanja u Bitcoin razgovorima glasi: “Razumijem Bitcoin, ali što je s ostalim kriptovalutama?” Pitanje je razumljivo. Netko čuje za Ethereum, Solanu, stablecoine, decentralizirane financije, nove mreže, nove tokene i projekte koji obećavaju brže transakcije, bolju korisničku jednostavnost ili veći rast.",
+          "Onda se prirodno pojavi misao: možda ne bih trebao imati samo Bitcoin. Možda bih trebao imati kripto portfelj. Najčešći oblik te ideje zvuči ovako: većina u Bitcoinu, manji dio u ostalim kriptovalutama.",
+          "Na prvi pogled to zvuči razumno. U klasičnom financijskom jeziku, to se može nazvati diverzifikacijom. Ali na Bitcoin standardu pitanje treba postaviti drukčije. Bitcoin u ovom okviru ne tretiramo kao jednu od kriptovaluta. Tretiramo ga kao novac.",
+        ],
+      },
+      {
+        heading: "Bitcoin kao novac, ostalo kao investicija",
+        body: [
+          "Ako Bitcoin tretirate kao novac, tada se mijenja način razmišljanja. Ne pitate samo: “Može li neka druga kriptovaluta narasti više u eurima?” Pitate: “Ako ulažem svoj Bitcoin u nešto drugo, mogu li ostvariti pozitivan povrat u Bitcoinu nakon rizika, vremena i pogrešaka?”",
+          "To je puno stroži kriterij. Ako ste na državnom novcu, lako je mjeriti sve u eurima ili dolarima. Ali ako Bitcoin postaje vaš primarni novac, tada se i investicije moraju mjeriti u Bitcoinu. Nije dovoljno da neka imovina naraste u eurima. Mora nadmašiti Bitcoin.",
+          "To vrijedi za nekretnine, dionice, posao, zlato, obveznice, fondove, privatne investicije i kriptovalute. Ako uložite Bitcoin u nešto drugo, pitanje je jednostavno: vraća li vam se više Bitcoina nego što ste uložili, uz rizik koji ste preuzeli?",
+        ],
+        link: {
+          before: "Za temelj te razlike pročitajte i vodič ",
+          label: "Bitcoin je novac",
+          href: "/vodici/bitcoin-kao-novac/",
+          after: ".",
+        },
+      },
+      {
+        heading: "Zašto “može narasti više” nije dovoljna teza",
+        body: [
+          "Naravno da neka kriptovaluta može u nekom razdoblju narasti više od Bitcoina. Manji projekti počinju od manje tržišne vrijednosti. Ako privuku dovoljno pažnje, likvidnosti i narativa, mogu u kratkom vremenu snažno porasti. To nije sporno.",
+          "Ali to nije dovoljna investicijska teza. Pitanja su: kada ulazite, kada izlazite, koliko držite, u kojem omjeru, što mora biti istina da biste ostali, što mora biti istina da biste prodali i što radite ako projekt naraste u eurima, ali padne u odnosu na Bitcoin?",
+          "Najvažnije pitanje često je još jednostavnije: koliko vremena morate potrošiti da biste uopće znali što radite? Ulaganje u kriptovalute nije samo pitanje novca. To je pitanje vremena, pažnje, znanja, praćenja tržišta, razumijevanja rizika, procjene timova, tehnologije, strukture tokena, likvidnosti, regulatornog rizika i izlazne strategije.",
+          "Za veliku većinu ljudi to nije usputna diverzifikacija. To je druga djelatnost.",
+        ],
+      },
+      {
+        heading: "Bitcoin ima drukčiju ulogu",
+        body: [
+          "Bitcoin nije samo projekt s tokenom. Bitcoin je monetarna mreža koja pokušava postati bolji novac. Zato se Bitcoin ne može razumjeti samo kao “najveća kriptovaluta”. Njegova teza je drukčija.",
+          "Bitcoin ima strogo ograničenu ponudu, proof of work, globalnu mrežu čvorova i monetarni fokus koji se ne mijenja svakim novim tržišnim narativom. Pravila Bitcoina nalikuju pravilima igre koju ljudi sve šire prihvaćaju upravo zato što se pravila ne mijenjaju lako.",
+          "Dobra usporedba je šah. Šah ima pravila. Ako ih promijenite, možda ste izmislili novu igru, ali više ne igrate isti šah. Snaga šaha nije u tome što se pravila stalno prilagođavaju novim željama igrača, nego u tome što ljudi diljem svijeta znaju koju igru igraju.",
+          "Bitcoinova snaga dolazi iz slične jasnoće. Znamo pravila igre. Znamo da je ukupna ponuda ograničena. Znamo kako se nove jedinice stvaraju. Znamo tko provjerava pravila. Znamo da je promjena temeljnih pravila iznimno teška.",
+          "Kod mnogih drugih kriptovaluta upravo je promjenjivost dio privlačnosti. Mogu se nadograđivati, mijenjati, prilagođavati i eksperimentirati. To može stvoriti inovacije, ali stvara i drukčiju vrstu rizika. Zato ih ne treba stavljati u istu mentalnu kategoriju kao Bitcoin.",
+        ],
+      },
+      {
+        heading: "Diverzifikacija ili razvodnjavanje?",
+        body: [
+          "Kada netko kaže da ima “80% Bitcoin i 20% kriptovalute”, to može zvučati razumno. Ali treba pitati: što tih 20% stvarno radi? Smanjuje li rizik ili uvodi nove rizike koje osoba ne razumije dovoljno?",
+          "Ako je Bitcoin novac, a ostale kriptovalute rizične investicije, tada taj omjer nije samo diverzifikacija. To je odluka da dio novca izložite investicijama koje moraju nadmašiti Bitcoin.",
+          "To može imati smisla za osobu koja se profesionalno bavi tim tržištem, ima jasnu tezu, razumije rizike, zna što prati i zna kada izlazi. Ali za osobu koja ima posao, obitelj, firmu, dug, nekretninu, sigurnosna pitanja i ograničeno vrijeme, to može biti skupi zaobilazni put.",
+          "Ponekad ljudi ne diverzificiraju zato što su sigurni u bolju tezu, nego zato što se boje da će propustiti nešto drugo. To nije strategija. To je nemir.",
+        ],
+      },
+      {
+        heading: "Mjerite povrat u Bitcoinu",
+        body: [
+          "Ako želite razmišljati ozbiljno, mjerite sve u Bitcoinu. Neka kriptovaluta može rasti u eurima, a padati u Bitcoinu. U tom slučaju, na Bitcoin standardu niste ostvarili pozitivan povrat. Samo ste preuzeli dodatni rizik i završili s manje Bitcoina nego što biste imali da niste ništa radili.",
+          "To je strogo mjerilo, ali je pošteno. Ako Bitcoin tretirate kao najbolji novac koji imate, tada svaka investicija mora odgovoriti na pitanje: zašto ne bih samo držao Bitcoin?",
+          "To ne znači da nikada ne smijete ulagati. Novac se može trošiti, štedjeti, davati i ulagati. Ali ulaganje mora imati tezu, očekivani povrat, rizik i vremenski okvir. I mora biti mjereno u novcu koji vam je najvažniji.",
+          "Ako je taj novac Bitcoin, tada je mjerilo Bitcoin.",
+        ],
+        link: {
+          before: "Za širi pogled na novac, kapital i potrošnju pročitajte ",
+          label: "Novac, kapital i potrošnja",
+          href: "/vodici/novac-kapital-potrosnja/",
+          after: ".",
+        },
+      },
+      {
+        heading: "Za većinu ljudi bolji je fokus",
+        body: [
+          "Postoji jednostavna misao koju mnogi Bitcoineri ponavljaju: usavršavaj svoj posao i štedi u Bitcoinu. To nije pravilo za svakoga u svakoj situaciji, ali sadrži važnu intuiciju.",
+          "Za većinu ljudi najveća tržišna prednost nije u tome da pokušaju pronaći sljedeću kriptovalutu koja će privremeno nadmašiti Bitcoin. Njihova prednost je u vlastitom poslu, zanimanju, firmi, vještini, mreži odnosa i sposobnosti stvaranja vrijednosti.",
+          "Ako već imate područje u kojem imate znanje, ugled, iskustvo i sposobnost stvaranja prihoda, često je mudrije dodatno razvijati to područje nego trošiti vrijeme na tržište u kojem nemate prednost.",
+          "Drugim riječima: možda je najbolja investicija upravo ono u čemu već imate stvarnu prednost. A višak koji nastaje iz tog rada možete štedjeti u Bitcoinu.",
+        ],
+      },
+      {
+        heading: "Kada ulaganje u kriptovalute može imati smisla?",
+        body: [
+          "Ulaganje u kriptovalute može imati smisla za vrlo mali broj ljudi. Ako netko želi profesionalno proučavati kripto tržišta, raditi u toj industriji, razumjeti projekte, pratiti likvidnost, tehnologiju, timove, regulatorni rizik, ulaze i izlaze, to je zaseban posao.",
+          "Tada govorimo o investicijskoj djelatnosti, ne o usputnoj kupnji nekoliko tokena. To je slično kao da netko želi ulagati u industriju nafte, biotehnologiju, rudarske kompanije ili rizični kapital. Može se. Ali za to treba specifično znanje, vrijeme i prednost.",
+          "Ako tu prednost nemate, ne morate se sramiti što ne sudjelujete. Dovoljno je urediti Bitcoin.",
+        ],
+      },
+      {
+        heading: "Što savjetovanje ovdje može i ne može napraviti",
+        body: [
+          "Ovo je Bitcoin savjetovanje. Ne savjetujem ulaganje u druge kriptovalute. Ne govorim koji token kupiti, kada ući, kada izaći ni koliko držati.",
+          "Ono što mogu napraviti jest pomoći vam postaviti okvir: što znači tretirati Bitcoin kao novac, kako mjeriti investicije u Bitcoinu, kako razumjeti oportunitetni trošak ulaska u druga tržišta, kako razlikovati novac od rizične investicije i kako prvo urediti proračun, dug, neto imovinu, sigurnost i obitelj.",
+          "Nakon toga, što ćete napraviti sa svojim novcem ostaje vaša odluka. Ali odluka će biti jasnija ako prvo znate što je Bitcoin u vašem sustavu.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Bitcoin nije kripto portfelj. Bitcoin je, u ovom okviru, novac. Sve ostalo je eventualno investicija, s vlastitim rizicima, troškovima, neizvjesnošću i potrebom za posebnom tezom.",
+          "Možda će neki projekti rasti brže od Bitcoina u određenim razdobljima. Možda će neki stvoriti stvarnu vrijednost. Možda će neki nestati. Ali to ne mijenja osnovno pitanje: imate li dovoljno znanja, vremena i prednosti da u tome ostvarite pozitivan povrat u Bitcoinu?",
+          "Ako nemate, nije nužno da nešto propuštate. Možda upravo izbjegavate skupi zaobilazni put.",
+          "Za većinu ljudi prvi korak nije kripto portfelj. Prvi korak je razumjeti Bitcoin kao novac, urediti vlastiti proračun, izaći iz duga, zaštititi pristup i znati što Bitcoin treba raditi u njihovoj neto imovini.",
+          "Ako imate pitanje o tome gdje Bitcoin završava, a gdje počinje rizična investicija, to je dobro pitanje za uvodni razgovor.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+    finalCtaPrompt:
+      "Ako niste sigurni gdje Bitcoin završava, a gdje počinje rizična investicija, to je dobro pitanje za uvodni razgovor.",
+  },
+  {
     slug: "bitcoin-kao-novac",
     title: "Bitcoin je novac",
     metaDescription:
@@ -3153,6 +3429,20 @@ export const guidesIndexPrimaryItems: GuidesIndexPrimaryItem[] = [
       "Bitcoin nije samo imovina koju držite. U osobnom Bitcoin standardu ima ulogu novca.",
   },
   {
+    slug: "niste-zakasnili-u-bitcoin",
+    title: "Niste zakasnili u Bitcoin",
+    category: "Bitcoin kao novac",
+    excerpt:
+      "Bitcoin je prije bio jeftiniji, ali je razumijevanje bilo skuplje.",
+  },
+  {
+    slug: "bitcoin-nije-kripto-portfelj",
+    title: "Bitcoin nije kripto portfelj",
+    category: "Bitcoin kao novac",
+    excerpt:
+      "Bitcoin je novac, a ostale kriptovalute su eventualno rizične investicije koje treba mjeriti u Bitcoinu.",
+  },
+  {
     slug: "cijena-kao-mjera-vremena",
     title: "Cijena kao mjera vremena",
     category: "Kupovna moć",
@@ -3190,7 +3480,12 @@ export const guidesIndexAdditionalGroups = [
   },
   {
     title: "Bitcoin kao novac",
-    slugs: ["pozitivni-neto-priljev", "uskladivanje-kupovne-moci-bitcoina"],
+    slugs: [
+      "niste-zakasnili-u-bitcoin",
+      "bitcoin-nije-kripto-portfelj",
+      "pozitivni-neto-priljev",
+      "uskladivanje-kupovne-moci-bitcoina",
+    ],
   },
   {
     title: "Neto imovina",
@@ -3222,7 +3517,9 @@ export const guidesIndexOrderedSlugs = [
   "davanje-u-proracunu-nulte-osnove",
   "davanje-bez-duga",
   "novac-dolazi-od-ljudi",
+  "niste-zakasnili-u-bitcoin",
   "bitcoin-kao-novac",
+  "bitcoin-nije-kripto-portfelj",
   "pozitivni-neto-priljev",
   "uskladivanje-kupovne-moci-bitcoina",
   "cijena-kao-mjera-vremena",
@@ -3244,7 +3541,9 @@ export const recommendedGuideSlugs = [
   "dug-je-buduci-novac",
   "dug-ili-bitcoin",
   "davanje-u-proracunu-nulte-osnove",
+  "niste-zakasnili-u-bitcoin",
   "bitcoin-kao-novac",
+  "bitcoin-nije-kripto-portfelj",
   "uskladivanje-kupovne-moci-bitcoina",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",

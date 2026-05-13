@@ -130,9 +130,9 @@ export const priceTimeCards = [
 ]
 
 export const homeGuideSlugs = [
+  "niste-zakasnili-u-bitcoin",
+  "bitcoin-nije-kripto-portfelj",
   "stvarni-visak",
   "dug-ili-bitcoin",
-  "bitcoin-kao-novac",
-  "cijena-kao-mjera-vremena",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
 ] as const

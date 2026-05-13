@@ -44,7 +44,9 @@ const roadmapGroups = [
     id: "bitcoin",
     title: "Korak 4 — Bitcoin kao novac",
     slugs: [
+      "niste-zakasnili-u-bitcoin",
       "bitcoin-kao-novac",
+      "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
       "uskladivanje-kupovne-moci-bitcoina",
       "cijena-kao-mjera-vremena",

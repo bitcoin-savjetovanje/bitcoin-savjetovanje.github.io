@@ -208,6 +208,18 @@ export function BitcoinConsultation() {
           </section>
         </div>
 
+        <section className="case-panel mt-8">
+          <h2 className="text-2xl font-semibold">
+            Bitcoin, ne kripto portfelj
+          </h2>
+          <p className="mt-4 text-base leading-8 text-muted-foreground">
+            U konzultaciji možemo razjasniti zašto Bitcoin u ovom okviru
+            tretiramo kao novac, a ostale kriptovalute kao rizične investicije
+            koje bi se morale mjeriti u Bitcoinu. Ne savjetujem koje tokene
+            kupiti, kada ući, kada izaći ni koliko držati.
+          </p>
+        </section>
+
         <section className="consultation-safety-card">
           <h2 className="text-2xl font-semibold">Što ne radimo</h2>
           <p className="mt-4 text-base leading-8 text-muted-foreground">

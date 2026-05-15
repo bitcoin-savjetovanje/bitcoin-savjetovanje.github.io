@@ -194,7 +194,7 @@ export function Conversation() {
 
         <CalInlineEmbed />
 
-        <section className="case-panel">
+        <section className="case-panel conversation-examples-card">
           <h2 className="text-2xl font-semibold">
             Još primjera pitanja, ako trebate pomoć
           </h2>

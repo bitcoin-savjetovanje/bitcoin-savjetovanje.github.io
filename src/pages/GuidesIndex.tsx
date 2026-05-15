@@ -215,7 +215,7 @@ export function GuidesIndex() {
 
         <section
           id="pocetak"
-          className="starter-guides-panel mx-auto mt-12 max-w-5xl"
+          className="starter-guides-panel mx-auto mt-16 max-w-5xl"
         >
           <h2 className="text-2xl font-semibold">
             Ako želite samo početak, krenite ovdje
@@ -249,7 +249,7 @@ export function GuidesIndex() {
 
         <section
           id="poduzetnici"
-          className="business-guide-path mx-auto mt-10 max-w-5xl"
+          className="business-guide-path mx-auto mt-14 max-w-5xl"
         >
           <div className="max-w-4xl">
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
@@ -382,7 +382,7 @@ export function GuidesIndex() {
           </div>
         </section>
 
-        <div className="mx-auto mt-12 max-w-4xl rounded-2xl border border-border/80 bg-card p-6 text-center shadow-sm sm:p-8">
+        <div className="mx-auto mt-16 max-w-4xl rounded-3xl border border-border/80 bg-card p-6 text-center shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Želite primijeniti okvir na vlastitu situaciju?
           </h2>

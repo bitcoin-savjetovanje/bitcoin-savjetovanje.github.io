@@ -119,7 +119,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
       {sectionLinks.length > 0 ? (
         <nav
           aria-labelledby="guide-toc-heading"
-          className="mt-10 max-w-3xl rounded-xl border border-border/80 bg-card p-5 shadow-sm"
+          className="mt-12 max-w-3xl rounded-2xl border border-border/80 bg-card p-5 shadow-sm"
         >
           <h2 id="guide-toc-heading" className="text-lg font-semibold">
             U ovom vodiču
@@ -182,7 +182,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
           {guide.practicalQuestion ? (
             <section
               id="prakticno-pitanje"
-              className="mt-14 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm"
+              className="mt-16 rounded-3xl border border-primary/25 bg-card p-6 shadow-sm"
             >
               <h2 className="text-2xl font-semibold">Praktično pitanje</h2>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
@@ -191,7 +191,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </section>
           ) : null}
           {nextGuide ? (
-            <section className="mt-14 rounded-2xl border border-border/80 bg-card p-6 shadow-sm">
+            <section className="mt-16 rounded-3xl border border-border/80 bg-card p-6 shadow-sm">
               <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
                 Sljedeći vodič u redoslijedu
               </p>
@@ -240,7 +240,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </section>
           ) : null}
           {guide.extraCta ? (
-            <div className="mt-14 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm">
+            <div className="mt-16 rounded-3xl border border-primary/25 bg-card p-6 shadow-sm">
               <h2 className="text-2xl font-semibold">{guide.extraCta.title}</h2>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
                 {guide.extraCta.text}
@@ -255,7 +255,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
               </a>
             </div>
           ) : null}
-          <div className="mt-14 rounded-2xl border border-border/80 bg-card p-6 shadow-sm">
+          <div className="mt-16 rounded-3xl border border-border/80 bg-card p-6 shadow-sm">
             <h2 className="text-2xl font-semibold">
               Želite ovo primijeniti na svoju situaciju?
             </h2>

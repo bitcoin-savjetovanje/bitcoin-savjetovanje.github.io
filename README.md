@@ -31,6 +31,10 @@ homepage je skraćen, audience dio sveden na osobno/obiteljski/poslovno,
 framework mapa je kompaktnija, `/razgovor/` ranije prikazuje booking, a detalji
 su prebačeni na program, vodiče i savjetovanje stranice.
 
+Najnoviji polish pass proširuje O meni sekciju, dodaje poruku o učvršćivanju
+Bitcoin teze, popravlja copy spacing, uvodi više zraka između sekcija, smiruje
+prijelaze sa svijetlih na tamne panele i dosljednije zaobljuje kartice.
+
 ## Development
 
 ```bash

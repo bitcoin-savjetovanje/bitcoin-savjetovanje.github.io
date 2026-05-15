@@ -374,6 +374,10 @@ const forbiddenText = [
   "porezna optimizacija",
   "pravni model za Bitcoin",
   "Praktični Bitcoin standard",
+  "vodičei",
+  "vodiče iD",
+  "conviction",
+  "Conviction",
 ]
 
 const forbiddenPublicCopy = [
@@ -594,6 +598,10 @@ const homeChecks = [
     "audience simplified intro",
   ],
   [
+    "učvrstiti Bitcoin tezu",
+    "Bitcoin thesis strengthening copy",
+  ],
+  [
     "Cash flow, porezi, plaće, dobavljači, poslovna riznica",
     "compact business audience copy",
   ],
@@ -655,6 +663,8 @@ const homeChecks = [
     "Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca",
     "business credibility sentence",
   ],
+  ["Pavao Pahljina", "about section name"],
+  ["STEMI", "about section entrepreneurship signal"],
   ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   [
@@ -834,6 +844,24 @@ assertNotIncludes("index.html", homeHtml, 'alt="Logo"', "generic logo alt text")
 assertNotIncludes(
   "index.html",
   homeText,
+  "vodičei",
+  "joined guides and conjunction text"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
+  "vodiče iD",
+  "joined guides and DvadesetJedan text"
+)
+assertIncludes(
+  "index.html",
+  homeText,
+  "Dio okvira javno razvijam kroz vodiče i DvadesetJedan zajednicu.",
+  "about public work sentence with spacing"
+)
+assertNotIncludes(
+  "index.html",
+  homeText,
   "Odabrano pitanje:",
   "default selected question text"
 )
@@ -896,7 +924,7 @@ assertBefore(
   "index.html",
   homeHtml,
   "Bitcoin ostaje pod vašom kontrolom.",
-  "Razgovarate s nekim tko Bitcoin povezuje sa stvarnim odlukama.",
+  "Bitcoin sam počeo proučavati 2014.",
   "security before about"
 )
 
@@ -919,6 +947,7 @@ const conversationChecks = [
   ["Pokušavam odlučiti", "booking note prompt"],
   ["Ne šaljite seed phrase", "conversation sensitive data warning"],
   ["stvarni višak riznice", "conversation business treasury example"],
+  ["učvrstiti Bitcoin tezu", "conversation Bitcoin thesis example"],
   ["Odaberite termin za uvodni razgovor.", "inline calendar section title"],
   [
     'data-cal-inline="uvodni-bitcoin-razgovor"',
@@ -1063,6 +1092,10 @@ const bitcoinConsultationChecks = [
   [
     "Nakon Bitcoin konzultacije trebali biste imati jednu od tri stvari",
     "Bitcoin konzultacija outcomes section",
+  ],
+  [
+    "jasniju i čvršću Bitcoin tezu",
+    "Bitcoin konzultacija thesis strengthening outcome",
   ],
   [
     "Konzultacija može biti osobna, obiteljska ili poslovna",

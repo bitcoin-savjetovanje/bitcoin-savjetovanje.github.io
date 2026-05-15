@@ -12,8 +12,8 @@ export function AboutSection() {
   return (
     <section id="o-meni" className="section-shell section-muted">
       <SectionHeader
-        title="Razgovarate s nekim tko Bitcoin povezuje sa stvarnim odlukama."
-        copy="Najkorisniji razgovori počinju ondje gdje knjige i podcasti stanu: kada opća Bitcoin teza mora postati osobna, obiteljska ili poslovna odluka."
+        title="Pavao Pahljina"
+        copy="Bitcoin savjetnik · u Bitcoinu od 2014."
       />
       <div className="credibility-grid">
         <aside className="profile-panel">
@@ -36,6 +36,12 @@ export function AboutSection() {
         <div>
           <div className="credibility-copy">
             <p>
+              Bitcoin sam počeo proučavati 2014., a s vremenom sam ga prestao
+              gledati samo kao imovinu koju se drži sa strane. Pitanje koje me
+              najviše zanima jest: što se mijenja kada Bitcoin počnete shvaćati
+              kao novac oko kojega treba urediti stvarni život?
+            </p>
+            <p>
               Prije punog rada u Bitcoinu bio sam suosnivač i direktor STEMI-ja.
               Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca, nego
               kroz stvarne odluke o cash flowu, riziku, ljudima, obvezama i
@@ -43,7 +49,9 @@ export function AboutSection() {
             </p>
             <p>
               Danas radim s ljudima koji žele prijeći iz “imam Bitcoin” u “imam
-              pravila za život s Bitcoinom”.
+              pravila za život s Bitcoinom”. To može značiti osobni proračun,
+              obiteljski dogovor, poslovnu riznicu, sigurnosni okvir ili
+              učvršćivanje Bitcoin teze prije veće odluke.
             </p>
             <p>
               Dio okvira javno razvijam kroz{" "}
@@ -53,16 +61,34 @@ export function AboutSection() {
               >
                 vodiče
               </a>
-              i{" "}
+              {" i "}
               <a
                 href={DVADESET_JEDAN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 DvadesetJedan
-              </a>{" "}
-              zajednicu.
+              </a>
+              {" zajednicu."} Širi sustav oblikujem u knjizi “Bitcoin kao novac:
+              Praktični vodič za život s Bitcoinom”.
             </p>
+            <div className="credibility-badges" aria-label="Kratki kontekst">
+              <article>
+                <strong>Od 2014.</strong>
+                <span>Praktično iskustvo s Bitcoinom kroz više ciklusa.</span>
+              </article>
+              <article>
+                <strong>Poduzetništvo</strong>
+                <span>Suosnivač i bivši direktor STEMI-ja.</span>
+              </article>
+              <article>
+                <strong>Knjiga i vodiči</strong>
+                <span>
+                  Okvir iz knjige Bitcoin kao novac razvija se kroz javne vodiče
+                  i savjetovanje.
+                </span>
+              </article>
+            </div>
             <a
               href={CONVERSATION_PATH}
               className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"

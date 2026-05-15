@@ -44,7 +44,7 @@ export const faqs = [
     question:
       "Koja je razlika između uvodnog razgovora, Bitcoin konzultacije i osobnog Bitcoin standarda?",
     answer:
-      "Uvodni razgovor traje 15 minuta i služi kao filter. Bitcoin konzultacija je jedan dubinski razgovor za jedno ozbiljno pitanje. Osobni Bitcoin standard je program od 4–6 tjedana za pisani okvir pravila.",
+      "Uvodni razgovor traje 15 minuta i služi kao filter. Bitcoin konzultacija je jedan dubinski razgovor za jedno ozbiljno pitanje. Osobni Bitcoin standard je program od 4–6 tjedana za pisani okvir pravila. Ponekad je rezultat samo jasnije pitanje ili učvršćena Bitcoin teza, bez plaćenog nastavka.",
   },
   {
     question: "Je li ovo i za poduzetnike?",

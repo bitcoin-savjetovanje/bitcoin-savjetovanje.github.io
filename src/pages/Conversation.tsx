@@ -21,6 +21,7 @@ const questionGroups = [
   {
     title: "Osobna pitanja",
     items: [
+      "Želim učvrstiti Bitcoin tezu prije veće osobne, obiteljske ili poslovne odluke.",
       "Imam dug i nisam siguran treba li prvo čistiti bilancu.",
       "Bitcoin mi je jasan kao ideja, ali ne kao dio neto imovine.",
       "Ne znam što bih radio nakon velikog pada ili rasta cijene.",
@@ -148,14 +149,14 @@ export function Conversation() {
             {topExamples.map((question) => (
               <li
                 key={question}
-                className="flex gap-3 rounded-lg border border-border/70 bg-background/70 p-4"
+                className="flex gap-3 rounded-2xl border border-border/70 bg-background/70 p-4"
               >
                 <Check className="positive-icon mt-1 size-4 shrink-0" />
                 <span>{question}</span>
               </li>
             ))}
           </ul>
-          <div className="mt-5 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-6 text-muted-foreground">
+          <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/5 p-4 text-sm leading-6 text-muted-foreground">
             <p>
               U bilješku ne trebate pisati iznose ni detalje. Dovoljna je jedna
               rečenica:{" "}
@@ -214,7 +215,7 @@ export function Conversation() {
           </div>
         </section>
 
-        <section className="conversation-outcomes-card mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="conversation-outcomes-card mt-10 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Što se može dogoditi nakon razgovora?
           </h2>

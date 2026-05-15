@@ -8,7 +8,14 @@ export function QuestionsSection() {
     <section id="pitanja" className="section-shell">
       <SectionHeader
         title="Za koga je ovaj razgovor?"
-        copy="Dovoljno je jedno konkretno pitanje. Ono može biti osobno, obiteljsko ili poslovno."
+        copy={
+          <>
+            Dovoljno je jedno konkretno pitanje. Ono može biti osobno,
+            obiteljsko ili poslovno. Razgovor može pomoći i ako ne trebate novu
+            informaciju, nego želite učvrstiti Bitcoin tezu prije osobne,
+            obiteljske ili poslovne odluke.
+          </>
+        }
       />
       <div className="audience-group-grid">
         {conversationAudienceGroups.map((group) => (

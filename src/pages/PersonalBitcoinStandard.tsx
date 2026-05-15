@@ -191,7 +191,7 @@ export function PersonalBitcoinStandard() {
         ogType={personalBitcoinStandardRoute.ogType}
         schema={personalBitcoinStandardRoute.schema as object}
       />
-      <article className="section-shell page-flow">
+      <article className="section-shell page-flow program-page">
         <nav
           aria-label="Breadcrumb"
           className="text-sm font-medium text-muted-foreground"
@@ -312,7 +312,7 @@ export function PersonalBitcoinStandard() {
           </div>
         </section>
 
-        <section className="mt-12 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-12 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Kako radimo kroz 4–6 tjedana
           </h2>
@@ -359,7 +359,7 @@ export function PersonalBitcoinStandard() {
           </div>
         </section>
 
-        <section className="mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-8 rounded-3xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">Cijena i ulaz</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
             Program traje 4–6 tjedana i cijena je 1.500 €. Ne kreće se izravno

@@ -40,7 +40,7 @@ const notDoingItems = [
 ]
 
 const outcomes = [
-  "jasniju Bitcoin tezu koju možete objasniti sebi, partneru ili obitelji",
+  "jasniju i čvršću Bitcoin tezu koju možete objasniti sebi, partneru, obitelji ili poslovnom partneru",
   "jasniji okvir za jednu odluku koju odgađate",
   "jasnu procjenu da jedno pitanje nije dovoljno i da treba graditi osobni Bitcoin standard",
 ]
@@ -285,7 +285,7 @@ export function BitcoinConsultation() {
           <Checklist items={notDoingItems} kind="negative" />
         </section>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-10 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Prije, tijekom i poslije razgovora
           </h2>
@@ -293,7 +293,7 @@ export function BitcoinConsultation() {
             {consultationFlow.map((step, index) => (
               <article
                 key={step.title}
-                className="rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm"
+                className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm"
               >
                 <span className="grid size-8 place-items-center rounded-full border border-primary/25 bg-primary/10 text-xs font-semibold text-primary">
                   {index + 1}
@@ -307,7 +307,7 @@ export function BitcoinConsultation() {
           </div>
         </section>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-10 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Dobra pitanja za Bitcoin konzultaciju
           </h2>
@@ -318,7 +318,7 @@ export function BitcoinConsultation() {
           <Checklist items={exampleQuestions} />
         </section>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-10 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">Kako razgovor završava</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
             Na kraju ne dobivate savjet ‘kupi’ ili ‘prodaj’. Dobivate jasniji
@@ -384,7 +384,7 @@ export function BitcoinConsultation() {
           </ul>
         </section>
 
-        <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-10 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Kada je dovoljan jedan razgovor
           </h2>
@@ -403,7 +403,7 @@ export function BitcoinConsultation() {
           </p>
         </section>
 
-        <section className="mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
+        <section className="mt-10 rounded-3xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">
             Krenite od uvodnog razgovora
           </h2>

@@ -207,7 +207,7 @@ export function Security() {
           </p>
         </section>
 
-        <div className="mt-12 rounded-2xl border border-border/80 bg-foreground p-6 text-background shadow-sm sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+        <div className="mt-12 rounded-3xl border border-border/80 bg-foreground p-6 text-background shadow-sm sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
             <h2 className="max-w-3xl text-3xl leading-tight font-semibold">
               Želite urediti sigurnosni okvir bez predaje kontrole?

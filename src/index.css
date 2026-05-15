@@ -303,81 +303,13 @@
 
   .book-cover-shell {
     @apply mx-auto w-full max-w-[360px] xl:max-w-[390px];
-    perspective: 1100px;
   }
 
   .book-cover-card {
-    position: relative;
-    min-height: 31rem;
-    overflow: hidden;
+    @apply block h-auto w-full;
     border: 1px solid var(--book-border);
-    border-radius: 0.65rem;
-    background:
-      linear-gradient(
-        90deg,
-        color-mix(in oklab, var(--foreground), transparent 86%) 0 2.75rem,
-        transparent 2.75rem
-      ),
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--paper-background), white 22%),
-        var(--paper-background)
-      );
-    box-shadow:
-      0 1.2rem 2.8rem hsl(0 0% 0% / 0.14),
-      inset 0 0 0 1px hsl(0 0% 100% / 0.26);
-    transform: rotateY(-7deg) rotateX(2deg);
-    transform-origin: center;
-  }
-
-  .book-cover-card::after {
-    content: "";
-    position: absolute;
-    inset: 1.15rem 1rem;
-    border: 1px solid color-mix(in oklab, var(--book-border), transparent 35%);
-    border-radius: 0.4rem;
-    pointer-events: none;
-  }
-
-  .book-cover-card__spine {
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 2.65rem;
-    border-right: 1px solid
-      color-mix(in oklab, var(--book-border), transparent 18%);
-    background:
-      linear-gradient(
-        90deg,
-        color-mix(in oklab, var(--foreground), transparent 88%),
-        transparent
-      ),
-      color-mix(in oklab, var(--paper-background), var(--foreground) 4%);
-  }
-
-  .book-cover-card__content {
-    @apply relative z-10 flex min-h-[31rem] flex-col px-8 py-9 text-foreground;
-    padding-left: 4.6rem;
-  }
-
-  .book-cover-card__kicker {
-    @apply max-w-[15rem] text-xs leading-5 font-semibold tracking-[0.12em] text-muted-foreground uppercase;
-  }
-
-  .book-cover-card__coin {
-    @apply mt-10 grid size-20 place-items-center rounded-full text-5xl font-bold text-white shadow-sm;
-    background: var(--bitcoin-orange-accent);
-  }
-
-  .book-cover-card h2 {
-    @apply mt-10 max-w-[15rem] font-display text-4xl leading-[1.02] font-semibold tracking-[-0.02em];
-  }
-
-  .book-cover-card__subtitle {
-    @apply mt-5 max-w-[14rem] text-base leading-7 font-semibold text-muted-foreground;
-  }
-
-  .book-cover-card__author {
-    @apply mt-auto border-t border-border/70 pt-5 text-sm font-semibold tracking-[0.12em] text-muted-foreground uppercase;
+    border-radius: 0.45rem;
+    box-shadow: 0 0.75rem 1.7rem hsl(0 0% 0% / 0.14);
   }
 
   .hero-copy {

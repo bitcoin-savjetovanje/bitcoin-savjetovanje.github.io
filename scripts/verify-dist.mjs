@@ -10,6 +10,7 @@ const failures = []
 const requiredGuidePaths = [
   "/vodici/svaki-euro-ima-namjenu",
   "/vodici/stvarni-visak",
+  "/vodici/prihod-nije-slobodan-novac",
   "/vodici/starost-novca",
   "/vodici/dug-je-buduci-novac",
   "/vodici/bitcoin-u-neto-imovini",
@@ -28,6 +29,7 @@ const requiredGuidePaths = [
   "/vodici/pravilo-trecina",
   "/vodici/bitcoin-etfovi-i-riznicke-kompanije",
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "/vodici/poslovni-bitcoin-nije-privatni-bitcoin",
   "/vodici/obiteljski-bitcoin-trezor",
   "/vodici/samostalna-pohrana-ili-skrbnik",
   "/vodici/bitkey-bitcoin-sigurnost",
@@ -368,6 +370,9 @@ const forbiddenText = [
   "sigurna zarada",
   "reći ću vam koliko kupiti",
   "reći ću vam koliko Bitcoina kupiti",
+  "optimiziramo porez",
+  "porezna optimizacija",
+  "pravni model za Bitcoin",
   "Praktični Bitcoin standard",
 ]
 
@@ -486,6 +491,36 @@ for (const absoluteHtmlPath of htmlFiles()) {
     }
   }
 
+  for (const match of visibleText.matchAll(
+    /porezni savjet|pravni savjet|računovodstveni savjet/gi
+  )) {
+    const start = Math.max(0, match.index - 180)
+    const end = Math.min(visibleText.length, match.index + 180)
+    const context = visibleText.slice(start, end).toLowerCase()
+    const allowed =
+      context.includes("nije") ||
+      context.includes("je li ovo") ||
+      context.includes("ne financijski plan") ||
+      context.includes("ne mogu dati") ||
+      context.includes("ne dajem") ||
+      context.includes("moja uloga nije") ||
+      context.includes("ne uključuje") ||
+      context.includes("ne uključuju") ||
+      context.includes("trebate odgovarajuće stručnjake") ||
+      context.includes("provjeriti s odgovarajućim stručnjacima") ||
+      context.includes("granice savjetovanja")
+
+    if (allowed) {
+      pass(
+        `${relativeHtmlPath} mentions ${match[0]} only as an advice boundary`
+      )
+    } else {
+      fail(
+        `${relativeHtmlPath} mentions ${match[0]} outside an advice boundary`
+      )
+    }
+  }
+
   assertNotIncludes(
     relativeHtmlPath,
     html,
@@ -542,6 +577,10 @@ const homeChecks = [
     "U 15-minutnom uvodnom razgovoru vidimo gdje ste sada",
     "intro call hero framing",
   ],
+  ["pojedince, obitelji i poduzetnike", "business audience framing"],
+  ["osobno", "personal scope badge"],
+  ["obiteljski", "family scope badge"],
+  ["poslovno", "business scope badge"],
   ["Pogledajte okvir", "hero secondary CTA copy"],
   ['href="#okvir"', "hero framework CTA href"],
   ['data-cta="home-hero-intro-call"', "hero CTA metadata"],
@@ -555,6 +594,7 @@ const homeChecks = [
     "Okvir iz knjige: 7 područja koja treba urediti",
     "framework section title",
   ],
+  ["Tri razine istog okvira", "three application layers"],
   ["Proračun", "framework budget item"],
   ["Dug", "framework debt item"],
   ["Davanje", "framework giving item"],
@@ -566,6 +606,14 @@ const homeChecks = [
     "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
     "intro call section title",
   ],
+  [
+    "Ako vodite posao, Bitcoin odluka ima još jedan sloj",
+    "business section title",
+  ],
+  ["poslovna riznica", "business treasury copy"],
+  ["Novac i odluke", "standard layers preview money layer"],
+  ["Imovina i posao", "standard layers preview business layer"],
+  ["Sigurnost i prijenos", "standard layers preview safety layer"],
   ["Tri moguća nastavka", "offer section title"],
   ["Bitcoin konzultacija", "renamed 200 EUR offer"],
   ["Krenite od uvodnog razgovora", "standard offer CTA copy"],
@@ -620,8 +668,8 @@ const homeChecks = [
     "not for you sensitive security data copy",
   ],
   [
-    "Cilj je povezati Bitcoin s konkretnim odlukama o novcu, dugu, imovini, sigurnosti i obitelji.",
-    "positioning sentence",
+    "Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca",
+    "business credibility sentence",
   ],
   ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
@@ -963,6 +1011,15 @@ const conversationChecks = [
     "Najbolji razgovori počinju jednom konkretnom odlukom",
     "conversation pre-booking decision prompt",
   ],
+  [
+    "osobnoj, obiteljskoj ili poslovnoj odluci",
+    "conversation personal family business decision prompt",
+  ],
+  ["poslovnoj riznici", "conversation business treasury question"],
+  [
+    "privatni Bitcoin od poslovnog Bitcoina",
+    "conversation private business Bitcoin question",
+  ],
   ["Prije nego rezervirate", "conversation pre-booking panel"],
   [
     "https://cal.com/btcpavao/uvodni-bitcoin-razgovor",
@@ -1083,6 +1140,11 @@ const bitcoinConsultationChecks = [
     "Nakon Bitcoin konzultacije trebali biste imati jednu od tri stvari",
     "Bitcoin konzultacija outcomes section",
   ],
+  [
+    "Konzultacija može biti osobna, obiteljska ili poslovna",
+    "Bitcoin konzultacija business scope section",
+  ],
+  ["poslovne riznice", "Bitcoin konzultacija business treasury copy"],
   ["Što pripremiti", "Bitcoin konzultacija preparation section"],
   ["Kada nije za vas", "Bitcoin konzultacija not for section"],
   [
@@ -1191,6 +1253,13 @@ const personalStandardChecks = [
     "personal standard deliverable mockup section",
   ],
   [
+    "Ako vodite posao, standard ima i poslovni sloj",
+    "personal standard business section",
+  ],
+  ["privatni i poslovni Bitcoin", "personal standard private business Bitcoin"],
+  ["poreze, plaće", "personal standard payroll tax business copy"],
+  ["višak poslovne riznice", "personal standard business treasury surplus"],
+  [
     "Ovo je okvir pravila, ne financijski plan",
     "personal standard not financial plan disclaimer",
   ],
@@ -1201,7 +1270,7 @@ const personalStandardChecks = [
   ["Cijena i ulaz", "price and entry section"],
   ["Ovo nije", "not this section"],
   ["nije investicijski savjet", "no investment advice"],
-  ["nije porezni ili pravni savjet", "no tax legal advice"],
+  ["nije porezni, pravni ili računovodstveni savjet", "no tax legal accounting advice"],
   ["nije traženje seed phrase", "no seed phrase request"],
   ["Česta pitanja o programu", "program FAQ"],
   ['href="/razgovor/"', "personal standard links to conversation"],
@@ -1262,6 +1331,12 @@ const guideIndexChecks = [
   ["Dug ili Bitcoin?", "starter guide 2"],
   ["Bitcoin kao novac", "starter guide 3"],
   ["Kad to prođete, nastavite kroz cijelu mapu.", "starter transition copy"],
+  ["Ako vodite posao, krenite ovdje", "guide business path title"],
+  ["Prihod nije slobodan novac", "business income guide title"],
+  [
+    "Poslovni Bitcoin nije privatni Bitcoin",
+    "business Bitcoin guide title",
+  ],
   ["Cijela mapa vodiča", "guide full map section"],
   ["Napredno / često se mijenja", "guide advanced contextual section"],
   [
@@ -1346,6 +1421,7 @@ assertArrayEquals(
   [
     "/vodici/svaki-euro-ima-namjenu/",
     "/vodici/stvarni-visak/",
+    "/vodici/prihod-nije-slobodan-novac/",
     "/vodici/starost-novca/",
     "/vodici/dca-nije-dovoljan/",
     "/vodici/dug-je-buduci-novac/",
@@ -1365,6 +1441,7 @@ assertArrayEquals(
     "/vodici/uskladivanje-kupovne-moci-bitcoina/",
     "/vodici/cijena-kao-mjera-vremena/",
     "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
+    "/vodici/poslovni-bitcoin-nije-privatni-bitcoin/",
     "/vodici/obiteljski-bitcoin-trezor/",
     "/vodici/samostalna-pohrana-ili-skrbnik/",
     "/vodici/bitkey-bitcoin-sigurnost/",
@@ -1400,6 +1477,11 @@ const securityChecks = [
   [
     "vaša obitelj ne smije ostati potpuno izgubljena",
     "security family continuity copy",
+  ],
+  ["Ako Bitcoin pripada poslu", "security business Bitcoin panel"],
+  [
+    "Poslovni Bitcoin ne smije ovisiti samo o vlasniku",
+    "security business dependency copy",
   ],
   ["Nikada ne tražim", "never ask section"],
   ["Možemo urediti", "security can organize section"],
@@ -1619,6 +1701,17 @@ const focusedGuideChecks = [
     ],
   },
   {
+    path: "vodici/prihod-nije-slobodan-novac/index.html",
+    checks: [
+      "Prihod nije slobodan novac",
+      "Prihod nije isto što i dobit",
+      "Dobit nije isto što i slobodan novac",
+      "Poslovni Bitcoin okvir počinje razlikovanjem operativnog novca i viška riznice.",
+      "Ovo nije računovodstveni ili porezni savjet.",
+      "Imate poslovnu Bitcoin odluku? Dogovorite uvodni razgovor.",
+    ],
+  },
+  {
     path: "vodici/pozitivni-neto-priljev/index.html",
     checks: [
       "Novac koji ostaje",
@@ -1686,6 +1779,17 @@ const focusedGuideChecks = [
       "Informacija nije isto što i pristup",
       "Za širi sigurnosni okvir pročitajte i sigurnosnu stranicu.",
       'data-cta="guide-security-page"',
+    ],
+  },
+  {
+    path: "vodici/poslovni-bitcoin-nije-privatni-bitcoin/index.html",
+    checks: [
+      "Poslovni Bitcoin nije privatni Bitcoin",
+      "Poslovni Bitcoin ne bi trebao biti pomiješan s privatnim Bitcoinom",
+      "Poslovni Bitcoin treba evidenciju, ovlaštene osobe, pravila odobravanja transakcija i plan nedostupnosti ključne osobe.",
+      "Seed phrase, privatni ključevi i lozinke nikada se ne stavljaju u dokumente",
+      "Nitko ne mora imati sve informacije",
+      "Razgovarajmo o poslovnom Bitcoin okviru.",
     ],
   },
   {

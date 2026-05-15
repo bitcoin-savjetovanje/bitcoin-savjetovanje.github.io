@@ -9,6 +9,7 @@ const audienceItems = [
   "Imate Bitcoin, ali nemate jasna pravila kada kupovati, držati, trošiti ili rebalansirati.",
   "Želite Bitcoin promatrati kao novac, a ne samo kao imovinu sa strane.",
   "Imate dug ili veće buduće obveze koje utječu na Bitcoin odluke.",
+  "Vodite posao i trebate razdvojiti privatni Bitcoin, poslovnu riznicu i kratkoročne obveze.",
   "Partner ili obitelj nisu na istoj razini razumijevanja.",
   "Brine vas sigurnost, pristup, nasljeđivanje ili ovisnost o jednoj osobi.",
   "Ne želite prepustiti odluku nekome drugome, nego želite vlastiti okvir.",
@@ -58,28 +59,78 @@ const outcomeItems = [
   "plan odnosa prema dugu",
   "pravila davanja",
   "okvir za Bitcoin kao primarni novac",
+  "pravila za privatni, obiteljski i po potrebi poslovni sloj",
   "pravila za neto imovinu i veće kupnje",
   "okvir za rast, padove i volatilnost",
   "sigurnosna i obiteljska pravila",
   "popis onoga što se nikada ne dijeli",
 ]
 
-const deliverableItems = [
-  "Pravilo za državni novac",
-  "Pravilo za Bitcoin saldo",
-  "Pravilo za dug",
-  "Pravilo za davanje",
-  "Pravilo za veće kupnje",
-  "Pravilo za pad cijene",
-  "Pravilo za rast cijene",
-  "Sigurnosna pravila",
-  "Obiteljske upute",
-  "Godišnji pregled",
+const businessLayerItems = [
+  {
+    title: "Razdvajanje privatnog i poslovnog Bitcoina",
+    copy: "Cilj je da privatni i poslovni Bitcoin ne budu pomiješani.",
+  },
+  {
+    title: "Operativni fiat sloj",
+    copy: "Porezi, plaće, najam i dobavljači trebaju jasna kratkoročna pravila.",
+  },
+  {
+    title: "Višak poslovne riznice",
+    copy: "Tek novac koji nije potreban za bliske obveze može dobiti drugačija Bitcoin pravila.",
+  },
+  {
+    title: "Dug, oprema, zalihe i rast",
+    copy: "Bitcoin okvir ne smije biti izgovor za neurednu operativnu disciplinu.",
+  },
+  {
+    title: "Ovlaštene osobe i oporavak",
+    copy: "Tvrtka treba znati što se događa ako vlasnik, direktor ili tehnička osoba nije dostupna.",
+  },
+  {
+    title: "Granice savjetovanja",
+    copy: "Porezni, pravni i računovodstveni dio treba provjeriti s odgovarajućim stručnjacima.",
+  },
+]
+
+const deliverableSections = [
+  {
+    title: "I. Privatni i obiteljski sloj",
+    items: [
+      "pravilo za državni novac",
+      "pravilo za Bitcoin saldo",
+      "pravilo za dug",
+      "pravilo za davanje",
+      "pravilo za veće kupnje",
+      "pravilo za pad cijene",
+      "pravilo za rast cijene",
+      "obiteljske upute",
+    ],
+  },
+  {
+    title: "II. Poslovni sloj, ako je primjenjivo",
+    items: [
+      "razdvajanje privatnog i poslovnog Bitcoina",
+      "fiat sloj za poreze, plaće i dobavljače",
+      "pravilo za višak poslovne riznice",
+      "poslovni dug, oprema i zalihe",
+      "ovlaštene osobe i odobravanje transakcija",
+    ],
+  },
+  {
+    title: "III. Sigurnosni sloj",
+    items: [
+      "što se nikada ne dijeli",
+      "gdje počinje plan oporavka",
+      "tko zna prvi korak",
+      "godišnja provjera",
+    ],
+  },
 ]
 
 const notItems = [
   "nije investicijski savjet",
-  "nije porezni ili pravni savjet",
+  "nije porezni, pravni ili računovodstveni savjet",
   "nije prognoza cijene",
   "nije trading program",
   "nije upravljanje sredstvima",
@@ -186,7 +237,8 @@ export function PersonalBitcoinStandard() {
             <p className="mt-5 max-w-4xl text-base leading-8 text-muted-foreground">
               Osobni Bitcoin standard nije samo posjedovanje Bitcoina. To je
               pisani okvir pravila za proračun, dug, davanje, Bitcoin kao novac,
-              neto imovinu, volatilnost, sigurnost i obiteljski pristup.
+              neto imovinu, volatilnost, sigurnost, obiteljski pristup i po
+              potrebi poslovnu riznicu.
             </p>
           </div>
           <aside
@@ -258,6 +310,43 @@ export function PersonalBitcoinStandard() {
           <Checklist items={outcomeItems} />
         </section>
 
+        <section className="program-business-section">
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Poslovni sloj
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl">
+              Ako vodite posao, standard ima i poslovni sloj
+            </h2>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              Kod poduzetnika Bitcoin odluka ne smije pomiješati privatni život,
+              obiteljsku sigurnost i poslovnu riznicu. U poslovnom sloju gledamo
+              novčani tok, poreze, plaće, dobavljače, pričuvu, vlasničku
+              isplatu, poslovni dug, višak riznice i sigurnosna pravila ako
+              vlasnik ili direktor nije dostupan.
+            </p>
+          </div>
+          <div className="program-business-grid">
+            {businessLayerItems.map((item, index) => (
+              <article key={item.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
+          </div>
+          <Button asChild className="cta-primary mt-7 rounded-full">
+            <a
+              href={CONVERSATION_PATH}
+              className="justify-center text-center"
+              data-cta="personal-standard-business-call"
+            >
+              <CalendarDays className="size-4" />
+              Razgovarajmo o vašoj situaciji
+            </a>
+          </Button>
+        </section>
+
         <section className="deliverable-section">
           <div>
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
@@ -269,12 +358,12 @@ export function PersonalBitcoinStandard() {
             <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
               Na kraju programa cilj nije imati još jednu bilješku iz razgovora,
               nego pisani okvir pravila koji možete ponovno otvoriti kada se
-              promijene prihod, cijena, obiteljska situacija ili sigurnosne
-              okolnosti.
+              promijene prihod, cijena, obiteljska situacija, poslovne obveze
+              ili sigurnosne okolnosti.
             </p>
             <p className="mt-5 rounded-xl border border-border/70 bg-background/70 p-4 text-sm leading-6 font-semibold text-foreground">
-              Ovo je okvir pravila, ne financijski plan, porezni savjet ili
-              nalog za kupnju/prodaju.
+              Ovo je okvir pravila, ne financijski plan, porezni savjet, pravni
+              savjet, računovodstveni savjet ili nalog za kupnju/prodaju.
             </p>
             <Button asChild className="cta-primary mt-6 rounded-full">
               <a
@@ -289,12 +378,21 @@ export function PersonalBitcoinStandard() {
           </div>
           <aside className="deliverable-mockup" aria-label="Mockup dokumenta">
             <span className="deliverable-stamp">pisani okvir</span>
+            <div className="deliverable-tabs" aria-hidden="true">
+              <span>privatno/obitelj</span>
+              <span>posao</span>
+            </div>
             <h3>Osobni Bitcoin standard</h3>
-            <ol>
-              {deliverableItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ol>
+            {deliverableSections.map((section) => (
+              <section key={section.title} className="deliverable-layer">
+                <h4>{section.title}</h4>
+                <ul>
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            ))}
           </aside>
         </section>
 

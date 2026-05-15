@@ -48,10 +48,9 @@ export const offers: Offer[] = [
     duration: "Jedan dubinski razgovor",
     forWhom:
       "Jedan dubinski razgovor za jedno ozbiljno pitanje koje utječe na odluku.",
-    detail:
-      "Jedan dubinski razgovor za jedno ozbiljno pitanje koje utječe na odluku.",
+    detail: "Jedno pitanje. Jedna odluka. Jedan dubinski razgovor.",
     purpose:
-      "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
+      "Razjašnjavamo Bitcoin tezu, osobnu, obiteljsku ili poslovnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
       "Jedan dubinski razgovor",
       "Za jedno ozbiljno pitanje",
@@ -72,15 +71,15 @@ export const offers: Offer[] = [
     price: "1.500 €",
     duration: "4–6 tjedana",
     forWhom:
-      "Za osobu ili obitelj koja želi pisana pravila za novac, dug, Bitcoin, sigurnost i obiteljski pristup.",
-    detail:
-      "Rad na pisanom osobnom okviru za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, sigurnost i obitelj.",
+      "Za osobu, obitelj ili vlasnika posla koji želi pisana pravila za novac, dug, Bitcoin, sigurnost i obiteljski ili poslovni pristup.",
+    detail: "Cijeli sustav. Više tjedana. Pisani okvir.",
     purpose:
-      "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i obiteljska pravila bez predaje kontrole.",
+      "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i privatna, obiteljska ili poslovna pravila bez predaje kontrole.",
     includes: [
       "4–6 tjedana",
-      "Pisani okvir za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, sigurnost i obitelj",
-      "Ozbiljniji nastavak kada jedno pitanje više nije dovoljno",
+      "Pisani standard",
+      "Pravila za privatni, obiteljski i po potrebi poslovni sloj",
+      "Sigurnosni i operativni okvir",
     ],
     cta: "Krenite od uvodnog razgovora",
     href: CONVERSATION_PATH,

@@ -63,6 +63,7 @@
   --area-worth: oklch(0.58 0.07 225);
   --area-time: oklch(0.58 0.07 285);
   --area-security: oklch(0.48 0.06 205);
+  --business-accent: oklch(0.42 0.055 220);
   --section-dark: oklch(0.18 0.008 80);
   --section-dark-soft: oklch(0.23 0.012 80);
   --section-dark-foreground: oklch(0.97 0.018 88);
@@ -123,6 +124,7 @@
   --area-worth: oklch(0.68 0.06 225);
   --area-time: oklch(0.7 0.06 285);
   --area-security: oklch(0.64 0.06 205);
+  --business-accent: oklch(0.7 0.055 220);
   --section-dark: oklch(0.12 0.006 80);
   --section-dark-soft: oklch(0.18 0.01 80);
   --section-dark-foreground: oklch(0.97 0.018 88);
@@ -472,6 +474,16 @@
     background: color-mix(in oklab, var(--paper), white 18%);
   }
 
+  .hero-scope-pills {
+    @apply mt-5 flex list-none flex-wrap gap-2;
+  }
+
+  .hero-scope-pills li {
+    @apply rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-[0.08em] text-foreground uppercase;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 58%);
+    background: color-mix(in oklab, var(--paper), var(--card) 30%);
+  }
+
   .hero-book-stage {
     @apply relative mx-auto w-full max-w-[420px] place-self-center;
     isolation: isolate;
@@ -769,6 +781,32 @@
     @apply mt-4 text-base leading-8 text-muted-foreground;
   }
 
+  .audience-group-grid {
+    @apply mt-10 grid gap-5 lg:grid-cols-3;
+  }
+
+  .audience-group {
+    @apply min-w-0 rounded-2xl border bg-card/70 p-4 shadow-sm sm:p-5;
+    border-color: color-mix(in oklab, var(--area-color), transparent 62%);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--area-color), var(--card) 94%),
+        color-mix(in oklab, var(--card), transparent 0%)
+      );
+  }
+
+  .audience-group__label {
+    @apply mb-4 inline-flex rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.12em] uppercase;
+    border-color: color-mix(in oklab, var(--area-color), transparent 56%);
+    background: color-mix(in oklab, var(--area-color), transparent 86%);
+    color: color-mix(in oklab, var(--area-color), black 22%);
+  }
+
+  .audience-group__cards {
+    @apply grid gap-3;
+  }
+
   .question-choice {
     @apply flex w-full gap-3 rounded-lg border border-transparent px-2 py-1.5 text-left text-base leading-7 text-muted-foreground transition-colors hover:border-primary/25 hover:bg-primary/5 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
   }
@@ -847,6 +885,37 @@
     @apply mt-4 text-base leading-8 text-muted-foreground;
   }
 
+  .framework-application-panel {
+    @apply mt-8 rounded-2xl border p-5 shadow-sm sm:p-6 lg:p-8;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 66%);
+    background:
+      radial-gradient(
+        circle at 94% 8%,
+        color-mix(in oklab, var(--business-accent), transparent 82%),
+        transparent 16rem
+      ),
+      color-mix(in oklab, var(--paper), var(--card) 34%);
+  }
+
+  .framework-application-grid {
+    @apply mt-6 grid gap-4 md:grid-cols-3;
+  }
+
+  .framework-application-grid article {
+    @apply rounded-xl border p-4 shadow-sm;
+    border-color: color-mix(in oklab, var(--area-color), transparent 62%);
+    background: color-mix(in oklab, var(--area-color), var(--card) 90%);
+  }
+
+  .framework-application-grid span {
+    @apply text-sm font-semibold tracking-[0.12em] uppercase;
+    color: color-mix(in oklab, var(--area-color), black 18%);
+  }
+
+  .framework-application-grid p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
   .question-group-card {
     @apply rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
   }
@@ -910,6 +979,48 @@
 
   .framework-tab {
     @apply rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .business-decision-panel {
+    @apply rounded-2xl border p-6 shadow-sm sm:p-8 lg:p-10;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 58%);
+    background:
+      radial-gradient(
+        circle at 88% 12%,
+        color-mix(in oklab, var(--business-accent), transparent 78%),
+        transparent 18rem
+      ),
+      linear-gradient(
+        135deg,
+        color-mix(in oklab, var(--paper), var(--card) 30%),
+        color-mix(in oklab, var(--card), transparent 0%)
+      );
+  }
+
+  .business-decision-grid {
+    @apply mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5;
+  }
+
+  .business-decision-grid article {
+    @apply rounded-xl border bg-background/72 p-5 shadow-sm;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 70%);
+  }
+
+  .business-decision-grid span {
+    @apply text-xs font-semibold tracking-[0.14em] uppercase;
+    color: color-mix(in oklab, var(--business-accent), white 8%);
+  }
+
+  .business-decision-grid h3 {
+    @apply mt-4 text-xl leading-tight font-semibold;
+  }
+
+  .business-decision-grid p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .business-decision-actions {
+    @apply mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center;
   }
 
   .dark-process-section {
@@ -1062,27 +1173,37 @@
     @apply mt-6 grid min-w-0 list-none gap-3;
   }
 
-  .offer-document-mini {
-    @apply mt-5 grid gap-2 rounded-xl border p-4;
+  .standard-layers-preview {
+    @apply mt-5 rounded-xl border p-4 shadow-sm;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 62%);
     background: color-mix(in oklab, var(--paper), white 16%);
   }
 
-  .offer-document-mini span {
-    @apply block h-2 rounded-full;
-    background: color-mix(in oklab, var(--ink), transparent 84%);
+  .standard-layers-preview__title {
+    @apply text-sm font-semibold text-foreground;
   }
 
-  .offer-document-mini span:nth-child(1) {
-    width: 76%;
+  .standard-layers-preview ol {
+    @apply mt-4 grid list-none gap-2.5;
   }
 
-  .offer-document-mini span:nth-child(2) {
-    width: 92%;
+  .standard-layers-preview li {
+    @apply flex gap-3 rounded-lg border bg-background/72 p-3;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 76%);
   }
 
-  .offer-document-mini span:nth-child(3) {
-    width: 58%;
+  .standard-layers-preview li > span {
+    @apply grid size-7 shrink-0 place-items-center rounded-full text-[0.68rem] font-semibold tracking-[0.08em];
+    background: color-mix(in oklab, var(--bitcoin-orange), transparent 18%);
+    color: white;
+  }
+
+  .standard-layers-preview strong {
+    @apply block text-sm leading-5 text-foreground;
+  }
+
+  .standard-layers-preview li p {
+    @apply mt-1 text-xs leading-5 text-muted-foreground;
   }
 
   .offer-step {
@@ -1290,6 +1411,24 @@
     @apply rounded-lg border border-border/70 bg-background/70 px-3 py-2 pl-2;
   }
 
+  .conversation-scope-panel {
+    @apply mt-5 rounded-xl border p-4 shadow-sm;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 66%);
+    background: color-mix(in oklab, var(--paper), var(--card) 34%);
+  }
+
+  .conversation-scope-panel h3 {
+    @apply text-lg font-semibold text-foreground;
+  }
+
+  .conversation-scope-panel p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .conversation-scope-panel span {
+    @apply font-semibold text-foreground;
+  }
+
   .pre-booking-panel {
     @apply grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1fr)] lg:items-start;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 64%);
@@ -1329,6 +1468,35 @@
     @apply mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
   }
 
+  .consultation-scope-card {
+    @apply mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8;
+  }
+
+  .consultation-scope-grid {
+    @apply mt-6 grid gap-4 md:grid-cols-3;
+  }
+
+  .consultation-scope-grid article,
+  .business-decision-type-grid article {
+    @apply rounded-xl border p-5 shadow-sm;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 72%);
+    background: color-mix(in oklab, var(--paper), var(--card) 42%);
+  }
+
+  .consultation-scope-grid h3,
+  .business-decision-type-grid h3 {
+    @apply text-xl font-semibold;
+  }
+
+  .consultation-scope-grid p,
+  .business-decision-type-grid p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .business-decision-type-grid {
+    @apply mt-6 grid gap-4 md:grid-cols-3;
+  }
+
   .consultation-outcome-grid {
     @apply mt-6 grid gap-4 md:grid-cols-3;
   }
@@ -1358,6 +1526,40 @@
     border-color: color-mix(in oklab, var(--area-color), transparent 45%);
     background: color-mix(in oklab, var(--area-color), transparent 78%);
     color: color-mix(in oklab, var(--area-color), black 22%);
+  }
+
+  .program-business-section {
+    @apply mt-8 rounded-2xl border p-6 shadow-sm sm:p-8;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 58%);
+    background:
+      radial-gradient(
+        circle at 92% 16%,
+        color-mix(in oklab, var(--business-accent), transparent 80%),
+        transparent 16rem
+      ),
+      color-mix(in oklab, var(--paper), var(--card) 30%);
+  }
+
+  .program-business-grid {
+    @apply mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .program-business-grid article {
+    @apply rounded-xl border bg-background/72 p-5 shadow-sm;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 70%);
+  }
+
+  .program-business-grid span {
+    @apply text-xs font-semibold tracking-[0.14em] uppercase;
+    color: color-mix(in oklab, var(--business-accent), white 4%);
+  }
+
+  .program-business-grid h3 {
+    @apply mt-4 text-lg leading-tight font-semibold;
+  }
+
+  .program-business-grid p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
   }
 
   .deliverable-section {
@@ -1396,8 +1598,26 @@
     @apply text-2xl leading-tight font-semibold tracking-[-0.015em];
   }
 
-  .deliverable-mockup ol {
-    @apply mt-6 grid list-decimal gap-2.5 pl-5 text-sm leading-6 marker:text-muted-foreground;
+  .deliverable-tabs {
+    @apply mb-5 flex flex-wrap gap-2;
+  }
+
+  .deliverable-tabs span {
+    @apply rounded-full border px-3 py-1 text-[0.68rem] font-semibold tracking-[0.1em] uppercase;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 62%);
+    background: color-mix(in oklab, var(--bitcoin-orange), transparent 88%);
+  }
+
+  .deliverable-layer {
+    @apply mt-5 rounded-lg border border-border/60 bg-white/35 p-4;
+  }
+
+  .deliverable-layer h4 {
+    @apply text-sm font-semibold text-foreground;
+  }
+
+  .deliverable-layer ul {
+    @apply mt-3 grid list-disc gap-1.5 pl-5 text-xs leading-5 text-muted-foreground;
   }
 
   .security-principle-card {
@@ -1473,6 +1693,38 @@
     @apply mt-12 grid gap-6 lg:grid-cols-2;
   }
 
+  .security-business-panel {
+    @apply mt-8 rounded-2xl border p-6 shadow-sm sm:p-8;
+    border-color: color-mix(in oklab, var(--area-security), transparent 58%);
+    background:
+      radial-gradient(
+        circle at 90% 16%,
+        color-mix(in oklab, var(--area-security), transparent 80%),
+        transparent 16rem
+      ),
+      color-mix(in oklab, var(--section-dark), var(--card) 10%);
+    color: var(--section-dark-foreground);
+  }
+
+  .security-business-panel p,
+  .security-business-panel li {
+    color: color-mix(
+      in oklab,
+      var(--section-dark-foreground),
+      transparent 10%
+    );
+  }
+
+  .security-business-panel ul {
+    @apply mt-6 grid list-none gap-3 md:grid-cols-2;
+  }
+
+  .security-business-panel li {
+    @apply flex gap-3 rounded-lg border p-3 text-sm leading-6;
+    border-color: hsl(0 0% 100% / 0.14);
+    background: hsl(0 0% 100% / 0.06);
+  }
+
   .never-request-panel {
     border-color: color-mix(in oklab, var(--negative-red), transparent 66%);
     background: color-mix(in oklab, var(--negative-red), var(--card) 92%);
@@ -1542,6 +1794,37 @@
   .starter-guide-card p,
   .advanced-guide-card p {
     @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .business-guide-path {
+    @apply rounded-2xl border p-6 shadow-sm sm:p-8;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 60%);
+    background:
+      radial-gradient(
+        circle at 90% 18%,
+        color-mix(in oklab, var(--business-accent), transparent 82%),
+        transparent 16rem
+      ),
+      color-mix(in oklab, var(--paper), var(--card) 36%);
+  }
+
+  .business-guide-list {
+    @apply mt-6 grid list-none gap-3;
+  }
+
+  .business-guide-list li {
+    @apply flex items-center gap-3 rounded-xl border bg-background/72 p-4 shadow-sm;
+    border-color: color-mix(in oklab, var(--business-accent), transparent 74%);
+  }
+
+  .business-guide-list span {
+    @apply grid size-8 shrink-0 place-items-center rounded-full text-xs font-semibold;
+    background: color-mix(in oklab, var(--business-accent), white 16%);
+    color: white;
+  }
+
+  .business-guide-list a {
+    @apply text-base font-semibold text-foreground hover:text-primary;
   }
 
   .advanced-guides-section {

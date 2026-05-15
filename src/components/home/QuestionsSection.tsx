@@ -1,17 +1,7 @@
 import { Check } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { conversationProblemCards } from "@/content/home"
-
-const audienceAreas = [
-  "bitcoin",
-  "worth",
-  "debt",
-  "budget",
-  "giving",
-  "security",
-  "time",
-]
+import { conversationAudienceGroups } from "@/content/home"
 
 export function QuestionsSection() {
   return (
@@ -20,17 +10,29 @@ export function QuestionsSection() {
         title="Za koga je ovaj razgovor?"
         copy="Ovaj razgovor ima smisla ako se prepoznajete u jednoj od ovih rečenica."
       />
-      <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {conversationProblemCards.map((card, index) => (
-          <article
-            key={card.title}
-            className="audience-card"
-            data-area={audienceAreas[index % audienceAreas.length]}
+      <div className="audience-group-grid">
+        {conversationAudienceGroups.map((group) => (
+          <section
+            key={group.label}
+            className="audience-group"
+            data-area={group.area}
+            aria-label={`Razina: ${group.label}`}
           >
-            <Check className="positive-icon size-5" />
-            <h3 className="mt-4">{card.title}</h3>
-            <p>{card.copy}</p>
-          </article>
+            <p className="audience-group__label">{group.label}</p>
+            <div className="audience-group__cards">
+              {group.cards.map((card) => (
+                <article
+                  key={card.title}
+                  className="audience-card"
+                  data-area={group.area}
+                >
+                  <Check className="positive-icon size-5" />
+                  <h3 className="mt-4">{card.title}</h3>
+                  <p>{card.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         ))}
       </div>
     </section>

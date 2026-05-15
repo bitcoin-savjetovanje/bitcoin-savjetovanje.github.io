@@ -11,6 +11,16 @@ import {
 } from "@/content/security"
 import { CONVERSATION_PATH } from "@/content/site"
 
+const businessBitcoinItems = [
+  "poslovni Bitcoin ne miješati s privatnim Bitcoinom",
+  "definirati ovlaštene osobe",
+  "definirati pravila odobravanja transakcija",
+  "razdvojiti dnevni, operativni i dugoročni sloj",
+  "ne oslanjati se na pamćenje jedne osobe",
+  "pravni, porezni i računovodstveni dio provjeriti sa stručnjacima",
+  "seed phrase ili privatne ključeve nikada ne stavljati u dokumente koji prolaze kroz institucije ili osobe koje ne smiju imati pristup",
+]
+
 function SecurityList({
   items,
   icon,
@@ -128,6 +138,31 @@ export function Security() {
                 vama nešto dogodi.
               </span>
             </li>
+          </ul>
+        </section>
+
+        <section className="security-business-panel">
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold tracking-[0.14em] uppercase">
+              Poslovni Bitcoin
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">
+              Ako Bitcoin pripada poslu
+            </h2>
+            <p className="mt-4 text-base leading-8">
+              Poslovni Bitcoin ne smije ovisiti samo o vlasniku, direktoru ili
+              jednoj tehničkoj osobi. Tvrtka treba jasnu evidenciju, pravila
+              odobravanja, razdvajanje privatnog i poslovnog Bitcoina i plan ako
+              ključna osoba nije dostupna.
+            </p>
+          </div>
+          <ul>
+            {businessBitcoinItems.map((item) => (
+              <li key={item}>
+                <Check className="positive-icon mt-1 size-4 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </section>
 

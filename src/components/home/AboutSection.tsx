@@ -183,9 +183,9 @@ export function AboutSection() {
                   kapital, rizik i odluke koje imaju stvarne posljedice.
                 </p>
                 <p>
-                  Zato savjetovanje ovdje nije samo objašnjavanje Bitcoina. Cilj
-                  je povezati Bitcoin s konkretnim odlukama o novcu, dugu,
-                  imovini, sigurnosti i obitelji.
+                  Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca,
+                  nego kroz stvarne odluke o cash flowu, riziku, ljudima,
+                  obvezama i vremenu.
                 </p>
               </div>
             </div>

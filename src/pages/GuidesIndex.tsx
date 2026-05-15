@@ -15,6 +15,7 @@ const roadmapGroups = [
     slugs: [
       "svaki-euro-ima-namjenu",
       "stvarni-visak",
+      "prihod-nije-slobodan-novac",
       "starost-novca",
       "dca-nije-dovoljan",
     ],
@@ -73,6 +74,7 @@ const roadmapGroups = [
     title: "Sigurnost i obitelj",
     slugs: [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
+      "poslovni-bitcoin-nije-privatni-bitcoin",
       "obiteljski-bitcoin-trezor",
       "samostalna-pohrana-ili-skrbnik",
       "bitkey-bitcoin-sigurnost",
@@ -98,6 +100,18 @@ const starterSlugs = [
 ] as const
 
 const starterGuides = starterSlugs
+  .map((slug) => findGuide(slug))
+  .filter((guide): guide is Guide => Boolean(guide))
+
+const businessSlugs = [
+  "svaki-euro-ima-namjenu",
+  "novac-dolazi-od-ljudi",
+  "dug-je-buduci-novac",
+  "novac-kapital-potrosnja",
+  "sigurnost-ne-smije-ovisiti-samo-o-vama",
+] as const
+
+const businessGuides = businessSlugs
   .map((slug) => findGuide(slug))
   .filter((guide): guide is Guide => Boolean(guide))
 
@@ -155,8 +169,8 @@ export function GuidesIndex() {
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
             Vodiči objašnjavaju okvir za život s Bitcoinom kao novcem: proračun,
-            dug, davanje, Bitcoin kao primarni novac, neto imovina, vrijeme,
-            volatilnost, sigurnost i obitelj.
+            dug, davanje, Bitcoin kao primarni novac, neto imovina, poslovna
+            riznica, vrijeme, volatilnost, sigurnost i obitelj.
           </p>
           <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">
             Ako želite primjenu na vlastitu situaciju, dogovorite 15-minutni
@@ -213,6 +227,33 @@ export function GuidesIndex() {
           <p className="mt-6 text-base leading-8 font-semibold text-foreground">
             Kad to prođete, nastavite kroz cijelu mapu.
           </p>
+        </section>
+
+        <section className="business-guide-path mx-auto mt-10 max-w-5xl">
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Put za poduzetnike
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">
+              Ako vodite posao, krenite ovdje
+            </h2>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              Poduzetnik ne treba samo pitanje ‘kupiti ili ne kupiti Bitcoin’.
+              Prvo treba vidjeti koji novac pripada porezima, plaćama,
+              dobavljačima, zalihama, opremi, pričuvi i vlasničkim odlukama. Tek
+              tada poslovna riznica može dobiti Bitcoin pravila.
+            </p>
+          </div>
+          <ol className="business-guide-list">
+            {businessGuides.map((guide, index) => (
+              <li key={guide.slug}>
+                <span>{index + 1}</span>
+                <a href={guideHref(guide.slug)} data-link="business-guide-path">
+                  {guide.title}
+                </a>
+              </li>
+            ))}
+          </ol>
         </section>
 
         <section className="guides-roadmap" aria-labelledby="guides-method-map">

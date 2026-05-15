@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { frameworkAreas } from "@/content/home"
+import { frameworkApplicationLayers, frameworkAreas } from "@/content/home"
 
 export function FrameworkSection() {
   return (
@@ -44,6 +44,30 @@ export function FrameworkSection() {
             <p>{area.copy}</p>
           </article>
         ))}
+      </div>
+
+      <div className="framework-application-panel">
+        <div>
+          <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+            Primjena okvira
+          </p>
+          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.015em]">
+            Tri razine istog okvira
+          </h3>
+          <p className="mt-3 max-w-3xl text-base leading-8 text-muted-foreground">
+            Isti redoslijed pitanja može uređivati osobni novac, obiteljske
+            odluke i poslovnu riznicu. Razlika je u tome tko snosi posljedice i
+            koje obveze prvo moraju ostati pokrivene.
+          </p>
+        </div>
+        <div className="framework-application-grid">
+          {frameworkApplicationLayers.map((layer) => (
+            <article key={layer.title} data-area={layer.area}>
+              <span>{layer.title}</span>
+              <p>{layer.copy}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )

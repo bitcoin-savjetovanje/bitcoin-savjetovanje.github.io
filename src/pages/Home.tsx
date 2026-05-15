@@ -1,6 +1,7 @@
 import { Seo } from "@/components/Seo"
 import { AboutSection } from "@/components/home/AboutSection"
 import { BeforeAfterSection } from "@/components/home/BeforeAfterSection"
+import { BusinessDecisionSection } from "@/components/home/BusinessDecisionSection"
 import { FaqSection } from "@/components/home/FaqSection"
 import { FinalCta } from "@/components/home/FinalCta"
 import { FrameworkSection } from "@/components/home/FrameworkSection"
@@ -25,6 +26,7 @@ export function Home() {
       <Hero />
       <QuestionsSection />
       <FrameworkSection />
+      <BusinessDecisionSection />
       <IntroCallSection />
       <OffersSection />
       <BeforeAfterSection />

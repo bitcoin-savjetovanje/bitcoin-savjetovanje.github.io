@@ -32,6 +32,54 @@ export const conversationProblemCards = [
   },
 ]
 
+export const conversationAudienceGroups = [
+  {
+    label: "osobno",
+    area: "bitcoin",
+    cards: [
+      conversationProblemCards[0],
+      conversationProblemCards[1],
+      conversationProblemCards[2],
+      conversationProblemCards[3],
+    ],
+  },
+  {
+    label: "obiteljski",
+    area: "security",
+    cards: [
+      conversationProblemCards[4],
+      conversationProblemCards[5],
+      conversationProblemCards[6],
+    ],
+  },
+  {
+    label: "poslovno",
+    area: "worth",
+    cards: [
+      {
+        title:
+          "Vodim posao i ne znam kako odvojiti privatni Bitcoin, poslovnu riznicu i kratkoročne obveze.",
+        copy: "Privatni Bitcoin, poslovni Bitcoin i novac za obveze ne smiju biti ista maglovita masa.",
+      },
+      {
+        title:
+          "Imam prihode, poreze, plaće, dobavljače ili zalihe, ali nemam jasna pravila koji je novac stvarno slobodan.",
+        copy: "Klijentova uplata nije odmah vlasnikov novac. Prvo treba vidjeti operativne obveze.",
+      },
+      {
+        title:
+          "Dio moje neto imovine je u poslu, opremi, znanju ili poslovnim udjelima.",
+        copy: "Bitcoin odluka mora se uklopiti u cijelu bilancu, a ne samo u osobni wallet.",
+      },
+      {
+        title:
+          "Ako se meni nešto dogodi, nije jasno tko u poslu zna što se smije, a što se nikada ne smije napraviti.",
+        copy: "Poslovna sigurnost treba ovlaštene osobe, granice pristupa i operativna pravila.",
+      },
+    ],
+  },
+] as const
+
 export const frameworkAreas = [
   {
     area: "budget",
@@ -76,6 +124,47 @@ export const frameworkAreas = [
     copy: "Sigurnost štiti od krađe, ali i od zaborava, panike, bolesti, smrti i dobronamjerne pogreške.",
   },
 ]
+
+export const frameworkApplicationLayers = [
+  {
+    title: "Osobno",
+    area: "budget",
+    copy: "proračun, dug, davanje, Bitcoin saldo, veće kupnje",
+  },
+  {
+    title: "Obiteljski",
+    area: "security",
+    copy: "zajednička pravila, partner, djeca, sigurnost i oporavak",
+  },
+  {
+    title: "Poslovno",
+    area: "worth",
+    copy: "cash flow, porezi, plaće, dobavljači, poslovna riznica i ovlaštene osobe",
+  },
+] as const
+
+export const businessDecisionItems = [
+  {
+    title: "Privatno i poslovno",
+    copy: "Privatni Bitcoin i poslovni Bitcoin ne smiju biti ista maglovita masa.",
+  },
+  {
+    title: "Kratkoročne obveze",
+    copy: "Novac za poreze, plaće, najam i dobavljače ne smije ovisiti o povoljnom tržištu.",
+  },
+  {
+    title: "Višak riznice",
+    copy: "Tek kada su obveze jasne, višak riznice može dobiti Bitcoin pravila.",
+  },
+  {
+    title: "Dug i rast",
+    copy: "Poslovni rast koji ovisi o dugu mora se gledati i kroz štetu ako očekivanje zakaže.",
+  },
+  {
+    title: "Sigurnost i ovlaštenja",
+    copy: "Ako sve stoji u glavi vlasnika, tvrtka ima operativni rizik koji možda nije vidljiv u bilanci.",
+  },
+] as const
 
 export const introCallSteps = [
   {

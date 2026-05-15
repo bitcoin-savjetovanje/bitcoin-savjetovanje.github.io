@@ -21,6 +21,11 @@ Najnoviji vizualni pass uvodi knjiški color system, semantičke boje za sedam
 područja knjige, tamnu procesnu sekciju i mockup pisanog osobnog Bitcoin
 standarda.
 
+Najnoviji business pass jasnije pozicionira Bitcoin Savjetovanje za pojedince,
+obitelji i poduzetnike. Dodan je poslovni sloj za cash flow, poslovnu riznicu,
+poreze, plaće, dobavljače, razdvajanje privatnog i poslovnog Bitcoina,
+ovlaštene osobe i sigurnosni postupak.
+
 ## Development
 
 ```bash
@@ -82,6 +87,10 @@ Vizualni asseti:
 - `public/og-bitcoin-kao-novac.png`
 - `public/og-bitcoin-kao-novac.svg`
 
+Noviji home komponentni slojevi:
+
+- `src/components/home/BusinessDecisionSection.tsx`
+
 ## Routes
 
 - `/`
@@ -91,6 +100,8 @@ Vizualni asseti:
 - `/bitcoin-savjetovanje/`
 - `/vodici/`
 - `/vodici/:slug/`
+- `/vodici/prihod-nije-slobodan-novac/`
+- `/vodici/poslovni-bitcoin-nije-privatni-bitcoin/`
 - `/sigurnost/`
 - `/privatnost/`
 

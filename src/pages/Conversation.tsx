@@ -15,7 +15,7 @@ const preparationQuestions = [
   "Što pokušavate odlučiti?",
   "Što vam još nije jasno?",
   "Što bi vam dalo više mira?",
-  "Je li prepreka razumijevanje Bitcoina, osobna financijska situacija, sigurnost ili obitelj?",
+  "Je li prepreka razumijevanje Bitcoina, osobna situacija, poslovni novac, sigurnost ili obitelj?",
 ]
 
 const exampleQuestions = [
@@ -26,6 +26,11 @@ const exampleQuestions = [
   "Partner ili obitelj ne razumiju moju Bitcoin odluku.",
   "Sigurnost mi ovisi o meni, jednom uređaju ili jednom papiru.",
   "Ne znam što bih radio nakon velikog pada ili rasta cijene.",
+  "Vodim posao i ne znam koji je novac stvarno slobodan za Bitcoin, a koji pripada porezima, plaćama, dobavljačima ili pričuvi.",
+  "Ne znam kako odvojiti privatni Bitcoin od poslovnog Bitcoina.",
+  "Imam višak u poslovnoj riznici i ne znam koja pravila trebaju postojati prije nego što Bitcoin uđe u bilancu.",
+  "Posao ima dug, zalihe, opremu ili nestalan cash flow, pa ne znam kako to mijenja Bitcoin odluku.",
+  "Ako se meni nešto dogodi, nije jasno tko u poslu zna što se smije, a što se nikada ne smije napraviti.",
 ]
 
 const conversationSteps = [
@@ -158,6 +163,18 @@ export function Conversation() {
             Ne morate doći pripremljeni kao stručnjak. Dovoljno je da dođete s
             jednim stvarnim pitanjem.
           </p>
+          <div className="conversation-scope-panel">
+            <h3>Radi li se o osobnoj, obiteljskoj ili poslovnoj odluci?</h3>
+            <p>
+              U bilješku za razgovor dovoljno je napisati jednu rečenicu.
+              Primjeri:{" "}
+              <span>
+                “Pokušavam odlučiti koliko poslovnog viška smije u Bitcoin”, “Ne
+                znam kako odvojiti privatni i poslovni Bitcoin” ili “Brine me
+                što nitko osim mene ne zna sigurnosni postupak.”
+              </span>
+            </p>
+          </div>
           <div className="mt-5 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-6 text-muted-foreground">
             <p>
               U bilješku ne trebate pisati iznose ni detalje. Dovoljna je jedna
@@ -260,7 +277,8 @@ export function Conversation() {
               Prije nego rezervirate
             </p>
             <h2 className="mt-3 text-2xl font-semibold">
-              Najbolji razgovori počinju jednom konkretnom odlukom.
+              Najbolji razgovori počinju jednom konkretnom odlukom — osobnom,
+              obiteljskom ili poslovnom.
             </h2>
           </div>
           <ul>

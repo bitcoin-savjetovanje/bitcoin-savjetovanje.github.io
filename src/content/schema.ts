@@ -67,7 +67,13 @@ export function homeSchema() {
         serviceType:
           "Uvodni Bitcoin razgovor, Bitcoin konzultacija i osobni Bitcoin standard",
         description:
-          "Savjetodavni rad za razumijevanje Bitcoina, osobna pravila, sigurnost i obiteljski okvir. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije financijsko, porezno ili pravno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
+          "Bitcoin decision framework for individuals, families and entrepreneurs. Savjetodavni rad za razumijevanje Bitcoina, osobna, obiteljska i poslovna pravila, sigurnost i poslovnu riznicu. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije financijsko, porezno, pravno ili računovodstveno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
+        audience: [
+          { "@type": "Audience", audienceType: "individuals" },
+          { "@type": "Audience", audienceType: "families" },
+          { "@type": "Audience", audienceType: "entrepreneurs" },
+          { "@type": "Audience", audienceType: "business owners" },
+        ],
       },
       {
         "@type": "OfferCatalog",
@@ -115,6 +121,7 @@ export function bitcoinAdvicePageSchema() {
           "Bitcoin sigurnost",
           "Bitcoin konzultacije",
           "osobni Bitcoin standard",
+          "poslovna riznica",
           "Bitcoin nasljeđivanje",
         ],
       },
@@ -124,13 +131,19 @@ export function bitcoinAdvicePageSchema() {
         serviceType:
           "Bitcoin savjetovanje jedan-na-jedan, uvodni razgovor i Bitcoin konzultacija",
         description:
-          "Savjetodavni rad za ljude koji žele razjasniti Bitcoin, sigurnost, obitelj, dug, proračun i osobni okvir za odluke. Ne uključuje upravljanje sredstvima, prognoze cijene, porezni ili pravni savjet.",
+          "Savjetodavni rad za pojedince, obitelji i poduzetnike koji žele razjasniti Bitcoin, sigurnost, obitelj, dug, proračun, poslovnu riznicu i osobni okvir za odluke. Ne uključuje upravljanje sredstvima, prognoze cijene, porezni, pravni ili računovodstveni savjet.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
           name: "Bitcoin Savjetovanje",
         },
         areaServed: ["Hrvatska", "Online"],
+        audience: [
+          { "@type": "Audience", audienceType: "individuals" },
+          { "@type": "Audience", audienceType: "families" },
+          { "@type": "Audience", audienceType: "entrepreneurs" },
+          { "@type": "Audience", audienceType: "business owners" },
+        ],
         url: bitcoinAdviceSeo.canonical,
       },
       breadcrumbSchema([
@@ -189,7 +202,7 @@ export function bitcoinConsultationPageSchema() {
         name: "Bitcoin konzultacija",
         serviceType: "Jedan dubinski Bitcoin razgovor",
         description:
-          "Jedan dubinski razgovor za jedno ozbiljno pitanje o Bitcoinu, proračunu, dugu, neto imovini, sigurnosti ili obitelji. Bez naloga za kupnju ili prodaju, bez prognoza cijene i bez traženja seed phrase.",
+          "Jedan dubinski razgovor za jedno ozbiljno osobno, obiteljsko ili poslovno pitanje o Bitcoinu, proračunu, dugu, poslovnoj riznici, neto imovini, sigurnosti ili obitelji. Bez naloga za kupnju ili prodaju, bez prognoza cijene i bez traženja seed phrase.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -236,6 +249,7 @@ export function personalBitcoinStandardPageSchema() {
           "dug",
           "davanje",
           "neto imovina",
+          "poslovna riznica",
           "Bitcoin sigurnost",
           "obiteljski pristup Bitcoinu",
         ],
@@ -246,7 +260,7 @@ export function personalBitcoinStandardPageSchema() {
         serviceType:
           "Program za izgradnju pisanog sustava odluka za život s Bitcoinom",
         description:
-          "Program od 4 do 6 tjedana za pisani okvir pravila za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, volatilnost, sigurnost i obiteljski pristup. Ne uključuje upravljanje sredstvima, prognoze cijene, porezni ili pravni savjet.",
+          "Program od 4 do 6 tjedana za pisani okvir pravila za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, poslovnu riznicu, volatilnost, sigurnost i obiteljski pristup. Ne uključuje upravljanje sredstvima, prognoze cijene, porezni, pravni ili računovodstveni savjet.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -258,6 +272,12 @@ export function personalBitcoinStandardPageSchema() {
           },
         },
         areaServed: ["Hrvatska", "Online"],
+        audience: [
+          { "@type": "Audience", audienceType: "individuals" },
+          { "@type": "Audience", audienceType: "families" },
+          { "@type": "Audience", audienceType: "entrepreneurs" },
+          { "@type": "Audience", audienceType: "business owners" },
+        ],
         url: personalBitcoinStandardSeo.canonical,
         offers: {
           "@type": "Offer",

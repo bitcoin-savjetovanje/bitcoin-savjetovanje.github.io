@@ -106,10 +106,36 @@ export function OffersSection() {
                   ) : null}
                   <p>{offer.detail}</p>
                   {offer.title === "Osobni Bitcoin standard" ? (
-                    <div className="offer-document-mini" aria-hidden="true">
-                      <span />
-                      <span />
-                      <span />
+                    <div
+                      className="standard-layers-preview"
+                      aria-label="Tri sloja osobnog Bitcoin standarda"
+                    >
+                      <p className="standard-layers-preview__title">
+                        Osobni Bitcoin standard
+                      </p>
+                      <ol>
+                        <li>
+                          <span>01</span>
+                          <div>
+                            <strong>Novac i odluke</strong>
+                            <p>proračun · dug · davanje</p>
+                          </div>
+                        </li>
+                        <li>
+                          <span>02</span>
+                          <div>
+                            <strong>Imovina i posao</strong>
+                            <p>Bitcoin · neto imovina · riznica</p>
+                          </div>
+                        </li>
+                        <li>
+                          <span>03</span>
+                          <div>
+                            <strong>Sigurnost i prijenos</strong>
+                            <p>obitelj · ovlaštene osobe · oporavak</p>
+                          </div>
+                        </li>
+                      </ol>
                     </div>
                   ) : null}
                   <ul className="mt-6 grid gap-3 text-base leading-7 text-muted-foreground">

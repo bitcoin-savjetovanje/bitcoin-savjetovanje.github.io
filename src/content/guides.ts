@@ -3382,6 +3382,159 @@ const guideEntries: Guide[] = [
       dataCta: "guide-security-page",
     },
   },
+  {
+    slug: "prihod-nije-slobodan-novac",
+    title: "Prihod nije slobodan novac",
+    metaDescription:
+      "Kod posla klijentova uplata ne pripada odmah vlasniku. Prvo treba vidjeti poreze, plaće, dobavljače, buduće troškove, pričuvu i vlasničke odluke.",
+    excerpt:
+      "Kod posla klijentova uplata ne pripada odmah vlasniku. Prvo treba vidjeti poreze, plaće, dobavljače, buduće troškove, pričuvu i vlasničke odluke.",
+    category: "Osobni proračun nulte osnove",
+    difficulty: "Početno",
+    freshness: "stabilno",
+    order: 18,
+    publishedAt: "2026-05-15",
+    updatedAt: "2026-05-15",
+    practicalQuestion:
+      "Znate li koji novac u poslu stvarno možete rasporediti, a koji već pripada obvezama?",
+    relatedSlugs: [
+      "svaki-euro-ima-namjenu",
+      "stvarni-visak",
+      "poslovni-bitcoin-nije-privatni-bitcoin",
+    ],
+    visual: {
+      type: "split",
+      title: "Uplata nije isto što i slobodan novac",
+      leftLabel: "Prvo obveze",
+      leftItems: ["porezi", "plaće", "dobavljači", "pričuva"],
+      rightLabel: "Tek zatim višak",
+      rightItems: ["vlasnička odluka", "riznica", "Bitcoin pravila"],
+      caption:
+        "Poslovni Bitcoin okvir počinje razlikovanjem operativnog novca i viška riznice.",
+    },
+    sections: [
+      {
+        heading: "Prihod nije isto što i dobit",
+        body: [
+          "Kod posla je lako pomiješati novac koji je ušao s novcem koji je slobodan. Klijentova uplata može izgledati kao prostor za odluku, ali dio tog novca već pripada porezima, plaćama, dobavljačima, najmu, zalihama, opremi ili kratkoročnim ugovorenim obvezama.",
+          "Zato poslovni Bitcoin okvir ne počinje pitanjem treba li kupiti Bitcoin. Počinje pitanjem što taj novac već mora napraviti. Prihod je tek početak razgovora, ne dokaz da višak postoji.",
+        ],
+      },
+      {
+        heading: "Dobit nije isto što i slobodan novac",
+        body: [
+          "Dobit može postojati na papiru, a slobodan novac može biti vezan u zalihama, opremi, nenaplaćenim potraživanjima ili budućim obvezama. Vlasnik posla zato ne smije gledati samo saldo na računu.",
+          "Prije Bitcoin odluke treba odvojiti operativni novac od viška riznice. Operativni novac čuva sposobnost posla da ispuni obveze. Višak riznice je ono što ostaje nakon što su kratkoročne obveze, pričuva i vlasničke odluke jasno imenovane.",
+        ],
+      },
+      {
+        heading: "Operativni novac ne smije ovisiti o tržištu",
+        body: [
+          "Novac za poreze, plaće, najam, dobavljače i kratkoročne ugovorene obveze ne smije ovisiti o nadi da će se tržište ponašati povoljno. Ako taj novac sutra treba biti dostupan u državnom novcu, tada to nije novac za riznicu.",
+          "Bitcoin može imati smisla kao dio šireg poslovnog okvira, ali ne kao zamjena za osnovnu operativnu disciplinu. Posao prvo mora moći preživjeti mjesec, kvartal i obveze koje su već preuzete.",
+        ],
+      },
+      {
+        heading: "Prvo pitanje vlasnika posla",
+        body: [
+          "Prvo pitanje nije koliko Bitcoina kupiti. Prvo pitanje je: koji dio poslovnog novca je stvarno slobodan nakon obveza, pričuve, plana rasta i vlasničkih odluka?",
+          "Ako odgovor nije jasan, Bitcoin odluka je prerana. Ako je odgovor jasan, višak riznice može dobiti pravila: kada se smije pretvoriti u Bitcoin, kada se ne dira i tko mora razumjeti odluku.",
+        ],
+      },
+      {
+        heading: "Granica savjetovanja",
+        body: [
+          "Ovo nije računovodstveni ili porezni savjet. Ovo je praktični okvir za pitanja koja vlasnik mora znati postaviti prije nego što se Bitcoin pojavi u poslovnoj riznici.",
+          "Porezni, pravni i računovodstveni dio treba provjeriti s odgovarajućim stručnjacima. Bitcoin savjetovanje pomaže urediti redoslijed pitanja, pravila odluke i sigurnosne granice.",
+        ],
+      },
+    ],
+    finalCta: "Imate poslovnu Bitcoin odluku? Dogovorite uvodni razgovor.",
+    finalCtaPrompt:
+      "Ako niste sigurni koji je poslovni novac stvarno slobodan, to je dobro pitanje za uvodni razgovor.",
+  },
+  {
+    slug: "poslovni-bitcoin-nije-privatni-bitcoin",
+    title: "Poslovni Bitcoin nije privatni Bitcoin",
+    metaDescription:
+      "Bitcoin koji pripada poslu treba evidenciju, ovlaštene osobe, pravila odobravanja i plan ako vlasnik ili direktor nije dostupan.",
+    excerpt:
+      "Bitcoin koji pripada poslu treba evidenciju, ovlaštene osobe, pravila odobravanja i plan ako vlasnik ili direktor nije dostupan.",
+    category: "Sigurnost i obitelj",
+    difficulty: "Srednje",
+    freshness: "stabilno",
+    order: 106,
+    publishedAt: "2026-05-15",
+    updatedAt: "2026-05-15",
+    practicalQuestion:
+      "Bi li posao znao što napraviti s poslovnim Bitcoinom ako vlasnik ili direktor nije dostupan?",
+    relatedSlugs: [
+      "prihod-nije-slobodan-novac",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+      "obiteljski-pristup-bitcoinu",
+    ],
+    visual: {
+      type: "safety",
+      title: "Privatno i poslovno nisu isti sloj",
+      zones: [
+        {
+          label: "evidencija",
+          description: "što pripada poslu, a što privatno",
+        },
+        {
+          label: "ovlaštenja",
+          description: "tko smije odobriti i što se nikada ne dijeli",
+        },
+        {
+          label: "oporavak",
+          description: "što ako ključna osoba nije dostupna",
+        },
+      ],
+      caption:
+        "Poslovni Bitcoin treba pravila, a ne samo osobno sjećanje vlasnika.",
+    },
+    sections: [
+      {
+        heading:
+          "Poslovni Bitcoin ne bi trebao biti pomiješan s privatnim Bitcoinom",
+        body: [
+          "Privatni Bitcoin i poslovni Bitcoin imaju različite obveze, različitu evidenciju i različite posljedice. Ako se pomiješaju, nastaje maglovita masa koju je teško objasniti sebi, obitelji, poslovnom partneru ili stručnjacima.",
+          "Razdvajanje nije samo tehničko pitanje. To je pitanje odgovornosti. Poslovni Bitcoin pripada poslovnom sustavu, a taj sustav ima obveze prema zaposlenicima, dobavljačima, kupcima, partnerima i institucijama.",
+        ],
+      },
+      {
+        heading: "Ako je sve u glavi jedne osobe, posao ima operativni rizik",
+        body: [
+          "Vlasnik ili direktor može razumjeti cijeli sustav, ali posao ne smije ovisiti samo o tome da je ta osoba dostupna, smirena i zdrava. Ako nitko drugi ne zna što postoji, što se ne smije dirati i gdje počinje oporavak, rizik nije vidljiv na računu.",
+          "Dobar poslovni okvir ne predaje kontrolu svima. On definira što se dokumentira, tko je ovlašten za koji korak, kako se odobravaju transakcije i što se radi ako ključna osoba nije dostupna.",
+        ],
+      },
+      {
+        heading: "Evidencija, ovlaštene osobe i pravila odobravanja",
+        body: [
+          "Poslovni Bitcoin treba evidenciju, ovlaštene osobe, pravila odobravanja transakcija i plan nedostupnosti ključne osobe. To ne znači da svi znaju sve. Znači da postoji uređen put.",
+          "Kod većih iznosa ima smisla razmišljati o razdvajanju dužnosti, profesionalnoj pomoći i dokumentima koji su usklađeni s pravnim i računovodstvenim obvezama. Svaki stručnjak može pomoći u svojem dijelu.",
+        ],
+      },
+      {
+        heading: "Što se nikada ne stavlja u pogrešne dokumente",
+        body: [
+          "Seed phrase, privatni ključevi i lozinke nikada se ne stavljaju u dokumente koji prolaze kroz institucije ili osobe koje ne smiju imati pristup. Posao može imati evidenciju bez otkrivanja osjetljivih sigurnosnih podataka.",
+          "U praksi to znači da dokumenti mogu objasniti postojanje, odgovornosti, kontaktne točke i zabrane. Kontrola nad Bitcoinom ostaje zaštićena od nepotrebnog širenja.",
+        ],
+      },
+      {
+        heading: "Nitko ne mora imati sve informacije",
+        body: [
+          "Računovođa ne mora imati sigurnosne podatke. Pravnik ne mora znati tehničke detalje koje ne treba znati. Tehnička osoba ne mora donositi poslovne odluke. Vlasnik ne mora sve držati samo u glavi.",
+          "Cilj je razdvojiti uloge tako da svaka osoba zna svoj dio, a da nitko nepotrebno ne dobije kontrolu. To je sigurnosni i operativni okvir, ne prepuštanje Bitcoina nekome drugome.",
+        ],
+      },
+    ],
+    finalCta: "Razgovarajmo o poslovnom Bitcoin okviru.",
+    finalCtaPrompt:
+      "Ako poslovni Bitcoin postoji ili ga razmatrate, a nije jasno tko smije što napraviti, uvodni razgovor može pomoći razdvojiti privatni, poslovni i sigurnosni sloj.",
+  },
 ]
 
 export const guides = [...guideEntries].sort((first, second) => {
@@ -3468,7 +3621,12 @@ export const guidesIndexPrimaryItems: GuidesIndexPrimaryItem[] = [
 export const guidesIndexAdditionalGroups = [
   {
     title: "Proračun",
-    slugs: ["stvarni-visak", "starost-novca", "dca-nije-dovoljan"],
+    slugs: [
+      "stvarni-visak",
+      "prihod-nije-slobodan-novac",
+      "starost-novca",
+      "dca-nije-dovoljan",
+    ],
   },
   {
     title: "Dug",
@@ -3498,6 +3656,7 @@ export const guidesIndexAdditionalGroups = [
   {
     title: "Sigurnost i obitelj",
     slugs: [
+      "poslovni-bitcoin-nije-privatni-bitcoin",
       "obiteljski-bitcoin-trezor",
       "samostalna-pohrana-ili-skrbnik",
       "bitkey-bitcoin-sigurnost",
@@ -3509,6 +3668,7 @@ export const guidesIndexAdditionalGroups = [
 export const guidesIndexOrderedSlugs = [
   "svaki-euro-ima-namjenu",
   "stvarni-visak",
+  "prihod-nije-slobodan-novac",
   "starost-novca",
   "dca-nije-dovoljan",
   "dug-je-buduci-novac",
@@ -3528,6 +3688,7 @@ export const guidesIndexOrderedSlugs = [
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "poslovni-bitcoin-nije-privatni-bitcoin",
   "obiteljski-bitcoin-trezor",
   "samostalna-pohrana-ili-skrbnik",
   "bitkey-bitcoin-sigurnost",
@@ -3537,6 +3698,7 @@ export const guidesIndexOrderedSlugs = [
 export const recommendedGuideSlugs = [
   "svaki-euro-ima-namjenu",
   "stvarni-visak",
+  "prihod-nije-slobodan-novac",
   "starost-novca",
   "dug-je-buduci-novac",
   "dug-ili-bitcoin",
@@ -3548,6 +3710,7 @@ export const recommendedGuideSlugs = [
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "poslovni-bitcoin-nije-privatni-bitcoin",
   "obiteljski-bitcoin-trezor",
   "samostalna-pohrana-ili-skrbnik",
   "bitkey-bitcoin-sigurnost",

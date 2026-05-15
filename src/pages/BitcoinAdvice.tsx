@@ -14,6 +14,7 @@ const situations = [
   "imate Bitcoin, ali nemate jasan sustav odluka",
   "razmišljate treba li Bitcoin imati veću ulogu u vašoj imovini",
   "želite razgovarati s partnerom ili obitelji bez pritiska",
+  "vodite posao i trebate odvojiti privatni Bitcoin, poslovnu riznicu i kratkoročne obveze",
   "brine vas sigurnost ili pristup u izvanrednoj situaciji",
   "ne znate kako dug, proračun ili buduća plaćanja mijenjaju odluku",
 ]
@@ -54,6 +55,21 @@ const paths = [
     href: PERSONAL_BITCOIN_STANDARD_PATH,
     label: "Pogledajte program",
     dataCta: "bitcoin-advice-personal-standard",
+  },
+]
+
+const decisionTypes = [
+  {
+    title: "Osobne odluke",
+    copy: "proračun, dug, davanje, Bitcoin saldo, neto imovina i veće kupnje",
+  },
+  {
+    title: "Obiteljske odluke",
+    copy: "partner, djeca, sigurnost, oporavak pristupa i pravila koja drugi mogu razumjeti",
+  },
+  {
+    title: "Poslovne odluke",
+    copy: "cash flow, porezi, plaće, dobavljači, poslovni dug, višak riznice, oprema, zalihe, ovlaštene osobe i sigurnosni postupak",
   },
 ]
 
@@ -107,9 +123,11 @@ export function BitcoinAdvice() {
             sustava odluka.
           </h1>
           <p className="mt-5 max-w-4xl text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Ovo nije generična Bitcoin edukacija. Razgovaramo o tome kako se
-            Bitcoin povezuje s vašim proračunom, dugom, davanjem, neto imovinom,
-            sigurnošću, obitelji i pravilima koja možete objasniti.
+            Bitcoin savjetovanje je jedan-na-jedan razgovor za pojedince,
+            obitelji i poduzetnike koji ne žele samo još jedno mišljenje o
+            cijeni, nego žele razumjeti kako Bitcoin ulazi u stvarne odluke:
+            proračun, dug, poslovnu riznicu, neto imovinu, sigurnost, obitelj i
+            odgovornost prema ljudima koji ovise o njima.
           </p>
           <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
             <li>
@@ -156,6 +174,18 @@ export function BitcoinAdvice() {
               Što bi nakon razgovora trebalo biti jasnije
             </h2>
             <CheckList items={outcomes} />
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:mt-12 sm:p-8">
+          <h2 className="text-2xl font-semibold">Tri vrste odluka</h2>
+          <div className="business-decision-type-grid">
+            {decisionTypes.map((type) => (
+              <article key={type.title}>
+                <h3>{type.title}</h3>
+                <p>{type.copy}</p>
+              </article>
+            ))}
           </div>
         </section>
 

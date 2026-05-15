@@ -26,7 +26,7 @@ export const TWENTYONE_URL = "https://twentyone.world"
 export const homeSeo = {
   title: "Bitcoin kao novac | Bitcoin Savjetovanje",
   description:
-    "Od držanja Bitcoina do uređenog sustava odluka. Uvodni 15-minutni razgovor za ljude koji žele povezati Bitcoin s proračunom, dugom, neto imovinom, sigurnošću i obitelji.",
+    "Od držanja Bitcoina do uređenog sustava odluka. Uvodni 15-minutni razgovor za pojedince, obitelji i poduzetnike koji žele povezati Bitcoin s proračunom, dugom, poslovnom riznicom, neto imovinom, sigurnošću i obitelji.",
   canonical: `${SITE_URL}/`,
 }
 
@@ -40,28 +40,28 @@ export const bitcoinAdviceSeo = {
 export const conversationSeo = {
   title: "Uvodni razgovor | Bitcoin kao novac",
   description:
-    "Dogovorite 15-minutni uvodni razgovor i vidite gdje ste na putu od držanja Bitcoina do uređenog sustava odluka.",
+    "Dogovorite 15-minutni uvodni razgovor i vidite gdje ste na putu od držanja Bitcoina do sustava odluka — osobno, obiteljski ili poslovno.",
   canonical: `${SITE_URL}${CONVERSATION_PATH}`,
 }
 
 export const bitcoinConsultationSeo = {
   title: "Bitcoin konzultacija od 200 € | Bitcoin Savjetovanje",
   description:
-    "Jedan dubinski razgovor za jedno ozbiljno pitanje o Bitcoinu, proračunu, dugu, neto imovini, sigurnosti ili obitelji.",
+    "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje — osobno, obiteljsko ili poslovno.",
   canonical: `${SITE_URL}${BITCOIN_CONSULTATION_PATH}`,
 }
 
 export const personalBitcoinStandardSeo = {
   title: "Osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Program od 4–6 tjedana za izgradnju pisanog sustava odluka za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, volatilnost, sigurnost i obitelj.",
+    "Program od 4–6 tjedana za izgradnju pisanog sustava odluka za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, poslovnu riznicu, volatilnost, sigurnost i obitelj.",
   canonical: `${SITE_URL}${PERSONAL_BITCOIN_STANDARD_PATH}`,
 }
 
 export const guidesIndexSeo = {
   title: "Vodiči za knjigu Bitcoin kao novac | Bitcoin Savjetovanje",
   description:
-    "Vodiči za život s Bitcoinom kao novcem: proračun, dug, davanje, Bitcoin kao primarni novac, neto imovina, volatilnost, sigurnost i obitelj.",
+    "Vodiči za život s Bitcoinom kao novcem: proračun, dug, davanje, Bitcoin kao primarni novac, neto imovina, poslovna riznica, vrijeme, volatilnost, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 

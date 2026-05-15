@@ -12,6 +12,7 @@ const forWhomItems = [
   "imate ozbiljno Bitcoin pitanje koje se stalno vraća",
   "razmišljate o većoj ulozi Bitcoina u svojoj imovini",
   "želite objasniti Bitcoin partneru ili obitelji",
+  "vodite posao i želite razjasniti poslovnu riznicu ili kratkoročne obveze",
   "brine vas sigurnost",
   "ne znate kako dug, proračun ili buduća plaćanja utječu na odluku",
   "želite znati treba li vam cijeli osobni Bitcoin standard ili je dovoljan jedan razgovor",
@@ -21,6 +22,7 @@ const reviewItems = [
   "Bitcoin tezu na jeziku koji možete ponoviti drugima",
   "glavne nedoumice o cijeni, volatilnosti i riziku",
   "odnos duga, proračuna i stvarnog viška",
+  "što je operativni novac, a što može biti višak poslovne riznice",
   "ulogu Bitcoina u neto imovini",
   "sigurnost i obiteljski pristup bez dijeljenja osjetljivih podataka",
   "sljedeći razuman korak",
@@ -43,10 +45,25 @@ const outcomes = [
   "jasnu procjenu da jedno pitanje nije dovoljno i da treba graditi osobni Bitcoin standard",
 ]
 
+const consultationScopes = [
+  {
+    title: "Osobno",
+    copy: "Jedna odluka oko Bitcoina, duga, proračuna, neto imovine ili veće kupnje.",
+  },
+  {
+    title: "Obiteljski",
+    copy: "Jedno pitanje koje treba objasniti partneru, obitelji ili osobi od povjerenja.",
+  },
+  {
+    title: "Poslovno",
+    copy: "Jedna odluka oko poslovne riznice, viška novca, kratkoročnih obveza, sigurnosti ili razdvajanja privatnog i poslovnog Bitcoina.",
+  },
+]
+
 const preparationItems = [
   "koju odluku pokušavate donijeti",
   "koja tri pitanja se stalno vraćaju",
-  "postoji li dug, sigurnosna ili obiteljska tema",
+  "postoji li dug, poslovna riznica, sigurnosna ili obiteljska tema",
   "što bi vam značilo da nakon razgovora bude jasnije",
 ]
 
@@ -70,6 +87,7 @@ const exampleQuestions = [
   "Kako objasniti Bitcoin partneru bez pritiska i bez žargona?",
   "Što ako imam dug, a istovremeno ne želim izgubiti dugoročni Bitcoin pogled?",
   "Kako složiti sigurnost tako da obitelj ne ostane izgubljena?",
+  "Kako razlikovati novac za poreze, plaće i dobavljače od viška poslovne riznice?",
 ]
 
 const notForItems = [
@@ -138,7 +156,7 @@ export function BitcoinConsultation() {
             </h1>
             <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
               Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje
-              utječe na vašu odluku.
+              utječe na vašu osobnu, obiteljsku ili poslovnu odluku.
             </p>
           </div>
           <aside
@@ -201,6 +219,20 @@ export function BitcoinConsultation() {
           </div>
         </section>
 
+        <section className="consultation-scope-card">
+          <h2 className="text-2xl font-semibold">
+            Konzultacija može biti osobna, obiteljska ili poslovna
+          </h2>
+          <div className="consultation-scope-grid">
+            {consultationScopes.map((scope) => (
+              <article key={scope.title}>
+                <h3>{scope.title}</h3>
+                <p>{scope.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="consultation-outcome-card">
           <h2 className="text-2xl font-semibold">
             Nakon Bitcoin konzultacije trebali biste imati jednu od tri stvari
@@ -213,6 +245,10 @@ export function BitcoinConsultation() {
               </article>
             ))}
           </div>
+          <p className="mt-6 max-w-4xl text-base leading-8 text-muted-foreground">
+            Za vlasnika posla to može značiti jasnije pitanje: što pripada
+            operativnim obvezama, a što je stvarno višak riznice?
+          </p>
         </section>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">

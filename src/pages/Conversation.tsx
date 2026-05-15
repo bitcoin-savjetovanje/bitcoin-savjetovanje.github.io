@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
+import { CalendarDays, Check } from "lucide-react"
 import { useState } from "react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
@@ -11,47 +11,38 @@ import {
   PERSONAL_BITCOIN_STANDARD_PATH,
 } from "@/content/site"
 
-const preparationQuestions = [
-  "Što pokušavate odlučiti?",
-  "Što vam još nije jasno?",
-  "Što bi vam dalo više mira?",
-  "Je li prepreka razumijevanje Bitcoina, osobna situacija, poslovni novac, sigurnost ili obitelj?",
+const topExamples = [
+  "Ne znam koji je novac stvarno slobodan za Bitcoin.",
+  "Ne znam kako partneru ili obitelji objasniti odluku.",
+  "Vodim posao i ne znam što je stvarni višak riznice.",
 ]
 
-const exampleQuestions = [
-  "Ne znam koji je novac stvarno slobodan za Bitcoin odluku.",
-  "Imam dug i nisam siguran treba li prvo čistiti bilancu.",
-  "Ne znam koliko državnog novca ostaviti za kratkoročne obveze.",
-  "Bitcoin mi je jasan kao ideja, ali ne kao dio neto imovine.",
-  "Partner ili obitelj ne razumiju moju Bitcoin odluku.",
-  "Sigurnost mi ovisi o meni, jednom uređaju ili jednom papiru.",
-  "Ne znam što bih radio nakon velikog pada ili rasta cijene.",
-  "Vodim posao i ne znam koji je novac stvarno slobodan za Bitcoin, a koji pripada porezima, plaćama, dobavljačima ili pričuvi.",
-  "Ne znam kako odvojiti privatni Bitcoin od poslovnog Bitcoina.",
-  "Imam višak u poslovnoj riznici i ne znam koja pravila trebaju postojati prije nego što Bitcoin uđe u bilancu.",
-  "Posao ima dug, zalihe, opremu ili nestalan cash flow, pa ne znam kako to mijenja Bitcoin odluku.",
-  "Ako se meni nešto dogodi, nije jasno tko u poslu zna što se smije, a što se nikada ne smije napraviti.",
-]
-
-const conversationSteps = [
-  "Kažete mi koju odluku pokušavate donijeti.",
-  "Smjestimo pitanje u okvir: Bitcoin teza, proračun, dug, neto imovina, sigurnost ili obitelj.",
-  "Vidimo treba li vam kratak odgovor, Bitcoin konzultacija ili puni osobni Bitcoin standard.",
-  "Ako plaćeni nastavak nema smisla, to otvoreno kažem.",
-]
-
-function Checklist({ items }: { items: string[] }) {
-  return (
-    <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
-      {items.map((item) => (
-        <li key={item} className="flex gap-3">
-          <Check className="positive-icon mt-1 size-4 shrink-0" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  )
-}
+const questionGroups = [
+  {
+    title: "Osobna pitanja",
+    items: [
+      "Imam dug i nisam siguran treba li prvo čistiti bilancu.",
+      "Bitcoin mi je jasan kao ideja, ali ne kao dio neto imovine.",
+      "Ne znam što bih radio nakon velikog pada ili rasta cijene.",
+    ],
+  },
+  {
+    title: "Obiteljska pitanja",
+    items: [
+      "Partner ili obitelj ne razumiju moju Bitcoin odluku.",
+      "Ako se meni nešto dogodi, nije jasno tko zna prvi sigurnosni korak.",
+      "Ne znam kako objasniti što se nikada ne smije dirati.",
+    ],
+  },
+  {
+    title: "Poslovna pitanja",
+    items: [
+      "Ne znam kako odvojiti privatni Bitcoin od poslovnog Bitcoina.",
+      "Imam višak u poslovnoj riznici i ne znam koja pravila trebaju postojati.",
+      "Posao ima dug, zalihe, opremu ili nestalan cash flow.",
+    ],
+  },
+] as const
 
 function selectedQuestionFromUrl() {
   if (typeof window === "undefined") {
@@ -137,44 +128,33 @@ export function Conversation() {
 
         <header className="page-hero page-hero--compact mt-8">
           <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Dogovorite 15-minutni razgovor: gdje ste na putu od držanja Bitcoina
-            do sustava odluka?
+            Dogovorite 15-minutni uvodni razgovor
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Uvodni razgovor postoji da vidimo što prvo treba razjasniti: Bitcoin
-            tezu, proračun, dug, neto imovinu, sigurnost, obitelj ili nešto
-            drugo.
+            Vidimo gdje ste na putu od držanja Bitcoina do sustava odluka —
+            osobno, obiteljski ili poslovno.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
+            Ne trebate pripremiti cijeli slučaj. Dovoljna je jedna odluka koju
+            pokušavate donijeti.
           </p>
         </header>
 
         <section className="conversation-calendar-card">
           <h2 className="text-2xl font-semibold">
-            Dobra pitanja za uvodni razgovor
+            Najbolji razgovori počinju jednom konkretnom odlukom.
           </h2>
-          <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
-            {exampleQuestions.map((question) => (
-              <li key={question} className="flex gap-3">
+          <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground md:grid-cols-3">
+            {topExamples.map((question) => (
+              <li
+                key={question}
+                className="flex gap-3 rounded-lg border border-border/70 bg-background/70 p-4"
+              >
                 <Check className="positive-icon mt-1 size-4 shrink-0" />
                 <span>{question}</span>
               </li>
             ))}
           </ul>
-          <p className="mt-5 text-base leading-7 font-medium text-foreground">
-            Ne morate doći pripremljeni kao stručnjak. Dovoljno je da dođete s
-            jednim stvarnim pitanjem.
-          </p>
-          <div className="conversation-scope-panel">
-            <h3>Radi li se o osobnoj, obiteljskoj ili poslovnoj odluci?</h3>
-            <p>
-              U bilješku za razgovor dovoljno je napisati jednu rečenicu.
-              Primjeri:{" "}
-              <span>
-                “Pokušavam odlučiti koliko poslovnog viška smije u Bitcoin”, “Ne
-                znam kako odvojiti privatni i poslovni Bitcoin” ili “Brine me
-                što nitko osim mene ne zna sigurnosni postupak.”
-              </span>
-            </p>
-          </div>
           <div className="mt-5 rounded-xl border border-primary/20 bg-primary/5 p-4 text-sm leading-6 text-muted-foreground">
             <p>
               U bilješku ne trebate pisati iznose ni detalje. Dovoljna je jedna
@@ -188,7 +168,7 @@ export function Conversation() {
               walleta, iznose, dokumente ni pristup računima.
             </p>
           </div>
-          <ul className="conversation-cta-list mt-8">
+          <ul className="conversation-cta-list mt-6">
             <li>
               <Button
                 asChild
@@ -204,127 +184,34 @@ export function Conversation() {
                 </CalBookingLink>
               </Button>
             </li>
-            <li>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
-              >
-                <a
-                  href="/sigurnost/"
-                  className="justify-start text-left sm:justify-center sm:text-center"
-                  data-cta="conversation-page-security"
-                >
-                  Prvo pročitajte sigurnosna pravila
-                </a>
-              </Button>
-            </li>
           </ul>
-          <p className="mt-4 text-sm leading-6 text-muted-foreground">
-            Otvorit će se kalendar. Odaberite termin i u bilješku napišite jedno
-            pitanje koje želite razjasniti, bez osjetljivih podataka.
-          </p>
-        </section>
-
-        <section className="conversation-referral-card">
-          <h2 className="text-2xl font-semibold">
-            Ako vam je netko poslao ovu stranicu
-          </h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Ne morate znati je li razgovor pravi za vas. Dovoljno je da imate
-            jedno stvarno Bitcoin pitanje koje utječe na vašu odluku — oko
-            Bitcoin teze, cijene, duga, sigurnosti, obitelji ili uloge Bitcoina
-            u imovini.
-          </p>
-          <p className="mt-5 text-base leading-7 font-medium text-foreground">
-            U bilješku kod odabira termina možete napisati:
-          </p>
-          <Checklist
-            items={[
-              "Koju odluku pokušavate donijeti?",
-              "Što vam još nije jasno ili što vas najviše brine?",
-              "Dolazite li sami ili s partnerom/članom obitelji?",
-            ]}
-          />
-          <p className="mt-5 text-sm leading-6 text-muted-foreground">
-            Ne šaljite seed phrase, privatne ključeve, lozinke, screenshotove
-            novčanika, iznose ni osjetljive dokumente.
-          </p>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="mt-6 h-11 w-full rounded-full px-4 text-sm sm:w-auto sm:px-5 sm:text-base"
-          >
-            <a
-              href="#kalendar"
-              className="justify-center text-center"
-              data-cta="conversation-referral-calendar"
-            >
-              <CalendarDays className="size-4" />
-              Odaberite termin
-            </a>
-          </Button>
         </section>
 
         {selectedQuestion ? (
           <SelectedQuestionCard question={selectedQuestion} />
         ) : null}
-        <section className="pre-booking-panel">
-          <div>
-            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-              Prije nego rezervirate
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold">
-              Najbolji razgovori počinju jednom konkretnom odlukom — osobnom,
-              obiteljskom ili poslovnom.
-            </h2>
-          </div>
-          <ul>
-            <li>napišite jednu odluku</li>
-            <li>ne šaljite osjetljive sigurnosne podatke</li>
-            <li>ne trebate otkrivati iznose</li>
-            <li>15 minuta služi za prvi filter, ne za cijeli sustav</li>
-          </ul>
-        </section>
+
         <CalInlineEmbed />
 
-        <div className="conversation-two-column">
-          <section className="case-panel">
-            <h2 className="text-2xl font-semibold">
-              Prije razgovora razmislite o jednom glavnom pitanju.
-            </h2>
-            <Checklist items={preparationQuestions} />
-          </section>
-
-          <section className="case-panel">
-            <h2 className="text-2xl font-semibold">Kako razgovor izgleda</h2>
-            <ol className="conversation-stepper">
-              {conversationSteps.map((step) => (
-                <li key={step}>
-                  <span>{step}</span>
-                </li>
-              ))}
-            </ol>
-          </section>
-        </div>
-
-        <section className="safety-note-card">
-          <h2 className="text-2xl font-semibold">Sigurnosna napomena</h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Ne šaljite seed phrase, privatne ključeve, lozinke, pristup računima
-            ni osjetljive dokumente. Ako bude potreban detaljniji rad, dogovorit
-            ćemo siguran način razgovora o strukturi bez predaje kontrole.
-          </p>
-          <a
-            href="/sigurnost/"
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-            data-link="conversation-security-rules"
-          >
-            Sigurnosna pravila
-            <ArrowUpRight className="size-4" />
-          </a>
+        <section className="case-panel">
+          <h2 className="text-2xl font-semibold">
+            Još primjera pitanja, ako trebate pomoć
+          </h2>
+          <div className="mt-6 divide-y divide-border/70 border-y border-border/70">
+            {questionGroups.map((group) => (
+              <details key={group.title} className="faq-item">
+                <summary>{group.title}</summary>
+                <ul className="mt-4 grid gap-3 text-base leading-7 text-muted-foreground">
+                  {group.items.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <Check className="positive-icon mt-1 size-4 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
         </section>
 
         <section className="conversation-outcomes-card mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
@@ -378,20 +265,13 @@ export function Conversation() {
               </Button>
             </li>
             <li>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
+              <a
+                href="/sigurnost/"
+                className="inline-flex h-11 items-center text-sm font-semibold text-foreground hover:text-primary"
+                data-link="conversation-page-final-security"
               >
-                <a
-                  href="/sigurnost/"
-                  className="justify-start text-left sm:justify-center sm:text-center"
-                  data-cta="conversation-page-final-security"
-                >
-                  Prvo pročitajte sigurnosna pravila
-                </a>
-              </Button>
+                Sigurnosna pravila
+              </a>
             </li>
           </ul>
         </section>

@@ -26,6 +26,11 @@ obitelji i poduzetnike. Dodan je poslovni sloj za cash flow, poslovnu riznicu,
 poreze, plaće, dobavljače, razdvajanje privatnog i poslovnog Bitcoina,
 ovlaštene osobe i sigurnosni postupak.
 
+Najnoviji simplification pass smanjuje busy dojam nakon business updatea:
+homepage je skraćen, audience dio sveden na osobno/obiteljski/poslovno,
+framework mapa je kompaktnija, `/razgovor/` ranije prikazuje booking, a detalji
+su prebačeni na program, vodiče i savjetovanje stranice.
+
 ## Development
 
 ```bash
@@ -86,10 +91,6 @@ Vizualni asseti:
 - `public/bitcoin-kao-novac-cover.png`
 - `public/og-bitcoin-kao-novac.png`
 - `public/og-bitcoin-kao-novac.svg`
-
-Noviji home komponentni slojevi:
-
-- `src/components/home/BusinessDecisionSection.tsx`
 
 ## Routes
 

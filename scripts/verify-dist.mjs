@@ -574,27 +574,36 @@ const homeChecks = [
     "new hero title",
   ],
   [
-    "U 15-minutnom uvodnom razgovoru vidimo gdje ste sada",
-    "intro call hero framing",
+    "pojedince, obitelji i poduzetnike",
+    "business audience framing",
   ],
-  ["pojedince, obitelji i poduzetnike", "business audience framing"],
   ["osobno", "personal scope badge"],
   ["obiteljski", "family scope badge"],
   ["poslovno", "business scope badge"],
+  [
+    "U 15-minutnom uvodnom razgovoru vidimo gdje ste sada",
+    "intro call hero framing",
+  ],
   ["Pogledajte okvir", "hero secondary CTA copy"],
   ['href="#okvir"', "hero framework CTA href"],
   ['data-cta="home-hero-intro-call"', "hero CTA metadata"],
   ['data-link="home-hero-framework"', "hero framework metadata"],
   ["Za koga je ovaj razgovor?", "audience section title"],
   [
-    "Ne želim još jedan video o Bitcoinu; želim povezati Bitcoin sa svojom stvarnom situacijom.",
-    "audience non-generic education copy",
+    "Dovoljno je jedno konkretno pitanje.",
+    "audience simplified intro",
+  ],
+  [
+    "Cash flow, porezi, plaće, dobavljači, poslovna riznica",
+    "compact business audience copy",
   ],
   [
     "Okvir iz knjige: 7 područja koja treba urediti",
     "framework section title",
   ],
-  ["Tri razine istog okvira", "three application layers"],
+  ["vidjeti novac", "framework compact budget idea"],
+  ["osloboditi budućnost", "framework compact debt idea"],
+  ["primarni saldo", "framework compact Bitcoin idea"],
   ["Proračun", "framework budget item"],
   ["Dug", "framework debt item"],
   ["Davanje", "framework giving item"],
@@ -607,14 +616,13 @@ const homeChecks = [
     "intro call section title",
   ],
   [
-    "Ako vodite posao, Bitcoin odluka ima još jedan sloj",
-    "business section title",
+    "Ne morate unaprijed znati u kojem ste poglavlju knjige.",
+    "intro call section simplification copy",
   ],
-  ["poslovna riznica", "business treasury copy"],
   ["Novac i odluke", "standard layers preview money layer"],
   ["Imovina i posao", "standard layers preview business layer"],
   ["Sigurnost i prijenos", "standard layers preview safety layer"],
-  ["Tri moguća nastavka", "offer section title"],
+  ["Ako vrijedi ići dublje", "offer section title"],
   ["Bitcoin konzultacija", "renamed 200 EUR offer"],
   ["Krenite od uvodnog razgovora", "standard offer CTA copy"],
   ['href="/osobni-bitcoin-standard/"', "homepage link to personal standard"],
@@ -622,15 +630,13 @@ const homeChecks = [
     'data-link="offer-personal-standard-details"',
     "personal standard detail link metadata",
   ],
-  ["Vaš Bitcoin ostaje vaš", "security trust title"],
-  ["Ne tražim seed phrase", "seed phrase trust copy"],
-  ["Seed phrase se nikada ne dijeli.", "seed phrase red flag copy"],
-  ["razgovor treba odmah prekinuti", "seed phrase stop conversation copy"],
+  ["Bitcoin ostaje pod vašom kontrolom.", "security trust title"],
+  ["nikada ne tražim seed phrase", "seed phrase trust copy"],
+  ["razgovor počinje pravilima", "compact trust copy"],
   [
     "Ako plaćeni nastavak nema smisla, to otvoreno kažem.",
     "honest filter copy",
   ],
-  ["Za jedno ozbiljno pitanje", "Bitcoin konzultacija question copy"],
   ["Bitcoin konzultacija", "Bitcoin konzultacija offer title"],
   ["Što je Bitcoin konzultacija?", "Bitcoin konzultacija detail link copy"],
   ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija detail link href"],
@@ -640,32 +646,10 @@ const homeChecks = [
     "Cilj je vidjeti gdje ste na putu od držanja Bitcoina do uređenog sustava odluka.",
     "final CTA calmer body",
   ],
-  [
-    "kako odabrati način čuvanja Bitcoina",
-    "plain homepage Bitcoin custody wording",
-  ],
-  [
-    "kako spriječiti da pristup Bitcoinu ovisi o jednoj osobi, uređaju ili lokaciji",
-    "natural security recovery copy",
-  ],
-  [
-    "Razjašnjenje osobne situacije bez preuzimanja odluke",
-    "Bitcoin konzultacija offer framing",
-  ],
   ["ne čuvam vaš Bitcoin", "footer no custody disclaimer"],
   [
     "ne tražim seed phrase ili privatne ključeve",
     "footer seed phrase disclaimer",
-  ],
-  [
-    "Osobni Bitcoin standard je radni okvir iza savjetovanja: proračun, dug, davanje, Bitcoin kao novac, neto imovina, vrijeme i volatilnost, sigurnost i obitelj.",
-    "trust framework framing",
-  ],
-  ["Kako radim", "working principles card"],
-  ["Kada ovo nije za vas", "not for you trust card"],
-  [
-    "želite predati osjetljive sigurnosne podatke ili pristup novčaniku",
-    "not for you sensitive security data copy",
   ],
   [
     "Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca",
@@ -677,12 +661,6 @@ const homeChecks = [
     "https://bitcoin-savjetovanje.com/og-bitcoin-kao-novac.png",
     "book-aligned OG image",
   ],
-  [
-    "Dobivate jasniju sliku gdje ste na putu od držanja Bitcoina do sustava odluka",
-    "FAQ intro call outcome copy",
-  ],
-  ["Što se mijenja kada postoji osobni okvir?", "before after section title"],
-  ['data-cta="before-after-intro-call"', "before after CTA metadata"],
   ['data-cta="home-process-intro-call"', "intro section CTA metadata"],
   ['data-cta="offer-intro-call"', "intro offer CTA metadata"],
   [
@@ -695,7 +673,6 @@ const homeChecks = [
   ],
   ['data-cta="offer-personal-standard"', "standard offer CTA metadata"],
   ['data-cta="home-security-page"', "home security CTA metadata"],
-  ['data-cta="home-guides-call"', "home guides call CTA metadata"],
   ['data-cta="final-intro-call"', "final CTA metadata"],
   ['data-link="home-guide-teaser"', "home guide link metadata"],
   ['data-link="footer-security"', "footer security link metadata"],
@@ -882,7 +859,7 @@ assertArrayEquals(
   anchorHrefsByDataLink(homeHtml, "home-guide-teaser"),
   [
     "/vodici/svaki-euro-ima-namjenu/",
-    "/vodici/dug-ili-bitcoin/",
+    "/vodici/dug-je-buduci-novac/",
     "/vodici/bitcoin-kao-novac/",
   ],
   "home guide teaser href order"
@@ -905,22 +882,22 @@ assertBefore(
   "index.html",
   homeHtml,
   "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
-  "Tri moguća nastavka",
+  "Ako vrijedi ići dublje",
   "process before offers"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "Tri moguća nastavka",
-  "Vaš Bitcoin ostaje vaš.",
+  "Ako vrijedi ići dublje",
+  "Bitcoin ostaje pod vašom kontrolom.",
   "offers before security"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "Kako radim",
-  "Razgovarate s nekim tko Bitcoin ne objašnjava izvana.",
-  "working principles before about"
+  "Bitcoin ostaje pod vašom kontrolom.",
+  "Razgovarate s nekim tko Bitcoin povezuje sa stvarnim odlukama.",
+  "security before about"
 )
 
 if (!home) {
@@ -930,57 +907,18 @@ if (!home) {
 const conversationHtml = readFile("razgovor/index.html")
 const conversationText = textWithoutTags(conversationHtml)
 const conversationChecks = [
+  ["Dogovorite 15-minutni uvodni razgovor", "conversation page title"],
   [
-    "Dogovorite 15-minutni razgovor: gdje ste na putu od držanja Bitcoina do sustava odluka?",
-    "conversation page title",
+    "Vidimo gdje ste na putu od držanja Bitcoina do sustava odluka — osobno, obiteljski ili poslovno.",
+    "conversation scope subheadline",
   ],
-  ["Otvorite kalendar i odaberite termin", "calendar CTA label"],
-  ["što prvo treba razjasniti", "conversation clarification framing"],
-  ["Dobra pitanja za uvodni razgovor", "conversation example questions"],
+  [
+    "Najbolji razgovori počinju jednom konkretnom odlukom",
+    "conversation decision prompt",
+  ],
   ["Pokušavam odlučiti", "booking note prompt"],
-  [
-    "Ne šaljite seed phrase, privatne ključeve, lozinke, screenshotove walleta, iznose, dokumente ni pristup računima.",
-    "conversation sensitive data warning",
-  ],
-  [
-    "Kažete mi koju odluku pokušavate donijeti.",
-    "conversation decision step",
-  ],
-  [
-    "Vidimo treba li vam kratak odgovor, Bitcoin konzultacija ili puni osobni Bitcoin standard.",
-    "conversation next step framing",
-  ],
-  ["Spremni za uvodni razgovor?", "conversation final CTA title"],
-  [
-    "Što se može dogoditi nakon razgovora?",
-    "conversation outcome section title",
-  ],
-  ["Nakon razgovora moguća su tri ishoda", "conversation outcome options copy"],
-  [
-    "Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.",
-    "conversation no forced paid continuation copy",
-  ],
-  [
-    "Ako plaćeni nastavak nema smisla, to otvoreno kažem.",
-    "conversation no pressure step",
-  ],
-  [
-    "Odaberite termin i dođite s jednim stvarnim pitanjem.",
-    "conversation final CTA body",
-  ],
-  [
-    "Otvorit će se kalendar. Odaberite termin",
-    "conversation calendar help text",
-  ],
-  ["Ako vam je netko poslao ovu stranicu", "warm referral section title"],
-  ["Koju odluku pokušavate donijeti?", "warm referral booking note prompt"],
-  ["Ne šaljite seed phrase", "warm referral safety copy"],
-  ['href="#kalendar"', "warm referral calendar anchor"],
-  [
-    'data-cta="conversation-referral-calendar"',
-    "warm referral calendar CTA metadata",
-  ],
-  ['id="kalendar"', "inline calendar anchor id"],
+  ["Ne šaljite seed phrase", "conversation sensitive data warning"],
+  ["stvarni višak riznice", "conversation business treasury example"],
   ["Odaberite termin za uvodni razgovor.", "inline calendar section title"],
   [
     'data-cal-inline="uvodni-bitcoin-razgovor"',
@@ -994,33 +932,30 @@ const conversationChecks = [
     'data-cta="conversation-inline-calendar-mobile"',
     "inline calendar mobile modal CTA metadata",
   ],
-  ["Ne morate imati gotov plan", "conversation final CTA plan reassurance"],
+  ["Još primjera pitanja, ako trebate pomoć", "question examples after calendar"],
+  ["Osobna pitanja", "personal questions accordion"],
+  ["Obiteljska pitanja", "family questions accordion"],
+  ["Poslovna pitanja", "business questions accordion"],
   [
-    "Partner ili obitelj ne razumiju moju Bitcoin odluku.",
-    "conversation family example question",
-  ],
-  [
-    "Sigurnost mi ovisi o meni, jednom uređaju ili jednom papiru.",
-    "conversation security example question",
-  ],
-  [
-    "Ne šaljite seed phrase, privatne ključeve, lozinke",
-    "conversation safety note",
-  ],
-  [
-    "Najbolji razgovori počinju jednom konkretnom odlukom",
-    "conversation pre-booking decision prompt",
-  ],
-  [
-    "osobnoj, obiteljskoj ili poslovnoj odluci",
-    "conversation personal family business decision prompt",
-  ],
-  ["poslovnoj riznici", "conversation business treasury question"],
-  [
-    "privatni Bitcoin od poslovnog Bitcoina",
+    "Ne znam kako odvojiti privatni Bitcoin od poslovnog Bitcoina.",
     "conversation private business Bitcoin question",
   ],
-  ["Prije nego rezervirate", "conversation pre-booking panel"],
+  [
+    "Što se može dogoditi nakon razgovora?",
+    "conversation outcome section title",
+  ],
+  ["Nakon razgovora moguća su tri ishoda", "conversation outcome options copy"],
+  [
+    "Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.",
+    "conversation no forced paid continuation copy",
+  ],
+  ["Spremni za uvodni razgovor?", "conversation final CTA title"],
+  ["Ne morate imati gotov plan", "conversation final CTA plan reassurance"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/razgovor/" />',
+    "conversation canonical URL",
+  ],
+  ["WebPage", "conversation WebPage schema"],
   [
     "https://cal.com/btcpavao/uvodni-bitcoin-razgovor",
     "existing external booking URL",
@@ -1031,7 +966,6 @@ const conversationChecks = [
   ["data-cal-config=", "Cal embed config attribute"],
   ["month_view", "Cal embed month view config"],
   ['data-cta="conversation-page-calendar"', "calendar CTA metadata"],
-  ['data-cta="conversation-page-security"', "security CTA metadata"],
   [
     'data-link="conversation-bitcoin-consultation"',
     "Bitcoin konzultacija page link",
@@ -1042,20 +976,10 @@ const conversationChecks = [
     "personal standard page link",
   ],
   ['href="/osobni-bitcoin-standard/"', "personal standard href"],
-  [
-    'data-cta="conversation-page-final-calendar"',
-    "final calendar CTA metadata",
-  ],
-  [
-    'data-cta="conversation-page-final-security"',
-    "final security CTA metadata",
-  ],
-  [
-    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/razgovor/" />',
-    "conversation canonical URL",
-  ],
-  ["WebPage", "conversation WebPage schema"],
+  ['data-cta="conversation-page-final-calendar"', "final calendar CTA metadata"],
+  ['data-link="conversation-page-final-security"', "final security link metadata"],
 ]
+
 
 for (const [expected, label] of conversationChecks) {
   assertIncludes("razgovor/index.html", conversationHtml, expected, label)
@@ -1236,22 +1160,34 @@ const personalStandardChecks = [
     "4–6 tjedana rada na pisanom sustavu odluka za život s Bitcoinom.",
     "personal standard hero lead",
   ],
-  ["Za koga je program", "personal standard audience section"],
   [
-    "Što radimo kroz 4–6 tjedana",
-    "personal standard program steps section",
+    "Na kraju programa imate pisani osobni Bitcoin standard",
+    "personal standard outcome section",
   ],
-  ["Proračun, priljevi, odljevi i stvarni višak", "budget step"],
-  ["Dug i sloboda odlučivanja", "debt step"],
-  ["Davanje kao stalna praksa", "giving step"],
-  ["Bitcoin kao novac", "Bitcoin money step"],
-  ["Neto imovina i pravilo trećina", "net worth step"],
-  ["Vrijeme, rast i volatilnost", "time volatility step"],
-  ["Sigurnost, obitelj i nasljeđivanje", "security family step"],
+  ["poslovni sloj ako je primjenjivo", "personal standard compact business outcome"],
   [
     "Kako izgleda pisani osobni Bitcoin standard?",
     "personal standard deliverable mockup section",
   ],
+  ["Tri sloja standarda", "personal standard layers section"],
+  [
+    "Privatni i obiteljski sloj",
+    "personal standard private family layer",
+  ],
+  [
+    "Poslovni sloj, ako je primjenjivo",
+    "personal standard business layer",
+  ],
+  ["Sigurnosni sloj", "personal standard security layer"],
+  [
+    "Kako radimo kroz 4–6 tjedana",
+    "personal standard program steps section",
+  ],
+  ["Novac, obveze i stvarni višak", "budget step"],
+  ["Dug i davanje", "debt giving step"],
+  ["Bitcoin kao novac", "Bitcoin money step"],
+  ["Neto imovina, vrijeme i volatilnost", "net worth volatility step"],
+  ["Sigurnost, obitelj i nasljeđivanje", "security family step"],
   [
     "Ako vodite posao, standard ima i poslovni sloj",
     "personal standard business section",
@@ -1262,10 +1198,6 @@ const personalStandardChecks = [
   [
     "Ovo je okvir pravila, ne financijski plan",
     "personal standard not financial plan disclaimer",
-  ],
-  [
-    'data-cta="personal-standard-deliverable-call"',
-    "personal standard deliverable CTA metadata",
   ],
   ["Cijena i ulaz", "price and entry section"],
   ["Ovo nije", "not this section"],
@@ -1281,6 +1213,10 @@ const personalStandardChecks = [
   [
     'data-cta="personal-standard-pricing-call"',
     "personal standard pricing CTA metadata",
+  ],
+  [
+    'data-cta="personal-standard-final-call"',
+    "personal standard final CTA metadata",
   ],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/osobni-bitcoin-standard/" />',
@@ -1323,6 +1259,10 @@ const guideIndexChecks = [
   ['data-link="guide-starter-card"', "guide starter card link metadata"],
   ['data-cta="guides-index-top-intro-call"', "guide index top CTA metadata"],
   ['data-cta="guides-index-intro-call"', "guide index final CTA metadata"],
+  ['href="#pocetak"', "guide section nav start"],
+  ['href="#poduzetnici"', "guide section nav entrepreneurs"],
+  ['href="#mapa"', "guide section nav map"],
+  ['href="#napredno"', "guide section nav advanced"],
   [
     "Ako želite samo početak, krenite ovdje",
     "guide index starting point copy",

@@ -1,22 +1,11 @@
-import { ArrowUpRight, CalendarDays, Check, X } from "lucide-react"
+import { ArrowUpRight, Check } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { Button } from "@/components/ui/button"
-import { homeNeverAskItems, homeSecurityReviewItems } from "@/content/home"
-import { CONVERSATION_PATH } from "@/content/site"
 
-const workingPrinciples = [
-  "povjerljivost prije detalja",
-  "kontrola ostaje kod vas",
+const trustItems = [
   "odluka ostaje vaša",
-  "sljedeći korak mora biti razuman",
-]
-
-const notForItems = [
-  "tražite uputu kada kupiti ili prodati",
-  "želite prognozu cijene",
-  "treba vam porezni ili pravni savjet",
-  "želite predati osjetljive sigurnosne podatke ili pristup novčaniku",
+  "sigurnosni detalji se ne šalju",
+  "razgovor počinje pravilima, ne pristupom",
 ]
 
 export function SecurityTrustSection() {
@@ -24,92 +13,26 @@ export function SecurityTrustSection() {
     <section id="sigurnost-povjerenje" className="section-shell">
       <div className="case-panel border-primary/25">
         <SectionHeader
-          title="Vaš Bitcoin ostaje vaš."
-          copy="Ne kupujem, ne prodajem i ne čuvam Bitcoin za vas. Ne tražim seed phrase, privatne ključeve, lozinke ni pristup računima. Radimo na razumijevanju, pravilima i sigurnosnom okviru. Kontrola ostaje kod vas."
+          title="Bitcoin ostaje pod vašom kontrolom."
+          copy="Ne upravljam sredstvima, ne tražim pristup novčaniku i nikada ne tražim seed phrase, privatne ključeve ili lozinke."
         />
-        <p className="mt-6 rounded-2xl border border-destructive/20 bg-destructive/5 p-4 text-sm leading-6 font-semibold text-foreground">
-          Seed phrase se nikada ne dijeli. Ako ga netko traži, razgovor treba
-          odmah prekinuti.
-        </p>
-        <div className="mt-10 grid gap-5 xl:grid-cols-3">
-          <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
-            <h3 className="text-xl font-semibold">Nikada ne tražim</h3>
-            <div className="mt-5 grid gap-2">
-              {homeNeverAskItems.map((item) => (
-                <div key={item} className="not-for-row bg-card">
-                  <X className="negative-icon size-3.5" />
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-          <section className="rounded-2xl border border-primary/25 bg-background/70 p-5 shadow-sm">
-            <h3 className="text-xl font-semibold">Možemo proći</h3>
-            <div className="mt-5 grid gap-2">
-              {homeSecurityReviewItems.map((item) => (
-                <div key={item} className="not-for-row bg-card">
-                  <Check className="positive-icon size-3.5" />
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-          <section className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
-            <h3 className="text-xl font-semibold">Kako radim</h3>
-            <div className="mt-5 grid gap-2">
-              {workingPrinciples.map((item) => (
-                <div key={item} className="not-for-row bg-card">
-                  <Check className="positive-icon size-3.5" />
-                  <p>{item}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
-        <section className="mt-6 rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
-          <h3 className="text-xl font-semibold">Kada ovo nije za vas</h3>
-          <div className="mt-5 grid gap-2 md:grid-cols-2">
-            {notForItems.map((item) => (
-              <div key={item} className="not-for-row bg-card">
-                <X className="negative-icon size-3.5" />
-                <p>{item}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-        <p className="mt-6 max-w-3xl text-base leading-8 font-semibold text-foreground">
-          Osobni Bitcoin standard je radni okvir iza savjetovanja: proračun,
-          dug, davanje, Bitcoin kao novac, neto imovina, vrijeme i volatilnost,
-          sigurnost i obitelj.
-        </p>
-        <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
-          <li>
-            <a
-              href="/sigurnost/"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-              data-link="security-rules"
-              data-cta="home-security-page"
-            >
-              Pročitajte sigurnosna pravila
-              <ArrowUpRight className="size-4" />
-              <span aria-hidden="true" className="sr-only">
-                {" "}
-              </span>
-            </a>
-          </li>
-          <li className="sm:ml-auto">
-            <Button asChild variant="outline" className="rounded-full">
-              <a
-                href={CONVERSATION_PATH}
-                className="justify-center text-center"
-                data-cta="security-intro-call"
-              >
-                <CalendarDays className="size-4" />
-                Dogovorite razgovor
-              </a>
-            </Button>
-          </li>
+        <ul className="trust-mini-list">
+          {trustItems.map((item) => (
+            <li key={item}>
+              <Check className="positive-icon size-4" />
+              <span>{item}</span>
+            </li>
+          ))}
         </ul>
+        <a
+          href="/sigurnost/"
+          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+          data-link="security-rules"
+          data-cta="home-security-page"
+        >
+          Kako pristupam sigurnosti
+          <ArrowUpRight className="size-4" />
+        </a>
       </div>
     </section>
   )

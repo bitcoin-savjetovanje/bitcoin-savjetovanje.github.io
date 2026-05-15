@@ -18,7 +18,7 @@ import {
   privacySeo,
   securitySeo,
 } from "./site"
-import { faqs } from "./faq"
+import { homepageFaqs } from "./faq"
 
 type BreadcrumbItem = {
   name: string
@@ -88,7 +88,7 @@ export function homeSchema() {
       },
       {
         "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
+        mainEntity: homepageFaqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
           acceptedAnswer: {

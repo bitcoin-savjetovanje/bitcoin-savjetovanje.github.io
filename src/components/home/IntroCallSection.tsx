@@ -13,7 +13,10 @@ export function IntroCallSection() {
     >
       <div className="dark-process-panel">
         <p className="dark-process-kicker">Uvodni razgovor</p>
-        <SectionHeader title="U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo." />
+        <SectionHeader
+          title="U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo."
+          copy="Ne morate unaprijed znati u kojem ste poglavlju knjige. Dovoljno je jedno pitanje ili jedna odluka koju pokušavate donijeti."
+        />
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {introCallSteps.map((item, index) => (
             <article key={item.title} className="dark-process-card">

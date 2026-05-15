@@ -8,31 +8,26 @@ export function QuestionsSection() {
     <section id="pitanja" className="section-shell">
       <SectionHeader
         title="Za koga je ovaj razgovor?"
-        copy="Ovaj razgovor ima smisla ako se prepoznajete u jednoj od ovih rečenica."
+        copy="Dovoljno je jedno konkretno pitanje. Ono može biti osobno, obiteljsko ili poslovno."
       />
       <div className="audience-group-grid">
         {conversationAudienceGroups.map((group) => (
-          <section
-            key={group.label}
-            className="audience-group"
+          <article
+            key={group.title}
+            className="audience-card"
             data-area={group.area}
-            aria-label={`Razina: ${group.label}`}
           >
-            <p className="audience-group__label">{group.label}</p>
-            <div className="audience-group__cards">
-              {group.cards.map((card) => (
-                <article
-                  key={card.title}
-                  className="audience-card"
-                  data-area={group.area}
-                >
-                  <Check className="positive-icon size-5" />
-                  <h3 className="mt-4">{card.title}</h3>
-                  <p>{card.copy}</p>
-                </article>
+            <h3>{group.title}</h3>
+            <p>{group.copy}</p>
+            <ul>
+              {group.bullets.map((bullet) => (
+                <li key={bullet}>
+                  <Check className="positive-icon size-4" />
+                  <span>{bullet}</span>
+                </li>
               ))}
-            </div>
-          </section>
+            </ul>
+          </article>
         ))}
       </div>
     </section>

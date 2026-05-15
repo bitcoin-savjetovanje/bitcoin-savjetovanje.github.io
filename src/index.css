@@ -778,7 +778,19 @@
   }
 
   .audience-card p {
-    @apply mt-4 text-base leading-8 text-muted-foreground;
+    @apply mt-3 text-base leading-7 text-muted-foreground;
+  }
+
+  .audience-card ul {
+    @apply mt-5 grid list-none gap-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .audience-card li {
+    @apply flex gap-2.5;
+  }
+
+  .audience-card li svg {
+    @apply mt-1 shrink-0;
   }
 
   .audience-group-grid {
@@ -855,6 +867,10 @@
     @apply mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4;
   }
 
+  .framework-card-grid--compact {
+    @apply lg:grid-cols-4 xl:grid-cols-7;
+  }
+
   .framework-card-index {
     @apply grid size-9 place-items-center rounded-full border text-xs font-semibold tracking-[0.08em];
     border-color: color-mix(in oklab, var(--area-color), transparent 46%);
@@ -874,7 +890,7 @@
   }
 
   .framework-area-card__idea {
-    @apply mt-5 text-sm leading-6 font-semibold text-foreground;
+    @apply mt-3 text-sm leading-6 font-semibold text-muted-foreground;
   }
 
   .framework-area-card h3 {
@@ -1184,11 +1200,11 @@
   }
 
   .standard-layers-preview ol {
-    @apply mt-4 grid list-none gap-2.5;
+    @apply grid list-none gap-2.5;
   }
 
   .standard-layers-preview li {
-    @apply flex gap-3 rounded-lg border bg-background/72 p-3;
+    @apply rounded-lg border bg-background/72 px-3 py-2.5;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 76%);
   }
 
@@ -1204,6 +1220,18 @@
 
   .standard-layers-preview li p {
     @apply mt-1 text-xs leading-5 text-muted-foreground;
+  }
+
+  .trust-mini-list {
+    @apply mt-8 grid list-none gap-3 md:grid-cols-3;
+  }
+
+  .trust-mini-list li {
+    @apply flex gap-3 rounded-xl border border-border/70 bg-background/70 p-4 text-sm leading-6 font-medium text-foreground;
+  }
+
+  .trust-mini-list svg {
+    @apply mt-1 shrink-0;
   }
 
   .offer-step {
@@ -1528,6 +1556,22 @@
     color: color-mix(in oklab, var(--area-color), black 22%);
   }
 
+  .program-layer-card {
+    @apply rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm;
+  }
+
+  .program-layer-card span {
+    @apply text-xs font-semibold tracking-[0.12em] text-primary;
+  }
+
+  .program-layer-card h3 {
+    @apply mt-3 text-lg leading-tight font-semibold text-foreground;
+  }
+
+  .program-layer-card p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
   .program-business-section {
     @apply mt-8 rounded-2xl border p-6 shadow-sm sm:p-8;
     border-color: color-mix(in oklab, var(--business-accent), transparent 58%);
@@ -1774,6 +1818,14 @@
     @apply rounded-2xl border p-6 shadow-sm sm:p-8;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 62%);
     background: color-mix(in oklab, var(--paper), var(--card) 28%);
+  }
+
+  .guide-section-nav {
+    @apply mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-2 rounded-full border border-border/70 bg-card/70 p-2 shadow-sm;
+  }
+
+  .guide-section-nav a {
+    @apply rounded-full px-3 py-1.5 text-sm font-semibold text-muted-foreground hover:bg-primary/10 hover:text-foreground;
   }
 
   .starter-guide-card,

@@ -93,6 +93,13 @@ const guideChips = [
   { label: "Sigurnost", href: "#sigurnost" },
 ] as const
 
+const guideSectionNav = [
+  { label: "Početak", href: "#pocetak" },
+  { label: "Za poduzetnike", href: "#poduzetnici" },
+  { label: "Cijela mapa", href: "#mapa" },
+  { label: "Napredno", href: "#napredno" },
+] as const
+
 const starterSlugs = [
   "svaki-euro-ima-namjenu",
   "dug-ili-bitcoin",
@@ -198,7 +205,18 @@ export function GuidesIndex() {
           </div>
         </header>
 
-        <section className="starter-guides-panel mx-auto mt-12 max-w-5xl">
+        <nav aria-label="Glavne sekcije vodiča" className="guide-section-nav">
+          {guideSectionNav.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <section
+          id="pocetak"
+          className="starter-guides-panel mx-auto mt-12 max-w-5xl"
+        >
           <h2 className="text-2xl font-semibold">
             Ako želite samo početak, krenite ovdje
           </h2>
@@ -229,7 +247,10 @@ export function GuidesIndex() {
           </p>
         </section>
 
-        <section className="business-guide-path mx-auto mt-10 max-w-5xl">
+        <section
+          id="poduzetnici"
+          className="business-guide-path mx-auto mt-10 max-w-5xl"
+        >
           <div className="max-w-4xl">
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
               Put za poduzetnike
@@ -256,7 +277,11 @@ export function GuidesIndex() {
           </ol>
         </section>
 
-        <section className="guides-roadmap" aria-labelledby="guides-method-map">
+        <section
+          id="mapa"
+          className="guides-roadmap"
+          aria-labelledby="guides-method-map"
+        >
           <div className="max-w-3xl">
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
               Mapa metode
@@ -324,7 +349,7 @@ export function GuidesIndex() {
           </div>
         </section>
 
-        <section className="advanced-guides-section">
+        <section id="napredno" className="advanced-guides-section">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
               Kontekstualno

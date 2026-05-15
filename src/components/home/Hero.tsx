@@ -4,13 +4,6 @@ import { BookCoverCard } from "@/components/home/BookCoverCard"
 import { Button } from "@/components/ui/button"
 import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
-const outcomeBadges = [
-  "vidjeti novac",
-  "osloboditi budućnost",
-  "urediti Bitcoin",
-  "zaštititi pristup",
-]
-
 const scopeBadges = ["osobno", "obiteljski", "poslovno"]
 
 export function Hero() {
@@ -28,26 +21,15 @@ export function Hero() {
             Za pojedince, obitelji i poduzetnike koji žele Bitcoin shvatiti kao
             novac, a ne samo kao odvojenu imovinu koju drže sa strane.
           </p>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Imate Bitcoin osobno, u obitelji ili kao vlasnik posla — ali još
-            nemate jasna pravila za proračun, dug, poslovne obveze, davanje,
-            sigurnost, neto imovinu i ulogu Bitcoina u cijelom sustavu?
-          </p>
           <ul className="hero-scope-pills" aria-label="Razine primjene okvira">
             {scopeBadges.map((badge) => (
               <li key={badge}>{badge}</li>
             ))}
           </ul>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            U 15-minutnom uvodnom razgovoru vidimo gdje ste sada, što prvo treba
-            razjasniti i ima li smisla nastaviti s Bitcoin konzultacijom ili
-            izgradnjom osobnog Bitcoin standarda.
+            U 15-minutnom uvodnom razgovoru vidimo gdje ste sada, koje je prvo
+            usko grlo i ima li smisla nastaviti dublje.
           </p>
-          <ul className="hero-outcome-badges" aria-label="Ishodi okvira">
-            {outcomeBadges.map((badge) => (
-              <li key={badge}>{badge}</li>
-            ))}
-          </ul>
 
           <div className="mt-8 flex w-full max-w-2xl flex-col gap-3 sm:mt-9 lg:max-w-none lg:flex-row lg:items-center">
             <Button

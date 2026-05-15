@@ -73,3 +73,14 @@ export const faqs = [
       "Može, ako ima smisla za odluku. Kod obiteljskih i poslovnih pitanja često je korisno da osoba koja sudjeluje u odgovornosti razumije osnovna pravila i granice.",
   },
 ]
+
+export const homepageFaqs = faqs.filter((faq) =>
+  [
+    "Je li ovo financijsko savjetovanje?",
+    "Hoćete li mi reći koliko Bitcoina da kupim?",
+    "Je li ovo i za poduzetnike?",
+    "Moram li već imati Bitcoin?",
+    "Tražite li seed phrase, privatne ključeve ili pristup novčaniku?",
+    "Koja je razlika između uvodnog razgovora, Bitcoin konzultacije i osobnog Bitcoin standarda?",
+  ].includes(faq.question)
+)

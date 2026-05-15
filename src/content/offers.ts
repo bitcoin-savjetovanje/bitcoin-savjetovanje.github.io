@@ -30,13 +30,13 @@ export const offers: Offer[] = [
     duration: "15 minuta",
     forWhom: "Bez naknade i bez obveze.",
     detail:
-      "Prvi korak. Vidimo što prvo treba razjasniti i ima li smisla ići dublje.",
+      "Prvi filter. Jedno pitanje, jedno usko grlo, jedan sljedeći razuman korak.",
     purpose:
       "Kažete gdje ste sada, prepoznamo prvo usko grlo i dobijete jasniju procjenu sljedećeg koraka.",
     includes: [
-      "15 minuta",
       "Bez naknade i bez obveze",
-      "Cilj: kratak odgovor, Bitcoin konzultacija ili osobni Bitcoin standard",
+      "Jedno pitanje ili odluka",
+      "Procjena sljedećeg razumnog koraka",
     ],
     cta: "Dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
@@ -52,9 +52,9 @@ export const offers: Offer[] = [
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu, obiteljsku ili poslovnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
-      "Jedan dubinski razgovor",
       "Za jedno ozbiljno pitanje",
-      "Razjašnjenje osobne situacije bez preuzimanja odluke",
+      "Jedan dubinski razgovor",
+      "Bez preuzimanja odluke",
     ],
     cta: "Prvo dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
@@ -76,9 +76,8 @@ export const offers: Offer[] = [
     purpose:
       "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i privatna, obiteljska ili poslovna pravila bez predaje kontrole.",
     includes: [
-      "4–6 tjedana",
       "Pisani standard",
-      "Pravila za privatni, obiteljski i po potrebi poslovni sloj",
+      "4–6 tjedana rada",
       "Sigurnosni i operativni okvir",
     ],
     cta: "Krenite od uvodnog razgovora",

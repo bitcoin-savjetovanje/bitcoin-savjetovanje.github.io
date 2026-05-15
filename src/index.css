@@ -1419,13 +1419,17 @@
 
   .security-goals-card h2,
   .security-goals-card .text-foreground {
-    color: var(--section-dark-foreground);
+    color: var(--section-dark-foreground) !important;
   }
 
   .security-goals-card .text-muted-foreground,
   .security-goals-card p,
   .security-goals-card li {
-    color: color-mix(in oklab, var(--section-dark-foreground), transparent 22%);
+    color: color-mix(
+      in oklab,
+      var(--section-dark-foreground),
+      transparent 10%
+    ) !important;
   }
 
   .security-balance-visual {
@@ -1441,16 +1445,21 @@
 
   .security-balance-node span {
     @apply text-xs font-semibold tracking-[0.14em] uppercase;
-    color: color-mix(in oklab, var(--area-security), white 28%);
+    color: color-mix(in oklab, var(--area-security), white 48%) !important;
   }
 
   .security-balance-node strong {
     @apply mt-3 block text-xl font-semibold;
-    color: var(--section-dark-foreground);
+    color: var(--section-dark-foreground) !important;
   }
 
   .security-balance-node p {
     @apply mt-3 text-sm leading-6;
+    color: color-mix(
+      in oklab,
+      var(--section-dark-foreground),
+      transparent 12%
+    ) !important;
   }
 
   .security-balance-core {

@@ -213,7 +213,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     ],
     title: "Kapitalna dobra",
     description:
-      "Imovina koja bi trebala stvarati budući prihod ili vrijednost. U Praktičnom Bitcoin standardu razlikuje se od novca i potrošačkih dobara.",
+      "Imovina koja bi trebala stvarati budući prihod ili vrijednost. U osobnom Bitcoin standardu razlikuje se od novca i potrošačkih dobara.",
   },
   {
     id: "neto-imovina",

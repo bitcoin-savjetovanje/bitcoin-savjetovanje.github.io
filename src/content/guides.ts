@@ -199,7 +199,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Proračun nulte osnove nije kazna",
         body: [
-          "Mnogi ljudi osobni proračun nulte osnove čuju kao zabranu. Kao popis stvari koje više ne smiju raditi. U Praktičnom Bitcoin standardu proračun nulte osnove ima drukčiju ulogu: ne služi kao kazna, nego kao način da se uvede red. Pokazuje što vaš novac treba napraviti prije nego što ga potrošite, darujete, čuvate ili pretvorite u Bitcoin.",
+          "Mnogi ljudi osobni proračun nulte osnove čuju kao zabranu. Kao popis stvari koje više ne smiju raditi. U osobnom Bitcoin standardu proračun nulte osnove ima drukčiju ulogu: ne služi kao kazna, nego kao način da se uvede red. Pokazuje što vaš novac treba napraviti prije nego što ga potrošite, darujete, čuvate ili pretvorite u Bitcoin.",
           "Bez proračuna nulte osnove, odluka izgleda slobodno, ali često nije slobodna. Novac na računu stvara osjećaj prostora. Onda dođe rata, popravak, porez, zdravstveni trošak ili obiteljska potreba. Ono što je izgledalo kao višak odjednom postaje novac koji je već trebao imati namjenu.",
         ],
       },
@@ -688,9 +688,9 @@ const guideEntries: Guide[] = [
     ],
     title: "Davanje mijenja vaš odnos prema novcu",
     metaDescription:
-      "Vodič o davanju u Praktičnom Bitcoin standardu: bez očekivanja povrata, nakon izlaska iz duga i iz uređenog proračuna nulte osnove.",
+      "Vodič o davanju u osobnom Bitcoin standardu: bez očekivanja povrata, nakon izlaska iz duga i iz uređenog proračuna nulte osnove.",
     excerpt:
-      "Davanje nije ostatak novca niti moralni pritisak. U Praktičnom Bitcoin standardu ono dolazi nakon reda i izlaska iz duga.",
+      "Davanje nije ostatak novca niti moralni pritisak. U osobnom Bitcoin standardu ono dolazi nakon reda i izlaska iz duga.",
     category: "Davanje",
     difficulty: "Početno",
     freshness: "stabilno",
@@ -718,7 +718,7 @@ const guideEntries: Guide[] = [
         body: [
           "Davanje nije ono što se dogodi ako nešto slučajno ostane. Ako je samo ostatak, tada ovisi o raspoloženju, krivnji ili pritisku trenutka. Jedan mjesec postoji, drugi mjesec nestane. Nema pravilo i nema mir.",
           "Ne radi se o dokazivanju dobrote novcem. Ova praksa ima smisla tek kada proračun i dug ne stvaraju pritisak.",
-          "U Praktičnom Bitcoin standardu davanje dobiva mjesto u osobnom proračunu nulte osnove. Ne zato da bi netko dokazao dobrotu, nego zato da novac prestane biti nejasan. Svaki euro treba namjenu. Dio novca, kada je temelj uređen, može dobiti namjenu za druge ljude.",
+          "U osobnom Bitcoin standardu davanje dobiva mjesto u osobnom proračunu nulte osnove. Ne zato da bi netko dokazao dobrotu, nego zato da novac prestane biti nejasan. Svaki euro treba namjenu. Dio novca, kada je temelj uređen, može dobiti namjenu za druge ljude.",
         ],
       },
       {
@@ -766,7 +766,7 @@ const guideEntries: Guide[] = [
     previousSlugs: ["sustavno-davanje-bez-kredita"],
     title: "Davanje bez duga",
     metaDescription:
-      "Vodič o tome zašto davanje u Praktičnom Bitcoin standardu dolazi nakon osobnog proračuna nulte osnove i izlaska iz duga.",
+      "Vodič o tome zašto davanje u osobnom Bitcoin standardu dolazi nakon osobnog proračuna nulte osnove i izlaska iz duga.",
     excerpt:
       "Kad se smanji osjećaj zarobljenosti, nemira i zbunjenosti, možete graditi praksu velikodušnosti.",
     category: "Davanje",
@@ -1194,7 +1194,7 @@ const guideEntries: Guide[] = [
     metaDescription:
       "Vodič o tome zašto okvir Bitcoin kao novac promatra Bitcoin kao novac, a ne kao investiciju sa strane.",
     excerpt:
-      "Bitcoin nije samo imovina koju držite. U Praktičnom Bitcoin standardu Bitcoin ima ulogu novca.",
+      "Bitcoin nije samo imovina koju držite. U osobnom Bitcoin standardu Bitcoin ima ulogu novca.",
     category: "Bitcoin kao novac",
     difficulty: "Srednje",
     freshness: "stabilno",
@@ -1656,7 +1656,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Pravilo trećina kao ogledalo",
         body: [
-          "U okviru Praktičnog Bitcoin standarda pravilo trećina služi kao provjera ravnoteže. Najmanje trećina u novcu, najviše trećina u potrošnim dobrima i najviše trećina u proizvodnoj imovini. To nije naredba za svaku osobu.",
+          "U okviru osobnog Bitcoin standarda pravilo trećina služi kao provjera ravnoteže. Najmanje trećina u novcu, najviše trećina u potrošnim dobrima i najviše trećina u proizvodnoj imovini. To nije naredba za svaku osobu.",
           "Vrijednost pravila je u pitanju koje postavlja: je li jedna kategorija zauzela previše prostora? Ako potrošna dobra rastu, dug pritišće ili novca nema dovoljno, Bitcoin odluka ne može se gledati izolirano.",
         ],
       },
@@ -1683,7 +1683,7 @@ const guideEntries: Guide[] = [
     slug: "pravilo-trecina",
     title: "Pravilo trećina u neto imovini",
     metaDescription:
-      "Vodič o pravilu trećina u Praktičnom Bitcoin standardu: najmanje trećina u novcu, najviše trećina u potrošnji i proizvodnoj imovini.",
+      "Vodič o pravilu trećina u osobnom Bitcoin standardu: najmanje trećina u novcu, najviše trećina u potrošnji i proizvodnoj imovini.",
     excerpt:
       "Pravilo trećina nije naredba, nego ogledalo koje pokazuje je li vaša neto imovina u ravnoteži.",
     category: "Neto imovina",
@@ -1724,7 +1724,7 @@ const guideEntries: Guide[] = [
         heading: "Zašto ravnoteža uopće treba pravilo",
         body: [
           "Bez pravila, neto imovina lako postane zbroj stvari. Malo novca, malo potrošnje, malo duga, malo Bitcoina, malo posla. Sve izgleda poznato, ali nije jasno ima li ravnoteže.",
-          "Pravilo trećina u okviru Praktičnog Bitcoin standarda nije univerzalna naredba. Ono je ogledalo. Pomaže vidjeti je li previše neto imovine vezano u potrošnji, premalo u novcu ili nedovoljno u proizvodnoj imovini.",
+          "Pravilo trećina u okviru osobnog Bitcoin standarda nije univerzalna naredba. Ono je ogledalo. Pomaže vidjeti je li previše neto imovine vezano u potrošnji, premalo u novcu ili nedovoljno u proizvodnoj imovini.",
           "Ne preporučujem kupnju ili prodaju određene imovine. Pravilo trećina služi za provjeru ravnoteže, ne kao formula koju treba slijepo provesti.",
         ],
       },
@@ -1977,9 +1977,9 @@ const guideEntries: Guide[] = [
         ],
       },
       {
-        heading: "Gdje ovo pripada u Praktičnom Bitcoin standardu?",
+        heading: "Gdje ovo pripada u osobnom Bitcoin standardu?",
         body: [
-          "U okviru Praktičnog Bitcoin standarda razlikujemo novac, kapitalna dobra i potrošačka dobra.",
+          "U okviru osobnog Bitcoin standarda razlikujemo novac, kapitalna dobra i potrošačka dobra.",
           "Bitcoin u vlastitom posjedu najčišće pripada dijelu novca.",
           "ETF, MSTR, STRC i slični proizvodi više pripadaju dijelu kapitala, odnosno proizvodne imovine ili financijskih instrumenata.",
           "Ta razlika je važna. Kad osoba kaže da ima bitcoin, prvo treba pitati u kojem obliku.",

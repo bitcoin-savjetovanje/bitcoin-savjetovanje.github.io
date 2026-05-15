@@ -119,7 +119,7 @@ const pageChecks = [
       "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
       "ne čuvam vaš Bitcoin",
       "ne tražim seed phrase ili privatne ključeve",
-      "Praktični Bitcoin standard je radni okvir iza mog savjetovanja: proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
+      "osobni Bitcoin standard je radni okvir iza mog savjetovanja: proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
       "Kako radim",
       "Kada ovo nije za vas",
       "želite predati seed phrase, privatne ključeve ili pristup novčaniku",

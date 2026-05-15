@@ -9,11 +9,15 @@ export function OffersSection() {
 
   return (
     <section id="ponude" className="section-shell section-muted">
-      <div className="case-panel border-primary/25 bg-card">
+      <div className="offer-section-panel">
         <SectionHeader
           title="Tri moguća nastavka"
           copy="Uvodni razgovor služi tome da vidimo treba li kratak odgovor, Bitcoin konzultacija ili rad na pisanom osobnom Bitcoin standardu."
         />
+        <p className="mt-5 max-w-3xl text-base leading-8 font-semibold text-foreground">
+          Uvodni razgovor ne postoji da vas gura u plaćeni nastavak. Postoji da
+          se vidi koji je sljedeći razuman korak.
+        </p>
         {introOffer ? (
           <article className="offer-card offer-card--intro mt-10">
             <span className="offer-step" aria-hidden="true" />
@@ -77,6 +81,10 @@ export function OffersSection() {
                     offer.title === "Bitcoin konzultacija"
                       ? "offer-card--featured"
                       : ""
+                  } ${
+                    offer.title === "Osobni Bitcoin standard"
+                      ? "offer-card--standard"
+                      : ""
                   }`}
                 >
                   <span className="offer-step" aria-hidden="true" />
@@ -97,6 +105,13 @@ export function OffersSection() {
                     </p>
                   ) : null}
                   <p>{offer.detail}</p>
+                  {offer.title === "Osobni Bitcoin standard" ? (
+                    <div className="offer-document-mini" aria-hidden="true">
+                      <span />
+                      <span />
+                      <span />
+                    </div>
+                  ) : null}
                   <ul className="mt-6 grid gap-3 text-base leading-7 text-muted-foreground">
                     {offer.includes.map((item) => (
                       <li key={item} className="flex gap-3">

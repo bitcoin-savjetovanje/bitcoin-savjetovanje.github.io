@@ -33,6 +33,22 @@ const scenarios = [
   },
 ] as const
 
+const withoutFrameworkItems = [
+  "Bitcoin je odvojena imovina.",
+  "Proračun je maglovit.",
+  "Dug se tretira kao normalan.",
+  "Volatilnost izaziva paniku ili euforiju.",
+  "Sigurnost ovisi o jednoj osobi ili jednom uređaju.",
+]
+
+const withFrameworkItems = [
+  "Bitcoin ima jasnu ulogu u novčanom životu.",
+  "Proračun pokazuje stvarni višak.",
+  "Dug se vidi kao zauzeta budućnost.",
+  "Volatilnost ulazi u pravila, ne u paniku.",
+  "Obitelj zna što ne smije dirati i gdje počinje oporavak.",
+]
+
 type ScenarioTitle = (typeof scenarios)[number]["title"]
 
 export function BeforeAfterSection() {
@@ -44,7 +60,7 @@ export function BeforeAfterSection() {
 
   return (
     <section className="section-shell">
-      <div className="case-panel">
+      <div className="before-after-panel">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
             Osobni okvir
@@ -52,6 +68,27 @@ export function BeforeAfterSection() {
           <h2 className="mt-3 font-display text-3xl leading-tight font-semibold text-foreground sm:text-4xl">
             Što se mijenja kada postoji osobni okvir?
           </h2>
+        </div>
+
+        <div className="before-after-static-grid">
+          <section>
+            <p className="before-after-card__label">Bez okvira</p>
+            <ul>
+              {withoutFrameworkItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+          <section>
+            <p className="before-after-card__label">
+              S osobnim Bitcoin standardom
+            </p>
+            <ul>
+              {withFrameworkItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
         </div>
 
         <ul className="before-after-selector" aria-label="Scenariji">

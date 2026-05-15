@@ -4,6 +4,13 @@ import { BookCoverCard } from "@/components/home/BookCoverCard"
 import { Button } from "@/components/ui/button"
 import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
+const outcomeBadges = [
+  "vidjeti novac",
+  "osloboditi budućnost",
+  "urediti Bitcoin",
+  "zaštititi pristup",
+]
+
 export function Hero() {
   return (
     <section className="hero-section border-b border-border/70">
@@ -25,6 +32,11 @@ export function Hero() {
             razjasniti i ima li smisla nastaviti s Bitcoin konzultacijom ili
             izgradnjom osobnog Bitcoin standarda.
           </p>
+          <ul className="hero-outcome-badges" aria-label="Ishodi okvira">
+            {outcomeBadges.map((badge) => (
+              <li key={badge}>{badge}</li>
+            ))}
+          </ul>
 
           <div className="mt-8 flex w-full max-w-2xl flex-col gap-3 sm:mt-9 lg:max-w-none lg:flex-row lg:items-center">
             <Button
@@ -63,7 +75,10 @@ export function Hero() {
             novčaniku.
           </p>
         </div>
-        <BookCoverCard />
+        <div className="hero-book-stage">
+          <span className="hero-book-badge">Okvir iz knjige u nastajanju</span>
+          <BookCoverCard />
+        </div>
       </div>
     </section>
   )

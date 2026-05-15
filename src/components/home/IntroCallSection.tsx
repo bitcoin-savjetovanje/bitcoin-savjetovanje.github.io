@@ -7,15 +7,17 @@ import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
 export function IntroCallSection() {
   return (
-    <section id="uvodni-razgovor" className="section-shell">
-      <div className="case-panel border-primary/25">
+    <section
+      id="uvodni-razgovor"
+      className="section-shell dark-process-section"
+    >
+      <div className="dark-process-panel">
+        <p className="dark-process-kicker">Uvodni razgovor</p>
         <SectionHeader title="U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo." />
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {introCallSteps.map((item, index) => (
-            <article key={item.title} className="program-card bg-background/70">
-              <span className="grid size-8 place-items-center rounded-full border border-primary/25 bg-primary/10 text-xs font-semibold text-primary">
-                {index + 1}
-              </span>
+            <article key={item.title} className="dark-process-card">
+              <span>{String(index + 1).padStart(2, "0")}</span>
               <h3 className="mt-4">{item.title}</h3>
               <p>{item.copy}</p>
             </article>

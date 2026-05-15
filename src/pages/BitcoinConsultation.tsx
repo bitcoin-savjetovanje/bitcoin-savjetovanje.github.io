@@ -205,7 +205,14 @@ export function BitcoinConsultation() {
           <h2 className="text-2xl font-semibold">
             Nakon Bitcoin konzultacije trebali biste imati jednu od tri stvari
           </h2>
-          <Checklist items={outcomes} />
+          <div className="consultation-outcome-grid">
+            {outcomes.map((outcome, index) => (
+              <article key={outcome} className="consultation-outcome-item">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{outcome}</p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">

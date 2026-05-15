@@ -49,6 +49,23 @@
   --border: oklch(0.88 0.003 95);
   --input: oklch(0.88 0.003 95);
   --ring: oklch(0.7 0.16 68);
+  --paper: oklch(0.975 0.024 88);
+  --paper-strong: oklch(0.94 0.045 82);
+  --paper-warm: oklch(0.965 0.032 78);
+  --ink: oklch(0.16 0.006 80);
+  --ink-soft: oklch(0.28 0.01 80);
+  --bitcoin-orange: #f7931a;
+  --bitcoin-orange-soft: oklch(0.86 0.12 70);
+  --area-budget: oklch(0.78 0.09 78);
+  --area-debt: oklch(0.58 0.09 35);
+  --area-giving: oklch(0.66 0.09 145);
+  --area-bitcoin: #f7931a;
+  --area-worth: oklch(0.58 0.07 225);
+  --area-time: oklch(0.58 0.07 285);
+  --area-security: oklch(0.48 0.06 205);
+  --section-dark: oklch(0.18 0.008 80);
+  --section-dark-soft: oklch(0.23 0.012 80);
+  --section-dark-foreground: oklch(0.97 0.018 88);
   --paper-background: oklch(0.97 0.018 88);
   --book-border: oklch(0.72 0.035 78);
   --bitcoin-orange-accent: #f7931a;
@@ -92,6 +109,23 @@
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 14%);
   --ring: oklch(0.76 0.15 68);
+  --paper: oklch(0.24 0.012 82);
+  --paper-strong: oklch(0.29 0.018 82);
+  --paper-warm: oklch(0.27 0.016 78);
+  --ink: oklch(0.96 0.003 95);
+  --ink-soft: oklch(0.82 0.006 88);
+  --bitcoin-orange: #f7931a;
+  --bitcoin-orange-soft: oklch(0.62 0.12 70);
+  --area-budget: oklch(0.74 0.08 78);
+  --area-debt: oklch(0.66 0.08 35);
+  --area-giving: oklch(0.72 0.08 145);
+  --area-bitcoin: #f7931a;
+  --area-worth: oklch(0.68 0.06 225);
+  --area-time: oklch(0.7 0.06 285);
+  --area-security: oklch(0.64 0.06 205);
+  --section-dark: oklch(0.12 0.006 80);
+  --section-dark-soft: oklch(0.18 0.01 80);
+  --section-dark-foreground: oklch(0.97 0.018 88);
   --paper-background: oklch(0.25 0.01 78);
   --book-border: oklch(0.44 0.035 78);
   --bitcoin-orange-accent: #f7931a;
@@ -287,14 +321,21 @@
     background:
       linear-gradient(
         180deg,
-        color-mix(in oklab, var(--paper-background), var(--background) 20%),
+        color-mix(in oklab, var(--paper), var(--background) 14%),
+        color-mix(in oklab, var(--paper-warm), var(--background) 26%) 58%,
         color-mix(in oklab, var(--background), transparent 8%)
       ),
       radial-gradient(
-        circle at 72% 34%,
-        color-mix(in oklab, var(--primary), transparent 86%),
-        transparent 28%
+        circle at 75% 40%,
+        color-mix(in oklab, var(--bitcoin-orange), transparent 78%),
+        transparent 30%
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--book-border), transparent 82%) 1px,
+        transparent 1px
       );
+    background-size: auto, auto, 5.5rem 5.5rem;
   }
 
   .hero-shell {
@@ -303,13 +344,19 @@
 
   .book-cover-shell {
     @apply mx-auto w-full max-w-[360px] xl:max-w-[390px];
+    perspective: 900px;
   }
 
   .book-cover-card {
     @apply block h-auto w-full;
     border: 1px solid var(--book-border);
     border-radius: 0.45rem;
-    box-shadow: 0 0.75rem 1.7rem hsl(0 0% 0% / 0.14);
+    box-shadow:
+      0 1.4rem 3.2rem hsl(0 0% 0% / 0.22),
+      -0.75rem 0.55rem 0 -0.5rem color-mix(in oklab, var(--book-border), white 46%),
+      inset 0.8rem 0 1.4rem hsl(0 0% 0% / 0.08);
+    transform: rotateY(-4deg) rotateZ(-0.7deg);
+    transform-origin: 45% 50%;
   }
 
   .hero-copy {
@@ -385,6 +432,77 @@
   .negative-icon {
     color: var(--negative-red);
     stroke-width: 3;
+  }
+
+  [data-area="budget"] {
+    --area-color: var(--area-budget);
+  }
+
+  [data-area="debt"] {
+    --area-color: var(--area-debt);
+  }
+
+  [data-area="giving"] {
+    --area-color: var(--area-giving);
+  }
+
+  [data-area="bitcoin"] {
+    --area-color: var(--area-bitcoin);
+  }
+
+  [data-area="worth"] {
+    --area-color: var(--area-worth);
+  }
+
+  [data-area="time"] {
+    --area-color: var(--area-time);
+  }
+
+  [data-area="security"] {
+    --area-color: var(--area-security);
+  }
+
+  .hero-outcome-badges {
+    @apply mt-6 flex list-none flex-wrap gap-2;
+  }
+
+  .hero-outcome-badges li {
+    @apply rounded-full border px-3 py-1.5 text-xs leading-5 font-semibold text-foreground shadow-sm;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 68%);
+    background: color-mix(in oklab, var(--paper), white 18%);
+  }
+
+  .hero-book-stage {
+    @apply relative mx-auto w-full max-w-[420px] place-self-center;
+    isolation: isolate;
+  }
+
+  .hero-book-stage::before {
+    content: "";
+    position: absolute;
+    inset: 8% -12% 12%;
+    z-index: -1;
+    border-radius: 9999px;
+    background:
+      radial-gradient(
+        circle,
+        color-mix(in oklab, var(--bitcoin-orange), transparent 42%),
+        transparent 58%
+      ),
+      radial-gradient(
+        circle,
+        color-mix(in oklab, var(--bitcoin-orange-soft), transparent 42%),
+        transparent 70%
+      );
+    filter: blur(22px);
+    opacity: 0.82;
+  }
+
+  .hero-book-badge {
+    @apply absolute -top-4 right-1 z-10 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-md sm:right-3;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 62%);
+    background: color-mix(in oklab, var(--paper), white 22%);
+    color: var(--ink);
   }
 
   .hero-benefit {
@@ -624,6 +742,33 @@
     @apply min-w-0 rounded-xl border border-border/80 bg-card p-5 shadow-sm sm:p-6;
   }
 
+  .audience-card {
+    @apply relative min-w-0 overflow-hidden rounded-xl border bg-card p-5 shadow-sm sm:p-6;
+    border-color: color-mix(in oklab, var(--area-color), var(--border) 70%);
+  }
+
+  .audience-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0.35rem;
+    background: var(--area-color);
+  }
+
+  .audience-card svg {
+    @apply rounded-full p-0.5;
+    background: color-mix(in oklab, var(--area-color), transparent 84%);
+    color: color-mix(in oklab, var(--area-color), black 18%);
+  }
+
+  .audience-card h3 {
+    @apply min-w-0 text-xl leading-tight font-semibold break-words;
+  }
+
+  .audience-card p {
+    @apply mt-4 text-base leading-8 text-muted-foreground;
+  }
+
   .question-choice {
     @apply flex w-full gap-3 rounded-lg border border-transparent px-2 py-1.5 text-left text-base leading-7 text-muted-foreground transition-colors hover:border-primary/25 hover:bg-primary/5 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
   }
@@ -637,15 +782,35 @@
   }
 
   .framework-map {
-    @apply mt-10 grid list-none gap-2 rounded-2xl border border-primary/25 bg-card/82 p-4 shadow-sm sm:p-5 lg:grid-cols-7 lg:items-stretch;
+    @apply relative mt-10 grid list-none gap-3 overflow-hidden rounded-2xl border p-4 shadow-sm sm:p-5 lg:grid-cols-7 lg:items-stretch;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 64%);
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in oklab, var(--paper), white 18%),
+        color-mix(in oklab, var(--paper-warm), white 10%)
+      );
   }
 
   .framework-map__item {
-    @apply flex min-w-0 items-center gap-2 rounded-xl border border-border/70 bg-background/72 px-3 py-3 text-sm leading-5 font-semibold text-foreground lg:flex-col lg:items-start lg:justify-between;
+    @apply relative flex min-w-0 items-center gap-3 rounded-xl border px-3 py-3 text-sm leading-5 font-semibold text-foreground shadow-sm lg:flex-col lg:items-start lg:justify-between;
+    border-color: color-mix(in oklab, var(--area-color), transparent 54%);
+    background: color-mix(in oklab, var(--area-color), var(--card) 88%);
+  }
+
+  .framework-map__number {
+    @apply grid size-8 shrink-0 place-items-center rounded-full text-[0.68rem] font-bold tracking-[0.08em];
+    background: color-mix(in oklab, var(--area-color), white 42%);
+    color: var(--ink);
+  }
+
+  .framework-map__title {
+    @apply min-w-0 break-words;
   }
 
   .framework-map__arrow {
-    @apply size-4 shrink-0 text-primary lg:mt-2 lg:rotate-90;
+    @apply ml-auto size-4 shrink-0 lg:mt-2 lg:ml-0 lg:rotate-90;
+    color: color-mix(in oklab, var(--area-color), black 14%);
   }
 
   .framework-card-grid {
@@ -653,7 +818,33 @@
   }
 
   .framework-card-index {
-    @apply grid size-8 place-items-center rounded-full border border-primary/25 bg-primary/10 text-xs font-semibold text-primary;
+    @apply grid size-9 place-items-center rounded-full border text-xs font-semibold tracking-[0.08em];
+    border-color: color-mix(in oklab, var(--area-color), transparent 46%);
+    background: color-mix(in oklab, var(--area-color), transparent 80%);
+    color: color-mix(in oklab, var(--area-color), black 20%);
+  }
+
+  .framework-area-card {
+    @apply min-w-0 rounded-2xl border p-5 shadow-sm sm:p-6;
+    border-color: color-mix(in oklab, var(--area-color), transparent 58%);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--area-color), var(--card) 86%),
+        color-mix(in oklab, var(--card), transparent 2%)
+      );
+  }
+
+  .framework-area-card__idea {
+    @apply mt-5 text-sm leading-6 font-semibold text-foreground;
+  }
+
+  .framework-area-card h3 {
+    @apply mt-3 text-xl leading-tight font-semibold;
+  }
+
+  .framework-area-card p:not(.framework-area-card__idea) {
+    @apply mt-4 text-base leading-8 text-muted-foreground;
   }
 
   .question-group-card {
@@ -721,6 +912,74 @@
     @apply rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
   }
 
+  .dark-process-section {
+    position: relative;
+    color: var(--section-dark-foreground);
+    background:
+      radial-gradient(
+        circle at 92% 12%,
+        color-mix(in oklab, var(--bitcoin-orange), transparent 74%),
+        transparent 24rem
+      ),
+      linear-gradient(135deg, var(--section-dark), var(--section-dark-soft));
+    box-shadow:
+      100vw 0 0 var(--section-dark),
+      -100vw 0 0 var(--section-dark);
+  }
+
+  .dark-process-section .text-foreground,
+  .dark-process-section h2,
+  .dark-process-section h3 {
+    color: var(--section-dark-foreground);
+  }
+
+  .dark-process-section .text-muted-foreground,
+  .dark-process-section p {
+    color: color-mix(in oklab, var(--section-dark-foreground), transparent 22%);
+  }
+
+  .dark-process-panel {
+    @apply relative overflow-hidden rounded-2xl border p-6 shadow-sm sm:p-8 lg:p-10;
+    border-color: hsl(0 0% 100% / 0.14);
+    background: hsl(0 0% 100% / 0.045);
+  }
+
+  .dark-process-kicker {
+    @apply mb-4 text-sm font-semibold tracking-[0.16em] uppercase;
+    color: color-mix(in oklab, var(--bitcoin-orange), white 16%) !important;
+  }
+
+  .dark-process-card {
+    @apply min-w-0 rounded-xl border p-5 shadow-sm sm:p-6;
+    border-color: hsl(0 0% 100% / 0.14);
+    background: hsl(0 0% 100% / 0.065);
+  }
+
+  .dark-process-card span {
+    @apply grid size-9 place-items-center rounded-full text-xs font-semibold tracking-[0.08em];
+    background: color-mix(in oklab, var(--bitcoin-orange), transparent 18%);
+    color: white;
+  }
+
+  .dark-process-card h3 {
+    @apply min-w-0 text-xl leading-tight font-semibold break-words;
+  }
+
+  .dark-process-card p {
+    @apply mt-4 text-base leading-8;
+  }
+
+  .offer-section-panel {
+    @apply rounded-2xl border p-5 shadow-sm sm:p-8 lg:p-10;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 68%);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--paper), var(--card) 38%),
+        color-mix(in oklab, var(--card), transparent 1%)
+      );
+  }
+
   .offer-path {
     @apply grid list-none gap-5 lg:grid-cols-3;
     counter-reset: offer-step;
@@ -771,6 +1030,18 @@
     @apply border-primary/35 bg-primary/5;
   }
 
+  .offer-card--standard {
+    @apply shadow-md;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 48%);
+    background:
+      radial-gradient(
+        circle at 90% 16%,
+        color-mix(in oklab, var(--bitcoin-orange), transparent 78%),
+        transparent 12rem
+      ),
+      color-mix(in oklab, var(--paper), var(--card) 36%);
+  }
+
   .offer-card--intro .offer-step::before {
     content: "1";
   }
@@ -781,6 +1052,29 @@
 
   .offer-cta-list {
     @apply mt-6 grid min-w-0 list-none gap-3;
+  }
+
+  .offer-document-mini {
+    @apply mt-5 grid gap-2 rounded-xl border p-4;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 62%);
+    background: color-mix(in oklab, var(--paper), white 16%);
+  }
+
+  .offer-document-mini span {
+    @apply block h-2 rounded-full;
+    background: color-mix(in oklab, var(--ink), transparent 84%);
+  }
+
+  .offer-document-mini span:nth-child(1) {
+    width: 76%;
+  }
+
+  .offer-document-mini span:nth-child(2) {
+    width: 92%;
+  }
+
+  .offer-document-mini span:nth-child(3) {
+    width: 58%;
   }
 
   .offer-step {
@@ -814,6 +1108,55 @@
 
   .before-after-selector {
     @apply mt-8 flex list-none flex-wrap gap-2;
+  }
+
+  .before-after-panel {
+    @apply rounded-2xl border p-5 shadow-sm sm:p-8 lg:p-10;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 72%);
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in oklab, var(--card), transparent 1%),
+        color-mix(in oklab, var(--paper-warm), var(--card) 52%)
+      );
+  }
+
+  .before-after-static-grid {
+    @apply mt-8 grid gap-4 lg:grid-cols-2;
+  }
+
+  .before-after-static-grid section {
+    @apply min-w-0 rounded-xl border p-5 shadow-sm sm:p-6;
+  }
+
+  .before-after-static-grid section:first-child {
+    border-color: color-mix(in oklab, var(--border), transparent 14%);
+    background: color-mix(in oklab, var(--muted), var(--card) 54%);
+  }
+
+  .before-after-static-grid section:last-child {
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 58%);
+    background: color-mix(in oklab, var(--bitcoin-orange-soft), var(--card) 82%);
+  }
+
+  .before-after-static-grid ul {
+    @apply mt-4 grid gap-3 text-base leading-7 text-muted-foreground;
+  }
+
+  .before-after-static-grid li {
+    @apply relative pl-5;
+  }
+
+  .before-after-static-grid li::before {
+    content: "";
+    position: absolute;
+    top: 0.72em;
+    left: 0;
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 9999px;
+    background: currentColor;
+    opacity: 0.45;
   }
 
   .before-after-selector__button {
@@ -850,6 +1193,7 @@
 
   .conversation-calendar-card,
   .selected-question-card,
+  .pre-booking-panel,
   .conversation-referral-card,
   .conversation-final-card {
     @apply mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
@@ -938,6 +1282,20 @@
     @apply rounded-lg border border-border/70 bg-background/70 px-3 py-2 pl-2;
   }
 
+  .pre-booking-panel {
+    @apply grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1fr)] lg:items-start;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 64%);
+    background: color-mix(in oklab, var(--paper), var(--card) 34%);
+  }
+
+  .pre-booking-panel ul {
+    @apply grid list-none gap-3 text-base leading-7 text-muted-foreground sm:grid-cols-2;
+  }
+
+  .pre-booking-panel li {
+    @apply rounded-lg border border-border/70 bg-background/70 px-4 py-3;
+  }
+
   .safety-note-card {
     @apply mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-6 shadow-sm sm:p-8;
   }
@@ -947,7 +1305,8 @@
   }
 
   .consultation-price-card {
-    @apply rounded-xl border border-primary/25 bg-primary/10 p-5 shadow-sm;
+    @apply rounded-xl border border-primary/25 p-5 shadow-sm;
+    background: color-mix(in oklab, var(--paper), var(--bitcoin-orange) 8%);
   }
 
   .consultation-comparison {
@@ -962,16 +1321,144 @@
     @apply mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
   }
 
+  .consultation-outcome-grid {
+    @apply mt-6 grid gap-4 md:grid-cols-3;
+  }
+
+  .consultation-outcome-item {
+    @apply rounded-xl border p-5 shadow-sm;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 68%);
+    background: color-mix(in oklab, var(--paper), var(--card) 38%);
+  }
+
+  .consultation-outcome-item span {
+    @apply text-sm font-semibold tracking-[0.14em] text-muted-foreground;
+  }
+
+  .consultation-outcome-item p {
+    @apply mt-4 text-base leading-8 text-muted-foreground;
+  }
+
+  .program-step-card {
+    @apply min-w-0 rounded-xl border p-5 shadow-sm;
+    border-color: color-mix(in oklab, var(--area-color), transparent 58%);
+    background: color-mix(in oklab, var(--area-color), var(--background) 88%);
+  }
+
+  .program-step-card__number {
+    @apply grid size-9 place-items-center rounded-full border text-xs font-semibold tracking-[0.08em];
+    border-color: color-mix(in oklab, var(--area-color), transparent 45%);
+    background: color-mix(in oklab, var(--area-color), transparent 78%);
+    color: color-mix(in oklab, var(--area-color), black 22%);
+  }
+
+  .deliverable-section {
+    @apply mt-8 grid gap-8 rounded-2xl border p-6 shadow-sm sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-center;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 60%);
+    background:
+      radial-gradient(
+        circle at 88% 20%,
+        color-mix(in oklab, var(--bitcoin-orange), transparent 82%),
+        transparent 14rem
+      ),
+      color-mix(in oklab, var(--paper), var(--card) 28%);
+  }
+
+  .deliverable-mockup {
+    @apply relative rounded-xl border p-5 shadow-lg sm:p-6;
+    border-color: color-mix(in oklab, var(--book-border), transparent 18%);
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--book-border), transparent 78%) 0 0.45rem,
+        transparent 0.45rem
+      ),
+      color-mix(in oklab, var(--paper), white 18%);
+    color: var(--ink);
+  }
+
+  .deliverable-stamp {
+    @apply absolute -top-3 right-4 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em];
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 45%);
+    background: color-mix(in oklab, var(--bitcoin-orange), white 16%);
+    color: white;
+  }
+
+  .deliverable-mockup h3 {
+    @apply text-2xl leading-tight font-semibold tracking-[-0.015em];
+  }
+
+  .deliverable-mockup ol {
+    @apply mt-6 grid list-decimal gap-2.5 pl-5 text-sm leading-6 marker:text-muted-foreground;
+  }
+
   .security-principle-card {
     @apply mt-8 max-w-4xl rounded-2xl border border-primary/25 bg-primary/10 p-5 shadow-sm sm:p-6;
   }
 
   .security-goals-card {
-    @apply mt-10 max-w-4xl rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8;
+    @apply mt-10 max-w-5xl rounded-2xl border p-6 shadow-sm sm:p-8;
+    border-color: color-mix(in oklab, var(--area-security), transparent 56%);
+    background:
+      radial-gradient(
+        circle at 84% 20%,
+        color-mix(in oklab, var(--area-security), transparent 78%),
+        transparent 16rem
+      ),
+      color-mix(in oklab, var(--section-dark), var(--card) 8%);
+    color: var(--section-dark-foreground);
+  }
+
+  .security-goals-card h2,
+  .security-goals-card .text-foreground {
+    color: var(--section-dark-foreground);
+  }
+
+  .security-goals-card .text-muted-foreground,
+  .security-goals-card p,
+  .security-goals-card li {
+    color: color-mix(in oklab, var(--section-dark-foreground), transparent 22%);
+  }
+
+  .security-balance-visual {
+    @apply my-7 grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-center;
+  }
+
+  .security-balance-node,
+  .security-balance-core {
+    @apply rounded-xl border p-5 shadow-sm;
+    border-color: hsl(0 0% 100% / 0.15);
+    background: hsl(0 0% 100% / 0.07);
+  }
+
+  .security-balance-node span {
+    @apply text-xs font-semibold tracking-[0.14em] uppercase;
+    color: color-mix(in oklab, var(--area-security), white 28%);
+  }
+
+  .security-balance-node strong {
+    @apply mt-3 block text-xl font-semibold;
+    color: var(--section-dark-foreground);
+  }
+
+  .security-balance-node p {
+    @apply mt-3 text-sm leading-6;
+  }
+
+  .security-balance-core {
+    @apply grid min-h-24 place-items-center text-center text-sm font-semibold tracking-[0.12em] uppercase;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 36%);
+    background: color-mix(in oklab, var(--bitcoin-orange), transparent 72%);
+    color: white;
   }
 
   .security-card-grid {
     @apply mt-12 grid gap-6 lg:grid-cols-2;
+  }
+
+  .never-request-panel {
+    border-color: color-mix(in oklab, var(--negative-red), transparent 66%);
+    background: color-mix(in oklab, var(--negative-red), var(--card) 92%);
   }
 
   .security-technical-note {
@@ -987,7 +1474,23 @@
   }
 
   .guides-roadmap__group {
-    @apply scroll-mt-24 rounded-2xl border border-border/80 bg-card/78 p-5 shadow-sm sm:p-7;
+    @apply scroll-mt-24 rounded-2xl border p-5 shadow-sm sm:p-7;
+    border-color: color-mix(in oklab, var(--area-color), transparent 58%);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in oklab, var(--area-color), var(--card) 92%),
+        color-mix(in oklab, var(--card), transparent 1%)
+      );
+  }
+
+  .guides-roadmap__group-header {
+    @apply flex items-center gap-3;
+  }
+
+  .guides-roadmap__group-header span {
+    @apply block size-3 rounded-full;
+    background: var(--area-color);
   }
 
   .guides-roadmap__list {
@@ -996,6 +1499,42 @@
 
   .guide-roadmap-card {
     @apply flex h-full flex-col rounded-xl border border-border/80 bg-background/72 p-5 text-foreground shadow-sm transition-colors hover:border-primary/50;
+  }
+
+  .starter-guides-panel {
+    @apply rounded-2xl border p-6 shadow-sm sm:p-8;
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 62%);
+    background: color-mix(in oklab, var(--paper), var(--card) 28%);
+  }
+
+  .starter-guide-card,
+  .advanced-guide-card {
+    @apply flex h-full flex-col rounded-xl border bg-background/72 p-5 text-foreground shadow-sm transition-colors hover:border-primary/50;
+  }
+
+  .starter-guide-card {
+    border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 66%);
+  }
+
+  .starter-guide-card__number {
+    @apply mb-4 grid size-9 place-items-center rounded-full text-sm font-semibold;
+    background: color-mix(in oklab, var(--bitcoin-orange), transparent 18%);
+    color: white;
+  }
+
+  .starter-guide-card p,
+  .advanced-guide-card p {
+    @apply mt-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .advanced-guides-section {
+    @apply mx-auto mt-12 max-w-6xl rounded-2xl border p-6 shadow-sm sm:p-8;
+    border-color: color-mix(in oklab, var(--area-worth), transparent 62%);
+    background: color-mix(in oklab, var(--muted), var(--card) 48%);
+  }
+
+  .advanced-guide-card {
+    border-color: color-mix(in oklab, var(--border), transparent 18%);
   }
 
   .guide-roadmap-card h4 {
@@ -1606,6 +2145,12 @@
   }
 
   .case-card,
+  .audience-card,
+  .framework-area-card,
+  .dark-process-card,
+  .starter-guide-card,
+  .advanced-guide-card,
+  .program-step-card,
   .value-card,
   .process-card,
   .program-card,
@@ -1616,6 +2161,9 @@
   }
 
   .value-card h3,
+  .audience-card h3,
+  .framework-area-card h3,
+  .dark-process-card h3,
   .process-card h3,
   .program-card h3,
   .comparison-card h3,
@@ -1624,6 +2172,9 @@
   }
 
   .value-card p,
+  .audience-card p,
+  .framework-area-card p,
+  .dark-process-card p,
   .process-card p,
   .program-card p,
   .case-card,
@@ -1709,6 +2260,7 @@
   }
 
   .conversation-calendar-card,
+  .pre-booking-panel,
   .conversation-referral-card,
   .conversation-final-card,
   .conversation-outcomes-card,
@@ -1718,11 +2270,18 @@
   .consultation-comparison,
   .consultation-safety-card,
   .consultation-outcome-card,
+  .consultation-outcome-item,
   .security-principle-card,
   .security-goals-card,
+  .security-balance-node,
+  .security-balance-core,
   .security-technical-note,
+  .starter-guides-panel,
+  .advanced-guides-section,
   .guides-roadmap__group,
   .guide-roadmap-card,
+  .deliverable-section,
+  .deliverable-mockup,
   .profile-panel,
   .credibility-logo-strip,
   .standard-segment,
@@ -1738,6 +2297,7 @@
   }
 
   .conversation-calendar-card,
+  .pre-booking-panel,
   .conversation-referral-card,
   .conversation-final-card,
   .conversation-outcomes-card,

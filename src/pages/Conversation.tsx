@@ -254,6 +254,22 @@ export function Conversation() {
         {selectedQuestion ? (
           <SelectedQuestionCard question={selectedQuestion} />
         ) : null}
+        <section className="pre-booking-panel">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Prije nego rezervirate
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">
+              Najbolji razgovori počinju jednom konkretnom odlukom.
+            </h2>
+          </div>
+          <ul>
+            <li>napišite jednu odluku</li>
+            <li>ne šaljite osjetljive sigurnosne podatke</li>
+            <li>ne trebate otkrivati iznose</li>
+            <li>15 minuta služi za prvi filter, ne za cijeli sustav</li>
+          </ul>
+        </section>
         <CalInlineEmbed />
 
         <div className="conversation-two-column">

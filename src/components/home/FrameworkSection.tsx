@@ -13,8 +13,15 @@ export function FrameworkSection() {
 
       <ol className="framework-map" aria-label="Mapa osobnog Bitcoin standarda">
         {frameworkAreas.map((area, index) => (
-          <li key={area.title} className="framework-map__item">
-            <span>{area.title}</span>
+          <li
+            key={area.title}
+            className="framework-map__item"
+            data-area={area.area}
+          >
+            <span className="framework-map__number">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="framework-map__title">{area.title}</span>
             {index < frameworkAreas.length - 1 ? (
               <ArrowRight className="framework-map__arrow" aria-hidden="true" />
             ) : null}
@@ -24,8 +31,15 @@ export function FrameworkSection() {
 
       <div className="framework-card-grid">
         {frameworkAreas.map((area, index) => (
-          <article key={area.title} className="program-card h-full">
-            <span className="framework-card-index">{index + 1}</span>
+          <article
+            key={area.title}
+            className="framework-area-card"
+            data-area={area.area}
+          >
+            <span className="framework-card-index">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <p className="framework-area-card__idea">{area.idea}</p>
             <h3>{area.title}</h3>
             <p>{area.copy}</p>
           </article>

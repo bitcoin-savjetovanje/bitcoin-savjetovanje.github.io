@@ -16,30 +16,37 @@ const audienceItems = [
 
 const programSteps = [
   {
+    area: "budget",
     title: "Proračun, priljevi, odljevi i stvarni višak",
     copy: "Prvo vidimo što novac već radi. Stvarni višak nije stanje na računu, nego novac koji ostaje nakon obveza, budućih troškova, duga, davanja i sigurnosne pričuve.",
   },
   {
+    area: "debt",
     title: "Dug i sloboda odlučivanja",
     copy: "Dug je budući novac koji ste već potrošili. Dok dug postoji, dio budućnosti već je obećan. U programu se zato jasno vidi kako dug mijenja Bitcoin odluke.",
   },
   {
+    area: "giving",
     title: "Davanje kao stalna praksa",
     copy: "Davanje nije moralni ukras. Ono oblikuje odnos prema novcu, ljudima, riziku i sposobnosti stvaranja vrijednosti.",
   },
   {
+    area: "bitcoin",
     title: "Bitcoin kao novac",
     copy: "Bitcoin ne promatramo samo kao ulaganje. Gledamo u kojem obliku držite novčani saldo nakon što ste ga zaradili i kako Bitcoin ulazi u stvarne odluke.",
   },
   {
+    area: "worth",
     title: "Neto imovina i pravilo trećina",
     copy: "Novac, potrošna dobra i proizvodna imovina imaju različite uloge. Cilj nije ignorirati ostatak bilance, nego vidjeti neto imovinu kao jednu cjelinu.",
   },
   {
+    area: "time",
     title: "Vrijeme, rast i volatilnost",
     copy: "Ne pokušavamo pogoditi kratkoročnu cijenu. Cilj je pretvoriti rast, cikluse i volatilnost u pravila za odluke dok vrijeme prolazi.",
   },
   {
+    area: "security",
     title: "Sigurnost, obitelj i nasljeđivanje",
     copy: "Sigurnost nije uređaj, nego sustav. Dobar sustav otežava krađu, ali ne smije toliko otežati pristup da vi, obitelj ili ovlaštene osobe izgubite mogućnost oporavka.",
   },
@@ -55,6 +62,19 @@ const outcomeItems = [
   "okvir za rast, padove i volatilnost",
   "sigurnosna i obiteljska pravila",
   "popis onoga što se nikada ne dijeli",
+]
+
+const deliverableItems = [
+  "Pravilo za državni novac",
+  "Pravilo za Bitcoin saldo",
+  "Pravilo za dug",
+  "Pravilo za davanje",
+  "Pravilo za veće kupnje",
+  "Pravilo za pad cijene",
+  "Pravilo za rast cijene",
+  "Sigurnosna pravila",
+  "Obiteljske upute",
+  "Godišnji pregled",
 ]
 
 const notItems = [
@@ -216,10 +236,11 @@ export function PersonalBitcoinStandard() {
             {programSteps.map((step, index) => (
               <article
                 key={step.title}
-                className="rounded-xl border border-border/80 bg-background/70 p-5 shadow-sm"
+                className="program-step-card"
+                data-area={step.area}
               >
-                <span className="grid size-8 place-items-center rounded-full border border-primary/25 bg-primary/10 text-xs font-semibold text-primary">
-                  {index + 1}
+                <span className="program-step-card__number">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>
                 <p className="mt-3 text-base leading-8 text-muted-foreground">
@@ -235,6 +256,46 @@ export function PersonalBitcoinStandard() {
             Na kraju programa imate pisani osobni Bitcoin standard.
           </h2>
           <Checklist items={outcomeItems} />
+        </section>
+
+        <section className="deliverable-section">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Pisani okvir
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl">
+              Kako izgleda pisani osobni Bitcoin standard?
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
+              Na kraju programa cilj nije imati još jednu bilješku iz razgovora,
+              nego pisani okvir pravila koji možete ponovno otvoriti kada se
+              promijene prihod, cijena, obiteljska situacija ili sigurnosne
+              okolnosti.
+            </p>
+            <p className="mt-5 rounded-xl border border-border/70 bg-background/70 p-4 text-sm leading-6 font-semibold text-foreground">
+              Ovo je okvir pravila, ne financijski plan, porezni savjet ili
+              nalog za kupnju/prodaju.
+            </p>
+            <Button asChild className="cta-primary mt-6 rounded-full">
+              <a
+                href={CONVERSATION_PATH}
+                className="justify-center text-center"
+                data-cta="personal-standard-deliverable-call"
+              >
+                <CalendarDays className="size-4" />
+                Krenite od uvodnog razgovora
+              </a>
+            </Button>
+          </div>
+          <aside className="deliverable-mockup" aria-label="Mockup dokumenta">
+            <span className="deliverable-stamp">pisani okvir</span>
+            <h3>Osobni Bitcoin standard</h3>
+            <ol>
+              {deliverableItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ol>
+          </aside>
         </section>
 
         <section className="mt-8 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">

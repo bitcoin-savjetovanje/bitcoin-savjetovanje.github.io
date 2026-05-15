@@ -17,6 +17,10 @@ Funnel:
 Ne postoji checkout, CMS ni analytics. Stranica ne upravlja sredstvima i ne
 traži seed phrase, privatne ključeve, lozinke ili pristup novčaniku.
 
+Najnoviji vizualni pass uvodi knjiški color system, semantičke boje za sedam
+područja knjige, tamnu procesnu sekciju i mockup pisanog osobnog Bitcoin
+standarda.
+
 ## Development
 
 ```bash
@@ -72,6 +76,12 @@ Prerender i provjere:
 - `scripts/verify-dist.mjs`
 - `scripts/verify-live.mjs`
 
+Vizualni asseti:
+
+- `public/bitcoin-kao-novac-cover.png`
+- `public/og-bitcoin-kao-novac.png`
+- `public/og-bitcoin-kao-novac.svg`
+
 ## Routes
 
 - `/`
@@ -107,4 +117,5 @@ The deploy workflow runs:
 
 The Pages artifact is uploaded only after `verify:dist` passes. The verification
 script checks prerendered HTML, sitemap, robots, schema, guide pages, the
-program page, security/privacy pages, and core CTA/link metadata.
+program page, security/privacy pages, OG asset, visual pass copy markers and
+core CTA/link metadata.

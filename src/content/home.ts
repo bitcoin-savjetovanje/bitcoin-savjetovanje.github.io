@@ -34,31 +34,45 @@ export const conversationProblemCards = [
 
 export const frameworkAreas = [
   {
+    area: "budget",
     title: "Proračun",
+    idea: "Vidjeti novac.",
     copy: "Svaki euro ima namjenu prije Bitcoin odluke.",
   },
   {
+    area: "debt",
     title: "Dug",
+    idea: "Osloboditi budućnost.",
     copy: "Dug je budući novac koji ste već potrošili.",
   },
   {
+    area: "giving",
     title: "Davanje",
+    idea: "Otvoriti ruku.",
     copy: "Davanje mijenja odnos prema novcu i stvaranju vrijednosti.",
   },
   {
+    area: "bitcoin",
     title: "Bitcoin kao novac",
+    idea: "Primarni novac.",
     copy: "Pitanje nije samo kada kupiti, nego u kojem obliku držite novčani saldo.",
   },
   {
+    area: "worth",
     title: "Neto imovina",
+    idea: "Bilanca kao cjelina.",
     copy: "Bitcoin može biti primarni novac, ali neto imovina mora ostati cjelina.",
   },
   {
+    area: "time",
     title: "Vrijeme i volatilnost",
+    idea: "Pravila kroz cikluse.",
     copy: "Vrijeme samo po sebi nije strategija. Strategija nastaje kada znate što ćete raditi dok vrijeme prolazi.",
   },
   {
+    area: "security",
     title: "Sigurnost i obitelj",
+    idea: "Zaštititi pristup.",
     copy: "Sigurnost štiti od krađe, ali i od zaborava, panike, bolesti, smrti i dobronamjerne pogreške.",
   },
 ]

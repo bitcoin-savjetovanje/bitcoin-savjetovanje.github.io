@@ -10,6 +10,7 @@ import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 const roadmapGroups = [
   {
     id: "proracun",
+    area: "budget",
     title: "Proračun",
     slugs: [
       "svaki-euro-ima-namjenu",
@@ -20,6 +21,7 @@ const roadmapGroups = [
   },
   {
     id: "dug",
+    area: "debt",
     title: "Dug",
     slugs: [
       "dug-je-buduci-novac",
@@ -29,6 +31,7 @@ const roadmapGroups = [
   },
   {
     id: "davanje",
+    area: "giving",
     title: "Davanje",
     slugs: [
       "davanje-u-proracunu-nulte-osnove",
@@ -38,6 +41,7 @@ const roadmapGroups = [
   },
   {
     id: "bitcoin",
+    area: "bitcoin",
     title: "Bitcoin kao novac",
     slugs: [
       "niste-zakasnili-u-bitcoin",
@@ -48,6 +52,7 @@ const roadmapGroups = [
   },
   {
     id: "neto-imovina",
+    area: "worth",
     title: "Neto imovina",
     slugs: [
       "novac-kapital-potrosnja",
@@ -58,11 +63,13 @@ const roadmapGroups = [
   },
   {
     id: "vrijeme-volatilnost",
+    area: "time",
     title: "Vrijeme i volatilnost",
     slugs: ["uskladivanje-kupovne-moci-bitcoina", "cijena-kao-mjera-vremena"],
   },
   {
     id: "sigurnost",
+    area: "security",
     title: "Sigurnost i obitelj",
     slugs: [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
@@ -91,6 +98,16 @@ const starterSlugs = [
 ] as const
 
 const starterGuides = starterSlugs
+  .map((slug) => findGuide(slug))
+  .filter((guide): guide is Guide => Boolean(guide))
+
+const advancedSlugs = [
+  "bitcoin-etfovi-i-riznicke-kompanije",
+  "samostalna-pohrana-ili-skrbnik",
+  "bitkey-bitcoin-sigurnost",
+] as const
+
+const advancedGuides = advancedSlugs
   .map((slug) => findGuide(slug))
   .filter((guide): guide is Guide => Boolean(guide))
 
@@ -167,17 +184,19 @@ export function GuidesIndex() {
           </div>
         </header>
 
-        <section className="case-panel mx-auto mt-12 max-w-5xl border-primary/20 bg-card">
+        <section className="starter-guides-panel mx-auto mt-12 max-w-5xl">
           <h2 className="text-2xl font-semibold">
             Ako želite samo početak, krenite ovdje
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
             Ako prvi put prolazite ovaj okvir, nemojte odmah čitati sve. Krenite
-            od tri vodiča koji stvaraju temelj za razgovor.
+            od tri vodiča koji stvaraju temelj za razgovor. Krenite ovdje prije
+            nego otvorite cijelu biblioteku.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {starterGuides.map((guide) => (
-              <article key={guide.slug} className="guide-roadmap-card">
+            {starterGuides.map((guide, index) => (
+              <article key={guide.slug} className="starter-guide-card">
+                <span className="starter-guide-card__number">{index + 1}</span>
                 <h3 className="text-lg font-semibold">
                   <a
                     href={guideHref(guide.slug)}
@@ -232,10 +251,14 @@ export function GuidesIndex() {
                 key={group.id}
                 id={group.id}
                 className="guides-roadmap__group"
+                data-area={group.area}
               >
-                <h3 className="text-2xl font-semibold tracking-[-0.015em]">
-                  {group.title}
-                </h3>
+                <div className="guides-roadmap__group-header">
+                  <span aria-hidden="true" />
+                  <h3 className="text-2xl font-semibold tracking-[-0.015em]">
+                    {group.title}
+                  </h3>
+                </div>
                 <ol className="guides-roadmap__list">
                   {group.guides.map((guide) => (
                     <li key={guide.slug}>
@@ -256,6 +279,39 @@ export function GuidesIndex() {
                   ))}
                 </ol>
               </section>
+            ))}
+          </div>
+        </section>
+
+        <section className="advanced-guides-section">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Kontekstualno
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl">
+              Napredno / često se mijenja
+            </h2>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              Ove teme ovise o alatima, pravilima i tržišnim okolnostima.
+              Temeljni okvir ostaje: proračun, dug, davanje, Bitcoin kao novac,
+              neto imovina, vrijeme i sigurnost.
+            </p>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {advancedGuides.map((guide) => (
+              <article key={guide.slug} className="advanced-guide-card">
+                <h3>
+                  <a
+                    href={guideHref(guide.slug)}
+                    className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
+                    data-link="guide-advanced-card"
+                  >
+                    {guide.title}
+                  </a>
+                </h3>
+                <p>{guide.excerpt}</p>
+                <GuideMetaBadges guide={guide} />
+              </article>
             ))}
           </div>
         </section>

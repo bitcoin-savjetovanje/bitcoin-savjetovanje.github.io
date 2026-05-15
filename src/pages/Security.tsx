@@ -95,6 +95,24 @@ export function Security() {
             okolnosti: zaborav, paniku, bolest, smrt, gubitak uređaja i
             dobronamjernu pogrešku.
           </p>
+          <div
+            className="security-balance-visual"
+            aria-label="Dvije strane dobre sigurnosti"
+          >
+            <div className="security-balance-node">
+              <span>01</span>
+              <strong>Otežati krađu</strong>
+              <p>Manje prilika da netko dobije neovlašten pristup.</p>
+            </div>
+            <div className="security-balance-core">
+              <span>dobra sigurnost</span>
+            </div>
+            <div className="security-balance-node">
+              <span>02</span>
+              <strong>Sačuvati oporavak</strong>
+              <p>Jasan put ako nastanu panika, bolest, smrt ili gubitak.</p>
+            </div>
+          </div>
           <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
             <li className="flex gap-3">
               <Check className="positive-icon mt-1 size-4 shrink-0" />
@@ -114,7 +132,7 @@ export function Security() {
         </section>
 
         <div className="security-card-grid">
-          <section className="case-panel">
+          <section className="case-panel never-request-panel">
             <h2 className="text-2xl font-semibold">Nikada ne tražim</h2>
             <SecurityList items={neverAskItems} icon="x" />
           </section>

@@ -325,6 +325,8 @@ const requiredFiles = [
   "404.html",
   "robots.txt",
   "sitemap.xml",
+  "og-bitcoin-kao-novac.png",
+  "og-bitcoin-kao-novac.svg",
   "razgovor/index.html",
   "bitcoin-konzultacija/index.html",
   "osobni-bitcoin-standard/index.html",
@@ -354,7 +356,9 @@ const forbiddenText = [
   "dobar dug",
   "jeftin dug",
   "pogađamo cijenu",
+  "pošaljite seed phrase",
   "pošaljite privatne ključeve",
+  "pošaljite lozinku",
   "pristup vašem novčaniku",
   "regulated investment advice",
   "asset management",
@@ -363,6 +367,7 @@ const forbiddenText = [
   "garantirani povrat",
   "sigurna zarada",
   "reći ću vam koliko kupiti",
+  "reći ću vam koliko Bitcoina kupiti",
   "Praktični Bitcoin standard",
 ]
 
@@ -620,6 +625,10 @@ const homeChecks = [
   ],
   ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
+  [
+    "https://bitcoin-savjetovanje.com/og-bitcoin-kao-novac.png",
+    "book-aligned OG image",
+  ],
   [
     "Dobivate jasniju sliku gdje ste na putu od držanja Bitcoina do sustava odluka",
     "FAQ intro call outcome copy",
@@ -951,6 +960,11 @@ const conversationChecks = [
     "conversation safety note",
   ],
   [
+    "Najbolji razgovori počinju jednom konkretnom odlukom",
+    "conversation pre-booking decision prompt",
+  ],
+  ["Prije nego rezervirate", "conversation pre-booking panel"],
+  [
     "https://cal.com/btcpavao/uvodni-bitcoin-razgovor",
     "existing external booking URL",
   ],
@@ -1172,6 +1186,18 @@ const personalStandardChecks = [
   ["Neto imovina i pravilo trećina", "net worth step"],
   ["Vrijeme, rast i volatilnost", "time volatility step"],
   ["Sigurnost, obitelj i nasljeđivanje", "security family step"],
+  [
+    "Kako izgleda pisani osobni Bitcoin standard?",
+    "personal standard deliverable mockup section",
+  ],
+  [
+    "Ovo je okvir pravila, ne financijski plan",
+    "personal standard not financial plan disclaimer",
+  ],
+  [
+    'data-cta="personal-standard-deliverable-call"',
+    "personal standard deliverable CTA metadata",
+  ],
   ["Cijena i ulaz", "price and entry section"],
   ["Ovo nije", "not this section"],
   ["nije investicijski savjet", "no investment advice"],
@@ -1236,6 +1262,12 @@ const guideIndexChecks = [
   ["Dug ili Bitcoin?", "starter guide 2"],
   ["Bitcoin kao novac", "starter guide 3"],
   ["Kad to prođete, nastavite kroz cijelu mapu.", "starter transition copy"],
+  ["Cijela mapa vodiča", "guide full map section"],
+  ["Napredno / često se mijenja", "guide advanced contextual section"],
+  [
+    "Ove teme ovise o alatima, pravilima i tržišnim okolnostima.",
+    "guide advanced dependency note",
+  ],
   ["Proračun", "guide roadmap budget"],
   ["Dug", "guide roadmap debt"],
   ["Davanje", "guide roadmap giving"],

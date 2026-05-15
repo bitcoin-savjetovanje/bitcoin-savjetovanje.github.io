@@ -184,7 +184,7 @@ export function PersonalBitcoinStandard() {
             </p>
             <Button
               asChild
-              className="cta-primary mt-6 h-auto min-h-11 w-full max-w-full rounded-full px-4 py-3 text-sm leading-5 whitespace-normal sm:text-base"
+              className="cta-primary mt-6 h-12 w-full rounded-full px-5 text-base"
             >
               <a
                 href={CONVERSATION_PATH}
@@ -192,7 +192,7 @@ export function PersonalBitcoinStandard() {
                 data-cta="personal-standard-hero-call"
               >
                 <CalendarDays className="size-4" />
-                Krenite od 15-minutnog razgovora
+                Dogovorite razgovor
               </a>
             </Button>
           </aside>

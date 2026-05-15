@@ -1267,10 +1267,20 @@ const guideIndexChecks = [
   ],
   ["CollectionPage", "CollectionPage schema"],
   ["ItemList", "ItemList schema"],
+  ['href="/osobni-bitcoin-standard/"', "guide index Program nav link"],
+  [">Program<", "guide index Program nav label"],
 ]
 
 for (const [expected, label] of guideIndexChecks) {
   assertIncludes("vodici/index.html", guidesIndexHtml, expected, label)
+}
+
+for (const [forbidden, label] of [
+  ["Otvoreni rukopis knjige", "old open manuscript CTA"],
+  ["Vodiči za osobni Bitcoin standard", "old guide index title"],
+  ["Roadmap kroz okvir", "old guide roadmap title"],
+]) {
+  assertNotIncludes("vodici/index.html", guidesIndexHtml, forbidden, label)
 }
 
 for (const duplicateNumbering of [

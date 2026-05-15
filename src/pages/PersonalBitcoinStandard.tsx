@@ -182,7 +182,10 @@ export function PersonalBitcoinStandard() {
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               4–6 tjedana
             </p>
-            <Button asChild className="cta-primary mt-6 w-full rounded-full">
+            <Button
+              asChild
+              className="cta-primary mt-6 h-auto min-h-11 w-full max-w-full rounded-full px-4 py-3 text-sm leading-5 whitespace-normal sm:text-base"
+            >
               <a
                 href={CONVERSATION_PATH}
                 className="justify-center text-center"

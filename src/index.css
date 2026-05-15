@@ -51,10 +51,10 @@
   --ring: oklch(0.7 0.16 68);
   --paper-background: oklch(0.97 0.018 88);
   --book-border: oklch(0.72 0.035 78);
-  --bitcoin-orange-accent: oklch(0.7 0.16 68);
-  --cta-green: oklch(0.7 0.16 68);
-  --cta-green-foreground: oklch(1 0 0);
-  --cta-green-hover: oklch(0.62 0.17 62);
+  --bitcoin-orange-accent: #f7931a;
+  --cta-orange: #f7931a;
+  --cta-orange-foreground: #ffffff;
+  --cta-orange-hover: #d87806;
   --negative-red: oklch(0.38 0.11 25);
   --negative-red-muted: oklch(0.38 0.11 25 / 9%);
   --chart-1: oklch(0.7 0.16 68);
@@ -94,10 +94,10 @@
   --ring: oklch(0.76 0.15 68);
   --paper-background: oklch(0.25 0.01 78);
   --book-border: oklch(0.44 0.035 78);
-  --bitcoin-orange-accent: oklch(0.76 0.15 68);
-  --cta-green: oklch(0.76 0.15 68);
-  --cta-green-foreground: oklch(1 0 0);
-  --cta-green-hover: oklch(0.68 0.16 62);
+  --bitcoin-orange-accent: #f7931a;
+  --cta-orange: #f7931a;
+  --cta-orange-foreground: #ffffff;
+  --cta-orange-hover: #ffad33;
   --negative-red: oklch(0.68 0.09 25);
   --negative-red-muted: oklch(0.68 0.09 25 / 13%);
   --sidebar: oklch(0.19 0.004 80);
@@ -367,18 +367,18 @@
   }
 
   .cta-primary {
-    background: var(--cta-green) !important;
-    border-color: color-mix(in oklab, var(--cta-green), black 10%) !important;
-    color: var(--cta-green-foreground) !important;
+    background: var(--cta-orange) !important;
+    border-color: color-mix(in oklab, var(--cta-orange), black 10%) !important;
+    color: var(--cta-orange-foreground) !important;
   }
 
   .cta-primary:hover {
-    background: var(--cta-green-hover) !important;
-    color: var(--cta-green-foreground) !important;
+    background: var(--cta-orange-hover) !important;
+    color: var(--cta-orange-foreground) !important;
   }
 
   .positive-icon {
-    color: var(--cta-green-hover);
+    color: var(--cta-orange-hover);
     stroke-width: 3;
   }
 
@@ -560,7 +560,7 @@
   .plan-visual__check {
     @apply size-4 shrink-0;
     animation: plan-check-in 420ms ease-out both;
-    color: var(--cta-green-hover);
+    color: var(--cta-orange-hover);
     opacity: 0;
     stroke-width: 3;
   }
@@ -1208,8 +1208,8 @@
 
   .value-card .icon-mark {
     @apply mb-6 grid size-10 place-items-center rounded-full;
-    background: color-mix(in oklab, var(--cta-green), transparent 84%);
-    color: var(--cta-green-hover);
+    background: color-mix(in oklab, var(--cta-orange), transparent 84%);
+    color: var(--cta-orange-hover);
   }
 
   .standard-areas {
@@ -1247,8 +1247,8 @@
 
   .standard-area-block .icon-mark {
     @apply grid size-10 shrink-0 place-items-center rounded-full text-sm font-semibold;
-    background: color-mix(in oklab, var(--cta-green), transparent 84%);
-    color: var(--cta-green-hover);
+    background: color-mix(in oklab, var(--cta-orange), transparent 84%);
+    color: var(--cta-orange-hover);
   }
 
   .standard-area-visual {
@@ -1298,14 +1298,14 @@
   }
 
   .comparison-card--after {
-    border-color: color-mix(in oklab, var(--cta-green), transparent 72%);
-    background: color-mix(in oklab, var(--cta-green), transparent 94%);
+    border-color: color-mix(in oklab, var(--cta-orange), transparent 72%);
+    background: color-mix(in oklab, var(--cta-orange), transparent 94%);
   }
 
   .program-summary {
     @apply mx-auto mt-10 max-w-4xl rounded-xl border border-primary/20 bg-primary/10 p-5 text-base leading-8 font-semibold text-foreground shadow-sm sm:p-6;
-    background: color-mix(in oklab, var(--cta-green), transparent 74%);
-    border-color: color-mix(in oklab, var(--cta-green), transparent 42%);
+    background: color-mix(in oklab, var(--cta-orange), transparent 74%);
+    border-color: color-mix(in oklab, var(--cta-orange), transparent 42%);
   }
 
   .process-card span {
@@ -1418,7 +1418,7 @@
 
   .faq-item summary:hover,
   .faq-item[open] summary {
-    background: color-mix(in oklab, var(--cta-green), transparent 92%);
+    background: color-mix(in oklab, var(--cta-orange), transparent 92%);
   }
 
   .faq-item__icon {

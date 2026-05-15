@@ -20,7 +20,7 @@ export const conversationAudienceGroups = [
   {
     title: "Poslovno",
     area: "worth",
-    copy: "Cash flow, porezi, plaće, dobavljači, poslovna riznica i odvajanje privatnog od poslovnog Bitcoina.",
+    copy: "Novčani tok, porezi, plaće, dobavljači, poslovna riznica i odvajanje privatnog od poslovnog Bitcoina.",
     bullets: [
       "Vodim posao i ne znam što je stvarni višak riznice.",
       "Ne znam kako odvojiti privatni Bitcoin od poslovnog Bitcoina.",

@@ -69,7 +69,7 @@ const decisionTypes = [
   },
   {
     title: "Poslovne odluke",
-    copy: "cash flow, porezi, plaće, dobavljači, poslovni dug, višak riznice, oprema, zalihe, ovlaštene osobe i sigurnosni postupak",
+    copy: "novčani tok, porezi, plaće, dobavljači, poslovni dug, višak riznice, oprema, zalihe, ovlaštene osobe i sigurnosni postupak",
   },
 ]
 

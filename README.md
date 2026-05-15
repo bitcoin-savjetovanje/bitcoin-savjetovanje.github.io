@@ -22,7 +22,7 @@ područja knjige, tamnu procesnu sekciju i mockup pisanog osobnog Bitcoin
 standarda.
 
 Najnoviji business pass jasnije pozicionira Bitcoin Savjetovanje za pojedince,
-obitelji i poduzetnike. Dodan je poslovni sloj za cash flow, poslovnu riznicu,
+obitelji i poduzetnike. Dodan je poslovni sloj za novčani tok, poslovnu riznicu,
 poreze, plaće, dobavljače, razdvajanje privatnog i poslovnog Bitcoina,
 ovlaštene osobe i sigurnosni postupak.
 

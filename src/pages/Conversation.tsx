@@ -40,7 +40,7 @@ const questionGroups = [
     items: [
       "Ne znam kako odvojiti privatni Bitcoin od poslovnog Bitcoina.",
       "Imam višak u poslovnoj riznici i ne znam koja pravila trebaju postojati.",
-      "Posao ima dug, zalihe, opremu ili nestalan cash flow.",
+      "Posao ima dug, zalihe, opremu ili nestalan novčani tok.",
     ],
   },
 ] as const

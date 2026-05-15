@@ -40,12 +40,12 @@ export function AboutSection() {
         <div>
           <div className="credibility-copy">
             <p>
-              Bitcoin sam počeo proučavati 2014. Od 2018. sam u proučavanje
-              Bitcoina, monetarne ekonomije i sigurnosti uložio više od 10.000
-              sati, a s vremenom sam ga prestao gledati samo kao imovinu koju se
-              drži sa strane. Pitanje koje me najviše zanima jest: što se
-              mijenja kada Bitcoin počnete shvaćati kao novac oko kojega treba
-              urediti stvarni život?
+              U Bitcoin sam prvi put eksperimentalno ušao 2014., 2018. ga počeo
+              ozbiljno proučavati, a od 2020. živim na potpunom Bitcoin
+              standardu. Uz rad u Bitcoin industriji, proveo sam preko 10000
+              sati proučavajući Bitcoin sa svih aspekata. Pitanje koje me
+              najviše zanima jest: što se mijenja kada Bitcoin počnete shvaćati
+              kao novac oko kojega treba urediti stvarni život?
             </p>
             <p>
               Prije punog rada u Bitcoinu bio sam suosnivač i direktor{" "}
@@ -53,7 +53,7 @@ export function AboutSection() {
                 STEMI-ja
               </a>
               . Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca, nego
-              kroz stvarne odluke o cash flowu, riziku, ljudima, obvezama i
+              kroz stvarne odluke o novčanom toku, riziku, ljudima, obvezama i
               vremenu.
             </p>
             <p>
@@ -81,8 +81,8 @@ export function AboutSection() {
               >
                 izdavačkoj kući
               </a>
-              . To iskustvo spaja Bitcoin teoriju, edukaciju, izdavaštvo i
-              stvarne operativne odluke.
+              . To iskustvo spaja Bitcoin teoriju, edukaciju i stvarne
+              operativne odluke.
             </p>
             <p>
               Danas radim s ljudima koji žele prijeći iz “imam Bitcoin” u “imam
@@ -111,7 +111,7 @@ export function AboutSection() {
             </p>
             <div className="credibility-badges" aria-label="Kratki kontekst">
               <article>
-                <strong>10.000+ sati</strong>
+                <strong>Preko 10000 sati</strong>
                 <span>
                   Od 2018. sustavno proučavanje Bitcoina, monetarne ekonomije i
                   sigurnosti.

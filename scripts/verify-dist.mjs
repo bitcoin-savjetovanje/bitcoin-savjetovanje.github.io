@@ -602,7 +602,7 @@ const homeChecks = [
     "Bitcoin thesis strengthening copy",
   ],
   [
-    "Cash flow, porezi, plaće, dobavljači, poslovna riznica",
+    "Novčani tok, porezi, plaće, dobavljači, poslovna riznica",
     "compact business audience copy",
   ],
   [
@@ -666,7 +666,7 @@ const homeChecks = [
   ["Pavao Pahljina", "about section name"],
   ["STEMI", "about section entrepreneurship signal"],
   ["https://stemi.education/", "STEMI external link"],
-  ["više od 10.000 sati", "Bitcoin study hours credibility signal"],
+  ["preko 10000 sati", "Bitcoin study hours credibility signal"],
   ["Saifedeanom Ammousom", "Bitcoin industry credibility signal"],
   ["autorom knjige Bitcoin Standard", "Bitcoin Standard author context"],
   ["https://saifedean.com", "Saifedean external link"],
@@ -929,7 +929,7 @@ assertBefore(
   "index.html",
   homeHtml,
   "Bitcoin ostaje pod vašom kontrolom.",
-  "Bitcoin sam počeo proučavati 2014.",
+  "U Bitcoin sam prvi put eksperimentalno ušao 2014.",
   "security before about"
 )
 

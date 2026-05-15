@@ -16,7 +16,7 @@ const notForItems = [
   "tražite uputu kada kupiti ili prodati",
   "želite prognozu cijene",
   "treba vam porezni ili pravni savjet",
-  "želite predati seed phrase, privatne ključeve ili pristup novčaniku",
+  "želite predati osjetljive sigurnosne podatke ili pristup novčaniku",
 ]
 
 export function SecurityTrustSection() {
@@ -78,8 +78,9 @@ export function SecurityTrustSection() {
           </div>
         </section>
         <p className="mt-6 max-w-3xl text-base leading-8 font-semibold text-foreground">
-          Praktični Bitcoin standard je radni okvir iza mog savjetovanja:
-          proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.
+          Osobni Bitcoin standard je radni okvir iza savjetovanja: proračun,
+          dug, davanje, Bitcoin kao novac, neto imovina, vrijeme i volatilnost,
+          sigurnost i obitelj.
         </p>
         <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
           <li>

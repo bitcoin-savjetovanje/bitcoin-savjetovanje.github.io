@@ -1,8 +1,8 @@
 import { ArrowDown, CalendarDays } from "lucide-react"
 
-import { BitcoinStressTestVisual } from "@/components/home/BitcoinStressTestVisual"
+import { BookCoverCard } from "@/components/home/BookCoverCard"
 import { Button } from "@/components/ui/button"
-import { CONVERSATION_PATH, PRIMARY_CTA, SECONDARY_CTA } from "@/content/site"
+import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
 export function Hero() {
   return (
@@ -10,19 +10,20 @@ export function Hero() {
       <div className="hero-shell">
         <div className="hero-copy">
           <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-            Bitcoin savjetovanje jedan-na-jedan
+            Bitcoin kao novac
           </p>
           <h1 className="hero-title mt-4">
-            Imate Bitcoin pitanje koje utječe na stvarnu odluku?
+            Od držanja Bitcoina do uređenog sustava odluka.
           </h1>
           <p className="hero-subtitle">
-            Dođite s jednim pitanjem. U 15 minuta razjasnimo što prvo treba
-            posložiti: Bitcoin tezu, dug, proračun, sigurnost, obitelj ili ulogu
-            Bitcoina u vašoj imovini.
+            Imate Bitcoin, razmišljate o Bitcoinu ili želite da Bitcoin ima veću
+            ulogu u vašem životu — ali još nemate jasna pravila za proračun,
+            dug, davanje, sigurnost, obitelj i neto imovinu?
           </p>
           <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
-            Ne morate unaprijed znati trebate li konzultaciju, program ili samo
-            kratak odgovor. Uvodni razgovor postoji da to razjasnimo.
+            U 15-minutnom uvodnom razgovoru vidimo gdje ste sada, što prvo treba
+            razjasniti i ima li smisla nastaviti s Bitcoin konzultacijom ili
+            izgradnjom osobnog Bitcoin standarda.
           </p>
 
           <div className="mt-8 flex w-full max-w-2xl flex-col gap-3 sm:mt-9 lg:max-w-none lg:flex-row lg:items-center">
@@ -34,7 +35,7 @@ export function Hero() {
               <a
                 href={CONVERSATION_PATH}
                 className="justify-center text-center"
-                data-cta="hero-intro-call"
+                data-cta="home-hero-intro-call"
               >
                 <CalendarDays className="size-4" />
                 {PRIMARY_CTA}
@@ -47,22 +48,22 @@ export function Hero() {
               className="h-12 w-full rounded-full px-5 text-base lg:w-auto lg:px-6"
             >
               <a
-                href="#pitanja"
+                href="#okvir"
                 className="justify-center text-center"
-                data-cta="hero-questions"
+                data-link="home-hero-framework"
               >
                 <ArrowDown className="size-4" />
-                {SECONDARY_CTA}
+                Pogledajte okvir
               </a>
             </Button>
           </div>
           <p className="mt-5 max-w-3xl text-sm leading-6 font-medium text-muted-foreground">
-            Uvodni razgovor je bez naknade i bez obveze. Ne upravljam
-            sredstvima, ne prognoziram cijenu i ne tražim seed phrase, privatne
-            ključeve ni pristup novčaniku.
+            Bez naknade i bez obveze. Ne upravljam sredstvima, ne prognoziram
+            cijenu i nikada ne tražim seed phrase, privatne ključeve ni pristup
+            novčaniku.
           </p>
         </div>
-        <BitcoinStressTestVisual />
+        <BookCoverCard />
       </div>
     </section>
   )

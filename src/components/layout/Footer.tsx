@@ -5,6 +5,7 @@ import {
   CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
+  PERSONAL_BITCOIN_STANDARD_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
   PRIVACY_PATH,
 } from "@/content/site"
@@ -31,9 +32,12 @@ export function Footer() {
             Savjetovanje
           </a>{" "}
           <a
-            href={PRACTICAL_BITCOIN_STANDARD_URL}
-            data-link="footer-practical-bitcoin-standard"
+            href={PERSONAL_BITCOIN_STANDARD_PATH}
+            data-link="footer-personal-bitcoin-standard"
           >
+            Osobni Bitcoin standard
+          </a>{" "}
+          <a href={PRACTICAL_BITCOIN_STANDARD_URL} data-link="footer-guides">
             Vodiči
           </a>{" "}
           <a href={CONVERSATION_PATH} data-cta="footer-intro-call">

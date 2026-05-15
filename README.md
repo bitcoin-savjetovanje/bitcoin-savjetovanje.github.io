@@ -1,17 +1,21 @@
 # Bitcoin Savjetovanje
 
-Stranica za Bitcoin Savjetovanje, izgrađena s Viteom, Reactom, TypeScriptom,
-SSR/prerenderom i GitHub Pagesom. Glavna javna konverzija je lokalna stranica
-`/razgovor/`, koja posjetitelja priprema za 15-minutni uvodni razgovor prije
-odlaska na vanjski kalendar. Početna stranica je usmjerena na pitanja,
-nejasnoće, sigurnost i mirniju osobnu odluku, dok je Praktični Bitcoin standard
-predstavljen kao dublji okvir rada.
+Stranica za Bitcoin Savjetovanje, usklađena s knjigom u nastajanju “Bitcoin kao
+novac: Praktični vodič za život s Bitcoinom”.
 
-Stranica `/bitcoin-konzultacija/` objašnjava prvi plaćeni korak:
-“Bitcoin konzultacija”, jedan dubinski razgovor od 200 €. Nije checkout i ne
-prima plaćanja; i dalje vodi posjetitelja prema uvodnom razgovoru na
-`/razgovor/`. Funnel ostaje: početna stranica -> `/razgovor/` ->
-`/bitcoin-konzultacija/` ako je relevantno -> Osobni Bitcoin standard.
+Stack ostaje Vite, React, TypeScript, SSR/prerender i GitHub Pages. Primarni
+poslovni cilj je što više kvalitetnih 15-minutnih uvodnih razgovora na lokalnoj
+ruti `/razgovor/`, prije odlaska na vanjski Cal.com booking link.
+
+Funnel:
+
+- `/` predstavlja okvir “Od držanja Bitcoina do uređenog sustava odluka”
+- `/razgovor/` priprema korisnika za 15-minutni uvodni razgovor
+- nakon razgovora nastavak može biti `/bitcoin-konzultacija/` ili
+  `/osobni-bitcoin-standard/`
+
+Ne postoji checkout, CMS ni analytics. Stranica ne upravlja sredstvima i ne
+traži seed phrase, privatne ključeve, lozinke ili pristup novčaniku.
 
 ## Development
 
@@ -41,26 +45,28 @@ npm run verify:live
 Ove provjere ne koriste browser automation, Lighthouse, Playwright, Puppeteer
 ni Chrome headless.
 
-## Content map
+## Content Map
 
-Sadržaj početne stranice:
+Sadržaj i zajedničke konstante:
 
 - `src/content/site.ts`
 - `src/content/method.ts`
 - `src/content/offers.ts`
 - `src/content/faq.ts`
+- `src/content/home.ts`
+- `src/content/security.ts`
 
-Guides:
+Vodiči:
 
 - `src/content/guides.ts`
 
-Routes and SEO:
+Rute, SEO i schema:
 
 - `src/content/routes.ts`
 - `src/content/schema.ts`
 - `src/components/Seo.tsx`
 
-Prerender:
+Prerender i provjere:
 
 - `scripts/prerender.mjs`
 - `scripts/verify-dist.mjs`
@@ -71,15 +77,19 @@ Prerender:
 - `/`
 - `/razgovor/`
 - `/bitcoin-konzultacija/`
+- `/osobni-bitcoin-standard/`
+- `/bitcoin-savjetovanje/`
 - `/vodici/`
 - `/vodici/:slug/`
 - `/sigurnost/`
+- `/privatnost/`
 
-## URL conventions
+## URL Conventions
 
 - Canonical početne stranice koristi završnu kosu crtu:
   `https://bitcoin-savjetovanje.com/`.
-- Conversation, guide index, guide pages and static pages use trailing slash canonicals.
+- Conversation, program, guide index, guide pages and static pages use trailing
+  slash canonicals.
 - Sitemap URLs must match canonical URLs.
 - Internal guide links should use trailing slash, for example
   `/vodici/stvarni-visak/`.
@@ -95,7 +105,6 @@ The deploy workflow runs:
 - `npm run build`
 - `npm run verify:dist`
 
-The Pages artifact is uploaded only after `verify:dist` passes.
-The verification script checks prerendered HTML, sitemap, robots, schema, guide
-pages, the security page, and core CTA/link metadata used for future
-privacy-friendly analytics hooks.
+The Pages artifact is uploaded only after `verify:dist` passes. The verification
+script checks prerendered HTML, sitemap, robots, schema, guide pages, the
+program page, security/privacy pages, and core CTA/link metadata.

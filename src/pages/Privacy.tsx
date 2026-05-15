@@ -89,6 +89,12 @@ export function Privacy() {
               financijsku situaciju, iznose, sigurnosne detalje ni sadržaj
               razgovora.
             </p>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              Opći, anonimizirani uvidi iz savjetodavnog rada mogu utjecati na
+              buduće javne materijale, vodiče ili knjigu. Nikada ne objavljujem
+              ime, iznose, osobne okolnosti, sigurnosne detalje ni
+              prepoznatljive elemente bez izričite dozvole.
+            </p>
           </section>
 
           <section className="case-panel">

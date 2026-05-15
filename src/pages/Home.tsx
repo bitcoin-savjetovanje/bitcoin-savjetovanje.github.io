@@ -3,16 +3,13 @@ import { AboutSection } from "@/components/home/AboutSection"
 import { BeforeAfterSection } from "@/components/home/BeforeAfterSection"
 import { FaqSection } from "@/components/home/FaqSection"
 import { FinalCta } from "@/components/home/FinalCta"
+import { FrameworkSection } from "@/components/home/FrameworkSection"
 import { GuidesTeaserSection } from "@/components/home/GuidesTeaserSection"
 import { Hero } from "@/components/home/Hero"
-import { HowItFitsSection } from "@/components/home/HowItFitsSection"
-import { InformationCostSection } from "@/components/home/InformationCostSection"
 import { IntroCallSection } from "@/components/home/IntroCallSection"
 import { OffersSection } from "@/components/home/OffersSection"
 import { QuestionsSection } from "@/components/home/QuestionsSection"
-import { ReadinessTestSection } from "@/components/home/ReadinessTestSection"
 import { SecurityTrustSection } from "@/components/home/SecurityTrustSection"
-import { StressTestSection } from "@/components/home/StressTestSection"
 import { homeRoute } from "@/content/routes"
 
 export function Home() {
@@ -26,17 +23,14 @@ export function Home() {
         schema={homeRoute.schema as object}
       />
       <Hero />
-      <StressTestSection />
-      <InformationCostSection />
       <QuestionsSection />
-      <ReadinessTestSection />
+      <FrameworkSection />
       <IntroCallSection />
-      <HowItFitsSection />
       <OffersSection />
-      <SecurityTrustSection />
-      <AboutSection />
       <BeforeAfterSection />
       <GuidesTeaserSection />
+      <SecurityTrustSection />
+      <AboutSection />
       <FaqSection />
       <FinalCta />
     </>

@@ -14,6 +14,7 @@ import {
   bitcoinConsultationSeo,
   conversationSeo,
   guidesIndexSeo,
+  personalBitcoinStandardSeo,
   privacySeo,
   securitySeo,
 } from "./site"
@@ -188,7 +189,7 @@ export function bitcoinConsultationPageSchema() {
         name: "Bitcoin konzultacija",
         serviceType: "Jedan dubinski Bitcoin razgovor",
         description:
-          "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku. Bez savjeta kupi ili prodaj, bez prognoza cijene i bez traženja seed phrase.",
+          "Jedan dubinski razgovor za jedno ozbiljno pitanje o Bitcoinu, proračunu, dugu, neto imovini, sigurnosti ili obitelji. Bez naloga za kupnju ili prodaju, bez prognoza cijene i bez traženja seed phrase.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -207,6 +208,70 @@ export function bitcoinConsultationPageSchema() {
         {
           name: "Bitcoin konzultacija",
           item: bitcoinConsultationSeo.canonical,
+        },
+      ]),
+    ],
+  }
+}
+
+export function personalBitcoinStandardPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Osobni Bitcoin standard",
+        description: personalBitcoinStandardSeo.description,
+        url: personalBitcoinStandardSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "osobni Bitcoin standard",
+          "Bitcoin kao novac",
+          "proračun",
+          "dug",
+          "davanje",
+          "neto imovina",
+          "Bitcoin sigurnost",
+          "obiteljski pristup Bitcoinu",
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Osobni Bitcoin standard",
+        serviceType:
+          "Program za izgradnju pisanog sustava odluka za život s Bitcoinom",
+        description:
+          "Program od 4 do 6 tjedana za pisani okvir pravila za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, volatilnost, sigurnost i obiteljski pristup. Ne uključuje upravljanje sredstvima, prognoze cijene, porezni ili pravni savjet.",
+        provider: {
+          "@type": "ProfessionalService",
+          "@id": `${SITE_URL}/#service`,
+          name: "Bitcoin Savjetovanje",
+          founder: {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#pavao-pahljina`,
+            name: "Pavao Pahljina",
+          },
+        },
+        areaServed: ["Hrvatska", "Online"],
+        url: personalBitcoinStandardSeo.canonical,
+        offers: {
+          "@type": "Offer",
+          name: "Osobni Bitcoin standard",
+          price: "1500",
+          priceCurrency: "EUR",
+          url: personalBitcoinStandardSeo.canonical,
+        },
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "Osobni Bitcoin standard",
+          item: personalBitcoinStandardSeo.canonical,
         },
       ]),
     ],
@@ -274,7 +339,7 @@ export function guidesIndexSchema() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        name: "Vodiči za osobni Bitcoin standard",
+        name: "Vodiči za knjigu Bitcoin kao novac",
         description: guidesIndexSeo.description,
         url: guidesIndexSeo.canonical,
         inLanguage: "hr-HR",

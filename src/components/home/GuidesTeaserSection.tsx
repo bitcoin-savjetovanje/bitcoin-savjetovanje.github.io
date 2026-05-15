@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
 import { homeGuideSlugs } from "@/content/home"
-import { CONVERSATION_PATH, OPEN_MANUSCRIPT_URL } from "@/content/site"
+import { CONVERSATION_PATH } from "@/content/site"
 
 const teaserGuides = homeGuideSlugs
   .map((slug) => findGuide(slug))
@@ -17,7 +17,7 @@ export function GuidesTeaserSection() {
         title="Želite prvo čitati?"
         copy="Vodiči objašnjavaju okvir. Razgovor ga primjenjuje na vašu situaciju."
       />
-      <ul className="mt-8 grid list-none gap-4 md:grid-cols-2 xl:grid-cols-5">
+      <ul className="mt-8 grid list-none gap-4 md:grid-cols-3">
         {teaserGuides.map((guide) => (
           <li key={guide.slug}>
             <article className="program-card h-full hover:border-primary/50">
@@ -48,18 +48,6 @@ export function GuidesTeaserSection() {
             <span aria-hidden="true" className="sr-only">
               {" "}
             </span>
-          </a>
-        </li>
-        <li>
-          <a
-            href={OPEN_MANUSCRIPT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary"
-            data-link="home-open-manuscript"
-          >
-            Otvoreni rukopis knjige
-            <ArrowUpRight className="size-4" />
           </a>
         </li>
         <li className="sm:ml-auto">

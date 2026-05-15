@@ -83,8 +83,18 @@ export function Security() {
 
         <section className="security-goals-card">
           <h2 className="text-2xl font-semibold">
-            Dobar sigurnosni okvir ima dva cilja.
+            Dobra sigurnost ima dvije strane
           </h2>
+          <p className="mt-4 text-base leading-8 text-muted-foreground">
+            Mora otežati krađu, ali ne smije toliko otežati pristup da vi, vaša
+            obitelj ili ovlaštene osobe izgubite mogućnost oporavka.
+          </p>
+          <p className="mt-4 text-base leading-8 text-muted-foreground">
+            Sigurnost nije natjecanje u tome tko ima najkompliciraniji sustav.
+            Sigurnost je sposobnost da se vrijednost sačuva kroz stvarne životne
+            okolnosti: zaborav, paniku, bolest, smrt, gubitak uređaja i
+            dobronamjernu pogrešku.
+          </p>
           <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
             <li className="flex gap-3">
               <Check className="positive-icon mt-1 size-4 shrink-0" />

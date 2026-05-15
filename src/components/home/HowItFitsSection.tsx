@@ -27,7 +27,7 @@ const fitCards = [
     href: CONVERSATION_PATH,
   },
   {
-    title: "Praktični Bitcoin standard",
+    title: "Vodiči za Bitcoin kao novac",
     copy: "Javni vodiči i metoda iza savjetovanja. Možete ih čitati prije razgovora ili koristiti kao mapu za vlastita pitanja.",
     cta: "Čitajte vodiče",
     href: PRACTICAL_BITCOIN_STANDARD_URL,

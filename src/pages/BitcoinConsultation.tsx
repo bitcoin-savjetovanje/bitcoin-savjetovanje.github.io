@@ -3,7 +3,10 @@ import { ArrowUpRight, CalendarDays, Check, X } from "lucide-react"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { bitcoinConsultationRoute } from "@/content/routes"
-import { CONVERSATION_PATH } from "@/content/site"
+import {
+  CONVERSATION_PATH,
+  PERSONAL_BITCOIN_STANDARD_PATH,
+} from "@/content/site"
 
 const forWhomItems = [
   "imate ozbiljno Bitcoin pitanje koje se stalno vraća",
@@ -19,23 +22,25 @@ const reviewItems = [
   "glavne nedoumice o cijeni, volatilnosti i riziku",
   "odnos duga, proračuna i stvarnog viška",
   "ulogu Bitcoina u neto imovini",
-  "sigurnost, seed phrase i obiteljski pristup",
+  "sigurnost i obiteljski pristup bez dijeljenja osjetljivih podataka",
   "sljedeći razuman korak",
 ]
 
 const notDoingItems = [
+  "nije investicijsko savjetovanje",
+  "nema naloga kupnje ili prodaje",
   "ne prognoziram cijenu",
-  "ne govorim vam koliko Bitcoina morate kupiti",
+  "ne govorim vam koliko Bitcoina kupiti",
   "ne upravljam vašim sredstvima",
   "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",
   "ne dajem porezni ni pravni savjet",
+  "odluka ostaje vaša",
 ]
 
 const outcomes = [
-  "jasniju Bitcoin tezu koju možete objasniti sebi i drugima",
-  "jasniju sliku kako dug, troškovi, sigurnost i obitelj utječu na odluku",
-  "odgovor treba li stati na jednom razgovoru ili graditi osobni Bitcoin standard",
-  "popis pitanja koja više ne trebaju ostati u glavi",
+  "jasniju Bitcoin tezu koju možete objasniti sebi, partneru ili obitelji",
+  "jasniji okvir za jednu odluku koju odgađate",
+  "jasnu procjenu da jedno pitanje nije dovoljno i da treba graditi osobni Bitcoin standard",
 ]
 
 const preparationItems = [
@@ -56,7 +61,7 @@ const consultationFlow = [
   },
   {
     title: "Nakon razgovora",
-    copy: "Znate je li dovoljno stati na jednom razgovoru, treba li dublja Bitcoin konzultacija ili ima smisla graditi osobni Bitcoin standard.",
+    copy: "Znate je li jedno pitanje dovoljno razjašnjeno ili ima smisla graditi osobni Bitcoin standard.",
   },
 ]
 
@@ -73,7 +78,7 @@ const notForItems = [
   "tražite upravljanje sredstvima",
   "tražite porezni ili pravni savjet",
   "želite da netko odluči umjesto vas",
-  "želite nekome predati seed phrase ili privatne ključeve",
+  "želite nekome predati osjetljive sigurnosne podatke",
 ]
 
 function Checklist({
@@ -196,6 +201,13 @@ export function BitcoinConsultation() {
           </div>
         </section>
 
+        <section className="consultation-outcome-card">
+          <h2 className="text-2xl font-semibold">
+            Nakon Bitcoin konzultacije trebali biste imati jednu od tri stvari
+          </h2>
+          <Checklist items={outcomes} />
+        </section>
+
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
           <section className="case-panel">
             <h2 className="text-2xl font-semibold">Za koga je</h2>
@@ -228,13 +240,6 @@ export function BitcoinConsultation() {
             ili pravni savjet, ili osobu koja će odlučiti umjesto vas.
           </p>
           <Checklist items={notDoingItems} kind="negative" />
-        </section>
-
-        <section className="consultation-outcome-card">
-          <h2 className="text-2xl font-semibold">
-            Nakon Bitcoin konzultacije najčešće imate
-          </h2>
-          <Checklist items={outcomes} />
         </section>
 
         <section className="mt-8 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
@@ -313,6 +318,14 @@ export function BitcoinConsultation() {
                 tjedana: proračun, dug, Bitcoin, neto imovina, sigurnost i
                 obitelj.
               </p>
+              <a
+                href={PERSONAL_BITCOIN_STANDARD_PATH}
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                data-link="bitcoin-consultation-personal-standard"
+              >
+                Pogledajte osobni Bitcoin standard
+                <ArrowUpRight className="size-4" />
+              </a>
             </article>
           </div>
           <ul className="mt-6 grid gap-3 text-base leading-7 text-muted-foreground md:grid-cols-2">
@@ -335,8 +348,15 @@ export function BitcoinConsultation() {
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
             Jedan razgovor može biti dovoljan ako vam treba razjasniti konkretno
             pitanje, jedan dio Bitcoin teze ili sigurnosnu odluku. Ako se pokaže
-            da nedostaje cijeli sustav pravila, sljedeći korak može biti osobni
-            Bitcoin standard.
+            da jedno pitanje nije dovoljno, sljedeći korak može biti{" "}
+            <a
+              href={PERSONAL_BITCOIN_STANDARD_PATH}
+              className="font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline"
+              data-link="bitcoin-consultation-standard-context"
+            >
+              osobni Bitcoin standard
+            </a>
+            .
           </p>
         </section>
 

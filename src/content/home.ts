@@ -1,86 +1,91 @@
 export const conversationProblemCards = [
   {
-    title: "Zanima vas Bitcoin, ali nemate mirnu tezu.",
-    copy: "Razumijete dio priče, ali još nemate jasan odgovor na pitanja koja se stalno vraćaju.",
+    title:
+      "Imam Bitcoin, ali nemam jasna pravila kada kupovati, držati, trošiti ili rebalansirati.",
+    copy: "Bitcoin postoji, ali odluke još ovise o cijeni, dojmu ili tuđem mišljenju.",
   },
   {
-    title: "Imate novac, ali ne znate koju ulogu Bitcoin treba imati.",
-    copy: "Ne tražite da netko odluči umjesto vas, ali želite jasniji okvir za vlastitu odluku.",
+    title: "Razmišljam treba li Bitcoin imati veću ulogu u mojoj imovini.",
+    copy: "Ne tražite tuđu odluku, nego jasniji okvir za vlastitu situaciju.",
   },
   {
-    title: "Kupili ste malo, ali niste sigurni treba li stati ili ići dublje.",
-    copy: "Nedostaje vam uvjerenje koje može izdržati padove, rastove i tuđa mišljenja.",
+    title: "Imam dug i ne znam kako to mijenja Bitcoin odluku.",
+    copy: "Dug mijenja pritisak, vrijeme i sposobnost čekanja, pa ne smije ostati skriven.",
   },
   {
-    title: "Obitelj ili partner nisu na istoj razini razumijevanja.",
-    copy: "Vi možda vidite nešto što oni ne vide, ali ne znate kako to objasniti bez pritiska.",
+    title: "Ne znam koliko državnog novca trebam držati za kratkoročne obveze.",
+    copy: "Novac koji izgleda slobodno možda već pripada budućem trošku.",
   },
   {
-    title: "Brine vas sigurnost.",
-    copy: "Ne želite izgubiti Bitcoin, ali ne želite ni sustav koji je toliko složen da ga nitko drugi ne može razumjeti.",
+    title: "Partner ili obitelj nisu na istoj razini razumijevanja.",
+    copy: "Bitcoin odluka mora se moći objasniti bez pritiska, žargona i panike.",
+  },
+  {
+    title:
+      "Brine me sigurnost, nasljeđivanje ili pristup ako se meni nešto dogodi.",
+    copy: "Sigurnost mora štititi od krađe, ali i od gubitka pristupa.",
+  },
+  {
+    title:
+      "Ne želim još jedan video o Bitcoinu; želim povezati Bitcoin sa svojom stvarnom situacijom.",
+    copy: "Informacija je korisna tek kada postane primjenjiva na proračun, dug, obitelj i sigurnost.",
   },
 ]
 
-export const questionGroups = [
+export const frameworkAreas = [
   {
-    title: "Bitcoin teza",
-    questions: [
-      "Zašto bi Bitcoin dugoročno bio bolji novac?",
-      "Što Bitcoin ima što zlato, dionice, nekretnine ili državni novac nemaju?",
-      "Je li za Bitcoin već kasno?",
-      "Kako razlikovati Bitcoin od ostale digitalne imovine?",
-    ],
+    title: "Proračun",
+    copy: "Svaki euro ima namjenu prije Bitcoin odluke.",
   },
   {
-    title: "Cijena i volatilnost",
-    questions: [
-      "Što ako kupim, a cijena padne za 50% ili više?",
-      "Kako razmišljati o rastu bez euforije?",
-      "Koliki je zapravo dugoročni trend rasta cijene Bitcoina, i što mogu realno očekivati?",
-      "Kada je promjena cijene korisna informacija, a kada samo buka?",
-    ],
+    title: "Dug",
+    copy: "Dug je budući novac koji ste već potrošili.",
   },
   {
-    title: "Osobna situacija",
-    questions: [
-      "Koliko eura ili drugog državnog novca ostaviti?",
-      "Što ako imam dug?",
-      "Što ako imam nekretninu, posao, mirovinsku štednju ili drugu imovinu?",
-      "Kako znati koji je novac stvarno slobodan za Bitcoin odluku?",
-    ],
+    title: "Davanje",
+    copy: "Davanje mijenja odnos prema novcu i stvaranju vrijednosti.",
   },
   {
-    title: "Obitelj i sigurnost",
-    questions: [
-      "Kako objasniti Bitcoin partneru ili obitelji?",
-      "Kako čuvati Bitcoin bez panike i bez naivnosti?",
-      "Što obitelj treba znati ako se meni nešto dogodi?",
-      "Što nikada ne smijem dijeliti ni sa savjetnikom?",
-    ],
+    title: "Bitcoin kao novac",
+    copy: "Pitanje nije samo kada kupiti, nego u kojem obliku držite novčani saldo.",
+  },
+  {
+    title: "Neto imovina",
+    copy: "Bitcoin može biti primarni novac, ali neto imovina mora ostati cjelina.",
+  },
+  {
+    title: "Vrijeme i volatilnost",
+    copy: "Vrijeme samo po sebi nije strategija. Strategija nastaje kada znate što ćete raditi dok vrijeme prolazi.",
+  },
+  {
+    title: "Sigurnost i obitelj",
+    copy: "Sigurnost štiti od krađe, ali i od zaborava, panike, bolesti, smrti i dobronamjerne pogreške.",
   },
 ]
 
 export const introCallSteps = [
   {
     title: "Kažete mi koju odluku pokušavate donijeti.",
-    copy: "Možda razmišljate o većoj ulozi Bitcoina u svojoj imovini. Možda imate pitanje o dugu. Možda vas muči sigurnost. Možda želite objasniti Bitcoin partneru ili obitelji.",
+    copy: "Dovoljna je jedna odluka ili nedoumica koju želite smjestiti u stvarni život.",
   },
   {
-    title: "Vidimo što nedostaje za mirniju odluku.",
-    copy: "Nekome još nije jasna Bitcoin teza. Nekome nedostaje proračun. Nekome sigurnosni plan. Nekome treba razjasniti jedan dio odluke koji još nije dovoljno čvrst.",
+    title:
+      "Smjestimo pitanje u okvir: Bitcoin teza, proračun, dug, neto imovina, sigurnost ili obitelj.",
+    copy: "Jedno pitanje obično pokaže koje je područje prvo usko grlo.",
   },
   {
-    title: "Dobijete sljedeći razuman korak.",
-    copy: "Na kraju znate ima li smisla stati, uzeti jedan dubinski razgovor ili graditi puni osobni Bitcoin standard.",
+    title:
+      "Vidimo treba li vam kratak odgovor, Bitcoin konzultacija ili puni osobni Bitcoin standard.",
+    copy: "Ne morate unaprijed znati koji oblik rada ima smisla.",
   },
   {
-    title: "Dobijete iskrenu procjenu.",
-    copy: "Ako mogu pomoći, predložit ću sljedeći korak. Ako plaćeni nastavak nije koristan za vašu situaciju, reći ću vam to otvoreno.",
+    title: "Ako plaćeni nastavak nema smisla, to otvoreno kažem.",
+    copy: "Uvodni razgovor je filter, a ne pritisak prema kupnji programa.",
   },
 ]
 
 export const homeNeverAskItems = [
-  "seed phrase",
+  "seed phrase se nikada ne dijeli",
   "privatne ključeve",
   "lozinke",
   "pristup uređajima",
@@ -97,11 +102,12 @@ export const homeSecurityReviewItems = [
 ]
 
 export const methodPathSteps = [
-  "Red u novcu",
-  "Život bez duga",
+  "Proračun",
+  "Dug",
   "Davanje",
   "Bitcoin kao novac",
   "Neto imovina",
+  "Vrijeme i volatilnost",
   "Sigurnost i obitelj",
 ]
 
@@ -130,9 +136,7 @@ export const priceTimeCards = [
 ]
 
 export const homeGuideSlugs = [
-  "niste-zakasnili-u-bitcoin",
-  "bitcoin-nije-kripto-portfelj",
-  "stvarni-visak",
+  "svaki-euro-ima-namjenu",
   "dug-ili-bitcoin",
-  "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "bitcoin-kao-novac",
 ] as const

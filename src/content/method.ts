@@ -252,7 +252,7 @@ export const aboutCards = [
     copy: "Radio sam u Bitcoin industriji i sa Saifedeanom Ammousom.",
   },
   {
-    title: "Praktični Bitcoin standard",
+    title: "Bitcoin kao novac",
     copy: "Okvir nije teorija za druge. Nastao je iz pokušaja življenja s Bitcoinom kao novcem.",
   },
 ]

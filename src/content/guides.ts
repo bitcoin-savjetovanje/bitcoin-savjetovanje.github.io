@@ -173,7 +173,7 @@ const guideEntries: Guide[] = [
     metaDescription:
       "Vodič o osobnom proračunu nulte osnove i zašto Bitcoin odluke počinju tek kada svaki euro ima jasnu namjenu.",
     excerpt:
-      "Praktični Bitcoin standard ne počinje pitanjem koliko Bitcoina kupiti. Počinje pitanjem zna li svaki euro što treba raditi.",
+      "Osobni Bitcoin standard ne počinje pitanjem koliko Bitcoina kupiti. Počinje pitanjem zna li svaki euro što treba raditi.",
     category: "Osobni proračun nulte osnove",
     difficulty: "Početno",
     freshness: "stabilno",
@@ -277,7 +277,7 @@ const guideEntries: Guide[] = [
         heading: "Novac može biti zauzet i kada miruje",
         body: [
           "Novac ne mora biti potrošen da bi već bio zauzet. Može čekati obvezu. Može čekati račun. Može čekati mjesec u kojem će troškovi biti veći od prihoda. Ako ga tada nazovete viškom, sami sebi stvarate budući pritisak.",
-          "Praktični Bitcoin standard zato traži da se buduća plaćanja vide unaprijed. Kada se vide, odluka je mirnija. Možda kupujete manje Bitcoina nego što ste mislili, ali ono što kupite ne ugrožava sustav.",
+          "Osobni Bitcoin standard zato traži da se buduća plaćanja vide unaprijed. Kada se vide, odluka je mirnija. Možda kupujete manje Bitcoina nego što ste mislili, ali ono što kupite ne ugrožava sustav.",
         ],
       },
       {
@@ -413,7 +413,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Proračun nulte osnove dolazi prije kupnje",
         body: [
-          "Praktični Bitcoin standard počinje osobnim proračunom nulte osnove. Prvo se vidi svaki euro, svaki dug, svako veće buduće plaćanje i svaki dio novčane zalihe. Tek zatim se određuje koliko novca može ići u Bitcoin.",
+          "Osobni Bitcoin standard počinje osobnim proračunom nulte osnove. Prvo se vidi svaki euro, svaki dug, svako veće buduće plaćanje i svaki dio novčane zalihe. Tek zatim se određuje koliko novca može ići u Bitcoin.",
           "Ovaj redoslijed štiti od dvije pogreške. Prva je kupnja novcem koji već pripada drugoj obvezi. Druga je premala kupnja iz straha, iako stvarni višak postoji. Proračun nulte osnove ne služi zabrani. Služi jasnoći.",
         ],
       },
@@ -1192,7 +1192,7 @@ const guideEntries: Guide[] = [
     slug: "bitcoin-kao-novac",
     title: "Bitcoin je novac",
     metaDescription:
-      "Vodič o tome zašto Praktični Bitcoin standard promatra Bitcoin kao novac, a ne kao investiciju sa strane.",
+      "Vodič o tome zašto okvir Bitcoin kao novac promatra Bitcoin kao novac, a ne kao investiciju sa strane.",
     excerpt:
       "Bitcoin nije samo imovina koju držite. U Praktičnom Bitcoin standardu Bitcoin ima ulogu novca.",
     category: "Bitcoin kao novac",
@@ -1232,7 +1232,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Što znači da je Bitcoin novac",
         body: [
-          "Novac nije samo ono čime danas plaćate kavu. Novac je dobro koje držite radi buduće razmjene. Njegova bitna vrijednost je kupovna moć kroz vrijeme. U tom smislu Praktični Bitcoin standard promatra Bitcoin kao novac.",
+          "Novac nije samo ono čime danas plaćate kavu. Novac je dobro koje držite radi buduće razmjene. Njegova bitna vrijednost je kupovna moć kroz vrijeme. U tom smislu okvir Bitcoin kao novac promatra Bitcoin kao novac.",
           "To mijenja pitanje. Ne pitate samo koliko vrijedi danas. Pitate što vam omogućuje sutra. Koliko budućih odluka može pokriti? Koji dio života može zaštititi od impulsa, duga i loše potrošnje?",
         ],
       },
@@ -1304,7 +1304,7 @@ const guideEntries: Guide[] = [
         body: [
           "Novac ulazi kroz plaću, posao, klijente, prodaju ili druge izvore. Novac izlazi kroz troškove, račune, dug, obiteljske potrebe i odluke. Ako redovito ulazi više novca nego što izlazi, sustav diše. Ako redovito izlazi više nego što ulazi, sustav se oslanja na dug, prodaju imovine ili nadu.",
           "Gledajte prosjek, ne samo jedan mjesec. Dobar početak je usporediti novac koji ulazi i novac koji izlazi kroz zadnja tri mjeseca.",
-          "Praktični Bitcoin standard traži da novac ostaje zato što Bitcoin kao novac treba miran temelj. Ako proračun nulte osnove stalno curi, Bitcoin postaje prva stvar koju morate dirati kada se pojavi pritisak.",
+          "Osobni Bitcoin standard traži da novac ostaje zato što Bitcoin kao novac treba miran temelj. Ako proračun nulte osnove stalno curi, Bitcoin postaje prva stvar koju morate dirati kada se pojavi pritisak.",
         ],
       },
       {
@@ -1384,7 +1384,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Cijena nije naredba",
         body: [
-          "Kada Bitcoin raste, lako se pojavi osjećaj da morate nešto napraviti. Kada pada, isti osjećaj dolazi iz straha. U oba slučaja cijena se ponaša kao naredba. Praktični Bitcoin standard odbija taj redoslijed.",
+          "Kada Bitcoin raste, lako se pojavi osjećaj da morate nešto napraviti. Kada pada, isti osjećaj dolazi iz straha. U oba slučaja cijena se ponaša kao naredba. Osobni Bitcoin standard odbija taj redoslijed.",
           "Cijena može biti povod za provjeru, ali ne smije biti gospodar odluke. Prvo gledate osobni proračun nulte osnove, dug, buduća plaćanja, novčanu zalihu i pravila. Tek nakon toga odlučujete mijenja li se išta.",
         ],
       },
@@ -3233,7 +3233,7 @@ const guideEntries: Guide[] = [
         },
         {
           label: "što ne dirati",
-          description: "seed phrase i privatni ključevi",
+          description: "seed phrase i privatni ključevi se ne dijele",
         },
         {
           label: "kome se javiti",

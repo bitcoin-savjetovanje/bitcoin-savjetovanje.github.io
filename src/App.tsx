@@ -12,6 +12,7 @@ export type RouteComponents = {
   GuidesIndex: ComponentType
   Conversation: ComponentType
   BitcoinConsultation: ComponentType
+  PersonalBitcoinStandard: ComponentType
   Guide: ComponentType<{ slug: string }>
   Security: ComponentType
   Privacy: ComponentType
@@ -40,6 +41,11 @@ const lazyRouteComponents = {
   BitcoinConsultation: lazy(() =>
     import("@/pages/BitcoinConsultation").then((module) => ({
       default: module.BitcoinConsultation,
+    }))
+  ),
+  PersonalBitcoinStandard: lazy(() =>
+    import("@/pages/PersonalBitcoinStandard").then((module) => ({
+      default: module.PersonalBitcoinStandard,
     }))
   ),
   Guide: lazy(() =>
@@ -89,6 +95,7 @@ function Route({
     GuidesIndex,
     Conversation,
     BitcoinConsultation,
+    PersonalBitcoinStandard,
     Guide,
     Security,
     Privacy,
@@ -113,6 +120,10 @@ function Route({
 
   if (path === "/bitcoin-konzultacija") {
     return <BitcoinConsultation />
+  }
+
+  if (path === "/osobni-bitcoin-standard") {
+    return <PersonalBitcoinStandard />
   }
 
   if (path.startsWith("/vodici/")) {

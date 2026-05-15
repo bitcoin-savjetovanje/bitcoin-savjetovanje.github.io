@@ -1,4 +1,8 @@
-import { BITCOIN_CONSULTATION_PATH, CONVERSATION_PATH } from "./site"
+import {
+  BITCOIN_CONSULTATION_PATH,
+  CONVERSATION_PATH,
+  PERSONAL_BITCOIN_STANDARD_PATH,
+} from "./site"
 
 export type Offer = {
   title: string
@@ -26,13 +30,13 @@ export const offers: Offer[] = [
     duration: "15 minuta",
     forWhom: "Bez naknade i bez obveze.",
     detail:
-      "Bez naknade i bez obveze. Cilj je vidjeti što prvo treba razjasniti i ima li smisla ići dublje.",
+      "Prvi korak. Vidimo što prvo treba razjasniti i ima li smisla ići dublje.",
     purpose:
-      "Kažete gdje ste sada, prepoznamo što prvo treba razjasniti i dobijete jasniju procjenu sljedećeg koraka.",
+      "Kažete gdje ste sada, prepoznamo prvo usko grlo i dobijete jasniju procjenu sljedećeg koraka.",
     includes: [
       "15 minuta",
       "Bez naknade i bez obveze",
-      "Cilj: vidjeti što prvo treba razjasniti i ima li smisla ići dublje",
+      "Cilj: kratak odgovor, Bitcoin konzultacija ili osobni Bitcoin standard",
     ],
     cta: "Dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
@@ -43,14 +47,14 @@ export const offers: Offer[] = [
     price: "200 €",
     duration: "Jedan dubinski razgovor",
     forWhom:
-      "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku.",
+      "Jedan dubinski razgovor za jedno ozbiljno pitanje koje utječe na odluku.",
     detail:
-      "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku.",
+      "Jedan dubinski razgovor za jedno ozbiljno pitanje koje utječe na odluku.",
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
       "Jedan dubinski razgovor",
-      "Za jedno ozbiljno Bitcoin pitanje",
+      "Za jedno ozbiljno pitanje",
       "Razjašnjenje osobne situacije bez preuzimanja odluke",
     ],
     cta: "Prvo dogovorite uvodni razgovor",
@@ -70,16 +74,21 @@ export const offers: Offer[] = [
     forWhom:
       "Za osobu ili obitelj koja želi pisana pravila za novac, dug, Bitcoin, sigurnost i obiteljski pristup.",
     detail:
-      "Za osobu ili obitelj koja ne želi samo odgovore na pitanja, nego pisana pravila za novac, dug, Bitcoin, neto imovinu, sigurnost i obiteljski pristup.",
+      "Rad na pisanom osobnom okviru za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, sigurnost i obitelj.",
     purpose:
       "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i obiteljska pravila bez predaje kontrole.",
     includes: [
       "4–6 tjedana",
-      "Pisani okvir za proračun, dug, Bitcoin, neto imovinu, sigurnost i obitelj",
+      "Pisani okvir za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, sigurnost i obitelj",
       "Ozbiljniji nastavak kada jedno pitanje više nije dovoljno",
     ],
     cta: "Krenite od uvodnog razgovora",
     href: CONVERSATION_PATH,
     dataCta: "offer-personal-standard",
+    detailLink: {
+      label: "Pogledajte program",
+      href: PERSONAL_BITCOIN_STANDARD_PATH,
+      dataLink: "offer-personal-standard-details",
+    },
   },
 ]

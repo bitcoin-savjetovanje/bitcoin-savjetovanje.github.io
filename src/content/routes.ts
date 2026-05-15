@@ -6,6 +6,7 @@ import {
   guideSchema,
   guidesIndexSchema,
   homeSchema,
+  personalBitcoinStandardPageSchema,
   privacyPageSchema,
   securityPageSchema,
 } from "./schema"
@@ -18,6 +19,7 @@ import {
   conversationSeo,
   guidesIndexSeo,
   homeSeo,
+  personalBitcoinStandardSeo,
   privacySeo,
   securitySeo,
 } from "./site"
@@ -27,6 +29,7 @@ export type RouteType =
   | "bitcoin-advice"
   | "conversation"
   | "bitcoin-consultation"
+  | "personal-bitcoin-standard"
   | "guides-index"
   | "guide"
   | "security"
@@ -119,6 +122,20 @@ export const bitcoinConsultationRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
+export const personalBitcoinStandardRoute: RouteMeta = {
+  path: "/osobni-bitcoin-standard/",
+  title: personalBitcoinStandardSeo.title,
+  description: personalBitcoinStandardSeo.description,
+  canonical: personalBitcoinStandardSeo.canonical,
+  schema: personalBitcoinStandardPageSchema(),
+  type: "personal-bitcoin-standard",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
 export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   path: `/vodici/${guide.slug}`,
   title: `${guide.seoTitle ?? guide.title} | Bitcoin Savjetovanje`,
@@ -203,6 +220,7 @@ export const prerenderRoutes: RouteMeta[] = [
   bitcoinAdviceRoute,
   conversationRoute,
   bitcoinConsultationRoute,
+  personalBitcoinStandardRoute,
   guidesIndexRoute,
   ...guideRouteMetas,
   ...guideAliasRouteMetas,

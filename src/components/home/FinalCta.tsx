@@ -8,11 +8,11 @@ export function FinalCta() {
     <section className="section-shell">
       <div className="final-cta">
         <div>
-          <h2>Imate Bitcoin pitanje koje želite razjasniti?</h2>
+          <h2>Želite vidjeti gdje ste u vlastitom Bitcoin okviru?</h2>
           <p>
             Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Cilj je
-            vidjeti gdje ste, što prvo treba razjasniti i koji bi sljedeći korak
-            bio razuman.
+            vidjeti gdje ste na putu od držanja Bitcoina do uređenog sustava
+            odluka.
           </p>
           <p className="mt-3 text-sm leading-6 text-background/72">
             Ne upravljam vašim sredstvima, ne prognoziram cijenu i nikada ne

@@ -6,14 +6,15 @@ import { bitcoinAdviceRoute } from "@/content/routes"
 import {
   BITCOIN_CONSULTATION_PATH,
   CONVERSATION_PATH,
+  PERSONAL_BITCOIN_STANDARD_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
 } from "@/content/site"
 
 const situations = [
-  "imate Bitcoin, ali nemate jasan osobni okvir",
+  "imate Bitcoin, ali nemate jasan sustav odluka",
   "razmišljate treba li Bitcoin imati veću ulogu u vašoj imovini",
   "želite razgovarati s partnerom ili obitelji bez pritiska",
-  "brine vas sigurnost, seed phrase ili pristup u izvanrednoj situaciji",
+  "brine vas sigurnost ili pristup u izvanrednoj situaciji",
   "ne znate kako dug, proračun ili buduća plaćanja mijenjaju odluku",
 ]
 
@@ -34,7 +35,7 @@ const notDoingItems = [
 
 const paths = [
   {
-    title: "Uvodni Bitcoin razgovor",
+    title: "Uvodni razgovor",
     copy: "Prvi korak je 15 minuta bez naknade i bez obveze. Cilj je vidjeti gdje ste, što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
     href: CONVERSATION_PATH,
     label: "Dogovorite uvodni razgovor",
@@ -49,10 +50,10 @@ const paths = [
   },
   {
     title: "Osobni Bitcoin standard",
-    copy: "Širi okvir za pravila: proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
-    href: PRACTICAL_BITCOIN_STANDARD_URL,
-    label: "Čitajte vodiče",
-    dataCta: "bitcoin-advice-guides",
+    copy: "Program od 4–6 tjedana za pisani okvir: proračun, dug, davanje, Bitcoin kao novac, neto imovina, volatilnost, sigurnost i obitelj.",
+    href: PERSONAL_BITCOIN_STANDARD_PATH,
+    label: "Pogledajte program",
+    dataCta: "bitcoin-advice-personal-standard",
   },
 ]
 
@@ -102,13 +103,13 @@ export function BitcoinAdvice() {
             Bitcoin savjetovanje Hrvatska
           </p>
           <h1 className="mt-4 font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Bitcoin savjetovanje za jasnije odluke, sigurnost i osobni okvir.
+            Bitcoin savjetovanje jedan-na-jedan za put od držanja Bitcoina do
+            sustava odluka.
           </h1>
           <p className="mt-5 max-w-4xl text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Jedan-na-jedan savjetovanje za ljude koji vide da je Bitcoin važan,
-            ali ne žele odluku temeljiti na dojmu, prognozi cijene ili tuđem
-            pritisku. Razgovaramo o Bitcoinu, osobnoj situaciji, dugu,
-            sigurnosti, obitelji i pravilima koja možete objasniti.
+            Ovo nije generična Bitcoin edukacija. Razgovaramo o tome kako se
+            Bitcoin povezuje s vašim proračunom, dugom, davanjem, neto imovinom,
+            sigurnošću, obitelji i pravilima koja možete objasniti.
           </p>
           <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
             <li>
@@ -184,6 +185,17 @@ export function BitcoinAdvice() {
         </section>
 
         <section className="mt-12 sm:mt-14">
+          <h2 className="text-2xl font-semibold">
+            Zašto savjetovanje počinje uvodnim razgovorom
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Uvodni razgovor je filter. U 15 minuta vidimo je li dovoljan kratak
+            odgovor, treba li jedno ozbiljno pitanje proći kroz Bitcoin
+            konzultaciju ili je potrebno graditi osobni Bitcoin standard.
+          </p>
+        </section>
+
+        <section className="mt-12 sm:mt-14">
           <h2 className="text-2xl font-semibold">Tri moguća oblika rada</h2>
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
             {paths.map((path) => (
@@ -214,6 +226,34 @@ export function BitcoinAdvice() {
             Cilj je jasniji okvir u kojem odluka ostaje vaša.
           </p>
           <CheckList items={notDoingItems} />
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:mt-14 sm:p-8">
+          <h2 className="text-2xl font-semibold">
+            Vodiči objašnjavaju okvir, razgovor ga primjenjuje
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Ako želite prvo čitati, krenite kroz vodiče. Ako želite provjeriti
+            gdje ste u vlastitoj situaciji, krenite od uvodnog razgovora.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={PRACTICAL_BITCOIN_STANDARD_URL}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
+              data-link="bitcoin-advice-guides"
+            >
+              Vodiči
+              <ArrowUpRight className="size-4" />
+            </a>
+            <a
+              href="/sigurnost/"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
+              data-link="bitcoin-advice-security-bottom"
+            >
+              Sigurnost
+              <ArrowUpRight className="size-4" />
+            </a>
+          </div>
         </section>
 
         <section className="mt-12 rounded-2xl border border-foreground/10 bg-foreground p-6 text-background shadow-sm sm:mt-14 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">

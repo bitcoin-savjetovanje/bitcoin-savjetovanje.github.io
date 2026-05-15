@@ -6,7 +6,6 @@ import {
   CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
-  OPEN_MANUSCRIPT_URL,
   PRACTICAL_BITCOIN_STANDARD_URL,
   SAIFEDEAN_AMMOUS_URL,
   TWENTYONE_URL,
@@ -51,9 +50,9 @@ export function AboutSection() {
         <div>
           <div className="credibility-copy">
             <p>
-              Praktični Bitcoin standard nastao je iz pokušaja da Bitcoin ne
-              bude samo nešto što držim, nego novac oko kojega uređujem
-              proračun, dug, davanje, neto imovinu, sigurnost i obiteljski
+              Knjiga Bitcoin kao novac nastaje iz pokušaja da Bitcoin ne bude
+              samo nešto što držim, nego novac oko kojega uređujem proračun,
+              dug, davanje, neto imovinu, vrijeme, sigurnost i obiteljski
               pristup.
             </p>
             <p>
@@ -65,19 +64,10 @@ export function AboutSection() {
               Dio tog rada javno razvijam kroz{" "}
               <a
                 href={PRACTICAL_BITCOIN_STANDARD_URL}
-                data-link="practical-bitcoin-standard"
+                data-link="bitcoin-as-money-guides"
               >
                 vodiče
               </a>
-              {", "}
-              <a
-                href={OPEN_MANUSCRIPT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-link="about-open-manuscript"
-              >
-                otvoreni radni rukopis knjige Practical Bitcoin Standard
-              </a>{" "}
               i{" "}
               <a
                 href={DVADESET_JEDAN_URL}

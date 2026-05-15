@@ -1,20 +1,16 @@
-import { ArrowUpRight, CalendarDays } from "lucide-react"
+import { CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { Button } from "@/components/ui/button"
-import { findGuide, guideHref } from "@/content/guides"
+import { findGuide, guideHref, type Guide } from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
-import {
-  CONVERSATION_PATH,
-  OPEN_MANUSCRIPT_URL,
-  PRIMARY_CTA,
-} from "@/content/site"
+import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
 const roadmapGroups = [
   {
     id: "proracun",
-    title: "Korak 1 — Red u novcu",
+    title: "Proračun",
     slugs: [
       "svaki-euro-ima-namjenu",
       "stvarni-visak",
@@ -24,7 +20,7 @@ const roadmapGroups = [
   },
   {
     id: "dug",
-    title: "Korak 2 — Dug i sloboda odluke",
+    title: "Dug",
     slugs: [
       "dug-je-buduci-novac",
       "dug-ili-bitcoin",
@@ -33,7 +29,7 @@ const roadmapGroups = [
   },
   {
     id: "davanje",
-    title: "Korak 3 — Davanje",
+    title: "Davanje",
     slugs: [
       "davanje-u-proracunu-nulte-osnove",
       "davanje-bez-duga",
@@ -42,19 +38,17 @@ const roadmapGroups = [
   },
   {
     id: "bitcoin",
-    title: "Korak 4 — Bitcoin kao novac",
+    title: "Bitcoin kao novac",
     slugs: [
       "niste-zakasnili-u-bitcoin",
       "bitcoin-kao-novac",
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
-      "uskladivanje-kupovne-moci-bitcoina",
-      "cijena-kao-mjera-vremena",
     ],
   },
   {
     id: "neto-imovina",
-    title: "Korak 5 — Neto imovina",
+    title: "Neto imovina",
     slugs: [
       "novac-kapital-potrosnja",
       "bitcoin-u-neto-imovini",
@@ -63,8 +57,13 @@ const roadmapGroups = [
     ],
   },
   {
+    id: "vrijeme-volatilnost",
+    title: "Vrijeme i volatilnost",
+    slugs: ["uskladivanje-kupovne-moci-bitcoina", "cijena-kao-mjera-vremena"],
+  },
+  {
     id: "sigurnost",
-    title: "Korak 6 — Sigurnost i obitelj",
+    title: "Sigurnost i obitelj",
     slugs: [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "obiteljski-bitcoin-trezor",
@@ -79,10 +78,21 @@ const guideChips = [
   { label: "Proračun", href: "#proracun" },
   { label: "Dug", href: "#dug" },
   { label: "Davanje", href: "#davanje" },
-  { label: "Bitcoin", href: "#bitcoin" },
+  { label: "Bitcoin kao novac", href: "#bitcoin" },
   { label: "Neto imovina", href: "#neto-imovina" },
+  { label: "Vrijeme i volatilnost", href: "#vrijeme-volatilnost" },
   { label: "Sigurnost", href: "#sigurnost" },
 ] as const
+
+const starterSlugs = [
+  "svaki-euro-ima-namjenu",
+  "dug-ili-bitcoin",
+  "bitcoin-kao-novac",
+] as const
+
+const starterGuides = starterSlugs
+  .map((slug) => findGuide(slug))
+  .filter((guide): guide is Guide => Boolean(guide))
 
 const roadmap = roadmapGroups
   .map((group) => ({
@@ -121,15 +131,15 @@ export function GuidesIndex() {
       <section className="section-shell">
         <header className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold tracking-[0.16em] text-muted-foreground uppercase">
-            Praktični Bitcoin standard
+            Bitcoin kao novac
           </p>
           <h1 className="mt-4 font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Vodiči za osobni Bitcoin standard
+            Vodiči za knjigu Bitcoin kao novac
           </h1>
           <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Ne morate pročitati sve. Vodiči su mapa metode: prvo proračun, zatim
-            dug, davanje, Bitcoin kao novac, kupovna moć, neto imovina i
-            sigurnost.
+            Vodiči objašnjavaju okvir za život s Bitcoinom kao novcem: proračun,
+            dug, davanje, Bitcoin kao primarni novac, neto imovina, vrijeme,
+            volatilnost, sigurnost i obitelj.
           </p>
           <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">
             Ako želite primjenu na vlastitu situaciju, dogovorite 15-minutni
@@ -157,52 +167,33 @@ export function GuidesIndex() {
           </div>
         </header>
 
-        <section
-          className="case-panel mx-auto mt-12 max-w-5xl border-primary/20 bg-card"
-          aria-labelledby="open-manuscript-title"
-        >
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(220px,280px)] lg:items-center">
-            <div>
-              <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-                Knjiga u nastajanju
-              </p>
-              <h2
-                id="open-manuscript-title"
-                className="mt-3 text-2xl font-semibold tracking-[-0.015em] text-foreground sm:text-3xl"
-              >
-                Otvoreni rukopis knjige
-              </h2>
-              <div className="mt-4 space-y-4 text-base leading-8 text-muted-foreground">
-                <p>
-                  Praktični Bitcoin standard razvijam i kao javno dostupan radni
-                  rukopis knjige. Trenutna javna verzija dostupna je na
-                  engleskom jeziku, dok hrvatsku verziju još pišem i uređujem.
-                </p>
-                <p>
-                  Knjiga, vodiči i savjetovanje nastaju iz istog okvira:
-                  proračun, dug, davanje, Bitcoin kao novac, neto imovina,
-                  volatilnost, sigurnost i obitelj. Razgovori sa stvarnim
-                  ljudima pomažu mi vidjeti koja pitanja treba objasniti
-                  jasnije, praktičnije i boljim redoslijedom.
-                </p>
-              </div>
-            </div>
-            <div className="rounded-2xl border border-border/80 bg-background/70 p-5 shadow-sm">
-              <a
-                href={OPEN_MANUSCRIPT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-                data-link="guides-open-manuscript"
-              >
-                Pogledajte otvoreni rukopis
-                <ArrowUpRight className="size-4" />
-              </a>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                Hrvatska verzija knjige još je u procesu pisanja.
-              </p>
-            </div>
+        <section className="case-panel mx-auto mt-12 max-w-5xl border-primary/20 bg-card">
+          <h2 className="text-2xl font-semibold">
+            Ako želite samo početak, krenite ovdje
+          </h2>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+            Ako prvi put prolazite ovaj okvir, nemojte odmah čitati sve. Krenite
+            od tri vodiča koji stvaraju temelj za razgovor.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {starterGuides.map((guide) => (
+              <article key={guide.slug} className="guide-roadmap-card">
+                <h3 className="text-lg font-semibold">
+                  <a
+                    href={guideHref(guide.slug)}
+                    className="text-foreground hover:text-primary"
+                    data-link="guide-starter-card"
+                  >
+                    {guide.title}
+                  </a>
+                </h3>
+                <p>{guide.excerpt}</p>
+              </article>
+            ))}
           </div>
+          <p className="mt-6 text-base leading-8 font-semibold text-foreground">
+            Kad to prođete, nastavite kroz cijelu mapu.
+          </p>
         </section>
 
         <section className="guides-roadmap" aria-labelledby="guides-method-map">
@@ -214,13 +205,12 @@ export function GuidesIndex() {
               id="guides-method-map"
               className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl"
             >
-              Roadmap kroz okvir
+              Cijela mapa vodiča
             </h2>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Ne morate čitati sve odjednom. Ako ne znate gdje krenuti, krenite
-              od proračuna. Ako vas konkretno muči dug, sigurnost, obitelj ili
-              odluka o ulozi Bitcoina, možete krenuti od vodiča koji se odnosi
-              na to pitanje.
+              Krenite od proračuna i duga ako tek slažete temelj. Ako već imate
+              konkretno pitanje, preskočite na područje koje najviše utječe na
+              vašu odluku.
             </p>
           </div>
 

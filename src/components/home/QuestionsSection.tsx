@@ -1,93 +1,23 @@
-import { CalendarDays, Check } from "lucide-react"
-import { useState } from "react"
+import { Check } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
-import { Button } from "@/components/ui/button"
-import { questionGroups } from "@/content/home"
-import { CONVERSATION_PATH } from "@/content/site"
-
-function conversationHref(question: string) {
-  const search = new URLSearchParams({ pitanje: question }).toString()
-
-  return `${CONVERSATION_PATH}?${search}`
-}
+import { conversationProblemCards } from "@/content/home"
 
 export function QuestionsSection() {
-  const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null)
-
   return (
-    <section id="pitanja" className="section-shell section-muted">
+    <section id="pitanja" className="section-shell">
       <SectionHeader
-        title="U razgovor možete doći s jednim stvarnim Bitcoin pitanjem."
-        copy="Ne trebate prije razgovora proučiti moj okvir, pročitati knjigu ni znati stručne izraze. Dovoljno je da donesete jedno stvarno pitanje koje utječe na vašu odluku. Ako niste sigurni je li pitanje dovoljno veliko, i to možemo razjasniti u uvodnom razgovoru."
+        title="Za koga je ovaj razgovor?"
+        copy="Ovaj razgovor ima smisla ako se prepoznajete u jednoj od ovih rečenica."
       />
-      <div className="questions-grid">
-        {questionGroups.map((group) => (
-          <article key={group.title} className="question-group-card">
-            <h3>{group.title}</h3>
-            <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
-              {group.questions.map((question) => (
-                <li key={question}>
-                  <button
-                    type="button"
-                    className="question-choice"
-                    aria-pressed={selectedQuestion === question}
-                    onClick={() => setSelectedQuestion(question)}
-                  >
-                    <Check className="positive-icon mt-1 size-4 shrink-0" />
-                    <span>{question}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
+      <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {conversationProblemCards.map((card) => (
+          <article key={card.title} className="value-card bg-card">
+            <Check className="positive-icon size-5" />
+            <h3 className="mt-4">{card.title}</h3>
+            <p>{card.copy}</p>
           </article>
         ))}
-      </div>
-      <div className="question-response-card">
-        <h3 className="text-xl font-semibold">
-          {selectedQuestion
-            ? "S tim pitanjem možemo početi razgovor."
-            : "Odaberite pitanje koje vam je najbliže."}
-        </h3>
-        {selectedQuestion ? (
-          <p className="mt-3 text-base leading-8 text-muted-foreground">
-            Odabrano pitanje: {selectedQuestion}
-          </p>
-        ) : null}
-        <p className="mt-2 text-base leading-8 text-muted-foreground">
-          {selectedQuestion
-            ? "U 15 minuta vidimo je li dovoljan kratak odgovor ili vrijedi ići dublje."
-            : "Nakon odabira vidjet ćete zašto je to dobro pitanje za uvodni razgovor."}
-        </p>
-        {selectedQuestion ? (
-          <Button asChild className="cta-primary mt-5 rounded-full">
-            <a
-              href={conversationHref(selectedQuestion)}
-              className="justify-center text-center"
-              data-cta="question-selected-intro-call"
-            >
-              <CalendarDays className="size-4" />
-              Dogovorite razgovor s ovim pitanjem
-            </a>
-          </Button>
-        ) : null}
-      </div>
-      <div className="question-note-card">
-        <p className="max-w-4xl text-base leading-8 text-muted-foreground">
-          Uvodni razgovor ne služi tome da u 15 minuta riješimo sve. Služi tome
-          da prepoznamo što prvo treba razjasniti. Ako mogu pomoći, predložit ću
-          plaćeni sljedeći korak. Ako ne mogu, reći ću vam to otvoreno.
-        </p>
-        <Button asChild className="cta-primary mt-6 rounded-full">
-          <a
-            href={CONVERSATION_PATH}
-            className="justify-center text-center"
-            data-cta="questions-intro-call"
-          >
-            <CalendarDays className="size-4" />
-            Dogovorite uvodni razgovor
-          </a>
-        </Button>
       </div>
     </section>
   )

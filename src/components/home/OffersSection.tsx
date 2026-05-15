@@ -11,8 +11,8 @@ export function OffersSection() {
     <section id="ponude" className="section-shell section-muted">
       <div className="case-panel border-primary/25 bg-card">
         <SectionHeader
-          title="Prvo razjasnite pitanje. Tek onda biramo nastavak."
-          copy="Uvodni razgovor je prvi korak. Ako nakon toga vrijedi ići dublje, plaćeni rad može biti jedan dubinski razgovor ili izgradnja pisanog osobnog Bitcoin standarda."
+          title="Tri moguća nastavka"
+          copy="Uvodni razgovor služi tome da vidimo treba li kratak odgovor, Bitcoin konzultacija ili rad na pisanom osobnom Bitcoin standardu."
         />
         {introOffer ? (
           <article className="offer-card offer-card--intro mt-10">

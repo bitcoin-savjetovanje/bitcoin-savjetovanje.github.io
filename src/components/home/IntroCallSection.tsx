@@ -9,7 +9,7 @@ export function IntroCallSection() {
   return (
     <section id="uvodni-razgovor" className="section-shell">
       <div className="case-panel border-primary/25">
-        <SectionHeader title="U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman." />
+        <SectionHeader title="U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo." />
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {introCallSteps.map((item, index) => (
             <article key={item.title} className="program-card bg-background/70">
@@ -26,7 +26,7 @@ export function IntroCallSection() {
             <a
               href={CONVERSATION_PATH}
               className="justify-center text-center"
-              data-cta="intro-section-call"
+              data-cta="home-process-intro-call"
             >
               <CalendarDays className="size-4" />
               {PRIMARY_CTA}

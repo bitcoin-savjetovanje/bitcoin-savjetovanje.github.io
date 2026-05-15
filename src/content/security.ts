@@ -1,12 +1,12 @@
 export const neverAskItems = [
-  "seed phrase — 12 ili 24 riječi za oporavak novčanika",
+  "seed phrase se nikada ne traži — 12 ili 24 riječi za oporavak novčanika",
   "privatne ključeve",
   "lozinke",
   "pristup burzi",
   "pristup novčaniku",
   "pristup uređajima",
   "kontrolu nad vašim Bitcoinom",
-  "slanje Bitcoina meni na čuvanje",
+  "slanje Bitcoina savjetniku",
 ]
 
 export const securityReviewItems = [

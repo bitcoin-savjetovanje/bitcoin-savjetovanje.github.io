@@ -4,12 +4,13 @@ export const CAL_BOOKING_LINK = "btcpavao/uvodni-bitcoin-razgovor"
 export const CAL_BOOKING_NAMESPACE = "uvodni-bitcoin-razgovor"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
-export const SECONDARY_CTA = "Pogledajte pitanja koja možemo proći"
+export const SECONDARY_CTA = "Pogledajte okvir"
 export const BITCOIN_ADVICE_PATH = "/bitcoin-savjetovanje/"
 export const CONVERSATION_PATH = "/razgovor/"
 export const BITCOIN_CONSULTATION_PATH = "/bitcoin-konzultacija/"
+export const PERSONAL_BITCOIN_STANDARD_PATH = "/osobni-bitcoin-standard/"
 export const PRIVACY_PATH = "/privatnost/"
-export const SITE_UPDATED_AT = "2026-05-13"
+export const SITE_UPDATED_AT = "2026-05-15"
 export const OG_IMAGE_PATH = "/og-bitcoin-logo.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
@@ -23,9 +24,9 @@ export const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
 export const TWENTYONE_URL = "https://twentyone.world"
 
 export const homeSeo = {
-  title: "Bitcoin Savjetovanje | Uvodni Bitcoin razgovor",
+  title: "Bitcoin kao novac | Bitcoin Savjetovanje",
   description:
-    "Jedan-na-jedan Bitcoin savjetovanje za ljude koji imaju stvarno Bitcoin pitanje o odluci, cijeni, dugu, sigurnosti, obitelji ili ulozi Bitcoina u vlastitoj imovini.",
+    "Od držanja Bitcoina do uređenog sustava odluka. Uvodni 15-minutni razgovor za ljude koji žele povezati Bitcoin s proračunom, dugom, neto imovinom, sigurnošću i obitelji.",
   canonical: `${SITE_URL}/`,
 }
 
@@ -37,23 +38,30 @@ export const bitcoinAdviceSeo = {
 }
 
 export const conversationSeo = {
-  title: "Uvodni Bitcoin razgovor | Bitcoin Savjetovanje",
+  title: "Uvodni razgovor | Bitcoin kao novac",
   description:
-    "Dogovorite 15-minutni uvodni razgovor bez naknade i bez obveze. Dođite s Bitcoin pitanjem i vidite što prvo treba razjasniti.",
+    "Dogovorite 15-minutni uvodni razgovor i vidite gdje ste na putu od držanja Bitcoina do uređenog sustava odluka.",
   canonical: `${SITE_URL}${CONVERSATION_PATH}`,
 }
 
 export const bitcoinConsultationSeo = {
-  title: "Bitcoin konzultacija | Bitcoin Savjetovanje",
+  title: "Bitcoin konzultacija od 200 € | Bitcoin Savjetovanje",
   description:
-    "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje utječe na vašu odluku. Bez savjeta ‘kupi’ ili ‘prodaj’, bez prognoza cijene i bez traženja seed phrase.",
+    "Jedan dubinski razgovor za jedno ozbiljno pitanje o Bitcoinu, proračunu, dugu, neto imovini, sigurnosti ili obitelji.",
   canonical: `${SITE_URL}${BITCOIN_CONSULTATION_PATH}`,
 }
 
-export const guidesIndexSeo = {
-  title: "Vodiči za osobni Bitcoin standard | Bitcoin Savjetovanje",
+export const personalBitcoinStandardSeo = {
+  title: "Osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Kratka mapa Praktičnog Bitcoin standarda: proračun, dug, davanje, Bitcoin kao novac, kupovna moć, neto imovina, sigurnost i obitelj.",
+    "Program od 4–6 tjedana za izgradnju pisanog sustava odluka za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, volatilnost, sigurnost i obitelj.",
+  canonical: `${SITE_URL}${PERSONAL_BITCOIN_STANDARD_PATH}`,
+}
+
+export const guidesIndexSeo = {
+  title: "Vodiči za knjigu Bitcoin kao novac | Bitcoin Savjetovanje",
+  description:
+    "Vodiči za život s Bitcoinom kao novcem: proračun, dug, davanje, Bitcoin kao primarni novac, neto imovina, volatilnost, sigurnost i obitelj.",
   canonical: `${SITE_URL}/vodici/`,
 }
 

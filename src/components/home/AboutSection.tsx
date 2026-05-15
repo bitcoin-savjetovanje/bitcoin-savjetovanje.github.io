@@ -5,7 +5,11 @@ import {
   CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
+  BITCOIN_STANDARD_AUDIO_URL,
   PRACTICAL_BITCOIN_STANDARD_URL,
+  SAIFEDEAN_AMMOUS_URL,
+  SAIF_HOUSE_URL,
+  STEMI_URL,
 } from "@/content/site"
 
 export function AboutSection() {
@@ -36,16 +40,49 @@ export function AboutSection() {
         <div>
           <div className="credibility-copy">
             <p>
-              Bitcoin sam počeo proučavati 2014., a s vremenom sam ga prestao
-              gledati samo kao imovinu koju se drži sa strane. Pitanje koje me
-              najviše zanima jest: što se mijenja kada Bitcoin počnete shvaćati
-              kao novac oko kojega treba urediti stvarni život?
+              Bitcoin sam počeo proučavati 2014. Od 2018. sam u proučavanje
+              Bitcoina, monetarne ekonomije i sigurnosti uložio više od 10.000
+              sati, a s vremenom sam ga prestao gledati samo kao imovinu koju se
+              drži sa strane. Pitanje koje me najviše zanima jest: što se
+              mijenja kada Bitcoin počnete shvaćati kao novac oko kojega treba
+              urediti stvarni život?
             </p>
             <p>
-              Prije punog rada u Bitcoinu bio sam suosnivač i direktor STEMI-ja.
-              Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca, nego
+              Prije punog rada u Bitcoinu bio sam suosnivač i direktor{" "}
+              <a href={STEMI_URL} target="_blank" rel="noopener noreferrer">
+                STEMI-ja
+              </a>
+              . Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca, nego
               kroz stvarne odluke o cash flowu, riziku, ljudima, obvezama i
               vremenu.
+            </p>
+            <p>
+              U Bitcoin industriji radio sam sa{" "}
+              <a
+                href={SAIFEDEAN_AMMOUS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Saifedeanom Ammousom
+              </a>
+              , autorom knjige Bitcoin Standard, na njegovoj online akademiji,{" "}
+              <a
+                href={BITCOIN_STANDARD_AUDIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                podcastima
+              </a>{" "}
+              i{" "}
+              <a
+                href={SAIF_HOUSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                izdavačkoj kući
+              </a>
+              . To iskustvo spaja Bitcoin teoriju, edukaciju, izdavaštvo i
+              stvarne operativne odluke.
             </p>
             <p>
               Danas radim s ljudima koji žele prijeći iz “imam Bitcoin” u “imam
@@ -74,12 +111,28 @@ export function AboutSection() {
             </p>
             <div className="credibility-badges" aria-label="Kratki kontekst">
               <article>
-                <strong>Od 2014.</strong>
-                <span>Praktično iskustvo s Bitcoinom kroz više ciklusa.</span>
+                <strong>10.000+ sati</strong>
+                <span>
+                  Od 2018. sustavno proučavanje Bitcoina, monetarne ekonomije i
+                  sigurnosti.
+                </span>
               </article>
               <article>
                 <strong>Poduzetništvo</strong>
-                <span>Suosnivač i bivši direktor STEMI-ja.</span>
+                <span>
+                  Suosnivač i bivši direktor{" "}
+                  <a href={STEMI_URL} target="_blank" rel="noopener noreferrer">
+                    STEMI-ja
+                  </a>
+                  .
+                </span>
+              </article>
+              <article>
+                <strong>Bitcoin industrija</strong>
+                <span>
+                  Rad sa Saifedeanom Ammousom na akademiji, podcastima i
+                  izdavačkoj kući.
+                </span>
               </article>
               <article>
                 <strong>Knjiga i vodiči</strong>

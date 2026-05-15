@@ -665,6 +665,11 @@ const homeChecks = [
   ],
   ["Pavao Pahljina", "about section name"],
   ["STEMI", "about section entrepreneurship signal"],
+  ["https://stemi.education/", "STEMI external link"],
+  ["više od 10.000 sati", "Bitcoin study hours credibility signal"],
+  ["Saifedeanom Ammousom", "Bitcoin industry credibility signal"],
+  ["autorom knjige Bitcoin Standard", "Bitcoin Standard author context"],
+  ["https://saifedean.com", "Saifedean external link"],
   ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   [

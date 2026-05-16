@@ -581,30 +581,19 @@ const homeChecks = [
     "pojedince, obitelji i poduzetnike",
     "business audience framing",
   ],
+  [
+    "Dogovorite 15-minutni uvodni razgovor",
+    "primary intro call CTA copy",
+  ],
   ["osobno", "personal scope badge"],
   ["obiteljski", "family scope badge"],
   ["poslovno", "business scope badge"],
   [
-    "U 15-minutnom uvodnom razgovoru vidimo gdje ste sada",
-    "intro call hero framing",
+    "Bez naknade i bez obveze. Ne upravljam sredstvima",
+    "hero trust note",
   ],
-  ["Pogledajte okvir", "hero secondary CTA copy"],
-  ['href="#okvir"', "hero framework CTA href"],
   ['data-cta="home-hero-intro-call"', "hero CTA metadata"],
-  ['data-link="home-hero-framework"', "hero framework metadata"],
-  ["Za koga je ovaj razgovor?", "audience section title"],
-  [
-    "Dovoljno je jedno konkretno pitanje.",
-    "audience simplified intro",
-  ],
-  [
-    "učvrstiti Bitcoin tezu",
-    "Bitcoin thesis strengthening copy",
-  ],
-  [
-    "Novčani tok, porezi, plaće, dobavljači, poslovna riznica",
-    "compact business audience copy",
-  ],
+  ["Radna bilježnica", "hero workbook visual"],
   [
     "Okvir iz knjige: 7 područja koja treba urediti",
     "framework section title",
@@ -619,37 +608,56 @@ const homeChecks = [
   ["Neto imovina", "framework net worth item"],
   ["Vrijeme i volatilnost", "framework time volatility item"],
   ["Sigurnost i obitelj", "framework security family item"],
+  ["Tri razine. Jedan princip.", "three levels section title"],
+  ["Urediti vlastiti sustav odluka.", "personal level copy"],
+  [
+    "Uskladiti vrijednosti i pravila u kući.",
+    "family level copy",
+  ],
+  [
+    "Integrirati Bitcoin u poslovni kontekst.",
+    "business level copy",
+  ],
   [
     "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
-    "intro call section title",
+    "intro call and offers section title",
   ],
-  [
-    "Ne morate unaprijed znati u kojem ste poglavlju knjige.",
-    "intro call section simplification copy",
-  ],
-  ["Novac i odluke", "standard layers preview money layer"],
-  ["Imovina i posao", "standard layers preview business layer"],
-  ["Sigurnost i prijenos", "standard layers preview safety layer"],
-  ["Ako vrijedi ići dublje", "offer section title"],
+  ["Zatim birate sljedeći korak.", "offer transition copy"],
+  ["Uvodni razgovor", "intro offer title"],
+  ["0 €", "intro offer price"],
   ["Bitcoin konzultacija", "renamed 200 EUR offer"],
-  ["Krenite od uvodnog razgovora", "standard offer CTA copy"],
+  ["200 €", "Bitcoin konzultacija price"],
+  ["Osobni Bitcoin standard", "personal standard offer title"],
+  ["1.500 €", "personal standard price"],
+  ["Prvo dogovorite razgovor", "paid offer CTA copy"],
   ['href="/osobni-bitcoin-standard/"', "homepage link to personal standard"],
   [
     'data-link="offer-personal-standard-details"',
     "personal standard detail link metadata",
   ],
+  [
+    "Pomažem pojedincima, obiteljima i poduzetnicima urediti sustav odluka",
+    "about section advisory copy",
+  ],
+  [
+    "Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca",
+    "business credibility sentence",
+  ],
+  ["Pavao Pahljina", "about section name"],
+  ["STEMI", "about section entrepreneurship signal"],
+  ["https://stemi.education/", "STEMI external link"],
+  ["Knjiga u nastajanju", "book in progress section title"],
+  [
+    "Bitcoin kao novac: Praktični vodič za život s Bitcoinom",
+    "book in progress title",
+  ],
+  [
+    "Radna bilježnica uz svako poglavlje",
+    "book workbook bullet",
+  ],
   ["Bitcoin ostaje pod vašom kontrolom.", "security trust title"],
   ["nikada ne tražim seed phrase", "seed phrase trust copy"],
   ["razgovor počinje pravilima", "compact trust copy"],
-  [
-    "Ako plaćeni nastavak nema smisla, to otvoreno kažem.",
-    "honest filter copy",
-  ],
-  ["Bitcoin konzultacija", "Bitcoin konzultacija offer title"],
-  ["Što je Bitcoin konzultacija?", "Bitcoin konzultacija detail link copy"],
-  ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija detail link href"],
-  ["Jedan dubinski razgovor", "Bitcoin konzultacija offer format"],
-  ["200 €", "Bitcoin konzultacija price"],
   [
     "Cilj je vidjeti gdje ste na putu od držanja Bitcoina do uređenog sustava odluka.",
     "final CTA calmer body",
@@ -659,24 +667,11 @@ const homeChecks = [
     "ne tražim seed phrase ili privatne ključeve",
     "footer seed phrase disclaimer",
   ],
-  [
-    "Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca",
-    "business credibility sentence",
-  ],
-  ["Pavao Pahljina", "about section name"],
-  ["STEMI", "about section entrepreneurship signal"],
-  ["https://stemi.education/", "STEMI external link"],
-  ["preko 10000 sati", "Bitcoin study hours credibility signal"],
-  ["Saifedeanom Ammousom", "Bitcoin industry credibility signal"],
-  ["autorom knjige Bitcoin Standard", "Bitcoin Standard author context"],
-  ["https://saifedean.com", "Saifedean external link"],
-  ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   [
     "https://bitcoin-savjetovanje.com/og-bitcoin-kao-novac.png",
     "book-aligned OG image",
   ],
-  ['data-cta="home-process-intro-call"', "intro section CTA metadata"],
   ['data-cta="offer-intro-call"', "intro offer CTA metadata"],
   [
     'data-cta="offer-bitcoin-consultation"',
@@ -692,7 +687,7 @@ const homeChecks = [
   ['data-link="home-guide-teaser"', "home guide link metadata"],
   ['data-link="footer-security"', "footer security link metadata"],
   ['data-link="footer-privacy"', "footer privacy link metadata"],
-  ["Dogovorite uvodni razgovor", "intro CTA copy"],
+  ["Dogovorite razgovor", "short intro CTA copy"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
     "home canonical URL",
@@ -707,12 +702,12 @@ for (const [expected, label] of homeChecks) {
 }
 
 const homeNavLinks = [
-  ['href="/bitcoin-savjetovanje/"', "advice nav link"],
-  ['href="/osobni-bitcoin-standard/"', "program nav link"],
-  ['href="/vodici/"', "guides nav link"],
-  ['href="/razgovor/"', "conversation nav link"],
-  ['href="/sigurnost/"', "security nav link"],
+  ['href="/#okvir"', "approach nav link"],
+  ['href="/#ponude"', "offers nav link"],
+  ['href="/#knjiga"', "book nav link"],
   ['href="/#o-meni"', "about nav link"],
+  ['href="/#faq"', "FAQ nav link"],
+  ['href="/razgovor/"', "contact nav link"],
 ]
 
 for (const [expected, label] of homeNavLinks) {
@@ -900,37 +895,37 @@ assertArrayEquals(
 assertBefore(
   "index.html",
   homeHtml,
-  "Za koga je ovaj razgovor?",
   "Okvir iz knjige: 7 područja koja treba urediti",
-  "audience before framework"
+  "Tri razine. Jedan princip.",
+  "framework before three levels"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "Okvir iz knjige: 7 područja koja treba urediti",
+  "Tri razine. Jedan princip.",
   "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
-  "framework before intro call"
+  "three levels before offers"
 )
 assertBefore(
   "index.html",
   homeHtml,
   "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
-  "Ako vrijedi ići dublje",
-  "process before offers"
+  "Pomažem pojedincima, obiteljima i poduzetnicima urediti sustav odluka",
+  "offers before about"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "Ako vrijedi ići dublje",
-  "Bitcoin ostaje pod vašom kontrolom.",
-  "offers before security"
+  "Pomažem pojedincima, obiteljima i poduzetnicima urediti sustav odluka",
+  "Knjiga u nastajanju",
+  "about before book"
 )
 assertBefore(
   "index.html",
   homeHtml,
+  "Knjiga u nastajanju",
   "Bitcoin ostaje pod vašom kontrolom.",
-  "U Bitcoin sam prvi put eksperimentalno ušao 2014.",
-  "security before about"
+  "book before security"
 )
 
 if (!home) {
@@ -1352,8 +1347,8 @@ const guideIndexChecks = [
   ],
   ["CollectionPage", "CollectionPage schema"],
   ["ItemList", "ItemList schema"],
-  ['href="/osobni-bitcoin-standard/"', "guide index Program nav link"],
-  [">Program<", "guide index Program nav label"],
+  ['href="/#knjiga"', "guide index book nav link"],
+  [">Knjiga<", "guide index book nav label"],
 ]
 
 for (const [expected, label] of guideIndexChecks) {

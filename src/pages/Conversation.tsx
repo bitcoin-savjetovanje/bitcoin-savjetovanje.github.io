@@ -166,7 +166,7 @@ export function Conversation() {
             </p>
             <p className="mt-3 font-semibold text-foreground">
               Ne šaljite seed phrase, privatne ključeve, lozinke, screenshotove
-              walleta, iznose, dokumente ni pristup računima.
+              novčanika, iznose, dokumente ni pristup računima.
             </p>
           </div>
           <ul className="conversation-cta-list mt-6">

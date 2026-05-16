@@ -201,8 +201,8 @@ export function Security() {
             U uvodnom razgovoru ne radimo tehničke promjene.
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Ne mijenjamo novčanik, ne diramo uređaje, ne unosimo seed phrase i
-            ne šaljemo transakcije. Prvo razgovaramo o strukturi, rizicima i
+            Ne mijenjamo wallet, ne diramo uređaje, ne unosimo seed phrase i ne
+            šaljemo transakcije. Prvo razgovaramo o strukturi, rizicima i
             sljedećem sigurnom koraku.
           </p>
         </section>

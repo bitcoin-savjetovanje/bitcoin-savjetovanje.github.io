@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import { CalendarDays, Menu, X } from "lucide-react"
+import { CalendarDays, Menu, MoonStar, SunMedium, X } from "lucide-react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
+import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
 import { CONVERSATION_PATH } from "@/content/site"
@@ -83,6 +84,27 @@ function currentActiveHref(fallbackPath: string) {
   return activeHref
 }
 
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+  const isDark = theme === "dark"
+
+  return (
+    <Button
+      variant="outline"
+      size="icon"
+      className="size-11 rounded-full border-transparent bg-transparent text-muted-foreground shadow-none hover:bg-muted hover:text-foreground sm:size-10"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label="Promijeni temu"
+    >
+      {isDark ? (
+        <SunMedium className="size-4" />
+      ) : (
+        <MoonStar className="size-4" />
+      )}
+    </Button>
+  )
+}
+
 type HeaderProps = {
   currentPath: string
 }
@@ -141,17 +163,17 @@ export function Header({ currentPath }: HeaderProps) {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/75 bg-background/94 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3.5 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
         <a
-          className="flex min-w-0 items-center gap-2.5 font-display text-base font-semibold whitespace-nowrap text-foreground"
+          className="flex min-w-0 items-center gap-2 font-display text-base font-semibold whitespace-nowrap"
           href="/"
         >
           <img
             src="/bitcoin-logo.png"
             alt=""
             aria-hidden="true"
-            className="size-8 shrink-0 rounded-full border border-border/70"
+            className="size-6 shrink-0 rounded-full"
             draggable="false"
           />
           <span className="truncate">Bitcoin Savjetovanje</span>
@@ -188,7 +210,7 @@ export function Header({ currentPath }: HeaderProps) {
           <Button
             asChild
             size="lg"
-            className="cta-primary hidden rounded-md px-4 text-sm shadow-sm lg:inline-flex xl:px-5"
+            className="cta-primary hidden rounded-full px-4 text-sm lg:inline-flex xl:px-5"
           >
             {onConversationPage ? (
               <CalBookingLink data-cta="header-intro-call">
@@ -202,10 +224,11 @@ export function Header({ currentPath }: HeaderProps) {
               </a>
             )}
           </Button>{" "}
+          <ThemeToggle />{" "}
           <Button
             variant="outline"
             size="icon"
-            className="size-11 rounded-md border-border/80 bg-background/80 sm:size-10 lg:hidden"
+            className="size-11 rounded-full border-border/80 bg-background/80 sm:size-10 lg:hidden"
             onClick={() => setMobileMenuOpen((open) => !open)}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav"

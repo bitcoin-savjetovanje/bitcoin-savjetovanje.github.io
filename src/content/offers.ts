@@ -30,7 +30,7 @@ export const offers: Offer[] = [
     duration: "15 minuta",
     forWhom: "Bez naknade i bez obveze.",
     detail:
-      "15 minuta da se upoznamo, razjasnimo kontekst i vidimo je li suradnja smislena.",
+      "Prvi filter. Jedno pitanje, jedno usko grlo, jedan sljedeći razuman korak.",
     purpose:
       "Kažete gdje ste sada, prepoznamo prvo usko grlo i dobijete jasniju procjenu sljedećeg koraka.",
     includes: [
@@ -38,7 +38,7 @@ export const offers: Offer[] = [
       "Jedno pitanje ili odluka",
       "Procjena sljedećeg razumnog koraka",
     ],
-    cta: "Dogovorite razgovor",
+    cta: "Dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
     dataCta: "offer-intro-call",
   },
@@ -48,7 +48,7 @@ export const offers: Offer[] = [
     duration: "Jedan dubinski razgovor",
     forWhom:
       "Jedan dubinski razgovor za jedno ozbiljno pitanje koje utječe na odluku.",
-    detail: "Jedan dubinski razgovor za jedno ozbiljno pitanje.",
+    detail: "Jedno pitanje. Jedna odluka. Jedan dubinski razgovor.",
     purpose:
       "Razjašnjavamo Bitcoin tezu, osobnu, obiteljsku ili poslovnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
     includes: [
@@ -56,12 +56,12 @@ export const offers: Offer[] = [
       "Jedan dubinski razgovor",
       "Bez preuzimanja odluke",
     ],
-    cta: "Prvo dogovorite razgovor",
+    cta: "Prvo dogovorite uvodni razgovor",
     href: CONVERSATION_PATH,
     dataCta: "offer-bitcoin-consultation",
     badge: "Prvi plaćeni korak",
     detailLink: {
-      label: "Saznajte više",
+      label: "Što je Bitcoin konzultacija?",
       href: BITCOIN_CONSULTATION_PATH,
       dataLink: "offer-bitcoin-consultation-details",
     },
@@ -72,8 +72,7 @@ export const offers: Offer[] = [
     duration: "4–6 tjedana",
     forWhom:
       "Za osobu, obitelj ili vlasnika posla koji želi pisana pravila za novac, dug, Bitcoin, sigurnost i obiteljski ili poslovni pristup.",
-    detail:
-      "Cjelovit, pisani okvir za privatni, obiteljski i po potrebi poslovni sloj.",
+    detail: "Cijeli sustav. Više tjedana. Pisani okvir.",
     purpose:
       "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i privatna, obiteljska ili poslovna pravila bez predaje kontrole.",
     includes: [
@@ -81,11 +80,11 @@ export const offers: Offer[] = [
       "4–6 tjedana rada",
       "Sigurnosni i operativni okvir",
     ],
-    cta: "Prvo dogovorite razgovor",
+    cta: "Krenite od uvodnog razgovora",
     href: CONVERSATION_PATH,
     dataCta: "offer-personal-standard",
     detailLink: {
-      label: "Saznajte više",
+      label: "Pogledajte program",
       href: PERSONAL_BITCOIN_STANDARD_PATH,
       dataLink: "offer-personal-standard-details",
     },

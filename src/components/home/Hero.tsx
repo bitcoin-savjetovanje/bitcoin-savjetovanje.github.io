@@ -1,4 +1,4 @@
-import { CalendarDays, ShieldCheck } from "lucide-react"
+import { ArrowDown, CalendarDays } from "lucide-react"
 
 import { BookCoverCard } from "@/components/home/BookCoverCard"
 import { Button } from "@/components/ui/button"
@@ -26,12 +26,16 @@ export function Hero() {
               <li key={badge}>{badge}</li>
             ))}
           </ul>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-foreground/80">
+            U 15-minutnom uvodnom razgovoru vidimo gdje ste sada, koje je prvo
+            usko grlo i ima li smisla nastaviti dublje.
+          </p>
 
           <div className="mt-8 flex w-full max-w-2xl flex-col gap-3 sm:mt-9 lg:max-w-none lg:flex-row lg:items-center">
             <Button
               asChild
               size="lg"
-              className="cta-primary h-12 w-full rounded-md px-5 text-base shadow-sm lg:w-auto lg:px-6"
+              className="cta-primary h-12 w-full rounded-full px-5 text-base lg:w-auto lg:px-6"
             >
               <a
                 href={CONVERSATION_PATH}
@@ -45,21 +49,31 @@ export function Hero() {
                 </span>
               </a>
             </Button>
+            <span className="sr-only"> ili </span>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-12 w-full rounded-full px-5 text-base lg:w-auto lg:px-6"
+            >
+              <a
+                href="#okvir"
+                className="justify-center text-center"
+                data-link="home-hero-framework"
+              >
+                <ArrowDown className="size-4" />
+                Pogledajte okvir
+              </a>
+            </Button>
           </div>
-          <div className="hero-trust-note">
-            <ShieldCheck className="size-5" aria-hidden="true" />
-            <p>
-              Bez naknade i bez obveze. Ne upravljam sredstvima, ne prognoziram
-              cijenu i nikada ne tražim seed phrase, privatne ključeve ni
-              pristup novčaniku.
-            </p>
-          </div>
+          <p className="mt-5 max-w-3xl text-sm leading-6 font-medium text-muted-foreground">
+            Bez naknade i bez obveze. Ne upravljam sredstvima, ne prognoziram
+            cijenu i nikada ne tražim seed phrase, privatne ključeve ni pristup
+            novčaniku.
+          </p>
         </div>
-        <div className="hero-book-stage" aria-label="Knjiga Bitcoin kao novac">
-          <div className="hero-workbook-card" aria-hidden="true">
-            <span>Radna bilježnica</span>
-            <small>za život s Bitcoinom</small>
-          </div>
+        <div className="hero-book-stage">
+          <span className="hero-book-badge">Okvir iz knjige u nastajanju</span>
           <BookCoverCard />
         </div>
       </div>

@@ -145,7 +145,7 @@ const programFaqs = [
   {
     question: "Radimo li tehničko postavljanje novčanika?",
     answer:
-      "U programu možemo razgovarati o sigurnosnoj strukturi i pravilima, ali ne tražim seed phrase, privatne ključeve, lozinke ni pristup uređajima ili novčaniku.",
+      "U programu možemo razgovarati o sigurnosnoj strukturi i pravilima, ali ne tražim seed phrase, privatne ključeve, lozinke ni pristup uređajima ili walletu.",
   },
   {
     question: "Što ako nakon uvodnog razgovora program nema smisla?",
@@ -279,7 +279,7 @@ export function PersonalBitcoinStandard() {
               savjet, računovodstveni savjet ili nalog za kupnju/prodaju.
             </p>
           </div>
-          <aside className="deliverable-mockup" aria-label="Prikaz dokumenta">
+          <aside className="deliverable-mockup" aria-label="Mockup dokumenta">
             <span className="deliverable-stamp">pisani okvir</span>
             <div className="deliverable-tabs" aria-hidden="true">
               <span>privatno/obitelj</span>
@@ -363,7 +363,7 @@ export function PersonalBitcoinStandard() {
           <h2 className="text-2xl font-semibold">Cijena i ulaz</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
             Program traje 4–6 tjedana i cijena je 1.500 €. Ne kreće se izravno
-            preko naplate. Prvi korak je 15-minutni uvodni razgovor u kojem
+            preko checkouta. Prvi korak je 15-minutni uvodni razgovor u kojem
             vidimo ima li program smisla za vašu situaciju.
           </p>
           <Button asChild className="cta-primary mt-6 rounded-full">
@@ -400,7 +400,7 @@ export function PersonalBitcoinStandard() {
             Želite vidjeti ima li program smisla za vas?
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-            Prvi korak nije naplata, nego 15-minutni uvodni razgovor.
+            Prvi korak nije checkout, nego 15-minutni uvodni razgovor.
           </p>
           <Button asChild className="cta-primary mt-6 rounded-full">
             <a

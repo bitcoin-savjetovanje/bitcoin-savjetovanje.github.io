@@ -364,6 +364,8 @@ const requiredFiles = [
   "images/proracun-hero.jpg",
   "images/proracun-hero-20260521.webp",
   "images/proracun-hero-20260521.jpg",
+  "images/guide-svaki-euro-ima-namjenu-cover.webp",
+  "images/guide-svaki-euro-ima-namjenu-cover.jpg",
   "images/dug-hero.webp",
   "images/dug-hero.jpg",
   "images/davanje-hero.webp",
@@ -2463,6 +2465,26 @@ assertArrayEquals(
   ),
   ["Što je stvarni višak?"],
   "next guide link text is title only"
+)
+
+const svakiEuroGuideHtml = readFile("vodici/svaki-euro-ima-namjenu/index.html")
+assertIncludes(
+  "vodici/svaki-euro-ima-namjenu/index.html",
+  svakiEuroGuideHtml,
+  "/images/guide-svaki-euro-ima-namjenu-cover.webp",
+  "svaki euro guide cover WebP image"
+)
+assertIncludes(
+  "vodici/svaki-euro-ima-namjenu/index.html",
+  svakiEuroGuideHtml,
+  "/images/guide-svaki-euro-ima-namjenu-cover.jpg",
+  "svaki euro guide cover JPEG image"
+)
+assertIncludes(
+  "vodici/svaki-euro-ima-namjenu/index.html",
+  svakiEuroGuideHtml,
+  "Mediteranska kamena scena s proračunskom bilježnicom",
+  "svaki euro guide cover alt text"
 )
 
 assertArrayEquals(

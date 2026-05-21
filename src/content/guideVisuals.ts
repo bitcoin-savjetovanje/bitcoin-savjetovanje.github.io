@@ -85,6 +85,17 @@ const artPromptsBySlug: Record<string, string> = {
     "Family Bitcoin treasury as carved stone layers, separate locations implied by envelopes and keys, Mediterranean table, warm side light, editorial cover image.",
 }
 
+const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
+  "svaki-euro-ima-namjenu": {
+    webpSrc: "/images/guide-svaki-euro-ima-namjenu-cover.webp",
+    src: "/images/guide-svaki-euro-ima-namjenu-cover.jpg",
+    alt: "Mediteranska kamena scena s proračunskom bilježnicom za vodič Svaki euro ima namjenu",
+    position: "50% 52%",
+    caption:
+      "Svaki euro dobiva namjenu prije nego što Bitcoin odluka postane stvarno slobodna.",
+  },
+}
+
 export function resolveGuideTheme(guide: Guide): GuideTheme {
   if (guide.theme) {
     return guide.theme
@@ -100,15 +111,20 @@ export function resolveGuideTheme(guide: Guide): GuideTheme {
 export function resolveGuideCover(guide: Guide): GuideCover {
   const theme = resolveGuideTheme(guide)
   const fallback = defaultCovers[theme]
+  const override = coverOverridesBySlug[guide.slug]
   const artPrompt = guide.cover?.artPrompt ?? artPromptsBySlug[guide.slug]
 
   return {
     ...fallback,
+    ...override,
     ...guide.cover,
     alt:
-      guide.cover?.alt ?? `Mediteranska kamena scena za vodič ${guide.title}`,
+      guide.cover?.alt ??
+      override?.alt ??
+      `Mediteranska kamena scena za vodič ${guide.title}`,
     caption:
       guide.cover?.caption ??
+      override?.caption ??
       "Privremeni cover koristi postojeći hero asset dok se ne izradi zasebna naslovnica vodiča.",
     artPrompt,
   }

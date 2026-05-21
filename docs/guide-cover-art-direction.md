@@ -15,7 +15,7 @@ Fallback teme:
 
 | Slug | Theme | Trenutni fallback | Budući cover prompt |
 | --- | --- | --- | --- |
-| svaki-euro-ima-namjenu | budget | /images/proracun-hero.jpg | Mediterranean limestone desk scene, zero-based budget worksheet, pencil marks, olive branch, warm side light, sea visible in the distance, carved stone Bitcoin symbol as money. |
+| svaki-euro-ima-namjenu | budget | /images/guide-svaki-euro-ima-namjenu-cover.jpg | Mediterranean limestone desk scene, zero-based budget worksheet, pencil marks, olive branch, warm side light, sea visible in the distance, carved stone Bitcoin symbol as money. |
 | stvarni-visak | budget | /images/proracun-hero.jpg | Warm Mediterranean stone table with envelopes for obligations and a small clear surplus area, linen paper, sea light, no charts, no trading interface. |
 | prihod-nije-slobodan-novac | budget | /images/proracun-hero.jpg | Business income arriving on paper, taxes and obligations separated on a limestone desk, quiet Mediterranean office, no dashboard. |
 | starost-novca | budget | /images/proracun-hero.jpg | Calendar pages and old envelopes on stone, showing money surviving through time, warm sea light, editorial book-cover mood. |
@@ -42,4 +42,3 @@ Fallback teme:
 | samostalna-pohrana-ili-skrbnik | security | /images/skrbnistvo-sigurnost-hero.jpg | Two custody paths shown as physical objects on stone, one personal key system and one institutional envelope, no fear imagery. |
 | bitkey-bitcoin-sigurnost | security | /images/skrbnistvo-sigurnost-hero.jpg | Simple family-friendly security device scene on stone and linen, three-key recovery idea, calm and practical. |
 | obiteljski-pristup-bitcoinu | security | /images/skrbnistvo-sigurnost-hero.jpg | Minimal family access instruction, sealed envelope and separated keys, Mediterranean home light, no secret words visible. |
-

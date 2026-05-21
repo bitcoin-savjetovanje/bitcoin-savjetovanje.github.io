@@ -3540,6 +3540,9 @@
 }
 
 .hero-shell {
+  --hero-shell-pad-top: clamp(2rem, 4vw, 3.8rem);
+  --hero-shell-pad-bottom: clamp(2.5rem, 4.8vw, 4.7rem);
+
   position: relative;
   display: grid;
   max-width: none;
@@ -3547,7 +3550,7 @@
   grid-template-columns: minmax(31rem, 0.82fr) minmax(420px, 1.18fr);
   align-items: stretch;
   gap: clamp(1.4rem, 3.2vw, 3.6rem);
-  padding: clamp(2rem, 4vw, 3.8rem) 0 clamp(2.5rem, 4.8vw, 4.7rem)
+  padding: var(--hero-shell-pad-top) 0 var(--hero-shell-pad-bottom)
     clamp(1.8rem, 5.8vw, 5.2rem);
 }
 
@@ -3637,9 +3640,11 @@
   display: block;
   align-self: stretch;
   margin-left: clamp(-5.8rem, -5.2vw, -3rem);
-  min-height: clamp(30rem, 43vw, 39rem);
+  margin-top: calc(-1 * var(--hero-shell-pad-top));
+  min-height: calc(clamp(30rem, 43vw, 39rem) + var(--hero-shell-pad-top));
   overflow: hidden;
   border: 1px solid var(--line-warm);
+  border-top: 0;
   border-right: 0;
   border-left: 0;
   border-radius: 0 0 0 0;
@@ -5851,6 +5856,15 @@
     max-width: 34rem;
   }
 
+  .about-book-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-editorial-card {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-warm);
+  }
+
   .topic-hero {
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) minmax(28rem, 1.08fr);
@@ -5881,11 +5895,14 @@
   }
 
   .hero-shell {
+    --hero-shell-pad-top: clamp(0.7rem, 1.4vw, 1.35rem);
+    --hero-shell-pad-bottom: clamp(0.8rem, 1.5vw, 1.45rem);
+
     min-height: inherit;
     grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
     align-items: stretch;
     gap: clamp(0.5rem, 1.7vw, 1.7rem);
-    padding: clamp(0.7rem, 1.4vw, 1.35rem) 0 clamp(0.8rem, 1.5vw, 1.45rem)
+    padding: var(--hero-shell-pad-top) 0 var(--hero-shell-pad-bottom)
       clamp(1.4rem, 4vw, 3.8rem);
   }
 
@@ -5906,8 +5923,12 @@
 
   .hero-image-frame {
     height: 100%;
-    min-height: clamp(34rem, calc(100svh - 7.1rem), 52rem);
+    min-height: calc(
+      clamp(34rem, calc(100svh - 7.1rem), 52rem) +
+        var(--hero-shell-pad-top)
+    );
     margin-left: clamp(-6.4rem, -6vw, -3rem);
+    margin-top: calc(-1 * var(--hero-shell-pad-top));
     align-self: stretch;
   }
 
@@ -5939,6 +5960,7 @@
     width: 100%;
     min-height: clamp(26rem, 45vw, 34rem);
     margin-left: 0;
+    margin-top: 0;
     border: 1px solid var(--line-warm);
     border-radius: 0.65rem;
     -webkit-mask-image: none;
@@ -6000,6 +6022,7 @@
   .hero-image-frame,
   .consulting-hero-visual {
     margin-left: 0;
+    margin-top: 0;
     min-height: 29rem;
   }
 

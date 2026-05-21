@@ -44,13 +44,10 @@ export function Hero() {
           </div>
         </div>
         <picture className="hero-image-frame">
-          <source
-            srcSet="/images/hero-bitcoin-savjetovanje-realistic.webp"
-            type="image/webp"
-          />
+          <source srcSet="/images/home-hero-20260521.webp" type="image/webp" />
           <img
-            src="/images/hero-bitcoin-savjetovanje-realistic.jpg"
-            alt="Radna scena Bitcoin savjetovanja s bilježnicom, karticama sustava i knjigom u nastajanju"
+            src="/images/home-hero-20260521.jpg"
+            alt="Mediteranska radna scena sa sedam kamenih skulptura osobnog Bitcoin standarda"
             width="1536"
             height="1024"
             loading="eager"

@@ -336,6 +336,8 @@ const requiredFiles = [
   "sitemap.xml",
   "og-bitcoin-kao-novac.png",
   "og-bitcoin-kao-novac.svg",
+  "images/home-hero-20260521.webp",
+  "images/home-hero-20260521.jpg",
   "images/hero-bitcoin-savjetovanje-realistic.webp",
   "images/hero-bitcoin-savjetovanje-realistic.jpg",
   "images/medallions/02-novac.png",
@@ -736,16 +738,16 @@ const homeChecks = [
     "hero trust note",
   ],
   [
-    "hero-bitcoin-savjetovanje-realistic.webp",
-    "realistic hero WebP asset",
+    "home-hero-20260521.webp",
+    "sculpted home hero WebP asset",
   ],
   [
-    "hero-bitcoin-savjetovanje-realistic.jpg",
-    "realistic hero JPEG fallback",
+    "home-hero-20260521.jpg",
+    "sculpted home hero JPEG fallback",
   ],
   [
-    "Radna scena Bitcoin savjetovanja s bilježnicom, karticama sustava i knjigom u nastajanju",
-    "realistic hero image alt text",
+    "Mediteranska radna scena sa sedam kamenih skulptura osobnog Bitcoin standarda",
+    "sculpted home hero image alt text",
   ],
   ["Imam Bitcoin, ali nemam pravila.", "recognition section title"],
   [

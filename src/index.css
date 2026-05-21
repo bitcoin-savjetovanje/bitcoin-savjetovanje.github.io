@@ -3518,7 +3518,7 @@
 }
 
 .hero-section {
-  min-height: clamp(44rem, 76svh, 54rem);
+  min-height: clamp(42rem, calc(100svh - 5.5rem), 56rem);
   background:
     radial-gradient(
       circle at 67% 46%,
@@ -3545,8 +3545,8 @@
   grid-template-columns: minmax(31rem, 0.82fr) minmax(420px, 1.18fr);
   align-items: center;
   gap: clamp(2.5rem, 4.8vw, 4.9rem);
-  padding: clamp(3.35rem, 5.8vw, 5.25rem) 0
-    clamp(3.35rem, 5.8vw, 5.25rem) clamp(1.8rem, 5.8vw, 5.2rem);
+  padding: clamp(2rem, 4vw, 3.8rem) 0 clamp(2.5rem, 4.8vw, 4.7rem)
+    clamp(1.8rem, 5.8vw, 5.2rem);
 }
 
 .hero-copy {
@@ -5825,15 +5825,16 @@
 }
 
 @media (min-width: 981px) and (max-width: 1500px) {
-  .hero-section,
-  .hero-shell {
-    min-height: 0;
+  .hero-section {
+    min-height: clamp(40rem, calc(100svh - 5.35rem), 52rem);
   }
 
   .hero-shell {
+    min-height: inherit;
     grid-template-columns: minmax(0, 0.74fr) minmax(0, 1.26fr);
+    align-items: start;
     gap: clamp(1.5rem, 3vw, 2.9rem);
-    padding: clamp(2.6rem, 4vw, 3.8rem) 0 clamp(2.6rem, 4vw, 3.8rem)
+    padding: clamp(1.15rem, 2.2vw, 2.2rem) 0 clamp(1.8rem, 3vw, 3rem)
       clamp(1.4rem, 4vw, 3.8rem);
   }
 

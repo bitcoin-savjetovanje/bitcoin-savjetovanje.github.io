@@ -5240,8 +5240,7 @@
   }
 
   .topic-hero-v2__copy::after {
-    right: min(-5rem, -5vw);
-    width: clamp(5rem, 10vw, 10rem);
+    display: none;
   }
 
   .topic-hero-v2__title {
@@ -5278,18 +5277,16 @@
   }
 
   .topic-hero-v2__media {
-    display: grid;
     min-height: inherit;
-    place-items: center;
   }
 
   .topic-hero-v2__media picture,
   .topic-hero-v2__media img {
-    min-height: 0;
+    min-height: inherit;
   }
 
   .topic-hero-v2__media img {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .topic-hero-v2[data-topic-theme] {

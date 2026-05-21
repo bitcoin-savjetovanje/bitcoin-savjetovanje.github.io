@@ -1,8 +1,8 @@
 export const navLinks = [
-  { label: "Savjetovanje", href: "/bitcoin-savjetovanje/" },
-  { label: "Program", href: "/osobni-bitcoin-standard/" },
-  { label: "Vodiči", href: "/vodici/" },
-  { label: "Razgovor", href: "/razgovor/" },
-  { label: "Sigurnost", href: "/sigurnost/" },
+  { label: "O pristupu", href: "/#okvir" },
+  { label: "Usluge", href: "/#ponude" },
+  { label: "Knjiga", href: "/#knjiga" },
   { label: "O meni", href: "/#o-meni" },
+  { label: "Česta pitanja", href: "/razgovor/#pitanja" },
+  { label: "Kontakt", href: "/razgovor/" },
 ]

@@ -5,6 +5,12 @@ export const CAL_BOOKING_NAMESPACE = "uvodni-bitcoin-razgovor"
 export const EMAIL = "pavao@hey.com"
 export const PRIMARY_CTA = "Dogovorite 15-minutni uvodni razgovor"
 export const SECONDARY_CTA = "Pogledajte okvir"
+export const BUDGET_PATH = "/proracun/"
+export const DEBT_PATH = "/dug/"
+export const GIVING_PATH = "/davanje/"
+export const NET_WORTH_PATH = "/bitcoin-i-neto-imovina/"
+export const TIME_VOLATILITY_PATH = "/bitcoin-vrijeme-i-volatilnost/"
+export const CUSTODY_SECURITY_PATH = "/skrbnistvo-i-sigurnost/"
 export const BITCOIN_ADVICE_PATH = "/bitcoin-savjetovanje/"
 export const CONVERSATION_PATH = "/razgovor/"
 export const BITCOIN_CONSULTATION_PATH = "/bitcoin-konzultacija/"
@@ -25,10 +31,52 @@ export const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
 export const TWENTYONE_URL = "https://twentyone.world"
 
 export const homeSeo = {
-  title: "Bitcoin kao novac | Bitcoin Savjetovanje",
+  title: "Bitcoin Savjetovanje — osobni Bitcoin standard",
   description:
-    "Od držanja Bitcoina do uređenog sustava odluka. Uvodni 15-minutni razgovor za pojedince, obitelji i poduzetnike koji žele povezati Bitcoin s proračunom, dugom, poslovnom riznicom, neto imovinom, sigurnošću i obitelji.",
+    "Konzultacije za pojedince, obitelji i poduzetnike koji žele Bitcoin shvatiti kao novac i urediti proračun, dug, davanje, neto imovinu, volatilnost i sigurnost.",
   canonical: `${SITE_URL}/`,
+}
+
+export const budgetSeo = {
+  title: "Proračun | Bitcoin Savjetovanje",
+  description:
+    "Proračun kao prvi dio osobnog Bitcoin standarda: dati svakoj jedinici novca namjenu, vidjeti stvarno stanje i prepoznati stvarni višak.",
+  canonical: `${SITE_URL}${BUDGET_PATH}`,
+}
+
+export const debtSeo = {
+  title: "Dug | Bitcoin Savjetovanje",
+  description:
+    "Dug kao drugi dio osobnog Bitcoin standarda: popisati obveze, vidjeti stvarnu cijenu duga i osloboditi budući novac.",
+  canonical: `${SITE_URL}${DEBT_PATH}`,
+}
+
+export const givingSeo = {
+  title: "Davanje | Bitcoin Savjetovanje",
+  description:
+    "Davanje kao treći dio osobnog Bitcoin standarda: otvorena ruka u tvrdom novcu, pravilo zahvalnosti, mira i odnosa prema novcu.",
+  canonical: `${SITE_URL}${GIVING_PATH}`,
+}
+
+export const netWorthSeo = {
+  title: "Bitcoin i neto imovina | Bitcoin Savjetovanje",
+  description:
+    "Bitcoin i neto imovina kao peti dio osobnog Bitcoin standarda: promatrati imovinu kao jednu cjelinu, primijeniti Pravilo trećina i donositi odluke s jasnoćom.",
+  canonical: `${SITE_URL}${NET_WORTH_PATH}`,
+}
+
+export const timeVolatilitySeo = {
+  title: "Bitcoin, vrijeme i volatilnost | Bitcoin Savjetovanje",
+  description:
+    "Bitcoin, vrijeme i volatilnost kao šesti dio osobnog Bitcoin standarda: razumjeti dugoročni trend, odvojiti trend od buke i donositi odluke kroz cikluse.",
+  canonical: `${SITE_URL}${TIME_VOLATILITY_PATH}`,
+}
+
+export const custodySecuritySeo = {
+  title: "Bitcoin skrbništvo i sigurnost | Bitcoin Savjetovanje",
+  description:
+    "Bitcoin skrbništvo i sigurnost kao sedmi dio osobnog Bitcoin standarda: slojevi zaštite, backup, oporavak, obitelj i plan nasljeđivanja.",
+  canonical: `${SITE_URL}${CUSTODY_SECURITY_PATH}`,
 }
 
 export const bitcoinAdviceSeo = {

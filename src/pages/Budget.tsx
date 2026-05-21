@@ -1,0 +1,278 @@
+import {
+  BookOpen,
+  Briefcase,
+  CalendarDays,
+  CheckCircle2,
+  User,
+  Users,
+} from "lucide-react"
+
+import { Seo } from "@/components/Seo"
+import { Button } from "@/components/ui/button"
+import { budgetRoute } from "@/content/routes"
+import {
+  CONVERSATION_PATH,
+  PRACTICAL_BITCOIN_STANDARD_URL,
+} from "@/content/site"
+
+const budgetOutcomes = [
+  {
+    iconSrc: "/images/medallions/16-proracun.png",
+    title: "Svakoj jedinici novca dati namjenu",
+  },
+  {
+    iconSrc: "/images/medallions/02-novac.png",
+    title: "Vidjeti stvarno stanje bez osuđivanja",
+  },
+  {
+    iconSrc: "/images/medallions/21-stvarni-visak.png",
+    title: "Prepoznati stvarni višak",
+  },
+  {
+    iconSrc: "/images/medallions/05-neto-imovina.png",
+    title: "Učiniti oportunitetni trošak vidljivim",
+  },
+  {
+    iconSrc: "/images/medallions/25-ciklusi.png",
+    title: "Usklađivati odluke kroz vrijeme",
+  },
+  {
+    iconSrc: "/images/medallions/27-obiteljski-trezor.png",
+    title: "Proračun za pojedinca, obitelj i posao",
+  },
+]
+
+const clarityItems = [
+  "Jasna slika — točno znate kamo novac ide i gdje curi.",
+  "Bolje odluke — kad je novac svrstan, odluke su lakše, a ne teže.",
+  "Više slobode — plan donosi prostor za ono što vam je stvarno važno.",
+  "Otpornost — dobar proračun stvara mir u neizvjesnim vremenima.",
+]
+
+const audienceItems = [
+  {
+    Icon: User,
+    text: "Pojedincima koji žele prekinuti kaos u financijama.",
+  },
+  {
+    Icon: Users,
+    text: "Obiteljima koje žele zajednički plan i manje nesuglasica.",
+  },
+  {
+    Icon: Briefcase,
+    text: "Poduzetnicima koji žele jasniji pregled i bolji tijek gotovine.",
+  },
+  {
+    Icon: Users,
+    text: "Onima koji već imaju Bitcoin, ali još nemaju sustav donošenja odluka.",
+  },
+]
+
+const guideCards = [
+  {
+    title: "Proračun nije kazna, nego jasnoća",
+    copy: "Zašto proračun donosi slobodu umjesto ograničenja i kako promijeniti način na koji gledate na novac.",
+    href: "/vodici/svaki-euro-ima-namjenu/",
+    imagePosition: "42% 60%",
+  },
+  {
+    title: "Svakoj jedinici novca dati namjenu",
+    copy: "Praktičan postupak kako rasporediti prihod i svakom euru dati svrhu.",
+    href: "/vodici/svaki-euro-ima-namjenu/",
+    imagePosition: "50% 78%",
+  },
+  {
+    title: "Stvarni višak nije ono što ostane na računu",
+    copy: "Kako prepoznati višak nakon planiranja i usmjeriti ga prema onome što vam je važno.",
+    href: "/vodici/stvarni-visak/",
+    imagePosition: "18% 44%",
+  },
+]
+
+const budgetPrinciples = [
+  "Red u novcu stvara mir.",
+  "Mir u odlukama donosi slobodu.",
+  "Sloboda omogućuje dugoročnu izgradnju.",
+]
+
+export function Budget() {
+  return (
+    <>
+      <Seo
+        title={budgetRoute.title}
+        description={budgetRoute.description}
+        canonical={budgetRoute.canonical}
+        ogType={budgetRoute.ogType}
+        schema={budgetRoute.schema as object}
+      />
+
+      <div className="topic-page budget-page">
+        <section className="topic-hero budget-hero">
+          <div className="topic-hero__copy">
+            <p className="topic-eyebrow">DIO I · BEZVREMENSKI RED U NOVCU</p>
+            <h1>Proračun</h1>
+            <p className="topic-hero__lead">
+              Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali
+              prioritet.
+            </p>
+            <p className="topic-hero__body">
+              Proračun nije odricanje. To je alat jasnoće koji vam pokazuje gdje
+              vaš novac trenutno ide, što vam je stvarno važno i kako odluke
+              uskladiti s vašim ciljevima — danas i kroz vrijeme.
+            </p>
+            <div className="topic-hero__actions">
+              <Button
+                asChild
+                size="lg"
+                className="cta-primary home-primary-button"
+              >
+                <a href={CONVERSATION_PATH} data-cta="budget-intro-call">
+                  <CalendarDays className="size-4" aria-hidden="true" />
+                  Dogovorite uvodni razgovor
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="home-outline-button">
+                <a
+                  href={PRACTICAL_BITCOIN_STANDARD_URL}
+                  data-link="budget-guides"
+                >
+                  <BookOpen className="size-4" aria-hidden="true" />
+                  Pregledajte vodiče
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div
+            className="topic-hero__image"
+            role="img"
+            aria-label="Mediteranska radna scena s bilježnicom, planom proračuna i pogledom na more"
+          />
+        </section>
+
+        <section className="topic-section budget-outcomes-section">
+          <h2>Što uređujete kroz proračun</h2>
+          <div className="budget-outcomes-grid">
+            {budgetOutcomes.map(({ iconSrc, title }) => (
+              <article className="budget-outcome-card" key={title}>
+                <img src={iconSrc} alt="" aria-hidden="true" loading="lazy" />
+                <h3>{title}</h3>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="topic-section budget-split-section">
+          <article>
+            <h2>
+              Proračun nije ograničenje,
+              <br />
+              nego jasnoća
+            </h2>
+            <ul className="budget-check-list">
+              {clarityItems.map((item) => (
+                <li key={item}>
+                  <CheckCircle2 aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article>
+            <h2>Kome je ovo korisno</h2>
+            <ul className="budget-audience-list">
+              {audienceItems.map(({ Icon, text }) => (
+                <li key={text}>
+                  <Icon aria-hidden="true" />
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        <section className="topic-section budget-guides-section">
+          <h2>Vodiči iz ovog dijela</h2>
+          <div className="budget-guides-grid">
+            {guideCards.map((guide) => (
+              <article className="budget-guide-card" key={guide.title}>
+                <div
+                  className="budget-guide-card__image"
+                  style={{ backgroundPosition: guide.imagePosition }}
+                  aria-hidden="true"
+                />
+                <div>
+                  <h3>{guide.title}</h3>
+                  <p>{guide.copy}</p>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="home-outline-button"
+                  >
+                    <a href={guide.href} data-link="budget-guide-card">
+                      Pročitaj vodič
+                    </a>
+                  </Button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="budget-principle-strip">
+          <div className="budget-principle-strip__mark">
+            <img src="/bitcoin-logo.png" alt="" aria-hidden="true" />
+          </div>
+          <div className="budget-principle-strip__copy">
+            <h2>Proračun je prvi korak.</h2>
+            <p>Bitcoin ne uklanja potrebu za redom — pojačava je.</p>
+          </div>
+          <ul>
+            {budgetPrinciples.map((principle) => (
+              <li key={principle}>{principle}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="budget-book-panel">
+          <picture>
+            <source
+              srcSet="/images/bitcoin-kao-novac-cover.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/bitcoin-kao-novac-cover.jpg"
+              alt="Cover knjige Bitcoin kao novac"
+              width="1024"
+              height="1535"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <div>
+            <p className="topic-eyebrow">KNJIGA U NASTAJANJU</p>
+            <h2>Bitcoin kao novac — knjiga u nastajanju</h2>
+            <p>
+              Ovi vodiči dio su sustava iz knjige “Bitcoin kao novac”. Knjiga
+              povezuje bezvremenske principe novca s praktičnim koracima za
+              svakodnevni život.
+            </p>
+            <div className="budget-book-panel__actions">
+              <Button asChild className="cta-primary home-primary-button">
+                <a href="/#knjiga" data-link="budget-book-section">
+                  Saznajte više o knjizi
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="home-outline-button">
+                <a href={CONVERSATION_PATH} data-cta="budget-book-call">
+                  Dogovorite razgovor
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  )
+}

@@ -18,7 +18,6 @@ import {
   privacySeo,
   securitySeo,
 } from "./site"
-import { homepageFaqs } from "./faq"
 
 type BreadcrumbItem = {
   name: string
@@ -67,7 +66,7 @@ export function homeSchema() {
         serviceType:
           "Uvodni Bitcoin razgovor, Bitcoin konzultacija i osobni Bitcoin standard",
         description:
-          "Bitcoin decision framework for individuals, families and entrepreneurs. Savjetodavni rad za razumijevanje Bitcoina, osobna, obiteljska i poslovna pravila, sigurnost i poslovnu riznicu. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije financijsko, porezno, pravno ili računovodstveno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
+          "Konzultacije za pojedince, obitelji i poduzetnike koji žele Bitcoin shvatiti kao novac i urediti proračun, dug, davanje, neto imovinu, volatilnost i sigurnost. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije financijsko, porezno, pravno ili računovodstveno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
         audience: [
           { "@type": "Audience", audienceType: "individuals" },
           { "@type": "Audience", audienceType: "families" },
@@ -84,17 +83,6 @@ export function homeSchema() {
           price: offer.price.replace(" €", "").replace(".", ""),
           priceCurrency: "EUR",
           description: offer.purpose,
-        })),
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: homepageFaqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
         })),
       },
     ],

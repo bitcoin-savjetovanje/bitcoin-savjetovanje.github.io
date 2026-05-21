@@ -1,5 +1,6 @@
 import { guideHref, guides } from "./guides"
 import {
+  breadcrumbSchema,
   bitcoinConsultationPageSchema,
   bitcoinAdvicePageSchema,
   conversationPageSchema,
@@ -14,18 +15,30 @@ import {
   OG_IMAGE_URL,
   SITE_UPDATED_AT,
   SITE_URL,
+  budgetSeo,
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   conversationSeo,
+  custodySecuritySeo,
+  debtSeo,
+  givingSeo,
   guidesIndexSeo,
   homeSeo,
+  netWorthSeo,
   personalBitcoinStandardSeo,
   privacySeo,
   securitySeo,
+  timeVolatilitySeo,
 } from "./site"
 
 export type RouteType =
   | "home"
+  | "budget"
+  | "debt"
+  | "giving"
+  | "net-worth"
+  | "time-volatility"
+  | "custody-security"
   | "bitcoin-advice"
   | "conversation"
   | "bitcoin-consultation"
@@ -73,6 +86,259 @@ export const guidesIndexRoute: RouteMeta = {
   canonical: guidesIndexSeo.canonical,
   schema: guidesIndexSchema(),
   type: "guides-index",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const budgetRoute: RouteMeta = {
+  path: "/proracun/",
+  title: budgetSeo.title,
+  description: budgetSeo.description,
+  canonical: budgetSeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Proračun",
+        description: budgetSeo.description,
+        url: budgetSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "proračun",
+          "osobni Bitcoin standard",
+          "stvarni višak",
+          "upravljanje novcem",
+          "Bitcoin kao novac",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Proračun", item: budgetSeo.canonical },
+      ]),
+    ],
+  },
+  type: "budget",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const debtRoute: RouteMeta = {
+  path: "/dug/",
+  title: debtSeo.title,
+  description: debtSeo.description,
+  canonical: debtSeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Dug",
+        description: debtSeo.description,
+        url: debtSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "dug",
+          "razduživanje",
+          "osobni Bitcoin standard",
+          "stvarni višak",
+          "Bitcoin kao novac",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Dug", item: debtSeo.canonical },
+      ]),
+    ],
+  },
+  type: "debt",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const givingRoute: RouteMeta = {
+  path: "/davanje/",
+  title: givingSeo.title,
+  description: givingSeo.description,
+  canonical: givingSeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Davanje",
+        description: givingSeo.description,
+        url: givingSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "davanje",
+          "zahvalnost",
+          "osobni Bitcoin standard",
+          "proračun",
+          "Bitcoin kao novac",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Davanje", item: givingSeo.canonical },
+      ]),
+    ],
+  },
+  type: "giving",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const netWorthRoute: RouteMeta = {
+  path: "/bitcoin-i-neto-imovina/",
+  title: netWorthSeo.title,
+  description: netWorthSeo.description,
+  canonical: netWorthSeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin i neto imovina",
+        description: netWorthSeo.description,
+        url: netWorthSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin i neto imovina",
+          "neto imovina",
+          "Pravilo trećina",
+          "likvidnost",
+          "osobni Bitcoin standard",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Bitcoin i neto imovina", item: netWorthSeo.canonical },
+      ]),
+    ],
+  },
+  type: "net-worth",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const timeVolatilityRoute: RouteMeta = {
+  path: "/bitcoin-vrijeme-i-volatilnost/",
+  title: timeVolatilitySeo.title,
+  description: timeVolatilitySeo.description,
+  canonical: timeVolatilitySeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin, vrijeme i volatilnost",
+        description: timeVolatilitySeo.description,
+        url: timeVolatilitySeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin, vrijeme i volatilnost",
+          "dugoročni trend",
+          "volatilnost",
+          "ciklusi",
+          "osobni Bitcoin standard",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "Bitcoin, vrijeme i volatilnost",
+          item: timeVolatilitySeo.canonical,
+        },
+      ]),
+    ],
+  },
+  type: "time-volatility",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const custodySecurityRoute: RouteMeta = {
+  path: "/skrbnistvo-i-sigurnost/",
+  title: custodySecuritySeo.title,
+  description: custodySecuritySeo.description,
+  canonical: custodySecuritySeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin skrbništvo i sigurnost",
+        description: custodySecuritySeo.description,
+        url: custodySecuritySeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin skrbništvo i sigurnost",
+          "privatni ključevi",
+          "backup fraza",
+          "nasljeđivanje",
+          "obiteljski Bitcoin trezor",
+          "osobni Bitcoin standard",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "Bitcoin skrbništvo i sigurnost",
+          item: custodySecuritySeo.canonical,
+        },
+      ]),
+    ],
+  },
+  type: "custody-security",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
   ogImage: OG_IMAGE_URL,
@@ -217,6 +483,12 @@ export const notFoundRoute: RouteMeta = {
 
 export const prerenderRoutes: RouteMeta[] = [
   homeRoute,
+  budgetRoute,
+  debtRoute,
+  givingRoute,
+  netWorthRoute,
+  timeVolatilityRoute,
+  custodySecurityRoute,
   bitcoinAdviceRoute,
   conversationRoute,
   bitcoinConsultationRoute,

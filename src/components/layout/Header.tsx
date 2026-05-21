@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-import { CalendarDays, Menu, MoonStar, SunMedium, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
-import { useTheme } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
 import { CONVERSATION_PATH } from "@/content/site"
@@ -84,27 +83,6 @@ function currentActiveHref(fallbackPath: string) {
   return activeHref
 }
 
-function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-  const isDark = theme === "dark"
-
-  return (
-    <Button
-      variant="outline"
-      size="icon"
-      className="size-11 rounded-full border-transparent bg-transparent text-muted-foreground shadow-none hover:bg-muted hover:text-foreground sm:size-10"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label="Promijeni temu"
-    >
-      {isDark ? (
-        <SunMedium className="size-4" />
-      ) : (
-        <MoonStar className="size-4" />
-      )}
-    </Button>
-  )
-}
-
 type HeaderProps = {
   currentPath: string
 }
@@ -115,6 +93,7 @@ export function Header({ currentPath }: HeaderProps) {
     routeActiveHref(currentPath)
   )
   const onConversationPage = currentPath === "/razgovor"
+  const onHomePage = currentPath === "/"
 
   useEffect(() => {
     let frame = 0
@@ -163,85 +142,77 @@ export function Header({ currentPath }: HeaderProps) {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-3 py-3.5 sm:gap-4 sm:px-6 sm:py-4 lg:px-8">
-        <a
-          className="flex min-w-0 items-center gap-2 font-display text-base font-semibold whitespace-nowrap"
-          href="/"
-        >
-          <img
-            src="/bitcoin-logo.png"
-            alt=""
-            aria-hidden="true"
-            className="size-6 shrink-0 rounded-full"
-            draggable="false"
-          />
-          <span className="truncate">Bitcoin Savjetovanje</span>
-        </a>
+    <header className={`site-header ${onHomePage ? "site-header--home" : ""}`}>
+      <div className="site-header__shell">
+        <div className="site-header__inner">
+          <a className="site-header__brand" href="/">
+            <img
+              src="/bitcoin-logo.png"
+              alt=""
+              aria-hidden="true"
+              className="site-header__logo"
+              draggable="false"
+            />
+            <span>BITCOIN SAVJETOVANJE</span>
+          </a>
 
-        <nav className="hidden lg:block" aria-label="Glavna navigacija">
-          <ul className="flex list-none items-center gap-1 xl:gap-5">
-            {navLinks.map((link) => {
-              const active = activeHref === link.href
+          <nav className="site-header__nav" aria-label="Glavna navigacija">
+            <ul>
+              {navLinks.map((link) => {
+                const active = activeHref === link.href
 
-              return (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="site-nav-link"
-                    data-active={active ? "true" : undefined}
-                    aria-current={
-                      active
-                        ? hashFromHref(link.href)
-                          ? "location"
-                          : "page"
-                        : undefined
-                    }
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="site-nav-link"
+                      data-active={active ? "true" : undefined}
+                      aria-current={
+                        active
+                          ? hashFromHref(link.href)
+                            ? "location"
+                            : "page"
+                          : undefined
+                      }
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
 
-        <div className="flex items-center gap-2">
-          <Button
-            asChild
-            size="lg"
-            className="cta-primary hidden rounded-full px-4 text-sm lg:inline-flex xl:px-5"
-          >
-            {onConversationPage ? (
-              <CalBookingLink data-cta="header-intro-call">
-                <CalendarDays className="size-4" />
-                Dogovorite razgovor
-              </CalBookingLink>
-            ) : (
-              <a href={CONVERSATION_PATH} data-cta="header-intro-call">
-                <CalendarDays className="size-4" />
-                Dogovorite razgovor
-              </a>
-            )}
-          </Button>{" "}
-          <ThemeToggle />{" "}
-          <Button
-            variant="outline"
-            size="icon"
-            className="size-11 rounded-full border-border/80 bg-background/80 sm:size-10 lg:hidden"
-            onClick={() => setMobileMenuOpen((open) => !open)}
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-nav"
-            aria-label={
-              mobileMenuOpen ? "Zatvori navigaciju" : "Otvori navigaciju"
-            }
-          >
-            {mobileMenuOpen ? (
-              <X className="size-4" />
-            ) : (
-              <Menu className="size-4" />
-            )}
-          </Button>
+          <div className="site-header__actions">
+            <Button asChild size="lg" className="cta-primary site-header__cta">
+              {onConversationPage ? (
+                <CalBookingLink data-cta="header-intro-call">
+                  Dogovorite razgovor
+                </CalBookingLink>
+              ) : (
+                <a href={CONVERSATION_PATH} data-cta="header-intro-call">
+                  Dogovorite razgovor
+                </a>
+              )}
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="site-header__menu-button"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav"
+              aria-label={
+                mobileMenuOpen ? "Zatvori navigaciju" : "Otvori navigaciju"
+              }
+            >
+              {mobileMenuOpen ? (
+                <X className="size-4" />
+              ) : (
+                <Menu className="size-4" />
+              )}
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -249,7 +220,7 @@ export function Header({ currentPath }: HeaderProps) {
         <nav
           id="mobile-nav"
           aria-label="Mobilna navigacija"
-          className="mx-auto grid max-w-7xl gap-2 border-t border-border/50 px-3 pt-3 pb-4 sm:px-6 lg:hidden"
+          className="mobile-nav-panel"
         >
           {navLinks.map((link) => {
             const active = activeHref === link.href

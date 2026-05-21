@@ -315,6 +315,12 @@ const routeByCanonical = new Map(
     .map((route) => [route.canonical, route])
 )
 const home = routeMap.get("/")
+const budget = routeMap.get("/proracun/")
+const debt = routeMap.get("/dug/")
+const giving = routeMap.get("/davanje/")
+const netWorth = routeMap.get("/bitcoin-i-neto-imovina/")
+const timeVolatility = routeMap.get("/bitcoin-vrijeme-i-volatilnost/")
+const custodySecurity = routeMap.get("/skrbnistvo-i-sigurnost/")
 const conversation = routeMap.get("/razgovor/")
 const bitcoinConsultation = routeMap.get("/bitcoin-konzultacija/")
 const personalBitcoinStandard = routeMap.get("/osobni-bitcoin-standard/")
@@ -329,7 +335,49 @@ const requiredFiles = [
   "sitemap.xml",
   "og-bitcoin-kao-novac.png",
   "og-bitcoin-kao-novac.svg",
+  "images/hero-bitcoin-savjetovanje-realistic.webp",
+  "images/hero-bitcoin-savjetovanje-realistic.jpg",
+  "images/medallions/02-novac.png",
+  "images/medallions/03-dug.png",
+  "images/medallions/04-davanje.png",
+  "images/medallions/05-neto-imovina.png",
+  "images/medallions/06-cilj-i-akcija.png",
+  "images/medallions/08-proizvodna-imovina.png",
+  "images/medallions/09-likvidnost-i-stednja.png",
+  "images/medallions/10-volatilnost-i-rast.png",
+  "images/medallions/12-proracun-i-plan.png",
+  "images/medallions/14-edukacija.png",
+  "images/medallions/15-sigurnost-i-nasljedivanje.png",
+  "images/medallions/16-proracun.png",
+  "images/medallions/17-primarni-novac.png",
+  "images/medallions/18-buduci-novac.png",
+  "images/medallions/19-duh-velikodusnosti.png",
+  "images/medallions/20-pravilo-trecina.png",
+  "images/medallions/21-stvarni-visak.png",
+  "images/medallions/25-ciklusi.png",
+  "images/medallions/26-mentorstvo.png",
+  "images/medallions/27-obiteljski-trezor.png",
+  "images/bitcoin-kao-novac-cover.webp",
+  "images/bitcoin-kao-novac-cover.jpg",
+  "images/proracun-hero.webp",
+  "images/proracun-hero.jpg",
+  "images/dug-hero.webp",
+  "images/dug-hero.jpg",
+  "images/davanje-hero.webp",
+  "images/davanje-hero.jpg",
+  "images/neto-imovina-hero.webp",
+  "images/neto-imovina-hero.jpg",
+  "images/vrijeme-volatilnost-hero.webp",
+  "images/vrijeme-volatilnost-hero.jpg",
+  "images/skrbnistvo-sigurnost-hero.webp",
+  "images/skrbnistvo-sigurnost-hero.jpg",
   "razgovor/index.html",
+  "proracun/index.html",
+  "dug/index.html",
+  "davanje/index.html",
+  "bitcoin-i-neto-imovina/index.html",
+  "bitcoin-vrijeme-i-volatilnost/index.html",
+  "skrbnistvo-i-sigurnost/index.html",
   "bitcoin-konzultacija/index.html",
   "osobni-bitcoin-standard/index.html",
   "vodici/index.html",
@@ -557,6 +605,9 @@ const ctaEventsSource = path.join(root, "src", "lib", "ctaEvents.ts")
 const clientBundleText = assetFiles(".js")
   .map((assetPath) => fs.readFileSync(assetPath, "utf8"))
   .join("\n")
+const cssBundleText = assetFiles(".css")
+  .map((assetPath) => fs.readFileSync(assetPath, "utf8"))
+  .join("\n")
 
 if (fs.existsSync(ctaEventsSource)) {
   pass("src/lib/ctaEvents.ts exists")
@@ -570,129 +621,225 @@ assertIncludes(
   "bitcoin-savjetovanje:cta-click",
   "CTA click CustomEvent name"
 )
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "proracun-hero.webp",
+  "budget hero WebP CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "proracun-hero.jpg",
+  "budget hero JPEG CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "dug-hero.webp",
+  "debt hero WebP CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "dug-hero.jpg",
+  "debt hero JPEG CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "davanje-hero.webp",
+  "giving hero WebP CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "davanje-hero.jpg",
+  "giving hero JPEG CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "neto-imovina-hero.webp",
+  "net worth hero WebP CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "neto-imovina-hero.jpg",
+  "net worth hero JPEG CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "vrijeme-volatilnost-hero.webp",
+  "time volatility hero WebP CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "vrijeme-volatilnost-hero.jpg",
+  "time volatility hero JPEG CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "skrbnistvo-sigurnost-hero.webp",
+  "custody security hero WebP CSS reference"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  "skrbnistvo-sigurnost-hero.jpg",
+  "custody security hero JPEG CSS reference"
+)
 
 const homeChecks = [
-  ["Bitcoin kao novac", "new book framing"],
-  [
-    "Od držanja Bitcoina do uređenog sustava odluka.",
-    "new hero title",
-  ],
+  ["Bitcoin Savjetovanje — osobni Bitcoin standard", "updated home title"],
+  ["BITCOIN SAVJETOVANJE", "editorial header brand"],
+  ["O pristupu", "header approach nav label"],
+  ["Usluge", "header services nav label"],
+  ["Knjiga", "header book nav label"],
+  ["O meni", "header about nav label"],
+  ["Česta pitanja", "header FAQ nav label"],
+  ["Kontakt", "header contact nav label"],
+  ["Dogovorite razgovor", "header CTA copy"],
+  ["BITCOIN KAO NOVAC", "hero eyebrow"],
+  ["Od držanja Bitcoina", "hero title first line"],
+  ["do uređenog sustava", "hero title second line"],
+  ["odluka.", "hero title third line"],
   [
     "pojedince, obitelji i poduzetnike",
     "business audience framing",
   ],
-  ["osobno", "personal scope badge"],
-  ["obiteljski", "family scope badge"],
-  ["poslovno", "business scope badge"],
   [
-    "U 15-minutnom uvodnom razgovoru vidimo gdje ste sada",
-    "intro call hero framing",
+    "Dogovorite 15-minutni uvodni razgovor",
+    "primary intro call CTA copy",
   ],
-  ["Pogledajte okvir", "hero secondary CTA copy"],
-  ['href="#okvir"', "hero framework CTA href"],
-  ['data-cta="home-hero-intro-call"', "hero CTA metadata"],
-  ['data-link="home-hero-framework"', "hero framework metadata"],
-  ["Za koga je ovaj razgovor?", "audience section title"],
+  ['data-cta="hero-intro-call"', "hero CTA metadata"],
   [
-    "Dovoljno je jedno konkretno pitanje.",
-    "audience simplified intro",
+    "Bez naknade i bez obveze. Ne upravljam sredstvima, ne prognoziram cijenu i nikada ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
+    "hero trust note",
   ],
   [
-    "učvrstiti Bitcoin tezu",
-    "Bitcoin thesis strengthening copy",
+    "hero-bitcoin-savjetovanje-realistic.webp",
+    "realistic hero WebP asset",
   ],
   [
-    "Novčani tok, porezi, plaće, dobavljači, poslovna riznica",
-    "compact business audience copy",
+    "hero-bitcoin-savjetovanje-realistic.jpg",
+    "realistic hero JPEG fallback",
+  ],
+  [
+    "Radna scena Bitcoin savjetovanja s bilježnicom, karticama sustava i knjigom u nastajanju",
+    "realistic hero image alt text",
   ],
   [
     "Okvir iz knjige: 7 područja koja treba urediti",
     "framework section title",
   ],
-  ["vidjeti novac", "framework compact budget idea"],
-  ["osloboditi budućnost", "framework compact debt idea"],
-  ["primarni saldo", "framework compact Bitcoin idea"],
+  ['href="/proracun/"', "framework budget card href"],
   ["Proračun", "framework budget item"],
+  ["vidjeti novac", "framework compact budget idea"],
+  ['href="/dug/"', "framework debt card href"],
   ["Dug", "framework debt item"],
+  ["osloboditi budućnost", "framework compact debt idea"],
+  ['href="/davanje/"', "framework giving card href"],
   ["Davanje", "framework giving item"],
+  ["otvoriti ruku", "framework giving idea"],
   ["Bitcoin kao novac", "framework Bitcoin money item"],
+  ["primarni saldo", "framework Bitcoin idea"],
+  ['href="/bitcoin-i-neto-imovina/"', "framework net worth card href"],
   ["Neto imovina", "framework net worth item"],
+  ["bilanca kao cjelina", "framework net worth idea"],
+  [
+    'href="/bitcoin-vrijeme-i-volatilnost/"',
+    "framework time volatility card href",
+  ],
   ["Vrijeme i volatilnost", "framework time volatility item"],
+  ["pravila kroz cikluse", "framework time idea"],
+  ['href="/skrbnistvo-i-sigurnost/"', "framework custody security card href"],
   ["Sigurnost i obitelj", "framework security family item"],
+  ["zaštititi pristup", "framework security idea"],
+  ["Tri razine. Jedan princip.", "three levels title"],
+  ["OSOBNO", "personal level label"],
+  ["Urediti vlastiti sustav odluka.", "personal level copy"],
+  ["OBITELJSKI", "family level label"],
   [
-    "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
-    "intro call section title",
+    "Uskladiti vrijednosti i pravila u kući.",
+    "family level copy",
   ],
+  ["POSLOVNO", "business level label"],
   [
-    "Ne morate unaprijed znati u kojem ste poglavlju knjige.",
-    "intro call section simplification copy",
+    "Integrirati Bitcoin u poslovni kontekst.",
+    "business level copy",
   ],
-  ["Novac i odluke", "standard layers preview money layer"],
-  ["Imovina i posao", "standard layers preview business layer"],
-  ["Sigurnost i prijenos", "standard layers preview safety layer"],
-  ["Ako vrijedi ići dublje", "offer section title"],
-  ["Bitcoin konzultacija", "renamed 200 EUR offer"],
-  ["Krenite od uvodnog razgovora", "standard offer CTA copy"],
-  ['href="/osobni-bitcoin-standard/"', "homepage link to personal standard"],
+  ["U 15 minuta ne gradimo", "services intro first line"],
+  ["cijeli sustav.", "services intro second line"],
+  ["Pronalazimo prvo usko grlo.", "services intro third line"],
+  ["Zatim birate sljedeći korak.", "services intro supporting copy"],
+  ["Uvodni razgovor", "intro offer title"],
+  ["0 €", "intro offer price"],
   [
-    'data-link="offer-personal-standard-details"',
-    "personal standard detail link metadata",
+    "15 minuta da se upoznamo, razumijemo kontekst i vidimo je li suradnja smislena.",
+    "intro offer copy",
   ],
-  ["Bitcoin ostaje pod vašom kontrolom.", "security trust title"],
-  ["nikada ne tražim seed phrase", "seed phrase trust copy"],
-  ["razgovor počinje pravilima", "compact trust copy"],
+  ['data-cta="service-intro-call"', "intro service CTA metadata"],
+  ["Bitcoin konzultacija", "Bitcoin consultation offer title"],
+  ["200 €", "Bitcoin consultation price"],
   [
-    "Ako plaćeni nastavak nema smisla, to otvoreno kažem.",
-    "honest filter copy",
+    "60 minuta rada na vašem kontekstu. Jasni prijedlozi i konkretni koraci koje možete odmah primijeniti.",
+    "Bitcoin consultation offer copy",
   ],
-  ["Bitcoin konzultacija", "Bitcoin konzultacija offer title"],
-  ["Što je Bitcoin konzultacija?", "Bitcoin konzultacija detail link copy"],
-  ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija detail link href"],
-  ["Jedan dubinski razgovor", "Bitcoin konzultacija offer format"],
-  ["200 €", "Bitcoin konzultacija price"],
+  ['href="/bitcoin-konzultacija/"', "Bitcoin consultation detail href"],
+  ['data-cta="service-consultation"', "Bitcoin consultation CTA metadata"],
+  ["Osobni Bitcoin standard", "personal standard offer title"],
+  ["1.500 €", "personal standard price"],
   [
-    "Cilj je vidjeti gdje ste na putu od držanja Bitcoina do uređenog sustava odluka.",
-    "final CTA calmer body",
+    "Cjelovit, pisani okvir vašeg sustava: pravila, procesi i plan za provedbu u vašem životu ili poslovanju.",
+    "personal standard offer copy",
   ],
-  ["ne čuvam vaš Bitcoin", "footer no custody disclaimer"],
+  ['href="/osobni-bitcoin-standard/"', "personal standard detail href"],
   [
-    "ne tražim seed phrase ili privatne ključeve",
-    "footer seed phrase disclaimer",
-  ],
-  [
-    "Zato Bitcoin savjetovanje ne gledam samo kao teoriju novca",
-    "business credibility sentence",
+    'data-cta="service-personal-standard"',
+    "personal standard CTA metadata",
   ],
   ["Pavao Pahljina", "about section name"],
-  ["STEMI", "about section entrepreneurship signal"],
-  ["https://stemi.education/", "STEMI external link"],
-  ["preko 10000 sati", "Bitcoin study hours credibility signal"],
-  ["Saifedeanom Ammousom", "Bitcoin industry credibility signal"],
-  ["autorom knjige Bitcoin Standard", "Bitcoin Standard author context"],
-  ["https://saifedean.com", "Saifedean external link"],
-  ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
+  [
+    "Pomažem pojedincima, obiteljima i poduzetnicima urediti sustav odluka u kojem Bitcoin ima ulogu novca.",
+    "about section first paragraph",
+  ],
+  [
+    "Ne dajem financijske savjete niti upravljam sredstvima. Radim s principima, procesima i disciplinom koja traje.",
+    "about section boundary paragraph",
+  ],
+  ["Saznajte više o meni", "about CTA copy"],
+  ['alt="Pavao Pahljina"', "about portrait alt text"],
+  ["Knjiga u nastajanju", "book section eyebrow"],
+  [
+    "Bitcoin kao novac:",
+    "book section title first line",
+  ],
+  [
+    "Praktični vodič",
+    "book section title second line",
+  ],
+  [
+    "Knjiga koja povezuje bezvremenske principe novca s praktičnim koracima za svakodnevni život.",
+    "book section copy",
+  ],
+  ["Uskoro dostupno u pretprodaji", "book preorder checklist item"],
+  ["Radna bilježnica uz svako poglavlje", "book workbook checklist item"],
+  ["Bez tehničkog žargona, fokus na život", "book plain language checklist item"],
+  ["USKORO", "book badge"],
+  ["ne čuvam vaš Bitcoin", "footer no custody disclaimer"],
+  ["ne tražim seed phrase ili privatne ključeve", "footer seed phrase disclaimer"],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   [
     "https://bitcoin-savjetovanje.com/og-bitcoin-kao-novac.png",
     "book-aligned OG image",
   ],
-  ['data-cta="home-process-intro-call"', "intro section CTA metadata"],
-  ['data-cta="offer-intro-call"', "intro offer CTA metadata"],
-  [
-    'data-cta="offer-bitcoin-consultation"',
-    "Bitcoin konzultacija CTA metadata",
-  ],
-  [
-    'data-link="offer-bitcoin-consultation-details"',
-    "Bitcoin konzultacija detail link metadata",
-  ],
-  ['data-cta="offer-personal-standard"', "standard offer CTA metadata"],
-  ['data-cta="home-security-page"', "home security CTA metadata"],
-  ['data-cta="final-intro-call"', "final CTA metadata"],
-  ['data-link="home-guide-teaser"', "home guide link metadata"],
   ['data-link="footer-security"', "footer security link metadata"],
   ['data-link="footer-privacy"', "footer privacy link metadata"],
-  ["Dogovorite uvodni razgovor", "intro CTA copy"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
     "home canonical URL",
@@ -707,12 +854,12 @@ for (const [expected, label] of homeChecks) {
 }
 
 const homeNavLinks = [
-  ['href="/bitcoin-savjetovanje/"', "advice nav link"],
-  ['href="/osobni-bitcoin-standard/"', "program nav link"],
-  ['href="/vodici/"', "guides nav link"],
-  ['href="/razgovor/"', "conversation nav link"],
-  ['href="/sigurnost/"', "security nav link"],
+  ['href="/#okvir"', "approach nav link"],
+  ['href="/#ponude"', "services nav link"],
+  ['href="/#knjiga"', "book nav link"],
   ['href="/#o-meni"', "about nav link"],
+  ['href="/razgovor/#pitanja"', "FAQ nav link"],
+  ['href="/razgovor/"', "contact nav link"],
 ]
 
 for (const [expected, label] of homeNavLinks) {
@@ -752,8 +899,8 @@ assertNotIncludes(
 assertNotIncludes(
   "index.html",
   homeText,
-  "U razgovor možete doći s bilo kojim Bitcoin pitanjem",
-  "old questions section heading"
+  "Za koga je ovaj razgovor?",
+  "old audience section heading"
 )
 assertNotIncludes(
   "index.html",
@@ -770,8 +917,8 @@ assertNotMatches(
 assertIncludes(
   "index.html",
   homeHtml,
-  'src="/bitcoin-logo.png" alt="" aria-hidden="true"',
-  "decorative Bitcoin logo alt text"
+  'src="/images/medallions/17-primarni-novac.png" alt=""',
+  "decorative Bitcoin medallion alt text"
 )
 assertNotIncludes(
   "index.html",
@@ -858,12 +1005,6 @@ assertNotIncludes(
   "vodiče iD",
   "joined guides and DvadesetJedan text"
 )
-assertIncludes(
-  "index.html",
-  homeText,
-  "Dio okvira javno razvijam kroz vodiče i DvadesetJedan zajednicu.",
-  "about public work sentence with spacing"
-)
 assertNotIncludes(
   "index.html",
   homeText,
@@ -887,54 +1028,407 @@ for (const awkwardPhrase of [
 }
 
 assertCount("index.html", homeHtml, '<link rel="canonical"', 1, "canonical tag")
-assertArrayEquals(
-  "index.html",
-  anchorHrefsByDataLink(homeHtml, "home-guide-teaser"),
-  [
-    "/vodici/svaki-euro-ima-namjenu/",
-    "/vodici/dug-je-buduci-novac/",
-    "/vodici/bitcoin-kao-novac/",
-  ],
-  "home guide teaser href order"
-)
-assertBefore(
-  "index.html",
-  homeHtml,
-  "Za koga je ovaj razgovor?",
-  "Okvir iz knjige: 7 područja koja treba urediti",
-  "audience before framework"
-)
 assertBefore(
   "index.html",
   homeHtml,
   "Okvir iz knjige: 7 područja koja treba urediti",
-  "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
-  "framework before intro call"
+  "Tri razine. Jedan princip.",
+  "framework before levels"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "U 15 minuta ne gradimo cijeli sustav. Pronalazimo prvo usko grlo.",
-  "Ako vrijedi ići dublje",
-  "process before offers"
+  "Tri razine. Jedan princip.",
+  "U 15 minuta ne gradimo",
+  "levels before services"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "Ako vrijedi ići dublje",
-  "Bitcoin ostaje pod vašom kontrolom.",
-  "offers before security"
+  "Zatim birate sljedeći korak.",
+  "Pomažem pojedincima, obiteljima i poduzetnicima urediti sustav odluka",
+  "services before about"
 )
 assertBefore(
   "index.html",
   homeHtml,
-  "Bitcoin ostaje pod vašom kontrolom.",
-  "U Bitcoin sam prvi put eksperimentalno ušao 2014.",
-  "security before about"
+  "Saznajte više o meni",
+  "Knjiga u nastajanju",
+  "about before book"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Od držanja Bitcoina",
+  "Okvir iz knjige: 7 područja koja treba urediti",
+  "hero before framework"
 )
 
 if (!home) {
   fail("Route metadata for homepage is missing")
+}
+
+const budgetHtml = readFile("proracun/index.html")
+const budgetChecks = [
+  ["Proračun | Bitcoin Savjetovanje", "budget page title"],
+  ["DIO I · BEZVREMENSKI RED U NOVCU", "budget eyebrow"],
+  ["Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali prioritet.", "budget hero lead"],
+  ["Dogovorite uvodni razgovor", "budget hero CTA"],
+  ["Pregledajte vodiče", "budget guides CTA"],
+  ["Što uređujete kroz proračun", "budget outcomes section title"],
+  ["Svakoj jedinici novca dati namjenu", "budget outcome purpose"],
+  ["Vidjeti stvarno stanje bez osuđivanja", "budget outcome real state"],
+  ["Prepoznati stvarni višak", "budget outcome surplus"],
+  ["Proračun nije ograničenje", "budget clarity section title"],
+  ["nego jasnoća", "budget clarity continuation"],
+  ["Kome je ovo korisno", "budget audience section title"],
+  ["Vodiči iz ovog dijela", "budget guides section title"],
+  ["Proračun je prvi korak.", "budget principle title"],
+  ["Bitcoin ne uklanja potrebu za redom — pojačava je.", "budget principle copy"],
+  ["Bitcoin kao novac — knjiga u nastajanju", "budget book panel title"],
+  ['href="/vodici/svaki-euro-ima-namjenu/"', "budget guide link"],
+  ['href="/vodici/stvarni-visak/"', "budget surplus guide link"],
+  ['href="/razgovor/"', "budget links to conversation"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/proracun/" />',
+    "budget canonical URL",
+  ],
+  ["WebPage", "budget WebPage schema"],
+]
+
+for (const [expected, label] of budgetChecks) {
+  assertIncludes("proracun/index.html", budgetHtml, expected, label)
+}
+
+assertCount(
+  "proracun/index.html",
+  budgetHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!budget) {
+  fail("Route metadata for /proracun/ is missing")
+}
+
+const debtHtml = readFile("dug/index.html")
+const debtChecks = [
+  ["Dug | Bitcoin Savjetovanje", "debt page title"],
+  ["DIO II · OSLOBODITI BUDUĆNOST", "debt eyebrow"],
+  ["Dug je budući novac koji ste već potrošili.", "debt hero lead"],
+  ["Dogovorite uvodni razgovor", "debt hero CTA"],
+  ["Pregledajte vodiče", "debt guides CTA"],
+  ["Što uređujete kroz dug", "debt outcomes section title"],
+  ["Popisati sve obveze", "debt outcome obligations"],
+  ["Vidjeti stvarnu cijenu duga", "debt outcome real cost"],
+  ["Osloboditi budući novac", "debt outcome future money"],
+  ["Postaviti temelj za Bitcoin", "debt outcome Bitcoin foundation"],
+  ["Razduživanje nije kazna", "debt freedom section title"],
+  ["nego povratak slobode", "debt freedom continuation"],
+  ["Kome je ovo korisno", "debt audience section title"],
+  ["Vodiči iz ovog dijela", "debt guides section title"],
+  ["Razduživanje je prvi korak.", "debt principle title"],
+  ["Bitcoin ne uklanja potrebu za redom — pojačava je.", "debt principle copy"],
+  ["Bitcoin kao novac — knjiga u nastajanju", "debt book panel title"],
+  ['href="/vodici/dug-je-buduci-novac/"', "debt future money guide link"],
+  ['href="/vodici/dug-ili-bitcoin/"', "debt or Bitcoin guide link"],
+  ['href="/vodici/ne-zaduzujte-se-za-bitcoin/"', "debt no debt for Bitcoin guide link"],
+  ['href="/razgovor/"', "debt links to conversation"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/dug/" />',
+    "debt canonical URL",
+  ],
+  ["WebPage", "debt WebPage schema"],
+]
+
+for (const [expected, label] of debtChecks) {
+  assertIncludes("dug/index.html", debtHtml, expected, label)
+}
+
+assertCount(
+  "dug/index.html",
+  debtHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!debt) {
+  fail("Route metadata for /dug/ is missing")
+}
+
+const givingHtml = readFile("davanje/index.html")
+const givingChecks = [
+  ["Davanje | Bitcoin Savjetovanje", "giving page title"],
+  ["DIO III · OTVORENA RUKA U TVRDOM NOVCU", "giving eyebrow"],
+  ["Davanje mijenja odnos prema novcu.", "giving hero lead"],
+  ["Dogovorite uvodni razgovor", "giving hero CTA"],
+  ["Pregledajte vodiče", "giving guides CTA"],
+  ["Što uređujete kroz davanje", "giving outcomes section title"],
+  ["Davanje učiniti pravilom", "giving outcome rule"],
+  ["Jačati zahvalnost i mir", "giving outcome gratitude"],
+  ["Širiti kapacitet za stvaranje", "giving outcome capacity"],
+  ["Davanje nije višak", "giving rule section title"],
+  ["nego pravilo", "giving rule continuation"],
+  ["Kome je ovo korisno", "giving audience section title"],
+  ["Vodiči iz ovog dijela", "giving guides section title"],
+  ["Davanje je dio reda.", "giving principle title"],
+  ["Bitcoin ne uklanja potrebu za davanjem — pojačava je.", "giving principle copy"],
+  ["Bitcoin kao novac — knjiga u nastajanju", "giving book panel title"],
+  ['href="/vodici/davanje-u-proracunu-nulte-osnove/"', "giving budget guide link"],
+  ['href="/vodici/davanje-bez-duga/"', "giving without debt guide link"],
+  ['href="/vodici/novac-dolazi-od-ljudi/"', "giving people guide link"],
+  ['href="/razgovor/"', "giving links to conversation"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/davanje/" />',
+    "giving canonical URL",
+  ],
+  ["WebPage", "giving WebPage schema"],
+]
+
+for (const [expected, label] of givingChecks) {
+  assertIncludes("davanje/index.html", givingHtml, expected, label)
+}
+
+assertCount(
+  "davanje/index.html",
+  givingHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!giving) {
+  fail("Route metadata for /davanje/ is missing")
+}
+
+const netWorthHtml = readFile("bitcoin-i-neto-imovina/index.html")
+const netWorthChecks = [
+  ["Bitcoin i neto imovina | Bitcoin Savjetovanje", "net worth page title"],
+  ["DIO V · BITCOIN I NETO IMOVINA", "net worth eyebrow"],
+  [
+    "Bitcoin kao primarni novac. Neto imovina kao jedna cjelina.",
+    "net worth hero lead",
+  ],
+  ["Dogovorite uvodni razgovor", "net worth hero CTA"],
+  ["Pregledajte vodiče", "net worth guides CTA"],
+  [
+    "Što ćete urediti kroz Bitcoin i neto imovinu",
+    "net worth outcomes section title",
+  ],
+  ["Promatrati neto imovinu kao jednu cjelinu", "net worth whole picture"],
+  ["Primijeniti Pravilo trećina", "net worth thirds rule"],
+  ["Graditi produktivnu imovinu", "net worth productive assets"],
+  ["Održavati likvidnost i sigurnost", "net worth liquidity security"],
+  ["Neto imovina nije skup računa", "net worth system section title"],
+  ["nego jedan sustav", "net worth system continuation"],
+  ["Kome je ovo korisno", "net worth audience section title"],
+  ["Vodiči iz ovog dijela", "net worth guides section title"],
+  ["Bitcoin je prvi korak.", "net worth principle title"],
+  ["Neto imovina je put prema slobodi.", "net worth principle copy"],
+  ["Bitcoin kao novac — knjiga u nastajanju", "net worth book panel title"],
+  ['href="/vodici/bitcoin-u-neto-imovini/"', "net worth guide link"],
+  ['href="/vodici/pravilo-trecina/"', "thirds guide link"],
+  ['href="/vodici/pozitivni-neto-priljev/"', "productive assets guide link"],
+  [
+    'href="/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"',
+    "liquidity security guide link",
+  ],
+  ['href="/razgovor/"', "net worth links to conversation"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-i-neto-imovina/" />',
+    "net worth canonical URL",
+  ],
+  ["WebPage", "net worth WebPage schema"],
+]
+
+for (const [expected, label] of netWorthChecks) {
+  assertIncludes("bitcoin-i-neto-imovina/index.html", netWorthHtml, expected, label)
+}
+
+assertCount(
+  "bitcoin-i-neto-imovina/index.html",
+  netWorthHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!netWorth) {
+  fail("Route metadata for /bitcoin-i-neto-imovina/ is missing")
+}
+
+const timeVolatilityHtml = readFile("bitcoin-vrijeme-i-volatilnost/index.html")
+const timeVolatilityChecks = [
+  [
+    "Bitcoin, vrijeme i volatilnost | Bitcoin Savjetovanje",
+    "time volatility page title",
+  ],
+  ["DIO VI · BITCOIN VRIJEME I VOLATILNOST", "time volatility eyebrow"],
+  [
+    "Dugoročni trend daje okvir. Volatilnost traži pravila.",
+    "time volatility hero lead",
+  ],
+  ["Dogovorite uvodni razgovor", "time volatility hero CTA"],
+  ["Pregledajte vodiče", "time volatility guides CTA"],
+  [
+    "Što uređujete kroz vrijeme i volatilnost",
+    "time volatility outcomes section title",
+  ],
+  ["Razumjeti dugoročni trend", "time volatility trend outcome"],
+  ["Odvojiti trend od buke", "time volatility noise outcome"],
+  ["Smanjiti strah i euforiju", "time volatility fear outcome"],
+  ["Uskladiti odluke kroz cikluse", "time volatility cycles outcome"],
+  ["Volatilnost nije greška", "time volatility rules section title"],
+  ["nego cijena rasta", "time volatility rules continuation"],
+  ["Kome je ovo korisno", "time volatility audience section title"],
+  ["Vodiči iz ovog dijela", "time volatility guides section title"],
+  [
+    "Vrijeme je saveznik. Volatilnost je učitelj.",
+    "time volatility principle title",
+  ],
+  [
+    "Bitcoin ne uklanja neizvjesnost — daje vam pravila za nju.",
+    "time volatility principle copy",
+  ],
+  [
+    "Bitcoin kao novac — knjiga u nastajanju",
+    "time volatility book panel title",
+  ],
+  [
+    'href="/vodici/uskladivanje-kupovne-moci-bitcoina/"',
+    "time volatility purchasing power guide link",
+  ],
+  [
+    'href="/vodici/cijena-kao-mjera-vremena/"',
+    "time volatility price as time guide link",
+  ],
+  ['href="/vodici/dca-nije-dovoljan/"', "time volatility DCA guide link"],
+  ['href="/vodici/pravilo-trecina/"', "time volatility thirds guide link"],
+  ['href="/razgovor/"', "time volatility links to conversation"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-vrijeme-i-volatilnost/" />',
+    "time volatility canonical URL",
+  ],
+  ["WebPage", "time volatility WebPage schema"],
+]
+
+for (const [expected, label] of timeVolatilityChecks) {
+  assertIncludes(
+    "bitcoin-vrijeme-i-volatilnost/index.html",
+    timeVolatilityHtml,
+    expected,
+    label
+  )
+}
+
+assertCount(
+  "bitcoin-vrijeme-i-volatilnost/index.html",
+  timeVolatilityHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!timeVolatility) {
+  fail("Route metadata for /bitcoin-vrijeme-i-volatilnost/ is missing")
+}
+
+const custodySecurityHtml = readFile("skrbnistvo-i-sigurnost/index.html")
+const custodySecurityChecks = [
+  [
+    "Bitcoin skrbništvo i sigurnost | Bitcoin Savjetovanje",
+    "custody security page title",
+  ],
+  ["DIO VII · SIGURNOST I NASLJEĐIVANJE", "custody security eyebrow"],
+  [
+    "Ako samo vi znate pristupiti Bitcoinu, sustav još nije dovršen.",
+    "custody security hero lead",
+  ],
+  [
+    "Skrbništvo nije samo čuvanje privatnih ključeva",
+    "custody security hero body",
+  ],
+  ["Dogovorite uvodni razgovor", "custody security hero CTA"],
+  ["Pregledajte vodiče", "custody security guides CTA"],
+  ["Temeljna načela sigurnosti", "custody security principles section title"],
+  ["Vi ste banka", "custody security self custody principle"],
+  ["Slojevi zaštite", "custody security layers principle"],
+  ["Smanjite rizik", "custody security risk principle"],
+  ["Planirajte unaprijed", "custody security planning principle"],
+  ["Uključite obitelj", "custody security family principle"],
+  ["Redovito provjeravajte", "custody security review principle"],
+  ["Zašto je skrbništvo ključno?", "custody security why section title"],
+  ["Samo-kontrola donosi slobodu", "custody security self control copy"],
+  ["Rizici su stvarni i raznoliki", "custody security risks copy"],
+  ["Pogreška je nepovratna", "custody security irreversible copy"],
+  ["Planirani sustav štiti vas i vaše", "custody security planned system copy"],
+  ["Kome je ovo korisno", "custody security audience section title"],
+  [
+    "Pojedincima koji žele sigurno čuvati Bitcoin dugoročno.",
+    "custody security individual audience",
+  ],
+  [
+    "Obiteljima koje žele jasan plan nasljeđivanja.",
+    "custody security family audience",
+  ],
+  ["Vodiči iz ovog dijela", "custody security guides section title"],
+  ["Slojevi skrbništva", "custody security guide layers"],
+  ["Backup i oporavak", "custody security guide backup"],
+  ["Plan nasljeđivanja", "custody security guide inheritance"],
+  ["Sigurnosna provjera", "custody security guide check"],
+  [
+    "Vaša Bitcoin imovina nije samo za vas.",
+    "custody security final panel title",
+  ],
+  [
+    "To je povjerenje koje treba zaštititi danas, da bi služilo u budućnosti.",
+    "custody security final panel copy",
+  ],
+  [
+    'href="/vodici/samostalna-pohrana-ili-skrbnik/"',
+    "custody security custody layers guide link",
+  ],
+  [
+    'href="/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"',
+    "custody security backup guide link",
+  ],
+  [
+    'href="/vodici/obiteljski-pristup-bitcoinu/"',
+    "custody security inheritance guide link",
+  ],
+  [
+    'href="/vodici/obiteljski-bitcoin-trezor/"',
+    "custody security check guide link",
+  ],
+  ['href="/razgovor/"', "custody security links to conversation"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/skrbnistvo-i-sigurnost/" />',
+    "custody security canonical URL",
+  ],
+  ["WebPage", "custody security WebPage schema"],
+]
+
+for (const [expected, label] of custodySecurityChecks) {
+  assertIncludes(
+    "skrbnistvo-i-sigurnost/index.html",
+    custodySecurityHtml,
+    expected,
+    label
+  )
+}
+
+assertCount(
+  "skrbnistvo-i-sigurnost/index.html",
+  custodySecurityHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!custodySecurity) {
+  fail("Route metadata for /skrbnistvo-i-sigurnost/ is missing")
 }
 
 const conversationHtml = readFile("razgovor/index.html")
@@ -1352,8 +1846,8 @@ const guideIndexChecks = [
   ],
   ["CollectionPage", "CollectionPage schema"],
   ["ItemList", "ItemList schema"],
-  ['href="/osobni-bitcoin-standard/"', "guide index Program nav link"],
-  [">Program<", "guide index Program nav label"],
+  ['href="/#ponude"', "guide index services nav link"],
+  [">Usluge<", "guide index services nav label"],
 ]
 
 for (const [expected, label] of guideIndexChecks) {

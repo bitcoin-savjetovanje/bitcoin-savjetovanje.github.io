@@ -1,0 +1,289 @@
+import {
+  BookOpen,
+  Briefcase,
+  CalendarDays,
+  CheckCircle2,
+  User,
+  Users,
+} from "lucide-react"
+
+import { Seo } from "@/components/Seo"
+import { Button } from "@/components/ui/button"
+import { netWorthRoute } from "@/content/routes"
+import {
+  CONVERSATION_PATH,
+  PRACTICAL_BITCOIN_STANDARD_URL,
+} from "@/content/site"
+
+type NetWorthOutcome = {
+  iconSrc: string
+  title: string
+}
+
+const netWorthOutcomes: NetWorthOutcome[] = [
+  {
+    iconSrc: "/images/medallions/05-neto-imovina.png",
+    title: "Promatrati neto imovinu kao jednu cjelinu",
+  },
+  {
+    iconSrc: "/images/medallions/20-pravilo-trecina.png",
+    title: "Primijeniti Pravilo trećina",
+  },
+  {
+    iconSrc: "/images/medallions/08-proizvodna-imovina.png",
+    title: "Graditi produktivnu imovinu",
+  },
+  {
+    iconSrc: "/images/medallions/09-likvidnost-i-stednja.png",
+    title: "Održavati likvidnost i sigurnost",
+  },
+  {
+    iconSrc: "/images/medallions/06-cilj-i-akcija.png",
+    title: "Rebalansirati prema vrijednostima i ciljevima",
+  },
+  {
+    iconSrc: "/images/medallions/25-ciklusi.png",
+    title: "Donositi odluke s jasnoćom i smirenošću",
+  },
+]
+
+const systemItems = [
+  "Sve što posjedujete (imovina) minus sve što dugujete (obveze) čini vašu neto imovinu.",
+  "Bitcoin je vaša temeljna novčana imovina — čvrst, neutralan, nepodložan inflaciji.",
+  "Produktivna imovina stvara prihod i povećava vašu vrijednost kroz vrijeme.",
+  "Likvidni novac daje vam fleksibilnost i smirenost za odluke.",
+]
+
+const audienceItems = [
+  {
+    Icon: User,
+    text: "Pojedincima koji žele jasan okvir za upravljanje imovinom.",
+  },
+  {
+    Icon: Users,
+    text: "Obiteljima koje planiraju budućnost i žele zaštititi vrijednosti.",
+  },
+  {
+    Icon: Briefcase,
+    text: "Poduzetnicima koji žele ravnotežu između rasta i sigurnosti.",
+  },
+  {
+    Icon: Users,
+    text: "Onima koji žele Bitcoin koristiti kao temelj dugoročne financijske slobode.",
+  },
+]
+
+const guideCards = [
+  {
+    title: "Neto imovina kao jedna cjelina",
+    copy: "Kako promatrati cjelokupnu sliku i donositi bolje odluke za dugoročnu slobodu.",
+    href: "/vodici/bitcoin-u-neto-imovini/",
+    imagePosition: "7% 64%",
+  },
+  {
+    title: "Pravilo trećina",
+    copy: "Jednostavno pravilo za ravnotežu između Bitcoina, produktivne imovine i likvidnog novca.",
+    href: "/vodici/pravilo-trecina/",
+    imagePosition: "58% 43%",
+  },
+  {
+    title: "Produktivna imovina",
+    copy: "Što je to, kako je odabrati i kako je koristiti za izgradnju budućih prilika.",
+    href: "/vodici/pozitivni-neto-priljev/",
+    imagePosition: "47% 74%",
+  },
+  {
+    title: "Likvidnost i sigurnost",
+    copy: "Zadržite fleksibilnost za životne prilike i neizvjesna vremena bez stresa.",
+    href: "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
+    imagePosition: "88% 58%",
+  },
+]
+
+const netWorthPrinciples = [
+  "Jasan cilj vodi odluke.",
+  "Diverzifikacija smanjuje rizik.",
+  "Rebalansiranje čuva ravnotežu.",
+  "Vrijednosti daju smjer.",
+]
+
+export function NetWorth() {
+  return (
+    <>
+      <Seo
+        title={netWorthRoute.title}
+        description={netWorthRoute.description}
+        canonical={netWorthRoute.canonical}
+        ogType={netWorthRoute.ogType}
+        schema={netWorthRoute.schema as object}
+      />
+
+      <div className="topic-page net-worth-page">
+        <section className="topic-hero net-worth-hero">
+          <div className="topic-hero__copy">
+            <p className="topic-eyebrow">DIO V · BITCOIN I NETO IMOVINA</p>
+            <h1>Bitcoin i neto imovina</h1>
+            <p className="topic-hero__lead">
+              Bitcoin kao primarni novac. Neto imovina kao jedna cjelina.
+            </p>
+            <p className="topic-hero__body">
+              Uredite svoj financijski život s jasnim pravilima. Primijenite
+              Pravilo trećina kako biste gradili, štitili i koristili svoju neto
+              imovinu na zdrav i održiv način.
+            </p>
+            <div className="topic-hero__actions">
+              <Button
+                asChild
+                size="lg"
+                className="cta-primary home-primary-button"
+              >
+                <a href={CONVERSATION_PATH} data-cta="net-worth-intro-call">
+                  <CalendarDays className="size-4" aria-hidden="true" />
+                  Dogovorite uvodni razgovor
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="home-outline-button">
+                <a
+                  href={PRACTICAL_BITCOIN_STANDARD_URL}
+                  data-link="net-worth-guides"
+                >
+                  <BookOpen className="size-4" aria-hidden="true" />
+                  Pregledajte vodiče
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div
+            className="topic-hero__image"
+            role="img"
+            aria-label="Mediteranska radna scena s planom neto imovine, pravilom trećina i pogledom na more"
+          />
+        </section>
+
+        <section className="topic-section budget-outcomes-section">
+          <h2>Što ćete urediti kroz Bitcoin i neto imovinu</h2>
+          <div className="budget-outcomes-grid">
+            {netWorthOutcomes.map(({ iconSrc, title }) => (
+              <article className="budget-outcome-card" key={title}>
+                <img src={iconSrc} alt="" aria-hidden="true" loading="lazy" />
+                <h3>{title}</h3>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="topic-section budget-split-section">
+          <article>
+            <h2>
+              Neto imovina nije skup računa,
+              <br />
+              nego jedan sustav
+            </h2>
+            <ul className="budget-check-list">
+              {systemItems.map((item) => (
+                <li key={item}>
+                  <CheckCircle2 aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article>
+            <h2>Kome je ovo korisno</h2>
+            <ul className="budget-audience-list">
+              {audienceItems.map(({ Icon, text }) => (
+                <li key={text}>
+                  <Icon aria-hidden="true" />
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        <section className="topic-section budget-guides-section">
+          <h2>Vodiči iz ovog dijela</h2>
+          <div className="budget-guides-grid net-worth-guides-grid">
+            {guideCards.map((guide) => (
+              <article className="budget-guide-card" key={guide.title}>
+                <div
+                  className="budget-guide-card__image net-worth-guide-card__image"
+                  style={{ backgroundPosition: guide.imagePosition }}
+                  aria-hidden="true"
+                />
+                <div>
+                  <h3>{guide.title}</h3>
+                  <p>{guide.copy}</p>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="home-outline-button"
+                  >
+                    <a href={guide.href} data-link="net-worth-guide-card">
+                      Pročitaj vodič
+                    </a>
+                  </Button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="budget-principle-strip net-worth-principle-strip">
+          <div className="budget-principle-strip__mark">
+            <img src="/bitcoin-logo.png" alt="" aria-hidden="true" />
+          </div>
+          <div className="budget-principle-strip__copy">
+            <h2>Bitcoin je prvi korak.</h2>
+            <p>Neto imovina je put prema slobodi.</p>
+          </div>
+          <ul>
+            {netWorthPrinciples.map((principle) => (
+              <li key={principle}>{principle}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="budget-book-panel">
+          <picture>
+            <source
+              srcSet="/images/bitcoin-kao-novac-cover.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/bitcoin-kao-novac-cover.jpg"
+              alt="Cover knjige Bitcoin kao novac"
+              width="1024"
+              height="1535"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <div>
+            <p className="topic-eyebrow">KNJIGA U NASTAJANJU</p>
+            <h2>Bitcoin kao novac — knjiga u nastajanju</h2>
+            <p>
+              Ovi vodiči dio su sustava iz knjige “Bitcoin kao novac”. Knjiga
+              povezuje bezvremenske principe novca s praktičnim koracima za
+              svakodnevni život.
+            </p>
+            <div className="budget-book-panel__actions">
+              <Button asChild className="cta-primary home-primary-button">
+                <a href="/#knjiga" data-link="net-worth-book-section">
+                  Saznajte više o knjizi
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="home-outline-button">
+                <a href={CONVERSATION_PATH} data-cta="net-worth-book-call">
+                  Dogovorite razgovor
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  )
+}

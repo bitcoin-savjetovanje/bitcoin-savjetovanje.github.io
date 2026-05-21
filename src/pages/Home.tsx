@@ -1,14 +1,9 @@
 import { Seo } from "@/components/Seo"
-import { AboutSection } from "@/components/home/AboutSection"
-import { FaqSection } from "@/components/home/FaqSection"
-import { FinalCta } from "@/components/home/FinalCta"
+import { AboutBookSection } from "@/components/home/AboutBookSection"
 import { FrameworkSection } from "@/components/home/FrameworkSection"
-import { GuidesTeaserSection } from "@/components/home/GuidesTeaserSection"
 import { Hero } from "@/components/home/Hero"
-import { IntroCallSection } from "@/components/home/IntroCallSection"
-import { OffersSection } from "@/components/home/OffersSection"
-import { QuestionsSection } from "@/components/home/QuestionsSection"
-import { SecurityTrustSection } from "@/components/home/SecurityTrustSection"
+import { ServicesSection } from "@/components/home/ServicesSection"
+import { ThreeLevelsSection } from "@/components/home/ThreeLevelsSection"
 import { homeRoute } from "@/content/routes"
 
 export function Home() {
@@ -21,16 +16,13 @@ export function Home() {
         ogType={homeRoute.ogType}
         schema={homeRoute.schema as object}
       />
-      <Hero />
-      <QuestionsSection />
-      <FrameworkSection />
-      <IntroCallSection />
-      <OffersSection />
-      <GuidesTeaserSection />
-      <SecurityTrustSection />
-      <AboutSection />
-      <FaqSection />
-      <FinalCta />
+      <div className="home-editorial-page">
+        <Hero />
+        <FrameworkSection />
+        <ThreeLevelsSection />
+        <ServicesSection />
+        <AboutBookSection />
+      </div>
     </>
   )
 }

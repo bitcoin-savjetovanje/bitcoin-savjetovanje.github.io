@@ -1,0 +1,282 @@
+import {
+  BookOpen,
+  Briefcase,
+  CalendarDays,
+  CheckCircle2,
+  User,
+  Users,
+} from "lucide-react"
+
+import { Seo } from "@/components/Seo"
+import { Button } from "@/components/ui/button"
+import { debtRoute } from "@/content/routes"
+import {
+  CONVERSATION_PATH,
+  PRACTICAL_BITCOIN_STANDARD_URL,
+} from "@/content/site"
+
+type DebtOutcome = {
+  iconSrc: string
+  title: string
+}
+
+const debtOutcomes: DebtOutcome[] = [
+  {
+    iconSrc: "/images/medallions/12-proracun-i-plan.png",
+    title: "Popisati sve obveze",
+  },
+  {
+    iconSrc: "/images/medallions/03-dug.png",
+    title: "Vidjeti stvarnu cijenu duga",
+  },
+  {
+    iconSrc: "/images/medallions/18-buduci-novac.png",
+    title: "Osloboditi budući novac",
+  },
+  {
+    iconSrc: "/images/medallions/06-cilj-i-akcija.png",
+    title: "Vratiti slobodu odlučivanja",
+  },
+  {
+    iconSrc: "/images/medallions/25-ciklusi.png",
+    title: "Smanjiti stres i pritisak",
+  },
+  {
+    iconSrc: "/images/medallions/17-primarni-novac.png",
+    title: "Postaviti temelj za Bitcoin",
+  },
+]
+
+const freedomItems = [
+  "Manje stresa — kada dugovi više ne upravljaju vašim mislima.",
+  "Više prostora — za ono što je važno vama i vašima.",
+  "Bolje odluke — bez pritiska, iz jasnoće i mira.",
+  "Čvršći temelj — za život koji gradite i za Bitcoin.",
+]
+
+const audienceItems = [
+  {
+    Icon: User,
+    text: "Pojedincima koji žele prekinuti kaos u obvezama.",
+  },
+  {
+    Icon: Users,
+    text: "Obiteljima koje žele vratiti kontrolu nad novcem.",
+  },
+  {
+    Icon: Briefcase,
+    text: "Poduzetnicima koji žele jasniji tijek gotovine.",
+  },
+  {
+    Icon: Users,
+    text: "Onima koji već imaju Bitcoin, ali ih dug vraća unatrag.",
+  },
+]
+
+const guideCards = [
+  {
+    title: "Dug je budući novac koji ste već potrošili",
+    copy: "Zašto dug ograničava vaš život i kako ga pretvoriti u slobodu kroz jasne korake.",
+    href: "/vodici/dug-je-buduci-novac/",
+    imagePosition: "48% 72%",
+  },
+  {
+    title: "Dug ili Bitcoin?",
+    copy: "Kako odlučiti gdje ide vaš novac — otplata duga ili ulaganje u budućnost.",
+    href: "/vodici/dug-ili-bitcoin/",
+    imagePosition: "50% 58%",
+  },
+  {
+    title: "Život bez duga",
+    copy: "Praktičan pristup kako živjeti bez duga i izgraditi financijsku slobodu korak po korak.",
+    href: "/vodici/ne-zaduzujte-se-za-bitcoin/",
+    imagePosition: "18% 44%",
+  },
+]
+
+const debtPrinciples = [
+  "Manje tereta stvara mir.",
+  "Više slobode donosi bolji fokus.",
+  "Slobodan novac gradi budućnost.",
+]
+
+export function Debt() {
+  return (
+    <>
+      <Seo
+        title={debtRoute.title}
+        description={debtRoute.description}
+        canonical={debtRoute.canonical}
+        ogType={debtRoute.ogType}
+        schema={debtRoute.schema as object}
+      />
+
+      <div className="topic-page debt-page">
+        <section className="topic-hero debt-hero">
+          <div className="topic-hero__copy">
+            <p className="topic-eyebrow">DIO II · OSLOBODITI BUDUĆNOST</p>
+            <h1>Dug</h1>
+            <p className="topic-hero__lead">
+              Dug je budući novac koji ste već potrošili.
+            </p>
+            <p className="topic-hero__body">
+              Razduživanje nije kazna, nego vraćanje slobode. Smanjivanjem duga
+              vraćate prostor, mir i kapacitet za život koji gradite — i za
+              Bitcoin.
+            </p>
+            <div className="topic-hero__actions">
+              <Button
+                asChild
+                size="lg"
+                className="cta-primary home-primary-button"
+              >
+                <a href={CONVERSATION_PATH} data-cta="debt-intro-call">
+                  <CalendarDays className="size-4" aria-hidden="true" />
+                  Dogovorite uvodni razgovor
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="home-outline-button">
+                <a
+                  href={PRACTICAL_BITCOIN_STANDARD_URL}
+                  data-link="debt-guides"
+                >
+                  <BookOpen className="size-4" aria-hidden="true" />
+                  Pregledajte vodiče
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div
+            className="topic-hero__image"
+            role="img"
+            aria-label="Mediteranska radna scena s planom izlaska iz duga, laptopom i otvorenim lancem"
+          />
+        </section>
+
+        <section className="topic-section budget-outcomes-section">
+          <h2>Što uređujete kroz dug</h2>
+          <div className="budget-outcomes-grid">
+            {debtOutcomes.map(({ iconSrc, title }) => (
+              <article className="budget-outcome-card" key={title}>
+                <img src={iconSrc} alt="" aria-hidden="true" loading="lazy" />
+                <h3>{title}</h3>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="topic-section budget-split-section">
+          <article>
+            <h2>
+              Razduživanje nije kazna,
+              <br />
+              nego povratak slobode
+            </h2>
+            <ul className="budget-check-list">
+              {freedomItems.map((item) => (
+                <li key={item}>
+                  <CheckCircle2 aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article>
+            <h2>Kome je ovo korisno</h2>
+            <ul className="budget-audience-list">
+              {audienceItems.map(({ Icon, text }) => (
+                <li key={text}>
+                  <Icon aria-hidden="true" />
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </section>
+
+        <section className="topic-section budget-guides-section">
+          <h2>Vodiči iz ovog dijela</h2>
+          <div className="budget-guides-grid">
+            {guideCards.map((guide) => (
+              <article className="budget-guide-card" key={guide.title}>
+                <div
+                  className="budget-guide-card__image debt-guide-card__image"
+                  style={{ backgroundPosition: guide.imagePosition }}
+                  aria-hidden="true"
+                />
+                <div>
+                  <h3>{guide.title}</h3>
+                  <p>{guide.copy}</p>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="home-outline-button"
+                  >
+                    <a href={guide.href} data-link="debt-guide-card">
+                      Pročitaj vodič
+                    </a>
+                  </Button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="budget-principle-strip">
+          <div className="budget-principle-strip__mark">
+            <img src="/bitcoin-logo.png" alt="" aria-hidden="true" />
+          </div>
+          <div className="budget-principle-strip__copy">
+            <h2>Razduživanje je prvi korak.</h2>
+            <p>Bitcoin ne uklanja potrebu za redom — pojačava je.</p>
+          </div>
+          <ul>
+            {debtPrinciples.map((principle) => (
+              <li key={principle}>{principle}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="budget-book-panel">
+          <picture>
+            <source
+              srcSet="/images/bitcoin-kao-novac-cover.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/bitcoin-kao-novac-cover.jpg"
+              alt="Cover knjige Bitcoin kao novac"
+              width="1024"
+              height="1535"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+          <div>
+            <p className="topic-eyebrow">KNJIGA U NASTAJANJU</p>
+            <h2>Bitcoin kao novac — knjiga u nastajanju</h2>
+            <p>
+              Ovi vodiči dio su sustava iz knjige “Bitcoin kao novac”. Knjiga
+              povezuje bezvremenske principe novca s praktičnim koracima za
+              svakodnevni život.
+            </p>
+            <div className="budget-book-panel__actions">
+              <Button asChild className="cta-primary home-primary-button">
+                <a href="/#knjiga" data-link="debt-book-section">
+                  Saznajte više o knjizi
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="home-outline-button">
+                <a href={CONVERSATION_PATH} data-cta="debt-book-call">
+                  Dogovorite razgovor
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  )
+}

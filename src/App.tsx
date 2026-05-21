@@ -8,6 +8,12 @@ import { Button } from "@/components/ui/button"
 
 export type RouteComponents = {
   Home: ComponentType
+  Budget: ComponentType
+  Debt: ComponentType
+  Giving: ComponentType
+  NetWorth: ComponentType
+  TimeVolatility: ComponentType
+  CustodySecurity: ComponentType
   BitcoinAdvice: ComponentType
   GuidesIndex: ComponentType
   Conversation: ComponentType
@@ -22,6 +28,30 @@ export type RouteComponents = {
 const lazyRouteComponents = {
   Home: lazy(() =>
     import("@/pages/Home").then((module) => ({ default: module.Home }))
+  ),
+  Budget: lazy(() =>
+    import("@/pages/Budget").then((module) => ({ default: module.Budget }))
+  ),
+  Debt: lazy(() =>
+    import("@/pages/Debt").then((module) => ({ default: module.Debt }))
+  ),
+  Giving: lazy(() =>
+    import("@/pages/Giving").then((module) => ({ default: module.Giving }))
+  ),
+  NetWorth: lazy(() =>
+    import("@/pages/NetWorth").then((module) => ({
+      default: module.NetWorth,
+    }))
+  ),
+  TimeVolatility: lazy(() =>
+    import("@/pages/TimeVolatility").then((module) => ({
+      default: module.TimeVolatility,
+    }))
+  ),
+  CustodySecurity: lazy(() =>
+    import("@/pages/CustodySecurity").then((module) => ({
+      default: module.CustodySecurity,
+    }))
   ),
   BitcoinAdvice: lazy(() =>
     import("@/pages/BitcoinAdvice").then((module) => ({
@@ -91,6 +121,12 @@ function Route({
 }) {
   const {
     Home,
+    Budget,
+    Debt,
+    Giving,
+    NetWorth,
+    TimeVolatility,
+    CustodySecurity,
     BitcoinAdvice,
     GuidesIndex,
     Conversation,
@@ -108,6 +144,30 @@ function Route({
 
   if (path === "/vodici") {
     return <GuidesIndex />
+  }
+
+  if (path === "/proracun") {
+    return <Budget />
+  }
+
+  if (path === "/dug") {
+    return <Debt />
+  }
+
+  if (path === "/davanje") {
+    return <Giving />
+  }
+
+  if (path === "/bitcoin-i-neto-imovina") {
+    return <NetWorth />
+  }
+
+  if (path === "/bitcoin-vrijeme-i-volatilnost") {
+    return <TimeVolatility />
+  }
+
+  if (path === "/skrbnistvo-i-sigurnost") {
+    return <CustodySecurity />
   }
 
   if (path === "/bitcoin-savjetovanje") {

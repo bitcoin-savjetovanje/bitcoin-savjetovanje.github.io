@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { givingRoute } from "@/content/routes"
 import {
@@ -113,50 +114,37 @@ export function Giving() {
       />
 
       <div className="topic-page giving-page">
-        <section className="topic-hero giving-hero">
-          <div className="topic-hero__copy">
-            <p className="topic-eyebrow">
-              DIO III · OTVORENA RUKA U TVRDOM NOVCU
-            </p>
-            <h1>Davanje</h1>
-            <p className="topic-hero__lead">
-              Davanje mijenja odnos prema novcu.
-            </p>
-            <p className="topic-hero__body">
-              Davanje nije višak nego pravilo. Redovito davanje vraća novcu
-              mjeru, čovjeku mir, a odnosima širinu. Kada je davanje dio
-              sustava, jačamo kapacitet za stvaranje vrijednosti. Tvrdi novac ne
-              smije proizvesti tvrdo srce.
-            </p>
-            <div className="topic-hero__actions">
-              <Button
-                asChild
-                size="lg"
-                className="cta-primary home-primary-button"
-              >
-                <a href={CONVERSATION_PATH} data-cta="giving-intro-call">
-                  <CalendarDays className="size-4" aria-hidden="true" />
-                  Dogovorite uvodni razgovor
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="home-outline-button">
-                <a
-                  href={PRACTICAL_BITCOIN_STANDARD_URL}
-                  data-link="giving-guides"
-                >
-                  <BookOpen className="size-4" aria-hidden="true" />
-                  Pregledajte vodiče
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div
-            className="topic-hero__image"
-            role="img"
-            aria-label="Mediteranska radna scena s bilježnicom davanja, otvorenom rukom i pogledom na more"
-          />
-        </section>
+        <TopicHero
+          className="giving-hero-v2"
+          theme="giving"
+          eyebrow="DIO III · OTVORENA RUKA U TVRDOM NOVCU"
+          title="Davanje"
+          lead="Davanje mijenja odnos prema novcu."
+          body="Davanje nije višak nego pravilo. Redovito davanje vraća novcu mjeru, čovjeku mir, a odnosima širinu. Kada je davanje dio sustava, jačamo kapacitet za stvaranje vrijednosti. Tvrdi novac ne smije proizvesti tvrdo srce."
+          image={{
+            webpSrc: "/images/davanje-hero-20260521.webp",
+            src: "/images/davanje-hero-20260521.jpg",
+            alt: "Mediteranska radna scena s bilježnicom davanja, kamenim reljefom otvorene ruke i pogledom na more",
+            width: 1672,
+            height: 941,
+            objectPosition: "54% 52%",
+          }}
+          actions={[
+            {
+              label: "Dogovorite uvodni razgovor",
+              href: CONVERSATION_PATH,
+              dataCta: "giving-intro-call",
+              icon: <CalendarDays className="size-4" aria-hidden="true" />,
+            },
+            {
+              label: "Pregledajte vodiče",
+              href: PRACTICAL_BITCOIN_STANDARD_URL,
+              dataLink: "giving-guides",
+              icon: <BookOpen className="size-4" aria-hidden="true" />,
+              variant: "secondary",
+            },
+          ]}
+        />
 
         <section className="topic-section budget-outcomes-section">
           <h2>Što uređujete kroz davanje</h2>

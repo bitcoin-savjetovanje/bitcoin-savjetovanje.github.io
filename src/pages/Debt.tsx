@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { debtRoute } from "@/content/routes"
 import {
@@ -113,47 +114,37 @@ export function Debt() {
       />
 
       <div className="topic-page debt-page">
-        <section className="topic-hero debt-hero">
-          <div className="topic-hero__copy">
-            <p className="topic-eyebrow">DIO II · OSLOBODITI BUDUĆNOST</p>
-            <h1>Dug</h1>
-            <p className="topic-hero__lead">
-              Dug je budući novac koji ste već potrošili.
-            </p>
-            <p className="topic-hero__body">
-              Razduživanje nije kazna, nego vraćanje slobode. Smanjivanjem duga
-              vraćate prostor, mir i kapacitet za život koji gradite — i za
-              Bitcoin.
-            </p>
-            <div className="topic-hero__actions">
-              <Button
-                asChild
-                size="lg"
-                className="cta-primary home-primary-button"
-              >
-                <a href={CONVERSATION_PATH} data-cta="debt-intro-call">
-                  <CalendarDays className="size-4" aria-hidden="true" />
-                  Dogovorite uvodni razgovor
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="home-outline-button">
-                <a
-                  href={PRACTICAL_BITCOIN_STANDARD_URL}
-                  data-link="debt-guides"
-                >
-                  <BookOpen className="size-4" aria-hidden="true" />
-                  Pregledajte vodiče
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div
-            className="topic-hero__image"
-            role="img"
-            aria-label="Mediteranska radna scena s planom izlaska iz duga, laptopom i otvorenim lancem"
-          />
-        </section>
+        <TopicHero
+          className="debt-hero-v2"
+          theme="debt"
+          eyebrow="DIO II · OSLOBODITI BUDUĆNOST"
+          title="Dug"
+          lead="Dug je budući novac koji ste već potrošili."
+          body="Razduživanje nije kazna, nego vraćanje slobode. Smanjivanjem duga vraćate prostor, mir i kapacitet za život koji gradite — i za Bitcoin."
+          image={{
+            webpSrc: "/images/dug-hero-20260521.webp",
+            src: "/images/dug-hero-20260521.jpg",
+            alt: "Mediteranska radna scena s planom izlaska iz duga, bilježnicom i otvorenim kamenim lancem",
+            width: 1672,
+            height: 941,
+            objectPosition: "54% 52%",
+          }}
+          actions={[
+            {
+              label: "Dogovorite uvodni razgovor",
+              href: CONVERSATION_PATH,
+              dataCta: "debt-intro-call",
+              icon: <CalendarDays className="size-4" aria-hidden="true" />,
+            },
+            {
+              label: "Pregledajte vodiče",
+              href: PRACTICAL_BITCOIN_STANDARD_URL,
+              dataLink: "debt-guides",
+              icon: <BookOpen className="size-4" aria-hidden="true" />,
+              variant: "secondary",
+            },
+          ]}
+        />
 
         <section className="topic-section budget-outcomes-section">
           <h2>Što uređujete kroz dug</h2>

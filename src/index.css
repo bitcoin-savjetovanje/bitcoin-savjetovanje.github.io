@@ -5190,6 +5190,18 @@
   --topic-hero-image-translate-x: 0%;
 }
 
+.topic-hero-v2[data-topic-theme="debt"] {
+  --topic-hero-object-position: 54% 52%;
+  --topic-hero-image-scale: 1.04;
+  --topic-hero-image-translate-x: 0%;
+}
+
+.topic-hero-v2[data-topic-theme="giving"] {
+  --topic-hero-object-position: 54% 52%;
+  --topic-hero-image-scale: 1.04;
+  --topic-hero-image-translate-x: 0%;
+}
+
 .topic-section {
   padding: clamp(3.2rem, 5.8vw, 5rem) clamp(1.5rem, 5vw, 4.6rem);
   border-bottom: 1px solid var(--line-warm);

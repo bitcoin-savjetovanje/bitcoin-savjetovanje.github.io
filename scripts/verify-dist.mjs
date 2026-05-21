@@ -1104,10 +1104,16 @@ if (!home) {
 const budgetHtml = readFile("proracun/index.html")
 const budgetChecks = [
   ["Proračun | Bitcoin Savjetovanje", "budget page title"],
+  ["topic-hero-v2", "budget v2 hero markup"],
   ["DIO I · BEZVREMENSKI RED U NOVCU", "budget eyebrow"],
   ["Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali prioritet.", "budget hero lead"],
+  ["/images/proracun-hero.webp", "budget hero WebP image"],
+  ["/images/proracun-hero.jpg", "budget hero JPEG image"],
+  ["Mediteranska radna scena s proračunom", "budget hero image alt"],
   ["Dogovorite uvodni razgovor", "budget hero CTA"],
+  ['data-cta="budget-intro-call"', "budget intro CTA tracking"],
   ["Pregledajte vodiče", "budget guides CTA"],
+  ['data-link="budget-guides"', "budget guides link tracking"],
   ["Što uređujete kroz proračun", "budget outcomes section title"],
   ["Svakoj jedinici novca dati namjenu", "budget outcome purpose"],
   ["Vidjeti stvarno stanje bez osuđivanja", "budget outcome real state"],

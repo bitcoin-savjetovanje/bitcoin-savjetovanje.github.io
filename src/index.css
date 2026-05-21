@@ -5058,6 +5058,138 @@
   pointer-events: none;
 }
 
+.topic-hero-v2 {
+  position: relative;
+  display: grid;
+  min-height: clamp(31rem, 54vw, 39rem);
+  overflow: hidden;
+  grid-template-columns: minmax(0, 0.92fr) minmax(30rem, 1.08fr);
+  border-bottom: 1px solid var(--line-warm);
+  background:
+    radial-gradient(
+      circle at 16% 18%,
+      color-mix(in oklab, var(--stone-soft), transparent 56%),
+      transparent 20rem
+    ),
+    linear-gradient(180deg, var(--paper), var(--paper-soft));
+}
+
+.topic-hero-v2__copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(3rem, 6vw, 5.2rem) clamp(1.5rem, 5vw, 4.6rem);
+}
+
+.topic-hero-v2__copy::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: min(-8rem, -8vw);
+  bottom: 0;
+  z-index: -1;
+  width: clamp(8rem, 16vw, 18rem);
+  background: linear-gradient(
+    90deg,
+    var(--paper) 0%,
+    color-mix(in oklab, var(--paper), transparent 12%) 48%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.topic-hero-v2__eyebrow {
+  margin: 0;
+  color: var(--bitcoin-orange);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.topic-hero-v2__title {
+  margin-top: 1rem;
+  font-size: clamp(3.85rem, 6.7vw, 6.25rem);
+  line-height: 0.94;
+}
+
+.topic-hero-v2__lead {
+  max-width: 34rem;
+  margin-top: 1.2rem;
+  color: var(--ink);
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.4rem, 2vw, 1.95rem);
+  line-height: 1.13;
+}
+
+.topic-hero-v2__body {
+  max-width: 34rem;
+  margin-top: 1.65rem;
+  color: var(--ink-soft);
+  font-family: Georgia, ui-serif, serif;
+  font-size: 1.02rem;
+  line-height: 1.58;
+}
+
+.topic-hero-v2__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.1rem;
+}
+
+.topic-hero-v2__actions .home-outline-button {
+  min-height: 3.05rem;
+  margin-top: 0;
+  padding-inline: 1.15rem !important;
+  font-size: 1rem !important;
+}
+
+.topic-hero-v2__media {
+  position: relative;
+  min-width: 0;
+  min-height: inherit;
+  overflow: hidden;
+  margin: 0;
+  background: var(--paper-warm);
+}
+
+.topic-hero-v2__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 18%, rgba(255, 253, 248, 0.13), transparent 24rem),
+    linear-gradient(180deg, transparent 70%, rgba(45, 34, 20, 0.08));
+  pointer-events: none;
+}
+
+.topic-hero-v2__media picture,
+.topic-hero-v2__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+}
+
+.topic-hero-v2__media img {
+  object-fit: cover;
+  object-position: var(--topic-hero-object-position, center center);
+  transform: translateX(var(--topic-hero-image-translate-x, 0))
+    scale(var(--topic-hero-image-scale, 1));
+  transform-origin: center;
+}
+
+.topic-hero-v2[data-topic-theme="budget"] {
+  --topic-hero-object-position: 48% 52%;
+  --topic-hero-image-scale: 1.12;
+  --topic-hero-image-translate-x: -4%;
+}
+
 .topic-section {
   padding: clamp(3.2rem, 5.8vw, 5rem) clamp(1.5rem, 5vw, 4.6rem);
   border-bottom: 1px solid var(--line-warm);
@@ -5621,6 +5753,20 @@
     order: 2;
   }
 
+  .topic-hero-v2 {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .topic-hero-v2__copy::after {
+    display: none;
+  }
+
+  .topic-hero-v2__media {
+    min-height: clamp(18rem, 62vw, 28rem);
+    order: 2;
+  }
+
   .budget-split-section article + article {
     border-left: 0;
     border-top: 1px solid var(--line-warm);
@@ -5816,6 +5962,29 @@
 
   .topic-hero__actions .home-primary-button,
   .topic-hero__actions .home-outline-button {
+    justify-content: center;
+  }
+
+  .topic-hero-v2__copy {
+    padding-inline: 1.1rem;
+  }
+
+  .topic-hero-v2__title {
+    font-size: clamp(3.35rem, 18vw, 4.5rem);
+  }
+
+  .topic-hero-v2__lead {
+    font-size: 1.28rem;
+  }
+
+  .topic-hero-v2__actions,
+  .topic-hero-v2__actions .home-primary-button,
+  .topic-hero-v2__actions .home-outline-button {
+    width: 100%;
+  }
+
+  .topic-hero-v2__actions .home-primary-button,
+  .topic-hero-v2__actions .home-outline-button {
     justify-content: center;
   }
 

@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { budgetRoute } from "@/content/routes"
 import {
@@ -108,49 +109,37 @@ export function Budget() {
       />
 
       <div className="topic-page budget-page">
-        <section className="topic-hero budget-hero">
-          <div className="topic-hero__copy">
-            <p className="topic-eyebrow">DIO I · BEZVREMENSKI RED U NOVCU</p>
-            <h1>Proračun</h1>
-            <p className="topic-hero__lead">
-              Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali
-              prioritet.
-            </p>
-            <p className="topic-hero__body">
-              Proračun nije odricanje. To je alat jasnoće koji vam pokazuje gdje
-              vaš novac trenutno ide, što vam je stvarno važno i kako odluke
-              uskladiti s vašim ciljevima — danas i kroz vrijeme. Proračun nije
-              ograničenje. Proračun je pogled.
-            </p>
-            <div className="topic-hero__actions">
-              <Button
-                asChild
-                size="lg"
-                className="cta-primary home-primary-button"
-              >
-                <a href={CONVERSATION_PATH} data-cta="budget-intro-call">
-                  <CalendarDays className="size-4" aria-hidden="true" />
-                  Dogovorite uvodni razgovor
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="home-outline-button">
-                <a
-                  href={PRACTICAL_BITCOIN_STANDARD_URL}
-                  data-link="budget-guides"
-                >
-                  <BookOpen className="size-4" aria-hidden="true" />
-                  Pregledajte vodiče
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div
-            className="topic-hero__image"
-            role="img"
-            aria-label="Mediteranska radna scena s bilježnicom, planom proračuna i pogledom na more"
-          />
-        </section>
+        <TopicHero
+          className="budget-hero-v2"
+          theme="budget"
+          eyebrow="DIO I · BEZVREMENSKI RED U NOVCU"
+          title="Proračun"
+          lead="Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali prioritet."
+          body="Proračun nije odricanje. To je alat jasnoće koji vam pokazuje gdje vaš novac trenutno ide, što vam je stvarno važno i kako odluke uskladiti s vašim ciljevima — danas i kroz vrijeme. Proračun nije ograničenje. Proračun je pogled."
+          image={{
+            webpSrc: "/images/proracun-hero.webp",
+            src: "/images/proracun-hero.jpg",
+            alt: "Mediteranska radna scena s proračunom, bilježnicom i pogledom na more",
+            width: 1800,
+            height: 1315,
+            objectPosition: "48% 52%",
+          }}
+          actions={[
+            {
+              label: "Dogovorite uvodni razgovor",
+              href: CONVERSATION_PATH,
+              dataCta: "budget-intro-call",
+              icon: <CalendarDays className="size-4" aria-hidden="true" />,
+            },
+            {
+              label: "Pregledajte vodiče",
+              href: PRACTICAL_BITCOIN_STANDARD_URL,
+              dataLink: "budget-guides",
+              icon: <BookOpen className="size-4" aria-hidden="true" />,
+              variant: "secondary",
+            },
+          ]}
+        />
 
         <section className="topic-section budget-outcomes-section">
           <h2>Što uređujete kroz proračun</h2>

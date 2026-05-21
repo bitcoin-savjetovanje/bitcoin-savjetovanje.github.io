@@ -117,8 +117,8 @@ export function Budget() {
           lead="Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali prioritet."
           body="Proračun nije odricanje. To je alat jasnoće koji vam pokazuje gdje vaš novac trenutno ide, što vam je stvarno važno i kako odluke uskladiti s vašim ciljevima — danas i kroz vrijeme. Proračun nije ograničenje. Proračun je pogled."
           image={{
-            webpSrc: "/images/proracun-hero.webp",
-            src: "/images/proracun-hero.jpg",
+            webpSrc: "/images/proracun-hero-20260521.webp",
+            src: "/images/proracun-hero-20260521.jpg",
             alt: "Mediteranska radna scena s proračunom, bilježnicom i pogledom na more",
             width: 1672,
             height: 941,

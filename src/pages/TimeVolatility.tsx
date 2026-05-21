@@ -94,12 +94,6 @@ const guideCards = [
     href: "/vodici/dca-nije-dovoljan/",
     imagePosition: "34% 86%",
   },
-  {
-    title: "Odluke kroz cikluse",
-    copy: "Kako uskladiti proračun, kupnju i mir s vremenskim horizontom.",
-    href: "/vodici/pravilo-trecina/",
-    imagePosition: "8% 46%",
-  },
 ]
 
 const timeVolatilityPrinciples = [

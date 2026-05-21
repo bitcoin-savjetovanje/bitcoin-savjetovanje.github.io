@@ -5608,11 +5608,11 @@
 }
 
 .net-worth-guides-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .net-worth-guides-grid .budget-guide-card {
-  grid-template-columns: minmax(6.6rem, 0.76fr) minmax(0, 1.24fr);
+  grid-template-columns: minmax(7.4rem, 0.82fr) minmax(0, 1.18fr);
 }
 
 .net-worth-guide-card__image {
@@ -5624,11 +5624,11 @@
 }
 
 .time-volatility-guides-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .time-volatility-guides-grid .budget-guide-card {
-  grid-template-columns: minmax(6.6rem, 0.76fr) minmax(0, 1.24fr);
+  grid-template-columns: minmax(7.4rem, 0.82fr) minmax(0, 1.18fr);
 }
 
 .bitcoin-money-guides-grid {
@@ -5648,11 +5648,11 @@
 }
 
 .custody-guides-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .custody-guides-grid .budget-guide-card {
-  grid-template-columns: minmax(6.6rem, 0.76fr) minmax(0, 1.24fr);
+  grid-template-columns: minmax(7.4rem, 0.82fr) minmax(0, 1.18fr);
 }
 
 .custody-guide-card__image {

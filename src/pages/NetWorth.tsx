@@ -94,12 +94,6 @@ const guideCards = [
     href: "/vodici/pozitivni-neto-priljev/",
     imagePosition: "47% 74%",
   },
-  {
-    title: "Likvidnost i sigurnost",
-    copy: "Zadržite fleksibilnost za životne prilike i neizvjesna vremena bez stresa.",
-    href: "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
-    imagePosition: "88% 58%",
-  },
 ]
 
 const netWorthPrinciples = [

@@ -1367,10 +1367,6 @@ const netWorthChecks = [
   ['href="/vodici/bitcoin-u-neto-imovini/"', "net worth guide link"],
   ['href="/vodici/pravilo-trecina/"', "thirds guide link"],
   ['href="/vodici/pozitivni-neto-priljev/"', "productive assets guide link"],
-  [
-    'href="/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"',
-    "liquidity security guide link",
-  ],
   ['href="/razgovor/"', "net worth links to conversation"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-i-neto-imovina/" />',
@@ -1382,6 +1378,28 @@ const netWorthChecks = [
 for (const [expected, label] of netWorthChecks) {
   assertIncludes("bitcoin-i-neto-imovina/index.html", netWorthHtml, expected, label)
 }
+
+assertCount(
+  "bitcoin-i-neto-imovina/index.html",
+  netWorthHtml,
+  'class="budget-guide-card"',
+  3,
+  "net worth guide card count"
+)
+
+assertNotIncludes(
+  "bitcoin-i-neto-imovina/index.html",
+  netWorthHtml,
+  "Likvidnost i sigurnost</h3>",
+  "net worth fourth guide card title"
+)
+
+assertNotIncludes(
+  "bitcoin-i-neto-imovina/index.html",
+  netWorthHtml,
+  'href="/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"',
+  "net worth fourth guide card link"
+)
 
 assertCount(
   "bitcoin-i-neto-imovina/index.html",
@@ -1462,7 +1480,6 @@ const timeVolatilityChecks = [
     "time volatility price as time guide link",
   ],
   ['href="/vodici/dca-nije-dovoljan/"', "time volatility DCA guide link"],
-  ['href="/vodici/pravilo-trecina/"', "time volatility thirds guide link"],
   ['href="/razgovor/"', "time volatility links to conversation"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-vrijeme-i-volatilnost/" />',
@@ -1479,6 +1496,28 @@ for (const [expected, label] of timeVolatilityChecks) {
     label
   )
 }
+
+assertCount(
+  "bitcoin-vrijeme-i-volatilnost/index.html",
+  timeVolatilityHtml,
+  'class="budget-guide-card"',
+  3,
+  "time volatility guide card count"
+)
+
+assertNotIncludes(
+  "bitcoin-vrijeme-i-volatilnost/index.html",
+  timeVolatilityHtml,
+  "Odluke kroz cikluse</h3>",
+  "time volatility fourth guide card title"
+)
+
+assertNotIncludes(
+  "bitcoin-vrijeme-i-volatilnost/index.html",
+  timeVolatilityHtml,
+  'href="/vodici/pravilo-trecina/"',
+  "time volatility fourth guide card link"
+)
 
 assertCount(
   "bitcoin-vrijeme-i-volatilnost/index.html",
@@ -1555,7 +1594,6 @@ const custodySecurityChecks = [
   ["Slojevi skrbništva", "custody security guide layers"],
   ["Backup i oporavak", "custody security guide backup"],
   ["Plan nasljeđivanja", "custody security guide inheritance"],
-  ["Sigurnosna provjera", "custody security guide check"],
   [
     "Vaša Bitcoin imovina nije samo za vas.",
     "custody security final panel title",
@@ -1576,10 +1614,6 @@ const custodySecurityChecks = [
     'href="/vodici/obiteljski-pristup-bitcoinu/"',
     "custody security inheritance guide link",
   ],
-  [
-    'href="/vodici/obiteljski-bitcoin-trezor/"',
-    "custody security check guide link",
-  ],
   ['href="/razgovor/"', "custody security links to conversation"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/skrbnistvo-i-sigurnost/" />',
@@ -1596,6 +1630,28 @@ for (const [expected, label] of custodySecurityChecks) {
     label
   )
 }
+
+assertCount(
+  "skrbnistvo-i-sigurnost/index.html",
+  custodySecurityHtml,
+  'class="budget-guide-card"',
+  3,
+  "custody security guide card count"
+)
+
+assertNotIncludes(
+  "skrbnistvo-i-sigurnost/index.html",
+  custodySecurityHtml,
+  "Sigurnosna provjera",
+  "custody security fourth guide card title"
+)
+
+assertNotIncludes(
+  "skrbnistvo-i-sigurnost/index.html",
+  custodySecurityHtml,
+  'href="/vodici/obiteljski-bitcoin-trezor/"',
+  "custody security fourth guide card link"
+)
 
 assertCount(
   "skrbnistvo-i-sigurnost/index.html",

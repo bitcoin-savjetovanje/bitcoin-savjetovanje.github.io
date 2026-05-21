@@ -114,12 +114,6 @@ const guideCards = [
     href: "/vodici/obiteljski-pristup-bitcoinu/",
     imagePosition: "38% 62%",
   },
-  {
-    title: "Sigurnosna provjera",
-    copy: "Praktična lista za redovitu provjeru i unapređenje vašeg sustava.",
-    href: "/vodici/obiteljski-bitcoin-trezor/",
-    imagePosition: "58% 34%",
-  },
 ]
 
 export function CustodySecurity() {

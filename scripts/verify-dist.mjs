@@ -318,6 +318,7 @@ const home = routeMap.get("/")
 const budget = routeMap.get("/proracun/")
 const debt = routeMap.get("/dug/")
 const giving = routeMap.get("/davanje/")
+const bitcoinMoney = routeMap.get("/bitcoin-kao-novac/")
 const netWorth = routeMap.get("/bitcoin-i-neto-imovina/")
 const timeVolatility = routeMap.get("/bitcoin-vrijeme-i-volatilnost/")
 const custodySecurity = routeMap.get("/skrbnistvo-i-sigurnost/")
@@ -375,6 +376,7 @@ const requiredFiles = [
   "proracun/index.html",
   "dug/index.html",
   "davanje/index.html",
+  "bitcoin-kao-novac/index.html",
   "bitcoin-i-neto-imovina/index.html",
   "bitcoin-vrijeme-i-volatilnost/index.html",
   "skrbnistvo-i-sigurnost/index.html",
@@ -478,8 +480,6 @@ const forbiddenPublicCopy = [
   "gdje ste zapeli",
   "monetarna teza",
   "vidimo ima li smisla za vas",
-  "početne riječi",
-  "početnih riječi",
   "jedna točka kvara",
   "točka kvara",
   "točku kvara",
@@ -733,6 +733,13 @@ const homeChecks = [
     "Radna scena Bitcoin savjetovanja s bilježnicom, karticama sustava i knjigom u nastajanju",
     "realistic hero image alt text",
   ],
+  ["Imam Bitcoin, ali nemam pravila.", "recognition section title"],
+  [
+    "Ako Bitcoin više nije samo nešto što držite sa strane",
+    "recognition intro copy",
+  ],
+  ["Ne morate znati koji paket trebate.", "recognition trust copy"],
+  ['data-cta="recognition-intro-call"', "recognition CTA metadata"],
   [
     "Okvir iz knjige: 7 područja koja treba urediti",
     "framework section title",
@@ -746,6 +753,7 @@ const homeChecks = [
   ['href="/davanje/"', "framework giving card href"],
   ["Davanje", "framework giving item"],
   ["otvoriti ruku", "framework giving idea"],
+  ['href="/bitcoin-kao-novac/"', "framework Bitcoin money card href"],
   ["Bitcoin kao novac", "framework Bitcoin money item"],
   ["primarni saldo", "framework Bitcoin idea"],
   ['href="/bitcoin-i-neto-imovina/"', "framework net worth card href"],
@@ -776,7 +784,7 @@ const homeChecks = [
   ["U 15 minuta ne gradimo", "services intro first line"],
   ["cijeli sustav.", "services intro second line"],
   ["Pronalazimo prvo usko grlo.", "services intro third line"],
-  ["Zatim birate sljedeći korak.", "services intro supporting copy"],
+  ["Ne morate sami izabrati paket.", "services funnel microcopy"],
   ["Uvodni razgovor", "intro offer title"],
   ["0 €", "intro offer price"],
   [
@@ -791,7 +799,15 @@ const homeChecks = [
     "Bitcoin consultation offer copy",
   ],
   ['href="/bitcoin-konzultacija/"', "Bitcoin consultation detail href"],
-  ['data-cta="service-consultation"', "Bitcoin consultation CTA metadata"],
+  [
+    'data-cta="service-consultation-intro-call"',
+    "Bitcoin consultation intro CTA metadata",
+  ],
+  [
+    'data-link="service-consultation-details"',
+    "Bitcoin consultation detail metadata",
+  ],
+  ["Pogledajte detalje", "paid service detail link copy"],
   ["Osobni Bitcoin standard", "personal standard offer title"],
   ["1.500 €", "personal standard price"],
   [
@@ -800,8 +816,12 @@ const homeChecks = [
   ],
   ['href="/osobni-bitcoin-standard/"', "personal standard detail href"],
   [
-    'data-cta="service-personal-standard"',
-    "personal standard CTA metadata",
+    'data-cta="service-personal-standard-intro-call"',
+    "personal standard intro CTA metadata",
+  ],
+  [
+    'data-link="service-personal-standard-details"',
+    "personal standard detail metadata",
   ],
   ["Pavao Pahljina", "about section name"],
   [
@@ -917,8 +937,14 @@ assertNotMatches(
 assertIncludes(
   "index.html",
   homeHtml,
-  'src="/images/medallions/17-primarni-novac.png" alt=""',
-  "decorative Bitcoin medallion alt text"
+  "framework-stone-symbol",
+  "framework stone symbol markup"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "service-stone-symbol",
+  "service stone symbol markup"
 )
 assertNotIncludes(
   "index.html",
@@ -1045,13 +1071,6 @@ assertBefore(
 assertBefore(
   "index.html",
   homeHtml,
-  "Zatim birate sljedeći korak.",
-  "Pomažem pojedincima, obiteljima i poduzetnicima urediti sustav odluka",
-  "services before about"
-)
-assertBefore(
-  "index.html",
-  homeHtml,
   "Saznajte više o meni",
   "Knjiga u nastajanju",
   "about before book"
@@ -1060,8 +1079,22 @@ assertBefore(
   "index.html",
   homeHtml,
   "Od držanja Bitcoina",
+  "Imam Bitcoin, ali nemam pravila.",
+  "hero before recognition"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Imam Bitcoin, ali nemam pravila.",
   "Okvir iz knjige: 7 područja koja treba urediti",
-  "hero before framework"
+  "recognition before framework"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Ne morate sami izabrati paket.",
+  "Pomažem pojedincima, obiteljima i poduzetnicima urediti sustav odluka",
+  "services before about"
 )
 
 if (!home) {
@@ -1201,6 +1234,60 @@ assertCount(
 
 if (!giving) {
   fail("Route metadata for /davanje/ is missing")
+}
+
+const bitcoinMoneyHtml = readFile("bitcoin-kao-novac/index.html")
+const bitcoinMoneyChecks = [
+  ["Bitcoin kao novac | Bitcoin Savjetovanje", "Bitcoin money page title"],
+  ["DIO IV · PRIMARNI NOVAC", "Bitcoin money eyebrow"],
+  ["Bitcoin kao novac", "Bitcoin money h1"],
+  [
+    "Ako Bitcoin shvatite kao novac, pitanje više nije samo kada kupiti",
+    "Bitcoin money hero lead",
+  ],
+  [
+    "koji dio mora ostati u državnom novcu za kratke obveze",
+    "Bitcoin money state money copy",
+  ],
+  ["Dogovorite uvodni razgovor", "Bitcoin money hero CTA"],
+  ["Pregledajte vodiče", "Bitcoin money guides CTA"],
+  ["Odvojiti novac od špekulacije", "Bitcoin money outcome"],
+  ["Postaviti Bitcoin kao primarni saldo", "Bitcoin primary balance outcome"],
+  ["Bitcoin nije samo još jedna investicija.", "Bitcoin split title"],
+  ["Ako Bitcoin gledate kao ulaganje", "investment contrast title"],
+  ["Ako Bitcoin gledate kao novac", "money contrast title"],
+  ["Vodiči iz ovog dijela", "Bitcoin money guides section"],
+  ['href="/vodici/bitcoin-kao-novac/"', "Bitcoin money guide link"],
+  [
+    'href="/vodici/bitcoin-nije-kripto-portfelj/"',
+    "Bitcoin not crypto guide link",
+  ],
+  ['href="/vodici/pozitivni-neto-priljev/"', "inflow guide link"],
+  ['href="/vodici/niste-zakasnili-u-bitcoin/"', "not late guide link"],
+  ["Bitcoin može biti primarni novac.", "Bitcoin principle title"],
+  ["Ali bolji novac traži bolja pravila.", "Bitcoin principle copy"],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-kao-novac/" />',
+    "Bitcoin money canonical URL",
+  ],
+  ['data-cta="bitcoin-money-intro-call"', "Bitcoin money CTA metadata"],
+  ['data-link="bitcoin-money-guides"', "Bitcoin money guides metadata"],
+]
+
+for (const [expected, label] of bitcoinMoneyChecks) {
+  assertIncludes("bitcoin-kao-novac/index.html", bitcoinMoneyHtml, expected, label)
+}
+
+assertCount(
+  "bitcoin-kao-novac/index.html",
+  bitcoinMoneyHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!bitcoinMoney) {
+  fail("Route metadata for /bitcoin-kao-novac/ is missing")
 }
 
 const netWorthHtml = readFile("bitcoin-i-neto-imovina/index.html")
@@ -1589,6 +1676,14 @@ const bitcoinConsultationChecks = [
     "Bitcoin konzultacija short description",
   ],
   [
+    "Jedan dubinski razgovor, ali tek nakon uvodnog razgovora.",
+    "Bitcoin konzultacija intro-first microcopy",
+  ],
+  [
+    "Ne kupuje se odmah. Prvo vidimo ima li smisla.",
+    "Bitcoin konzultacija no immediate purchase microcopy",
+  ],
+  [
     "Nakon Bitcoin konzultacije trebali biste imati jednu od tri stvari",
     "Bitcoin konzultacija outcomes section",
   ],
@@ -1693,6 +1788,14 @@ const personalStandardChecks = [
     "personal standard hero lead",
   ],
   [
+    "Program se ne kupuje preko checkouta. Prvi korak je razgovor.",
+    "personal standard no checkout microcopy",
+  ],
+  [
+    "Ne kupuje se odmah. Prvo vidimo ima li smisla.",
+    "personal standard no immediate purchase microcopy",
+  ],
+  [
     "Na kraju programa imate pisani osobni Bitcoin standard",
     "personal standard outcome section",
   ],
@@ -1789,6 +1892,9 @@ const guideIndexChecks = [
   ['href="/razgovor/"', "guide index links to conversation page"],
   ['data-link="guide-card"', "guide index card link metadata"],
   ['data-link="guide-starter-card"', "guide starter card link metadata"],
+  ["starter-guide-card__image", "guide index starter cover markup"],
+  ["guide-roadmap-card__image", "guide index roadmap cover markup"],
+  ["advanced-guide-card__image", "guide index advanced cover markup"],
   ['data-cta="guides-index-top-intro-call"', "guide index top CTA metadata"],
   ['data-cta="guides-index-intro-call"', "guide index final CTA metadata"],
   ['href="#pocetak"', "guide section nav start"],
@@ -2161,6 +2267,14 @@ for (const alias of aliasGuidePaths) {
   )
 }
 
+for (const guidePath of requiredGuidePaths) {
+  const relativePath = routeFile(guidePath)
+  const html = readFile(relativePath)
+
+  assertIncludes(relativePath, html, "guide-cover-figure", "guide cover markup")
+  assertIncludes(relativePath, html, "data-guide-theme", "guide theme marker")
+}
+
 const focusedGuideChecks = [
   {
     path: "vodici/stvarni-visak/index.html",
@@ -2375,6 +2489,7 @@ assertArrayEquals(
 for (const route of [
   "/",
   "/razgovor/",
+  "/bitcoin-kao-novac/",
   "/bitcoin-konzultacija/",
   "/osobni-bitcoin-standard/",
   "/vodici/",

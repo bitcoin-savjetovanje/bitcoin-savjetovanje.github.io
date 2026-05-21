@@ -145,7 +145,7 @@ const programFaqs = [
   {
     question: "Radimo li tehničko postavljanje novčanika?",
     answer:
-      "U programu možemo razgovarati o sigurnosnoj strukturi i pravilima, ali ne tražim seed phrase, privatne ključeve, lozinke ni pristup uređajima ili walletu.",
+      "U programu možemo razgovarati o sigurnosnoj strukturi i pravilima, ali ne tražim seed phrase, privatne ključeve, lozinke ni pristup uređajima ili novčaniku.",
   },
   {
     question: "Što ako nakon uvodnog razgovora program nema smisla?",
@@ -223,6 +223,9 @@ export function PersonalBitcoinStandard() {
               neto imovinu, volatilnost, sigurnost, obiteljski pristup i po
               potrebi poslovnu riznicu.
             </p>
+            <p className="consultation-hero-note">
+              Program se ne kupuje preko checkouta. Prvi korak je razgovor.
+            </p>
           </div>
           <aside
             className="consultation-price-card"
@@ -236,6 +239,9 @@ export function PersonalBitcoinStandard() {
             </p>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               4–6 tjedana
+            </p>
+            <p className="consultation-price-card__note">
+              Ne kupuje se odmah. Prvo vidimo ima li smisla.
             </p>
             <Button
               asChild

@@ -8,6 +8,7 @@ export const SECONDARY_CTA = "Pogledajte okvir"
 export const BUDGET_PATH = "/proracun/"
 export const DEBT_PATH = "/dug/"
 export const GIVING_PATH = "/davanje/"
+export const BITCOIN_MONEY_PATH = "/bitcoin-kao-novac/"
 export const NET_WORTH_PATH = "/bitcoin-i-neto-imovina/"
 export const TIME_VOLATILITY_PATH = "/bitcoin-vrijeme-i-volatilnost/"
 export const CUSTODY_SECURITY_PATH = "/skrbnistvo-i-sigurnost/"
@@ -16,7 +17,7 @@ export const CONVERSATION_PATH = "/razgovor/"
 export const BITCOIN_CONSULTATION_PATH = "/bitcoin-konzultacija/"
 export const PERSONAL_BITCOIN_STANDARD_PATH = "/osobni-bitcoin-standard/"
 export const PRIVACY_PATH = "/privatnost/"
-export const SITE_UPDATED_AT = "2026-05-15"
+export const SITE_UPDATED_AT = "2026-05-21"
 export const OG_IMAGE_PATH = "/og-bitcoin-kao-novac.png"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
@@ -56,6 +57,13 @@ export const givingSeo = {
   description:
     "Davanje kao treći dio osobnog Bitcoin standarda: otvorena ruka u tvrdom novcu, pravilo zahvalnosti, mira i odnosa prema novcu.",
   canonical: `${SITE_URL}${GIVING_PATH}`,
+}
+
+export const bitcoinMoneySeo = {
+  title: "Bitcoin kao novac | Bitcoin Savjetovanje",
+  description:
+    "Bitcoin kao novac kao središnji dio osobnog Bitcoin standarda: odvojiti Bitcoin od špekulacije, urediti novčani saldo i donositi odluke kroz proračun, dug, neto imovinu, vrijeme i sigurnost.",
+  canonical: `${SITE_URL}${BITCOIN_MONEY_PATH}`,
 }
 
 export const netWorthSeo = {

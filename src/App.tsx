@@ -11,6 +11,7 @@ export type RouteComponents = {
   Budget: ComponentType
   Debt: ComponentType
   Giving: ComponentType
+  BitcoinMoney: ComponentType
   NetWorth: ComponentType
   TimeVolatility: ComponentType
   CustodySecurity: ComponentType
@@ -37,6 +38,11 @@ const lazyRouteComponents = {
   ),
   Giving: lazy(() =>
     import("@/pages/Giving").then((module) => ({ default: module.Giving }))
+  ),
+  BitcoinMoney: lazy(() =>
+    import("@/pages/BitcoinMoney").then((module) => ({
+      default: module.BitcoinMoney,
+    }))
   ),
   NetWorth: lazy(() =>
     import("@/pages/NetWorth").then((module) => ({
@@ -124,6 +130,7 @@ function Route({
     Budget,
     Debt,
     Giving,
+    BitcoinMoney,
     NetWorth,
     TimeVolatility,
     CustodySecurity,
@@ -156,6 +163,10 @@ function Route({
 
   if (path === "/davanje") {
     return <Giving />
+  }
+
+  if (path === "/bitcoin-kao-novac") {
+    return <BitcoinMoney />
   }
 
   if (path === "/bitcoin-i-neto-imovina") {

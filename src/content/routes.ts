@@ -1,4 +1,5 @@
 import { guideHref, guides } from "./guides"
+import { resolveGuideCover } from "./guideVisuals"
 import {
   breadcrumbSchema,
   bitcoinConsultationPageSchema,
@@ -18,6 +19,7 @@ import {
   budgetSeo,
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
+  bitcoinMoneySeo,
   conversationSeo,
   custodySecuritySeo,
   debtSeo,
@@ -36,6 +38,7 @@ export type RouteType =
   | "budget"
   | "debt"
   | "giving"
+  | "bitcoin-money"
   | "net-worth"
   | "time-volatility"
   | "custody-security"
@@ -209,6 +212,48 @@ export const givingRoute: RouteMeta = {
     ],
   },
   type: "giving",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const bitcoinMoneyRoute: RouteMeta = {
+  path: "/bitcoin-kao-novac/",
+  title: bitcoinMoneySeo.title,
+  description: bitcoinMoneySeo.description,
+  canonical: bitcoinMoneySeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin kao novac",
+        description: bitcoinMoneySeo.description,
+        url: bitcoinMoneySeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin kao novac",
+          "osobni Bitcoin standard",
+          "državni novac",
+          "proračun",
+          "dug",
+          "neto imovina",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Bitcoin kao novac", item: bitcoinMoneySeo.canonical },
+      ]),
+    ],
+  },
+  type: "bitcoin-money",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
   ogImage: OG_IMAGE_URL,
@@ -411,7 +456,7 @@ export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   type: "guide",
   lastmod: guide.updatedAt,
   ogType: "article",
-  ogImage: OG_IMAGE_URL,
+  ogImage: `${SITE_URL}${resolveGuideCover(guide).src}`,
   ogImageWidth: 1200,
   ogImageHeight: 630,
 }))
@@ -486,6 +531,7 @@ export const prerenderRoutes: RouteMeta[] = [
   budgetRoute,
   debtRoute,
   givingRoute,
+  bitcoinMoneyRoute,
   netWorthRoute,
   timeVolatilityRoute,
   custodySecurityRoute,

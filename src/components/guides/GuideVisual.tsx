@@ -7,8 +7,7 @@ type GuideVisualProps = {
   visual: GuideVisualContent
 }
 
-const tileClass =
-  "rounded-xl border border-border/75 bg-background/70 p-4 shadow-sm"
+const tileClass = "guide-visual-tile"
 
 function VisualShell({
   visual,
@@ -19,18 +18,12 @@ function VisualShell({
 }) {
   return (
     <article
-      className="mt-10 max-w-5xl rounded-2xl border border-border/80 bg-card p-5 shadow-sm sm:p-6"
+      className="guide-visual-card"
       aria-label={`Prikaz vodiča: ${visual.title}`}
     >
       <div className="max-w-3xl">
-        <h2 className="text-2xl font-semibold tracking-[-0.015em]">
-          {visual.title}
-        </h2>
-        {visual.caption ? (
-          <p className="mt-3 text-base leading-7 text-muted-foreground">
-            {visual.caption}
-          </p>
-        ) : null}
+        <h2>{visual.title}</h2>
+        {visual.caption ? <p>{visual.caption}</p> : null}
       </div>
       <div className="mt-6">{children}</div>
     </article>

@@ -8,6 +8,7 @@ import {
 } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { Button } from "@/components/ui/button"
 import { timeVolatilityRoute } from "@/content/routes"
 import {
@@ -172,7 +173,10 @@ export function TimeVolatility() {
           <div className="budget-outcomes-grid">
             {timeVolatilityOutcomes.map(({ iconSrc, title }) => (
               <article className="budget-outcome-card" key={title}>
-                <img src={iconSrc} alt="" aria-hidden="true" loading="lazy" />
+                <StoneSymbol
+                  imageSrc={iconSrc}
+                  className="stone-symbol--small topic-outcome-stone-symbol"
+                />
                 <h3>{title}</h3>
               </article>
             ))}

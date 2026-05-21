@@ -8,6 +8,7 @@ import {
 } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { Button } from "@/components/ui/button"
 import { givingRoute } from "@/content/routes"
 import {
@@ -124,7 +125,8 @@ export function Giving() {
             <p className="topic-hero__body">
               Davanje nije višak nego pravilo. Redovito davanje vraća novcu
               mjeru, čovjeku mir, a odnosima širinu. Kada je davanje dio
-              sustava, jačamo kapacitet za stvaranje vrijednosti.
+              sustava, jačamo kapacitet za stvaranje vrijednosti. Tvrdi novac ne
+              smije proizvesti tvrdo srce.
             </p>
             <div className="topic-hero__actions">
               <Button
@@ -161,7 +163,10 @@ export function Giving() {
           <div className="budget-outcomes-grid">
             {givingOutcomes.map(({ iconSrc, title }) => (
               <article className="budget-outcome-card" key={title}>
-                <img src={iconSrc} alt="" aria-hidden="true" loading="lazy" />
+                <StoneSymbol
+                  imageSrc={iconSrc}
+                  className="stone-symbol--small topic-outcome-stone-symbol"
+                />
                 <h3>{title}</h3>
               </article>
             ))}

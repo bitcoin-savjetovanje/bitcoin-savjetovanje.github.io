@@ -3,6 +3,7 @@ import { CalendarDays } from "lucide-react"
 import { Seo } from "@/components/Seo"
 import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { Button } from "@/components/ui/button"
+import { resolveGuideCover, resolveGuideTheme } from "@/content/guideVisuals"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
 import { guidesIndexRoute } from "@/content/routes"
 import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
@@ -142,16 +143,7 @@ const roadmap = roadmapGroups
         return []
       }
 
-      return [
-        {
-          slug: guide.slug,
-          title: guide.title,
-          excerpt: guide.excerpt,
-          href: guideHref(guide.slug),
-          difficulty: guide.difficulty,
-          freshness: guide.freshness,
-        },
-      ]
+      return [guide]
     }),
   }))
   .filter((group) => group.guides.length > 0)
@@ -166,24 +158,36 @@ export function GuidesIndex() {
         ogType={guidesIndexRoute.ogType}
         schema={guidesIndexRoute.schema as object}
       />
-      <section className="section-shell">
-        <header className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold tracking-[0.16em] text-muted-foreground uppercase">
-            Bitcoin kao novac
-          </p>
-          <h1 className="mt-4 font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Vodiči za knjigu Bitcoin kao novac
-          </h1>
-          <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Vodiči objašnjavaju okvir za život s Bitcoinom kao novcem: proračun,
-            dug, davanje, Bitcoin kao primarni novac, neto imovina, poslovna
-            riznica, vrijeme, volatilnost, sigurnost i obitelj.
-          </p>
-          <p className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg">
-            Ako želite primjenu na vlastitu situaciju, dogovorite 15-minutni
-            uvodni razgovor.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-3">
+      <section className="guides-index-page section-shell">
+        <header className="guides-index-hero">
+          <div>
+            <p className="topic-eyebrow">Bitcoin kao novac</p>
+            <h1>Vodiči za knjigu Bitcoin kao novac</h1>
+            <p>
+              Vodiči objašnjavaju okvir za život s Bitcoinom kao novcem:
+              proračun, dug, davanje, Bitcoin kao primarni novac, neto imovina,
+              poslovna riznica, vrijeme, volatilnost, sigurnost i obitelj.
+            </p>
+            <p>
+              Ako želite primjenu na vlastitu situaciju, dogovorite 15-minutni
+              uvodni razgovor.
+            </p>
+          </div>
+          <div className="guides-index-hero__book" aria-hidden="true">
+            <picture>
+              <source
+                srcSet="/images/bitcoin-kao-novac-cover.webp"
+                type="image/webp"
+              />
+              <img
+                src="/images/bitcoin-kao-novac-cover.jpg"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <div className="guides-index-hero__cta">
             <Button
               asChild
               size="lg"
@@ -227,7 +231,15 @@ export function GuidesIndex() {
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {starterGuides.map((guide, index) => (
-              <article key={guide.slug} className="starter-guide-card">
+              <article
+                key={guide.slug}
+                className="starter-guide-card"
+                data-guide-theme={resolveGuideTheme(guide)}
+              >
+                <GuideCardImage
+                  guide={guide}
+                  className="starter-guide-card__image"
+                />
                 <span className="starter-guide-card__number">{index + 1}</span>
                 <h3 className="text-lg font-semibold">
                   <a
@@ -328,10 +340,17 @@ export function GuidesIndex() {
                 <ol className="guides-roadmap__list">
                   {group.guides.map((guide) => (
                     <li key={guide.slug}>
-                      <article className="guide-roadmap-card">
+                      <article
+                        className="guide-roadmap-card"
+                        data-guide-theme={resolveGuideTheme(guide)}
+                      >
+                        <GuideCardImage
+                          guide={guide}
+                          className="guide-roadmap-card__image"
+                        />
                         <h4>
                           <a
-                            href={guide.href}
+                            href={guideHref(guide.slug)}
                             className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
                             data-link="guide-card"
                           >
@@ -365,7 +384,15 @@ export function GuidesIndex() {
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {advancedGuides.map((guide) => (
-              <article key={guide.slug} className="advanced-guide-card">
+              <article
+                key={guide.slug}
+                className="advanced-guide-card"
+                data-guide-theme={resolveGuideTheme(guide)}
+              >
+                <GuideCardImage
+                  guide={guide}
+                  className="advanced-guide-card__image"
+                />
                 <h3>
                   <a
                     href={guideHref(guide.slug)}
@@ -409,5 +436,30 @@ export function GuidesIndex() {
         </div>
       </section>
     </>
+  )
+}
+
+function GuideCardImage({
+  guide,
+  className,
+}: {
+  guide: Guide
+  className: string
+}) {
+  const cover = resolveGuideCover(guide)
+
+  return (
+    <picture className={className} aria-hidden="true">
+      {cover.webpSrc ? (
+        <source srcSet={cover.webpSrc} type="image/webp" />
+      ) : null}
+      <img
+        src={cover.src}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        style={{ objectPosition: cover.position }}
+      />
+    </picture>
   )
 }

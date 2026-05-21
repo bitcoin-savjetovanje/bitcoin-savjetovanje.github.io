@@ -158,6 +158,9 @@ export function BitcoinConsultation() {
               Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje
               utječe na vašu osobnu, obiteljsku ili poslovnu odluku.
             </p>
+            <p className="consultation-hero-note">
+              Jedan dubinski razgovor, ali tek nakon uvodnog razgovora.
+            </p>
           </div>
           <aside
             className="consultation-price-card"
@@ -169,6 +172,9 @@ export function BitcoinConsultation() {
             <p className="mt-3 text-3xl font-semibold text-foreground">200 €</p>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               jedan dubinski razgovor
+            </p>
+            <p className="consultation-price-card__note">
+              Ne kupuje se odmah. Prvo vidimo ima li smisla.
             </p>
             <Button asChild className="cta-primary mt-6 w-full rounded-full">
               <a

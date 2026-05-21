@@ -118,6 +118,23 @@ export const guideCategories = [
 export type GuideCategory = (typeof guideCategories)[number]
 export type GuideDifficulty = "Početno" | "Srednje" | "Napredno"
 export type GuideFreshness = "stabilno" | "često se mijenja"
+export type GuideTheme =
+  | "budget"
+  | "debt"
+  | "giving"
+  | "bitcoin"
+  | "worth"
+  | "time"
+  | "security"
+
+export type GuideCover = {
+  src: string
+  webpSrc?: string
+  alt: string
+  position?: string
+  caption?: string
+  artPrompt?: string
+}
 
 export const guideCategoryDescriptions: Record<GuideCategory, string> = {
   "Osobni proračun nulte osnove":
@@ -143,6 +160,8 @@ export type Guide = {
   category: GuideCategory
   difficulty?: GuideDifficulty
   freshness?: GuideFreshness
+  theme?: GuideTheme
+  cover?: GuideCover
   safetyNote?: string
   order: number
   featured?: boolean

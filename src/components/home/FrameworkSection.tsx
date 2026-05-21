@@ -1,5 +1,6 @@
-import { IconMedallion } from "@/components/home/IconMedallion"
+import { StoneSymbol } from "@/components/home/StoneSymbol"
 import {
+  BITCOIN_MONEY_PATH,
   BUDGET_PATH,
   CUSTODY_SECURITY_PATH,
   DEBT_PATH,
@@ -36,6 +37,7 @@ const frameworkCards: FrameworkCard[] = [
   },
   {
     number: "04",
+    href: BITCOIN_MONEY_PATH,
     iconSrc: "/images/medallions/17-primarni-novac.png",
     lines: ["Bitcoin kao", "novac —", "primarni saldo"],
   },
@@ -63,9 +65,9 @@ function FrameworkCardContent({ iconSrc, lines, number }: FrameworkCard) {
   return (
     <>
       <span className="editorial-card-number">{number}</span>
-      <IconMedallion
+      <StoneSymbol
         imageSrc={iconSrc}
-        className="editorial-framework-medallion"
+        className="stone-symbol--large framework-stone-symbol"
       />
       <h3 aria-label={lines.join(" ")}>
         {lines.map((line) => (

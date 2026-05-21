@@ -8,6 +8,7 @@ import {
 } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { Button } from "@/components/ui/button"
 import { budgetRoute } from "@/content/routes"
 import {
@@ -118,7 +119,8 @@ export function Budget() {
             <p className="topic-hero__body">
               Proračun nije odricanje. To je alat jasnoće koji vam pokazuje gdje
               vaš novac trenutno ide, što vam je stvarno važno i kako odluke
-              uskladiti s vašim ciljevima — danas i kroz vrijeme.
+              uskladiti s vašim ciljevima — danas i kroz vrijeme. Proračun nije
+              ograničenje. Proračun je pogled.
             </p>
             <div className="topic-hero__actions">
               <Button
@@ -155,7 +157,10 @@ export function Budget() {
           <div className="budget-outcomes-grid">
             {budgetOutcomes.map(({ iconSrc, title }) => (
               <article className="budget-outcome-card" key={title}>
-                <img src={iconSrc} alt="" aria-hidden="true" loading="lazy" />
+                <StoneSymbol
+                  imageSrc={iconSrc}
+                  className="stone-symbol--small topic-outcome-stone-symbol"
+                />
                 <h3>{title}</h3>
               </article>
             ))}

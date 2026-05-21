@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { netWorthRoute } from "@/content/routes"
 import {
@@ -120,47 +121,37 @@ export function NetWorth() {
       />
 
       <div className="topic-page net-worth-page">
-        <section className="topic-hero net-worth-hero">
-          <div className="topic-hero__copy">
-            <p className="topic-eyebrow">DIO V · BITCOIN I NETO IMOVINA</p>
-            <h1>Bitcoin i neto imovina</h1>
-            <p className="topic-hero__lead">
-              Bitcoin kao primarni novac. Neto imovina kao jedna cjelina.
-            </p>
-            <p className="topic-hero__body">
-              Uredite svoj financijski život s jasnim pravilima. Primijenite
-              Pravilo trećina kako biste gradili, štitili i koristili svoju neto
-              imovinu na zdrav i održiv način.
-            </p>
-            <div className="topic-hero__actions">
-              <Button
-                asChild
-                size="lg"
-                className="cta-primary home-primary-button"
-              >
-                <a href={CONVERSATION_PATH} data-cta="net-worth-intro-call">
-                  <CalendarDays className="size-4" aria-hidden="true" />
-                  Dogovorite uvodni razgovor
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="home-outline-button">
-                <a
-                  href={PRACTICAL_BITCOIN_STANDARD_URL}
-                  data-link="net-worth-guides"
-                >
-                  <BookOpen className="size-4" aria-hidden="true" />
-                  Pregledajte vodiče
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div
-            className="topic-hero__image"
-            role="img"
-            aria-label="Mediteranska radna scena s planom neto imovine, pravilom trećina i pogledom na more"
-          />
-        </section>
+        <TopicHero
+          className="net-worth-hero-v2"
+          theme="worth"
+          eyebrow="DIO V · BITCOIN I NETO IMOVINA"
+          title="Bitcoin i neto imovina"
+          lead="Bitcoin kao primarni novac. Neto imovina kao jedna cjelina."
+          body="Uredite svoj financijski život s jasnim pravilima. Primijenite Pravilo trećina kako biste gradili, štitili i koristili svoju neto imovinu na zdrav i održiv način."
+          image={{
+            webpSrc: "/images/neto-imovina-hero-20260521.webp",
+            src: "/images/neto-imovina-hero-20260521.jpg",
+            alt: "Mediteranska radna scena s planom neto imovine, pravilom trećina i pogledom na more",
+            width: 1672,
+            height: 941,
+            objectPosition: "56% 52%",
+          }}
+          actions={[
+            {
+              label: "Dogovorite uvodni razgovor",
+              href: CONVERSATION_PATH,
+              dataCta: "net-worth-intro-call",
+              icon: <CalendarDays className="size-4" aria-hidden="true" />,
+            },
+            {
+              label: "Pregledajte vodiče",
+              href: PRACTICAL_BITCOIN_STANDARD_URL,
+              dataLink: "net-worth-guides",
+              icon: <BookOpen className="size-4" aria-hidden="true" />,
+              variant: "secondary",
+            },
+          ]}
+        />
 
         <section className="topic-section budget-outcomes-section">
           <h2>Što ćete urediti kroz Bitcoin i neto imovinu</h2>

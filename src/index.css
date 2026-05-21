@@ -5202,6 +5202,32 @@
   --topic-hero-image-translate-x: 0%;
 }
 
+.topic-hero-v2[data-topic-theme="worth"] {
+  --topic-hero-object-position: 56% 52%;
+  --topic-hero-image-scale: 1.04;
+  --topic-hero-image-translate-x: 0%;
+}
+
+.topic-hero-v2[data-topic-theme="time"],
+.topic-hero-v2[data-topic-theme="security"] {
+  --topic-hero-object-position: 52% 52%;
+  --topic-hero-image-scale: 1.04;
+  --topic-hero-image-translate-x: 0%;
+}
+
+.net-worth-hero-v2 .topic-hero-v2__title,
+.time-volatility-hero-v2 .topic-hero-v2__title {
+  max-width: 12ch;
+  font-size: clamp(3.45rem, 5.75vw, 5.65rem);
+  line-height: 0.96;
+}
+
+.custody-security-hero-v2 .topic-hero-v2__title {
+  max-width: 12ch;
+  font-size: clamp(3.55rem, 5.85vw, 5.8rem);
+  line-height: 0.96;
+}
+
 .topic-section {
   padding: clamp(3.2rem, 5.8vw, 5rem) clamp(1.5rem, 5vw, 4.6rem);
   border-bottom: 1px solid var(--line-warm);
@@ -5983,6 +6009,13 @@
 
   .topic-hero-v2__title {
     font-size: clamp(3.35rem, 18vw, 4.5rem);
+  }
+
+  .net-worth-hero-v2 .topic-hero-v2__title,
+  .time-volatility-hero-v2 .topic-hero-v2__title,
+  .custody-security-hero-v2 .topic-hero-v2__title {
+    max-width: none;
+    font-size: clamp(3.15rem, 15vw, 4.25rem);
   }
 
   .topic-hero-v2__lead {

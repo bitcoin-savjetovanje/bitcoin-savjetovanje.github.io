@@ -376,10 +376,16 @@ const requiredFiles = [
   "images/davanje-hero-20260521.jpg",
   "images/neto-imovina-hero.webp",
   "images/neto-imovina-hero.jpg",
+  "images/neto-imovina-hero-20260521.webp",
+  "images/neto-imovina-hero-20260521.jpg",
   "images/vrijeme-volatilnost-hero.webp",
   "images/vrijeme-volatilnost-hero.jpg",
+  "images/vrijeme-volatilnost-hero-20260521.webp",
+  "images/vrijeme-volatilnost-hero-20260521.jpg",
   "images/skrbnistvo-sigurnost-hero.webp",
   "images/skrbnistvo-sigurnost-hero.jpg",
+  "images/skrbnistvo-sigurnost-hero-20260521.webp",
+  "images/skrbnistvo-sigurnost-hero-20260521.jpg",
   "razgovor/index.html",
   "proracun/index.html",
   "dug/index.html",
@@ -1319,11 +1325,26 @@ if (!bitcoinMoney) {
 const netWorthHtml = readFile("bitcoin-i-neto-imovina/index.html")
 const netWorthChecks = [
   ["Bitcoin i neto imovina | Bitcoin Savjetovanje", "net worth page title"],
+  ["topic-hero-v2", "net worth v2 hero markup"],
   ["DIO V · BITCOIN I NETO IMOVINA", "net worth eyebrow"],
   [
     "Bitcoin kao primarni novac. Neto imovina kao jedna cjelina.",
     "net worth hero lead",
   ],
+  [
+    "/images/neto-imovina-hero-20260521.webp",
+    "net worth hero versioned WebP image",
+  ],
+  [
+    "/images/neto-imovina-hero-20260521.jpg",
+    "net worth hero versioned JPEG image",
+  ],
+  [
+    "Mediteranska radna scena s planom neto imovine",
+    "net worth hero image alt",
+  ],
+  ['data-cta="net-worth-intro-call"', "net worth intro CTA tracking"],
+  ['data-link="net-worth-guides"', "net worth guides link tracking"],
   ["Dogovorite uvodni razgovor", "net worth hero CTA"],
   ["Pregledajte vodiče", "net worth guides CTA"],
   [
@@ -1378,10 +1399,31 @@ const timeVolatilityChecks = [
     "Bitcoin, vrijeme i volatilnost | Bitcoin Savjetovanje",
     "time volatility page title",
   ],
+  ["topic-hero-v2", "time volatility v2 hero markup"],
   ["DIO VI · BITCOIN VRIJEME I VOLATILNOST", "time volatility eyebrow"],
   [
     "Dugoročni trend daje okvir. Volatilnost traži pravila.",
     "time volatility hero lead",
+  ],
+  [
+    "/images/vrijeme-volatilnost-hero-20260521.webp",
+    "time volatility hero versioned WebP image",
+  ],
+  [
+    "/images/vrijeme-volatilnost-hero-20260521.jpg",
+    "time volatility hero versioned JPEG image",
+  ],
+  [
+    "Mediteranska radna scena s pravilima kroz cikluse",
+    "time volatility hero image alt",
+  ],
+  [
+    'data-cta="time-volatility-intro-call"',
+    "time volatility intro CTA tracking",
+  ],
+  [
+    'data-link="time-volatility-guides"',
+    "time volatility guides link tracking",
   ],
   ["Dogovorite uvodni razgovor", "time volatility hero CTA"],
   ["Pregledajte vodiče", "time volatility guides CTA"],
@@ -1454,6 +1496,7 @@ const custodySecurityChecks = [
     "Bitcoin skrbništvo i sigurnost | Bitcoin Savjetovanje",
     "custody security page title",
   ],
+  ["topic-hero-v2", "custody security v2 hero markup"],
   ["DIO VII · SIGURNOST I NASLJEĐIVANJE", "custody security eyebrow"],
   [
     "Ako samo vi znate pristupiti Bitcoinu, sustav još nije dovršen.",
@@ -1462,6 +1505,26 @@ const custodySecurityChecks = [
   [
     "Skrbništvo nije samo čuvanje privatnih ključeva",
     "custody security hero body",
+  ],
+  [
+    "/images/skrbnistvo-sigurnost-hero-20260521.webp",
+    "custody security hero versioned WebP image",
+  ],
+  [
+    "/images/skrbnistvo-sigurnost-hero-20260521.jpg",
+    "custody security hero versioned JPEG image",
+  ],
+  [
+    "Mediteranska radna scena Bitcoin skrbništva",
+    "custody security hero image alt",
+  ],
+  [
+    'data-cta="custody-security-intro-call"',
+    "custody security intro CTA tracking",
+  ],
+  [
+    'data-link="custody-security-guides"',
+    "custody security guides link tracking",
   ],
   ["Dogovorite uvodni razgovor", "custody security hero CTA"],
   ["Pregledajte vodiče", "custody security guides CTA"],

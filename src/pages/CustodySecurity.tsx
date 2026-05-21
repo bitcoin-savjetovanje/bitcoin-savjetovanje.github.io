@@ -10,6 +10,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { custodySecurityRoute } from "@/content/routes"
 import {
@@ -133,50 +134,37 @@ export function CustodySecurity() {
       />
 
       <div className="topic-page custody-security-page">
-        <section className="topic-hero custody-security-hero">
-          <div className="topic-hero__copy">
-            <p className="topic-eyebrow">DIO VII · SIGURNOST I NASLJEĐIVANJE</p>
-            <h1>Bitcoin skrbništvo i sigurnost</h1>
-            <p className="topic-hero__lead">
-              Ako samo vi znate pristupiti Bitcoinu, sustav još nije dovršen.
-            </p>
-            <p className="topic-hero__body">
-              Skrbništvo nije samo čuvanje privatnih ključeva — ono je sustav u
-              kojem je vaša Bitcoin imovina sigurna od krađe, pogreške, požara,
-              poplave, bolesti, zaborava i smrti.
-            </p>
-            <div className="topic-hero__actions">
-              <Button
-                asChild
-                size="lg"
-                className="cta-primary home-primary-button"
-              >
-                <a
-                  href={CONVERSATION_PATH}
-                  data-cta="custody-security-intro-call"
-                >
-                  <CalendarDays className="size-4" aria-hidden="true" />
-                  Dogovorite uvodni razgovor
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="home-outline-button">
-                <a
-                  href={PRACTICAL_BITCOIN_STANDARD_URL}
-                  data-link="custody-security-guides"
-                >
-                  <BookOpen className="size-4" aria-hidden="true" />
-                  Pregledajte vodiče
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          <div
-            className="topic-hero__image"
-            role="img"
-            aria-label="Radna scena Bitcoin skrbništva sa sigurnosnim planom, lokotom, ključevima i backup karticom"
-          />
-        </section>
+        <TopicHero
+          className="custody-security-hero-v2"
+          theme="security"
+          eyebrow="DIO VII · SIGURNOST I NASLJEĐIVANJE"
+          title="Bitcoin skrbništvo i sigurnost"
+          lead="Ako samo vi znate pristupiti Bitcoinu, sustav još nije dovršen."
+          body="Skrbništvo nije samo čuvanje privatnih ključeva — ono je sustav u kojem je vaša Bitcoin imovina sigurna od krađe, pogreške, požara, poplave, bolesti, zaborava i smrti."
+          image={{
+            webpSrc: "/images/skrbnistvo-sigurnost-hero-20260521.webp",
+            src: "/images/skrbnistvo-sigurnost-hero-20260521.jpg",
+            alt: "Mediteranska radna scena Bitcoin skrbništva sa sigurnosnim planom, kamenim sefom i ključevima",
+            width: 1672,
+            height: 941,
+            objectPosition: "52% 52%",
+          }}
+          actions={[
+            {
+              label: "Dogovorite uvodni razgovor",
+              href: CONVERSATION_PATH,
+              dataCta: "custody-security-intro-call",
+              icon: <CalendarDays className="size-4" aria-hidden="true" />,
+            },
+            {
+              label: "Pregledajte vodiče",
+              href: PRACTICAL_BITCOIN_STANDARD_URL,
+              dataLink: "custody-security-guides",
+              icon: <BookOpen className="size-4" aria-hidden="true" />,
+              variant: "secondary",
+            },
+          ]}
+        />
 
         <section className="topic-section budget-outcomes-section">
           <h2>Temeljna načela sigurnosti</h2>

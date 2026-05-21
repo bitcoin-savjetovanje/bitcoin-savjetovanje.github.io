@@ -120,9 +120,9 @@ export function Budget() {
             webpSrc: "/images/proracun-hero.webp",
             src: "/images/proracun-hero.jpg",
             alt: "Mediteranska radna scena s proračunom, bilježnicom i pogledom na more",
-            width: 1800,
-            height: 1315,
-            objectPosition: "48% 52%",
+            width: 1672,
+            height: 941,
+            objectPosition: "70% 52%",
           }}
           actions={[
             {

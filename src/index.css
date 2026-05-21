@@ -5185,9 +5185,9 @@
 }
 
 .topic-hero-v2[data-topic-theme="budget"] {
-  --topic-hero-object-position: 48% 52%;
-  --topic-hero-image-scale: 1.12;
-  --topic-hero-image-translate-x: -4%;
+  --topic-hero-object-position: 70% 52%;
+  --topic-hero-image-scale: 1.04;
+  --topic-hero-image-translate-x: 0%;
 }
 
 .topic-section {

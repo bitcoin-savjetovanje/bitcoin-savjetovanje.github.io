@@ -4106,28 +4106,56 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 1.8vw, 1.45rem);
+  align-items: stretch;
 }
 
 .recognition-card {
   min-width: 0;
-  border: 1px solid var(--card-border);
-  border-radius: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in oklab, var(--line-warm), var(--paper) 20%);
+  border-radius: 0.5rem;
   background:
+    radial-gradient(
+      ellipse at 50% 5%,
+      rgba(255, 255, 255, 0.72),
+      transparent 8.25rem
+    ),
     linear-gradient(
       180deg,
-      color-mix(in oklab, var(--paper), var(--sea-mist) 14%),
-      color-mix(in oklab, var(--paper), var(--stone-soft) 8%)
+      color-mix(in oklab, var(--paper), var(--stone-soft) 12%),
+      color-mix(in oklab, var(--paper), var(--brass-soft) 10%)
     ),
     var(--paper);
-  padding: 1.2rem;
-  box-shadow: 0 0.7rem 1.7rem rgba(45, 34, 20, 0.035);
+  padding: clamp(1.25rem, 2vw, 1.55rem);
+  padding-top: clamp(1.45rem, 2.4vw, 1.9rem);
+  box-shadow: 0 0.8rem 1.9rem rgba(45, 34, 20, 0.045);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.recognition-card .stone-symbol {
+  align-self: center;
+  margin-bottom: clamp(0.65rem, 1.25vw, 0.95rem);
+}
+
+.recognition-card:hover {
+  border-color: color-mix(in oklab, var(--brass), var(--line-warm) 68%);
+  box-shadow: 0 1rem 2.2rem rgba(45, 34, 20, 0.06);
+  transform: translateY(-1px);
+}
+
+.recognition-card:hover .stone-symbol__image {
+  transform: translateY(-1px);
 }
 
 .recognition-card h3 {
-  margin-top: 0.9rem;
+  margin-top: 0;
   color: var(--ink);
-  font-size: 1.08rem;
-  line-height: 1.18;
+  font-size: clamp(1.03rem, 1.15vw, 1.13rem);
+  line-height: 1.16;
 }
 
 .recognition-card p {
@@ -4154,33 +4182,45 @@
 .editorial-framework-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: clamp(1rem, 1.7vw, 1.55rem);
-  margin-top: 2.15rem;
+  gap: clamp(0.85rem, 1.35vw, 1.25rem);
+  align-items: stretch;
+  margin-top: clamp(2rem, 3vw, 2.45rem);
 }
 
 .editorial-framework-card {
   --framework-accent: var(--brass);
   position: relative;
   display: grid;
-  min-height: 16rem;
+  min-width: 0;
+  min-height: clamp(17.5rem, 22vw, 20rem);
   align-content: start;
   justify-items: center;
   overflow: hidden;
-  border: 1px solid color-mix(in oklab, var(--framework-accent), var(--card-border) 74%);
-  border-radius: 0.65rem;
+  border: 1px solid
+    color-mix(in oklab, var(--framework-accent), var(--card-border) 78%);
+  border-radius: 0.5rem;
   background:
+    radial-gradient(
+      ellipse at 50% 39%,
+      rgba(255, 255, 255, 0.78),
+      transparent 7.6rem
+    ),
     linear-gradient(
       180deg,
-      color-mix(in oklab, var(--framework-accent), var(--paper) 94%),
-      color-mix(in oklab, var(--paper), var(--sea-mist) 14%) 42%,
-      color-mix(in oklab, var(--paper), var(--stone-soft) 10%)
+      color-mix(in oklab, var(--framework-accent), var(--paper) 95%),
+      color-mix(in oklab, var(--paper), var(--stone-soft) 9%) 45%,
+      color-mix(in oklab, var(--paper), var(--linen) 28%)
     ),
     var(--paper);
-  padding: 1.35rem 0.85rem 1.6rem;
+  padding: 1.15rem 0.8rem 1.45rem;
   color: inherit;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 0.65rem 1.8rem rgba(45, 34, 20, 0.035);
+  box-shadow: 0 0.65rem 1.6rem rgba(45, 34, 20, 0.035);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .editorial-framework-card:focus-visible {
@@ -4194,6 +4234,36 @@
   inset: 0 0 auto;
   height: 0.18rem;
   background: color-mix(in oklab, var(--framework-accent), transparent 12%);
+}
+
+.editorial-framework-card[data-area] {
+  --framework-accent: var(--area-color);
+}
+
+.editorial-framework-card:hover {
+  border-color: color-mix(in oklab, var(--framework-accent), var(--ink) 72%);
+  box-shadow: 0 0.95rem 2rem rgba(45, 34, 20, 0.055);
+  transform: translateY(-1px);
+}
+
+.editorial-framework-card:hover .stone-symbol__image {
+  transform: translateY(-2px) scale(1.015);
+}
+
+.editorial-framework-card[data-bitcoin="true"] {
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      color-mix(in oklab, var(--bitcoin-orange), white 88%),
+      transparent 7.85rem
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--bitcoin-orange), var(--paper) 92%),
+      color-mix(in oklab, var(--paper), var(--stone-soft) 10%) 46%,
+      color-mix(in oklab, var(--paper), var(--brass-soft) 18%)
+    ),
+    var(--paper);
 }
 
 .editorial-framework-card:nth-child(1) {
@@ -4225,10 +4295,13 @@
 }
 
 .editorial-card-number {
-  justify-self: start;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   color: color-mix(in oklab, var(--framework-accent), var(--ink) 10%);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
+  letter-spacing: 0.09em;
   line-height: 1;
 }
 
@@ -4324,12 +4397,35 @@
 
 .stone-symbol {
   --stone-symbol-size: 5rem;
+  --stone-floor-shadow: rgba(91, 65, 35, 0.18);
   position: relative;
-  display: grid;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
   width: var(--stone-symbol-size);
   height: var(--stone-symbol-size);
-  place-items: center;
   isolation: isolate;
+}
+
+.stone-symbol::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  bottom: 4%;
+  width: 88%;
+  height: 18%;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    var(--stone-floor-shadow),
+    rgba(91, 65, 35, 0.08) 42%,
+    transparent 72%
+  );
+  filter: blur(2px);
+  opacity: 0.78;
+  transform: translateX(-50%);
 }
 
 .stone-symbol__image {
@@ -4338,8 +4434,25 @@
   height: 100%;
   object-fit: contain;
   filter:
-    drop-shadow(0 0.62rem 0.85rem rgba(70, 48, 28, 0.14))
-    drop-shadow(0 0.08rem 0.05rem rgba(255, 255, 255, 0.4));
+    drop-shadow(0 18px 24px rgba(70, 48, 28, 0.17))
+    drop-shadow(0 3px 4px rgba(70, 48, 28, 0.08));
+  transition:
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.stone-symbol--medallion {
+  --stone-symbol-size: 5rem;
+}
+
+.stone-symbol--problem {
+  --stone-symbol-size: clamp(6.5rem, 8vw, 8rem);
+  --stone-floor-shadow: rgba(100, 72, 39, 0.15);
+}
+
+.stone-symbol--sculpture {
+  --stone-symbol-size: clamp(8.25rem, 10vw, 10.625rem);
+  --stone-floor-shadow: rgba(95, 68, 36, 0.2);
 }
 
 .stone-symbol--small {
@@ -4355,7 +4468,7 @@
 }
 
 .framework-stone-symbol {
-  margin-top: 0.8rem;
+  margin-top: 2rem;
 }
 
 .service-stone-symbol {
@@ -4418,6 +4531,15 @@
 
 .editorial-framework-card h3 span {
   display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recognition-card:hover,
+  .editorial-framework-card:hover,
+  .recognition-card:hover .stone-symbol__image,
+  .editorial-framework-card:hover .stone-symbol__image {
+    transform: none;
+  }
 }
 
 .editorial-levels-section {
@@ -6223,6 +6345,18 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .stone-symbol--problem {
+    --stone-symbol-size: clamp(5.75rem, 25vw, 7rem);
+  }
+
+  .stone-symbol--sculpture {
+    --stone-symbol-size: clamp(6.5rem, 26vw, 8rem);
+  }
+
+  .framework-stone-symbol {
+    margin-top: 1.85rem;
+  }
+
   .recognition-card-grid {
     grid-template-columns: 1fr;
   }
@@ -6454,7 +6588,7 @@
   }
 
   .editorial-framework-card {
-    min-height: 11.5rem;
+    min-height: 15.75rem;
   }
 
   .recognition-section {

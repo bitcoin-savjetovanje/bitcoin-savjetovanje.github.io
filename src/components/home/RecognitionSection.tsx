@@ -8,17 +8,26 @@ const recognitionCards = [
   {
     title: "Novac nije jasno raspoređen.",
     copy: "Ne znate koji je novac stvarno slobodan, što mora ostati za kratke obveze i kada Bitcoin odluka postaje prenapeta.",
-    iconSrc: "/images/medallions/02-novac.png",
+    imageSrc: "/images/stone-symbols/problem-money-not-allocated.webp",
+    fallbackSrc: "/images/medallions/02-novac.png",
+    visualBrief:
+      "Mali kameni reljef nedovršenog proračuna, lista/kategorije i nekoliko neutralnih kamenih žetona, bez valuta.",
   },
   {
     title: "Obitelj ili posao nisu usklađeni.",
     copy: "Partner, obitelj ili suradnici ne vide istu sliku. Pravila postoje u glavi, ali nisu zapisana i objašnjena.",
-    iconSrc: "/images/medallions/12-proracun-i-plan.png",
+    imageSrc: "/images/stone-symbols/problem-family-business-misaligned.webp",
+    fallbackSrc: "/images/medallions/12-proracun-i-plan.png",
+    visualBrief:
+      "Dvije kamene pločice koje se ne poklapaju, jedna za obitelj, jedna za posao, blago razmaknute.",
   },
   {
     title: "Cijena previše pomiče odluke.",
     copy: "Rast stvara euforiju, pad stvara paniku, a nedostaje pisani okvir koji odluke drži mirnima kroz vrijeme.",
-    iconSrc: "/images/medallions/25-ciklusi.png",
+    imageSrc: "/images/stone-symbols/problem-price-moving-decisions.webp",
+    fallbackSrc: "/images/medallions/25-ciklusi.png",
+    visualBrief:
+      "Kameni reljef s valovitom linijom, sidrom ili pješčanim satom; volatilnost kao nešto što treba okvir.",
   },
 ]
 
@@ -39,8 +48,9 @@ export function RecognitionSection() {
         {recognitionCards.map((card) => (
           <article className="recognition-card" key={card.title}>
             <StoneSymbol
-              imageSrc={card.iconSrc}
-              className="stone-symbol--small"
+              imageSrc={card.imageSrc}
+              fallbackSrc={card.fallbackSrc}
+              variant="problem"
             />
             <h3>{card.title}</h3>
             <p>{card.copy}</p>

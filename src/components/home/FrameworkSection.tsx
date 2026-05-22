@@ -12,62 +12,97 @@ import {
 type FrameworkCard = {
   number: string
   href?: string
-  iconSrc: string
+  area: "budget" | "debt" | "giving" | "bitcoin" | "worth" | "time" | "security"
+  imageSrc: string
+  fallbackSrc: string
   lines: string[]
+  visualBrief: string
 }
 
 const frameworkCards: FrameworkCard[] = [
   {
     number: "01",
     href: BUDGET_PATH,
-    iconSrc: "/images/medallions/16-proracun.png",
+    area: "budget",
+    imageSrc: "/images/stone-symbols/area-01-budget.webp",
+    fallbackSrc: "/images/medallions/16-proracun.png",
     lines: ["Proračun —", "vidjeti novac"],
+    visualBrief:
+      "Kamena ploča/clipboard s kategorijama, kvačicama i složenim žetonima.",
   },
   {
     number: "02",
     href: DEBT_PATH,
-    iconSrc: "/images/medallions/03-dug.png",
+    area: "debt",
+    imageSrc: "/images/stone-symbols/area-02-debt.webp",
+    fallbackSrc: "/images/medallions/03-dug.png",
     lines: ["Dug —", "osloboditi", "budućnost"],
+    visualBrief: "Otvoreni kameni lanac ili slomljena karika na postolju.",
   },
   {
     number: "03",
     href: GIVING_PATH,
-    iconSrc: "/images/medallions/04-davanje.png",
+    area: "giving",
+    imageSrc: "/images/stone-symbols/area-03-giving.webp",
+    fallbackSrc: "/images/medallions/04-davanje.png",
     lines: ["Davanje —", "otvoriti ruku"],
+    visualBrief: "Otvorena kamena ruka s mladicom ili maslinovom grančicom.",
   },
   {
     number: "04",
     href: BITCOIN_MONEY_PATH,
-    iconSrc: "/images/medallions/17-primarni-novac.png",
+    area: "bitcoin",
+    imageSrc: "/images/stone-symbols/area-04-bitcoin-money.webp",
+    fallbackSrc: "/images/medallions/17-primarni-novac.png",
     lines: ["Bitcoin kao", "novac —", "primarni saldo"],
+    visualBrief:
+      "Centralni kameni Bitcoin simbol, najbliži hero slici, s toplim narančastim/zlatnim akcentom.",
   },
   {
     number: "05",
     href: NET_WORTH_PATH,
-    iconSrc: "/images/medallions/05-neto-imovina.png",
+    area: "worth",
+    imageSrc: "/images/stone-symbols/area-05-net-worth.webp",
+    fallbackSrc: "/images/medallions/05-neto-imovina.png",
     lines: ["Neto imovina —", "bilanca kao", "cjelina"],
+    visualBrief:
+      "Vaga, bilanca ili složeni kameni blokovi koji pokazuju cjelinu.",
   },
   {
     number: "06",
     href: TIME_VOLATILITY_PATH,
-    iconSrc: "/images/medallions/10-volatilnost-i-rast.png",
+    area: "time",
+    imageSrc: "/images/stone-symbols/area-06-time-volatility.webp",
+    fallbackSrc: "/images/medallions/10-volatilnost-i-rast.png",
     lines: ["Vrijeme i", "volatilnost —", "pravila kroz", "cikluse"],
+    visualBrief:
+      "Pješčani sat, ciklični luk ili valovita linija urezana u kameni disk.",
   },
   {
     number: "07",
     href: CUSTODY_SECURITY_PATH,
-    iconSrc: "/images/medallions/15-sigurnost-i-nasljedivanje.png",
+    area: "security",
+    imageSrc: "/images/stone-symbols/area-07-security-family.webp",
+    fallbackSrc: "/images/medallions/15-sigurnost-i-nasljedivanje.png",
     lines: ["Sigurnost", "i obitelj —", "zaštititi pristup"],
+    visualBrief: "Štit, ključ ili obiteljski pečat u kamenu.",
   },
 ]
 
-function FrameworkCardContent({ iconSrc, lines, number }: FrameworkCard) {
+function FrameworkCardContent({
+  fallbackSrc,
+  imageSrc,
+  lines,
+  number,
+}: FrameworkCard) {
   return (
     <>
       <span className="editorial-card-number">{number}</span>
       <StoneSymbol
-        imageSrc={iconSrc}
-        className="stone-symbol--large framework-stone-symbol"
+        imageSrc={imageSrc}
+        fallbackSrc={fallbackSrc}
+        variant="sculpture"
+        className="framework-stone-symbol"
       />
       <h3 aria-label={lines.join(" ")}>
         {lines.map((line) => (
@@ -92,6 +127,7 @@ export function FrameworkSection() {
             <a
               key={card.number}
               className="editorial-framework-card"
+              data-area={card.area}
               data-bitcoin={card.number === "04" ? "true" : undefined}
               href={card.href}
             >
@@ -101,6 +137,7 @@ export function FrameworkSection() {
             <article
               key={card.number}
               className="editorial-framework-card"
+              data-area={card.area}
               data-bitcoin={card.number === "04" ? "true" : undefined}
             >
               <FrameworkCardContent {...card} />

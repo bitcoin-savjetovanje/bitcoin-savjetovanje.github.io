@@ -56,3 +56,47 @@ Pješčani sat, ciklični luk ili valovita linija urezana u kameni disk. Kompozi
 ### `/images/stone-symbols/area-07-security-family.webp`
 
 Štit, ključ ili obiteljski pečat u kamenu. Osjećaj zaštite pristupa i prijenosa znanja, bez agresivnog sigurnosnog vizuala.
+
+## Audience / Three levels
+
+### `/images/stone-symbols/audience-personal.webp`
+
+Mali fotorealistični kameni pečat ili plitki reljef jedne osobe. Travertin/vapnenac, toplo mediteransko svjetlo, transparentna ili vrlo svijetla pozadina. Motiv treba komunicirati osobni sustav odluka bez generičke aplikacijske ikonografije.
+
+### `/images/stone-symbols/audience-family.webp`
+
+Mali fotorealistični kameni pečat s dvije ili tri jednostavne figure. Obiteljski sklad, jasna usklađenost i miran ton, bez dječje ili generičke ilustrativnosti.
+
+### `/images/stone-symbols/audience-business.webp`
+
+Mali fotorealistični kameni pečat s poslovnom riznicom, knjigom računa ili kovčegom. Ozbiljno i uredno, ali ne korporativno generički.
+
+## Offers
+
+### `/images/stone-symbols/bottleneck-stone-channel.webp`
+
+Kamena ploča s urezanim kanalom koji se sužava u jednoj točki. Metafora prvog uskog grla, bez doslovnog ljudskog grla.
+
+### `/images/stone-symbols/offer-intro-call.webp`
+
+Mali kameni ulazni marker, otvorena pločica ili kalendar s jednim označenim poljem. Početak procesa, lagano i pristupačno, ne konačni sustav.
+
+### `/images/stone-symbols/offer-consultation.webp`
+
+Kamena radna ploča s urezanom listom, jednim označenim problemom, malim neutralnim žetonima i suptilnim Bitcoin tragom. Rad na jednom uskom grlu.
+
+### `/images/stone-symbols/offer-personal-standard.webp`
+
+Dovršena kamena knjiga, pisani standard ili arhitektonska ploča s pečatom. Najpremium objekt u setu ponuda, ali smiren i ne agresivan.
+
+## Dodatna pravila za audience i ponude
+
+- Source format 1:1, minimalno 1200x1200 px.
+- Export WebP u širini 600-800 px.
+- Poželjna transparentna pozadina ili vrlo svijetla neutralna pozadina.
+- Isti materijal kroz cijeli set: travertin/vapnenac.
+- Isto svjetlo kroz cijeli set: toplo mediteransko, kompatibilno s hero slikom.
+- Bez znakova dolara, eura ili drugih fiat valuta u slikama.
+- Tekst, cijene i brojevi ostaju u HTML-u.
+- Bitcoin simbol koristi se samo gdje ima smisla i vrlo suptilno.
+- Objekti trebaju izgledati kao dio istog kamenog sustava, ne kao zasebne stock ilustracije.

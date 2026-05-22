@@ -1,12 +1,20 @@
 import { useEffect, useState, type SyntheticEvent } from "react"
 
+type StoneSymbolVariant =
+  | "medallion"
+  | "problem"
+  | "sculpture"
+  | "frieze"
+  | "offer"
+  | "bottleneck"
+
 type StoneSymbolProps = {
-  imageSrc?: string
+  imageSrc: string
   fallbackSrc?: string
   alt?: string
   className?: string
   decorative?: boolean
-  variant?: "medallion" | "problem" | "sculpture"
+  variant?: StoneSymbolVariant
   loading?: "lazy" | "eager"
 }
 

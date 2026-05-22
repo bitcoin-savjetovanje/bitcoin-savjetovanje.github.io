@@ -4455,6 +4455,24 @@
   --stone-floor-shadow: rgba(95, 68, 36, 0.2);
 }
 
+.stone-symbol--frieze {
+  --stone-symbol-size: clamp(4rem, 6vw, 5.5rem);
+  --stone-floor-shadow: rgba(88, 64, 38, 0.16);
+  aspect-ratio: 1;
+}
+
+.stone-symbol--offer {
+  --stone-symbol-size: clamp(5rem, 7vw, 7.5rem);
+  --stone-floor-shadow: rgba(88, 64, 38, 0.18);
+  aspect-ratio: 1;
+}
+
+.stone-symbol--bottleneck {
+  --stone-symbol-size: clamp(8rem, 14vw, 12rem);
+  --stone-floor-shadow: rgba(88, 64, 38, 0.14);
+  aspect-ratio: 1;
+}
+
 .stone-symbol--small {
   --stone-symbol-size: 4.35rem;
 }
@@ -4535,8 +4553,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .recognition-card:hover,
+  .offer-card:hover,
   .editorial-framework-card:hover,
   .recognition-card:hover .stone-symbol__image,
+  .offer-card:hover .stone-symbol__image,
   .editorial-framework-card:hover .stone-symbol__image {
     transform: none;
   }
@@ -4545,18 +4565,32 @@
 .editorial-levels-section {
   background:
     linear-gradient(
-      90deg,
-      color-mix(in oklab, var(--olive-soft), transparent 58%),
-      color-mix(in oklab, var(--paper), var(--sea-mist) 10%) 48%,
-      color-mix(in oklab, var(--sea-soft), transparent 58%)
+      180deg,
+      color-mix(in oklab, var(--paper), var(--stone-soft) 8%),
+      color-mix(in oklab, var(--paper), var(--sea-mist) 9%)
     ),
     var(--paper);
   text-align: center;
 }
 
-.editorial-levels-section h2 {
+.three-levels-header {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.editorial-levels-section h2,
+.three-levels-header h2 {
   font-size: clamp(1.45rem, 2vw, 1.75rem);
   line-height: 1.2;
+}
+
+.three-levels-subtitle {
+  max-width: 38.75rem;
+  margin: 0.8rem auto 0;
+  color: var(--ink-muted);
+  font-family: Georgia, ui-serif, serif;
+  font-size: 1rem;
+  line-height: 1.52;
 }
 
 .editorial-levels-grid {
@@ -4566,7 +4600,54 @@
   margin-top: 2.15rem;
 }
 
-.editorial-level-item {
+.three-levels-frieze {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+  max-width: 68.75rem;
+  margin: clamp(2rem, 3vw, 2.5rem) auto 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--line-warm), var(--paper) 12%);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(
+      ellipse at 50% -5%,
+      rgba(255, 255, 255, 0.72),
+      transparent 22rem
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--paper), var(--stone-soft) 13%),
+      color-mix(in oklab, var(--paper), var(--brass-soft) 13%)
+    ),
+    var(--paper);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.66),
+    inset 0 -1.15rem 2.6rem rgba(99, 70, 38, 0.035),
+    0 1rem 2.5rem rgba(45, 34, 20, 0.04);
+}
+
+.three-levels-frieze::before {
+  content: "";
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.15rem;
+  left: 1.5rem;
+  height: 0.42rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(117, 83, 45, 0.13) 18%,
+    rgba(117, 83, 45, 0.14) 82%,
+    transparent
+  );
+  opacity: 0.65;
+}
+
+.editorial-level-item,
+.three-levels-item {
   position: relative;
   display: flex;
   min-width: 0;
@@ -4574,6 +4655,13 @@
   justify-content: center;
   gap: 1.25rem;
   text-align: left;
+}
+
+.three-levels-item {
+  flex-direction: column;
+  min-height: 13.35rem;
+  padding: clamp(1.55rem, 2.4vw, 2.15rem);
+  text-align: center;
 }
 
 .editorial-level-icon {
@@ -4596,7 +4684,8 @@
   color: var(--blue-quiet);
 }
 
-.editorial-level-item h3 {
+.editorial-level-item h3,
+.three-levels-label {
   color: var(--ink);
   font-family: Georgia, ui-serif, serif;
   font-size: 1.1rem;
@@ -4604,7 +4693,12 @@
   line-height: 1.2;
 }
 
-.editorial-level-item p {
+.three-levels-label {
+  letter-spacing: 0.12em;
+}
+
+.editorial-level-item p,
+.three-levels-copy {
   margin-top: 0.36rem;
   color: var(--ink-soft);
   font-family: Georgia, ui-serif, serif;
@@ -4612,7 +4706,13 @@
   line-height: 1.42;
 }
 
-.editorial-level-separator {
+.three-levels-copy {
+  max-width: 13rem;
+  margin-inline: auto;
+}
+
+.editorial-level-separator,
+.three-levels-separator {
   position: absolute;
   right: calc(clamp(2.4rem, 5vw, 4rem) / -2);
   top: 50%;
@@ -4623,15 +4723,20 @@
   transform: translate(50%, -50%);
 }
 
+.three-levels-separator {
+  right: calc(clamp(1rem, 2vw, 1.35rem) / -2);
+  z-index: 1;
+  width: 0.46rem;
+  height: 0.46rem;
+  border: 1px solid color-mix(in oklab, var(--bitcoin-orange), white 38%);
+  box-shadow: 0 0.35rem 0.75rem rgba(93, 58, 22, 0.12);
+}
+
 .services-section {
-  display: grid;
-  grid-template-columns: minmax(14rem, 0.88fr) minmax(0, 2.15fr);
-  gap: clamp(2.7rem, 5vw, 4.8rem);
-  align-items: stretch;
   background:
     radial-gradient(
       circle at 8% 16%,
-      color-mix(in oklab, var(--olive-soft), transparent 66%),
+      color-mix(in oklab, var(--olive-soft), transparent 68%),
       transparent 18rem
     ),
     radial-gradient(
@@ -4640,23 +4745,46 @@
       transparent 21rem
     ),
     linear-gradient(
-      135deg,
+      180deg,
       var(--paper),
-      color-mix(in oklab, var(--paper), var(--sea-mist) 14%)
+      color-mix(in oklab, var(--paper), var(--stone-soft) 8%)
     );
 }
 
-.services-intro-copy h2 {
-  max-width: 20rem;
+.offers-section {
+  --offer-accent: var(--forest);
+}
+
+.offers-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 2.22fr);
+  gap: clamp(2.2rem, 4vw, 4.2rem);
+  align-items: start;
+}
+
+.offer-section-panel.offers-layout {
+  align-items: start;
+}
+
+.offers-editorial {
+  min-width: 0;
+}
+
+.services-intro-copy h2,
+.offers-editorial h2 {
+  max-width: 25rem;
+  color: var(--ink);
   font-size: clamp(1.65rem, 3vw, 2.35rem);
   line-height: 1.08;
 }
 
-.services-intro-copy h2 span {
+.services-intro-copy h2 span,
+.offers-editorial h2 span {
   display: block;
 }
 
-.services-intro-copy p {
+.services-intro-copy p,
+.offers-editorial p {
   margin-top: 1.9rem;
   color: var(--ink-muted);
   font-family: Georgia, ui-serif, serif;
@@ -4664,34 +4792,57 @@
   line-height: 1.5;
 }
 
-.services-card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.3rem, 2.2vw, 1.85rem);
+.offers-bottleneck-visual {
+  margin-top: clamp(1.6rem, 3vw, 2.35rem);
 }
 
+.services-card-grid,
+.offers-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 1.5vw, 1.35rem);
+}
+
+.offer-path.offers-card-grid {
+  margin-top: 0;
+  list-style: none;
+}
+
+.offer-card,
 .service-card {
   --service-accent: var(--forest);
   position: relative;
   display: flex;
   min-width: 0;
-  min-height: 16.8rem;
+  min-height: 24rem;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid color-mix(in oklab, var(--service-accent), var(--card-border) 72%);
-  border-radius: 0.65rem;
+  border: 1px solid
+    color-mix(in oklab, var(--service-accent), var(--card-border) 76%);
+  border-radius: 0.55rem;
   background:
+    radial-gradient(
+      ellipse at 50% 13%,
+      rgba(255, 255, 255, 0.74),
+      transparent 8.75rem
+    ),
     linear-gradient(
       180deg,
-      color-mix(in oklab, var(--service-accent), var(--paper) 94%),
-      color-mix(in oklab, var(--paper), var(--sea-mist) 12%) 36%,
-      color-mix(in oklab, var(--paper), var(--stone-soft) 10%)
+      color-mix(in oklab, var(--service-accent), var(--paper) 96%),
+      color-mix(in oklab, var(--paper), var(--stone-soft) 9%) 40%,
+      color-mix(in oklab, var(--paper), var(--linen) 22%)
     ),
     var(--paper);
-  padding: 1.8rem 1.55rem 1.65rem;
-  box-shadow: 0 0.8rem 2rem rgba(45, 34, 20, 0.04);
+  padding: clamp(1.35rem, 1.6vw, 1.65rem);
+  padding-top: clamp(1.5rem, 2vw, 1.95rem);
+  box-shadow: 0 0.8rem 1.9rem rgba(45, 34, 20, 0.04);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
+.offer-card::before,
 .service-card::before {
   content: "";
   position: absolute;
@@ -4700,16 +4851,51 @@
   background: color-mix(in oklab, var(--service-accent), transparent 10%);
 }
 
+.offer-card:hover,
+.service-card:hover {
+  border-color: color-mix(in oklab, var(--service-accent), var(--ink) 78%);
+  box-shadow: 0 1rem 2.2rem rgba(45, 34, 20, 0.055);
+  transform: translateY(-2px);
+}
+
+.offer-card:hover .stone-symbol__image,
+.service-card:hover .stone-symbol__image {
+  transform: translateY(-1px);
+}
+
+.offer-card--intro,
 .service-card:nth-child(1) {
   --service-accent: var(--forest);
 }
 
+.offer-card--featured,
 .service-card:nth-child(2) {
   --service-accent: var(--sea-deep);
 }
 
+.offer-card--standard,
 .service-card:nth-child(3) {
   --service-accent: var(--clay);
+}
+
+.offer-card--intro {
+  min-height: 22.5rem;
+}
+
+.offer-card--standard {
+  background:
+    radial-gradient(
+      ellipse at 50% 13%,
+      color-mix(in oklab, var(--bitcoin-orange), white 89%),
+      transparent 9rem
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--clay), var(--paper) 93%),
+      color-mix(in oklab, var(--paper), var(--stone-soft) 9%) 40%,
+      color-mix(in oklab, var(--paper), var(--brass-soft) 16%)
+    ),
+    var(--paper);
 }
 
 .service-card__medallion {
@@ -4718,9 +4904,27 @@
   margin-bottom: 0.2rem;
 }
 
-.service-card__details-link {
+.offer-card-visual {
+  align-self: center;
+  margin-bottom: clamp(0.7rem, 1.3vw, 1rem);
+}
+
+.offer-card-eyebrow {
+  align-self: center;
+  color: color-mix(in oklab, var(--service-accent), var(--ink) 18%);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.service-card__details-link,
+.offer-card__details-link {
   display: inline-flex;
   width: fit-content;
+  align-items: center;
+  gap: 0.35rem;
   margin-top: 0.85rem;
   color: color-mix(in oklab, var(--service-accent), var(--ink) 20%);
   font-family: Georgia, ui-serif, serif;
@@ -4736,17 +4940,27 @@
   text-underline-offset: 0.25rem;
 }
 
-.service-card__heading {
-  margin-top: 0.8rem;
+.service-card__details-link:focus-visible,
+.offer-card__details-link:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--service-accent), white 38%);
+  outline-offset: 4px;
 }
 
-.service-card h3 {
+.service-card__heading,
+.offer-card__heading {
+  margin-top: 0.85rem;
+  text-align: center;
+}
+
+.service-card h3,
+.offer-card h3 {
   color: var(--ink);
   font-size: 1.15rem;
   line-height: 1.2;
 }
 
-.service-card strong {
+.service-card strong,
+.offer-card-price {
   display: block;
   margin-top: 0.1rem;
   color: color-mix(in oklab, var(--service-accent), var(--ink) 22%);
@@ -4756,13 +4970,79 @@
   line-height: 1.05;
 }
 
-.service-card p {
+.offer-card-duration {
+  margin-top: 0.7rem;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.service-card p,
+.offer-card p {
   margin-top: 0.8rem;
   margin-bottom: clamp(1.25rem, 1.8vw, 1.65rem);
   color: var(--ink-soft);
   font-family: Georgia, ui-serif, serif;
   font-size: 0.88rem;
   line-height: 1.43;
+}
+
+.offer-card-includes {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.35rem;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.offer-card-includes li {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.offer-card-includes svg {
+  flex: 0 0 auto;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+.offer-card-actions {
+  display: grid;
+  gap: 0.7rem;
+  min-width: 0;
+  margin-top: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.offer-card-actions .home-outline-button,
+.offer-card-actions .home-outline-button > a {
+  width: 100%;
+  max-width: 100%;
+}
+
+.offer-card-actions .home-outline-button {
+  height: auto;
+  min-height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  padding-inline: 0.75rem;
+  white-space: normal !important;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.offer-card-actions .home-outline-button > a {
+  justify-content: center;
+  white-space: normal;
+  text-align: center;
 }
 
 .home-outline-button {
@@ -5986,6 +6266,10 @@
     grid-template-columns: 1fr;
   }
 
+  .offers-layout {
+    grid-template-columns: 1fr;
+  }
+
   .recognition-section {
     grid-template-columns: 1fr;
   }
@@ -6176,9 +6460,13 @@
   }
 
   .editorial-levels-grid,
-  .services-card-grid,
   .about-book-section {
     grid-template-columns: 1fr;
+  }
+
+  .services-card-grid,
+  .offers-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .about-editorial-card {
@@ -6353,11 +6641,51 @@
     --stone-symbol-size: clamp(6.5rem, 26vw, 8rem);
   }
 
+  .stone-symbol--frieze {
+    --stone-symbol-size: clamp(3.5rem, 18vw, 4.5rem);
+  }
+
+  .stone-symbol--offer {
+    --stone-symbol-size: clamp(4.7rem, 23vw, 6.5rem);
+  }
+
+  .stone-symbol--bottleneck {
+    --stone-symbol-size: clamp(7rem, 42vw, 9rem);
+  }
+
   .framework-stone-symbol {
     margin-top: 1.85rem;
   }
 
   .recognition-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .three-levels-frieze {
+    grid-template-columns: 1fr;
+    border-radius: 1rem;
+  }
+
+  .three-levels-frieze::before {
+    right: 1rem;
+    bottom: auto;
+    left: 1rem;
+    top: 50%;
+    height: 1px;
+    transform: translateY(-50%);
+  }
+
+  .three-levels-item {
+    min-height: 0;
+    padding: 1.35rem 1.15rem;
+  }
+
+  .three-levels-separator {
+    display: none;
+  }
+
+  .services-card-grid,
+  .offers-card-grid {
     grid-template-columns: 1fr;
   }
 

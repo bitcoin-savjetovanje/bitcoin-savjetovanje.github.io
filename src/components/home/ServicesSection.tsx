@@ -1,3 +1,5 @@
+import { ArrowUpRight, CalendarDays } from "lucide-react"
+
 import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,7 +18,12 @@ type ServiceCard = {
   detailHref?: string
   detailLabel?: string
   dataLink?: string
-  iconSrc: string
+  visual: {
+    eyebrow: string
+    imageSrc: string
+    fallbackSrc: string
+    visualBrief: string
+  }
 }
 
 const services: ServiceCard[] = [
@@ -27,7 +34,13 @@ const services: ServiceCard[] = [
     primaryCta: "Dogovorite razgovor",
     primaryHref: CONVERSATION_PATH,
     dataCta: "service-intro-call",
-    iconSrc: "/images/medallions/26-mentorstvo.png",
+    visual: {
+      eyebrow: "Početak",
+      imageSrc: "/images/stone-symbols/offer-intro-call.webp",
+      fallbackSrc: "/images/medallions/26-mentorstvo.png",
+      visualBrief:
+        "Mali kameni ulazni marker, otvorena pločica ili kalendar s jednim označenim poljem.",
+    },
   },
   {
     title: "Bitcoin konzultacija",
@@ -39,7 +52,13 @@ const services: ServiceCard[] = [
     detailHref: BITCOIN_CONSULTATION_PATH,
     detailLabel: "Pogledajte detalje",
     dataLink: "service-consultation-details",
-    iconSrc: "/images/medallions/14-edukacija.png",
+    visual: {
+      eyebrow: "Jedno usko grlo",
+      imageSrc: "/images/stone-symbols/offer-consultation.webp",
+      fallbackSrc: "/images/medallions/12-proracun-i-plan.png",
+      visualBrief:
+        "Kamena radna ploča s urezanom listom, jednim označenim problemom i suptilnim Bitcoin tragom.",
+    },
   },
   {
     title: "Osobni Bitcoin standard",
@@ -51,66 +70,114 @@ const services: ServiceCard[] = [
     detailHref: PERSONAL_BITCOIN_STANDARD_PATH,
     detailLabel: "Pogledajte detalje",
     dataLink: "service-personal-standard-details",
-    iconSrc: "/images/medallions/12-proracun-i-plan.png",
+    visual: {
+      eyebrow: "Cijeli sustav",
+      imageSrc: "/images/stone-symbols/offer-personal-standard.webp",
+      fallbackSrc: "/images/medallions/17-primarni-novac.png",
+      visualBrief:
+        "Dovršena kamena knjiga, pisani standard ili arhitektonska ploča s pečatom.",
+    },
   },
 ]
 
 export function ServicesSection() {
   return (
-    <section id="ponude" className="editorial-section services-section">
-      <div className="services-intro-copy">
-        <h2>
-          <span>U 15 minuta ne gradimo</span> <span>cijeli sustav.</span>{" "}
-          <span>Pronalazimo prvo usko grlo.</span>
-        </h2>
-        <p>
-          Ne morate sami izabrati paket. Uvodni razgovor služi tome da vidimo je
-          li dovoljan kratak odgovor, jedan dubinski razgovor ili cjelovit
-          osobni Bitcoin standard.
-        </p>
-      </div>
+    <section
+      id="ponude"
+      className="editorial-section services-section offers-section"
+    >
+      <div className="offers-layout">
+        <div className="services-intro-copy offers-editorial">
+          <h2>
+            <span>U 15 minuta ne gradimo</span> <span>cijeli sustav.</span>{" "}
+            <span>Pronalazimo prvo usko grlo.</span>
+          </h2>
+          <p>
+            Ne morate sami izabrati paket. Uvodni razgovor služi tome da vidimo
+            je li dovoljan kratak odgovor, jedan dubinski razgovor ili cjelovit
+            osobni Bitcoin standard.
+          </p>
+          <StoneSymbol
+            imageSrc="/images/stone-symbols/bottleneck-stone-channel.webp"
+            fallbackSrc="/images/medallions/21-stvarni-visak.png"
+            variant="bottleneck"
+            className="offers-bottleneck-visual"
+          />
+        </div>
 
-      <div className="services-card-grid" aria-label="Usluge">
-        {services.map(
-          ({
-            copy,
-            dataCta,
-            dataLink,
-            detailHref,
-            detailLabel,
-            iconSrc,
-            price,
-            primaryCta,
-            primaryHref,
-            title,
-          }) => (
-            <article key={title} className="service-card">
-              <StoneSymbol
-                imageSrc={iconSrc}
-                className="stone-symbol--medium service-stone-symbol"
-              />
-              <div className="service-card__heading">
-                <h3>{title}</h3>
-                <strong>{price}</strong>
-              </div>
-              <p>{copy}</p>
-              <Button asChild variant="outline" className="home-outline-button">
-                <a href={primaryHref} data-cta={dataCta}>
-                  {primaryCta}
-                </a>
-              </Button>
-              {detailHref && detailLabel && dataLink ? (
-                <a
-                  href={detailHref}
-                  className="service-card__details-link"
-                  data-link={dataLink}
-                >
-                  {detailLabel}
-                </a>
-              ) : null}
-            </article>
-          )
-        )}
+        <div
+          className="services-card-grid offers-card-grid"
+          aria-label="Usluge"
+        >
+          {services.map(
+            ({
+              copy,
+              dataCta,
+              dataLink,
+              detailHref,
+              detailLabel,
+              price,
+              primaryCta,
+              primaryHref,
+              title,
+              visual,
+            }) => (
+              <article
+                key={title}
+                className={`service-card offer-card ${
+                  dataCta === "service-intro-call" ? "offer-card--intro" : ""
+                } ${
+                  dataCta === "service-consultation-intro-call"
+                    ? "offer-card--featured"
+                    : ""
+                } ${
+                  dataCta === "service-personal-standard-intro-call"
+                    ? "offer-card--standard"
+                    : ""
+                }`}
+              >
+                <StoneSymbol
+                  imageSrc={visual.imageSrc}
+                  fallbackSrc={visual.fallbackSrc}
+                  variant="offer"
+                  className="offer-card-visual service-stone-symbol"
+                />
+                <span className="offer-card-eyebrow">{visual.eyebrow}</span>
+                <div className="offer-card__heading">
+                  <h3>{title}</h3>
+                  <strong className="offer-card-price">{price}</strong>
+                </div>
+                <p>{copy}</p>
+                <ul className="offer-card-actions">
+                  <li>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="home-outline-button"
+                    >
+                      <a href={primaryHref} data-cta={dataCta}>
+                        <CalendarDays className="size-4" aria-hidden="true" />
+                        {primaryCta}
+                      </a>
+                    </Button>
+                  </li>
+                  {detailHref && detailLabel && dataLink ? (
+                    <li>
+                      <a
+                        href={detailHref}
+                        className="offer-card__details-link"
+                        data-link={dataLink}
+                      >
+                        {detailLabel}
+                        <ArrowUpRight className="size-4" aria-hidden="true" />
+                      </a>
+                    </li>
+                  ) : null}
+                </ul>
+              </article>
+            )
+          )}
+        </div>
       </div>
     </section>
   )

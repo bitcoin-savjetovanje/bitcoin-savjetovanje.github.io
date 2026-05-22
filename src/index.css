@@ -4067,6 +4067,41 @@
   line-height: 1.04;
 }
 
+.framework-section {
+  --framework-image-background: #f0e5d8;
+  --framework-previous-background: color-mix(
+    in oklab,
+    var(--paper),
+    var(--stone-soft) 9%
+  );
+  --framework-next-background: color-mix(
+    in oklab,
+    var(--paper),
+    var(--sea-mist) 9%
+  );
+  background:
+    linear-gradient(
+      180deg,
+      var(--framework-previous-background) 0%,
+      color-mix(
+          in oklab,
+          var(--framework-image-background),
+          var(--framework-previous-background) 34%
+        )
+        15%,
+      var(--framework-image-background) 34%,
+      var(--framework-image-background) 72%,
+      color-mix(
+          in oklab,
+          var(--framework-image-background),
+          var(--framework-next-background) 36%
+        )
+        86%,
+      var(--framework-next-background) 100%
+    ),
+    var(--framework-image-background);
+}
+
 .recognition-section {
   display: grid;
   grid-template-columns: minmax(18rem, 0.86fr) minmax(0, 1.14fr);

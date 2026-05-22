@@ -4180,147 +4180,56 @@
   font-size: 0.94rem;
 }
 
-.editorial-framework-grid {
+.framework-sculpture-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: clamp(1rem, 1.8vw, 2.2rem);
+  gap: clamp(1.25rem, 2vw, 2rem);
   align-items: start;
   margin-top: clamp(1.7rem, 3vw, 2.35rem);
 }
 
-.editorial-framework-card {
-  --framework-accent: var(--brass);
-  position: relative;
-  display: flex;
+.framework-sculpture-item {
+  display: block;
   min-width: 0;
-  flex-direction: column;
-  align-items: center;
-  overflow: visible;
-  border: 0;
-  border-radius: 0.35rem;
-  background: transparent;
-  padding: 0;
   color: inherit;
   text-align: center;
   text-decoration: none;
-  box-shadow: none;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
 }
 
-.editorial-framework-card:focus-visible {
-  outline: 3px solid color-mix(in oklab, var(--bitcoin-orange), white 28%);
-  outline-offset: 0.55rem;
+.framework-sculpture-item:focus-visible {
+  border-radius: 1rem;
+  outline: 3px solid var(--color-green, var(--forest));
+  outline-offset: 0.5rem;
 }
 
-.editorial-framework-card::before {
-  display: none;
-}
-
-.editorial-framework-card[data-area] {
-  --framework-accent: var(--area-color);
-}
-
-.editorial-framework-card:hover {
-  color: color-mix(in oklab, var(--framework-accent), var(--ink) 26%);
-  transform: translateY(-1px);
-}
-
-.editorial-framework-card:hover .stone-symbol__image {
-  transform: translateY(-2px) scale(1.015);
-}
-
-.editorial-framework-card[data-bitcoin="true"] {
-  color: color-mix(in oklab, var(--bitcoin-orange), var(--ink) 36%);
-}
-
-.editorial-framework-card:nth-child(1) {
-  --framework-accent: var(--brass);
-}
-
-.editorial-framework-card:nth-child(2) {
-  --framework-accent: var(--clay);
-}
-
-.editorial-framework-card:nth-child(3) {
-  --framework-accent: var(--sage);
-}
-
-.editorial-framework-card:nth-child(4) {
-  --framework-accent: var(--bitcoin-orange);
-}
-
-.editorial-framework-card:nth-child(5) {
-  --framework-accent: var(--blue-quiet);
-}
-
-.editorial-framework-card:nth-child(6) {
-  --framework-accent: var(--plum-quiet);
-}
-
-.editorial-framework-card:nth-child(7) {
-  --framework-accent: var(--forest);
-}
-
-.editorial-card-number {
-  position: relative;
-  z-index: 2;
+.framework-sculpture-image {
   display: block;
-  margin-top: clamp(-2rem, -2.1vw, -1.6rem);
-  color: color-mix(in oklab, var(--framework-accent), var(--ink) 10%);
-  font-family: Georgia, ui-serif, serif;
-  font-size: clamp(1.05rem, 1.35vw, 1.32rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.28);
-}
-
-.editorial-framework-visual {
-  position: relative;
-  display: flex;
   width: 100%;
-  min-height: clamp(8.3rem, 11.5vw, 11.2rem);
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  isolation: isolate;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto 1.1rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-.editorial-framework-visual::after {
-  content: "";
-  display: block;
-  width: min(8.2rem, 88%);
-  height: clamp(2.05rem, 2.65vw, 2.65rem);
-  margin-top: -1rem;
-  border: 1px solid color-mix(in oklab, var(--stone), var(--paper) 44%);
-  border-radius: 0.26rem 0.26rem 0.38rem 0.38rem;
-  background:
-    radial-gradient(
-      ellipse at 18% 18%,
-      rgba(255, 255, 255, 0.46),
-      transparent 48%
-    ),
-    radial-gradient(rgba(87, 61, 34, 0.14) 0.6px, transparent 0.7px),
-    linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--paper), var(--stone-soft) 42%),
-      color-mix(in oklab, var(--stone), var(--paper) 50%)
-    );
-  background-size:
-    auto,
-    0.75rem 0.75rem,
-    auto;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.38),
-    inset 0 -0.28rem 0.55rem rgba(72, 50, 28, 0.08),
-    0 0.8rem 1.25rem rgba(45, 34, 20, 0.1);
+.framework-sculpture-title {
+  max-width: 13rem;
+  margin: 0 auto 0.6rem;
+  color: var(--ink);
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.18rem, 1.35vw, 1.45rem);
+  line-height: 1.08;
 }
 
-.editorial-framework-visual[data-embedded-number="true"]::after,
-.editorial-framework-visual[data-embedded-number="true"] .editorial-card-number {
-  display: none;
+.framework-sculpture-description {
+  max-width: 12rem;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(0.94rem, 1vw, 1.05rem);
+  line-height: 1.35;
 }
 
 .icon-medallion {
@@ -4503,11 +4412,6 @@
   --stone-symbol-size: 6.35rem;
 }
 
-.framework-stone-symbol {
-  --stone-symbol-size: clamp(8.8rem, 11vw, 12rem);
-  margin-top: 0;
-}
-
 .service-stone-symbol {
   --stone-symbol-size: 4.45rem;
   margin-bottom: 0.25rem;
@@ -4541,51 +4445,11 @@
     0 0.65rem 1.1rem rgba(70, 48, 28, 0.12);
 }
 
-.editorial-framework-medallion {
-  --medallion-size: 6.6rem;
-  margin-top: 0.85rem;
-}
-
-.editorial-framework-medallion .icon-medallion__image {
-  clip-path: circle(49% at 50% 50%);
-  filter: drop-shadow(0 0.6rem 0.8rem rgba(70, 48, 28, 0.16));
-}
-
-.editorial-framework-bitcoin-logo {
-  width: 5.2rem;
-  height: 5.2rem;
-  margin-top: 1.35rem;
-  object-fit: contain;
-  filter: drop-shadow(0 0.45rem 0.75rem rgba(89, 55, 21, 0.12));
-}
-
-.editorial-framework-card h3 {
-  margin-top: clamp(0.85rem, 1.4vw, 1.15rem);
-  color: var(--ink);
-  font-size: clamp(1.06rem, 1.35vw, 1.45rem);
-  line-height: 1.08;
-}
-
-.editorial-framework-card h3 span {
-  display: block;
-}
-
-.editorial-framework-card-copy {
-  max-width: 11rem;
-  margin-top: clamp(0.75rem, 1vw, 0.95rem);
-  color: var(--ink-soft);
-  font-family: Georgia, ui-serif, serif;
-  font-size: clamp(0.88rem, 1vw, 1rem);
-  line-height: 1.36;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .recognition-card:hover,
   .offer-card:hover,
-  .editorial-framework-card:hover,
   .recognition-card:hover .stone-symbol__image,
-  .offer-card:hover .stone-symbol__image,
-  .editorial-framework-card:hover .stone-symbol__image {
+  .offer-card:hover .stone-symbol__image {
     transform: none;
   }
 }
@@ -6286,7 +6150,7 @@
     gap: clamp(1.75rem, 3.5vw, 2.9rem);
   }
 
-  .editorial-framework-grid {
+  .framework-sculpture-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
@@ -6657,7 +6521,7 @@
     width: 12rem;
   }
 
-  .editorial-framework-grid {
+  .framework-sculpture-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -6681,8 +6545,8 @@
     --stone-symbol-size: clamp(7rem, 42vw, 9rem);
   }
 
-  .framework-stone-symbol {
-    margin-top: 0;
+  .framework-sculpture-image {
+    max-width: 160px;
   }
 
   .recognition-card-grid {
@@ -6939,12 +6803,12 @@
     width: 6.8rem;
   }
 
-  .editorial-framework-grid {
+  .framework-sculpture-grid {
     grid-template-columns: 1fr;
   }
 
-  .editorial-framework-card {
-    min-height: 0;
+  .framework-sculpture-image {
+    max-width: 180px;
   }
 
   .recognition-section {

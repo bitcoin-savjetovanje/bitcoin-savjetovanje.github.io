@@ -338,6 +338,13 @@ const requiredFiles = [
   "og-bitcoin-kao-novac.svg",
   "images/home-hero-20260521.webp",
   "images/home-hero-20260521.jpg",
+  "images/stone-symbols/area-01-budget.webp",
+  "images/stone-symbols/area-02-debt.webp",
+  "images/stone-symbols/area-03-giving.webp",
+  "images/stone-symbols/area-04-bitcoin-money.webp",
+  "images/stone-symbols/area-05-net-worth.webp",
+  "images/stone-symbols/area-06-time-volatility.webp",
+  "images/stone-symbols/area-07-security-family.webp",
   "images/hero-bitcoin-savjetovanje-realistic.webp",
   "images/hero-bitcoin-savjetovanje-realistic.jpg",
   "images/medallions/02-novac.png",
@@ -760,6 +767,10 @@ const homeChecks = [
     "Okvir iz knjige: 7 područja koja treba urediti",
     "framework section title",
   ],
+  ["framework-sculpture-grid", "framework sculpture grid markup"],
+  ["framework-sculpture-image", "framework sculpture image markup"],
+  ["area-01-budget.webp", "framework budget sculpture asset"],
+  ["area-07-security-family.webp", "framework security sculpture asset"],
   ['href="/proracun/"', "framework budget card href"],
   ["Proračun", "framework budget item"],
   ["vidjeti novac", "framework compact budget idea"],
@@ -950,11 +961,11 @@ assertNotMatches(
   /<div\b(?=[^>]*bitcoin-stress-test-visual)(?=[^>]*role="img")[^>]*>/,
   "role=img on readable hero visual"
 )
-assertIncludes(
+assertNotIncludes(
   "index.html",
   homeHtml,
   "framework-stone-symbol",
-  "framework stone symbol markup"
+  "old framework stone symbol markup"
 )
 assertIncludes(
   "index.html",

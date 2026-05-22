@@ -758,7 +758,7 @@ const homeChecks = [
   ],
   ["Imam Bitcoin, ali nemam pravila.", "recognition section title"],
   [
-    "Ako Bitcoin više nije samo nešto što držite sa strane",
+    "Ne znate korak po korak što učiniti s novcem, dugom, viškom, neto imovinom, volatilnošću i sigurnošću.",
     "recognition intro copy",
   ],
   ["Ne morate znati koji paket trebate.", "recognition trust copy"],

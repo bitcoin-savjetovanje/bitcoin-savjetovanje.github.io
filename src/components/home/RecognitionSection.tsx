@@ -38,9 +38,8 @@ export function RecognitionSection() {
         <p className="section-eyebrow">PREPOZNAJETE LI SE?</p>
         <h2>Imam Bitcoin, ali nemam pravila.</h2>
         <p>
-          Ako Bitcoin više nije samo nešto što držite sa strane, tada trebate
-          sustav odluka: za proračun, dug, davanje, neto imovinu, vrijeme i
-          sigurnost.
+          Ne znate korak po korak što učiniti s novcem, dugom, viškom, neto
+          imovinom, volatilnošću i sigurnošću.
         </p>
       </div>
 

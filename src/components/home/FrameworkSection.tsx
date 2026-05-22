@@ -16,6 +16,7 @@ type FrameworkCard = {
   imageSrc: string
   fallbackSrc: string
   lines: string[]
+  copy: string
   visualBrief: string
 }
 
@@ -27,6 +28,7 @@ const frameworkCards: FrameworkCard[] = [
     imageSrc: "/images/stone-symbols/area-01-budget.webp",
     fallbackSrc: "/images/medallions/16-proracun.png",
     lines: ["Proračun —", "vidjeti novac"],
+    copy: "Urediti vlastiti sustav odluka.",
     visualBrief:
       "Kamena ploča/clipboard s kategorijama, kvačicama i složenim žetonima.",
   },
@@ -37,6 +39,7 @@ const frameworkCards: FrameworkCard[] = [
     imageSrc: "/images/stone-symbols/area-02-debt.webp",
     fallbackSrc: "/images/medallions/03-dug.png",
     lines: ["Dug —", "osloboditi", "budućnost"],
+    copy: "Prekinuti krug duga i ojačati slobodu.",
     visualBrief: "Otvoreni kameni lanac ili slomljena karika na postolju.",
   },
   {
@@ -46,6 +49,7 @@ const frameworkCards: FrameworkCard[] = [
     imageSrc: "/images/stone-symbols/area-03-giving.webp",
     fallbackSrc: "/images/medallions/04-davanje.png",
     lines: ["Davanje —", "otvoriti ruku"],
+    copy: "Izgraditi duh velikodušnosti.",
     visualBrief: "Otvorena kamena ruka s mladicom ili maslinovom grančicom.",
   },
   {
@@ -55,6 +59,7 @@ const frameworkCards: FrameworkCard[] = [
     imageSrc: "/images/stone-symbols/area-04-bitcoin-money.webp",
     fallbackSrc: "/images/medallions/17-primarni-novac.png",
     lines: ["Bitcoin kao", "novac —", "primarni saldo"],
+    copy: "Koristiti Bitcoin kao osnovni novac.",
     visualBrief:
       "Centralni kameni Bitcoin simbol, najbliži hero slici, s toplim narančastim/zlatnim akcentom.",
   },
@@ -65,6 +70,7 @@ const frameworkCards: FrameworkCard[] = [
     imageSrc: "/images/stone-symbols/area-05-net-worth.webp",
     fallbackSrc: "/images/medallions/05-neto-imovina.png",
     lines: ["Neto imovina —", "bilanca kao", "cjelina"],
+    copy: "Gledati cjelokupnu sliku imovine.",
     visualBrief:
       "Vaga, bilanca ili složeni kameni blokovi koji pokazuju cjelinu.",
   },
@@ -75,6 +81,7 @@ const frameworkCards: FrameworkCard[] = [
     imageSrc: "/images/stone-symbols/area-06-time-volatility.webp",
     fallbackSrc: "/images/medallions/10-volatilnost-i-rast.png",
     lines: ["Vrijeme i", "volatilnost —", "pravila kroz", "cikluse"],
+    copy: "Razumjeti cikluse i ostati dosljedan.",
     visualBrief:
       "Pješčani sat, ciklični luk ili valovita linija urezana u kameni disk.",
   },
@@ -85,11 +92,14 @@ const frameworkCards: FrameworkCard[] = [
     imageSrc: "/images/stone-symbols/area-07-security-family.webp",
     fallbackSrc: "/images/medallions/15-sigurnost-i-nasljedivanje.png",
     lines: ["Sigurnost", "i obitelj —", "zaštititi pristup"],
+    copy: "Zaštititi ključeve i pripremiti nasljeđe.",
     visualBrief: "Štit, ključ ili obiteljski pečat u kamenu.",
   },
 ]
 
 function FrameworkCardContent({
+  area,
+  copy,
   fallbackSrc,
   imageSrc,
   lines,
@@ -97,18 +107,26 @@ function FrameworkCardContent({
 }: FrameworkCard) {
   return (
     <>
-      <span className="editorial-card-number">{number}</span>
-      <StoneSymbol
-        imageSrc={imageSrc}
-        fallbackSrc={fallbackSrc}
-        variant="sculpture"
-        className="framework-stone-symbol"
-      />
+      <div
+        className="editorial-framework-visual"
+        data-embedded-number={area === "budget" ? "true" : undefined}
+      >
+        <StoneSymbol
+          imageSrc={imageSrc}
+          fallbackSrc={fallbackSrc}
+          variant="sculpture"
+          className="framework-stone-symbol"
+        />
+        <span className="editorial-card-number" aria-hidden="true">
+          {number}
+        </span>
+      </div>
       <h3 aria-label={lines.join(" ")}>
         {lines.map((line) => (
           <span key={line}>{line} </span>
         ))}
       </h3>
+      <p className="editorial-framework-card-copy">{copy}</p>
     </>
   )
 }

@@ -4062,8 +4062,9 @@
 }
 
 .framework-section h2 {
-  font-size: clamp(1.45rem, 2vw, 1.72rem);
-  line-height: 1.2;
+  max-width: 56rem;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.04;
 }
 
 .recognition-section {
@@ -4182,58 +4183,39 @@
 .editorial-framework-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: clamp(0.85rem, 1.35vw, 1.25rem);
-  align-items: stretch;
-  margin-top: clamp(2rem, 3vw, 2.45rem);
+  gap: clamp(1rem, 1.8vw, 2.2rem);
+  align-items: start;
+  margin-top: clamp(1.7rem, 3vw, 2.35rem);
 }
 
 .editorial-framework-card {
   --framework-accent: var(--brass);
   position: relative;
-  display: grid;
+  display: flex;
   min-width: 0;
-  min-height: clamp(17.5rem, 22vw, 20rem);
-  align-content: start;
-  justify-items: center;
-  overflow: hidden;
-  border: 1px solid
-    color-mix(in oklab, var(--framework-accent), var(--card-border) 78%);
-  border-radius: 0.5rem;
-  background:
-    radial-gradient(
-      ellipse at 50% 39%,
-      rgba(255, 255, 255, 0.78),
-      transparent 7.6rem
-    ),
-    linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--framework-accent), var(--paper) 95%),
-      color-mix(in oklab, var(--paper), var(--stone-soft) 9%) 45%,
-      color-mix(in oklab, var(--paper), var(--linen) 28%)
-    ),
-    var(--paper);
-  padding: 1.15rem 0.8rem 1.45rem;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  border: 0;
+  border-radius: 0.35rem;
+  background: transparent;
+  padding: 0;
   color: inherit;
   text-align: center;
   text-decoration: none;
-  box-shadow: 0 0.65rem 1.6rem rgba(45, 34, 20, 0.035);
+  box-shadow: none;
   transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
+    color 180ms ease,
     transform 180ms ease;
 }
 
 .editorial-framework-card:focus-visible {
   outline: 3px solid color-mix(in oklab, var(--bitcoin-orange), white 28%);
-  outline-offset: 4px;
+  outline-offset: 0.55rem;
 }
 
 .editorial-framework-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 0.18rem;
-  background: color-mix(in oklab, var(--framework-accent), transparent 12%);
+  display: none;
 }
 
 .editorial-framework-card[data-area] {
@@ -4241,8 +4223,7 @@
 }
 
 .editorial-framework-card:hover {
-  border-color: color-mix(in oklab, var(--framework-accent), var(--ink) 72%);
-  box-shadow: 0 0.95rem 2rem rgba(45, 34, 20, 0.055);
+  color: color-mix(in oklab, var(--framework-accent), var(--ink) 26%);
   transform: translateY(-1px);
 }
 
@@ -4251,19 +4232,7 @@
 }
 
 .editorial-framework-card[data-bitcoin="true"] {
-  background:
-    radial-gradient(
-      ellipse at 50% 38%,
-      color-mix(in oklab, var(--bitcoin-orange), white 88%),
-      transparent 7.85rem
-    ),
-    linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--bitcoin-orange), var(--paper) 92%),
-      color-mix(in oklab, var(--paper), var(--stone-soft) 10%) 46%,
-      color-mix(in oklab, var(--paper), var(--brass-soft) 18%)
-    ),
-    var(--paper);
+  color: color-mix(in oklab, var(--bitcoin-orange), var(--ink) 36%);
 }
 
 .editorial-framework-card:nth-child(1) {
@@ -4295,14 +4264,63 @@
 }
 
 .editorial-card-number {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin-top: clamp(-2rem, -2.1vw, -1.6rem);
   color: color-mix(in oklab, var(--framework-accent), var(--ink) 10%);
-  font-size: 0.76rem;
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.05rem, 1.35vw, 1.32rem);
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.04em;
   line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.editorial-framework-visual {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: clamp(8.3rem, 11.5vw, 11.2rem);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  isolation: isolate;
+}
+
+.editorial-framework-visual::after {
+  content: "";
+  display: block;
+  width: min(8.2rem, 88%);
+  height: clamp(2.05rem, 2.65vw, 2.65rem);
+  margin-top: -1rem;
+  border: 1px solid color-mix(in oklab, var(--stone), var(--paper) 44%);
+  border-radius: 0.26rem 0.26rem 0.38rem 0.38rem;
+  background:
+    radial-gradient(
+      ellipse at 18% 18%,
+      rgba(255, 255, 255, 0.46),
+      transparent 48%
+    ),
+    radial-gradient(rgba(87, 61, 34, 0.14) 0.6px, transparent 0.7px),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--paper), var(--stone-soft) 42%),
+      color-mix(in oklab, var(--stone), var(--paper) 50%)
+    );
+  background-size:
+    auto,
+    0.75rem 0.75rem,
+    auto;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 -0.28rem 0.55rem rgba(72, 50, 28, 0.08),
+    0 0.8rem 1.25rem rgba(45, 34, 20, 0.1);
+}
+
+.editorial-framework-visual[data-embedded-number="true"]::after,
+.editorial-framework-visual[data-embedded-number="true"] .editorial-card-number {
+  display: none;
 }
 
 .icon-medallion {
@@ -4486,7 +4504,8 @@
 }
 
 .framework-stone-symbol {
-  margin-top: 2rem;
+  --stone-symbol-size: clamp(8.8rem, 11vw, 12rem);
+  margin-top: 0;
 }
 
 .service-stone-symbol {
@@ -4541,14 +4560,23 @@
 }
 
 .editorial-framework-card h3 {
-  margin-top: 1.05rem;
+  margin-top: clamp(0.85rem, 1.4vw, 1.15rem);
   color: var(--ink);
-  font-size: 1.03rem;
-  line-height: 1.18;
+  font-size: clamp(1.06rem, 1.35vw, 1.45rem);
+  line-height: 1.08;
 }
 
 .editorial-framework-card h3 span {
   display: block;
+}
+
+.editorial-framework-card-copy {
+  max-width: 11rem;
+  margin-top: clamp(0.75rem, 1vw, 0.95rem);
+  color: var(--ink-soft);
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(0.88rem, 1vw, 1rem);
+  line-height: 1.36;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6654,7 +6682,7 @@
   }
 
   .framework-stone-symbol {
-    margin-top: 1.85rem;
+    margin-top: 0;
   }
 
   .recognition-card-grid {
@@ -6916,7 +6944,7 @@
   }
 
   .editorial-framework-card {
-    min-height: 15.75rem;
+    min-height: 0;
   }
 
   .recognition-section {

@@ -6588,6 +6588,30 @@
     width: 12rem;
   }
 
+  .framework-section {
+    background:
+      linear-gradient(
+        180deg,
+        var(--framework-previous-background) 0,
+        color-mix(
+            in oklab,
+            var(--framework-image-background),
+            var(--framework-previous-background) 28%
+          )
+          4.5rem,
+        var(--framework-image-background) 11.5rem,
+        var(--framework-image-background) calc(100% - 12rem),
+        color-mix(
+            in oklab,
+            var(--framework-image-background),
+            var(--framework-next-background) 34%
+          )
+          calc(100% - 5rem),
+        var(--framework-next-background) 100%
+      ),
+      var(--framework-image-background);
+  }
+
   .framework-sculpture-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

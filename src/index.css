@@ -6535,20 +6535,39 @@
   }
 
   .hero-shell {
+    overflow: hidden;
     padding: 2.35rem 1.1rem;
+  }
+
+  .hero-copy,
+  .hero-title,
+  .hero-subtitle,
+  .hero-actions,
+  .hero-trust-note {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero-copy {
+    width: 100%;
   }
 
   .hero-title {
     font-size: clamp(2.4rem, 10vw, 3.35rem);
+    text-wrap: normal;
   }
 
   .hero-actions,
   .home-primary-button {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .home-primary-button {
     justify-content: center;
+    white-space: normal;
+    text-align: center;
   }
 
   .hero-trust-note {
@@ -6848,6 +6867,32 @@
   }
 }
 
+@media (max-width: 600px) {
+  .hero-copy,
+  .hero-actions,
+  .hero-subtitle,
+  .hero-trust-note {
+    max-width: 21rem;
+  }
+
+  .hero-title {
+    max-width: 9.35em;
+    font-size: clamp(2rem, 8.7vw, 2.15rem);
+    line-height: 1.04;
+  }
+
+  .hero-actions .home-primary-button {
+    padding-inline: 0.85rem !important;
+    font-size: 0.86rem !important;
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-actions .home-primary-button svg {
+    flex-shrink: 0;
+  }
+}
+
 @media (max-width: 460px) {
   .site-header__brand span {
     max-width: 12.5rem;
@@ -6855,12 +6900,9 @@
     text-overflow: ellipsis;
   }
 
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.98rem;
+    line-height: 1.46;
   }
 
   .hero-image-frame,

@@ -338,7 +338,6 @@ const requiredFiles = [
   "og-bitcoin-kao-novac.svg",
   "images/home-hero-20260521.webp",
   "images/home-hero-20260521.jpg",
-  "images/exact-sections/home-framework-recognition-exact-desktop.webp",
   "images/stone-symbols/area-01-budget.webp",
   "images/stone-symbols/area-02-debt.webp",
   "images/stone-symbols/area-03-giving.webp",
@@ -757,22 +756,21 @@ const homeChecks = [
     "Mediteranska radna scena sa sedam kamenih skulptura osobnog Bitcoin standarda",
     "sculpted home hero image alt text",
   ],
-  ["exact-framework-recognition", "exact framework recognition wrapper"],
+  ["Imam Bitcoin, ali nemam pravila.", "recognition section title"],
   [
-    "/images/exact-sections/home-framework-recognition-exact-desktop.webp",
-    "exact framework recognition image asset",
+    "Ne znate korak po korak što učiniti s novcem, dugom, viškom, neto imovinom, volatilnošću i sigurnošću.",
+    "recognition intro copy",
   ],
+  ["Ne morate znati koji paket trebate.", "recognition trust copy"],
+  ['data-cta="recognition-intro-call"', "recognition CTA metadata"],
   [
-    "Okvir iz knjige i problemi koje prepoznajete",
-    "exact section accessibility label",
+    "Okvir iz knjige: 7 područja koja treba urediti",
+    "framework section title",
   ],
-  ["Razjasnimo prvo usko grlo", "exact recognition CTA hotspot label"],
-  ["Novac nije jasno raspoređen", "exact recognition first hotspot label"],
-  [
-    "Obitelj ili posao nisu usklađeni",
-    "exact recognition second hotspot label",
-  ],
-  ["Cijena previše pomiče odluke", "exact recognition third hotspot label"],
+  ["framework-sculpture-grid", "framework sculpture grid markup"],
+  ["framework-sculpture-image", "framework sculpture image markup"],
+  ["area-01-budget.webp", "framework budget sculpture asset"],
+  ["area-07-security-family.webp", "framework security sculpture asset"],
   ['href="/proracun/"', "framework budget card href"],
   ["Proračun", "framework budget item"],
   ["vidjeti novac", "framework compact budget idea"],
@@ -969,24 +967,6 @@ assertNotIncludes(
   "framework-stone-symbol",
   "old framework stone symbol markup"
 )
-assertNotIncludes(
-  "index.html",
-  homeHtml,
-  "framework-sculpture-grid",
-  "old framework sculpture grid markup"
-)
-assertNotIncludes(
-  "index.html",
-  homeHtml,
-  "editorial-framework-card",
-  "old framework card markup"
-)
-assertNotIncludes(
-  "index.html",
-  homeHtml,
-  "recognition-card",
-  "old recognition card markup"
-)
 assertIncludes(
   "index.html",
   homeHtml,
@@ -1104,9 +1084,9 @@ assertCount("index.html", homeHtml, '<link rel="canonical"', 1, "canonical tag")
 assertBefore(
   "index.html",
   homeHtml,
-  'class="exact-framework-recognition"',
+  "Okvir iz knjige: 7 područja koja treba urediti",
   "Tri razine. Jedan princip.",
-  "exact framework recognition block before levels"
+  "framework before levels"
 )
 assertBefore(
   "index.html",
@@ -1126,8 +1106,15 @@ assertBefore(
   "index.html",
   homeHtml,
   "Od držanja Bitcoina",
-  'class="exact-framework-recognition"',
-  "hero before exact framework recognition block"
+  "Imam Bitcoin, ali nemam pravila.",
+  "hero before recognition"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Imam Bitcoin, ali nemam pravila.",
+  "Okvir iz knjige: 7 područja koja treba urediti",
+  "recognition before framework"
 )
 assertBefore(
   "index.html",

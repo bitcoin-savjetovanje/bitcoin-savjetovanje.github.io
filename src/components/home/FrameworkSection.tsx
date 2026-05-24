@@ -61,7 +61,35 @@ const frameworkItems: FrameworkItem[] = [
 ]
 
 export function FrameworkSection() {
-  void frameworkItems
+  return (
+    <section id="okvir" className="editorial-section framework-section">
+      <h2>Okvir iz knjige: 7 područja koja treba urediti</h2>
 
-  return null
+      <div
+        className="framework-sculpture-grid"
+        aria-label="Mapa osobnog Bitcoin standarda"
+      >
+        {frameworkItems.map((item) => (
+          <a
+            className="framework-sculpture-item"
+            href={item.href}
+            key={item.title}
+          >
+            <img
+              className="framework-sculpture-image"
+              src={item.image}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
+            <h3 className="framework-sculpture-title">{item.title}</h3>
+            <p className="framework-sculpture-description">
+              {item.description}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
 }

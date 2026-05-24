@@ -62,7 +62,7 @@ const services: ServiceCard[] = [
   },
   {
     title: "Osobni Bitcoin standard",
-    price: "1.500 €",
+    price: "1.500 EUR",
     copy: "Cjelovit, pisani okvir vašeg sustava: pravila, procesi i plan za provedbu u vašem životu ili poslovanju.",
     primaryCta: "Krenite od uvodnog razgovora",
     primaryHref: CONVERSATION_PATH,

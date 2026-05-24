@@ -235,7 +235,7 @@ export function PersonalBitcoinStandard() {
               Program
             </p>
             <p className="mt-3 text-3xl font-semibold text-foreground">
-              1.500 €
+              1.500 EUR
             </p>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               4–6 tjedana
@@ -368,7 +368,7 @@ export function PersonalBitcoinStandard() {
         <section className="mt-8 rounded-3xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
           <h2 className="text-2xl font-semibold">Cijena i ulaz</h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Program traje 4–6 tjedana i cijena je 1.500 €. Ne kreće se izravno
+            Program traje 4–6 tjedana i cijena je 1.500 EUR. Ne kreće se izravno
             preko checkouta. Prvi korak je 15-minutni uvodni razgovor u kojem
             vidimo ima li program smisla za vašu situaciju.
           </p>

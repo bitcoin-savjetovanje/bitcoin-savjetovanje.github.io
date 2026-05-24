@@ -338,6 +338,7 @@ const requiredFiles = [
   "og-bitcoin-kao-novac.svg",
   "images/home-hero-20260521.webp",
   "images/home-hero-20260521.jpg",
+  "images/exact-sections/home-framework-recognition-exact-desktop.webp",
   "images/stone-symbols/area-01-budget.webp",
   "images/stone-symbols/area-02-debt.webp",
   "images/stone-symbols/area-03-giving.webp",
@@ -756,21 +757,22 @@ const homeChecks = [
     "Mediteranska radna scena sa sedam kamenih skulptura osobnog Bitcoin standarda",
     "sculpted home hero image alt text",
   ],
-  ["Imam Bitcoin, ali nemam pravila.", "recognition section title"],
+  ["exact-framework-recognition", "exact framework recognition wrapper"],
   [
-    "Ne znate korak po korak što učiniti s novcem, dugom, viškom, neto imovinom, volatilnošću i sigurnošću.",
-    "recognition intro copy",
+    "/images/exact-sections/home-framework-recognition-exact-desktop.webp",
+    "exact framework recognition image asset",
   ],
-  ["Ne morate znati koji paket trebate.", "recognition trust copy"],
-  ['data-cta="recognition-intro-call"', "recognition CTA metadata"],
   [
-    "Okvir iz knjige: 7 područja koja treba urediti",
-    "framework section title",
+    "Okvir iz knjige i problemi koje prepoznajete",
+    "exact section accessibility label",
   ],
-  ["framework-sculpture-grid", "framework sculpture grid markup"],
-  ["framework-sculpture-image", "framework sculpture image markup"],
-  ["area-01-budget.webp", "framework budget sculpture asset"],
-  ["area-07-security-family.webp", "framework security sculpture asset"],
+  ["Razjasnimo prvo usko grlo", "exact recognition CTA hotspot label"],
+  ["Novac nije jasno raspoređen", "exact recognition first hotspot label"],
+  [
+    "Obitelj ili posao nisu usklađeni",
+    "exact recognition second hotspot label",
+  ],
+  ["Cijena previše pomiče odluke", "exact recognition third hotspot label"],
   ['href="/proracun/"', "framework budget card href"],
   ["Proračun", "framework budget item"],
   ["vidjeti novac", "framework compact budget idea"],
@@ -836,7 +838,7 @@ const homeChecks = [
   ],
   ["Pogledajte detalje", "paid service detail link copy"],
   ["Osobni Bitcoin standard", "personal standard offer title"],
-  ["1.500 €", "personal standard price"],
+  ["1.500 EUR", "personal standard price"],
   [
     "Cjelovit, pisani okvir vašeg sustava: pravila, procesi i plan za provedbu u vašem životu ili poslovanju.",
     "personal standard offer copy",
@@ -967,6 +969,24 @@ assertNotIncludes(
   "framework-stone-symbol",
   "old framework stone symbol markup"
 )
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  "framework-sculpture-grid",
+  "old framework sculpture grid markup"
+)
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  "editorial-framework-card",
+  "old framework card markup"
+)
+assertNotIncludes(
+  "index.html",
+  homeHtml,
+  "recognition-card",
+  "old recognition card markup"
+)
 assertIncludes(
   "index.html",
   homeHtml,
@@ -1084,9 +1104,9 @@ assertCount("index.html", homeHtml, '<link rel="canonical"', 1, "canonical tag")
 assertBefore(
   "index.html",
   homeHtml,
-  "Okvir iz knjige: 7 područja koja treba urediti",
+  'class="exact-framework-recognition"',
   "Tri razine. Jedan princip.",
-  "framework before levels"
+  "exact framework recognition block before levels"
 )
 assertBefore(
   "index.html",
@@ -1106,15 +1126,8 @@ assertBefore(
   "index.html",
   homeHtml,
   "Od držanja Bitcoina",
-  "Imam Bitcoin, ali nemam pravila.",
-  "hero before recognition"
-)
-assertBefore(
-  "index.html",
-  homeHtml,
-  "Imam Bitcoin, ali nemam pravila.",
-  "Okvir iz knjige: 7 područja koja treba urediti",
-  "recognition before framework"
+  'class="exact-framework-recognition"',
+  "hero before exact framework recognition block"
 )
 assertBefore(
   "index.html",
@@ -1936,7 +1949,7 @@ const personalStandardHtml = readFile("osobni-bitcoin-standard/index.html")
 const personalStandardChecks = [
   ["Osobni Bitcoin standard", "personal standard title"],
   ["4–6 tjedana", "personal standard duration"],
-  ["1.500 €", "personal standard price"],
+  ["1.500 EUR", "personal standard price"],
   [
     "pisani osobni Bitcoin standard",
     "personal standard written outcome copy",

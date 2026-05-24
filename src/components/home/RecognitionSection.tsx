@@ -1,74 +1,100 @@
-import { CalendarDays } from "lucide-react"
+import {
+  BITCOIN_MONEY_PATH,
+  BUDGET_PATH,
+  CONVERSATION_PATH,
+  CUSTODY_SECURITY_PATH,
+  DEBT_PATH,
+  GIVING_PATH,
+  NET_WORTH_PATH,
+  TIME_VOLATILITY_PATH,
+} from "@/content/site"
 
-import { StoneSymbol } from "@/components/home/StoneSymbol"
-import { Button } from "@/components/ui/button"
-import { CONVERSATION_PATH } from "@/content/site"
-
-const recognitionCards = [
+const hotspots = [
   {
-    title: "Novac nije jasno raspoređen.",
-    copy: "Ne znate koji je novac stvarno slobodan, što mora ostati za kratke obveze i kada Bitcoin odluka postaje prenapeta.",
-    imageSrc: "/images/stone-symbols/problem-money-not-allocated.webp",
-    fallbackSrc: "/images/medallions/02-novac.png",
-    visualBrief:
-      "Mali kameni reljef nedovršenog proračuna, lista/kategorije i nekoliko neutralnih kamenih žetona, bez valuta.",
+    label: "Proračun — vidjeti novac",
+    href: BUDGET_PATH,
+    style: { left: "4.3%", top: "10.5%", width: "10.5%", height: "42%" },
   },
   {
-    title: "Obitelj ili posao nisu usklađeni.",
-    copy: "Partner, obitelj ili suradnici ne vide istu sliku. Pravila postoje u glavi, ali nisu zapisana i objašnjena.",
-    imageSrc: "/images/stone-symbols/problem-family-business-misaligned.webp",
-    fallbackSrc: "/images/medallions/12-proracun-i-plan.png",
-    visualBrief:
-      "Dvije kamene pločice koje se ne poklapaju, jedna za obitelj, jedna za posao, blago razmaknute.",
+    label: "Dug — osloboditi budućnost",
+    href: DEBT_PATH,
+    style: { left: "16.8%", top: "10.5%", width: "11%", height: "42%" },
   },
   {
-    title: "Cijena previše pomiče odluke.",
-    copy: "Rast stvara euforiju, pad stvara paniku, a nedostaje pisani okvir koji odluke drži mirnima kroz vrijeme.",
-    imageSrc: "/images/stone-symbols/problem-price-moving-decisions.webp",
-    fallbackSrc: "/images/medallions/25-ciklusi.png",
-    visualBrief:
-      "Kameni reljef s valovitom linijom, sidrom ili pješčanim satom; volatilnost kao nešto što treba okvir.",
+    label: "Davanje — otvoriti ruku",
+    href: GIVING_PATH,
+    style: { left: "29.8%", top: "10.5%", width: "11.5%", height: "42%" },
   },
-]
+  {
+    label: "Bitcoin kao novac — primarni saldo",
+    href: BITCOIN_MONEY_PATH,
+    style: { left: "42.7%", top: "8.8%", width: "12.5%", height: "44%" },
+  },
+  {
+    label: "Neto imovina — bilanca kao cjelina",
+    href: NET_WORTH_PATH,
+    style: { left: "56.8%", top: "10.5%", width: "12%", height: "42%" },
+  },
+  {
+    label: "Vrijeme i volatilnost — pravila kroz cikluse",
+    href: TIME_VOLATILITY_PATH,
+    style: { left: "70.4%", top: "10.5%", width: "12.5%", height: "42%" },
+  },
+  {
+    label: "Sigurnost i obitelj — zaštititi pristup",
+    href: CUSTODY_SECURITY_PATH,
+    style: { left: "84.8%", top: "10.5%", width: "11.8%", height: "42%" },
+  },
+  {
+    label: "Razjasnimo prvo usko grlo",
+    href: CONVERSATION_PATH,
+    style: { left: "4%", top: "86.8%", width: "20.3%", height: "6.4%" },
+  },
+  {
+    label: "Novac nije jasno raspoređen",
+    href: CONVERSATION_PATH,
+    style: { left: "41.4%", top: "56.5%", width: "16.9%", height: "42.5%" },
+  },
+  {
+    label: "Obitelj ili posao nisu usklađeni",
+    href: CONVERSATION_PATH,
+    style: { left: "60.2%", top: "56.5%", width: "16.8%", height: "42.5%" },
+  },
+  {
+    label: "Cijena previše pomiče odluke",
+    href: CONVERSATION_PATH,
+    style: { left: "79.1%", top: "56.5%", width: "17.6%", height: "42.5%" },
+  },
+] as const
 
 export function RecognitionSection() {
   return (
-    <section className="editorial-section recognition-section">
-      <div className="recognition-section__copy">
-        <p className="section-eyebrow">PREPOZNAJETE LI SE?</p>
-        <h2>Imam Bitcoin, ali nemam pravila.</h2>
-        <p>
-          Ne znate korak po korak što učiniti s novcem, dugom, viškom, neto
-          imovinom, volatilnošću i sigurnošću.
-        </p>
-      </div>
+    <section
+      id="okvir"
+      className="exact-framework-recognition"
+      aria-label="Okvir iz knjige i problemi koje prepoznajete"
+    >
+      <img
+        className="exact-framework-recognition__image"
+        src="/images/exact-sections/home-framework-recognition-exact-desktop.webp"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        decoding="async"
+      />
 
-      <div className="recognition-card-grid">
-        {recognitionCards.map((card) => (
-          <article className="recognition-card" key={card.title}>
-            <StoneSymbol
-              imageSrc={card.imageSrc}
-              fallbackSrc={card.fallbackSrc}
-              variant="problem"
-            />
-            <h3>{card.title}</h3>
-            <p>{card.copy}</p>
-          </article>
-        ))}
-      </div>
-
-      <div className="recognition-section__cta">
-        <Button asChild className="cta-primary home-primary-button">
-          <a href={CONVERSATION_PATH} data-cta="recognition-intro-call">
-            <CalendarDays className="size-4" aria-hidden="true" />
-            Razjasnimo prvo usko grlo
-          </a>
-        </Button>
-        <p>
-          Ne morate znati koji paket trebate. Uvodni razgovor služi tome da
-          vidimo ima li nastavak smisla.
-        </p>
-      </div>
+      {hotspots.map((hotspot) => (
+        <a
+          key={hotspot.label}
+          className="exact-framework-recognition__hotspot"
+          href={hotspot.href}
+          style={hotspot.style}
+        >
+          <span className="exact-framework-recognition__label">
+            {hotspot.label}
+          </span>
+        </a>
+      ))}
     </section>
   )
 }

@@ -1,29 +1,18 @@
-import { StoneSymbol } from "@/components/home/StoneSymbol"
-
 const levels = [
   {
     label: "OSOBNO",
     copy: "Urediti vlastiti sustav odluka.",
-    imageSrc: "/images/stone-symbols/audience-personal.webp",
-    fallbackSrc: "/images/medallions/12-proracun-i-plan.png",
-    visualBrief:
-      "Mali kameni pečat s urezanim simbolom jedne osobe; osobni sustav odluka.",
+    image: "/images/stone-symbols/audience-personal.webp",
   },
   {
     label: "OBITELJSKI",
     copy: "Uskladiti vrijednosti i pravila u kući.",
-    imageSrc: "/images/stone-symbols/audience-family.webp",
-    fallbackSrc: "/images/medallions/27-obiteljski-trezor.png",
-    visualBrief:
-      "Mali kameni pečat s dvije ili tri jednostavne figure; obiteljska usklađenost.",
+    image: "/images/stone-symbols/audience-family.webp",
   },
   {
     label: "POSLOVNO",
     copy: "Integrirati Bitcoin u poslovni kontekst.",
-    imageSrc: "/images/stone-symbols/audience-business.webp",
-    fallbackSrc: "/images/medallions/11-kapital.png",
-    visualBrief:
-      "Mali kameni pečat s urezanim kovčegom, knjigom računa ili poslovnom riznicom.",
+    image: "/images/stone-symbols/audience-business.webp",
   },
 ]
 
@@ -39,12 +28,15 @@ export function ThreeLevelsSection() {
       </div>
 
       <div className="three-levels-frieze">
-        {levels.map(({ copy, fallbackSrc, imageSrc, label }, index) => (
+        {levels.map(({ copy, image, label }, index) => (
           <article key={label} className="three-levels-item">
-            <StoneSymbol
-              imageSrc={imageSrc}
-              fallbackSrc={fallbackSrc}
-              variant="frieze"
+            <img
+              className="three-levels-stone-image"
+              src={image}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
             />
             <div>
               <h3 className="three-levels-label">{label}</h3>

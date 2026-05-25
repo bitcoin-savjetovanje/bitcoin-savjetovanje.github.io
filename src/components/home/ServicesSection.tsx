@@ -1,6 +1,5 @@
 import { ArrowUpRight, CalendarDays } from "lucide-react"
 
-import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { Button } from "@/components/ui/button"
 import {
   BITCOIN_CONSULTATION_PATH,
@@ -20,9 +19,7 @@ type ServiceCard = {
   dataLink?: string
   visual: {
     eyebrow: string
-    imageSrc: string
-    fallbackSrc: string
-    visualBrief: string
+    image: string
   }
 }
 
@@ -36,10 +33,7 @@ const services: ServiceCard[] = [
     dataCta: "service-intro-call",
     visual: {
       eyebrow: "Početak",
-      imageSrc: "/images/stone-symbols/offer-intro-call.webp",
-      fallbackSrc: "/images/medallions/26-mentorstvo.png",
-      visualBrief:
-        "Mali kameni ulazni marker, otvorena pločica ili kalendar s jednim označenim poljem.",
+      image: "/images/stone-symbols/offer-intro-call.webp",
     },
   },
   {
@@ -54,10 +48,7 @@ const services: ServiceCard[] = [
     dataLink: "service-consultation-details",
     visual: {
       eyebrow: "Jedno usko grlo",
-      imageSrc: "/images/stone-symbols/offer-consultation.webp",
-      fallbackSrc: "/images/medallions/12-proracun-i-plan.png",
-      visualBrief:
-        "Kamena radna ploča s urezanom listom, jednim označenim problemom i suptilnim Bitcoin tragom.",
+      image: "/images/stone-symbols/offer-consultation.webp",
     },
   },
   {
@@ -72,10 +63,7 @@ const services: ServiceCard[] = [
     dataLink: "service-personal-standard-details",
     visual: {
       eyebrow: "Cijeli sustav",
-      imageSrc: "/images/stone-symbols/offer-personal-standard.webp",
-      fallbackSrc: "/images/medallions/17-primarni-novac.png",
-      visualBrief:
-        "Dovršena kamena knjiga, pisani standard ili arhitektonska ploča s pečatom.",
+      image: "/images/stone-symbols/offer-personal-standard.webp",
     },
   },
 ]
@@ -97,11 +85,13 @@ export function ServicesSection() {
             je li dovoljan kratak odgovor, jedan dubinski razgovor ili cjelovit
             osobni Bitcoin standard.
           </p>
-          <StoneSymbol
-            imageSrc="/images/stone-symbols/bottleneck-stone-channel.webp"
-            fallbackSrc="/images/medallions/21-stvarni-visak.png"
-            variant="bottleneck"
-            className="offers-bottleneck-visual"
+          <img
+            className="offers-bottleneck-stone-image"
+            src="/images/stone-symbols/bottleneck-stone-channel.webp"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -136,11 +126,13 @@ export function ServicesSection() {
                     : ""
                 }`}
               >
-                <StoneSymbol
-                  imageSrc={visual.imageSrc}
-                  fallbackSrc={visual.fallbackSrc}
-                  variant="offer"
-                  className="offer-card-visual service-stone-symbol"
+                <img
+                  className="offer-stone-image"
+                  src={visual.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <span className="offer-card-eyebrow">{visual.eyebrow}</span>
                 <div className="offer-card__heading">

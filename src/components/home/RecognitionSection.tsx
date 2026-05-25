@@ -1,6 +1,5 @@
 import { CalendarDays } from "lucide-react"
 
-import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { Button } from "@/components/ui/button"
 import { CONVERSATION_PATH } from "@/content/site"
 
@@ -8,26 +7,17 @@ const recognitionCards = [
   {
     title: "Novac nije jasno raspoređen.",
     copy: "Ne znate koji je novac stvarno slobodan, što mora ostati za kratke obveze i kada Bitcoin odluka postaje prenapeta.",
-    imageSrc: "/images/stone-symbols/problem-money-not-allocated.webp",
-    fallbackSrc: "/images/medallions/02-novac.png",
-    visualBrief:
-      "Mali kameni reljef nedovršenog proračuna, lista/kategorije i nekoliko neutralnih kamenih žetona, bez valuta.",
+    image: "/images/stone-symbols/problem-money-not-allocated.webp",
   },
   {
     title: "Obitelj ili posao nisu usklađeni.",
     copy: "Partner, obitelj ili suradnici ne vide istu sliku. Pravila postoje u glavi, ali nisu zapisana i objašnjena.",
-    imageSrc: "/images/stone-symbols/problem-family-business-misaligned.webp",
-    fallbackSrc: "/images/medallions/12-proracun-i-plan.png",
-    visualBrief:
-      "Dvije kamene pločice koje se ne poklapaju, jedna za obitelj, jedna za posao, blago razmaknute.",
+    image: "/images/stone-symbols/problem-family-business-misaligned.webp",
   },
   {
     title: "Cijena previše pomiče odluke.",
     copy: "Rast stvara euforiju, pad stvara paniku, a nedostaje pisani okvir koji odluke drži mirnima kroz vrijeme.",
-    imageSrc: "/images/stone-symbols/problem-price-moving-decisions.webp",
-    fallbackSrc: "/images/medallions/25-ciklusi.png",
-    visualBrief:
-      "Kameni reljef s valovitom linijom, sidrom ili pješčanim satom; volatilnost kao nešto što treba okvir.",
+    image: "/images/stone-symbols/problem-price-moving-decisions.webp",
   },
 ]
 
@@ -46,10 +36,13 @@ export function RecognitionSection() {
       <div className="recognition-card-grid">
         {recognitionCards.map((card) => (
           <article className="recognition-card" key={card.title}>
-            <StoneSymbol
-              imageSrc={card.imageSrc}
-              fallbackSrc={card.fallbackSrc}
-              variant="problem"
+            <img
+              className="recognition-stone-image"
+              src={card.image}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
             />
             <h3>{card.title}</h3>
             <p>{card.copy}</p>

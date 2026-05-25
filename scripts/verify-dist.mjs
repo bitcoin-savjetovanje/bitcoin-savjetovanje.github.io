@@ -345,6 +345,16 @@ const requiredFiles = [
   "images/stone-symbols/area-05-net-worth.webp",
   "images/stone-symbols/area-06-time-volatility.webp",
   "images/stone-symbols/area-07-security-family.webp",
+  "images/stone-symbols/problem-money-not-allocated.webp",
+  "images/stone-symbols/problem-family-business-misaligned.webp",
+  "images/stone-symbols/problem-price-moving-decisions.webp",
+  "images/stone-symbols/audience-personal.webp",
+  "images/stone-symbols/audience-family.webp",
+  "images/stone-symbols/audience-business.webp",
+  "images/stone-symbols/offer-intro-call.webp",
+  "images/stone-symbols/offer-consultation.webp",
+  "images/stone-symbols/offer-personal-standard.webp",
+  "images/stone-symbols/bottleneck-stone-channel.webp",
   "images/hero-bitcoin-savjetovanje-realistic.webp",
   "images/hero-bitcoin-savjetovanje-realistic.jpg",
   "images/medallions/02-novac.png",
@@ -967,11 +977,35 @@ assertNotIncludes(
   "framework-stone-symbol",
   "old framework stone symbol markup"
 )
-assertIncludes(
+assertNotIncludes(
   "index.html",
   homeHtml,
   "service-stone-symbol",
-  "service stone symbol markup"
+  "old service stone symbol markup"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "recognition-stone-image",
+  "recognition stone image markup"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "three-levels-stone-image",
+  "three levels stone image markup"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "offer-stone-image",
+  "offer stone image markup"
+)
+assertIncludes(
+  "index.html",
+  homeHtml,
+  "offers-bottleneck-stone-image",
+  "bottleneck stone image markup"
 )
 assertNotIncludes(
   "index.html",

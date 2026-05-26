@@ -5,31 +5,38 @@ import { Button } from "@/components/ui/button"
 import { personalBitcoinStandardRoute } from "@/content/routes"
 import { CONVERSATION_PATH } from "@/content/site"
 
+const serviceVisualsPath = "/images/service-visuals"
+
 const programSteps = [
   {
     area: "budget",
     title: "Novac, obveze i stvarni višak",
     copy: "Prvo vidimo što novac već radi i koji je novac stvarno slobodan nakon obveza, budućih troškova i sigurnosne pričuve.",
+    image: `${serviceVisualsPath}/standard-process-money-obligations.webp`,
   },
   {
     area: "debt",
     title: "Dug i davanje",
     copy: "Dug pokazuje koji je dio budućnosti već obećan, a davanje pomaže da novac ne postane samo obrana od straha.",
+    image: `${serviceVisualsPath}/standard-process-debt-giving.webp`,
   },
   {
     area: "bitcoin",
     title: "Bitcoin kao novac",
     copy: "Bitcoin ne promatramo samo kao ulaganje. Gledamo u kojem obliku držite novčani saldo nakon što ste ga zaradili i kako Bitcoin ulazi u stvarne odluke.",
+    image: `${serviceVisualsPath}/standard-process-bitcoin-money.webp`,
   },
   {
     area: "worth",
     title: "Neto imovina, vrijeme i volatilnost",
     copy: "Neto imovinu gledamo kao cjelinu, a rast, padove i cikluse pretvaramo u pravila umjesto u paniku ili euforiju.",
+    image: `${serviceVisualsPath}/standard-process-net-worth-volatility.webp`,
   },
   {
     area: "security",
     title: "Sigurnost, obitelj i nasljeđivanje",
     copy: "Sigurnost nije uređaj, nego sustav. Dobar sustav otežava krađu, ali ne smije toliko otežati pristup da vi, obitelj ili ovlaštene osobe izgubite mogućnost oporavka.",
+    image: `${serviceVisualsPath}/standard-process-security-family.webp`,
   },
 ]
 
@@ -46,14 +53,17 @@ const standardLayers = [
   {
     title: "Privatni i obiteljski sloj",
     copy: "Pravila za državni novac, Bitcoin saldo, dug, davanje, veće kupnje i obiteljske upute.",
+    image: `${serviceVisualsPath}/standard-layer-private-family.webp`,
   },
   {
     title: "Poslovni sloj, ako je primjenjivo",
     copy: "Razdvajanje privatnog i poslovnog Bitcoina, operativni fiat sloj i višak poslovne riznice.",
+    image: `${serviceVisualsPath}/standard-layer-business.webp`,
   },
   {
     title: "Sigurnosni sloj",
     copy: "Što se nikada ne dijeli, gdje počinje oporavak i tko zna prvi korak.",
+    image: `${serviceVisualsPath}/standard-layer-security.webp`,
   },
 ] as const
 
@@ -159,21 +169,52 @@ const programFaqs = [
   },
 ]
 
+function DecorativeServiceImage({
+  src,
+  className = "",
+}: {
+  src: string
+  className?: string
+}) {
+  return (
+    <img
+      className={`service-stone-image ${className}`}
+      src={src}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+    />
+  )
+}
+
 function Checklist({
   items,
   kind = "positive",
+  className = "",
 }: {
   items: string[]
   kind?: "positive" | "negative"
+  className?: string
 }) {
   const Icon = kind === "positive" ? Check : X
   const iconClass = kind === "positive" ? "positive-icon" : "negative-icon"
+  const listClass = [
+    "service-checklist",
+    kind === "negative" ? "service-checklist--negative" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ")
 
   return (
-    <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground md:grid-cols-2">
+    <ul className={listClass}>
       {items.map((item) => (
-        <li key={item} className="flex gap-3">
-          <Icon className={`${iconClass} mt-1 size-4 shrink-0`} />
+        <li
+          key={item}
+          className={item.includes("seed phrase") ? "is-sensitive" : undefined}
+        >
+          <Icon className={`${iconClass} service-checklist__icon`} />
           <span>{item}</span>
         </li>
       ))}
@@ -191,234 +232,250 @@ export function PersonalBitcoinStandard() {
         ogType={personalBitcoinStandardRoute.ogType}
         schema={personalBitcoinStandardRoute.schema as object}
       />
-      <article className="section-shell page-flow program-page">
-        <nav
-          aria-label="Breadcrumb"
-          className="text-sm font-medium text-muted-foreground"
-        >
-          <ol className="flex flex-wrap items-center gap-2">
-            <li>
-              <a href="/" className="hover:text-primary">
-                Početna
-              </a>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-foreground">
-              Osobni Bitcoin standard
-            </li>
-          </ol>
-        </nav>
+      <article className="service-page service-page--standard">
+        <div className="service-page__inner">
+          <header className="service-hero">
+            <div className="service-hero__content">
+              <nav aria-label="Breadcrumb" className="service-breadcrumb">
+                <ol>
+                  <li>
+                    <a href="/">Početna</a>
+                  </li>
+                  <li aria-hidden="true">/</li>
+                  <li aria-current="page">Osobni Bitcoin standard</li>
+                </ol>
+              </nav>
 
-        <header className="consultation-hero mt-8">
-          <div>
-            <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-              Osobni Bitcoin standard
-            </h1>
-            <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-              4–6 tjedana rada na pisanom sustavu odluka za život s Bitcoinom.
-            </p>
-            <p className="mt-5 max-w-4xl text-base leading-8 text-muted-foreground">
-              Osobni Bitcoin standard nije samo posjedovanje Bitcoina. To je
-              pisani okvir pravila za proračun, dug, davanje, Bitcoin kao novac,
-              neto imovinu, volatilnost, sigurnost, obiteljski pristup i po
-              potrebi poslovnu riznicu.
-            </p>
-            <p className="consultation-hero-note">
-              Program se ne kupuje preko checkouta. Prvi korak je razgovor.
-            </p>
-          </div>
-          <aside
-            className="consultation-price-card"
-            aria-label="Cijena i ulaz u program"
-          >
-            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-              Program
-            </p>
-            <p className="mt-3 text-3xl font-semibold text-foreground">
-              1.500 EUR
-            </p>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">
-              4–6 tjedana
-            </p>
-            <p className="consultation-price-card__note">
-              Ne kupuje se odmah. Prvo vidimo ima li smisla.
-            </p>
-            <Button
-              asChild
-              className="cta-primary mt-6 h-12 w-full rounded-full px-5 text-base"
-            >
-              <a
-                href={CONVERSATION_PATH}
-                className="justify-center text-center"
-                data-cta="personal-standard-hero-call"
-              >
-                <CalendarDays className="size-4" />
-                Dogovorite razgovor
-              </a>
-            </Button>
-          </aside>
-        </header>
-
-        <section className="consultation-outcome-card mt-12">
-          <h2 className="text-2xl font-semibold">
-            Na kraju programa imate pisani osobni Bitcoin standard.
-          </h2>
-          <Checklist items={outcomeItems} />
-        </section>
-
-        <section className="deliverable-section">
-          <div>
-            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-              Pisani okvir
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl">
-              Kako izgleda pisani osobni Bitcoin standard?
-            </h2>
-            <p className="mt-4 text-base leading-8 text-muted-foreground">
-              Na kraju programa cilj nije imati još jednu bilješku iz razgovora,
-              nego pisani okvir pravila koji možete ponovno otvoriti kada se
-              promijene prihod, cijena, obiteljska situacija, poslovne obveze
-              ili sigurnosne okolnosti.
-            </p>
-            <p className="mt-5 rounded-xl border border-border/70 bg-background/70 p-4 text-sm leading-6 font-semibold text-foreground">
-              Ovo je okvir pravila, ne financijski plan, porezni savjet, pravni
-              savjet, računovodstveni savjet ili nalog za kupnju/prodaju.
-            </p>
-          </div>
-          <aside className="deliverable-mockup" aria-label="Mockup dokumenta">
-            <span className="deliverable-stamp">pisani okvir</span>
-            <div className="deliverable-tabs" aria-hidden="true">
-              <span>privatno/obitelj</span>
-              <span>posao</span>
+              <h1>Osobni Bitcoin standard</h1>
+              <p className="service-hero__lead">
+                4–6 tjedana rada na pisanom sustavu odluka za život s Bitcoinom.
+              </p>
+              <p>
+                Osobni Bitcoin standard nije samo posjedovanje Bitcoina. To je
+                pisani okvir pravila za proračun, dug, davanje, Bitcoin kao
+                novac, neto imovinu, volatilnost, sigurnost, obiteljski pristup
+                i po potrebi poslovnu riznicu.
+              </p>
+              <p className="service-hero__note">
+                Program se ne kupuje preko checkouta. Prvi korak je razgovor.
+              </p>
+              <div className="service-hero__actions">
+                <Button asChild className="cta-primary home-primary-button">
+                  <a
+                    href={CONVERSATION_PATH}
+                    className="justify-center text-center"
+                    data-cta="personal-standard-hero-call"
+                  >
+                    <CalendarDays className="size-4" aria-hidden="true" />
+                    Dogovorite razgovor
+                  </a>
+                </Button>
+              </div>
             </div>
-            <h3>Osobni Bitcoin standard</h3>
-            {deliverableSections.map((section) => (
-              <section key={section.title} className="deliverable-layer">
-                <h4>{section.title}</h4>
-                <ul>
-                  {section.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </aside>
-        </section>
 
-        <section className="case-panel">
-          <h2 className="text-2xl font-semibold">Tri sloja standarda</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {standardLayers.map((layer, index) => (
-              <article key={layer.title} className="program-layer-card">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{layer.title}</h3>
-                <p>{layer.copy}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+            <aside
+              className="service-hero__visual"
+              aria-label="Cijena i ulaz u program"
+            >
+              <DecorativeServiceImage
+                className="service-hero__image"
+                src={`${serviceVisualsPath}/standard-hero.webp`}
+              />
+              <div className="service-hero__summary-card">
+                <p>Program</p>
+                <strong>1.500 EUR</strong>
+                <span>4–6 tjedana</span>
+                <em>Ne kupuje se odmah. Prvo vidimo ima li smisla.</em>
+              </div>
+            </aside>
+          </header>
 
-        <section className="mt-12 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            Kako radimo kroz 4–6 tjedana
-          </h2>
-          <div className="mt-6 grid gap-4 lg:grid-cols-2">
-            {programSteps.map((step, index) => (
-              <article
-                key={step.title}
-                className="program-step-card"
-                data-area={step.area}
-              >
-                <span className="program-step-card__number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>
-                <p className="mt-3 text-base leading-8 text-muted-foreground">
-                  {step.copy}
+          <section className="service-section service-section--split service-written-standard">
+            <div className="service-editorial-column">
+              <p className="service-eyebrow">pisani okvir</p>
+              <h2>Na kraju programa imate pisani osobni Bitcoin standard.</h2>
+              <Checklist
+                items={outcomeItems}
+                className="service-checklist--two"
+              />
+            </div>
+            <aside className="service-written-standard__visual">
+              <p>pisani okvir</p>
+              <DecorativeServiceImage
+                className="service-written-standard__image"
+                src={`${serviceVisualsPath}/standard-written-frame.webp`}
+              />
+            </aside>
+          </section>
+
+          <section className="service-section service-document-section">
+            <div className="service-section__header">
+              <p className="service-eyebrow">Pisani okvir</p>
+              <h2>Kako izgleda pisani osobni Bitcoin standard?</h2>
+              <p>
+                Na kraju programa cilj nije imati još jednu bilješku iz
+                razgovora, nego pisani okvir pravila koji možete ponovno
+                otvoriti kada se promijene prihod, cijena, obiteljska situacija,
+                poslovne obveze ili sigurnosne okolnosti.
+              </p>
+            </div>
+            <div className="service-document-panel">
+              <div className="service-document-panel__intro">
+                <h3>Osobni Bitcoin standard</h3>
+                <p>
+                  Ovo je okvir pravila, ne financijski plan, porezni savjet,
+                  pravni savjet, računovodstveni savjet ili nalog za
+                  kupnju/prodaju.
                 </p>
-              </article>
-            ))}
-          </div>
-        </section>
+              </div>
+              <div className="service-document-columns">
+                {deliverableSections.map((section) => (
+                  <section
+                    key={section.title}
+                    className="service-document-column"
+                  >
+                    <h3>{section.title}</h3>
+                    <ul>
+                      {section.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </section>
 
-        <section className="program-business-section">
-          <div className="max-w-4xl">
-            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-              Poslovni sloj
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl">
-              Ako vodite posao, standard ima i poslovni sloj
-            </h2>
-            <p className="mt-4 text-base leading-8 text-muted-foreground">
-              Kod poduzetnika Bitcoin odluka ne smije pomiješati privatni život,
-              obiteljsku sigurnost i poslovnu riznicu.
-            </p>
-          </div>
-          <div className="program-business-grid">
-            {businessLayerItems.map((item, index) => (
-              <article key={item.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{item.title}</h3>
-                <p>{item.copy}</p>
-              </article>
-            ))}
-          </div>
-        </section>
+          <section className="service-section service-section--warm">
+            <div className="service-section__header">
+              <h2>Tri sloja standarda</h2>
+            </div>
+            <div className="service-card-grid">
+              {standardLayers.map((layer) => (
+                <article key={layer.title} className="service-card">
+                  <DecorativeServiceImage
+                    className="service-card__image"
+                    src={layer.image}
+                  />
+                  <h3 className="service-card__title">{layer.title}</h3>
+                  <p className="service-card__copy">{layer.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
-        <section className="mt-8 rounded-3xl border border-primary/25 bg-card p-6 shadow-sm sm:p-8">
-          <h2 className="text-2xl font-semibold">Cijena i ulaz</h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Program traje 4–6 tjedana i cijena je 1.500 EUR. Ne kreće se izravno
-            preko checkouta. Prvi korak je 15-minutni uvodni razgovor u kojem
-            vidimo ima li program smisla za vašu situaciju.
-          </p>
-          <Button asChild className="cta-primary mt-6 rounded-full">
-            <a
-              href={CONVERSATION_PATH}
-              className="justify-center text-center"
-              data-cta="personal-standard-pricing-call"
-            >
-              <CalendarDays className="size-4" />
-              Dogovorite uvodni razgovor
-            </a>
-          </Button>
-        </section>
+          <section className="service-section">
+            <div className="service-section__header">
+              <h2>Kako radimo kroz 4–6 tjedana</h2>
+            </div>
+            <div className="service-process-grid">
+              {programSteps.map((step, index) => (
+                <article
+                  key={step.title}
+                  className="service-process-card"
+                  data-area={step.area}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <DecorativeServiceImage
+                    className="service-card__image"
+                    src={step.image}
+                  />
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
 
-        <section className="consultation-safety-card">
-          <h2 className="text-2xl font-semibold">Ovo nije</h2>
-          <Checklist items={notItems} kind="negative" />
-        </section>
+          <section className="service-section service-section--split service-business-standard">
+            <div className="service-editorial-column">
+              <p className="service-eyebrow">Poslovni sloj</p>
+              <h2>Ako vodite posao, standard ima i poslovni sloj</h2>
+              <p>
+                Kod poduzetnika Bitcoin odluka ne smije pomiješati privatni
+                život, obiteljsku sigurnost i poslovnu riznicu.
+              </p>
+              <div className="service-business-list">
+                {businessLayerItems.map((item, index) => (
+                  <article key={item.title}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.copy}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <aside className="service-business-standard__visual">
+              <DecorativeServiceImage
+                className="service-business-standard__image"
+                src={`${serviceVisualsPath}/standard-business-treasury.webp`}
+              />
+            </aside>
+          </section>
 
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold">Česta pitanja o programu</h2>
-          <div className="mt-6 divide-y divide-border/70 border-y border-border/70">
-            {programFaqs.map((faq) => (
-              <details key={faq.question} className="faq-item">
-                <summary>{faq.question}</summary>
-                <p>{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+          <section className="service-section service-final-cta">
+            <div>
+              <h2>Cijena i ulaz</h2>
+              <p>
+                Program traje 4–6 tjedana i cijena je 1.500 EUR. Ne kreće se
+                izravno preko checkouta. Prvi korak je 15-minutni uvodni
+                razgovor u kojem vidimo ima li program smisla za vašu situaciju.
+              </p>
+            </div>
+            <ul className="service-cta-list">
+              <li>
+                <Button asChild className="cta-primary home-primary-button">
+                  <a
+                    href={CONVERSATION_PATH}
+                    className="justify-center text-center"
+                    data-cta="personal-standard-pricing-call"
+                  >
+                    <CalendarDays className="size-4" aria-hidden="true" />
+                    Dogovorite uvodni razgovor
+                  </a>
+                </Button>
+              </li>
+            </ul>
+          </section>
 
-        <section className="conversation-final-card">
-          <h2 className="text-2xl font-semibold">
-            Želite vidjeti ima li program smisla za vas?
-          </h2>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-            Prvi korak nije checkout, nego 15-minutni uvodni razgovor.
-          </p>
-          <Button asChild className="cta-primary mt-6 rounded-full">
-            <a
-              href={CONVERSATION_PATH}
-              className="justify-center text-center"
-              data-cta="personal-standard-final-call"
-            >
-              <CalendarDays className="size-4" />
-              Dogovorite uvodni razgovor
-            </a>
-          </Button>
-        </section>
+          <section className="service-section service-warning-panel">
+            <h2>Ovo nije</h2>
+            <Checklist items={notItems} kind="negative" />
+          </section>
+
+          <section className="service-section service-faq-section">
+            <h2>Česta pitanja o programu</h2>
+            <div className="service-faq-list">
+              {programFaqs.map((faq) => (
+                <details key={faq.question} className="faq-item">
+                  <summary>{faq.question}</summary>
+                  <p>{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <section className="service-section service-final-cta service-final-cta--quiet">
+            <div>
+              <h2>Želite vidjeti ima li program smisla za vas?</h2>
+              <p>Prvi korak nije checkout, nego 15-minutni uvodni razgovor.</p>
+            </div>
+            <ul className="service-cta-list">
+              <li>
+                <Button asChild className="cta-primary home-primary-button">
+                  <a
+                    href={CONVERSATION_PATH}
+                    className="justify-center text-center"
+                    data-cta="personal-standard-final-call"
+                  >
+                    <CalendarDays className="size-4" aria-hidden="true" />
+                    Dogovorite uvodni razgovor
+                  </a>
+                </Button>
+              </li>
+            </ul>
+          </section>
+        </div>
       </article>
     </>
   )

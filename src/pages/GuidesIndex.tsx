@@ -67,7 +67,11 @@ const roadmapGroups = [
     id: "vrijeme-volatilnost",
     area: "time",
     title: "Vrijeme i volatilnost",
-    slugs: ["uskladivanje-kupovne-moci-bitcoina", "cijena-kao-mjera-vremena"],
+    slugs: [
+      "uskladivanje-kupovne-moci-bitcoina",
+      "cijena-kao-mjera-vremena",
+      "saylor-bitcoin-ciklus-ponuda-potraznja",
+    ],
   },
   {
     id: "sigurnost",
@@ -125,6 +129,7 @@ const businessGuides = businessSlugs
 
 const advancedSlugs = [
   "bitcoin-etfovi-i-riznicke-kompanije",
+  "saylor-bitcoin-ciklus-ponuda-potraznja",
   "samostalna-pohrana-ili-skrbnik",
   "bitkey-bitcoin-sigurnost",
 ] as const

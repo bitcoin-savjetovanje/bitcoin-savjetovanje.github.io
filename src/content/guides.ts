@@ -112,6 +112,7 @@ export const guideCategories = [
   "Davanje",
   "Bitcoin kao novac",
   "Neto imovina",
+  "Vrijeme i volatilnost",
   "Sigurnost i obitelj",
 ] as const
 
@@ -136,6 +137,13 @@ export type GuideCover = {
   artPrompt?: string
 }
 
+export type GuideVideo = {
+  youtubeId: string
+  title: string
+  sourceUrl: string
+  caption?: string
+}
+
 export const guideCategoryDescriptions: Record<GuideCategory, string> = {
   "Osobni proračun nulte osnove":
     "Prvi korak je red. Svaki euro dobiva namjenu prije Bitcoin odluke.",
@@ -146,6 +154,8 @@ export const guideCategoryDescriptions: Record<GuideCategory, string> = {
     "Bitcoin se promatra kao novac i novčana zaliha, uz pravila za vrijeme, kupovnu moć i proračun nulte osnove.",
   "Neto imovina":
     "Novac, potrošna dobra i proizvodna imovina imaju različite uloge.",
+  "Vrijeme i volatilnost":
+    "Vrijeme, ciklusi i volatilnost služe kao povod za jasnija osobna pravila, a ne kao zamjena za njih.",
   "Sigurnost i obitelj":
     "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
 }
@@ -170,6 +180,7 @@ export type Guide = {
   practicalQuestion: string
   relatedSlugs: string[]
   visual?: GuideVisual
+  video?: GuideVideo
   sections: GuideSection[]
   finalCta: string
   finalCtaPrompt?: string
@@ -1367,7 +1378,7 @@ const guideEntries: Guide[] = [
       "Vodič o tome kako uskladiti osobni proračun nulte osnove s promjenama kupovne moći Bitcoina, bez pogađanja cijene i impulzivnih odluka.",
     excerpt:
       "Kada se kupovna moć Bitcoina mijenja, ne pogađate tržište. Usklađujete osobni proračun nulte osnove.",
-    category: "Bitcoin kao novac",
+    category: "Vrijeme i volatilnost",
     difficulty: "Napredno",
     freshness: "stabilno",
     order: 75,
@@ -1473,7 +1484,7 @@ const guideEntries: Guide[] = [
       "Vodič o tome kako dugoročni potencijski trend Bitcoina pomaže razmišljati o vremenu, kupovnoj moći i osobnom proračunu nulte osnove.",
     excerpt:
       "Ne pokušavamo pogoditi kratkoročnu cijenu. Gledamo odnos cijene, vremena i proračuna nulte osnove.",
-    category: "Bitcoin kao novac",
+    category: "Vrijeme i volatilnost",
     difficulty: "Napredno",
     freshness: "stabilno",
     order: 77,
@@ -1553,6 +1564,225 @@ const guideEntries: Guide[] = [
     finalCta: PRIMARY_CTA,
     finalCtaPrompt:
       "Ako cijena previše upravlja vašim odlukama, razgovor može pomoći da je pretvorite u signal za provjeru, ne zapovijed.",
+  },
+  {
+    slug: "saylor-bitcoin-ciklus-ponuda-potraznja",
+    title: "Bitcoin više ne pokreće samo prepolovljenje rudarske nagrade",
+    seoTitle: "Saylor: ponuda, potražnja i Bitcoin ciklus",
+    metaDescription:
+      "Saylorov razgovor kao okvir za razumijevanje zašto stari četverogodišnji obrazac nije dovoljan kada kapitalni tokovi, banke, burzovni fondovi i kreditni instrumenti postaju važniji.",
+    excerpt:
+      "Ovaj vodič ne služi pogađanju cijene. Služi tome da razumijete zašto se tržište Bitcoina mijenja i zašto osobna pravila za proračun, dug, neto imovinu, kratke obveze i sigurnost postaju još važnija.",
+    category: "Vrijeme i volatilnost",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
+    theme: "time",
+    safetyNote:
+      "Ovaj vodič nije investicijski, porezni ni pravni savjet. Ne preporučuje kupnju ili prodaju Bitcoina, dionica, burzovnih fondova ili drugih financijskih instrumenata. Svrha mu je pomoći vam razumjeti razliku između Bitcoina kao novca, financijske izloženosti Bitcoinu i osobnih pravila za odluke kroz volatilnost.",
+    order: 78,
+    publishedAt: "2026-05-28",
+    updatedAt: "2026-05-28",
+    practicalQuestion:
+      "Možete li jasno razdvojiti bitcoin koji kontrolirate, financijsku izloženost Bitcoinu i novac koji mora platiti kratke obveze?",
+    relatedSlugs: [
+      "uskladivanje-kupovne-moci-bitcoina",
+      "cijena-kao-mjera-vremena",
+      "bitcoin-etfovi-i-riznicke-kompanije",
+      "bitcoin-kao-novac",
+      "pravilo-trecina",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+    ],
+    visual: {
+      type: "thirds",
+      title: "Od ponude prema potražnji",
+      columns: [
+        {
+          label: "Prepolovljenje rudarske nagrade",
+          description: "Manje nove rudarske ponude kroz vrijeme.",
+        },
+        {
+          label: "Kapitalni tokovi",
+          description:
+            "Burzovni fondovi, banke, kompanije i financijski instrumenti stvaraju nove izvore potražnje.",
+        },
+        {
+          label: "Osobna pravila",
+          description:
+            "Proračun, dug, kratke obveze, neto imovina i sigurnost određuju što osoba treba napraviti.",
+        },
+      ],
+      caption:
+        "Vizual prikazuje promjenu naglaska, bez signala za kupnju ili prodaju.",
+    },
+    video: {
+      youtubeId: "IZ9_xK1peIs",
+      title: "Razgovor s Michaelom Saylorom o Bitcoinu, potražnji i ciklusima",
+      sourceUrl: "https://www.youtube.com/watch?v=IZ9_xK1peIs",
+      caption:
+        "Razgovor je povod za ovaj vodič. Vodič ne prenosi investicijsku preporuku, nego iz razgovora izvlači praktičan okvir za osobni Bitcoin standard.",
+    },
+    sections: [
+      {
+        heading: "Zašto je ovaj razgovor važan",
+        body: [
+          "Saylorov razgovor ne treba čitati kao uputu za pogađanje kratkoročne cijene. Važnija je teza da Bitcoin ulazi u fazu u kojoj prepolovljenje rudarske nagrade više nije dovoljno objašnjenje tržišnih kretanja.",
+          "U ranijim godinama nova rudarska ponuda bila je velik dio priče. Tržište je gledalo koliko novog bitcoina dolazi iz rudarenja i kako se ponuda mijenja nakon svakog prepolovljenja rudarske nagrade. Danas su sve važniji kapitalni tokovi, burzovni fondovi, banke, javne kompanije i kreditni instrumenti.",
+          "Za osobni Bitcoin standard poruka nije: pogodite sljedeći pomak cijene. Poruka je: što je više kapitala oko Bitcoina, to vaša osobna pravila moraju biti jasnija.",
+        ],
+      },
+      {
+        heading: "Od rudarske ponude prema potražnji",
+        body: [
+          "U ranijoj fazi pitanje je često bilo: što se događa nakon prepolovljenja rudarske nagrade? To pitanje nije nestalo, ali više nije dovoljno. U zrelijoj fazi pitanje postaje: tko je novi kupac, kojim kanalom dolazi i koliko kapitala može ući?",
+          "Novi kanali potražnje mogu biti burzovni fondovi, javne kompanije koje drže Bitcoin u riznici, banke koje nude skrbništvo ili kredit povezan s Bitcoinom, financijski instrumenti povezani s kompanijama koje drže Bitcoin te poduzetnici i obitelji koje Bitcoin uključuju u širu sliku neto imovine.",
+          "Ti oblici nisu isto. Bitcoin u vlastitom posjedu nije isto što i burzovni fond. Burzovni fond nije isto što i dionica kompanije. Dionica kompanije nije isto što i kreditni instrument.",
+        ],
+        link: {
+          before: "Za detaljniju podjelu tih oblika pročitajte vodič",
+          label:
+            "Bitcoin ETF-ovi i rizničke kompanije: gdje prestaje Bitcoin, a počinje kapital",
+          href: "/vodici/bitcoin-etfovi-i-riznicke-kompanije/",
+          after: "jer ta razlika čuva jasnoću u neto imovini.",
+        },
+      },
+      {
+        heading:
+          "Stari četverogodišnji obrazac nije beskoristan, ali nije dovoljan",
+        body: [
+          "Povijest ciklusa može biti korisna. Ona pomaže razumjeti da se tržište kroz vrijeme često kretalo u valovima i da se raspoloženje ljudi mijenjalo brže od stvarne monetarne teze Bitcoina. Ali povijest ciklusa ne smije postati osobna strategija.",
+          "Kalendar nije strategija. Povijest može pomoći u razumijevanju ritma tržišta, ali osobni proračun, dug, kratke obveze i sigurnost ne smiju ovisiti o tome da se prošlost ponovi.",
+          "Ako se cijeli plan oslanja na to da će sljedeće razdoblje izgledati kao prethodno, osoba zapravo nema plan. Ima očekivanje. Osobni Bitcoin standard počinje kada se očekivanje pretvori u pravilo koje može izdržati različite ishode.",
+        ],
+        link: {
+          before: "Za mirniji odnos između cijene i vremena pogledajte",
+          label: "Cijena kao mjera vremena",
+          href: "/vodici/cijena-kao-mjera-vremena/",
+          after: "kao pomoćni okvir, ne kao zamjenu za proračun.",
+        },
+      },
+      {
+        heading: "Volatilnost nije nestala",
+        body: [
+          "Veća institucionalna potražnja može promijeniti oblik volatilnosti, ali je ne uklanja. Može povećati likvidnost, otvoriti nove kanale kupnje i promijeniti profil marginalnog kupca. Ipak, Bitcoin ostaje oskudna imovina kojom se trguje stalno i globalno.",
+          "Poluga, kredit i stalna trgovina mogu pojačati pokrete u oba smjera. Kada cijena raste, novi kapital i optimizam mogu ubrzati kretanje. Kada cijena pada, prisilna prodaja, manjak povjerenja ili povlačenje kapitalnih tokova mogu pojačati pad.",
+          "Saylor Bitcoin opisuje kao imovinu čiji se tržišni pokreti ponekad mogu pojačati jer se oko nje brzo stvaraju poluga, kredit i raspoloženje tržišta. To nije razlog za strah, ali jest razlog za pravila.",
+          "Volatilnost nije naredba. Volatilnost je povod za provjeru vlastitih pravila.",
+        ],
+        link: {
+          before: "Za praktičan rad kroz rastove i padove pročitajte",
+          label:
+            "Usklađivanje kupovne moći: što raditi kad Bitcoin raste ili pada?",
+          href: "/vodici/uskladivanje-kupovne-moci-bitcoina/",
+          after: "jer cijena ne bi smjela upravljati životom.",
+        },
+      },
+      {
+        heading: "Što STRC pokazuje, a što ne dokazuje",
+        body: [
+          "STRC treba promatrati oprezno. Ne navodim ga kao proizvod koji treba kupiti. Ne služi kao preporuka. U ovom vodiču STRC je samo primjer toga kako se oko Bitcoin kapitala grade financijski instrumenti.",
+          "Ako u razgovoru čujete brojke o prinosu, cijeni ili trgovanju oko nominalne vrijednosti, čitajte ih kao uvjete koji su u razgovoru predstavljeni u tom trenutku. Takvi uvjeti mogu se promijeniti. Pravila instrumenta, odluke izdavatelja, tržišno povjerenje i kapitalni tokovi mogu promijeniti stvarni ishod.",
+          "STRC je zanimljiv primjer toga kako se oko Bitcoin kapitala grade financijski instrumenti. Ali STRC nije bitcoin. Nije novac. Nije vlastiti posjed. To je vrijednosni papir jedne kompanije, s pravilima, rizicima i ovisnošću o izdavatelju.",
+        ],
+        items: [
+          "Bitcoin u vlastitom posjedu: novac pod vlastitom kontrolom.",
+          "Burzovni fond: vrijednosni papir preko brokera.",
+          "MSTR: dionica kompanije.",
+          "STRC: financijski instrument povezan s kompanijom i njezinom kapitalnom strukturom.",
+        ],
+      },
+      {
+        heading: "Javna kompanija nije obitelj",
+        body: [
+          "Strategy kao javna kompanija može raditi stvari koje pojedinac ili obitelj ne mogu i ne trebaju preslikavati. Javna kompanija može izdavati dionice, koristiti kreditne instrumente, upravljati kapitalnom strukturom i imati cilj povećavati Bitcoin po dionici.",
+          "Obitelj ima drukčiji zadatak. Treba urediti proračun, dug, kratke obveze, sigurnosnu zalihu, davanje, neto imovinu i nasljeđivanje. Cilj obitelji nije pobijediti tržište u sljedećem tromjesečju, nego živjeti stabilnije kroz vrijeme.",
+          "Ne preslikavajte kapitalnu strategiju javne kompanije na kućni proračun. Ne koristite budući novac kako biste kupili novac.",
+        ],
+        link: {
+          before: "Za tu granicu posebno je važan vodič",
+          label: "Ne zadužujte se za Bitcoin",
+          href: "/vodici/ne-zaduzujte-se-za-bitcoin/",
+          after: "jer dug može prisiliti na lošu odluku u lošem trenutku.",
+        },
+      },
+      {
+        heading: "Kratke obveze ne smiju ovisiti o cijeni Bitcoina",
+        body: [
+          "Novac potreban u idućih 3, 6, 12 ili 24 mjeseca mora imati jasnu namjenu. To može biti porezna obveza, plaće, školarina, najamnina, poslovne obveze, zdravstveni troškovi ili dogovorene obiteljske obveze.",
+          "Ako je obveza kratka i poznata, ona ne smije ovisiti o tome da Bitcoin u pravom trenutku bude iznad određene cijene.",
+          "Novac za kratke obveze ne mora biti najsavršeniji novac u filozofskom smislu. Mora biti dostupan kada obveza dođe na naplatu. U osobnom Bitcoin standardu to nije suprotnost Bitcoinu, nego zaštita od prisilne prodaje.",
+        ],
+      },
+      {
+        heading: "Ako je Saylor u pravu",
+        body: [
+          "Moguće je da potražnja za Bitcoinom kroz banke, burzovne fondove, javne kompanije i institucionalne tokove nastavi rasti. To može biti pozitivno za dugoročnu monetizaciju Bitcoina, ali ne smije potaknuti lakomislenost.",
+          "Ako kupovna moć snažno poraste, pitanje nije samo koliko je osoba dobila na papiru. Pitanje je što sustav sada traži. Jesu li pokriveni budući troškovi? Postoji li dug? Treba li povećati sigurnost? Ima li obitelj pristup osnovnim uputama? Je li davanje dio sustava? Je li neto imovina u ravnoteži?",
+          "Veća vrijednost traži bolji sigurnosni okvir. Rast ne smije ostati samo osjećaj pobjede. Mora postati jasniji raspored odgovornosti.",
+        ],
+        link: {
+          before: "Za sigurnosni dio nastavite s vodičem",
+          label: "Sigurnost ne smije ovisiti samo o vama",
+          href: "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
+          after: "jer veća vrijednost traži manje improvizacije.",
+        },
+      },
+      {
+        heading: "Ako Saylor nije u pravu",
+        body: [
+          "Moguće je i suprotno. Kapitalni tokovi se mogu usporiti. Banke mogu kasniti. Kreditni instrumenti mogu izgubiti povjerenje. Burzovni fondovi mogu imati slabije tokove. Bitcoin može ponovno snažno pasti.",
+          "Dobar osobni Bitcoin standard mora preživjeti i snažan rast i dubok pad.",
+          "Ako pad ruši proračun, problem nije samo pad. Ako rast izaziva zaduživanje, problem nije samo rast. U oba slučaja tržište otkriva gdje osobna pravila nisu dovoljno jasna.",
+        ],
+      },
+      {
+        heading: "Praktičan okvir nakon ovog razgovora",
+        body: [
+          "Prvo razvrstajte ono što posjedujete. Ne pokušavajte sve nazvati Bitcoinom samo zato što je povezano s Bitcoin tezom. Razdvajanje smanjuje zbrku i pomaže obitelji razumjeti što je novac, što je vrijednosni papir, što je potrošnja, što je proizvodna imovina i gdje je dug.",
+        ],
+        items: [
+          "Bitcoin u vlastitom posjedu",
+          "Bitcoin kod skrbnika",
+          "Burzovni fondovi povezani s Bitcoinom",
+          "Dionice kompanija povezanih s Bitcoinom",
+          "Kreditni instrumenti povezani s Bitcoinom",
+          "Državni novac za kratke obveze",
+          "Potrošna dobra",
+          "Proizvodna imovina",
+          "Dug",
+        ],
+        link: {
+          before: "Za cjelinu imovine posebno pomaže",
+          label: "Pravilo trećina u neto imovini",
+          href: "/vodici/pravilo-trecina/",
+          after: "jer neto imovina mora ostati jedna slika.",
+        },
+      },
+      {
+        heading: "Pitanja nakon razvrstavanja",
+        body: [
+          "Nakon razvrstavanja postavite nekoliko pitanja. Koji dio je novac? Koji dio je financijski instrument? Koji dio je potreban za kratke obveze? Koji dio ovisi o skrbniku ili izdavatelju? Koji dio obitelj razumije?",
+          "Zatim dodajte dva stresna pitanja. Koji dio bi stvorio problem ako cijena padne 50%? Koji dio bi stvorio problem ako cijena naglo poraste i izazove loše odluke?",
+          "Ova pitanja ne služe tome da sve prodate ili sve kupite. Služe tome da prestanete miješati uloge. Bitcoin kao novac, financijska izloženost Bitcoinu, proizvodna imovina, potrošna dobra i dug ne nose isti zadatak.",
+        ],
+        link: {
+          before: "Za temeljnu ulogu Bitcoina pročitajte",
+          label: "Bitcoin je novac",
+          href: "/vodici/bitcoin-kao-novac/",
+          after:
+            "jer bez te podjele ostali instrumenti lako preuzmu krivu ulogu.",
+        },
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Bitcoin možda više ne pokreće samo prepolovljenje rudarske nagrade. Ali vaš život ne bi smjela pokretati cijena. Vaš život treba pokretati sustav odluka: proračun, život bez duga, davanje, neto imovina, sigurnost i jasna pravila kroz vrijeme.",
+          "Ako Saylorova teza bude točna, pravila će vam trebati zbog rasta. Ako ne bude točna, pravila će vam trebati zbog pada. U oba slučaja osobni Bitcoin standard nije prognoza. To je način da novac, obveze, obitelj i sigurnost ostanu u istom sustavu.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+    finalCtaPrompt:
+      "Ako imate Bitcoin, burzovne fondove, dionice ili druge financijske instrumente povezane s Bitcoinom, ali ne znate kako ih razdvojiti u vlastitom sustavu odluka, uvodni razgovor može pomoći. Cilj nije predvidjeti cijenu, nego urediti pravila.",
   },
   {
     slug: "novac-kapital-potrosnja",
@@ -3661,7 +3891,14 @@ export const guidesIndexAdditionalGroups = [
       "niste-zakasnili-u-bitcoin",
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
+    ],
+  },
+  {
+    title: "Vrijeme i volatilnost",
+    slugs: [
       "uskladivanje-kupovne-moci-bitcoina",
+      "cijena-kao-mjera-vremena",
+      "saylor-bitcoin-ciklus-ponuda-potraznja",
     ],
   },
   {
@@ -3702,6 +3939,7 @@ export const guidesIndexOrderedSlugs = [
   "pozitivni-neto-priljev",
   "uskladivanje-kupovne-moci-bitcoina",
   "cijena-kao-mjera-vremena",
+  "saylor-bitcoin-ciklus-ponuda-potraznja",
   "novac-kapital-potrosnja",
   "bitcoin-u-neto-imovini",
   "pravilo-trecina",
@@ -3726,6 +3964,7 @@ export const recommendedGuideSlugs = [
   "bitcoin-kao-novac",
   "bitcoin-nije-kripto-portfelj",
   "uskladivanje-kupovne-moci-bitcoina",
+  "saylor-bitcoin-ciklus-ponuda-potraznja",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",

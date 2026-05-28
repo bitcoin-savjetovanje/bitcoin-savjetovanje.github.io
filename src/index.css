@@ -3309,6 +3309,7 @@
 
 .guide-info-note,
 .guide-safety-note,
+.guide-video-card,
 .guide-visual-card,
 .guide-toc-card,
 .guide-question-card,
@@ -3321,6 +3322,7 @@
   box-shadow: 0 0.7rem 1.8rem rgba(45, 34, 20, 0.035);
 }
 
+.guide-video-card,
 .guide-visual-card,
 .guide-toc-card {
   max-width: 64rem;
@@ -3331,6 +3333,7 @@
 }
 
 .guide-visual-card h2,
+.guide-video-card h2,
 .guide-toc-card h2,
 .guide-content-section h2,
 .guide-question-card h2,
@@ -3345,6 +3348,7 @@
 }
 
 .guide-visual-card h2,
+.guide-video-card h2,
 .guide-content-section h2,
 .guide-question-card h2,
 .guide-final-cta-card h2 {
@@ -3353,6 +3357,7 @@
 }
 
 .guide-visual-card p,
+.guide-video-card p,
 .guide-toc-card a,
 .guide-content-section p,
 .guide-content-section li,
@@ -3367,8 +3372,42 @@
   line-height: 1.66;
 }
 
+.guide-video-card p,
 .guide-visual-card p {
   margin-top: 0.8rem;
+}
+
+.guide-video-card__copy {
+  max-width: 46rem;
+}
+
+.guide-video-card__frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin-top: 1.2rem;
+  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
+  border-radius: 0.5rem;
+  background: var(--ink);
+}
+
+.guide-video-card__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.guide-video-card__source {
+  display: inline-flex;
+  margin-top: 1rem;
+  color: var(--ink);
+  font-family: Georgia, ui-serif, serif;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--guide-theme), transparent 55%);
+  text-underline-offset: 0.25rem;
 }
 
 .guide-visual-tile {
@@ -6025,7 +6064,7 @@
 }
 
 .time-volatility-guides-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .time-volatility-guides-grid .budget-guide-card {

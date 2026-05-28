@@ -173,7 +173,20 @@ export const glossaryTerms: GlossaryTerm[] = [
     ],
     title: "Skrbnik",
     description:
-      "Treća strana koja čuva bitcoin ili ključeve umjesto vas. To može biti praktično, ali znači da dio kontrole prepuštate drugome.",
+      "Tvrtka ili osoba koja za nekoga drugoga čuva imovinu ili pristup imovini. Skrbnik može biti koristan, ali uvodi povjerenje i dodatne rizike.",
+  },
+  {
+    id: "vlastiti-posjed",
+    terms: [
+      "vlastiti posjed",
+      "vlastitog posjeda",
+      "vlastitom posjedu",
+      "vlastitim posjedom",
+      "vlastiti Bitcoin posjed",
+    ],
+    title: "Vlastiti posjed",
+    description:
+      "Način držanja bitcoina u kojem osoba ili obitelj sama kontrolira ključeve, umjesto da se oslanja samo na burzu, brokera ili drugog skrbnika.",
   },
   {
     id: "samostalna-pohrana",
@@ -187,7 +200,120 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["ETF", "ETF-ovi", "ETF-a", "ETF-u", "ETF-om"],
     title: "ETF",
     description:
-      "Vrijednosni papir kojim se trguje na burzi i koji prati neku imovinu, primjerice bitcoin. Lakše se drži u brokerskom računu, ali nije isto što i bitcoin u vlastitom posjedu.",
+      "Engleska kratica za burzovni fond. U tekstu se spominje jer je čitatelj može susresti u nazivima proizvoda i javnim razgovorima.",
+  },
+  {
+    id: "burzovni-fond",
+    terms: [
+      "burzovni fond",
+      "burzovnog fonda",
+      "burzovnom fondu",
+      "burzovni fondovi",
+      "burzovnih fondova",
+      "burzovnim fondovima",
+    ],
+    title: "Burzovni fond",
+    description:
+      "Vrijednosni papir koji se kupuje preko brokerskog računa i daje izloženost nekoj imovini. Burzovni fond povezan s Bitcoinom nije isto što i bitcoin u vlastitom posjedu.",
+  },
+  {
+    id: "prepolovljenje-rudarske-nagrade",
+    terms: [
+      "prepolovljenje rudarske nagrade",
+      "prepolovljenja rudarske nagrade",
+      "prepolovljenju rudarske nagrade",
+      "prepolovljenjem rudarske nagrade",
+    ],
+    title: "Prepolovljenje rudarske nagrade",
+    description:
+      "Događaj u Bitcoin protokolu u kojem se nagrada rudarima za novi blok prepolovi. Time se smanjuje količina novog bitcoina koja ulazi u opticaj.",
+  },
+  {
+    id: "rudarska-ponuda",
+    terms: [
+      "rudarska ponuda",
+      "rudarske ponude",
+      "rudarsku ponudu",
+      "rudarskom ponudom",
+    ],
+    title: "Rudarska ponuda",
+    description:
+      "Novi bitcoin koji rudari dobivaju kroz nagradu za blok i koji se s vremenom može pojaviti na tržištu.",
+  },
+  {
+    id: "kapitalni-tokovi",
+    terms: [
+      "kapitalni tokovi",
+      "kapitalnih tokova",
+      "kapitalnim tokovima",
+      "kapitalne tokove",
+    ],
+    title: "Kapitalni tokovi",
+    description:
+      "Veći ulasci ili izlasci novca iz neke imovine ili tržišta. Kod Bitcoina to mogu biti kupnje preko burzovnih fondova, kompanija, banaka ili drugih velikih sudionika.",
+  },
+  {
+    id: "kreditni-instrument",
+    terms: [
+      "kreditni instrument",
+      "kreditnog instrumenta",
+      "kreditnom instrumentu",
+      "kreditni instrumenti",
+      "kreditnih instrumenata",
+      "kreditnim instrumentima",
+    ],
+    title: "Kreditni instrument",
+    description:
+      "Vrijednosni papir ili ugovor kojim jedna strana daje kapital, a druga preuzima obvezu plaćanja prinosa ili povrata prema pravilima instrumenta.",
+  },
+  {
+    id: "poluga",
+    terms: ["poluga", "poluge", "polugu", "polugom"],
+    title: "Poluga",
+    description:
+      "Korištenje posuđenog novca ili financijskih ugovora kako bi se povećala izloženost kretanju cijene. Poluga može pojačati dobitke, ali i gubitke.",
+  },
+  {
+    id: "marginalni-kupac",
+    terms: [
+      "marginalni kupac",
+      "marginalnog kupca",
+      "marginalnom kupcu",
+      "marginalnim kupcem",
+    ],
+    title: "Marginalni kupac",
+    description:
+      "Kupac čija nova kupnja najviše utječe na sljedeću tržišnu cijenu. Kod oskudne imovine mali višak potražnje može snažno pomaknuti cijenu.",
+  },
+  {
+    id: "novac-za-kratke-obveze",
+    terms: [
+      "novac za kratke obveze",
+      "novca za kratke obveze",
+      "novcem za kratke obveze",
+    ],
+    title: "Novac za kratke obveze",
+    description:
+      "Novac koji treba biti dostupan za poznate obveze u bliskoj budućnosti, primjerice račune, plaće, školarinu, porezne obveze ili druge dogovorene izdatke.",
+  },
+  {
+    id: "tokenizacija",
+    terms: ["tokenizacija", "tokenizacije", "tokenizaciju", "tokenizacijom"],
+    title: "Tokenizacija",
+    description:
+      "Prikaz prava na neku imovinu ili vrijednosni papir u digitalnom obliku koji se može prenositi kroz računalne sustave. To nije isto što i Bitcoin.",
+  },
+  {
+    id: "kvantno-racunarstvo",
+    terms: [
+      "kvantno računarstvo",
+      "kvantnog računarstva",
+      "kvantnom računarstvu",
+      "kvantnim računarstvom",
+    ],
+    title: "Kvantno računarstvo",
+    description:
+      "Vrsta računarstva koja bi u budućnosti mogla promijeniti sigurnosne pretpostavke mnogih digitalnih sustava. U vodiču se spominje samo kao udaljeniji tehnološki rizik, ne kao tema za tehnički tekst.",
   },
   {
     id: "broker",
@@ -406,18 +532,25 @@ export const glossaryTerms: GlossaryTerm[] = [
       "Kupnja istog iznosa u pravilnim razmacima, primjerice svaki mjesec. Može smanjiti potrebu za pogađanjem cijene, ali ne rješava proračun ni sigurnost.",
   },
   {
+    id: "strategy",
+    terms: ["Strategy", "Strategyja", "Strategyju", "Strategyjem"],
+    title: "Strategy",
+    description:
+      "Javna kompanija koja drži veliku Bitcoin riznicu i izdaje vrijednosne papire povezane sa svojom kapitalnom strukturom.",
+  },
+  {
     id: "mstr",
     terms: ["MSTR"],
     title: "MSTR",
     description:
-      "Oznaka obične dionice kompanije Strategy. Povezana je s Bitcoinom, ali je i dalje dionica kompanije, a ne bitcoin u vlastitom posjedu.",
+      "Burzovna oznaka dionice tvrtke Strategy. To je dionica kompanije, a ne bitcoin.",
   },
   {
     id: "strc",
     terms: ["STRC", "Stretch"],
     title: "STRC",
     description:
-      "Strategyjev prihodovni vrijednosni papir povezan s kapitalnom strukturom kompanije. Nije bitcoin, nije novac i nije proizvod bez rizika.",
+      "Financijski instrument tvrtke Strategy. Može biti povezan s Bitcoin tezom, ali nije bitcoin, nije novac i nosi rizik izdavatelja.",
   },
   {
     id: "debian",

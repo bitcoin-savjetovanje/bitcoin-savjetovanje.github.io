@@ -26,6 +26,7 @@ const requiredGuidePaths = [
   "/vodici/dca-nije-dovoljan",
   "/vodici/uskladivanje-kupovne-moci-bitcoina",
   "/vodici/cijena-kao-mjera-vremena",
+  "/vodici/saylor-bitcoin-ciklus-ponuda-potraznja",
   "/vodici/pravilo-trecina",
   "/vodici/bitcoin-etfovi-i-riznicke-kompanije",
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
@@ -1524,6 +1525,10 @@ const timeVolatilityChecks = [
     'href="/vodici/cijena-kao-mjera-vremena/"',
     "time volatility price as time guide link",
   ],
+  [
+    'href="/vodici/saylor-bitcoin-ciklus-ponuda-potraznja/"',
+    "time volatility Saylor guide link",
+  ],
   ['href="/vodici/dca-nije-dovoljan/"', "time volatility DCA guide link"],
   ['href="/razgovor/"', "time volatility links to conversation"],
   [
@@ -1546,22 +1551,15 @@ assertCount(
   "bitcoin-vrijeme-i-volatilnost/index.html",
   timeVolatilityHtml,
   'class="budget-guide-card"',
-  3,
+  4,
   "time volatility guide card count"
 )
 
 assertNotIncludes(
   "bitcoin-vrijeme-i-volatilnost/index.html",
   timeVolatilityHtml,
-  "Odluke kroz cikluse</h3>",
-  "time volatility fourth guide card title"
-)
-
-assertNotIncludes(
-  "bitcoin-vrijeme-i-volatilnost/index.html",
-  timeVolatilityHtml,
   'href="/vodici/pravilo-trecina/"',
-  "time volatility fourth guide card link"
+  "time volatility unrelated net worth guide link"
 )
 
 assertCount(
@@ -2210,6 +2208,7 @@ assertArrayEquals(
     "/vodici/bitcoin-etfovi-i-riznicke-kompanije/",
     "/vodici/uskladivanje-kupovne-moci-bitcoina/",
     "/vodici/cijena-kao-mjera-vremena/",
+    "/vodici/saylor-bitcoin-ciklus-ponuda-potraznja/",
     "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
     "/vodici/poslovni-bitcoin-nije-privatni-bitcoin/",
     "/vodici/obiteljski-bitcoin-trezor/",
@@ -2527,6 +2526,31 @@ const focusedGuideChecks = [
     ],
   },
   {
+    path: "vodici/saylor-bitcoin-ciklus-ponuda-potraznja/index.html",
+    checks: [
+      "Bitcoin više ne pokreće samo prepolovljenje rudarske nagrade",
+      "Ovaj vodič nije investicijski, porezni ni pravni savjet.",
+      "Izvorni razgovor",
+      "Od ponude prema potražnji",
+      "Kalendar nije strategija.",
+      "Volatilnost nije naredba. Volatilnost je povod za provjeru vlastitih pravila.",
+      "STRC je zanimljiv primjer toga kako se oko Bitcoin kapitala grade financijski instrumenti.",
+      "Ne preslikavajte kapitalnu strategiju javne kompanije na kućni proračun.",
+      "Ne koristite budući novac kako biste kupili novac.",
+      "Ako je obveza kratka i poznata",
+      "Dobar osobni Bitcoin standard mora preživjeti i snažan rast i dubok pad.",
+      "Prvo razvrstajte ono što posjedujete",
+      "Bitcoin možda više ne pokreće samo prepolovljenje rudarske nagrade.",
+      'href="/vodici/bitcoin-etfovi-i-riznicke-kompanije/"',
+      'href="/vodici/uskladivanje-kupovne-moci-bitcoina/"',
+      'href="/vodici/cijena-kao-mjera-vremena/"',
+      'href="/vodici/ne-zaduzujte-se-za-bitcoin/"',
+      'href="/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"',
+      'href="/vodici/pravilo-trecina/"',
+      "Ako imate Bitcoin, burzovne fondove, dionice ili druge financijske instrumente povezane s Bitcoinom",
+    ],
+  },
+  {
     path: "vodici/pravilo-trecina/index.html",
     checks: [
       "Ne preporučujem kupnju ili prodaju određene imovine.",
@@ -2638,6 +2662,83 @@ for (const guideCheck of focusedGuideChecks) {
     assertIncludes(guideCheck.path, contents, expected, `guide copy: ${expected}`)
   }
 }
+
+const saylorGuidePath =
+  "vodici/saylor-bitcoin-ciklus-ponuda-potraznja/index.html"
+const saylorGuideHtml = readFile(saylorGuidePath)
+const saylorGuideVisibleText = guideVisibleText(saylorGuideHtml)
+const saylorGuideLowerText = saylorGuideVisibleText.toLowerCase()
+const saylorGlossaryCount =
+  saylorGuideHtml.match(/class="glossary-term"/g)?.length ?? 0
+
+if (saylorGlossaryCount >= 6) {
+  pass(`${saylorGuidePath} contains several glossary explanations`)
+} else {
+  fail(
+    `${saylorGuidePath} contains ${saylorGlossaryCount} glossary explanations, expected at least 6`
+  )
+}
+
+for (const [expected, label] of [
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/saylor-bitcoin-ciklus-ponuda-potraznja/" />',
+    "Saylor guide canonical URL with trailing slash",
+  ],
+  [
+    '<iframe src="https://www.youtube-nocookie.com/embed/IZ9_xK1peIs"',
+    "Saylor guide privacy-friendly video URL",
+  ],
+  [
+    'title="Razgovor s Michaelom Saylorom o Bitcoinu, potražnji i ciklusima"',
+    "Saylor guide video title",
+  ],
+  ['loading="lazy"', "Saylor guide lazy video loading"],
+  ['class="guide-video-card__frame"', "Saylor guide responsive video frame"],
+]) {
+  assertIncludes(saylorGuidePath, saylorGuideHtml, expected, label)
+}
+
+for (const forbidden of [
+  "halving",
+  "embed",
+  "tooltip",
+  "crypto",
+  "kripto",
+  "custody",
+  "self-custody",
+  "cash balance",
+  "lead magnet",
+  "yield",
+  "leverage",
+  "peg",
+  "working capital",
+]) {
+  assertNotIncludes(
+    saylorGuidePath,
+    saylorGuideLowerText,
+    forbidden,
+    `Saylor guide forbidden wording: ${forbidden}`
+  )
+}
+
+assertNotIncludes(
+  saylorGuidePath,
+  saylorGuideVisibleText,
+  "ROI",
+  "Saylor guide forbidden wording: ROI"
+)
+assertNotMatches(
+  saylorGuidePath,
+  saylorGuideLowerText,
+  /(^|[^a-z])stack([^a-z]|$)/,
+  "Saylor guide forbidden wording: stack"
+)
+assertNotIncludes(
+  saylorGuidePath,
+  saylorGuideHtml,
+  "autoplay",
+  "Saylor guide video autoplay"
+)
 
 assertArrayEquals(
   "vodici/svaki-euro-ima-namjenu/index.html",

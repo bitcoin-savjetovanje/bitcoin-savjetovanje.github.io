@@ -6,6 +6,7 @@ import { GuideVisual } from "@/components/guides/GuideVisual"
 import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { GuideSectionVisual } from "@/components/guides/GuideSectionVisual"
 import { GuideStickyCta } from "@/components/guides/GuideStickyCta"
+import { GuideVideoEmbed } from "@/components/guides/GuideVideoEmbed"
 import { Button } from "@/components/ui/button"
 import { resolveGuideTheme } from "@/content/guideVisuals"
 import { findGuide, guideHref, guides, type Guide } from "@/content/guides"
@@ -111,6 +112,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
           <p>{guide.safetyNote}</p>
         </section>
       ) : null}
+      {guide.video ? <GuideVideoEmbed video={guide.video} /> : null}
       {guide.visual ? <GuideVisual visual={guide.visual} /> : null}
       {sectionLinks.length > 0 ? (
         <nav aria-labelledby="guide-toc-heading" className="guide-toc-card">

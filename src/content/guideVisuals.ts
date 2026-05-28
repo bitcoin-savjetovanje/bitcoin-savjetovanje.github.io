@@ -12,12 +12,14 @@ const categoryThemes: Record<GuideCategory, GuideTheme> = {
   Davanje: "giving",
   "Bitcoin kao novac": "bitcoin",
   "Neto imovina": "worth",
+  "Vrijeme i volatilnost": "time",
   "Sigurnost i obitelj": "security",
 }
 
 const timeGuideSlugs = new Set([
   "uskladivanje-kupovne-moci-bitcoina",
   "cijena-kao-mjera-vremena",
+  "saylor-bitcoin-ciklus-ponuda-potraznja",
 ])
 
 const defaultCovers: Record<GuideTheme, ThemeCoverDefaults> = {
@@ -79,6 +81,8 @@ const artPromptsBySlug: Record<string, string> = {
     "Mediterranean limestone composition divided into three calm areas for Bitcoin money, productive assets and liquid state money, book-cover lighting, no dashboard.",
   "uskladivanje-kupovne-moci-bitcoina":
     "Mediterranean stone and paper scene showing purchasing power through household objects and time, carved Bitcoin symbol, warm side light, no speculative price graph.",
+  "saylor-bitcoin-ciklus-ponuda-potraznja":
+    "Mediterranean limestone table with three calm blocks: mining supply, institutional capital flows, and household rules, carved Bitcoin money symbol, warm side light, no price chart, editorial nonfiction cover.",
   "sigurnost-ne-smije-ovisiti-samo-o-vama":
     "Limestone security plan with separated keys, family note, warm Mediterranean light, calm inheritance and recovery mood, no exposed secret words.",
   "obiteljski-bitcoin-trezor":

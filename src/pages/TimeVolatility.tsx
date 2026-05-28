@@ -89,6 +89,12 @@ const guideCards = [
     imagePosition: "32% 58%",
   },
   {
+    title: "Saylor: ponuda, potražnja i Bitcoin ciklus",
+    copy: "Zašto stari četverogodišnji obrazac nije dovoljan kada kapitalni tokovi postanu važniji.",
+    href: "/vodici/saylor-bitcoin-ciklus-ponuda-potraznja/",
+    imagePosition: "42% 56%",
+  },
+  {
     title: "Kako koristiti volatilnost u svoju korist",
     copy: "Praktična pravila za ponašanje kroz rastove i padove.",
     href: "/vodici/dca-nije-dovoljan/",

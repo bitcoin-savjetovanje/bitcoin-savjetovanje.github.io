@@ -62,6 +62,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
     <article
       className="guide-editorial-page"
       data-guide-article
+      data-guide-slug={guide.slug}
       data-guide-theme={guideTheme}
     >
       <div className="reading-progress" aria-hidden="true">

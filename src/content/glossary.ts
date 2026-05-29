@@ -8,16 +8,17 @@ export type GlossaryTerm = {
 
 export const glossaryTerms: GlossaryTerm[] = [
   {
-    id: "pocetne-rijeci",
-    terms: ["početne riječi", "početnih riječi", "početnim riječima"],
-    title: "Početne riječi",
-    description:
-      "Popis riječi koji služi kao pričuvna kopija ključa. Tko ima te riječi, može obnoviti pristup tom ključu, zato se ne smiju slikati, slati ni spremati u oblak.",
-  },
-  {
     id: "seed-rijeci",
-    terms: ["seed riječi", "seed phrase", "recovery phrase"],
-    title: "Seed riječi",
+    terms: [
+      "seed fraza",
+      "seed fraze",
+      "seed frazu",
+      "seed frazom",
+      "seed riječi",
+      "seed phrase",
+      "recovery phrase",
+    ],
+    title: "Seed fraza",
     description:
       "Popis riječi koji služi kao pričuvna kopija ključa. Tko ima te riječi, može obnoviti pristup tom ključu, zato se ne smiju slikati, slati ni spremati u oblak.",
   },
@@ -125,6 +126,14 @@ export const glossaryTerms: GlossaryTerm[] = [
       "Nepotpuna Bitcoin transakcija koja čeka potpise. Korisna je kada Sparrow pripremi transakciju, a hardverski novčanici je zatim potpisuju.",
   },
   {
+    id: "bitcoin-skript",
+    priority: 45,
+    terms: ["Bitcoin skript", "Bitcoin skripta", "Bitcoin skriptu"],
+    title: "Bitcoin skript",
+    description:
+      "Skup pravila koji određuje pod kojim se uvjetima bitcoin može potrošiti, primjerice koji potpisi, ključevi ili vremenski rokovi moraju vrijediti.",
+  },
+  {
     id: "miniscript",
     priority: 35,
     terms: ["Miniscript", "Miniscripta", "Miniscriptom"],
@@ -135,9 +144,9 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: "bsms",
     terms: ["BSMS", "BSMS-a"],
-    title: "BSMS",
+    title: "BSMS (Bitcoin Secure Multisig Setup)",
     description:
-      "Standard za razmjenu podataka o višepotpisnom Bitcoin novčaniku. Pomaže da drugi alat razumije kako je trezor sastavljen.",
+      "Engleska kratica za standard koji opisuje kako je višepotpisni Bitcoin trezor sastavljen. Pomaže da drugi alat razumije javne ključeve, prag potpisa i pravila oporavka.",
   },
   {
     id: "nunchuk",

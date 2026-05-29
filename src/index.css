@@ -258,6 +258,23 @@
       var(--background);
   }
 
+  body :where(p, li, figcaption, blockquote, label, dd, dt, input, textarea, select),
+  body
+    :where(a, button, small, strong, em, span):not(
+      :where(
+          h1 *,
+          h2 *,
+          h3 *,
+          h4 *,
+          h5 *,
+          h6 *,
+          [aria-hidden="true"],
+          [aria-hidden="true"] *
+        )
+    ) {
+    font-family: var(--font-sans) !important;
+  }
+
   @supports not (overflow: clip) {
     html,
     body,
@@ -3202,6 +3219,7 @@
 
 .guide-editorial-page {
   --guide-theme: var(--area-bitcoin);
+  font-family: var(--font-sans);
   padding: clamp(1.1rem, 3vw, 2.2rem) clamp(1.2rem, 4.6vw, 4.6rem)
     clamp(2.4rem, 5vw, 4.4rem);
 }
@@ -3214,7 +3232,7 @@
   margin: 0;
   padding: 0;
   color: var(--ink-muted);
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   font-size: 0.88rem;
   line-height: 1.5;
   list-style: none;
@@ -3235,7 +3253,7 @@
   display: inline-flex;
   margin-top: 1rem;
   color: var(--ink-muted);
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 700;
 }
@@ -3263,7 +3281,7 @@
 .guide-hero__reading-time {
   margin-top: 1.15rem;
   color: var(--ink-muted);
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 700;
 }
@@ -3272,7 +3290,7 @@
   max-width: 42rem;
   margin-top: 1.35rem;
   color: var(--ink-soft);
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   font-size: clamp(1.05rem, 1.8vw, 1.28rem);
   line-height: 1.52;
 }
@@ -3302,7 +3320,7 @@
   border-top: 1px solid var(--line-warm);
   padding: 0.85rem 1rem;
   color: var(--ink-muted);
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   font-size: 0.78rem;
   line-height: 1.42;
 }
@@ -3318,7 +3336,7 @@
 .guide-final-cta-card,
 .guide-related-card {
   border-radius: 0.65rem;
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   box-shadow: 0 0.7rem 1.8rem rgba(45, 34, 20, 0.035);
 }
 
@@ -3368,7 +3386,7 @@
 .guide-extra-cta-card p,
 .guide-final-cta-card p {
   color: var(--ink-soft);
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   line-height: 1.66;
 }
 
@@ -3403,7 +3421,7 @@
   display: inline-flex;
   margin-top: 1rem;
   color: var(--ink);
-  font-family: Georgia, ui-serif, serif;
+  font-family: var(--font-sans);
   font-weight: 700;
   text-decoration: underline;
   text-decoration-color: color-mix(in oklab, var(--guide-theme), transparent 55%);
@@ -3444,7 +3462,9 @@
 
 .guide-content-section p,
 .guide-content-section li {
-  font-size: 1.03rem;
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  line-height: 1.72;
 }
 
 .guide-source-list {

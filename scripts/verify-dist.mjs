@@ -415,6 +415,8 @@ const requiredFiles = [
   "images/skrbnistvo-sigurnost-hero.jpg",
   "images/skrbnistvo-sigurnost-hero-20260521.webp",
   "images/skrbnistvo-sigurnost-hero-20260521.jpg",
+  "guide-assets/nunchuk-logo.svg",
+  "guide-assets/liana-logo.svg",
   "razgovor/index.html",
   "proracun/index.html",
   "dug/index.html",
@@ -2634,13 +2636,15 @@ const focusedGuideChecks = [
       "Vrijeme čitanja: 10 min",
       "2 od 3 sada. Oporavak kasnije.",
       "Ovaj vodič nije investicijski, porezni ni pravni savjet.",
+      "To nije promjena u aplikaciji, podsjetnik u kalendaru, niti dogovor među ljudima.",
       "2 od 3 vrijedi odmah, a nakon roka dodatno se otvara oporavni put.",
-      "Bitcoin ne zna vaše obiteljske odnose.",
+      "Bitcoin ne zna vaše obiteljske odnose, bolest, smrt, izgubljen uređaj",
+      "Bitcoin skript traži dva potpisa",
       "CHECKLOCKTIMEVERIFY i BIP 65",
       "BIP 68 i CHECKSEQUENCEVERIFY iz BIP 112",
       "Zašto 1 od 3 nakon roka može biti opasno",
       "Bolji model: posebni oporavni ključ",
-      "Početne riječi nisu dovoljne.",
+      "Seed fraza nije dovoljna.",
       "descriptor, BSMS ili ekvivalentnu konfiguraciju",
       "Ako koristite apsolutni vremenski uvjet i rok istekne, oporavni put ostaje dostupan",
       "Vremenski oporavak nije postavi i zaboravi",
@@ -2741,6 +2745,35 @@ assertIncludes(
   '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/vremenski-oporavak-bitcoin-trezor/" />',
   "timed recovery guide canonical URL with trailing slash"
 )
+for (const [expected, label] of [
+  ['aria-label="Objasni pojam: Bitcoin skript"', "Bitcoin skript glossary"],
+  ['aria-label="Objasni pojam: Seed fraza"', "Seed fraza glossary"],
+  [
+    'aria-label="Objasni pojam: BSMS (Bitcoin Secure Multisig Setup)"',
+    "BSMS glossary",
+  ],
+  [
+    'aria-label="Objasni pojam: CHECKSEQUENCEVERIFY"',
+    "CHECKSEQUENCEVERIFY glossary",
+  ],
+  ['aria-label="Objasni pojam: BIP 112"', "BIP 112 glossary"],
+]) {
+  assertIncludes(timedRecoveryGuidePath, timedRecoveryGuideHtml, expected, label)
+}
+
+for (const [expected, label] of [
+  ["Alati spomenuti u vodiču", "tool logo visual title"],
+  ["/guide-assets/nunchuk-logo.svg", "Nunchuk logo asset"],
+  ["/guide-assets/liana-logo.svg", "Liana logo asset"],
+  ["Nunchuk logotip", "Nunchuk logo alt text"],
+  ["Liana logotip", "Liana logo alt text"],
+  [
+    'data-guide-slug="vremenski-oporavak-bitcoin-trezor"',
+    "timed recovery guide slug attribute",
+  ],
+]) {
+  assertIncludes(timedRecoveryGuidePath, timedRecoveryGuideHtml, expected, label)
+}
 
 assertCount(
   timedRecoveryGuidePath,

@@ -3024,7 +3024,7 @@ const guideEntries: Guide[] = [
         body: [
           "Obični 2 od 3 višepotpisni sustav ima jedno pravilo: za slanje Bitcoina trebaju bilo koja dva od tri ključa.",
           "Napredni vremenski sustav ima više od jednog pravila. Put A može tražiti dva od tri ključa odmah. Put B može dopustiti da nakon određenog roka jedan posebno predviđen ključ potroši sam.",
-          "To nije promjena u aplikaciji. To nije podsjetnik u kalendaru. To nije dogovor među ljudima.",
+          "To nije promjena u aplikaciji, podsjetnik u kalendaru, niti dogovor među ljudima.",
           "To je pravilo zapisano u Bitcoin skriptu od samog početka. Kada šaljete Bitcoin u takav trezor, šaljete ga na adresu koja već u sebi ima normalni put i oporavni put.",
           "Bolje je reći: 2 od 3 vrijedi odmah, a nakon roka dodatno se otvara oporavni put. Trezor se ne pretvara čarobno iz jednog oblika u drugi.",
         ],
@@ -3032,9 +3032,9 @@ const guideEntries: Guide[] = [
       {
         heading: "Zašto se trezor ne mijenja automatski",
         body: [
-          "Bitcoin ne zna vaše obiteljske odnose. Ne zna jeste li bolesni. Ne zna je li netko umro. Ne zna je li netko izgubio uređaj.",
-          "Bitcoin zna samo pravila transakcije. Ako skript kaže da su za prvi put potrebna dva potpisa, mreža provjerava dva potpisa.",
-          "Ako skript kaže da je za drugi put potreban jedan potpis nakon određenog bloka ili vremena, mreža provjerava je li vrijeme prošlo i je li potpis valjan.",
+          "Bitcoin ne zna vaše obiteljske odnose, bolest, smrt, izgubljen uređaj ili prekid komunikacije u obitelji.",
+          "Bitcoin zna samo pravila transakcije: ako Bitcoin skript traži dva potpisa, mreža provjerava dva potpisa.",
+          "Ako Bitcoin skript traži jedan potpis nakon određenog bloka ili vremena, mreža provjerava je li vrijeme prošlo i je li potpis valjan.",
           "Zato kod ovakvog sustava nema prostora za rečenicu da će obitelj već znati što napraviti. Neće, ako niste ostavili dokumentaciju, objašnjenje i testiran prvi korak.",
         ],
         link: {
@@ -3048,12 +3048,13 @@ const guideEntries: Guide[] = [
         heading: "Dva načina gledanja na vrijeme",
         body: [
           "Kod ovakvih sustava postoje dva osnovna načina razmišljanja o vremenu.",
-          "Prvi je apsolutni rok. To znači da nakon određenog datuma ili bloka oporavni put postaje dostupan. Primjerice, nakon 1. lipnja 2028. oporavni ključ može potrošiti.",
-          "Prednost je jasnoća. Postoji konkretan rok. Mana je što se rok ne resetira sam. Ako rok prođe, oporavni put ostaje otvoren sve dok se Bitcoin ne premjesti u novi sustav.",
-          "Drugi je relativni rok. To znači da oporavni put postaje dostupan tek nakon što određeni UTXO dovoljno dugo miruje.",
-          "Prednost je što se rok može osvježiti premještanjem sredstava na novu adresu u istom sustavu. Mana je što relativni rok traži bolje razumijevanje UTXO-a, rokova i redovitog održavanja.",
+          "Apsolutni rok znači da oporavni put postaje dostupan nakon određenog datuma ili bloka, primjerice nakon 1. lipnja 2028.",
+          "Prednost je konkretan rok, a mana to što se ne resetira sam: kada rok prođe, oporavni put ostaje otvoren dok se Bitcoin ne premjesti u novi sustav.",
+          "Relativni rok znači da oporavni put postaje dostupan tek nakon što određeni UTXO dovoljno dugo miruje.",
+          "Prednost je mogućnost osvježavanja roka premještanjem sredstava na novu adresu u istom sustavu, a mana veći zahtjev za razumijevanjem UTXO-a, rokova i redovitog održavanja.",
           "Za ideju točno nakon dvije godine prirodniji je apsolutni rok. Za ideju ako dugo ne diram trezor, neka se otvori oporavak prirodniji je relativni rok. To su dva različita obiteljska problema.",
-          "Tehnički, apsolutni rok se veže uz CHECKLOCKTIMEVERIFY i BIP 65. Relativni rok se veže uz BIP 68 i CHECKSEQUENCEVERIFY iz BIP 112.",
+          "Apsolutni rok se tehnički veže uz CHECKLOCKTIMEVERIFY i BIP 65.",
+          "Relativni rok se tehnički veže uz BIP 68 i CHECKSEQUENCEVERIFY iz BIP 112.",
         ],
       },
       {
@@ -3061,7 +3062,7 @@ const guideEntries: Guide[] = [
         body: [
           "Model 2 od 3 danas, 1 od 3 nakon roka zvuči praktično. Ali nakon isteka roka svaki pojedinačni ključ može postati dovoljan.",
           "To znači da sustav više nema istu sigurnost kao prije roka. Prije roka napadač mora doći do dva ključa. Nakon roka možda mora doći samo do jednog.",
-          "Ako je jedan ključ kod osobe koja nije dovoljno pažljiva, ako su jedne početne riječi loše pohranjene, ako je jedan uređaj u slabo zaštićenoj lokaciji ili ako je jedan član obitelji pod pritiskom, rizik raste.",
+          "Ako je jedan ključ kod osobe koja nije dovoljno pažljiva, ako je jedna seed fraza loše pohranjena, ako je jedan uređaj u slabo zaštićenoj lokaciji ili ako je jedan član obitelji pod pritiskom, rizik raste.",
           "Zato 1 od 3 nakon roka nije automatski najbolje nasljedno rješenje. Može imati smisla kao svjestan hitni izlaz. Ali nije neutralna promjena. To je promjena sigurnosnog modela.",
         ],
       },
@@ -3090,6 +3091,32 @@ const guideEntries: Guide[] = [
           href: "/vodici/samostalna-pohrana-ili-skrbnik/",
           after: "jer složeniji trezor nema smisla bez jasne uloge.",
         },
+        visual: {
+          type: "logo-grid",
+          title: "Alati spomenuti u vodiču",
+          caption:
+            "Nunchuk i Liana ovdje nisu preporuka, nego primjeri alata koji pokazuju kako se naprednije sigurnosne politike mogu pretvoriti u stvaran postupak.",
+          items: [
+            {
+              name: "Nunchuk",
+              description:
+                "Novčanik koji podržava Miniscript i složenije višepotpisne politike kroz korisničko sučelje.",
+              src: "/guide-assets/nunchuk-logo.svg",
+              alt: "Nunchuk logotip",
+              href: "https://nunchuk.io/",
+              credit: "Logotip: Nunchuk",
+            },
+            {
+              name: "Liana",
+              description:
+                "Novčanik usmjeren na vremenske uvjete, oporavak i nasljeđivanje.",
+              src: "/guide-assets/liana-logo.svg",
+              alt: "Liana logotip",
+              href: "https://lianawallet.com/",
+              credit: "Logotip: Liana",
+            },
+          ],
+        },
       },
       {
         heading: "Nunchuk Miniscript",
@@ -3097,7 +3124,7 @@ const guideEntries: Guide[] = [
           "Nunchuk je jedan od praktičnijih korisničkih puteva za ovakve ideje. Nunchuk Miniscript omogućuje izradu politika koje uključuju potpise, pragove i vremenske uvjete.",
           "Praktični tijek može izgledati ovako: otvoriti novi novčanik, odabrati Miniscript, odabrati ključeve, postaviti normalni prag, postaviti vremenski oporavak, pregledati pravilo, izvesti descriptor ili BSMS i testirati malim iznosom.",
           "Ovo zadnje je presudno.",
-          "Početne riječi nisu dovoljne. Kod jednostavnog novčanika početne riječi često mogu biti dovoljne za oporavak. Kod višepotpisnog sustava i Miniscripta obitelj mora imati i mapu trezora: descriptor, BSMS ili ekvivalentnu konfiguraciju.",
+          "Seed fraza nije dovoljna. Kod jednostavnog novčanika seed fraza često može biti dovoljna za oporavak. Kod višepotpisnog sustava i Miniscripta obitelj mora imati i mapu trezora: descriptor, BSMS ili ekvivalentnu konfiguraciju.",
           "Bez toga možete imati ključeve, ali ne znati kako je trezor sastavljen.",
           "Nunchuk je praktičan kandidat za testiranje ovakvog sustava, ali prvo ga treba isprobati s vrlo malim iznosom ili na testnoj mreži. Tek kada razumijete normalni put, oporavni put, descriptor i postupak oporavka, ima smisla razmišljati o većem iznosu.",
         ],
@@ -3123,15 +3150,15 @@ const guideEntries: Guide[] = [
       {
         heading: "Što treba dokumentirati",
         body: [
-          "Kod običnog 2 od 3 višepotpisnog sustava već morate čuvati više od početnih riječi. Kod vremenskog oporavka dokumentacija je još važnija.",
-          "Treba postojati obiteljska uputa. Ona ne sadrži početne riječi. Ne sadrži sve što je potrebno za krađu. Njezina svrha je smanjiti paniku.",
+          "Kod običnog 2 od 3 višepotpisnog sustava već morate čuvati više od seed fraze. Kod vremenskog oporavka dokumentacija je još važnija.",
+          "Treba postojati obiteljska uputa. Ona ne sadrži seed frazu. Ne sadrži sve što je potrebno za krađu. Njezina svrha je smanjiti paniku.",
           "Treba postojati i tehnički dodatak. On može sadržavati koji se novčanik koristi, koji je tip sustava, normalni put trošenja, oporavni put trošenja, datum ili blok nakon kojeg oporavak vrijedi, koji ključ ima koju ulogu, gdje je descriptor ili BSMS, gdje su uređaji, kako provjeriti prvu adresu i kada je sustav zadnji put testiran.",
           "Dokument mora biti dovoljno jasan da osoba od povjerenja zna što gleda, ali ne smije pretvoriti jednu kuvertu u jedinu stvar koju treba ukrasti.",
         ],
         items: [
           "Bitcoin postoji kao dio obiteljske imovine.",
           "Ne žuriti.",
-          "Ne slikati početne riječi.",
+          "Ne slikati seed frazu.",
           "Ne slati riječi nikome.",
           "Ne unositi riječi u web-stranice.",
           "Ne vjerovati osobi koja traži hitan pristup.",
@@ -3174,10 +3201,10 @@ const guideEntries: Guide[] = [
       {
         heading: "Kada ovo nema smisla",
         body: [
-          "Ovo nema smisla ako osoba još ne razumije obični novčanik. Nema smisla ako nikada nije poslala i primila Bitcoin iz vlastitog novčanika.",
-          "Nema smisla ako nema osobni proračun, ne zna stvarni višak i još uvijek nosi dug koji stvara pritisak. Nema smisla ako je iznos malen ili ako je obitelj potpuno nespremna.",
-          "Nema smisla ako će sve završiti u jednoj ladici. Nema smisla ako će jedna osoba čuvati sve uređaje, sve početne riječi, sve lozinke i jedini primjerak descriptora.",
-          "Nema smisla ako se sustav neće testirati. Kod Bitcoina pretjerana složenost može biti jednako opasna kao i nemar.",
+          "Ovo nema smisla ako osoba još ne razumije obični novčanik ili nikada nije poslala i primila Bitcoin iz vlastitog novčanika.",
+          "Nema smisla bez osobnog proračuna, stvarnog viška i riješenog duga koji stvara pritisak, posebno ako je iznos malen ili je obitelj potpuno nespremna.",
+          "Nema smisla ako će sve završiti u jednoj ladici ili ako će jedna osoba čuvati sve uređaje, sve seed fraze, sve lozinke i jedini primjerak descriptora.",
+          "Nema smisla bez testiranja jer kod Bitcoina pretjerana složenost može biti jednako opasna kao i nemar.",
           "Dobar obiteljski sustav nije onaj koji najviše impresionira tehničke ljude. Dobar obiteljski sustav je onaj koji stvarno može preživjeti požar, bolest, smrt, stres, promjenu uređaja, zaborav i osobu koja čita upute pod pritiskom.",
         ],
       },
@@ -3202,11 +3229,11 @@ const guideEntries: Guide[] = [
       {
         heading: "Jednostavna usporedba",
         body: [
-          "Obični 2 od 3 trezor ima jasnu prednost: jedan ključ nije dovoljan za krađu. Mana je da obitelj može zapeti ako dva ključa nisu dostupna.",
-          "2 od 3 s vremenskim oporavkom ima dodatni put nakon roka. Mana je da se nakon roka sigurnosni model može oslabiti.",
-          "Liana stil oporavka nakon neaktivnosti može biti dobar okvir za nasljeđivanje i sigurnosnu mrežu. Mana je da treba razumjeti relativne rokove, UTXO-e i redovito održavanje.",
-          "Nunchuk Miniscript daje praktično sučelje za napredne politike. Mana je da i dalje morate razumjeti pravilo, descriptor, ključeve i oporavak.",
-          "Bitcoin Core i vlastiti Miniscript daju najveću fleksibilnost i neovisnost. Mana je najveći tehnički rizik za obitelj.",
+          "Obični 2 od 3 trezor: jedan ključ nije dovoljan za krađu, ali obitelj može zapeti ako dva ključa nisu dostupna.",
+          "2 od 3 s vremenskim oporavkom: nakon roka postoji dodatni put, ali sigurnosni model može oslabiti.",
+          "Liana stil oporavka nakon neaktivnosti: dobar okvir za nasljeđivanje i sigurnosnu mrežu, ali traži razumijevanje relativnih rokova, UTXO-a i redovitog održavanja.",
+          "Nunchuk Miniscript: praktično sučelje za napredne politike, ali i dalje morate razumjeti pravilo, descriptor, ključeve i oporavak.",
+          "Bitcoin Core i vlastiti Miniscript: najveća fleksibilnost i neovisnost, ali i najveći tehnički rizik za obitelj.",
         ],
       },
       {
@@ -3251,7 +3278,7 @@ const guideEntries: Guide[] = [
           "Da, moguće je napraviti obiteljski Bitcoin trezor koji danas traži 2 od 3 potpisa, a nakon vremena otvara oporavni put s manje potpisa.",
           "Ali to nije obični višepotpisni sustav. To je napredni Bitcoin sustav koji koristi vremenske uvjete, Miniscript, descriptore i jasnu dokumentaciju.",
           "Za neke obitelji to može biti izvrstan nasljedni mehanizam. Za druge može biti nepotrebna složenost.",
-          "Najvažnije pitanje nije može li se ovo napraviti. Može. Važnije pitanje je hoće li ovaj sustav stvarno smanjiti obiteljski rizik ili samo dodati složenost koju nitko neće znati održavati.",
+          "Najvažnije pitanje nije može li se ovo napraviti, nego hoće li sustav stvarno smanjiti obiteljski rizik ili samo dodati složenost koju nitko neće znati održavati.",
           "Dobar obiteljski Bitcoin trezor ne pokušava biti savršen. On mora biti dovoljno siguran da jedan čovjek, jedan uređaj, jedna lokacija ili jedna pogreška ne mogu uništiti sve.",
           "I mora biti dovoljno razumljiv da prava osoba, u najgorem trenutku, zna prvi korak.",
           "Tu je razlika između tehnički zanimljivog novčanika i stvarnog obiteljskog Bitcoin trezora.",

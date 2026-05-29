@@ -100,6 +100,14 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Svaki euro dobiva namjenu prije nego što Bitcoin odluka postane stvarno slobodna.",
   },
+  "vremenski-oporavak-bitcoin-trezor": {
+    webpSrc: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
+    src: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",
+    alt: "Mediteranska scena s Bitcoin trezorom, pješčanim satom i tri ključa za vodič o vremenskom oporavku",
+    position: "50% 52%",
+    caption:
+      "Danas vrijedi 2 od 3, a nakon roka može se otvoriti oporavni put koji obitelj mora razumjeti prije nego što zatreba.",
+  },
 }
 
 export function resolveGuideTheme(guide: Guide): GuideTheme {

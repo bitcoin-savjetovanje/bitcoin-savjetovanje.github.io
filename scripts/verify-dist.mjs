@@ -415,6 +415,8 @@ const requiredFiles = [
   "images/skrbnistvo-sigurnost-hero.jpg",
   "images/skrbnistvo-sigurnost-hero-20260521.webp",
   "images/skrbnistvo-sigurnost-hero-20260521.jpg",
+  "images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
+  "images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",
   "guide-assets/nunchuk-logo.png",
   "guide-assets/liana-logo.svg",
   "razgovor/index.html",
@@ -2774,6 +2776,22 @@ for (const [expected, label] of [
 }
 
 for (const [expected, label] of [
+  [
+    "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
+    "timed recovery guide cover WebP image",
+  ],
+  [
+    "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",
+    "timed recovery guide cover JPEG image",
+  ],
+  [
+    "Mediteranska scena s Bitcoin trezorom, pješčanim satom i tri ključa za vodič o vremenskom oporavku",
+    "timed recovery guide cover alt text",
+  ],
+  [
+    "Danas vrijedi 2 od 3, a nakon roka može se otvoriti oporavni put",
+    "timed recovery guide cover caption",
+  ],
   ["Alati spomenuti u vodiču", "tool logo visual title"],
   ["/guide-assets/nunchuk-logo.png", "Nunchuk logo asset"],
   ["/guide-assets/liana-logo.svg", "Liana logo asset"],

@@ -268,6 +268,8 @@
           h4 *,
           h5 *,
           h6 *,
+          .site-header__brand,
+          .site-header__brand *,
           [aria-hidden="true"],
           [aria-hidden="true"] *
         )

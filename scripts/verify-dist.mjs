@@ -738,6 +738,18 @@ assertIncludes(
   "skrbnistvo-sigurnost-hero.jpg",
   "custody security hero JPEG CSS reference"
 )
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  ".site-header__brand,.site-header__brand *",
+  "header brand excluded from global sans-serif body text rule"
+)
+assertIncludes(
+  "dist/assets/*.css",
+  cssBundleText,
+  ".site-header__brand span{font-family:Georgia,ui-serif,serif!important}",
+  "header brand text remains serif"
+)
 
 const homeChecks = [
   ["Bitcoin Savjetovanje — osobni Bitcoin standard", "updated home title"],

@@ -2031,6 +2031,14 @@
     @apply max-h-10 max-w-10 object-contain;
   }
 
+  .guide-logo-card__mark--wordmark {
+    @apply w-32 px-3;
+  }
+
+  .guide-logo-card__mark--wordmark img {
+    @apply max-h-8 max-w-28;
+  }
+
   .guide-logo-card__body {
     @apply min-w-0;
   }
@@ -2957,7 +2965,7 @@
   align-items: center;
   gap: 0.7rem;
   color: var(--ink);
-  font-family: Georgia, ui-serif, serif;
+  font-family: Georgia, ui-serif, serif !important;
   font-size: 1.05rem;
   letter-spacing: 0;
   line-height: 1;
@@ -2966,6 +2974,10 @@
 
 .site-header__brand:hover {
   color: var(--ink);
+}
+
+.site-header__brand span {
+  font-family: Georgia, ui-serif, serif !important;
 }
 
 .site-header__logo {

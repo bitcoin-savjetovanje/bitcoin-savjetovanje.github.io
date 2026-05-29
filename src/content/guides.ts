@@ -29,6 +29,7 @@ export type GuideSectionVisual =
         alt: string
         href?: string
         credit?: string
+        variant?: "mark" | "wordmark"
       }>
     }
   | {
@@ -3101,10 +3102,11 @@ const guideEntries: Guide[] = [
               name: "Nunchuk",
               description:
                 "Novčanik koji podržava Miniscript i složenije višepotpisne politike kroz korisničko sučelje.",
-              src: "/guide-assets/nunchuk-logo.svg",
+              src: "/guide-assets/nunchuk-logo.png",
               alt: "Nunchuk logotip",
               href: "https://nunchuk.io/",
               credit: "Logotip: Nunchuk",
+              variant: "wordmark",
             },
             {
               name: "Liana",

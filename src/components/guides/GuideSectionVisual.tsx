@@ -100,7 +100,13 @@ export function GuideSectionVisual({ visual }: GuideSectionVisualProps) {
             href={item.href}
             className="guide-logo-card"
           >
-            <span className="guide-logo-card__mark">
+            <span
+              className={`guide-logo-card__mark ${
+                item.variant === "wordmark"
+                  ? "guide-logo-card__mark--wordmark"
+                  : ""
+              }`}
+            >
               <img src={item.src} alt={item.alt} loading="lazy" />
             </span>
             <span className="guide-logo-card__body">

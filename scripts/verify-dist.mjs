@@ -415,7 +415,7 @@ const requiredFiles = [
   "images/skrbnistvo-sigurnost-hero.jpg",
   "images/skrbnistvo-sigurnost-hero-20260521.webp",
   "images/skrbnistvo-sigurnost-hero-20260521.jpg",
-  "guide-assets/nunchuk-logo.svg",
+  "guide-assets/nunchuk-logo.png",
   "guide-assets/liana-logo.svg",
   "razgovor/index.html",
   "proracun/index.html",
@@ -2763,7 +2763,7 @@ for (const [expected, label] of [
 
 for (const [expected, label] of [
   ["Alati spomenuti u vodiču", "tool logo visual title"],
-  ["/guide-assets/nunchuk-logo.svg", "Nunchuk logo asset"],
+  ["/guide-assets/nunchuk-logo.png", "Nunchuk logo asset"],
   ["/guide-assets/liana-logo.svg", "Liana logo asset"],
   ["Nunchuk logotip", "Nunchuk logo alt text"],
   ["Liana logotip", "Liana logo alt text"],

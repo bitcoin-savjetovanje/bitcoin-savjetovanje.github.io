@@ -161,6 +161,15 @@ export function GuidePage({ guide }: { guide: Guide }) {
                       {section.link.after ? ` ${section.link.after}` : null}
                     </p>
                   ) : null}
+                  {section.links ? (
+                    <ul className="guide-source-list">
+                      {section.links.map((item) => (
+                        <li key={item.href}>
+                          <a href={item.href}>{item.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                   {section.visual ? (
                     <GuideSectionVisual visual={section.visual} />
                   ) : null}
@@ -225,7 +234,10 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </div>
           ) : null}
           <div className="guide-final-cta-card">
-            <h2>Želite ovo primijeniti na svoju situaciju?</h2>
+            <h2>
+              {guide.finalCtaTitle ??
+                "Želite ovo primijeniti na svoju situaciju?"}
+            </h2>
             <p>
               {guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : null}
               Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se

@@ -13,6 +13,10 @@ export function slugifyHeading(value: string) {
 }
 
 export function estimateGuideReadingMinutes(guide: Guide) {
+  if (guide.readingMinutes) {
+    return guide.readingMinutes
+  }
+
   const text = [
     guide.title,
     guide.excerpt,

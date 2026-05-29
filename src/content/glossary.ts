@@ -8,6 +8,13 @@ export type GlossaryTerm = {
 
 export const glossaryTerms: GlossaryTerm[] = [
   {
+    id: "pocetne-rijeci",
+    terms: ["početne riječi", "početnih riječi", "početnim riječima"],
+    title: "Početne riječi",
+    description:
+      "Popis riječi koji služi kao pričuvna kopija ključa. Tko ima te riječi, može obnoviti pristup tom ključu, zato se ne smiju slikati, slati ni spremati u oblak.",
+  },
+  {
     id: "seed-rijeci",
     terms: ["seed riječi", "seed phrase", "recovery phrase"],
     title: "Seed riječi",
@@ -116,6 +123,70 @@ export const glossaryTerms: GlossaryTerm[] = [
     title: "PSBT",
     description:
       "Nepotpuna Bitcoin transakcija koja čeka potpise. Korisna je kada Sparrow pripremi transakciju, a hardverski novčanici je zatim potpisuju.",
+  },
+  {
+    id: "miniscript",
+    priority: 35,
+    terms: ["Miniscript", "Miniscripta", "Miniscriptom"],
+    title: "Miniscript",
+    description:
+      "Način zapisivanja naprednih Bitcoin pravila za trošenje. Olakšava provjeru politika s više potpisa, rokovima i oporavnim putevima.",
+  },
+  {
+    id: "bsms",
+    terms: ["BSMS", "BSMS-a"],
+    title: "BSMS",
+    description:
+      "Standard za razmjenu podataka o višepotpisnom Bitcoin novčaniku. Pomaže da drugi alat razumije kako je trezor sastavljen.",
+  },
+  {
+    id: "nunchuk",
+    terms: ["Nunchuk", "Nunchuka", "Nunchukom"],
+    title: "Nunchuk",
+    description:
+      "Bitcoin novčanik i usluga koja podržava višepotpisne sustave i naprednije politike, uključujući Miniscript.",
+  },
+  {
+    id: "liana",
+    terms: ["Liana", "Liane", "Liani"],
+    title: "Liana",
+    description:
+      "Bitcoin novčanik usmjeren na sigurnost, oporavak i nasljeđivanje pomoću vremenskih uvjeta i Miniscripta.",
+  },
+  {
+    id: "checklocktimeverify",
+    terms: ["CHECKLOCKTIMEVERIFY"],
+    title: "CHECKLOCKTIMEVERIFY",
+    description:
+      "Bitcoin pravilo koje može učiniti jedan put trošenja valjanim tek nakon određenog bloka ili vremena.",
+  },
+  {
+    id: "checksequenceverify",
+    terms: ["CHECKSEQUENCEVERIFY"],
+    title: "CHECKSEQUENCEVERIFY",
+    description:
+      "Bitcoin pravilo koje se koristi za relativne rokove, primjerice kada uvjet ovisi o tome koliko dugo određeni UTXO miruje.",
+  },
+  {
+    id: "bip-65",
+    terms: ["BIP 65"],
+    title: "BIP 65",
+    description:
+      "Prijedlog koji je u Bitcoin uveo CHECKLOCKTIMEVERIFY, pravilo za apsolutne vremenske uvjete.",
+  },
+  {
+    id: "bip-68",
+    terms: ["BIP 68"],
+    title: "BIP 68",
+    description:
+      "Prijedlog koji opisuje relativne vremenske uvjete vezane uz starost nepotrošenog izlaza.",
+  },
+  {
+    id: "bip-112",
+    terms: ["BIP 112"],
+    title: "BIP 112",
+    description:
+      "Prijedlog koji je u Bitcoin uveo CHECKSEQUENCEVERIFY, pravilo za relativne rokove u skriptu.",
   },
   {
     id: "node",

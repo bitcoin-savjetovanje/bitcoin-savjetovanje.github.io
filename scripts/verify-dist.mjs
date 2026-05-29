@@ -32,6 +32,7 @@ const requiredGuidePaths = [
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
   "/vodici/poslovni-bitcoin-nije-privatni-bitcoin",
   "/vodici/obiteljski-bitcoin-trezor",
+  "/vodici/vremenski-oporavak-bitcoin-trezor",
   "/vodici/samostalna-pohrana-ili-skrbnik",
   "/vodici/bitkey-bitcoin-sigurnost",
   "/vodici/obiteljski-pristup-bitcoinu",
@@ -130,6 +131,14 @@ function guideVisibleText(contents) {
         ""
       )
   )
+}
+
+function guideArticleVisibleText(contents) {
+  const match = contents.match(
+    /<article\b(?=[^>]*data-guide-article)[\s\S]*<\/article>/i
+  )
+
+  return guideVisibleText(match?.[0] ?? contents)
 }
 
 function htmlFiles(directory = distDir) {
@@ -2212,6 +2221,7 @@ assertArrayEquals(
     "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
     "/vodici/poslovni-bitcoin-nije-privatni-bitcoin/",
     "/vodici/obiteljski-bitcoin-trezor/",
+    "/vodici/vremenski-oporavak-bitcoin-trezor/",
     "/vodici/samostalna-pohrana-ili-skrbnik/",
     "/vodici/bitkey-bitcoin-sigurnost/",
     "/vodici/obiteljski-pristup-bitcoinu/",
@@ -2347,6 +2357,15 @@ if (!privacy) {
   fail("Route metadata for privacy page is missing")
 }
 
+const defaultGuideFinalCtaTitle =
+  "Želite ovo primijeniti na svoju situaciju?"
+const guideFinalCtaTitles = new Map([
+  [
+    "/vodici/vremenski-oporavak-bitcoin-trezor",
+    "Želite provjeriti je li vaš obiteljski Bitcoin trezor stvarno razumljiv?",
+  ],
+])
+
 for (const guidePath of requiredGuidePaths) {
   const route = routeMap.get(guidePath)
   const relativePath = routeFile(guidePath)
@@ -2380,7 +2399,7 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(
     relativePath,
     html,
-    "Želite ovo primijeniti na svoju situaciju?",
+    guideFinalCtaTitles.get(guidePath) ?? defaultGuideFinalCtaTitle,
     "guide final CTA title"
   )
   assertIncludes(
@@ -2609,6 +2628,43 @@ const focusedGuideChecks = [
     ],
   },
   {
+    path: "vodici/vremenski-oporavak-bitcoin-trezor/index.html",
+    checks: [
+      "Vremenski oporavak u obiteljskom Bitcoin trezoru",
+      "Vrijeme čitanja: 10 min",
+      "2 od 3 sada. Oporavak kasnije.",
+      "Ovaj vodič nije investicijski, porezni ni pravni savjet.",
+      "2 od 3 vrijedi odmah, a nakon roka dodatno se otvara oporavni put.",
+      "Bitcoin ne zna vaše obiteljske odnose.",
+      "CHECKLOCKTIMEVERIFY i BIP 65",
+      "BIP 68 i CHECKSEQUENCEVERIFY iz BIP 112",
+      "Zašto 1 od 3 nakon roka može biti opasno",
+      "Bolji model: posebni oporavni ključ",
+      "Početne riječi nisu dovoljne.",
+      "descriptor, BSMS ili ekvivalentnu konfiguraciju",
+      "Ako koristite apsolutni vremenski uvjet i rok istekne, oporavni put ostaje dostupan",
+      "Vremenski oporavak nije postavi i zaboravi",
+      "Izvori i dodatno čitanje",
+      "Tu je razlika između tehnički zanimljivog novčanika i stvarnog obiteljskog Bitcoin trezora.",
+      'href="/vodici/obiteljski-bitcoin-trezor/"',
+      'href="/vodici/obiteljski-pristup-bitcoinu/"',
+      'href="/vodici/samostalna-pohrana-ili-skrbnik/"',
+      'href="/sigurnost/"',
+      'href="/skrbnistvo-i-sigurnost/"',
+      'href="/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"',
+      'href="https://bips.dev/65/"',
+      'href="https://bips.dev/68/"',
+      'href="https://bips.dev/112/"',
+      'href="https://nunchuk.io/blog/miniscript101"',
+      'href="https://nunchuk.io/blog/miniscript-programmable-bitcoin"',
+      'href="https://nunchuk.io/blog/miniscript-wallet-recovery"',
+      'href="https://wizardsardine.com/liana/support/"',
+      "Želite provjeriti je li vaš obiteljski Bitcoin trezor stvarno razumljiv?",
+      "Ako već imate Bitcoin, ali niste sigurni treba li vam obični 2 od 3 trezor",
+      "Dogovorite 15-minutni uvodni razgovor",
+    ],
+  },
+  {
     path: "vodici/samostalna-pohrana-ili-skrbnik/index.html",
     checks: [
       "Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti",
@@ -2662,6 +2718,118 @@ for (const guideCheck of focusedGuideChecks) {
     assertIncludes(guideCheck.path, contents, expected, `guide copy: ${expected}`)
   }
 }
+
+const timedRecoveryGuidePath =
+  "vodici/vremenski-oporavak-bitcoin-trezor/index.html"
+const timedRecoveryGuideHtml = readFile(timedRecoveryGuidePath)
+const timedRecoveryArticleText = guideArticleVisibleText(timedRecoveryGuideHtml)
+const timedRecoveryArticleLowerText = timedRecoveryArticleText.toLowerCase()
+const timedRecoveryGlossaryCount =
+  timedRecoveryGuideHtml.match(/class="glossary-term"/g)?.length ?? 0
+
+if (timedRecoveryGlossaryCount >= 8) {
+  pass(`${timedRecoveryGuidePath} contains several glossary explanations`)
+} else {
+  fail(
+    `${timedRecoveryGuidePath} contains ${timedRecoveryGlossaryCount} glossary explanations, expected at least 8`
+  )
+}
+
+assertIncludes(
+  timedRecoveryGuidePath,
+  timedRecoveryGuideHtml,
+  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/vremenski-oporavak-bitcoin-trezor/" />',
+  "timed recovery guide canonical URL with trailing slash"
+)
+
+assertCount(
+  timedRecoveryGuidePath,
+  timedRecoveryGuideHtml,
+  'data-cta="guide-final-intro-call"',
+  1,
+  "timed recovery final CTA"
+)
+
+assertArrayEquals(
+  "vodici/obiteljski-bitcoin-trezor/index.html",
+  anchorTextsByDataLink(
+    readFile("vodici/obiteljski-bitcoin-trezor/index.html"),
+    "next-guide"
+  ),
+  ["Vremenski oporavak u obiteljskom Bitcoin trezoru"],
+  "family vault next guide points to timed recovery"
+)
+
+assertArrayEquals(
+  timedRecoveryGuidePath,
+  anchorTextsByDataLink(timedRecoveryGuideHtml, "next-guide"),
+  ["Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti"],
+  "timed recovery next guide points to custody choice"
+)
+
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "/vodici/obiteljski-bitcoin-trezor/",
+  "/vodici/vremenski-oporavak-bitcoin-trezor/",
+  "family vault before timed recovery guide"
+)
+assertBefore(
+  "vodici/index.html",
+  guidesIndexHtml,
+  "/vodici/vremenski-oporavak-bitcoin-trezor/",
+  "/vodici/samostalna-pohrana-ili-skrbnik/",
+  "timed recovery before custody choice guide"
+)
+
+const timedRecoveryForbiddenTerms = [
+  "fomo",
+  "fear & greed",
+  "falling knife",
+  "dca",
+  "trading",
+  "crypto",
+  "altcoin",
+  "web3",
+  "custody",
+  "seed phrase",
+  "self-custody",
+  "risk tolerance",
+  "roi",
+  "mindset",
+  "framework",
+  "cash balance",
+  "stacking",
+  "hype",
+  "roadmap",
+  "lead magnet",
+  "giving",
+  "charity",
+]
+
+for (const forbidden of timedRecoveryForbiddenTerms) {
+  assertNotIncludes(
+    timedRecoveryGuidePath,
+    timedRecoveryArticleLowerText,
+    forbidden,
+    `timed recovery forbidden wording: ${forbidden}`
+  )
+}
+
+assertNotMatches(
+  timedRecoveryGuidePath,
+  timedRecoveryArticleLowerText,
+  /(^|[^a-z])stack([^a-z]|$)/,
+  "timed recovery forbidden wording: stack"
+)
+
+assertCount(
+  timedRecoveryGuidePath,
+  timedRecoveryArticleLowerText,
+  "multisig",
+  1,
+  "timed recovery limited multisig mention"
+)
 
 const saylorGuidePath =
   "vodici/saylor-bitcoin-ciklus-ponuda-potraznja/index.html"

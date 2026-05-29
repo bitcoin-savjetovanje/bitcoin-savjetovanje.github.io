@@ -81,6 +81,7 @@ const roadmapGroups = [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "poslovni-bitcoin-nije-privatni-bitcoin",
       "obiteljski-bitcoin-trezor",
+      "vremenski-oporavak-bitcoin-trezor",
       "samostalna-pohrana-ili-skrbnik",
       "bitkey-bitcoin-sigurnost",
       "obiteljski-pristup-bitcoinu",
@@ -130,6 +131,7 @@ const businessGuides = businessSlugs
 const advancedSlugs = [
   "bitcoin-etfovi-i-riznicke-kompanije",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
+  "vremenski-oporavak-bitcoin-trezor",
   "samostalna-pohrana-ili-skrbnik",
   "bitkey-bitcoin-sigurnost",
 ] as const

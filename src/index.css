@@ -3447,6 +3447,22 @@
   font-size: 1.03rem;
 }
 
+.guide-source-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.guide-source-list a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--guide-theme), transparent 55%);
+  text-underline-offset: 0.25rem;
+}
+
 .guide-question-card,
 .guide-next-card,
 .guide-extra-cta-card,

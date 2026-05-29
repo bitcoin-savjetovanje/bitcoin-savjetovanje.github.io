@@ -87,6 +87,8 @@ const artPromptsBySlug: Record<string, string> = {
     "Limestone security plan with separated keys, family note, warm Mediterranean light, calm inheritance and recovery mood, no exposed secret words.",
   "obiteljski-bitcoin-trezor":
     "Family Bitcoin treasury as carved stone layers, separate locations implied by envelopes and keys, Mediterranean table, warm side light, editorial cover image.",
+  "vremenski-oporavak-bitcoin-trezor":
+    "Mediterranean limestone family Bitcoin vault with three separated keys and a subtle time marker opening a recovery path later, warm side light, no exposed secret words, editorial nonfiction cover.",
 }
 
 const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {

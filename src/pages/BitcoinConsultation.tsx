@@ -213,10 +213,20 @@ export function BitcoinConsultation() {
               className="service-hero__visual"
               aria-label="Cijena i sljedeći korak"
             >
-              <DecorativeServiceImage
-                className="service-hero__image"
-                src={`${serviceVisualsPath}/consultation-hero.webp`}
-              />
+              <picture className="service-hero__picture">
+                <source
+                  srcSet={`${serviceVisualsPath}/consultation-hero-20260601.webp`}
+                  type="image/webp"
+                />
+                <img
+                  className="service-hero__image"
+                  src={`${serviceVisualsPath}/consultation-hero-20260601.jpg`}
+                  alt="Mediteranski stol s bilježnicom i karticama za Bitcoin konzultaciju."
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </picture>
               <div className="service-hero__summary-card">
                 <p>Prvi plaćeni korak</p>
                 <strong>200 €</strong>

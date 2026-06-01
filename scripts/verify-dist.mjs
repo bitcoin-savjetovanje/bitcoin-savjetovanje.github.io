@@ -370,6 +370,8 @@ const requiredFiles = [
   "images/stone-symbols/bottleneck-stone-channel.webp",
   "images/hero-bitcoin-savjetovanje-realistic.webp",
   "images/hero-bitcoin-savjetovanje-realistic.jpg",
+  "images/service-visuals/consultation-hero-20260601.webp",
+  "images/service-visuals/consultation-hero-20260601.jpg",
   "images/medallions/02-novac.png",
   "images/medallions/03-dug.png",
   "images/medallions/04-davanje.png",
@@ -1896,6 +1898,18 @@ const bitcoinConsultationChecks = [
   [
     "Jedan dubinski razgovor, ali tek nakon uvodnog razgovora.",
     "Bitcoin konzultacija intro-first microcopy",
+  ],
+  [
+    "/images/service-visuals/consultation-hero-20260601.webp",
+    "Bitcoin konzultacija new hero WebP image",
+  ],
+  [
+    "/images/service-visuals/consultation-hero-20260601.jpg",
+    "Bitcoin konzultacija new hero JPEG fallback",
+  ],
+  [
+    "Mediteranski stol s bilježnicom i karticama za Bitcoin konzultaciju.",
+    "Bitcoin konzultacija hero image alt text",
   ],
   [
     "Ne kupuje se odmah. Prvo vidimo ima li smisla.",

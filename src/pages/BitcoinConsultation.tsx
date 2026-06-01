@@ -174,21 +174,12 @@ export function BitcoinConsultation() {
         schema={bitcoinConsultationRoute.schema as object}
       />
       <article className="service-page service-page--consultation">
-        <div className="service-page__inner">
-          <header className="service-hero">
-            <div className="service-hero__content">
-              <nav aria-label="Breadcrumb" className="service-breadcrumb">
-                <ol>
-                  <li>
-                    <a href="/">Početna</a>
-                  </li>
-                  <li aria-hidden="true">/</li>
-                  <li aria-current="page">Bitcoin konzultacija</li>
-                </ol>
-              </nav>
-
-              <h1>Bitcoin konzultacija</h1>
-              <p className="service-hero__lead">
+        <header className="service-hero hero-section editorial-section">
+          <div className="hero-shell">
+            <div className="hero-copy service-hero__content">
+              <p className="hero-eyebrow">Bitcoin konzultacija</p>
+              <h1 className="hero-title">Bitcoin konzultacija</h1>
+              <p className="hero-subtitle service-hero__lead">
                 Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje
                 utječe na vašu osobnu, obiteljsku ili poslovnu odluku.
               </p>
@@ -210,7 +201,7 @@ export function BitcoinConsultation() {
             </div>
 
             <aside
-              className="service-hero__visual"
+              className="hero-image-frame service-hero__visual"
               aria-label="Bitcoin konzultacija"
             >
               <picture className="service-hero__picture">
@@ -228,8 +219,10 @@ export function BitcoinConsultation() {
                 />
               </picture>
             </aside>
-          </header>
+          </div>
+        </header>
 
+        <div className="service-page__inner">
           <section className="service-section service-section--split">
             <div className="service-editorial-column">
               <h2>Što zapravo plaćate u Bitcoin konzultaciji?</h2>

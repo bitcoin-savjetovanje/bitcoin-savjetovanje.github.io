@@ -233,21 +233,12 @@ export function PersonalBitcoinStandard() {
         schema={personalBitcoinStandardRoute.schema as object}
       />
       <article className="service-page service-page--standard">
-        <div className="service-page__inner">
-          <header className="service-hero">
-            <div className="service-hero__content">
-              <nav aria-label="Breadcrumb" className="service-breadcrumb">
-                <ol>
-                  <li>
-                    <a href="/">Početna</a>
-                  </li>
-                  <li aria-hidden="true">/</li>
-                  <li aria-current="page">Osobni Bitcoin standard</li>
-                </ol>
-              </nav>
-
-              <h1>Osobni Bitcoin standard</h1>
-              <p className="service-hero__lead">
+        <header className="service-hero hero-section editorial-section">
+          <div className="hero-shell">
+            <div className="hero-copy service-hero__content">
+              <p className="hero-eyebrow">Program</p>
+              <h1 className="hero-title">Osobni Bitcoin standard</h1>
+              <p className="hero-subtitle service-hero__lead">
                 4–6 tjedana rada na pisanom sustavu odluka za život s Bitcoinom.
               </p>
               <p>
@@ -274,7 +265,7 @@ export function PersonalBitcoinStandard() {
             </div>
 
             <aside
-              className="service-hero__visual"
+              className="hero-image-frame service-hero__visual"
               aria-label="Vizual osobnog Bitcoin standarda"
             >
               <picture className="service-hero__picture">
@@ -292,8 +283,10 @@ export function PersonalBitcoinStandard() {
                 />
               </picture>
             </aside>
-          </header>
+          </div>
+        </header>
 
+        <div className="service-page__inner">
           <section className="service-section service-section--split service-written-standard">
             <div className="service-editorial-column">
               <p className="service-eyebrow">pisani okvir</p>

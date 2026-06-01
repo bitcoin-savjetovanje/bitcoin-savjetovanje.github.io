@@ -2260,12 +2260,12 @@ for (const [expected, label] of guideIndexChecks) {
 
 for (const [expected, label] of [
   [
-    ".guides-index-hero{grid-template-columns:minmax(0,1fr) minmax(14rem,18rem)",
-    "guide index hero uses larger book column",
+    ".guides-index-hero__shell{grid-template-columns:minmax(31rem,.9fr) minmax(420px,1.1fr)",
+    "guide index hero uses homepage split shell",
   ],
   [
-    ".guides-index-hero__book img{border:1px solid var(--book-border);border-radius:.22rem .5rem .5rem .22rem;width:min(16.5rem,100%)",
-    "guide index book cover is larger",
+    ".guides-index-hero__book img{border:1px solid var(--book-border);border-radius:.22rem .5rem .5rem .22rem;width:min(18rem,54%)",
+    "guide index book cover is larger in homepage hero frame",
   ],
   [".starter-guides-panel{max-width:none}", "starter guide panel is full width"],
   [".guides-roadmap{max-width:none}", "guide roadmap is full width"],

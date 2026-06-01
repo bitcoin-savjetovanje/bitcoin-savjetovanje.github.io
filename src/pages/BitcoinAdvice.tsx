@@ -96,25 +96,8 @@ export function BitcoinAdvice() {
         ogType={bitcoinAdviceRoute.ogType}
         schema={bitcoinAdviceRoute.schema as object}
       />
-      <article className="section-shell page-flow">
-        <nav
-          aria-label="Breadcrumb"
-          className="text-sm font-medium text-muted-foreground"
-        >
-          <ol className="flex flex-wrap items-center gap-2">
-            <li>
-              <a href="/" className="hover:text-primary">
-                Početna
-              </a>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page" className="text-foreground">
-              Bitcoin savjetovanje
-            </li>
-          </ol>
-        </nav>
-
-        <header className="bitcoin-advice-hero hero-section editorial-section mt-8">
+      <article className="bitcoin-advice-page">
+        <header className="bitcoin-advice-hero hero-section editorial-section">
           <div className="hero-shell">
             <div className="hero-copy bitcoin-advice-hero__copy">
               <p className="hero-eyebrow">Bitcoin savjetovanje Hrvatska</p>
@@ -175,155 +158,157 @@ export function BitcoinAdvice() {
           </div>
         </header>
 
-        <section className="mt-12 grid gap-6 lg:grid-cols-2">
-          <div className="case-panel">
-            <h2 className="text-2xl font-semibold">
-              Kada Bitcoin savjetovanje ima smisla
-            </h2>
-            <CheckList items={situations} />
-          </div>
-          <div className="case-panel">
-            <h2 className="text-2xl font-semibold">
-              Što bi nakon razgovora trebalo biti jasnije
-            </h2>
-            <CheckList items={outcomes} />
-          </div>
-        </section>
-
-        <section className="mt-10 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:mt-12 sm:p-8">
-          <h2 className="text-2xl font-semibold">Tri vrste odluka</h2>
-          <div className="business-decision-type-grid">
-            {decisionTypes.map((type) => (
-              <article key={type.title}>
-                <h3>{type.title}</h3>
-                <p>{type.copy}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:mt-12 sm:p-8">
-          <div className="flex max-w-4xl gap-4">
-            <ShieldCheck className="mt-1 size-6 shrink-0 text-primary" />
-            <div>
+        <div className="section-shell page-flow bitcoin-advice-content">
+          <section className="mt-12 grid gap-6 lg:grid-cols-2">
+            <div className="case-panel">
               <h2 className="text-2xl font-semibold">
-                Sigurnost bez predaje kontrole
+                Kada Bitcoin savjetovanje ima smisla
               </h2>
-              <p className="mt-4 text-base leading-8 text-muted-foreground">
-                Seed phrase se nikada ne dijeli. Bitcoin savjetovanje ne traži
-                pristup novčaniku, burzi, uređajima ili privatnim ključevima.
-                Možemo razgovarati o strukturi, rizicima i obiteljskom pristupu
-                bez toga da itko osim vas dobije kontrolu.
-              </p>
+              <CheckList items={situations} />
+            </div>
+            <div className="case-panel">
+              <h2 className="text-2xl font-semibold">
+                Što bi nakon razgovora trebalo biti jasnije
+              </h2>
+              <CheckList items={outcomes} />
+            </div>
+          </section>
+
+          <section className="mt-10 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:mt-12 sm:p-8">
+            <h2 className="text-2xl font-semibold">Tri vrste odluka</h2>
+            <div className="business-decision-type-grid">
+              {decisionTypes.map((type) => (
+                <article key={type.title}>
+                  <h3>{type.title}</h3>
+                  <p>{type.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="mt-10 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:mt-12 sm:p-8">
+            <div className="flex max-w-4xl gap-4">
+              <ShieldCheck className="mt-1 size-6 shrink-0 text-primary" />
+              <div>
+                <h2 className="text-2xl font-semibold">
+                  Sigurnost bez predaje kontrole
+                </h2>
+                <p className="mt-4 text-base leading-8 text-muted-foreground">
+                  Seed phrase se nikada ne dijeli. Bitcoin savjetovanje ne traži
+                  pristup novčaniku, burzi, uređajima ili privatnim ključevima.
+                  Možemo razgovarati o strukturi, rizicima i obiteljskom
+                  pristupu bez toga da itko osim vas dobije kontrolu.
+                </p>
+                <a
+                  href="/sigurnost/"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                  data-link="bitcoin-advice-security"
+                >
+                  Sigurnosna pravila
+                  <ArrowUpRight className="size-4" />
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-12 sm:mt-14">
+            <h2 className="text-2xl font-semibold">
+              Zašto savjetovanje počinje uvodnim razgovorom
+            </h2>
+            <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+              Uvodni razgovor je filter. U 15 minuta vidimo je li dovoljan
+              kratak odgovor, treba li jedno ozbiljno pitanje proći kroz Bitcoin
+              konzultaciju ili je potrebno graditi osobni Bitcoin standard.
+            </p>
+          </section>
+
+          <section className="mt-12 sm:mt-14">
+            <h2 className="text-2xl font-semibold">Tri moguća oblika rada</h2>
+            <div className="mt-6 grid gap-4 lg:grid-cols-3">
+              {paths.map((path) => (
+                <article
+                  key={path.title}
+                  className="program-card h-full hover:border-primary/50"
+                >
+                  <h3>{path.title}</h3>
+                  <p>{path.copy}</p>
+                  <a
+                    href={path.href}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                    data-cta={path.dataCta}
+                  >
+                    {path.label}
+                    <ArrowUpRight className="size-4" />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="mt-12 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:mt-14 sm:p-8">
+            <h2 className="text-2xl font-semibold">Što ne radimo</h2>
+            <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+              Bitcoin savjetovanje ovdje nije upravljanje imovinom, kratka
+              tržišna uputa, porezni savjet ni preuzimanje odgovornosti za vašu
+              odluku. Cilj je jasniji okvir u kojem odluka ostaje vaša.
+            </p>
+            <CheckList items={notDoingItems} />
+          </section>
+
+          <section className="mt-12 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:mt-14 sm:p-8">
+            <h2 className="text-2xl font-semibold">
+              Vodiči objašnjavaju okvir, razgovor ga primjenjuje
+            </h2>
+            <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
+              Ako želite prvo čitati, krenite kroz vodiče. Ako želite provjeriti
+              gdje ste u vlastitoj situaciji, krenite od uvodnog razgovora.
+            </p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={PRACTICAL_BITCOIN_STANDARD_URL}
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
+                data-link="bitcoin-advice-guides"
+              >
+                Vodiči
+                <ArrowUpRight className="size-4" />
+              </a>
               <a
                 href="/sigurnost/"
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-                data-link="bitcoin-advice-security"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
+                data-link="bitcoin-advice-security-bottom"
               >
-                Sigurnosna pravila
+                Sigurnost
                 <ArrowUpRight className="size-4" />
               </a>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="mt-12 sm:mt-14">
-          <h2 className="text-2xl font-semibold">
-            Zašto savjetovanje počinje uvodnim razgovorom
-          </h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Uvodni razgovor je filter. U 15 minuta vidimo je li dovoljan kratak
-            odgovor, treba li jedno ozbiljno pitanje proći kroz Bitcoin
-            konzultaciju ili je potrebno graditi osobni Bitcoin standard.
-          </p>
-        </section>
-
-        <section className="mt-12 sm:mt-14">
-          <h2 className="text-2xl font-semibold">Tri moguća oblika rada</h2>
-          <div className="mt-6 grid gap-4 lg:grid-cols-3">
-            {paths.map((path) => (
-              <article
-                key={path.title}
-                className="program-card h-full hover:border-primary/50"
+          <section className="mt-12 rounded-2xl border border-foreground/10 bg-foreground p-6 text-background shadow-sm sm:mt-14 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+            <div>
+              <h2 className="max-w-3xl text-3xl leading-tight font-semibold">
+                Imate Bitcoin pitanje koje utječe na stvarnu odluku?
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-background/72">
+                Uvodni razgovor traje 15 minuta, bez naknade i bez obveze.
+                Vidimo što prvo treba razjasniti i ima li smisla ići dublje.
+              </p>
+            </div>
+            <Button
+              asChild
+              size="lg"
+              className="cta-primary mt-6 w-full rounded-full px-5 text-center sm:w-auto sm:px-6 lg:mt-0"
+            >
+              <a
+                href={CONVERSATION_PATH}
+                className="justify-center"
+                data-cta="bitcoin-advice-final-intro-call"
               >
-                <h3>{path.title}</h3>
-                <p>{path.copy}</p>
-                <a
-                  href={path.href}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-                  data-cta={path.dataCta}
-                >
-                  {path.label}
-                  <ArrowUpRight className="size-4" />
-                </a>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-12 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:mt-14 sm:p-8">
-          <h2 className="text-2xl font-semibold">Što ne radimo</h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Bitcoin savjetovanje ovdje nije upravljanje imovinom, kratka tržišna
-            uputa, porezni savjet ni preuzimanje odgovornosti za vašu odluku.
-            Cilj je jasniji okvir u kojem odluka ostaje vaša.
-          </p>
-          <CheckList items={notDoingItems} />
-        </section>
-
-        <section className="mt-12 rounded-2xl border border-primary/25 bg-card p-6 shadow-sm sm:mt-14 sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            Vodiči objašnjavaju okvir, razgovor ga primjenjuje
-          </h2>
-          <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-            Ako želite prvo čitati, krenite kroz vodiče. Ako želite provjeriti
-            gdje ste u vlastitoj situaciji, krenite od uvodnog razgovora.
-          </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={PRACTICAL_BITCOIN_STANDARD_URL}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
-              data-link="bitcoin-advice-guides"
-            >
-              Vodiči
-              <ArrowUpRight className="size-4" />
-            </a>
-            <a
-              href="/sigurnost/"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
-              data-link="bitcoin-advice-security-bottom"
-            >
-              Sigurnost
-              <ArrowUpRight className="size-4" />
-            </a>
-          </div>
-        </section>
-
-        <section className="mt-12 rounded-2xl border border-foreground/10 bg-foreground p-6 text-background shadow-sm sm:mt-14 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <h2 className="max-w-3xl text-3xl leading-tight font-semibold">
-              Imate Bitcoin pitanje koje utječe na stvarnu odluku?
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-background/72">
-              Uvodni razgovor traje 15 minuta, bez naknade i bez obveze. Vidimo
-              što prvo treba razjasniti i ima li smisla ići dublje.
-            </p>
-          </div>
-          <Button
-            asChild
-            size="lg"
-            className="cta-primary mt-6 w-full rounded-full px-5 text-center sm:w-auto sm:px-6 lg:mt-0"
-          >
-            <a
-              href={CONVERSATION_PATH}
-              className="justify-center"
-              data-cta="bitcoin-advice-final-intro-call"
-            >
-              <CalendarDays className="size-4" />
-              Dogovorite razgovor
-            </a>
-          </Button>
-        </section>
+                <CalendarDays className="size-4" />
+                Dogovorite razgovor
+              </a>
+            </Button>
+          </section>
+        </div>
       </article>
     </>
   )

@@ -507,11 +507,7 @@
 
   .bitcoin-advice-hero {
     max-width: none;
-    min-height: clamp(34rem, 72svh, 45rem);
     overflow: hidden;
-    border: 1px solid var(--line-warm);
-    border-radius: 0.9rem;
-    box-shadow: 0 1.45rem 3.4rem rgba(45, 34, 20, 0.08);
   }
 
   .bitcoin-advice-hero .hero-shell {

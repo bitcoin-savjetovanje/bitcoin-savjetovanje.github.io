@@ -56,15 +56,30 @@ export function Privacy() {
           </ol>
         </nav>
 
-        <header className="page-hero page-hero--compact mt-8">
-          <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Privatnost i podaci
-          </h1>
-          <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Za uvodni razgovor treba podijeliti samo ono što je potrebno za
-            dogovor termina i osnovni kontekst pitanja. Seed phrase i privatni
-            ključevi se nikada ne dijele.
-          </p>
+        <header className="page-hero privacy-hero mt-8">
+          <div className="privacy-hero__copy">
+            <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
+              Privatnost i podaci
+            </h1>
+            <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
+              Za uvodni razgovor treba podijeliti samo ono što je potrebno za
+              dogovor termina i osnovni kontekst pitanja. Seed phrase i privatni
+              ključevi se nikada ne dijele.
+            </p>
+          </div>
+          <picture className="privacy-hero__media">
+            <source
+              srcSet="/images/povjerljivost-hero-20260601.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/povjerljivost-hero-20260601.jpg"
+              alt="Mediteranska scena s omotnicom, bilježnicom i pregradom kao simbol privatnosti i povjerljivog razgovora."
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
         </header>
 
         <div className="privacy-card-stack">

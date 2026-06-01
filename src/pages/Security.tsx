@@ -71,16 +71,31 @@ export function Security() {
           </ol>
         </nav>
 
-        <header className="page-hero mt-8">
-          <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Sigurnost i povjerljivost
-          </h1>
-          <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije
-            ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru. Cilj
-            nije da netko drugi ima kontrolu, nego da postoji jasan plan koji
-            obitelj može razumjeti bez otkrivanja osjetljivih podataka.
-          </p>
+        <header className="page-hero security-hero mt-8">
+          <div className="security-hero__copy">
+            <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
+              Sigurnost i povjerljivost
+            </h1>
+            <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
+              Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije
+              ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru.
+              Cilj nije da netko drugi ima kontrolu, nego da postoji jasan plan
+              koji obitelj može razumjeti bez otkrivanja osjetljivih podataka.
+            </p>
+          </div>
+          <picture className="security-hero__media">
+            <source
+              srcSet="/images/sigurnost-povjerenje-hero-20260601.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/sigurnost-povjerenje-hero-20260601.jpg"
+              alt="Mediteranska scena s kamenim omotnicama, ključem i Bitcoin pečatom kao simbol sigurnosti i povjerljivosti."
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
         </header>
 
         <section className="security-principle-card">

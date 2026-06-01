@@ -426,6 +426,10 @@ const requiredFiles = [
   "images/skrbnistvo-sigurnost-hero.jpg",
   "images/skrbnistvo-sigurnost-hero-20260521.webp",
   "images/skrbnistvo-sigurnost-hero-20260521.jpg",
+  "images/sigurnost-povjerenje-hero-20260601.webp",
+  "images/sigurnost-povjerenje-hero-20260601.jpg",
+  "images/povjerljivost-hero-20260601.webp",
+  "images/povjerljivost-hero-20260601.jpg",
   "images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
   "images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",
   "guide-assets/nunchuk-logo.png",
@@ -2357,6 +2361,18 @@ const securityChecks = [
     "Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru.",
     "security family intro",
   ],
+  [
+    "/images/sigurnost-povjerenje-hero-20260601.webp",
+    "security hero WebP image",
+  ],
+  [
+    "/images/sigurnost-povjerenje-hero-20260601.jpg",
+    "security hero JPEG fallback",
+  ],
+  [
+    "Mediteranska scena s kamenim omotnicama, ključem i Bitcoin pečatom kao simbol sigurnosti i povjerljivosti.",
+    "security hero image alt text",
+  ],
   ["Dobra sigurnost ima dvije strane", "security two sides title"],
   [
     "Mora otežati krađu, ali ne smije toliko otežati pristup",
@@ -2443,6 +2459,12 @@ const privacyChecks = [
   [
     "Za rezervaciju termina obično su dovoljni ime, email, termin i kratka bilješka",
     "privacy booking data copy",
+  ],
+  ["/images/povjerljivost-hero-20260601.webp", "privacy hero WebP image"],
+  ["/images/povjerljivost-hero-20260601.jpg", "privacy hero JPEG fallback"],
+  [
+    "Mediteranska scena s omotnicom, bilježnicom i pregradom kao simbol privatnosti i povjerljivog razgovora.",
+    "privacy hero image alt text",
   ],
   ["seed phrase", "privacy seed phrase copy"],
   ["privatne ključeve", "privacy private keys copy"],

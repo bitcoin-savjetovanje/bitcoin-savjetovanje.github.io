@@ -370,8 +370,14 @@ const requiredFiles = [
   "images/stone-symbols/bottleneck-stone-channel.webp",
   "images/hero-bitcoin-savjetovanje-realistic.webp",
   "images/hero-bitcoin-savjetovanje-realistic.jpg",
+  "images/bitcoin-savjetovanje-hero-20260601.webp",
+  "images/bitcoin-savjetovanje-hero-20260601.jpg",
+  "images/razgovor-hero-20260601.webp",
+  "images/razgovor-hero-20260601.jpg",
   "images/service-visuals/consultation-hero-20260601.webp",
   "images/service-visuals/consultation-hero-20260601.jpg",
+  "images/service-visuals/standard-hero-20260601.webp",
+  "images/service-visuals/standard-hero-20260601.jpg",
   "images/medallions/02-novac.png",
   "images/medallions/03-dug.png",
   "images/medallions/04-davanje.png",
@@ -1747,6 +1753,18 @@ const conversationChecks = [
     "conversation scope subheadline",
   ],
   [
+    "/images/razgovor-hero-20260601.webp",
+    "conversation hero WebP image",
+  ],
+  [
+    "/images/razgovor-hero-20260601.jpg",
+    "conversation hero JPEG fallback",
+  ],
+  [
+    "Mediteranska scena s kalendarom, pitanjem i simbolima za uvodni Bitcoin razgovor.",
+    "conversation hero image alt text",
+  ],
+  [
     "Najbolji razgovori počinju jednom konkretnom odlukom",
     "conversation decision prompt",
   ],
@@ -1886,6 +1904,35 @@ if (!conversation) {
   fail("Route metadata for /razgovor/ is missing")
 }
 
+const bitcoinAdviceHtml = readFile("bitcoin-savjetovanje/index.html")
+const bitcoinAdviceChecks = [
+  ["Bitcoin savjetovanje Hrvatska", "Bitcoin advice hero eyebrow"],
+  [
+    "Bitcoin savjetovanje jedan-na-jedan za put od držanja Bitcoina do sustava odluka.",
+    "Bitcoin advice hero title",
+  ],
+  [
+    "/images/bitcoin-savjetovanje-hero-20260601.webp",
+    "Bitcoin advice hero WebP image",
+  ],
+  [
+    "/images/bitcoin-savjetovanje-hero-20260601.jpg",
+    "Bitcoin advice hero JPEG fallback",
+  ],
+  [
+    "Mediteranska scena s Bitcoin simbolom i oznakama za proračun, neto imovinu, obitelj, posao i sigurnost.",
+    "Bitcoin advice hero image alt text",
+  ],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-savjetovanje/" />',
+    "Bitcoin advice canonical URL",
+  ],
+]
+
+for (const [expected, label] of bitcoinAdviceChecks) {
+  assertIncludes("bitcoin-savjetovanje/index.html", bitcoinAdviceHtml, expected, label)
+}
+
 const bitcoinConsultationHtml = readFile("bitcoin-konzultacija/index.html")
 const bitcoinConsultationChecks = [
   ["Bitcoin konzultacija", "Bitcoin konzultacija page title"],
@@ -2022,6 +2069,18 @@ const personalStandardChecks = [
   [
     "Program se ne kupuje preko checkouta. Prvi korak je razgovor.",
     "personal standard no checkout microcopy",
+  ],
+  [
+    "/images/service-visuals/standard-hero-20260601.webp",
+    "personal standard hero WebP image",
+  ],
+  [
+    "/images/service-visuals/standard-hero-20260601.jpg",
+    "personal standard hero JPEG fallback",
+  ],
+  [
+    "Mediteranska scena s otvorenom knjigom osobnog Bitcoin standarda i simbolima za obitelj, sigurnost, imovinu i davanje.",
+    "personal standard hero image alt text",
   ],
   [
     "Ne kupuje se odmah. Prvo vidimo ima li smisla.",

@@ -127,18 +127,33 @@ export function Conversation() {
           </ol>
         </nav>
 
-        <header className="page-hero page-hero--compact mt-8">
-          <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Dogovorite 15-minutni uvodni razgovor
-          </h1>
-          <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Vidimo gdje ste na putu od držanja Bitcoina do sustava odluka —
-            osobno, obiteljski ili poslovno.
-          </p>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-            Ne trebate pripremiti cijeli slučaj. Dovoljna je jedna odluka koju
-            pokušavate donijeti.
-          </p>
+        <header className="page-hero conversation-hero mt-8">
+          <div className="conversation-hero__copy">
+            <h1 className="font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
+              Dogovorite 15-minutni uvodni razgovor
+            </h1>
+            <p className="mt-5 text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
+              Vidimo gdje ste na putu od držanja Bitcoina do sustava odluka —
+              osobno, obiteljski ili poslovno.
+            </p>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
+              Ne trebate pripremiti cijeli slučaj. Dovoljna je jedna odluka koju
+              pokušavate donijeti.
+            </p>
+          </div>
+          <picture className="conversation-hero__media">
+            <source
+              srcSet="/images/razgovor-hero-20260601.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/razgovor-hero-20260601.jpg"
+              alt="Mediteranska scena s kalendarom, pitanjem i simbolima za uvodni Bitcoin razgovor."
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
         </header>
 
         <section className="conversation-calendar-card">

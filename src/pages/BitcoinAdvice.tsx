@@ -114,52 +114,69 @@ export function BitcoinAdvice() {
           </ol>
         </nav>
 
-        <header className="page-hero mt-8">
-          <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-            Bitcoin savjetovanje Hrvatska
-          </p>
-          <h1 className="mt-4 font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
-            Bitcoin savjetovanje jedan-na-jedan za put od držanja Bitcoina do
-            sustava odluka.
-          </h1>
-          <p className="mt-5 max-w-4xl text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
-            Bitcoin savjetovanje je jedan-na-jedan razgovor za pojedince,
-            obitelji i poduzetnike koji ne žele samo još jedno mišljenje o
-            cijeni, nego žele razumjeti kako Bitcoin ulazi u stvarne odluke:
-            proračun, dug, poslovnu riznicu, neto imovinu, sigurnost, obitelj i
-            odgovornost prema ljudima koji ovise o njima.
-          </p>
-          <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
-            <li>
-              <Button
-                asChild
-                size="lg"
-                className="cta-primary h-12 w-full max-w-full rounded-full px-4 text-sm sm:w-auto sm:px-5 sm:text-base"
-              >
-                <a
-                  href={CONVERSATION_PATH}
-                  className="min-w-0 justify-center text-center"
-                  data-cta="bitcoin-advice-hero-intro-call"
+        <header className="page-hero bitcoin-advice-hero mt-8">
+          <div className="bitcoin-advice-hero__copy">
+            <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
+              Bitcoin savjetovanje Hrvatska
+            </p>
+            <h1 className="mt-4 font-display text-3xl leading-tight font-semibold tracking-[-0.02em] text-foreground sm:text-5xl">
+              Bitcoin savjetovanje jedan-na-jedan za put od držanja Bitcoina do
+              sustava odluka.
+            </h1>
+            <p className="mt-5 max-w-4xl text-base leading-8 text-muted-foreground sm:mt-6 sm:text-lg">
+              Bitcoin savjetovanje je jedan-na-jedan razgovor za pojedince,
+              obitelji i poduzetnike koji ne žele samo još jedno mišljenje o
+              cijeni, nego žele razumjeti kako Bitcoin ulazi u stvarne odluke:
+              proračun, dug, poslovnu riznicu, neto imovinu, sigurnost, obitelj
+              i odgovornost prema ljudima koji ovise o njima.
+            </p>
+            <ul className="mt-8 flex list-none flex-col gap-3 sm:flex-row sm:items-center">
+              <li>
+                <Button
+                  asChild
+                  size="lg"
+                  className="cta-primary h-12 w-full max-w-full rounded-full px-4 text-sm sm:w-auto sm:px-5 sm:text-base"
                 >
-                  <CalendarDays className="size-4" />
-                  <span className="sm:hidden">Dogovorite uvodni razgovor</span>
-                  <span className="hidden sm:inline">
-                    Dogovorite 15-minutni uvodni razgovor
-                  </span>
+                  <a
+                    href={CONVERSATION_PATH}
+                    className="min-w-0 justify-center text-center"
+                    data-cta="bitcoin-advice-hero-intro-call"
+                  >
+                    <CalendarDays className="size-4" />
+                    <span className="sm:hidden">
+                      Dogovorite uvodni razgovor
+                    </span>
+                    <span className="hidden sm:inline">
+                      Dogovorite 15-minutni uvodni razgovor
+                    </span>
+                  </a>
+                </Button>
+              </li>
+              <li>
+                <a
+                  href={PRACTICAL_BITCOIN_STANDARD_URL}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
+                  data-link="bitcoin-advice-guides-index"
+                >
+                  Čitajte vodiče
+                  <ArrowUpRight className="size-4" />
                 </a>
-              </Button>
-            </li>
-            <li>
-              <a
-                href={PRACTICAL_BITCOIN_STANDARD_URL}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary"
-                data-link="bitcoin-advice-guides-index"
-              >
-                Čitajte vodiče
-                <ArrowUpRight className="size-4" />
-              </a>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </div>
+          <picture className="bitcoin-advice-hero__media">
+            <source
+              srcSet="/images/bitcoin-savjetovanje-hero-20260601.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/bitcoin-savjetovanje-hero-20260601.jpg"
+              alt="Mediteranska scena s Bitcoin simbolom i oznakama za proračun, neto imovinu, obitelj, posao i sigurnost."
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
         </header>
 
         <section className="mt-12 grid gap-6 lg:grid-cols-2">

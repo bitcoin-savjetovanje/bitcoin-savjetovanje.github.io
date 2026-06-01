@@ -277,10 +277,20 @@ export function PersonalBitcoinStandard() {
               className="service-hero__visual"
               aria-label="Cijena i ulaz u program"
             >
-              <DecorativeServiceImage
-                className="service-hero__image"
-                src={`${serviceVisualsPath}/standard-hero.webp`}
-              />
+              <picture className="service-hero__picture">
+                <source
+                  srcSet={`${serviceVisualsPath}/standard-hero-20260601.webp`}
+                  type="image/webp"
+                />
+                <img
+                  className="service-hero__image"
+                  src={`${serviceVisualsPath}/standard-hero-20260601.jpg`}
+                  alt="Mediteranska scena s otvorenom knjigom osobnog Bitcoin standarda i simbolima za obitelj, sigurnost, imovinu i davanje."
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </picture>
               <div className="service-hero__summary-card">
                 <p>Program</p>
                 <strong>1.500 EUR</strong>

@@ -275,7 +275,7 @@ export function PersonalBitcoinStandard() {
 
             <aside
               className="service-hero__visual"
-              aria-label="Cijena i ulaz u program"
+              aria-label="Vizual osobnog Bitcoin standarda"
             >
               <picture className="service-hero__picture">
                 <source
@@ -291,12 +291,6 @@ export function PersonalBitcoinStandard() {
                   fetchPriority="high"
                 />
               </picture>
-              <div className="service-hero__summary-card">
-                <p>Program</p>
-                <strong>1.500 EUR</strong>
-                <span>4–6 tjedana</span>
-                <em>Ne kupuje se odmah. Prvo vidimo ima li smisla.</em>
-              </div>
             </aside>
           </header>
 
@@ -423,7 +417,7 @@ export function PersonalBitcoinStandard() {
             </aside>
           </section>
 
-          <section className="service-section service-final-cta">
+          <section className="service-section service-final-cta service-final-cta--pricing">
             <div>
               <h2>Cijena i ulaz</h2>
               <p>
@@ -431,6 +425,15 @@ export function PersonalBitcoinStandard() {
                 izravno preko checkouta. Prvi korak je 15-minutni uvodni
                 razgovor u kojem vidimo ima li program smisla za vašu situaciju.
               </p>
+            </div>
+            <div
+              className="service-pricing-summary"
+              aria-label="Sažetak cijene"
+            >
+              <p>Program</p>
+              <strong>1.500 EUR</strong>
+              <span>4–6 tjedana</span>
+              <em>Ne kupuje se odmah. Prvo vidimo ima li smisla.</em>
             </div>
             <ul className="service-cta-list">
               <li>

@@ -8296,8 +8296,9 @@
 .security-hero .security-hero__media,
 .privacy-hero .privacy-hero__media {
   display: block;
-  width: 100%;
+  width: calc(100% + clamp(5rem, 7vw, 9rem));
   height: 100%;
+  margin-right: calc(-1 * clamp(5rem, 7vw, 9rem));
   min-height: inherit;
 }
 
@@ -8315,6 +8316,18 @@
   filter: none;
 }
 
+.conversation-hero .conversation-hero__media img {
+  object-position: 58% center;
+}
+
+.security-hero .security-hero__media img {
+  object-position: 57% center;
+}
+
+.privacy-hero .privacy-hero__media img {
+  object-position: 58% center;
+}
+
 .guides-index-hero .guides-index-hero__book img {
   width: 100%;
   height: auto;
@@ -8326,6 +8339,10 @@
   width: min(22rem, 58%);
   height: auto;
   min-height: 0;
+}
+
+.guides-index-hero .guides-index-hero__book {
+  padding-top: var(--hero-shell-pad-top);
 }
 
 .guide-editorial-page {

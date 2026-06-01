@@ -7834,6 +7834,7 @@
 }
 
 .service-warning-panel {
+  margin-top: clamp(1.25rem, 2.5vw, 2.25rem);
   border-color: color-mix(in oklab, var(--clay), var(--card-border) 74%);
   background:
     radial-gradient(
@@ -7944,6 +7945,11 @@
 .service-final-cta p {
   max-width: 48rem;
   margin-top: 1rem;
+}
+
+.service-price-note {
+  color: var(--ink) !important;
+  font-weight: 700;
 }
 
 .service-cta-list {

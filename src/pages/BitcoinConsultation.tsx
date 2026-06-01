@@ -211,7 +211,7 @@ export function BitcoinConsultation() {
 
             <aside
               className="service-hero__visual"
-              aria-label="Cijena i sljedeći korak"
+              aria-label="Bitcoin konzultacija"
             >
               <picture className="service-hero__picture">
                 <source
@@ -227,12 +227,6 @@ export function BitcoinConsultation() {
                   fetchPriority="high"
                 />
               </picture>
-              <div className="service-hero__summary-card">
-                <p>Prvi plaćeni korak</p>
-                <strong>200 €</strong>
-                <span>jedan dubinski razgovor</span>
-                <em>Ne kupuje se odmah. Prvo vidimo ima li smisla.</em>
-              </div>
             </aside>
           </header>
 
@@ -495,6 +489,11 @@ export function BitcoinConsultation() {
                 Uvodni razgovor služi tome da vidimo je li Bitcoin konzultacija
                 pravi sljedeći korak ili je za sada dovoljno stati na kratkoj
                 procjeni.
+              </p>
+              <p className="service-price-note">
+                Bitcoin konzultacija je prvi plaćeni korak: 200 € za jedan
+                dubinski razgovor. Ne kupuje se odmah. Prvo vidimo ima li
+                smisla.
               </p>
             </div>
             <ul className="service-cta-list">

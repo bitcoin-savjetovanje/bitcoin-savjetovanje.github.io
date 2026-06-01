@@ -27,6 +27,7 @@ const roadmapGroups = [
     title: "Dug",
     slugs: [
       "dug-je-buduci-novac",
+      "od-duga-prema-vlasnistvu",
       "dug-ili-bitcoin",
       "ne-zaduzujte-se-za-bitcoin",
     ],
@@ -50,6 +51,7 @@ const roadmapGroups = [
       "bitcoin-kao-novac",
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
+      "digitalni-kredit-nije-bitcoin",
     ],
   },
   {
@@ -59,6 +61,7 @@ const roadmapGroups = [
     slugs: [
       "novac-kapital-potrosnja",
       "bitcoin-u-neto-imovini",
+      "bitcoin-kao-stopa-prepreke",
       "pravilo-trecina",
       "bitcoin-etfovi-i-riznicke-kompanije",
     ],

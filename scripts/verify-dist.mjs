@@ -24,9 +24,12 @@ const requiredGuidePaths = [
   "/vodici/bitcoin-nije-kripto-portfelj",
   "/vodici/pozitivni-neto-priljev",
   "/vodici/dca-nije-dovoljan",
+  "/vodici/od-duga-prema-vlasnistvu",
   "/vodici/uskladivanje-kupovne-moci-bitcoina",
   "/vodici/cijena-kao-mjera-vremena",
   "/vodici/saylor-bitcoin-ciklus-ponuda-potraznja",
+  "/vodici/digitalni-kredit-nije-bitcoin",
+  "/vodici/bitcoin-kao-stopa-prepreke",
   "/vodici/pravilo-trecina",
   "/vodici/bitcoin-etfovi-i-riznicke-kompanije",
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
@@ -2143,6 +2146,9 @@ const guideIndexChecks = [
   ["Neto imovina", "guide roadmap net worth"],
   ["Vrijeme i volatilnost", "guide roadmap time volatility"],
   ["Sigurnost i obitelj", "guide roadmap security family"],
+  ["Bitcoin kao stopa prepreke za financijske odluke", "guide hurdle rate title"],
+  ["Od društva duga prema društvu vlasništva", "guide ownership society title"],
+  ["Digitalni kredit nije Bitcoin", "guide digital credit title"],
   ['href="#proracun"', "budget category chip"],
   ['href="#dug"', "debt category chip"],
   ['href="#davanje"', "giving category chip"],
@@ -2173,6 +2179,29 @@ const guideIndexChecks = [
 
 for (const [expected, label] of guideIndexChecks) {
   assertIncludes("vodici/index.html", guidesIndexHtml, expected, label)
+}
+
+for (const [expected, label] of [
+  [
+    ".guides-index-hero{grid-template-columns:minmax(0,1fr) minmax(14rem,18rem)",
+    "guide index hero uses larger book column",
+  ],
+  [
+    ".guides-index-hero__book img{border:1px solid var(--book-border);border-radius:.22rem .5rem .5rem .22rem;width:min(16.5rem,100%)",
+    "guide index book cover is larger",
+  ],
+  [".starter-guides-panel{max-width:none}", "starter guide panel is full width"],
+  [".guides-roadmap{max-width:none}", "guide roadmap is full width"],
+  [
+    ".guides-roadmap__groups{grid-template-columns:repeat(3,minmax(0,1fr))",
+    "guide roadmap uses three columns",
+  ],
+  [
+    ".guide-roadmap-card{box-shadow:none;background:0 0;border:0;border-radius:0;padding:0}",
+    "guide roadmap cards are visually simplified",
+  ],
+]) {
+  assertIncludes("dist/assets/*.css", cssBundleText, expected, label)
 }
 
 for (const [forbidden, label] of [
@@ -2218,6 +2247,7 @@ assertArrayEquals(
     "/vodici/starost-novca/",
     "/vodici/dca-nije-dovoljan/",
     "/vodici/dug-je-buduci-novac/",
+    "/vodici/od-duga-prema-vlasnistvu/",
     "/vodici/dug-ili-bitcoin/",
     "/vodici/ne-zaduzujte-se-za-bitcoin/",
     "/vodici/davanje-u-proracunu-nulte-osnove/",
@@ -2227,8 +2257,10 @@ assertArrayEquals(
     "/vodici/bitcoin-kao-novac/",
     "/vodici/bitcoin-nije-kripto-portfelj/",
     "/vodici/pozitivni-neto-priljev/",
+    "/vodici/digitalni-kredit-nije-bitcoin/",
     "/vodici/novac-kapital-potrosnja/",
     "/vodici/bitcoin-u-neto-imovini/",
+    "/vodici/bitcoin-kao-stopa-prepreke/",
     "/vodici/pravilo-trecina/",
     "/vodici/bitcoin-etfovi-i-riznicke-kompanije/",
     "/vodici/uskladivanje-kupovne-moci-bitcoina/",
@@ -2376,6 +2408,18 @@ if (!privacy) {
 const defaultGuideFinalCtaTitle =
   "Želite ovo primijeniti na svoju situaciju?"
 const guideFinalCtaTitles = new Map([
+  [
+    "/vodici/bitcoin-kao-stopa-prepreke",
+    "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+  ],
+  [
+    "/vodici/od-duga-prema-vlasnistvu",
+    "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+  ],
+  [
+    "/vodici/digitalni-kredit-nije-bitcoin",
+    "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+  ],
   [
     "/vodici/vremenski-oporavak-bitcoin-trezor",
     "Želite provjeriti je li vaš obiteljski Bitcoin trezor stvarno razumljiv?",
@@ -2550,6 +2594,43 @@ const focusedGuideChecks = [
       "Bitcoin je novac",
       "Bitcoin nije proizvodna imovina",
       "Ako ne možete objasniti sebi ili partneru je li Bitcoin za vas novac",
+    ],
+  },
+  {
+    path: "vodici/bitcoin-kao-stopa-prepreke/index.html",
+    checks: [
+      "Bitcoin kao stopa prepreke za financijske odluke",
+      "je li ova odluka bolja od držanja Bitcoina?",
+      "Stopa prepreke ne predviđa cijenu.",
+      "Bitcoin ne uklanja ulaganje",
+      "Potrošnja pod Bitcoin standardom",
+      "Posao kao proizvodna imovina",
+      "Neto imovina kao jedna cjelina",
+      "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+    ],
+  },
+  {
+    path: "vodici/od-duga-prema-vlasnistvu/index.html",
+    checks: [
+      "Od društva duga prema društvu vlasništva",
+      "Dug je budući novac koji ste već potrošili.",
+      "Društvo duga",
+      "Dug kao gubitak izbora",
+      "Društvo vlasništva",
+      "Praktični prijelaz",
+      "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+    ],
+  },
+  {
+    path: "vodici/digitalni-kredit-nije-bitcoin/index.html",
+    checks: [
+      "Digitalni kredit nije Bitcoin",
+      "Bitcoin je novac, digitalni kredit je ugovor",
+      "Prvo pitanje nije koliki je prinos.",
+      "Pet razlika između Bitcoina i digitalnog kredita",
+      "Kako ga smjestiti u neto imovinu",
+      "Predvidljivost nije isto što i sigurnost",
+      "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
     ],
   },
   {

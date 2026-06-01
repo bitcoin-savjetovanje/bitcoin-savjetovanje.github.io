@@ -2311,6 +2311,423 @@ const guideEntries: Guide[] = [
       "Ako imate Bitcoin izloženost kroz ETF, burzu, brokera ili Bitcoin rizničku kompaniju, vrijedi razjasniti što točno posjedujete i koju ulogu to ima u vašoj neto imovini.",
   },
   {
+    slug: "bitcoin-kao-stopa-prepreke",
+    title: "Bitcoin kao stopa prepreke za financijske odluke",
+    metaDescription:
+      "Ako Bitcoin postane vaš primarni novac, svaka odluka o potrošnji, ulaganju, poslu i neto imovini treba odgovoriti na jedno pitanje: je li ovo bolje od držanja Bitcoina?",
+    excerpt:
+      "Bitcoin kao primarni novac mijenja način procjene potrošnje, ulaganja, posla i neto imovine. Svaka odluka mora opravdati zašto je bolja od držanja Bitcoina.",
+    category: "Neto imovina",
+    difficulty: "Srednje",
+    freshness: "stabilno",
+    order: 91,
+    publishedAt: "2026-06-01",
+    updatedAt: "2026-06-01",
+    practicalQuestion:
+      "Koja bi velika odluka u vašoj neto imovini još uvijek imala smisla kada biste je morali usporediti s držanjem Bitcoina?",
+    relatedSlugs: [
+      "bitcoin-u-neto-imovini",
+      "pravilo-trecina",
+      "novac-kapital-potrosnja",
+      "bitcoin-kao-novac",
+    ],
+    safetyNote:
+      "Ovaj vodič nije investicijski, porezni ni pravni savjet. Ne preporučuje kupnju ili prodaju Bitcoina, nekretnina, dionica, fondova ili drugih financijskih instrumenata.",
+    visual: {
+      type: "network",
+      title: "Bitcoin kao mjerilo odluke",
+      center: "Je li ovo bolje od držanja Bitcoina?",
+      nodes: ["potrošnja", "ulaganje", "posao", "neto imovina"],
+      caption:
+        "Stopa prepreke ne predviđa cijenu. Ona traži jasan razlog za odricanje od kupovne moći.",
+    },
+    sections: [
+      {
+        heading: "Početna točka se mijenja",
+        body: [
+          "Većina ljudi financijske odluke mjeri u državnom novcu. Pita koliko će zaraditi u eurima, koliki je godišnji prinos, koliko će vrijediti nekretnina, koliko kamata plaća banka i koliko može dobiti u odnosu na ono što ima danas.",
+          "To je razumljivo. Državni novac je još uvijek novac u kojem se isplaćuju plaće, plaćaju računi, vode porezne obveze i prikazuje većina cijena. Ali kada osoba počne ozbiljno razumijevati Bitcoin, početna točka se mijenja.",
+          "Pitanje više nije samo koliko mogu dobiti u eurima. Pitanje postaje: je li ova odluka bolja od držanja Bitcoina? To je Bitcoin kao stopa prepreke. Ne kao formula za brzo bogaćenje, prognoza cijene ili razlog da se sve drugo zanemari, nego kao mjerilo za trezveno odlučivanje.",
+          "Ako je Bitcoin novac koji dugoročno može rasti u kupovnoj moći, tada svaka odluka kojom se odričete Bitcoina mora imati dobar razlog. Potrošnja mora opravdati korist. Ulaganje mora opravdati rizik. Poslovni projekt mora opravdati vrijeme, trud i neizvjesnost. Dug mora opravdati budući odljev, a najčešće ga ne može opravdati.",
+        ],
+      },
+      {
+        heading: "Što znači stopa prepreke",
+        body: [
+          "Stopa prepreke znači najmanji prihvatljivi prinos koji neka odluka mora prijeći da bi imala smisla. Ako netko može držati novac u sigurnijem obliku i dobiti određeni rezultat, tada rizičnija odluka mora ponuditi bolji rezultat.",
+          "Na državnom novcu ta je logika često iskrivljena. Ako novac gubi kupovnu moć, čovjek osjeća pritisak da nešto napravi s njim. Kupi nekretninu, dionice, fond, poslovni projekt ili nešto samo zato što će novac ionako izgubiti vrijednost.",
+          "U takvom okruženju odluka često ne počinje iz jasnoće, nego iz bijega. Bitcoin mijenja to pitanje. Ako imate oblik novca koji ne ovisi o političkom povećanju ponude, držanje novca ponovno postaje ozbiljna odluka. Možete stati, usporediti i pitati zašto biste se odrekli Bitcoina da biste ušli u ovu odluku.",
+        ],
+        link: {
+          before: "Za širi pogled na ulogu Bitcoina u osobnoj slici pročitajte",
+          label: "vodič o Bitcoinu u neto imovini",
+          href: guideHref("bitcoin-u-neto-imovini"),
+          after: ".",
+        },
+      },
+      {
+        heading: "Bitcoin ne uklanja ulaganje",
+        body: [
+          "Bitcoin kao stopa prepreke ne znači da nikada ne treba ulagati, graditi posao, kupovati proizvodnu imovinu ili stvarati druge izvore prihoda. Naprotiv, Bitcoin može pomoći da se bolje odluke jasnije vide.",
+          "Ako nešto ne može prijeći Bitcoin kao stopu prepreke, možda nije ulaganje. Možda je samo složeni način da se preuzme rizik koji ne razumijete. Ali ako posao, alat, vještina, odnos, proizvodna imovina ili poslovni projekt povećava sposobnost stvaranja vrijednosti, tada može imati smisla.",
+          "Bitcoin ne zamjenjuje rad, služenje klijentima ni sposobnost stvaranja proizvoda, usluge ili poslovnog sustava. Bitcoin samo postavlja strože pitanje: je li ova odluka dovoljno dobra da se odreknem dijela sadašnje ili buduće kupovne moći koju bih mogao držati u Bitcoinu?",
+        ],
+      },
+      {
+        heading: "Potrošnja pod Bitcoin standardom",
+        body: [
+          "Na državnom novcu potrošnja često izgleda manje skupo nego što jest. Ako novac gubi vrijednost, trošenje se može činiti racionalnim. Ali na Bitcoin standardu trošak postaje jasniji.",
+          "Kada potrošite novac, ne odričete se samo današnjih eura. Odričete se i mogućnosti da taj dio kupovne moći ostane u tvrđem novcu. To ne znači da ne treba trošiti. Obitelj treba dom, hranu, obrazovanje, zdravlje, alate, vrijeme i pažnju.",
+          "Bitcoin kao stopa prepreke pomaže razlikovati potrošnju koja služi životu od potrošnje koja samo puni prazninu. Pitanje nije smijem li ovo kupiti, nego je li korist od ove kupnje veća od kupovne moći koje se odričem.",
+        ],
+      },
+      {
+        heading: "Ulaganje pod Bitcoin standardom",
+        body: [
+          "Na državnom novcu često je dovoljno da ulaganje izgleda dobro nominalno. Ako nešto raste u novcu koji gubi kupovnu moć, nominalni rast može sakriti stvarni gubitak.",
+          "Na Bitcoin standardu nije dovoljno pitati hoće li nešto rasti u eurima. Treba pitati hoće li odluka opravdati odricanje od Bitcoina. To vrijedi za nekretnine, dionice, obveznice, poslovne udjele, privatne projekte, financijske instrumente i vlastiti posao.",
+          "Dobra odluka mora biti razumljiva, imati razlog za stvaranje vrijednosti, odnos prema vremenu, rizik koji možete podnijeti, izlaz ako ste pogriješili i jasan odnos prema Bitcoinu. Ako nema dobrog odgovora zašto je odluka bolja od držanja Bitcoina, možda ne zaslužuje vaš novac.",
+        ],
+      },
+      {
+        heading: "Posao kao proizvodna imovina",
+        body: [
+          "Bitcoin kao stopa prepreke posebno je važan za poduzetnike. Poduzetnik stalno odlučuje gdje usmjeriti novac: u zalihe, ljude, opremu, prodaju, softver, prostor, edukaciju, pričuvu, smanjenje duga ili Bitcoin na bilanci.",
+          "Poslovni novac treba jasne slojeve: kratkoročne obveze, pričuvu za slabije mjesece, Bitcoin na bilanci za dio koji nije potreban odmah i proizvodnu imovinu koja povećava sposobnost stvaranja vrijednosti.",
+          "Takav red pomaže vlasniku posla pitati hoće li nova oprema, osoba, trošak prodaje ili projekt stvarno stvoriti više vrijednosti nego da novac ostane u Bitcoinu. To ne usporava posao. To čuva posao od rasipanja.",
+        ],
+      },
+      {
+        heading: "Neto imovina kao jedna cjelina",
+        body: [
+          "Mnogi ljudi razmišljaju odvojeno: malo štednje, malo ulaganja, malo nekretnine, malo mirovinskog fonda, malo Bitcoina, malo potrošnje i možda neki dug. Svaka stavka ima svoju priču, ali ne postoji jedna jasna slika.",
+          "Bitcoin standard traži drukčiji pogled. Neto imovina je jedna cjelina. U toj cjelini svaka stavka ima funkciju: Bitcoin je novac, potrošna dobra služe životu, proizvodna imovina pomaže stvarati buduće prihode, financijski instrumenti su ugovori ili vlasnički udjeli, a dug je budući novac koji je već potrošen.",
+          "Kada se sve stavi u jednu sliku, pitanje postaje jasnije: koju ulogu ova stavka ima u mom životu? Ako ne znate odgovor, stavka vjerojatno postoji iz navike, straha, nade ili tuđeg savjeta.",
+        ],
+        link: {
+          before: "Ako trebate jednostavniju podjelu, nastavite s",
+          label: "pravilom trećina",
+          href: guideHref("pravilo-trecina"),
+          after: ".",
+        },
+      },
+      {
+        heading: "Što ova ideja nije",
+        body: [
+          "Bitcoin kao stopa prepreke nije poziv da sav novac držite u Bitcoinu, da zanemarite kratkoročne obveze, da ne ulažete u posao, da ne kupite dom ako je to razumna obiteljska odluka ili da svaki obrok, dar i obiteljski izlet mjerite prema budućoj cijeni Bitcoina.",
+          "Nije poziv na paralizu. To je poziv na red. Ako Bitcoin postane vaš primarni novac, odluke više ne smiju biti vođene panikom državnog novca. Ne morate bježati u svaku priliku, vjerovati svakoj priči o prinosu, prihvatiti dug kao normalan ili kupovati ono što vam ne treba samo zato što novac stoji.",
+        ],
+      },
+      {
+        heading: "Pitanja prije veće odluke",
+        body: [
+          "Prije veće potrošnje, ulaganja ili poslovne odluke korisno je proći kroz konkretna pitanja. Ako odgovor nije jasan, odluka može pričekati. Državni novac čovjeka gura da žuri. Bitcoin mu vraća prostor za razmišljanje.",
+        ],
+        items: [
+          "Koju funkciju ova odluka ima u mom životu ili poslu?",
+          "Je li ovo potrošnja, proizvodna imovina, financijski instrument, darivanje ili obveza?",
+          "Koliko se Bitcoina odričem ovom odlukom?",
+          "Koji je najgori razuman ishod i mogu li ga podnijeti bez duga ili prisilne prodaje Bitcoina?",
+          "Je li očekivana korist veća od jednostavnog držanja Bitcoina?",
+          "Razumijem li odluku dovoljno dobro da je mogu objasniti obitelji ili poslovnom partneru?",
+          "Je li odluka u skladu s proračunom, sigurnošću i ravnotežom neto imovine?",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Bitcoin kao stopa prepreke ne znači da Bitcoin postaje jedina stvar u životu. Znači da Bitcoin postaje mjerilo ozbiljnosti.",
+          "Potrošnja mora imati svrhu. Ulaganje mora imati bolji razlog od nominalnog rasta. Posao mora stvarati stvarnu vrijednost. Dug mora biti iznimka, a ne navika. Neto imovina mora imati red.",
+          "Kada Bitcoin postane novac, svaka financijska odluka postaje iskrenija. Više nije dovoljno pitati koliko nešto može vrijediti u državnom novcu. Treba pitati što se događa s vašom kupovnom moći, slobodom, vremenom i sposobnošću da mirno odlučujete.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+    finalCtaTitle: "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+    finalCtaPrompt:
+      "Ako želite usporediti potrošnju, ulaganja, posao i neto imovinu s Bitcoinom kao mjerilom, krenite od razgovora.",
+  },
+  {
+    slug: "od-duga-prema-vlasnistvu",
+    title: "Od društva duga prema društvu vlasništva",
+    metaDescription:
+      "Državni novac potiče dug, potrošnju budućeg novca i život pod stalnim obvezama. Bitcoin otvara drukčiji put: štednju, vlasništvo, pozitivne priljeve i dugoročnu odgovornost.",
+    excerpt:
+      "Dug je budući novac koji ste već potrošili. Bitcoin vraća ozbiljnost štednji i pomaže prijeći iz života pod obvezama prema vlasništvu i odgovornosti.",
+    category: "Život bez duga",
+    difficulty: "Srednje",
+    freshness: "stabilno",
+    order: 32,
+    publishedAt: "2026-06-01",
+    updatedAt: "2026-06-01",
+    practicalQuestion:
+      "Koji dio vašeg budućeg novca je već obećan prošlim odlukama?",
+    relatedSlugs: [
+      "dug-je-buduci-novac",
+      "ne-zaduzujte-se-za-bitcoin",
+      "stvarni-visak",
+      "svaki-euro-ima-namjenu",
+    ],
+    safetyNote:
+      "Ovaj vodič nije kreditni, investicijski, porezni ni pravni savjet. Služi kao okvir za razumijevanje odnosa između duga, štednje, vlasništva i osobnog Bitcoin standarda.",
+    visual: {
+      type: "split",
+      title: "Dug i vlasništvo",
+      leftLabel: "Dug",
+      leftItems: [
+        "budući novac potrošen danas",
+        "fiksne obveze",
+        "manje izbora",
+      ],
+      rightLabel: "Vlasništvo",
+      rightItems: ["sadašnja odgovornost", "stvarni višak", "više otpornosti"],
+      caption: "Bitcoin ne uklanja odgovornost. On je čini vidljivijom.",
+    },
+    sections: [
+      {
+        heading: "Dug je postao normalan",
+        body: [
+          "Dug je postao toliko normalan da ga mnogi ljudi više ne vide kao posebnu odluku. Kartica, minus po računu, kupnja na rate, leasing, stambeni kredit, potrošački kredit, poslovna kreditna linija, refinanciranje i još jedna obveza često izgledaju kao običan dio života.",
+          "U državnom novcu dug se često prikazuje kao alat napretka. Ako nešto želite sada, dug vam omogućuje da to dobijete prije nego što ste za to stvarno stvorili novac. Ali dug nije samo financijski proizvod.",
+          "Dug je budući novac koji ste već potrošili. To znači da dio vaše budućnosti više nije slobodan. Kada sljedeći prihod dođe, dio tog prihoda ne pripada sadašnjim odlukama. Već je obećan prošlim odlukama.",
+          "Bitcoin mijenja način na koji gledamo na dug jer vraća ozbiljnost štednji. Ako novac može dugoročno čuvati ili povećavati kupovnu moć, tada više nije očito da je bolje trošiti sada i plaćati kasnije.",
+        ],
+      },
+      {
+        heading: "Društvo duga",
+        body: [
+          "Društvo duga počinje s tihom pretpostavkom da će budućnost platiti sadašnjost. Osoba kupuje danas i plaća iz buduće plaće. Obitelj povećava životni standard prije nego što ga prihodi mogu nositi. Poduzeće širi poslovanje kreditom prije nego što je dokazalo stabilan stvarni višak.",
+          "Ljudi uče razmišljati kroz mjesečnu ratu, ne kroz ukupni trošak. Pitaju mogu li nešto plaćati mjesečno, koliko im banka može odobriti i koliki je prinos ako koriste tuđi novac. Rjeđe pitaju trebaju li to uopće, koliko su stvarno slobodni i što se događa ako budućnost ne bude onakva kakvu su zamislili.",
+          "Budućnost često ne surađuje. Prihodi kasne, troškovi rastu, zdravlje se promijeni, posao oslabi, kupovna moć padne ili obitelj treba nešto što nije bilo u planu. Tada dug pokazuje svoju pravu narav. On nije samo broj. On je pritisak.",
+        ],
+      },
+      {
+        heading: "Dug kao gubitak izbora",
+        body: [
+          "Najveći problem duga nije uvijek kamata. Najveći problem duga je gubitak izbora. Osoba bez duga može lakše promijeniti posao, odbiti lošeg klijenta, preživjeti slabiji mjesec, čuvati Bitcoin kroz pad kupovne moći i čekati bolju priliku.",
+          "Osoba s dugom često ne može čekati. Mora prodati kada ne želi, prihvatiti posao koji ne želi, smanjiti darivanje, odgoditi sigurnost i donositi odluke iz napetosti. Dug tako ne zauzima samo prihod. Zauzima mir.",
+          "Na Bitcoin standardu to postaje posebno važno. Ako osoba ima dug, visoke mjesečne obveze i malo likvidnosti, pad kupovne moći Bitcoina može je prisiliti na lošu odluku.",
+        ],
+        link: {
+          before: "Zato temeljni vodič o dugu počinje jednostavnom rečenicom:",
+          label: "dug je budući novac koji ste već potrošili",
+          href: guideHref("dug-je-buduci-novac"),
+          after: ".",
+        },
+      },
+      {
+        heading: "Društvo vlasništva",
+        body: [
+          "Društvo vlasništva počinje drukčijom pretpostavkom: sadašnjost treba služiti budućnosti. To ne znači da se danas ne smije živjeti. Znači da se budućnost ne smije stalno prodavati.",
+          "U društvu vlasništva čovjek prvo stvara višak, zatim odlučuje što s njim. Gradi novčanu zalihu, smanjuje obveze, kupuje stvari koje može održavati, ulaže u proizvodnu imovinu koju razumije, daruje iz slobode i čuva Bitcoin kao novac.",
+          "Vlasništvo nije samo posjedovanje imovine. Vlasništvo znači odgovornost. Ako nešto posjedujete, morate znati zašto to posjedujete, kako to čuvate, što to traži od vas i što ćete učiniti ako se okolnosti promijene.",
+        ],
+      },
+      {
+        heading: "Zašto državni novac potiče dug",
+        body: [
+          "Državni novac potiče dug jer stalno slabi povjerenje u štednju. Ako novac gubi kupovnu moć, ljudi ga ne žele držati. Traže nekretnine, dionice, obveznice, poslovne projekte, fondove ili bilo što što izgleda kao zaštita od pada kupovne moći.",
+          "U takvom svijetu dug dobiva umjetnu privlačnost. Ako se novac obezvrjeđuje, čini se razumno posuditi danas i vraćati kasnije slabijim novcem. Ako cijene imovine rastu u državnom novcu, čini se razumno koristiti dug za kupnju imovine.",
+          "Kada štednja ne radi, dug izgleda kao alat. Kada štednja ponovno postane moguća, dug se vidi jasnije. Bitcoin vraća mogućnost štednje u tvrdom novcu.",
+        ],
+      },
+      {
+        heading: "Od fiksne obveze prema vlasničkom riziku",
+        body: [
+          "Društvo duga voli fiksne obveze. Dužnik obećava plaćanje bez obzira na to što se dogodi. Ako posao uspije, plaća. Ako posao oslabi, plaća. Ako obitelj ima problem, plaća.",
+          "U tvrđem novčanom sustavu obećanja se moraju ozbiljnije shvatiti. Ako novac nije lako stvarati iz ničega, rizik se ne može samo sakriti. Mora se nositi.",
+          "Zato tvrđi novac prirodno više naglašava vlasništvo. Vlasnik sudjeluje u dobitku, ali nosi i gubitak. Za pojedinca to znači manje obećanja i više stvarnog posjedovanja. Za obitelj manje rata i više pričuve. Za posao manje rasta na dug i više rasta iz stvarnog viška.",
+        ],
+      },
+      {
+        heading: "Što to znači ako već imate Bitcoin",
+        body: [
+          "Ako već imate Bitcoin, pitanje nije samo koliko ga imate. Pitanje je u kakvom sustavu živite. Možete imati Bitcoin i još uvijek živjeti po pravilima državnog novca: imati potrošački dug, nemati proračun, ne znati stvarni višak, nemati plan za obitelj i donositi velike odluke iz osjećaja, straha ili euforije.",
+          "To nije osobni Bitcoin standard. Osobni Bitcoin standard počinje kada Bitcoin prestane biti odvojena imovina i postane dio uređenog života.",
+          "Redoslijed je važan: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, usklađivanje kupovne moći, ravnoteža neto imovine, sigurnost i obiteljski pristup.",
+        ],
+      },
+      {
+        heading: "Što to znači za poduzetnika",
+        body: [
+          "Za poduzetnika je ova tema još osjetljivija. Posao prirodno traži rizik. Ali postoji razlika između poduzetničkog rizika i dužničkog pritiska.",
+          "Poduzetnički rizik kaže da ćete stvoriti vrijednost i preuzeti mogućnost da ne uspije. Dužnički pritisak kaže da je budući novac obećan bez obzira na ishod.",
+          "Zreo poslovni pristup prvo zna kratkoročne obveze, zatim pričuvu za slabije mjesece, zatim stvarni višak, zatim dio viška koji može postati Bitcoin na bilanci i dio koji treba ući u proizvodnu imovinu.",
+        ],
+      },
+      {
+        heading: "Praktični prijelaz",
+        body: [
+          "Dug ubrzava sadašnjost. Vlasništvo produbljuje budućnost. Dug kaže: uzmi sada, plati kasnije. Vlasništvo kaže: stvori, čuvaj, održavaj i razvijaj. Ali vlasništvo traži strpljenje.",
+        ],
+        items: [
+          "Prestanite stvarati novi dug.",
+          "Napravite potpun popis obveza: iznos, rata, kamata, rok, uvjeti i rizik.",
+          "Vodite proračun kako biste znali stvarni višak.",
+          "Izgradite novčanu zalihu koja kupuje vrijeme.",
+          "Gradite Bitcoin kao novac, ne kao bijeg od nereda.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Društvo duga živi od budućih obećanja. Društvo vlasništva živi od sadašnje odgovornosti.",
+          "Državni novac potiče ljude da troše budućnost jer sadašnji novac ne čuva dobro kupovnu moć. Bitcoin otvara drugi put: štednju, strpljenje, pozitivne priljeve, stvarni višak i vlasništvo bez stalne potrebe za dugom.",
+          "Smjer je jasan: manje rata, više stvarnog viška; manje obveza, više slobode; manje financijske buke, više pravila; manje života po državnom novcu, više osobnog Bitcoin standarda.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+    finalCtaTitle: "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+    finalCtaPrompt:
+      "Ako Bitcoin postoji, ali dug i obveze još uvijek vode odluke, uvodni razgovor može pomoći postaviti pravi redoslijed.",
+  },
+  {
+    slug: "digitalni-kredit-nije-bitcoin",
+    title: "Digitalni kredit nije Bitcoin",
+    metaDescription:
+      "Financijski proizvodi povezani s Bitcoinom mogu imati mjesto u nečijoj bilanci, ali nisu isto što i Bitcoin. Prije prinosa treba razumjeti novac, potraživanje, posrednika i rizik.",
+    excerpt:
+      "Bitcoin je novac. Digitalni kredit je ugovor, potraživanje ili financijski instrument. Ta razlika mora biti jasna prije bilo kakvog razgovora o prinosu.",
+    category: "Bitcoin kao novac",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
+    order: 72,
+    publishedAt: "2026-06-01",
+    updatedAt: "2026-06-01",
+    practicalQuestion:
+      "Znate li koji dio vaše bilance je Bitcoin kao novac, a koji dio je ugovor, potraživanje ili financijski instrument?",
+    relatedSlugs: [
+      "bitcoin-kao-novac",
+      "bitcoin-etfovi-i-riznicke-kompanije",
+      "bitcoin-u-neto-imovini",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+    ],
+    safetyNote:
+      "Ovaj vodič nije investicijski, porezni ni pravni savjet. Ne preporučuje ulazak u financijske proizvode povezane s Bitcoinom, nego objašnjava razliku između novca, potraživanja, posrednika i rizika.",
+    visual: {
+      type: "split",
+      title: "Novac nije isto što i potraživanje",
+      leftLabel: "Bitcoin",
+      leftItems: ["novac", "kupovna moć", "jasno skrbništvo"],
+      rightLabel: "Digitalni kredit",
+      rightItems: ["ugovor", "potraživanje", "posrednik"],
+      caption:
+        "Prinos nije početak analize. Prvo treba znati što točno posjedujete.",
+    },
+    sections: [
+      {
+        heading: "Prva razlika",
+        body: [
+          "Kako Bitcoin postaje ozbiljniji novac, oko njega se pojavljuje sve više financijskih proizvoda. Neki obećavaju predvidljiviji prinos, nude izloženost Bitcoinu bez izravnog držanja, kombiniraju državni novac, kreditne instrumente i Bitcoin ili su namijenjeni poduzećima i pojedincima.",
+          "Neki mogu biti korisni. Neki će biti loše strukturirani. Neki će možda uspjeti. Neki će nestati. Zato je prva rečenica najvažnija: digitalni kredit nije Bitcoin.",
+          "Može biti povezan s Bitcoinom, imati Bitcoin u pozadini, koristiti Bitcoinovu tržišnu likvidnost, isplaćivati dio prinosa u Bitcoinu ili biti dio šireg financijskog sustava koji nastaje oko Bitcoina. Ali nije isto što i Bitcoin koji držite kao novac.",
+        ],
+      },
+      {
+        heading: "Bitcoin je novac, digitalni kredit je ugovor",
+        body: [
+          "Bitcoin u vlastitom ili jasno uređenom skrbništvu je novac. Držite ga kao kupovnu moć za buduću razmjenu. Možete ga rasporediti u proračunu, čuvati, koristiti za plaćanje kada je praktično i promatrati kao dio novčane zalihe i neto imovine.",
+          "Digitalni kredit je nešto drugo. To je financijski instrument. Kada uđete u takav proizvod, više ne držite samo Bitcoin kao novac. Ulazite u odnos s izdavateljem, posrednikom, ugovorom, pravilima, uvjetima, rokovima, izvorom prinosa i rizikom koji možda nije odmah vidljiv.",
+          "Zato se digitalni kredit ne smije staviti u istu mentalnu ladicu kao Bitcoin. Jedno je novac. Drugo je potraživanje, ugovor ili financijska struktura.",
+        ],
+        link: {
+          before:
+            "Ako još nije jasno zašto se Bitcoin ovdje promatra kao novac, krenite od vodiča",
+          label: "Bitcoin je novac",
+          href: guideHref("bitcoin-kao-novac"),
+          after: ".",
+        },
+      },
+      {
+        heading: "Zašto prinos privlači pažnju",
+        body: [
+          "Prinos uvijek privlači pažnju. To je posebno istinito nakon desetljeća u kojima je štednja u državnom novcu bila slaba, a mnogi ljudi su tražili zaštitu kupovne moći kroz ulaganja koja nisu uvijek razumjeli.",
+          "Ako nešto nudi veći prinos, mora postojati razlog. Taj razlog može biti nova tehnologija, bolja struktura, veća transparentnost ili tržišna neučinkovitost. Ali može biti i veći rizik: rizik izdavatelja, likvidnosti, složenosti ili toga da kupac ne razumije što zapravo posjeduje.",
+          "Zato je opasno gledati samo postotak. Postotak je kraj razgovora, ne početak. Prvo pitanje nije koliki je prinos. Prvo pitanje je što točno posjedujem.",
+        ],
+      },
+      {
+        heading: "Pet razlika između Bitcoina i digitalnog kredita",
+        body: [
+          "Prva razlika je kontrola. Kod Bitcoina pitanje je tko može potrošiti novac. Kod financijskog proizvoda pitanje je tko upravlja strukturom, tko vodi evidenciju, tko ispunjava obveze i što se događa ako posrednik zakaže.",
+          "Druga razlika je izvor vrijednosti. Bitcoinovu ponudu ne povećava uprava, banka ili država. Kod digitalnog kredita vrijednost ovisi o ugovoru, bilanci, novčanim tokovima, tržištu i sposobnosti drugih strana da ispune obveze.",
+          "Treća razlika je rizik. Bitcoin ima promjenjivu kupovnu moć. To je vidljiv rizik. Digitalni kredit može imati manje vidljivu promjenjivost, ali više ugovornog, kreditnog i posredničkog rizika.",
+          "Četvrta razlika je likvidnost. Bitcoin se trguje stalno i globalno. Financijski proizvod može imati ograničenja, rokove, uvjete isplate ili tržište koje nije jednako duboko u svim okolnostima.",
+          "Peta razlika je svrha. Bitcoin držite kao novac. Digitalni kredit držite radi prinosa ili specifične financijske funkcije.",
+        ],
+      },
+      {
+        heading: "Gdje može imati mjesto",
+        body: [
+          "Digitalni kredit, ako je dobro razumljiv i odgovara osobi ili poduzeću, može imati mjesto u širem sustavu. Ali tek nakon temelja: osobni proračun, život bez duga, darivanje, Bitcoin kao novac, ravnoteža neto imovine i sigurnost.",
+          "Osoba bez proračuna ne zna koliko novca stvarno može izložiti riziku. Osoba u dugu često traži prinos dok istovremeno plaća cijenu prošlih odluka. Osoba bez pričuve može biti prisiljena izaći iz proizvoda u lošem trenutku. Osoba koja ne razumije Bitcoin kao novac može zamijeniti potraživanje za stvarni novac.",
+        ],
+      },
+      {
+        heading: "Kada nema smisla",
+        body: [
+          "Digitalni kredit nema smisla ako ga kupujete samo zato što prinos zvuči privlačno, ako ne razumijete tko je druga strana, ako ne razumijete što se događa u lošem scenariju, ako ste u potrošačkom dugu ili ako nemate pričuvu.",
+          "Nema smisla ako biste zbog gubitka morali prodati Bitcoin, ući u dug ili ugroziti obiteljske obveze. Nema smisla ako ga zovete štednjom, a ponaša se kao rizični financijski instrument.",
+          "Najopasnija rečenica u financijama često zvuči ovako: to je skoro isto kao novac, samo nosi veći prinos. Nije isto. Ako nosi veći prinos, vjerojatno nosi i drukčiji rizik.",
+        ],
+      },
+      {
+        heading: "Kako ga smjestiti u neto imovinu",
+        body: [
+          "Ako netko ipak razmatra digitalni kredit, treba ga smjestiti u ispravnu kategoriju. Ne pod Bitcoin saldo, ne pod novac za kratkoročne obveze i ne pod sigurnosnu pričuvu, nego pod financijske instrumente.",
+          "To znači da osoba priznaje: ovo nije moj primarni novac. Ovo je ugovor ili potraživanje koje ima očekivani prinos i rizik.",
+          "Ako je nešto Bitcoin saldo, tada ulazi u proračun kao novac. Ako je nešto financijski instrument, tada se promatra kroz rizik, rok, likvidnost, porezne posljedice, izdavatelja i ulogu u neto imovini.",
+        ],
+      },
+      {
+        heading: "Kako ga smjestiti u poslovnu bilancu",
+        body: [
+          "Kod poduzeća je razlika još važnija. Poslovni novac ima obveze: plaće, poreze, dobavljače, najam, opremu, zalihe i pričuvu.",
+          "Ako se novac potreban za obveze stavi u proizvod s rizikom, posao može postati krhak. Čak i ako proizvod dugoročno uspije, kratkoročna nelikvidnost može stvoriti problem.",
+          "Zato poslovni pristup treba biti slojevit: kratkoročne obveze u obliku koji je stabilan i dostupan, pričuva za slabije mjesece, Bitcoin na bilanci kao novčana zaliha za dio koji nije potreban odmah, proizvodna imovina i tek zatim financijski instrumenti ako ih vlasnik razumije.",
+        ],
+      },
+      {
+        heading: "Pitanja prije ulaska",
+        body: [
+          "Prije bilo kakve odluke korisno je proći kroz konkretna pitanja. Ako ne možete jasno odgovoriti na njih, odluka nije zrela.",
+        ],
+        items: [
+          "Što točno posjedujem: Bitcoin, udio, dug, potraživanje ili pravo na budući novčani tok?",
+          "Tko je izdavatelj, tko čuva imovinu i tko može zaustaviti isplatu?",
+          "Iz čega dolazi prinos i tko ga plaća?",
+          "Što se događa ako Bitcoin snažno padne ili dugo ne raste?",
+          "Što se događa ako posrednik ima problem?",
+          "Mogu li izaći kada želim ili postoje rokovi, kazne i ograničenja?",
+          "Kako se instrument uklapa u moj proračun i neto imovinu?",
+          "Koliki gubitak mogu podnijeti bez promjene osnovnog životnog plana?",
+          "Što bi član obitelji trebao znati ako mi se nešto dogodi?",
+        ],
+      },
+      {
+        heading: "Predvidljivost nije isto što i sigurnost",
+        body: [
+          "Jedan od razloga zašto digitalni kredit privlači ljude jest predvidljivost. Bitcoinova kupovna moć se kratkoročno može snažno mijenjati. Financijski proizvod koji nudi redovitiji novčani tok može djelovati mirnije.",
+          "Ali mirniji prikaz ne znači nužno manji rizik. Neki rizici su vidljivi svaki dan. Cijena Bitcoina je vidljiva. Drugi rizici su skriveni dok se nešto ne dogodi. Rizik posrednika, ugovora, likvidnosti i bilance mogu dugo izgledati nevažno, a zatim postati presudni.",
+          "Zato ne treba uspoređivati samo promjenjivost. Treba uspoređivati narav rizika. Bitcoin ima jedan skup rizika. Digitalni kredit ima drugi skup rizika.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Digitalni kredit može biti zanimljiv razvoj u financijskom sustavu oko Bitcoina. Ali nije Bitcoin.",
+          "Nije zamjena za osobni proračun, izlaz iz duga, sigurnosna pričuva, samostalno čuvanje, obiteljski plan ili novac koji treba bez razmišljanja staviti u istu kategoriju kao Bitcoin saldo.",
+          "Može biti financijski instrument. A financijski instrument treba razumjeti prije nego što mu se povjeri novac. Na osobnom Bitcoin standardu redoslijed je važniji od prinosa: prvo red, zatim rizik; prvo novac, zatim instrumenti.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+    finalCtaTitle: "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+    finalCtaPrompt:
+      "Ako imate Bitcoin i financijske instrumente povezane s Bitcoinom, ali ih još ne razdvajate jasno u neto imovini, uvodni razgovor može pomoći.",
+  },
+  {
     slug: "obiteljski-bitcoin-trezor",
     title: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
     seoTitle: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
@@ -4210,7 +4627,11 @@ export const guidesIndexAdditionalGroups = [
   },
   {
     title: "Dug",
-    slugs: ["dug-ili-bitcoin", "ne-zaduzujte-se-za-bitcoin"],
+    slugs: [
+      "od-duga-prema-vlasnistvu",
+      "dug-ili-bitcoin",
+      "ne-zaduzujte-se-za-bitcoin",
+    ],
   },
   {
     title: "Davanje",
@@ -4222,6 +4643,7 @@ export const guidesIndexAdditionalGroups = [
       "niste-zakasnili-u-bitcoin",
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
+      "digitalni-kredit-nije-bitcoin",
     ],
   },
   {
@@ -4236,6 +4658,7 @@ export const guidesIndexAdditionalGroups = [
     title: "Neto imovina",
     slugs: [
       "novac-kapital-potrosnja",
+      "bitcoin-kao-stopa-prepreke",
       "bitcoin-etfovi-i-riznicke-kompanije",
       "pravilo-trecina",
     ],
@@ -4260,6 +4683,7 @@ export const guidesIndexOrderedSlugs = [
   "starost-novca",
   "dca-nije-dovoljan",
   "dug-je-buduci-novac",
+  "od-duga-prema-vlasnistvu",
   "dug-ili-bitcoin",
   "ne-zaduzujte-se-za-bitcoin",
   "davanje-u-proracunu-nulte-osnove",
@@ -4269,11 +4693,13 @@ export const guidesIndexOrderedSlugs = [
   "bitcoin-kao-novac",
   "bitcoin-nije-kripto-portfelj",
   "pozitivni-neto-priljev",
+  "digitalni-kredit-nije-bitcoin",
   "uskladivanje-kupovne-moci-bitcoina",
   "cijena-kao-mjera-vremena",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
   "novac-kapital-potrosnja",
   "bitcoin-u-neto-imovini",
+  "bitcoin-kao-stopa-prepreke",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
@@ -4291,13 +4717,16 @@ export const recommendedGuideSlugs = [
   "prihod-nije-slobodan-novac",
   "starost-novca",
   "dug-je-buduci-novac",
+  "od-duga-prema-vlasnistvu",
   "dug-ili-bitcoin",
   "davanje-u-proracunu-nulte-osnove",
   "niste-zakasnili-u-bitcoin",
   "bitcoin-kao-novac",
   "bitcoin-nije-kripto-portfelj",
+  "digitalni-kredit-nije-bitcoin",
   "uskladivanje-kupovne-moci-bitcoina",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
+  "bitcoin-kao-stopa-prepreke",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",

@@ -8233,16 +8233,21 @@
   background: var(--paper-warm);
 }
 
+.audience-hero .service-hero__actions {
+  display: flex;
+  gap: 1.15rem;
+}
+
 .audience-hero__image--personal {
-  object-position: center center;
+  object-position: 62% center;
 }
 
 .audience-hero__image--family {
-  object-position: center center;
+  object-position: 62% center;
 }
 
 .audience-hero__image--business {
-  object-position: center center;
+  object-position: 62% center;
 }
 
 .audience-card-grid {

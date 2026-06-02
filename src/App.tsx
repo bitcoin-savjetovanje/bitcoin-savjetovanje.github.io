@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta"
 import { Button } from "@/components/ui/button"
+import type { AudienceSlug } from "@/content/audiences"
 
 export type RouteComponents = {
   Home: ComponentType
@@ -20,6 +21,7 @@ export type RouteComponents = {
   Conversation: ComponentType
   BitcoinConsultation: ComponentType
   PersonalBitcoinStandard: ComponentType
+  AudiencePage: ComponentType<{ slug: AudienceSlug }>
   Guide: ComponentType<{ slug: string }>
   Security: ComponentType
   Privacy: ComponentType
@@ -84,6 +86,11 @@ const lazyRouteComponents = {
       default: module.PersonalBitcoinStandard,
     }))
   ),
+  AudiencePage: lazy(() =>
+    import("@/pages/AudiencePage").then((module) => ({
+      default: module.AudiencePage,
+    }))
+  ),
   Guide: lazy(() =>
     import("@/pages/Guide").then((module) => ({ default: module.Guide }))
   ),
@@ -139,6 +146,7 @@ function Route({
     Conversation,
     BitcoinConsultation,
     PersonalBitcoinStandard,
+    AudiencePage,
     Guide,
     Security,
     Privacy,
@@ -195,6 +203,18 @@ function Route({
 
   if (path === "/osobni-bitcoin-standard") {
     return <PersonalBitcoinStandard />
+  }
+
+  if (path === "/osobno") {
+    return <AudiencePage slug="osobno" />
+  }
+
+  if (path === "/obitelj") {
+    return <AudiencePage slug="obitelj" />
+  }
+
+  if (path === "/poduzetnici") {
+    return <AudiencePage slug="poduzetnici" />
   }
 
   if (path.startsWith("/vodici/")) {

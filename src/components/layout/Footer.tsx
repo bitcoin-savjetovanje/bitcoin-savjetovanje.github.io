@@ -2,10 +2,13 @@ import { Copyright } from "lucide-react"
 
 import {
   BITCOIN_ADVICE_PATH,
+  BUSINESS_AUDIENCE_PATH,
   CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
   EMAIL,
+  FAMILY_AUDIENCE_PATH,
   PERSONAL_BITCOIN_STANDARD_PATH,
+  PERSONAL_AUDIENCE_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
   PRIVACY_PATH,
 } from "@/content/site"
@@ -36,6 +39,15 @@ export function Footer() {
             data-link="footer-personal-bitcoin-standard"
           >
             Osobni Bitcoin standard
+          </a>{" "}
+          <a href={PERSONAL_AUDIENCE_PATH} data-link="footer-osobno">
+            Osobno
+          </a>{" "}
+          <a href={FAMILY_AUDIENCE_PATH} data-link="footer-obitelj">
+            Obitelj
+          </a>{" "}
+          <a href={BUSINESS_AUDIENCE_PATH} data-link="footer-poduzetnici">
+            Poduzetnici
           </a>{" "}
           <a href={PRACTICAL_BITCOIN_STANDARD_URL} data-link="footer-guides">
             Vodiči

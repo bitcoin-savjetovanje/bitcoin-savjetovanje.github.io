@@ -338,6 +338,9 @@ const custodySecurity = routeMap.get("/skrbnistvo-i-sigurnost/")
 const conversation = routeMap.get("/razgovor/")
 const bitcoinConsultation = routeMap.get("/bitcoin-konzultacija/")
 const personalBitcoinStandard = routeMap.get("/osobni-bitcoin-standard/")
+const personalAudience = routeMap.get("/osobno/")
+const familyAudience = routeMap.get("/obitelj/")
+const businessAudience = routeMap.get("/poduzetnici/")
 const guidesIndex = routeMap.get("/vodici/")
 const security = routeMap.get("/sigurnost/")
 const privacy = routeMap.get("/privatnost/")
@@ -378,6 +381,9 @@ const requiredFiles = [
   "images/service-visuals/consultation-hero-20260601.jpg",
   "images/service-visuals/standard-hero-20260601.webp",
   "images/service-visuals/standard-hero-20260601.jpg",
+  "images/audiences/osobno-hero.png",
+  "images/audiences/obitelj-hero.png",
+  "images/audiences/poduzetnici-hero.png",
   "images/medallions/02-novac.png",
   "images/medallions/03-dug.png",
   "images/medallions/04-davanje.png",
@@ -444,6 +450,9 @@ const requiredFiles = [
   "skrbnistvo-i-sigurnost/index.html",
   "bitcoin-konzultacija/index.html",
   "osobni-bitcoin-standard/index.html",
+  "osobno/index.html",
+  "obitelj/index.html",
+  "poduzetnici/index.html",
   "vodici/index.html",
   "sigurnost/index.html",
   "privatnost/index.html",
@@ -848,17 +857,30 @@ const homeChecks = [
   ["zaštititi pristup", "framework security idea"],
   ["Tri razine. Jedan princip.", "three levels title"],
   ["OSOBNO", "personal level label"],
-  ["Urediti vlastiti sustav odluka.", "personal level copy"],
+  [
+    "Urediti proračun, dug, stvarni višak, neto imovinu i reakcije na volatilnost.",
+    "personal level copy",
+  ],
+  ['href="/osobno/"', "personal audience href"],
   ["OBITELJSKI", "family level label"],
   [
-    "Uskladiti vrijednosti i pravila u kući.",
+    "Uskladiti jezik, sigurnost, prvi korak oporavka i nasljeđivanje.",
     "family level copy",
   ],
+  ['href="/obitelj/"', "family audience href"],
   ["POSLOVNO", "business level label"],
   [
-    "Integrirati Bitcoin u poslovni kontekst.",
+    "Razdvojiti poslovni novac, obveze, pričuvu, višak i Bitcoin riznicu.",
     "business level copy",
   ],
+  ['href="/poduzetnici/"', "business audience href"],
+  [
+    "Odaberite kontekst koji vam je najbliži.",
+    "three levels context CTA copy",
+  ],
+  ["Osobni put", "personal audience CTA"],
+  ["Obiteljski put", "family audience CTA"],
+  ["Poslovni put", "business audience CTA"],
   ["U 15 minuta ne gradimo", "services intro first line"],
   ["cijeli sustav.", "services intro second line"],
   ["Pronalazimo prvo usko grlo.", "services intro third line"],
@@ -938,6 +960,12 @@ const homeChecks = [
   ],
   ['data-link="footer-security"', "footer security link metadata"],
   ['data-link="footer-privacy"', "footer privacy link metadata"],
+  ['data-link="footer-osobno"', "footer personal audience link metadata"],
+  ['data-link="footer-obitelj"', "footer family audience link metadata"],
+  [
+    'data-link="footer-poduzetnici"',
+    "footer business audience link metadata",
+  ],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
     "home canonical URL",
@@ -2176,6 +2204,194 @@ if (!personalBitcoinStandard) {
   fail("Route metadata for /osobni-bitcoin-standard/ is missing")
 }
 
+const audiencePageChecks = [
+  {
+    routePath: "/osobno/",
+    relativePath: "osobno/index.html",
+    routeMeta: personalAudience,
+    checks: [
+      [
+        "Osobni Bitcoin standard za pojedinca | Bitcoin Savjetovanje",
+        "personal audience page title",
+      ],
+      ["OSOBNI BITCOIN STANDARD ZA POJEDINCA", "personal audience eyebrow"],
+      ["Imate Bitcoin. Sada trebate pravila.", "personal audience hero title"],
+      [
+        "Uredite proračun, dug, stvarni višak, neto imovinu i reakcije na volatilnost",
+        "personal audience hero lead",
+      ],
+      ["/images/audiences/osobno-hero.png", "personal audience hero image"],
+      [
+        "Mediteranski stol s bilježnicom, Bitcoin kovanicom i osobnim financijskim simbolima.",
+        "personal audience hero alt",
+      ],
+      ["Gdje osobni Bitcoin okvir najčešće puca", "personal problem section"],
+      ["Ne znate koji je novac stvarno slobodan.", "personal problem card"],
+      ["Što postaje jasnije", "personal outcome section"],
+      [
+        "Volatilnost postaje povratna informacija, ne zapovijed.",
+        "personal outcome",
+      ],
+      ["Kako slažemo osobni okvir", "personal method section"],
+      ["Cijena kao mjera vremena", "personal fallback guide link label"],
+      ['href="/vodici/dug-ili-bitcoin/"', "personal debt guide fallback href"],
+      [
+        'href="/vodici/bitcoin-kao-novac/"',
+        "personal Bitcoin money guide href",
+      ],
+      ['data-cta="audience-osobno-primary"', "personal hero CTA metadata"],
+      ['data-cta="audience-osobno-final"', "personal final CTA metadata"],
+      [
+        '<link rel="canonical" href="https://bitcoin-savjetovanje.com/osobno/" />',
+        "personal audience canonical URL",
+      ],
+      ["Service", "personal audience Service schema"],
+    ],
+  },
+  {
+    routePath: "/obitelj/",
+    relativePath: "obitelj/index.html",
+    routeMeta: familyAudience,
+    checks: [
+      [
+        "Obiteljski Bitcoin standard | Bitcoin Savjetovanje",
+        "family audience page title",
+      ],
+      ["OBITELJSKI BITCOIN STANDARD", "family audience eyebrow"],
+      [
+        "Bitcoin ne smije živjeti samo u glavi jedne osobe.",
+        "family audience hero title",
+      ],
+      [
+        "Pretvorite osobno razumijevanje Bitcoina u obiteljski jezik",
+        "family audience hero lead",
+      ],
+      ["/images/audiences/obitelj-hero.png", "family audience hero image"],
+      [
+        "Par za stolom pregledava obiteljska pravila uz trezor, ključeve i Bitcoin kovanicu.",
+        "family audience hero alt",
+      ],
+      ["Obiteljski rizik često nije tehnički", "family problem section"],
+      ["Jedna osoba nosi previše znanja.", "family problem card"],
+      ["Što obitelj dobiva", "family outcome section"],
+      [
+        "Postoji prvi korak oporavka bez otkrivanja tajni.",
+        "family outcome",
+      ],
+      ["Kako slažemo obiteljski okvir", "family method section"],
+      ['href="/sigurnost/"', "family security page link"],
+      [
+        'href="/vodici/obiteljski-bitcoin-trezor/"',
+        "family guide fallback href",
+      ],
+      ['href="/osobni-bitcoin-standard/"', "family standard link"],
+      ['data-cta="audience-obitelj-primary"', "family hero CTA metadata"],
+      ['data-cta="audience-obitelj-final"', "family final CTA metadata"],
+      [
+        '<link rel="canonical" href="https://bitcoin-savjetovanje.com/obitelj/" />',
+        "family audience canonical URL",
+      ],
+      ["Service", "family audience Service schema"],
+    ],
+  },
+  {
+    routePath: "/poduzetnici/",
+    relativePath: "poduzetnici/index.html",
+    routeMeta: businessAudience,
+    checks: [
+      [
+        "Bitcoin standard za poduzetnike | Bitcoin Savjetovanje",
+        "business audience page title",
+      ],
+      ["BITCOIN STANDARD ZA PODUZETNIKE", "business audience eyebrow"],
+      [
+        "Prije poslovnog Bitcoina treba urediti poslovni novac.",
+        "business audience hero title",
+      ],
+      [
+        "Razdvojite poreze, plaće, dobavljače, pričuvu, višak",
+        "business audience hero lead",
+      ],
+      [
+        "/images/audiences/poduzetnici-hero.png",
+        "business audience hero image",
+      ],
+      [
+        "Mediteranski radni stol s poslovnim dokumentima, ladicama obveza i Bitcoin kovanicom.",
+        "business audience hero alt",
+      ],
+      ["Poslovni Bitcoin počinje prije kupnje", "business problem section"],
+      ["Prihod nije slobodan novac.", "business problem card"],
+      ["Što poslovni okvir razdvaja", "business outcome section"],
+      [
+        "Znate kada Bitcoin odluka pripada poslu, a kada vlasniku.",
+        "business outcome",
+      ],
+      ["Kako slažemo poslovni okvir", "business method section"],
+      [
+        'href="/vodici/prihod-nije-slobodan-novac/"',
+        "business revenue guide href",
+      ],
+      [
+        'href="/vodici/poslovni-bitcoin-nije-privatni-bitcoin/"',
+        "business private/company guide href",
+      ],
+      ['href="/bitcoin-konzultacija/"', "business consultation link"],
+      [
+        'data-cta="audience-poduzetnici-primary"',
+        "business hero CTA metadata",
+      ],
+      [
+        'data-cta="audience-poduzetnici-final"',
+        "business final CTA metadata",
+      ],
+      [
+        '<link rel="canonical" href="https://bitcoin-savjetovanje.com/poduzetnici/" />',
+        "business audience canonical URL",
+      ],
+      ["Service", "business audience Service schema"],
+    ],
+  },
+]
+
+for (const audiencePage of audiencePageChecks) {
+  const html = readFile(audiencePage.relativePath)
+
+  for (const [expected, label] of audiencePage.checks) {
+    assertIncludes(audiencePage.relativePath, html, expected, label)
+  }
+
+  assertIncludes(
+    audiencePage.relativePath,
+    html,
+    'href="/razgovor/"',
+    `${audiencePage.routePath} links to conversation`
+  )
+  assertIncludes(
+    audiencePage.relativePath,
+    html,
+    "Ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
+    `${audiencePage.routePath} safety boundary`
+  )
+  assertIncludes(
+    audiencePage.relativePath,
+    html,
+    "Za porezna i pravna pitanja trebate odgovarajuće stručnjake.",
+    `${audiencePage.routePath} tax/legal boundary`
+  )
+  assertCount(
+    audiencePage.relativePath,
+    html,
+    '<link rel="canonical"',
+    1,
+    "canonical tag"
+  )
+
+  if (!audiencePage.routeMeta) {
+    fail(`Route metadata for ${audiencePage.routePath} is missing`)
+  }
+}
+
 const guidesIndexHtml = readFile("vodici/index.html")
 const guidesIndexText = textWithoutTags(guidesIndexHtml)
 const guideIndexChecks = [
@@ -3212,6 +3428,9 @@ for (const route of [
   "/bitcoin-kao-novac/",
   "/bitcoin-konzultacija/",
   "/osobni-bitcoin-standard/",
+  "/osobno/",
+  "/obitelj/",
+  "/poduzetnici/",
   "/vodici/",
   "/sigurnost/",
   "/privatnost/",

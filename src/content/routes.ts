@@ -1,6 +1,12 @@
+import {
+  audienceCanonical,
+  audiencePages,
+  type AudienceSlug,
+} from "./audiences"
 import { guideHref, guides } from "./guides"
 import { resolveGuideCover } from "./guideVisuals"
 import {
+  audiencePageSchema,
   breadcrumbSchema,
   bitcoinConsultationPageSchema,
   bitcoinAdvicePageSchema,
@@ -46,6 +52,7 @@ export type RouteType =
   | "conversation"
   | "bitcoin-consultation"
   | "personal-bitcoin-standard"
+  | "audience"
   | "guides-index"
   | "guide"
   | "security"
@@ -447,6 +454,26 @@ export const personalBitcoinStandardRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
+const audienceOgImageFileBySlug: Record<AudienceSlug, string> = {
+  osobno: "osobno-hero.png",
+  obitelj: "obitelj-hero.png",
+  poduzetnici: "poduzetnici-hero.png",
+}
+
+export const audienceRouteMetas: RouteMeta[] = audiencePages.map((page) => ({
+  path: page.path,
+  title: page.seo.title,
+  description: page.seo.description,
+  canonical: audienceCanonical(page),
+  schema: audiencePageSchema(page),
+  type: "audience",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: `${SITE_URL}/images/audiences/${audienceOgImageFileBySlug[page.slug]}`,
+  ogImageWidth: 1672,
+  ogImageHeight: 941,
+}))
+
 export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   path: `/vodici/${guide.slug}`,
   title: `${guide.seoTitle ?? guide.title} | Bitcoin Savjetovanje`,
@@ -539,6 +566,7 @@ export const prerenderRoutes: RouteMeta[] = [
   conversationRoute,
   bitcoinConsultationRoute,
   personalBitcoinStandardRoute,
+  ...audienceRouteMetas,
   guidesIndexRoute,
   ...guideRouteMetas,
   ...guideAliasRouteMetas,
@@ -550,4 +578,17 @@ export function findGuideRouteMeta(slug: string | undefined) {
   return [...guideRouteMetas, ...guideAliasRouteMetas].find(
     (route) => route.path === `/vodici/${slug}`
   )
+}
+
+export function findAudienceRouteMeta(slug: AudienceSlug) {
+  const route = audienceRouteMetas.find(
+    (routeMeta) =>
+      routeMeta.path === audiencePages.find((page) => page.slug === slug)?.path
+  )
+
+  if (!route) {
+    throw new Error(`Audience route metadata not found for ${slug}`)
+  }
+
+  return route
 }

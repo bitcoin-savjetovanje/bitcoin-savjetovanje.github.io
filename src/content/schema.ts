@@ -6,6 +6,7 @@ import {
   type Guide,
 } from "./guides"
 import { offers } from "./offers"
+import { audienceCanonical, type AudiencePage } from "./audiences"
 import {
   EMAIL,
   OG_IMAGE_URL,
@@ -281,6 +282,53 @@ export function personalBitcoinStandardPageSchema() {
           name: "Osobni Bitcoin standard",
           item: personalBitcoinStandardSeo.canonical,
         },
+      ]),
+    ],
+  }
+}
+
+export function audiencePageSchema(page: AudiencePage) {
+  const canonical = audienceCanonical(page)
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: page.title,
+        description: page.seo.description,
+        url: canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin savjetovanje",
+          "osobni Bitcoin standard",
+          "sustav odluka",
+          "Bitcoin kao novac",
+          page.eyebrow,
+        ],
+      },
+      {
+        "@type": "Service",
+        name: page.eyebrow,
+        serviceType:
+          "Bitcoin savjetovanje za osobni, obiteljski ili poslovni okvir odluka",
+        description: page.seo.description,
+        provider: {
+          "@type": "ProfessionalService",
+          "@id": `${SITE_URL}/#service`,
+          name: "Bitcoin Savjetovanje",
+        },
+        areaServed: ["Hrvatska", "Online"],
+        url: canonical,
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: page.eyebrow, item: canonical },
       ]),
     ],
   }

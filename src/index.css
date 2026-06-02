@@ -8239,6 +8239,7 @@
 
 .audience-hero__visual {
   background: var(--paper-warm);
+  margin-top: calc(-1 * clamp(0.9rem, 1.3vw, 1.55rem));
 }
 
 .audience-hero .service-hero__actions {

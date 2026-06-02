@@ -8278,6 +8278,25 @@
   object-position: 82% 45%;
 }
 
+.audience-page--obitelj .audience-hero__visual {
+  margin-right: calc(-1 * clamp(1rem, 2.2vw, 2.8rem));
+}
+
+.audience-page--obitelj .audience-hero__picture {
+  width: calc(100% + clamp(7rem, 10vw, 12rem));
+  margin-right: calc(-1 * clamp(7rem, 10vw, 12rem));
+}
+
+.audience-page--obitelj .audience-hero .service-hero__image {
+  transform: scale(1.06) translate(-6.4%, -2.4%);
+}
+
+.audience-page--obitelj
+  .audience-hero
+  .service-hero__image.audience-hero__image--family {
+  object-position: 90% 45%;
+}
+
 .audience-hero .service-hero__image.audience-hero__image--business {
   object-position: 82% 45%;
 }

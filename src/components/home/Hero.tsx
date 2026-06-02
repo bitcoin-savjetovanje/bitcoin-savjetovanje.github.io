@@ -5,7 +5,7 @@ import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
 export function Hero() {
   return (
-    <section className="hero-section editorial-section">
+    <section className="home-hero hero-section editorial-section">
       <div className="hero-shell">
         <div className="hero-copy">
           <p className="hero-eyebrow">BITCOIN KAO NOVAC</p>

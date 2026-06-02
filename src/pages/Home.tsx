@@ -17,8 +17,8 @@ export function Home() {
         ogType={homeRoute.ogType}
         schema={homeRoute.schema as object}
       />
-      <div className="home-editorial-page">
-        <Hero />
+      <Hero />
+      <div className="home-editorial-page home-editorial-page--content">
         <RecognitionSection />
         <FrameworkSection />
         <ThreeLevelsSection />

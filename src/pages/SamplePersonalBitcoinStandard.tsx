@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { samplePersonalBitcoinStandardRoute } from "@/content/routes"
 import {
   CONVERSATION_PATH,
+  SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PDF_PATH,
 } from "@/content/site"
 
@@ -63,6 +64,25 @@ function SampleDocumentPreview() {
   )
 }
 
+function SampleStandardCoverPreview() {
+  return (
+    <figure className="standard-check-cover-card">
+      <img
+        src={SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH}
+        alt="Naslovnica PDF-a Primjer osobnog Bitcoin standarda"
+        width="1055"
+        height="1491"
+        loading="eager"
+        decoding="async"
+      />
+      <figcaption>
+        <FileText className="size-4" aria-hidden="true" />
+        Ogledni dokument
+      </figcaption>
+    </figure>
+  )
+}
+
 export function SamplePersonalBitcoinStandard() {
   return (
     <>
@@ -106,7 +126,7 @@ export function SamplePersonalBitcoinStandard() {
               </div>
             </div>
             <aside className="sample-standard-hero__visual">
-              <SampleDocumentPreview />
+              <SampleStandardCoverPreview />
             </aside>
           </div>
         </header>

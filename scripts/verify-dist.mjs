@@ -2771,12 +2771,16 @@ for (const [expected, label] of [
   ],
   [".guides-roadmap{max-width:none}", "guide roadmap is full width"],
   [
-    ".guides-roadmap__groups{grid-template-columns:repeat(3,minmax(0,1fr))",
-    "guide roadmap uses three columns",
+    ".guides-roadmap__groups{grid-template-columns:1fr",
+    "guide roadmap groups stack as full-width rows",
   ],
   [
-    ".guide-roadmap-card{box-shadow:none;background:0 0;border:0;border-radius:0;padding:0}",
-    "guide roadmap cards are visually simplified",
+    ".guides-roadmap__list{grid-template-columns:repeat(3,minmax(0,1fr))",
+    "guide roadmap cards use three columns per row",
+  ],
+  [
+    ".guide-roadmap-card{border:1px solid var(--area-color);padding:clamp(.9rem,1.45vw,1.1rem)}",
+    "guide roadmap cards are visible",
   ],
 ]) {
   assertIncludes("dist/assets/*.css", cssBundleText, expected, label)
@@ -2845,6 +2849,7 @@ assertArrayEquals(
     "/vodici/uskladivanje-kupovne-moci-bitcoina/",
     "/vodici/cijena-kao-mjera-vremena/",
     "/vodici/saylor-bitcoin-ciklus-ponuda-potraznja/",
+    "/vodici/ne-cekajte-savrseno-dno-bitcoina/",
     "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
     "/vodici/poslovni-bitcoin-nije-privatni-bitcoin/",
     "/vodici/obiteljski-bitcoin-trezor/",

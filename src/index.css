@@ -3303,9 +3303,8 @@
 }
 
 .guides-roadmap__groups {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.6rem);
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: clamp(1.15rem, 2.4vw, 2rem);
 }
 
 .guides-roadmap__group {
@@ -3313,7 +3312,7 @@
   border-color: color-mix(in oklab, var(--area-color), transparent 78%);
   background: color-mix(in oklab, var(--area-color), var(--paper) 94%);
   box-shadow: none;
-  padding: clamp(1.2rem, 2vw, 1.7rem);
+  padding: clamp(1.2rem, 2.1vw, 1.8rem);
 }
 
 .guides-roadmap__group-header {
@@ -3326,26 +3325,30 @@
 }
 
 .guides-roadmap__list {
-  gap: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.4rem);
 }
 
 .guides-roadmap__list li + li {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid
-    color-mix(in oklab, var(--area-color), transparent 78%);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.guides-roadmap__list li {
+  min-width: 0;
 }
 
 .guide-roadmap-card {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
+  padding: clamp(0.9rem, 1.45vw, 1.1rem);
+  border: 1px solid color-mix(in oklab, var(--area-color), transparent 76%);
+  border-radius: 0.75rem;
+  background: color-mix(in oklab, var(--paper), white 6%);
   box-shadow: none;
 }
 
 .guide-roadmap-card:hover {
-  border-color: transparent;
+  border-color: color-mix(in oklab, var(--area-color), transparent 48%);
 }
 
 .guide-roadmap-card__image {
@@ -3391,13 +3394,13 @@
 }
 
 @media (max-width: 1100px) {
-  .guides-roadmap__groups {
+  .guides-roadmap__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 760px) {
-  .guides-roadmap__groups,
+  .guides-roadmap__list,
   .starter-guides-panel > .grid {
     grid-template-columns: 1fr;
   }

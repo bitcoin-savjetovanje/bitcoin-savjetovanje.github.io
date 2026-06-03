@@ -75,6 +75,7 @@ const roadmapGroups = [
       "uskladivanje-kupovne-moci-bitcoina",
       "cijena-kao-mjera-vremena",
       "saylor-bitcoin-ciklus-ponuda-potraznja",
+      "ne-cekajte-savrseno-dno-bitcoina",
     ],
   },
   {

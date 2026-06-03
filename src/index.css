@@ -4520,8 +4520,11 @@
 
 .standard-check-teaser {
   display: grid;
-  grid-template-columns: minmax(0, 0.66fr) minmax(37rem, 1fr);
-  gap: clamp(1.5rem, 3.5vw, 3.4rem);
+  grid-template-areas:
+    "copy cover"
+    "actions cover";
+  grid-template-columns: minmax(0, 0.82fr) minmax(30rem, 0.78fr);
+  gap: clamp(1.15rem, 2vw, 1.55rem) clamp(1.5rem, 3.5vw, 3.5rem);
   align-items: center;
   border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 42%);
   border-bottom: 1px solid color-mix(in oklab, var(--line-warm), transparent 48%);
@@ -4537,6 +4540,10 @@
       transparent 18rem
     ),
     color-mix(in oklab, var(--paper), var(--brass-soft) 11%);
+}
+
+.standard-check-teaser__copy {
+  grid-area: copy;
 }
 
 .standard-check-teaser__copy h2 {
@@ -4608,6 +4615,7 @@
 }
 
 .standard-check-teaser__actions {
+  grid-area: actions;
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
@@ -4616,8 +4624,11 @@
 
 .sample-standard-teaser {
   display: grid;
-  grid-template-columns: minmax(0, 0.66fr) minmax(37rem, 1fr);
-  gap: clamp(1.5rem, 3.5vw, 3.4rem);
+  grid-template-areas:
+    "copy cover"
+    "actions cover";
+  grid-template-columns: minmax(0, 0.82fr) minmax(30rem, 0.78fr);
+  gap: clamp(1.15rem, 2vw, 1.55rem) clamp(1.5rem, 3.5vw, 3.5rem);
   align-items: center;
   background:
     radial-gradient(
@@ -4631,6 +4642,10 @@
       transparent 18rem
     ),
     color-mix(in oklab, var(--paper), var(--forest-soft) 13%);
+}
+
+.sample-standard-teaser__copy {
+  grid-area: copy;
 }
 
 .sample-standard-teaser__copy h2 {
@@ -4710,10 +4725,16 @@
 }
 
 .sample-standard-teaser__actions {
+  grid-area: actions;
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
   align-items: center;
+}
+
+.standard-check-teaser > .standard-check-cover-card,
+.sample-standard-teaser > .standard-check-cover-card {
+  grid-area: cover;
 }
 
 .framework-sculpture-grid {
@@ -8494,8 +8515,8 @@
 }
 
 .standard-check-hero .hero-shell {
-  grid-template-columns: minmax(0, 0.68fr) minmax(38rem, 1fr);
-  gap: clamp(2rem, 4vw, 4.4rem);
+  grid-template-columns: minmax(0, 0.82fr) minmax(31rem, 0.78fr);
+  gap: clamp(2rem, 4.5vw, 5rem);
   align-items: center;
   padding: clamp(4.5rem, 8vw, 7rem) clamp(1.6rem, 5.6vw, 5rem);
 }
@@ -8531,7 +8552,7 @@
 
 .standard-check-cover-card {
   position: relative;
-  width: min(100%, clamp(38rem, 54vw, 48rem));
+  width: min(100%, clamp(32rem, 43vw, 40rem));
   justify-self: end;
   margin: 0;
   border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 62%);
@@ -8710,8 +8731,8 @@
 }
 
 .sample-standard-hero .hero-shell {
-  grid-template-columns: minmax(0, 0.68fr) minmax(38rem, 1fr);
-  gap: clamp(2rem, 4vw, 4.4rem);
+  grid-template-columns: minmax(0, 0.82fr) minmax(31rem, 0.78fr);
+  gap: clamp(2rem, 4.5vw, 5rem);
   align-items: center;
   padding: clamp(4.5rem, 8vw, 7rem) clamp(1.6rem, 5.6vw, 5rem);
 }
@@ -8983,12 +9004,17 @@
 @media (max-width: 1180px) {
   .standard-check-teaser,
   .sample-standard-teaser {
+    grid-template-areas:
+      "copy"
+      "actions"
+      "cover";
     grid-template-columns: 1fr;
   }
 
-  .standard-check-teaser__panel,
-  .sample-standard-teaser__panel {
-    max-width: 24rem;
+  .standard-check-teaser > .standard-check-cover-card,
+  .sample-standard-teaser > .standard-check-cover-card {
+    justify-self: start;
+    max-width: 100%;
   }
 
   .standard-check-card-grid {

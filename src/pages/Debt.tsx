@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { debtRoute } from "@/content/routes"
@@ -274,6 +275,7 @@ export function Debt() {
             </div>
           </div>
         </section>
+        <StandardCheckCta dataCta="debt-standard-check" />
       </div>
     </>
   )

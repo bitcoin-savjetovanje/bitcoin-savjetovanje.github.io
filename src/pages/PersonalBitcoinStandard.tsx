@@ -1,9 +1,12 @@
-import { CalendarDays, Check, X } from "lucide-react"
+import { ArrowUpRight, CalendarDays, Check, FileText, X } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { personalBitcoinStandardRoute } from "@/content/routes"
-import { CONVERSATION_PATH } from "@/content/site"
+import {
+  CONVERSATION_PATH,
+  SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
+} from "@/content/site"
 
 const serviceVisualsPath = "/images/service-visuals"
 
@@ -341,6 +344,38 @@ export function PersonalBitcoinStandard() {
                 ))}
               </div>
             </div>
+          </section>
+
+          <section className="service-section service-final-cta service-sample-standard-cta">
+            <div
+              className="service-sample-standard-cta__icon"
+              aria-hidden="true"
+            >
+              <FileText />
+            </div>
+            <div>
+              <h2>Ne kupujete samo razgovor. Dobivate pisani sustav odluka.</h2>
+              <p>
+                Program završava konkretnim dokumentom: vašim osobnim Bitcoin
+                standardom. U njemu su zapisana pravila za novac, dug, davanje,
+                Bitcoin, neto imovinu, volatilnost, sigurnost i obiteljski
+                pristup. Ovdje možete pogledati ogledni primjer takvog
+                dokumenta.
+              </p>
+            </div>
+            <ul className="service-cta-list">
+              <li>
+                <Button asChild className="cta-primary home-primary-button">
+                  <a
+                    href={SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}
+                    data-cta="personal-standard-sample"
+                  >
+                    Preuzmite ogledni primjer
+                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                  </a>
+                </Button>
+              </li>
+            </ul>
           </section>
 
           <section className="service-section service-section--warm">

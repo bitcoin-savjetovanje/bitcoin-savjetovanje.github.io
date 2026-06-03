@@ -338,6 +338,10 @@ const custodySecurity = routeMap.get("/skrbnistvo-i-sigurnost/")
 const conversation = routeMap.get("/razgovor/")
 const bitcoinConsultation = routeMap.get("/bitcoin-konzultacija/")
 const personalBitcoinStandard = routeMap.get("/osobni-bitcoin-standard/")
+const samplePersonalBitcoinStandard = routeMap.get(
+  "/primjer-osobnog-bitcoin-standarda/"
+)
+const bitcoinStandardCheck = routeMap.get("/provjera-bitcoin-standarda/")
 const personalAudience = routeMap.get("/osobno/")
 const familyAudience = routeMap.get("/obitelj/")
 const businessAudience = routeMap.get("/poduzetnici/")
@@ -440,6 +444,9 @@ const requiredFiles = [
   "images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",
   "guide-assets/nunchuk-logo.png",
   "guide-assets/liana-logo.svg",
+  "downloads/sample-osobni-bitcoin-standard.pdf",
+  "downloads/7-provjera-osobnog-bitcoin-standarda.pdf",
+  "images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png",
   "razgovor/index.html",
   "proracun/index.html",
   "dug/index.html",
@@ -450,6 +457,8 @@ const requiredFiles = [
   "skrbnistvo-i-sigurnost/index.html",
   "bitcoin-konzultacija/index.html",
   "osobni-bitcoin-standard/index.html",
+  "primjer-osobnog-bitcoin-standarda/index.html",
+  "provjera-bitcoin-standarda/index.html",
   "osobno/index.html",
   "obitelj/index.html",
   "poduzetnici/index.html",
@@ -605,6 +614,7 @@ for (const absoluteHtmlPath of htmlFiles()) {
       context.includes("bez traženja") ||
       context.includes("bez dijeljenja") ||
       context.includes("bez predaje") ||
+      context.includes("bez seed") ||
       context.includes("što nikada")
 
     if (allowed) {
@@ -791,27 +801,15 @@ const homeChecks = [
   ["Od držanja Bitcoina", "hero title first line"],
   ["do uređenog sustava", "hero title second line"],
   ["odluka.", "hero title third line"],
-  [
-    "pojedince, obitelji i poduzetnike",
-    "business audience framing",
-  ],
-  [
-    "Dogovorite 15-minutni uvodni razgovor",
-    "primary intro call CTA copy",
-  ],
+  ["pojedince, obitelji i poduzetnike", "business audience framing"],
+  ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
   ['data-cta="hero-intro-call"', "hero CTA metadata"],
   [
     "Bez naknade i bez obveze. Ne upravljam sredstvima, ne prognoziram cijenu i nikada ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
     "hero trust note",
   ],
-  [
-    "home-hero-20260521.webp",
-    "sculpted home hero WebP asset",
-  ],
-  [
-    "home-hero-20260521.jpg",
-    "sculpted home hero JPEG fallback",
-  ],
+  ["home-hero-20260521.webp", "sculpted home hero WebP asset"],
+  ["home-hero-20260521.jpg", "sculpted home hero JPEG fallback"],
   [
     "Mediteranska radna scena sa sedam kamenih skulptura osobnog Bitcoin standarda",
     "sculpted home hero image alt text",
@@ -824,9 +822,34 @@ const homeChecks = [
   ["Ne morate znati koji paket trebate.", "recognition trust copy"],
   ['data-cta="recognition-intro-call"', "recognition CTA metadata"],
   [
-    "Okvir iz knjige: 7 područja koja treba urediti",
-    "framework section title",
+    "Provjerite je li vaš Bitcoin standard stvaran",
+    "home standard check title",
   ],
+  [
+    "Preuzmite radni PDF “7 provjera osobnog Bitcoin standarda”",
+    "home standard check copy",
+  ],
+  ['href="/provjera-bitcoin-standarda/"', "home standard check href"],
+  ['data-cta="home-standard-check"', "home standard check CTA metadata"],
+  [
+    'data-link="home-standard-check-conversation"',
+    "home standard check conversation metadata",
+  ],
+  [
+    "Pogledajte kako izgleda osobni Bitcoin standard",
+    "home sample standard title",
+  ],
+  [
+    "Anonimni primjer dokumenta pokazuje što znači pretvoriti Bitcoin iz odvojene imovine u sustav odluka",
+    "home sample standard copy",
+  ],
+  ['href="/primjer-osobnog-bitcoin-standarda/"', "home sample standard href"],
+  ['data-cta="home-sample-standard"', "home sample standard CTA metadata"],
+  [
+    'data-link="home-sample-standard-conversation"',
+    "home sample standard conversation metadata",
+  ],
+  ["Okvir iz knjige: 7 područja koja treba urediti", "framework section title"],
   ["framework-sculpture-grid", "framework sculpture grid markup"],
   ["framework-sculpture-image", "framework sculpture image markup"],
   ["area-01-budget.webp", "framework budget sculpture asset"],
@@ -874,10 +897,7 @@ const homeChecks = [
     "business level copy",
   ],
   ['href="/poduzetnici/"', "business audience href"],
-  [
-    "Odaberite kontekst koji vam je najbliži.",
-    "three levels context CTA copy",
-  ],
+  ["Odaberite kontekst koji vam je najbliži.", "three levels context CTA copy"],
   ["Osobni put", "personal audience CTA"],
   ["Obiteljski put", "family audience CTA"],
   ["Poslovni put", "business audience CTA"],
@@ -935,24 +955,24 @@ const homeChecks = [
   ["Saznajte više o meni", "about CTA copy"],
   ['alt="Pavao Pahljina"', "about portrait alt text"],
   ["Knjiga u nastajanju", "book section eyebrow"],
-  [
-    "Bitcoin kao novac:",
-    "book section title first line",
-  ],
-  [
-    "Praktični vodič",
-    "book section title second line",
-  ],
+  ["Bitcoin kao novac:", "book section title first line"],
+  ["Praktični vodič", "book section title second line"],
   [
     "Knjiga koja povezuje bezvremenske principe novca s praktičnim koracima za svakodnevni život.",
     "book section copy",
   ],
   ["Uskoro dostupno u pretprodaji", "book preorder checklist item"],
   ["Radna bilježnica uz svako poglavlje", "book workbook checklist item"],
-  ["Bez tehničkog žargona, fokus na život", "book plain language checklist item"],
+  [
+    "Bez tehničkog žargona, fokus na život",
+    "book plain language checklist item",
+  ],
   ["USKORO", "book badge"],
   ["ne čuvam vaš Bitcoin", "footer no custody disclaimer"],
-  ["ne tražim seed phrase ili privatne ključeve", "footer seed phrase disclaimer"],
+  [
+    "ne tražim seed phrase ili privatne ključeve",
+    "footer seed phrase disclaimer",
+  ],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   [
     "https://bitcoin-savjetovanje.com/og-bitcoin-kao-novac.png",
@@ -962,10 +982,7 @@ const homeChecks = [
   ['data-link="footer-privacy"', "footer privacy link metadata"],
   ['data-link="footer-osobno"', "footer personal audience link metadata"],
   ['data-link="footer-obitelj"', "footer family audience link metadata"],
-  [
-    'data-link="footer-poduzetnici"',
-    "footer business audience link metadata",
-  ],
+  ['data-link="footer-poduzetnici"', "footer business audience link metadata"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/" />',
     "home canonical URL",
@@ -1216,8 +1233,22 @@ assertBefore(
   "index.html",
   homeHtml,
   "Imam Bitcoin, ali nemam pravila.",
+  "Provjerite je li vaš Bitcoin standard stvaran",
+  "recognition before standard check"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Provjerite je li vaš Bitcoin standard stvaran",
+  "Pogledajte kako izgleda osobni Bitcoin standard",
+  "standard check before sample standard"
+)
+assertBefore(
+  "index.html",
+  homeHtml,
+  "Pogledajte kako izgleda osobni Bitcoin standard",
   "Okvir iz knjige: 7 područja koja treba urediti",
-  "recognition before framework"
+  "sample standard before framework"
 )
 assertBefore(
   "index.html",
@@ -1231,12 +1262,42 @@ if (!home) {
   fail("Route metadata for homepage is missing")
 }
 
+function assertStandardCheckCta(relativePath, html, dataCta) {
+  assertIncludes(
+    relativePath,
+    html,
+    "Želite provjeriti svoj Bitcoin standard?",
+    "standard check CTA title"
+  )
+  assertIncludes(
+    relativePath,
+    html,
+    "Preuzmite besplatni radni PDF i prođite kroz 7 osnovnih provjera.",
+    "standard check CTA copy"
+  )
+  assertIncludes(
+    relativePath,
+    html,
+    'href="/provjera-bitcoin-standarda/"',
+    "standard check CTA href"
+  )
+  assertIncludes(
+    relativePath,
+    html,
+    `data-cta="${dataCta}"`,
+    "standard check CTA metadata"
+  )
+}
+
 const budgetHtml = readFile("proracun/index.html")
 const budgetChecks = [
   ["Proračun | Bitcoin Savjetovanje", "budget page title"],
   ["topic-hero-v2", "budget v2 hero markup"],
   ["DIO I · BEZVREMENSKI RED U NOVCU", "budget eyebrow"],
-  ["Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali prioritet.", "budget hero lead"],
+  [
+    "Novac ne nestaje. Samo odlazi na mjesta kojima nismo dali prioritet.",
+    "budget hero lead",
+  ],
   ["/images/proracun-hero-20260521.webp", "budget hero versioned WebP image"],
   ["/images/proracun-hero-20260521.jpg", "budget hero versioned JPEG image"],
   ["Mediteranska radna scena s proračunom", "budget hero image alt"],
@@ -1253,7 +1314,10 @@ const budgetChecks = [
   ["Kome je ovo korisno", "budget audience section title"],
   ["Vodiči iz ovog dijela", "budget guides section title"],
   ["Proračun je prvi korak.", "budget principle title"],
-  ["Bitcoin ne uklanja potrebu za redom — pojačava je.", "budget principle copy"],
+  [
+    "Bitcoin ne uklanja potrebu za redom — pojačava je.",
+    "budget principle copy",
+  ],
   ["Bitcoin kao novac — knjiga u nastajanju", "budget book panel title"],
   ['href="/vodici/svaki-euro-ima-namjenu/"', "budget guide link"],
   ['href="/vodici/stvarni-visak/"', "budget surplus guide link"],
@@ -1268,6 +1332,11 @@ const budgetChecks = [
 for (const [expected, label] of budgetChecks) {
   assertIncludes("proracun/index.html", budgetHtml, expected, label)
 }
+assertStandardCheckCta(
+  "proracun/index.html",
+  budgetHtml,
+  "budget-standard-check"
+)
 
 assertCount(
   "proracun/index.html",
@@ -1308,7 +1377,10 @@ const debtChecks = [
   ["Bitcoin kao novac — knjiga u nastajanju", "debt book panel title"],
   ['href="/vodici/dug-je-buduci-novac/"', "debt future money guide link"],
   ['href="/vodici/dug-ili-bitcoin/"', "debt or Bitcoin guide link"],
-  ['href="/vodici/ne-zaduzujte-se-za-bitcoin/"', "debt no debt for Bitcoin guide link"],
+  [
+    'href="/vodici/ne-zaduzujte-se-za-bitcoin/"',
+    "debt no debt for Bitcoin guide link",
+  ],
   ['href="/razgovor/"', "debt links to conversation"],
   [
     '<link rel="canonical" href="https://bitcoin-savjetovanje.com/dug/" />',
@@ -1320,6 +1392,7 @@ const debtChecks = [
 for (const [expected, label] of debtChecks) {
   assertIncludes("dug/index.html", debtHtml, expected, label)
 }
+assertStandardCheckCta("dug/index.html", debtHtml, "debt-standard-check")
 
 assertCount(
   "dug/index.html",
@@ -1355,9 +1428,15 @@ const givingChecks = [
   ["Kome je ovo korisno", "giving audience section title"],
   ["Vodiči iz ovog dijela", "giving guides section title"],
   ["Davanje je dio reda.", "giving principle title"],
-  ["Bitcoin ne uklanja potrebu za davanjem — pojačava je.", "giving principle copy"],
+  [
+    "Bitcoin ne uklanja potrebu za davanjem — pojačava je.",
+    "giving principle copy",
+  ],
   ["Bitcoin kao novac — knjiga u nastajanju", "giving book panel title"],
-  ['href="/vodici/davanje-u-proracunu-nulte-osnove/"', "giving budget guide link"],
+  [
+    'href="/vodici/davanje-u-proracunu-nulte-osnove/"',
+    "giving budget guide link",
+  ],
   ['href="/vodici/davanje-bez-duga/"', "giving without debt guide link"],
   ['href="/vodici/novac-dolazi-od-ljudi/"', "giving people guide link"],
   ['href="/razgovor/"', "giving links to conversation"],
@@ -1371,6 +1450,11 @@ const givingChecks = [
 for (const [expected, label] of givingChecks) {
   assertIncludes("davanje/index.html", givingHtml, expected, label)
 }
+assertStandardCheckCta(
+  "davanje/index.html",
+  givingHtml,
+  "giving-standard-check"
+)
 
 assertCount(
   "davanje/index.html",
@@ -1423,8 +1507,18 @@ const bitcoinMoneyChecks = [
 ]
 
 for (const [expected, label] of bitcoinMoneyChecks) {
-  assertIncludes("bitcoin-kao-novac/index.html", bitcoinMoneyHtml, expected, label)
+  assertIncludes(
+    "bitcoin-kao-novac/index.html",
+    bitcoinMoneyHtml,
+    expected,
+    label
+  )
 }
+assertStandardCheckCta(
+  "bitcoin-kao-novac/index.html",
+  bitcoinMoneyHtml,
+  "bitcoin-money-standard-check"
+)
 
 assertCount(
   "bitcoin-kao-novac/index.html",
@@ -1490,8 +1584,18 @@ const netWorthChecks = [
 ]
 
 for (const [expected, label] of netWorthChecks) {
-  assertIncludes("bitcoin-i-neto-imovina/index.html", netWorthHtml, expected, label)
+  assertIncludes(
+    "bitcoin-i-neto-imovina/index.html",
+    netWorthHtml,
+    expected,
+    label
+  )
 }
+assertStandardCheckCta(
+  "bitcoin-i-neto-imovina/index.html",
+  netWorthHtml,
+  "net-worth-standard-check"
+)
 
 assertCount(
   "bitcoin-i-neto-imovina/index.html",
@@ -1614,6 +1718,11 @@ for (const [expected, label] of timeVolatilityChecks) {
     label
   )
 }
+assertStandardCheckCta(
+  "bitcoin-vrijeme-i-volatilnost/index.html",
+  timeVolatilityHtml,
+  "time-volatility-standard-check"
+)
 
 assertCount(
   "bitcoin-vrijeme-i-volatilnost/index.html",
@@ -1741,6 +1850,11 @@ for (const [expected, label] of custodySecurityChecks) {
     label
   )
 }
+assertStandardCheckCta(
+  "skrbnistvo-i-sigurnost/index.html",
+  custodySecurityHtml,
+  "custody-security-standard-check"
+)
 
 assertCount(
   "skrbnistvo-i-sigurnost/index.html",
@@ -1784,14 +1898,8 @@ const conversationChecks = [
     "Vidimo gdje ste na putu od držanja Bitcoina do sustava odluka — osobno, obiteljski ili poslovno.",
     "conversation scope subheadline",
   ],
-  [
-    "/images/razgovor-hero-20260601.webp",
-    "conversation hero WebP image",
-  ],
-  [
-    "/images/razgovor-hero-20260601.jpg",
-    "conversation hero JPEG fallback",
-  ],
+  ["/images/razgovor-hero-20260601.webp", "conversation hero WebP image"],
+  ["/images/razgovor-hero-20260601.jpg", "conversation hero JPEG fallback"],
   [
     "Mediteranska scena s kalendarom, pitanjem i simbolima za uvodni Bitcoin razgovor.",
     "conversation hero image alt text",
@@ -1817,7 +1925,10 @@ const conversationChecks = [
     'data-cta="conversation-inline-calendar-mobile"',
     "inline calendar mobile modal CTA metadata",
   ],
-  ["Još primjera pitanja, ako trebate pomoć", "question examples after calendar"],
+  [
+    "Još primjera pitanja, ako trebate pomoć",
+    "question examples after calendar",
+  ],
   ["Osobna pitanja", "personal questions accordion"],
   ["Obiteljska pitanja", "family questions accordion"],
   ["Poslovna pitanja", "business questions accordion"],
@@ -1833,6 +1944,19 @@ const conversationChecks = [
   [
     "Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.",
     "conversation no forced paid continuation copy",
+  ],
+  ["Želite vidjeti krajnji rezultat?", "conversation sample standard title"],
+  [
+    "anonimni ogledni primjer osobnog Bitcoin standarda",
+    "conversation sample standard copy",
+  ],
+  [
+    'href="/primjer-osobnog-bitcoin-standarda/"',
+    "conversation sample standard href",
+  ],
+  [
+    'data-cta="conversation-sample-standard"',
+    "conversation sample standard CTA metadata",
   ],
   ["Spremni za uvodni razgovor?", "conversation final CTA title"],
   ["Ne morate imati gotov plan", "conversation final CTA plan reassurance"],
@@ -1856,15 +1980,17 @@ const conversationChecks = [
     "Bitcoin konzultacija page link",
   ],
   ['href="/bitcoin-konzultacija/"', "Bitcoin konzultacija href"],
-  [
-    'data-link="conversation-personal-standard"',
-    "personal standard page link",
-  ],
+  ['data-link="conversation-personal-standard"', "personal standard page link"],
   ['href="/osobni-bitcoin-standard/"', "personal standard href"],
-  ['data-cta="conversation-page-final-calendar"', "final calendar CTA metadata"],
-  ['data-link="conversation-page-final-security"', "final security link metadata"],
+  [
+    'data-cta="conversation-page-final-calendar"',
+    "final calendar CTA metadata",
+  ],
+  [
+    'data-link="conversation-page-final-security"',
+    "final security link metadata",
+  ],
 ]
-
 
 for (const [expected, label] of conversationChecks) {
   assertIncludes("razgovor/index.html", conversationHtml, expected, label)
@@ -1962,7 +2088,12 @@ const bitcoinAdviceChecks = [
 ]
 
 for (const [expected, label] of bitcoinAdviceChecks) {
-  assertIncludes("bitcoin-savjetovanje/index.html", bitcoinAdviceHtml, expected, label)
+  assertIncludes(
+    "bitcoin-savjetovanje/index.html",
+    bitcoinAdviceHtml,
+    expected,
+    label
+  )
 }
 
 const bitcoinConsultationHtml = readFile("bitcoin-konzultacija/index.html")
@@ -2090,10 +2221,7 @@ const personalStandardChecks = [
   ["Osobni Bitcoin standard", "personal standard title"],
   ["4–6 tjedana", "personal standard duration"],
   ["1.500 EUR", "personal standard price"],
-  [
-    "pisani osobni Bitcoin standard",
-    "personal standard written outcome copy",
-  ],
+  ["pisani osobni Bitcoin standard", "personal standard written outcome copy"],
   [
     "4–6 tjedana rada na pisanom sustavu odluka za život s Bitcoinom.",
     "personal standard hero lead",
@@ -2122,25 +2250,35 @@ const personalStandardChecks = [
     "Na kraju programa imate pisani osobni Bitcoin standard",
     "personal standard outcome section",
   ],
-  ["poslovni sloj ako je primjenjivo", "personal standard compact business outcome"],
+  [
+    "poslovni sloj ako je primjenjivo",
+    "personal standard compact business outcome",
+  ],
   [
     "Kako izgleda pisani osobni Bitcoin standard?",
     "personal standard deliverable mockup section",
   ],
+  [
+    "Ne kupujete samo razgovor. Dobivate pisani sustav odluka.",
+    "personal standard sample section title",
+  ],
+  [
+    "Program završava konkretnim dokumentom",
+    "personal standard sample section copy",
+  ],
+  [
+    'href="/primjer-osobnog-bitcoin-standarda/"',
+    "personal standard sample href",
+  ],
+  [
+    'data-cta="personal-standard-sample"',
+    "personal standard sample CTA metadata",
+  ],
   ["Tri sloja standarda", "personal standard layers section"],
-  [
-    "Privatni i obiteljski sloj",
-    "personal standard private family layer",
-  ],
-  [
-    "Poslovni sloj, ako je primjenjivo",
-    "personal standard business layer",
-  ],
+  ["Privatni i obiteljski sloj", "personal standard private family layer"],
+  ["Poslovni sloj, ako je primjenjivo", "personal standard business layer"],
   ["Sigurnosni sloj", "personal standard security layer"],
-  [
-    "Kako radimo kroz 4–6 tjedana",
-    "personal standard program steps section",
-  ],
+  ["Kako radimo kroz 4–6 tjedana", "personal standard program steps section"],
   ["Novac, obveze i stvarni višak", "budget step"],
   ["Dug i davanje", "debt giving step"],
   ["Bitcoin kao novac", "Bitcoin money step"],
@@ -2160,7 +2298,10 @@ const personalStandardChecks = [
   ["Cijena i ulaz", "price and entry section"],
   ["Ovo nije", "not this section"],
   ["nije investicijski savjet", "no investment advice"],
-  ["nije porezni, pravni ili računovodstveni savjet", "no tax legal accounting advice"],
+  [
+    "nije porezni, pravni ili računovodstveni savjet",
+    "no tax legal accounting advice",
+  ],
   ["nije traženje seed phrase", "no seed phrase request"],
   ["Česta pitanja o programu", "program FAQ"],
   ['href="/razgovor/"', "personal standard links to conversation"],
@@ -2202,6 +2343,154 @@ assertCount(
 
 if (!personalBitcoinStandard) {
   fail("Route metadata for /osobni-bitcoin-standard/ is missing")
+}
+
+const samplePersonalStandardHtml = readFile(
+  "primjer-osobnog-bitcoin-standarda/index.html"
+)
+const samplePersonalStandardChecks = [
+  ["OGLEDNI PRIMJER", "sample standard eyebrow"],
+  ["Kako izgleda osobni Bitcoin standard?", "sample standard page title"],
+  [
+    "Anonimni primjer dokumenta koji pokazuje kako se Bitcoin može pretvoriti iz odvojene imovine u jasan sustav odluka.",
+    "sample standard hero subtitle",
+  ],
+  [
+    'href="/downloads/sample-osobni-bitcoin-standard.pdf"',
+    "sample standard PDF href",
+  ],
+  ['data-cta="sample-standard-pdf"', "sample standard PDF CTA metadata"],
+  [
+    'data-link="sample-standard-conversation"',
+    "sample standard conversation metadata",
+  ],
+  ["Što dokument pokazuje", "sample standard structure section"],
+  [
+    "Ovo nije stvarni klijent i nije financijski, porezni ni pravni savjet.",
+    "sample standard no advice disclaimer",
+  ],
+  ["Proračun i stvarni višak", "sample standard budget card"],
+  ["Dug i razduživanje", "sample standard debt card"],
+  ["Bitcoin kao primarni novac", "sample standard Bitcoin money card"],
+  ["90-dnevni plan provedbe", "sample standard implementation plan card"],
+  ["Za koga je primjer koristan", "sample standard audience section"],
+  [
+    "kako sigurnost pretvoriti u ponovljiv proces",
+    "sample standard audience copy",
+  ],
+  [
+    "Ne kupujete samo razgovor. Gradite sustav.",
+    "sample standard system section",
+  ],
+  ["Želite svoj osobni Bitcoin standard?", "sample standard final CTA title"],
+  [
+    "Bez slanja osjetljivih podataka, bez seed phrasea, bez privatnih ključeva i bez pristupa novčaniku.",
+    "sample standard safety CTA copy",
+  ],
+  [
+    'data-cta="sample-standard-final-conversation"',
+    "sample standard final conversation metadata",
+  ],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/primjer-osobnog-bitcoin-standarda/" />',
+    "sample standard canonical URL",
+  ],
+  ["Primjer osobnog Bitcoin standarda", "sample standard WebPage schema"],
+]
+
+for (const [expected, label] of samplePersonalStandardChecks) {
+  assertIncludes(
+    "primjer-osobnog-bitcoin-standarda/index.html",
+    samplePersonalStandardHtml,
+    expected,
+    label
+  )
+}
+
+assertCount(
+  "primjer-osobnog-bitcoin-standarda/index.html",
+  samplePersonalStandardHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!samplePersonalBitcoinStandard) {
+  fail("Route metadata for /primjer-osobnog-bitcoin-standarda/ is missing")
+}
+
+const standardCheckHtml = readFile("provjera-bitcoin-standarda/index.html")
+const standardCheckChecks = [
+  ["BESPLATNI RADNI PDF", "standard check eyebrow"],
+  ["7 provjera osobnog Bitcoin standarda", "standard check page title"],
+  [
+    "Radni PDF za osobu koja ima Bitcoin, ali želi provjeriti ima li stvarna pravila za proračun, dug, davanje, neto imovinu, volatilnost, sigurnost i obitelj.",
+    "standard check hero subtitle",
+  ],
+  [
+    'href="/downloads/7-provjera-osobnog-bitcoin-standarda.pdf"',
+    "standard check PDF href",
+  ],
+  ['data-cta="standard-check-pdf"', "standard check PDF CTA metadata"],
+  [
+    'data-link="standard-check-conversation"',
+    "standard check conversation metadata",
+  ],
+  [
+    "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png",
+    "standard check cover image",
+  ],
+  ["Što provjeravate?", "standard check cards section"],
+  ["Znate li koji je novac stvarno slobodan?", "standard check budget card"],
+  ["Zauzima li dug vašu budućnost?", "standard check debt card"],
+  [
+    "Je li Bitcoin odvojena imovina ili dio sustava?",
+    "standard check Bitcoin money card",
+  ],
+  [
+    "Zna li netko što treba učiniti ako vi ne možete?",
+    "standard check security family card",
+  ],
+  ["Za koga je PDF?", "standard check audience section"],
+  [
+    "Nije namijenjen trgovanju, prognoziranju cijene ni tehničkom postavljanju novčanika.",
+    "standard check boundary copy",
+  ],
+  ["Što nakon provjere?", "standard check next step section"],
+  [
+    "Bez slanja osjetljivih podataka, bez seed phrasea, bez privatnih ključeva i bez pristupa novčaniku.",
+    "standard check safety CTA copy",
+  ],
+  [
+    'data-cta="standard-check-final-conversation"',
+    "standard check final conversation metadata",
+  ],
+  [
+    '<link rel="canonical" href="https://bitcoin-savjetovanje.com/provjera-bitcoin-standarda/" />',
+    "standard check canonical URL",
+  ],
+  ["7 provjera osobnog Bitcoin standarda", "standard check WebPage schema"],
+]
+
+for (const [expected, label] of standardCheckChecks) {
+  assertIncludes(
+    "provjera-bitcoin-standarda/index.html",
+    standardCheckHtml,
+    expected,
+    label
+  )
+}
+
+assertCount(
+  "provjera-bitcoin-standarda/index.html",
+  standardCheckHtml,
+  '<link rel="canonical"',
+  1,
+  "canonical tag"
+)
+
+if (!bitcoinStandardCheck) {
+  fail("Route metadata for /provjera-bitcoin-standarda/ is missing")
 }
 
 const audiencePageChecks = [
@@ -2274,10 +2563,7 @@ const audiencePageChecks = [
       ["Obiteljski rizik često nije tehnički", "family problem section"],
       ["Jedna osoba nosi previše znanja.", "family problem card"],
       ["Što obitelj dobiva", "family outcome section"],
-      [
-        "Postoji prvi korak oporavka bez otkrivanja tajni.",
-        "family outcome",
-      ],
+      ["Postoji prvi korak oporavka bez otkrivanja tajni.", "family outcome"],
       ["Kako slažemo obiteljski okvir", "family method section"],
       ['href="/sigurnost/"', "family security page link"],
       [
@@ -2337,14 +2623,8 @@ const audiencePageChecks = [
         "business private/company guide href",
       ],
       ['href="/bitcoin-konzultacija/"', "business consultation link"],
-      [
-        'data-cta="audience-poduzetnici-primary"',
-        "business hero CTA metadata",
-      ],
-      [
-        'data-cta="audience-poduzetnici-final"',
-        "business final CTA metadata",
-      ],
+      ['data-cta="audience-poduzetnici-primary"', "business hero CTA metadata"],
+      ['data-cta="audience-poduzetnici-final"', "business final CTA metadata"],
       [
         '<link rel="canonical" href="https://bitcoin-savjetovanje.com/poduzetnici/" />',
         "business audience canonical URL",
@@ -2412,20 +2692,14 @@ const guideIndexChecks = [
   ['href="#poduzetnici"', "guide section nav entrepreneurs"],
   ['href="#mapa"', "guide section nav map"],
   ['href="#napredno"', "guide section nav advanced"],
-  [
-    "Ako želite samo početak, krenite ovdje",
-    "guide index starting point copy",
-  ],
+  ["Ako želite samo početak, krenite ovdje", "guide index starting point copy"],
   ["Svaki euro ima namjenu", "starter guide 1"],
   ["Dug ili Bitcoin?", "starter guide 2"],
   ["Bitcoin kao novac", "starter guide 3"],
   ["Kad to prođete, nastavite kroz cijelu mapu.", "starter transition copy"],
   ["Ako vodite posao, krenite ovdje", "guide business path title"],
   ["Prihod nije slobodan novac", "business income guide title"],
-  [
-    "Poslovni Bitcoin nije privatni Bitcoin",
-    "business Bitcoin guide title",
-  ],
+  ["Poslovni Bitcoin nije privatni Bitcoin", "business Bitcoin guide title"],
   ["Cijela mapa vodiča", "guide full map section"],
   ["Napredno / često se mijenja", "guide advanced contextual section"],
   [
@@ -2439,7 +2713,10 @@ const guideIndexChecks = [
   ["Neto imovina", "guide roadmap net worth"],
   ["Vrijeme i volatilnost", "guide roadmap time volatility"],
   ["Sigurnost i obitelj", "guide roadmap security family"],
-  ["Bitcoin kao stopa prepreke za financijske odluke", "guide hurdle rate title"],
+  [
+    "Bitcoin kao stopa prepreke za financijske odluke",
+    "guide hurdle rate title",
+  ],
   ["Od društva duga prema društvu vlasništva", "guide ownership society title"],
   ["Digitalni kredit nije Bitcoin", "guide digital credit title"],
   ['href="#proracun"', "budget category chip"],
@@ -2483,7 +2760,10 @@ for (const [expected, label] of [
     ".guides-index-hero__book img{border:1px solid var(--book-border);border-radius:.22rem .5rem .5rem .22rem;width:min(18rem,54%)",
     "guide index book cover is larger in homepage hero frame",
   ],
-  [".starter-guides-panel{max-width:none}", "starter guide panel is full width"],
+  [
+    ".starter-guides-panel{max-width:none}",
+    "starter guide panel is full width",
+  ],
   [".guides-roadmap{max-width:none}", "guide roadmap is full width"],
   [
     ".guides-roadmap__groups{grid-template-columns:repeat(3,minmax(0,1fr))",
@@ -2688,10 +2968,7 @@ const privacyChecks = [
   ["Opći, anonimizirani uvidi", "privacy anonymized insights copy"],
   ["Za dogovor termina koristi se Cal.com", "privacy tools section"],
   ["Brisanje ili izmjena podataka", "privacy deletion section"],
-  [
-    "Seed phrase i privatni ključevi se nikada ne šalju",
-    "privacy safety rule",
-  ],
+  ["Seed phrase i privatni ključevi se nikada ne šalju", "privacy safety rule"],
   ['href="/razgovor/"', "privacy page links to conversation"],
   ['data-cta="privacy-intro-call"', "privacy CTA metadata"],
   [
@@ -2716,8 +2993,7 @@ if (!privacy) {
   fail("Route metadata for privacy page is missing")
 }
 
-const defaultGuideFinalCtaTitle =
-  "Želite ovo primijeniti na svoju situaciju?"
+const defaultGuideFinalCtaTitle = "Želite ovo primijeniti na svoju situaciju?"
 const guideFinalCtaTitles = new Map([
   [
     "/vodici/bitcoin-kao-stopa-prepreke",
@@ -2757,7 +3033,12 @@ for (const guidePath of requiredGuidePaths) {
   assertIncludes(relativePath, html, '"@type":"Article"', "Article schema")
   assertIncludes(relativePath, html, "BreadcrumbList", "BreadcrumbList schema")
   assertIncludes(relativePath, html, "Vrijeme čitanja", "reading time")
-  assertIncludes(relativePath, html, "guide-meta-badges", "guide metadata badges")
+  assertIncludes(
+    relativePath,
+    html,
+    "guide-meta-badges",
+    "guide metadata badges"
+  )
   assertIncludes(relativePath, html, "U ovom vodiču", "table of contents")
   assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
   assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
@@ -3125,7 +3406,12 @@ for (const guideCheck of focusedGuideChecks) {
         ? html
         : visibleText
 
-    assertIncludes(guideCheck.path, contents, expected, `guide copy: ${expected}`)
+    assertIncludes(
+      guideCheck.path,
+      contents,
+      expected,
+      `guide copy: ${expected}`
+    )
   }
 }
 
@@ -3164,7 +3450,12 @@ for (const [expected, label] of [
   ],
   ['aria-label="Objasni pojam: BIP 112"', "BIP 112 glossary"],
 ]) {
-  assertIncludes(timedRecoveryGuidePath, timedRecoveryGuideHtml, expected, label)
+  assertIncludes(
+    timedRecoveryGuidePath,
+    timedRecoveryGuideHtml,
+    expected,
+    label
+  )
 }
 
 for (const [expected, label] of [
@@ -3194,7 +3485,12 @@ for (const [expected, label] of [
     "timed recovery guide slug attribute",
   ],
 ]) {
-  assertIncludes(timedRecoveryGuidePath, timedRecoveryGuideHtml, expected, label)
+  assertIncludes(
+    timedRecoveryGuidePath,
+    timedRecoveryGuideHtml,
+    expected,
+    label
+  )
 }
 
 assertCount(
@@ -3428,6 +3724,8 @@ for (const route of [
   "/bitcoin-kao-novac/",
   "/bitcoin-konzultacija/",
   "/osobni-bitcoin-standard/",
+  "/primjer-osobnog-bitcoin-standarda/",
+  "/provjera-bitcoin-standarda/",
   "/osobno/",
   "/obitelj/",
   "/poduzetnici/",

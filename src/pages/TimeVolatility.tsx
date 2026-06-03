@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { timeVolatilityRoute } from "@/content/routes"
@@ -281,6 +282,7 @@ export function TimeVolatility() {
             </div>
           </div>
         </section>
+        <StandardCheckCta dataCta="time-volatility-standard-check" />
       </div>
     </>
   )

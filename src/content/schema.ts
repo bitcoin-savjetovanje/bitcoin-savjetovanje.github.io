@@ -13,10 +13,12 @@ import {
   SITE_URL,
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
+  bitcoinStandardCheckSeo,
   conversationSeo,
   guidesIndexSeo,
   personalBitcoinStandardSeo,
   privacySeo,
+  samplePersonalBitcoinStandardSeo,
   securitySeo,
 } from "./site"
 
@@ -281,6 +283,84 @@ export function personalBitcoinStandardPageSchema() {
         {
           name: "Osobni Bitcoin standard",
           item: personalBitcoinStandardSeo.canonical,
+        },
+      ]),
+    ],
+  }
+}
+
+export function samplePersonalBitcoinStandardPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Primjer osobnog Bitcoin standarda",
+        description: samplePersonalBitcoinStandardSeo.description,
+        url: samplePersonalBitcoinStandardSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "osobni Bitcoin standard",
+          "ogledni primjer dokumenta",
+          "Bitcoin kao novac",
+          "proračun",
+          "dug",
+          "davanje",
+          "neto imovina",
+          "volatilnost",
+          "Bitcoin sigurnost",
+          "obiteljski pristup Bitcoinu",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "Primjer osobnog Bitcoin standarda",
+          item: samplePersonalBitcoinStandardSeo.canonical,
+        },
+      ]),
+    ],
+  }
+}
+
+export function bitcoinStandardCheckPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "7 provjera osobnog Bitcoin standarda",
+        description: bitcoinStandardCheckSeo.description,
+        url: bitcoinStandardCheckSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "osobni Bitcoin standard",
+          "radni PDF",
+          "Bitcoin kao novac",
+          "proračun",
+          "dug",
+          "davanje",
+          "neto imovina",
+          "volatilnost",
+          "Bitcoin sigurnost",
+          "obiteljski pristup Bitcoinu",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "7 provjera osobnog Bitcoin standarda",
+          item: bitcoinStandardCheckSeo.canonical,
         },
       ]),
     ],

@@ -1,6 +1,7 @@
 import { BookOpen, CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
 import { resolveGuideCover } from "@/content/guideVisuals"
@@ -246,6 +247,7 @@ export function BitcoinMoney() {
             </div>
           </div>
         </section>
+        <StandardCheckCta dataCta="bitcoin-money-standard-check" />
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-import { CalendarDays, Check } from "lucide-react"
+import { ArrowUpRight, CalendarDays, Check, FileText } from "lucide-react"
 import { useState } from "react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
@@ -9,6 +9,7 @@ import { conversationRoute } from "@/content/routes"
 import {
   BITCOIN_CONSULTATION_PATH,
   PERSONAL_BITCOIN_STANDARD_PATH,
+  SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
 } from "@/content/site"
 
 const topExamples = [
@@ -244,6 +245,35 @@ export function Conversation() {
               </a>
               . Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.
             </p>
+          </section>
+
+          <section className="conversation-sample-card">
+            <div className="conversation-sample-card__icon" aria-hidden="true">
+              <FileText />
+            </div>
+            <div>
+              <h2 className="text-2xl font-semibold">
+                Želite vidjeti krajnji rezultat?
+              </h2>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
+                Prije razgovora možete pogledati anonimni ogledni primjer
+                osobnog Bitcoin standarda. Dokument pokazuje vrstu jasnoće koju
+                pokušavamo izgraditi: ne općenite savjete, nego pravila za
+                stvarne odluke.
+              </p>
+            </div>
+            <Button
+              asChild
+              className="cta-primary h-11 rounded-full px-4 text-sm sm:h-12 sm:px-5 sm:text-base"
+            >
+              <a
+                href={SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}
+                data-cta="conversation-sample-standard"
+              >
+                Pogledajte primjer dokumenta
+                <ArrowUpRight className="size-4" aria-hidden="true" />
+              </a>
+            </Button>
           </section>
 
           <section className="conversation-final-card">

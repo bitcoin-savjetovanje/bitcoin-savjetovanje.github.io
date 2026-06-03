@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { netWorthRoute } from "@/content/routes"
@@ -272,6 +273,7 @@ export function NetWorth() {
             </div>
           </div>
         </section>
+        <StandardCheckCta dataCta="net-worth-standard-check" />
       </div>
     </>
   )

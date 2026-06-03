@@ -16,6 +16,15 @@ export const BITCOIN_ADVICE_PATH = "/bitcoin-savjetovanje/"
 export const CONVERSATION_PATH = "/razgovor/"
 export const BITCOIN_CONSULTATION_PATH = "/bitcoin-konzultacija/"
 export const PERSONAL_BITCOIN_STANDARD_PATH = "/osobni-bitcoin-standard/"
+export const SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH =
+  "/primjer-osobnog-bitcoin-standarda/"
+export const SAMPLE_PERSONAL_BITCOIN_STANDARD_PDF_PATH =
+  "/downloads/sample-osobni-bitcoin-standard.pdf"
+export const BITCOIN_STANDARD_CHECK_PATH = "/provjera-bitcoin-standarda/"
+export const BITCOIN_STANDARD_CHECK_PDF_PATH =
+  "/downloads/7-provjera-osobnog-bitcoin-standarda.pdf"
+export const BITCOIN_STANDARD_CHECK_COVER_PATH =
+  "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png"
 export const PERSONAL_AUDIENCE_PATH = "/osobno/"
 export const FAMILY_AUDIENCE_PATH = "/obitelj/"
 export const BUSINESS_AUDIENCE_PATH = "/poduzetnici/"
@@ -116,6 +125,20 @@ export const personalBitcoinStandardSeo = {
   description:
     "Program od 4–6 tjedana za izgradnju pisanog sustava odluka za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, poslovnu riznicu, volatilnost, sigurnost i obitelj.",
   canonical: `${SITE_URL}${PERSONAL_BITCOIN_STANDARD_PATH}`,
+}
+
+export const samplePersonalBitcoinStandardSeo = {
+  title: "Primjer osobnog Bitcoin standarda | Bitcoin Savjetovanje",
+  description:
+    "Preuzmite anonimni ogledni primjer dokumenta koji pokazuje kako može izgledati osobni Bitcoin standard: proračun, dug, davanje, Bitcoin, neto imovina, volatilnost, sigurnost i obitelj.",
+  canonical: `${SITE_URL}${SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}`,
+}
+
+export const bitcoinStandardCheckSeo = {
+  title: "7 provjera osobnog Bitcoin standarda | Bitcoin Savjetovanje",
+  description:
+    "Preuzmite besplatni radni PDF za provjeru osobnog Bitcoin standarda: proračun, dug, davanje, Bitcoin kao novac, neto imovina, volatilnost, sigurnost i obitelj.",
+  canonical: `${SITE_URL}${BITCOIN_STANDARD_CHECK_PATH}`,
 }
 
 export const guidesIndexSeo = {

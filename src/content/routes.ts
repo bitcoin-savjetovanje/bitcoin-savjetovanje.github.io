@@ -10,12 +10,14 @@ import {
   breadcrumbSchema,
   bitcoinConsultationPageSchema,
   bitcoinAdvicePageSchema,
+  bitcoinStandardCheckPageSchema,
   conversationPageSchema,
   guideSchema,
   guidesIndexSchema,
   homeSchema,
   personalBitcoinStandardPageSchema,
   privacyPageSchema,
+  samplePersonalBitcoinStandardPageSchema,
   securityPageSchema,
 } from "./schema"
 import {
@@ -26,6 +28,7 @@ import {
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   bitcoinMoneySeo,
+  bitcoinStandardCheckSeo,
   conversationSeo,
   custodySecuritySeo,
   debtSeo,
@@ -35,6 +38,7 @@ import {
   netWorthSeo,
   personalBitcoinStandardSeo,
   privacySeo,
+  samplePersonalBitcoinStandardSeo,
   securitySeo,
   timeVolatilitySeo,
 } from "./site"
@@ -52,6 +56,8 @@ export type RouteType =
   | "conversation"
   | "bitcoin-consultation"
   | "personal-bitcoin-standard"
+  | "sample-personal-bitcoin-standard"
+  | "bitcoin-standard-check"
   | "audience"
   | "guides-index"
   | "guide"
@@ -454,6 +460,34 @@ export const personalBitcoinStandardRoute: RouteMeta = {
   ogImageHeight: 630,
 }
 
+export const samplePersonalBitcoinStandardRoute: RouteMeta = {
+  path: "/primjer-osobnog-bitcoin-standarda/",
+  title: samplePersonalBitcoinStandardSeo.title,
+  description: samplePersonalBitcoinStandardSeo.description,
+  canonical: samplePersonalBitcoinStandardSeo.canonical,
+  schema: samplePersonalBitcoinStandardPageSchema(),
+  type: "sample-personal-bitcoin-standard",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
+export const bitcoinStandardCheckRoute: RouteMeta = {
+  path: "/provjera-bitcoin-standarda/",
+  title: bitcoinStandardCheckSeo.title,
+  description: bitcoinStandardCheckSeo.description,
+  canonical: bitcoinStandardCheckSeo.canonical,
+  schema: bitcoinStandardCheckPageSchema(),
+  type: "bitcoin-standard-check",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ogImage: OG_IMAGE_URL,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+}
+
 const audienceOgImageFileBySlug: Record<AudienceSlug, string> = {
   osobno: "osobno-hero.png",
   obitelj: "obitelj-hero.png",
@@ -566,6 +600,8 @@ export const prerenderRoutes: RouteMeta[] = [
   conversationRoute,
   bitcoinConsultationRoute,
   personalBitcoinStandardRoute,
+  samplePersonalBitcoinStandardRoute,
+  bitcoinStandardCheckRoute,
   ...audienceRouteMetas,
   guidesIndexRoute,
   ...guideRouteMetas,

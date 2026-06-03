@@ -9,6 +9,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
+import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { budgetRoute } from "@/content/routes"
@@ -266,6 +267,7 @@ export function Budget() {
             </div>
           </div>
         </section>
+        <StandardCheckCta dataCta="budget-standard-check" />
       </div>
     </>
   )

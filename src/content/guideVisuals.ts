@@ -108,6 +108,22 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Svaki euro dobiva namjenu prije nego što Bitcoin odluka postane stvarno slobodna.",
   },
+  "bitcoin-etfovi-i-riznicke-kompanije": {
+    webpSrc: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp",
+    src: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg",
+    alt: "Mediteranska kamena scena s Bitcoinom, burzovnim fondovima i rizničkim kompanijama",
+    position: "50% 50%",
+    caption:
+      "Bitcoin, burzovni fond i riznička kompanija nisu isti sloj iste odluke.",
+  },
+  "bitcoin-bilanca-pojacana-izlozenost": {
+    webpSrc: "/images/bitcoin-bilanca-pojacana-izlozenost-hero-20260603.webp",
+    src: "/images/bitcoin-bilanca-pojacana-izlozenost-hero-20260603.jpg",
+    alt: "Mediteranska kamena scena s Bitcoin bilancom, slojevima kapitala i pojačanom izloženošću",
+    position: "50% 50%",
+    caption:
+      "Što je instrument udaljeniji od Bitcoina, to su važniji bilanca, pravila i izdavatelj.",
+  },
   "vremenski-oporavak-bitcoin-trezor": {
     webpSrc: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
     src: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",

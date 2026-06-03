@@ -20,6 +20,7 @@ const requiredGuidePaths = [
   "/vodici/davanje-bez-duga",
   "/vodici/novac-dolazi-od-ljudi",
   "/vodici/niste-zakasnili-u-bitcoin",
+  "/vodici/kada-bitcoin-postane-distrakcija",
   "/vodici/bitcoin-kao-novac",
   "/vodici/bitcoin-nije-kripto-portfelj",
   "/vodici/pozitivni-neto-priljev",
@@ -2842,6 +2843,7 @@ assertArrayEquals(
     "/vodici/davanje-bez-duga/",
     "/vodici/novac-dolazi-od-ljudi/",
     "/vodici/niste-zakasnili-u-bitcoin/",
+    "/vodici/kada-bitcoin-postane-distrakcija/",
     "/vodici/bitcoin-kao-novac/",
     "/vodici/bitcoin-nije-kripto-portfelj/",
     "/vodici/pozitivni-neto-priljev/",
@@ -3031,6 +3033,10 @@ const guideFinalCtaTitles = new Map([
   [
     "/vodici/vremenski-oporavak-bitcoin-trezor",
     "Želite provjeriti je li vaš obiteljski Bitcoin trezor stvarno razumljiv?",
+  ],
+  [
+    "/vodici/kada-bitcoin-postane-distrakcija",
+    "Želite provjeriti služi li vam Bitcoin kao novac?",
   ],
 ])
 

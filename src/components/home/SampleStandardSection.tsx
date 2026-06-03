@@ -3,6 +3,7 @@ import { ArrowUpRight, CalendarDays, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   CONVERSATION_PATH,
+  SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
 } from "@/content/site"
 
@@ -18,13 +19,20 @@ export function SampleStandardSection() {
           novac, neto imovina, volatilnost, sigurnost i obitelj.
         </p>
       </div>
-      <div className="sample-standard-teaser__panel" aria-hidden="true">
-        <FileText />
-        <span>Ogledni dokument</span>
-        <strong>Osobni Bitcoin standard</strong>
-        <i />
-        <p>pravila za stvarne odluke</p>
-      </div>
+      <figure className="standard-check-cover-card">
+        <img
+          src={SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH}
+          alt="Naslovnica PDF-a Primjer osobnog Bitcoin standarda"
+          width="1055"
+          height="1491"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          <FileText className="size-4" aria-hidden="true" />
+          Ogledni dokument
+        </figcaption>
+      </figure>
       <div className="sample-standard-teaser__actions">
         <Button asChild className="cta-primary home-primary-button">
           <a

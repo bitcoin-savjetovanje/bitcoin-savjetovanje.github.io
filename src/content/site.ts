@@ -20,6 +20,8 @@ export const SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH =
   "/primjer-osobnog-bitcoin-standarda/"
 export const SAMPLE_PERSONAL_BITCOIN_STANDARD_PDF_PATH =
   "/downloads/sample-osobni-bitcoin-standard.pdf"
+export const SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH =
+  "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.png"
 export const BITCOIN_STANDARD_CHECK_PATH = "/provjera-bitcoin-standarda/"
 export const BITCOIN_STANDARD_CHECK_PDF_PATH =
   "/downloads/7-provjera-osobnog-bitcoin-standarda.pdf"

@@ -27,32 +27,32 @@ type CustodyOutcome = {
 
 const custodyOutcomes: CustodyOutcome[] = [
   {
-    iconSrc: "/images/medallions/15-sigurnost-i-nasljedivanje.png",
+    iconSrc: "/images/stone-symbols/vi-ste-banka.webp",
     title: "Vi ste banka",
     copy: "Vi kontrolirate svoje privatne ključeve i odluke.",
   },
   {
-    iconSrc: "/images/medallions/27-obiteljski-trezor.png",
+    iconSrc: "/images/stone-symbols/slojevi-zastite.webp",
     title: "Slojevi zaštite",
     copy: "Koristite više slojeva da jedan propust ne znači gubitak.",
   },
   {
-    iconSrc: "/images/medallions/15-sigurnost-i-nasljedivanje.png",
+    iconSrc: "/images/stone-symbols/smanjite-rizik.webp",
     title: "Smanjite rizik",
     copy: "Ne dijelite više informacija nego što je potrebno.",
   },
   {
-    iconSrc: "/images/medallions/12-proracun-i-plan.png",
+    iconSrc: "/images/stone-symbols/planirajte-unaprijed.webp",
     title: "Planirajte unaprijed",
     copy: "Dobar plan danas sprječava paniku sutra.",
   },
   {
-    iconSrc: "/images/medallions/27-obiteljski-trezor.png",
+    iconSrc: "/images/stone-symbols/ukljucite-obitelj.webp",
     title: "Uključite obitelj",
     copy: "Prave osobe trebaju znati prave stvari u pravo vrijeme.",
   },
   {
-    iconSrc: "/images/medallions/25-ciklusi.png",
+    iconSrc: "/images/stone-symbols/redovito-provjeravajte.webp",
     title: "Redovito provjeravajte",
     copy: "Sigurnost je proces, ne jednokratna postavka.",
   },

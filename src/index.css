@@ -6373,7 +6373,8 @@
 .giving-page .budget-outcome-card .topic-outcome-stone-symbol,
 .bitcoin-money-page .budget-outcome-card .topic-outcome-stone-symbol,
 .net-worth-page .budget-outcome-card .topic-outcome-stone-symbol,
-.time-volatility-page .budget-outcome-card .topic-outcome-stone-symbol {
+.time-volatility-page .budget-outcome-card .topic-outcome-stone-symbol,
+.custody-security-page .budget-outcome-card .topic-outcome-stone-symbol {
   --stone-symbol-size: clamp(8.5rem, 9.8vw, 9.6rem);
   align-self: center;
 }
@@ -6383,7 +6384,8 @@
 .giving-page .budget-outcome-card,
 .bitcoin-money-page .budget-outcome-card,
 .net-worth-page .budget-outcome-card,
-.time-volatility-page .budget-outcome-card {
+.time-volatility-page .budget-outcome-card,
+.custody-security-page .budget-outcome-card {
   grid-template-rows: 9.75rem auto;
   min-height: 15.25rem;
   align-content: start;
@@ -6394,7 +6396,8 @@
 .giving-page .budget-outcome-card h3,
 .bitcoin-money-page .budget-outcome-card h3,
 .net-worth-page .budget-outcome-card h3,
-.time-volatility-page .budget-outcome-card h3 {
+.time-volatility-page .budget-outcome-card h3,
+.custody-security-page .budget-outcome-card h3 {
   margin-top: 0.95rem;
 }
 
@@ -6412,11 +6415,11 @@
 }
 
 .custody-principle-card {
-  min-height: 14.6rem;
+  min-height: 17.35rem;
 }
 
 .custody-principle-card h3 {
-  margin-top: 1.15rem;
+  margin-top: 0.95rem;
 }
 
 .custody-principle-card p {

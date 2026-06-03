@@ -18,6 +18,25 @@ export function SampleStandardSection() {
           odvojene imovine u sustav odluka: proračun, dug, davanje, Bitcoin kao
           novac, neto imovina, volatilnost, sigurnost i obitelj.
         </p>
+        <div className="sample-standard-teaser__actions">
+          <Button asChild className="cta-primary home-primary-button">
+            <a
+              href={SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}
+              data-cta="home-sample-standard"
+            >
+              Pogledajte primjer
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+            </a>
+          </Button>
+          <a
+            href={CONVERSATION_PATH}
+            className="service-link-button"
+            data-link="home-sample-standard-conversation"
+          >
+            <CalendarDays className="size-4" aria-hidden="true" />
+            Rezervirajte razgovor
+          </a>
+        </div>
       </div>
       <figure className="standard-check-cover-card">
         <img
@@ -33,25 +52,6 @@ export function SampleStandardSection() {
           Ogledni dokument
         </figcaption>
       </figure>
-      <div className="sample-standard-teaser__actions">
-        <Button asChild className="cta-primary home-primary-button">
-          <a
-            href={SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}
-            data-cta="home-sample-standard"
-          >
-            Pogledajte primjer
-            <ArrowUpRight className="size-4" aria-hidden="true" />
-          </a>
-        </Button>
-        <a
-          href={CONVERSATION_PATH}
-          className="service-link-button"
-          data-link="home-sample-standard-conversation"
-        >
-          <CalendarDays className="size-4" aria-hidden="true" />
-          Rezervirajte razgovor
-        </a>
-      </div>
     </section>
   )
 }

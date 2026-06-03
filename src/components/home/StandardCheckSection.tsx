@@ -18,6 +18,25 @@ export function StandardCheckSection() {
           kroz ključna pitanja: proračun, dug, davanje, Bitcoin kao novac, neto
           imovina, volatilnost, sigurnost i obitelj.
         </p>
+        <div className="standard-check-teaser__actions">
+          <Button asChild className="cta-primary home-primary-button">
+            <a
+              href={BITCOIN_STANDARD_CHECK_PATH}
+              data-cta="home-standard-check"
+            >
+              Preuzmite PDF
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+            </a>
+          </Button>
+          <a
+            href={CONVERSATION_PATH}
+            className="service-link-button"
+            data-link="home-standard-check-conversation"
+          >
+            <CalendarDays className="size-4" aria-hidden="true" />
+            Rezervirajte razgovor
+          </a>
+        </div>
       </div>
       <figure className="standard-check-cover-card">
         <img
@@ -33,22 +52,6 @@ export function StandardCheckSection() {
           Besplatni radni PDF
         </figcaption>
       </figure>
-      <div className="standard-check-teaser__actions">
-        <Button asChild className="cta-primary home-primary-button">
-          <a href={BITCOIN_STANDARD_CHECK_PATH} data-cta="home-standard-check">
-            Preuzmite PDF
-            <ArrowUpRight className="size-4" aria-hidden="true" />
-          </a>
-        </Button>
-        <a
-          href={CONVERSATION_PATH}
-          className="service-link-button"
-          data-link="home-standard-check-conversation"
-        >
-          <CalendarDays className="size-4" aria-hidden="true" />
-          Rezervirajte razgovor
-        </a>
-      </div>
     </section>
   )
 }

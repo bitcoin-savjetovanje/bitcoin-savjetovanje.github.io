@@ -9555,6 +9555,20 @@
   filter: none;
 }
 
+[data-guide-slug="prihod-nije-slobodan-novac"] .guide-hero .guide-cover-figure picture,
+[data-guide-slug="starost-novca"] .guide-hero .guide-cover-figure picture,
+[data-guide-slug="od-duga-prema-vlasnistvu"] .guide-hero .guide-cover-figure picture {
+  width: 100%;
+  margin-right: 0;
+}
+
+[data-guide-slug="prihod-nije-slobodan-novac"] .guide-hero .guide-cover-figure img,
+[data-guide-slug="starost-novca"] .guide-hero .guide-cover-figure img,
+[data-guide-slug="od-duga-prema-vlasnistvu"] .guide-hero .guide-cover-figure img {
+  object-fit: contain;
+  object-position: 100% center !important;
+}
+
 .conversation-hero .conversation-hero__media img {
   object-position: 58% center;
 }

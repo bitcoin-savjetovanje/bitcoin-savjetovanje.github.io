@@ -48,6 +48,7 @@ const roadmapGroups = [
     title: "Bitcoin kao novac",
     slugs: [
       "niste-zakasnili-u-bitcoin",
+      "kada-bitcoin-postane-distrakcija",
       "bitcoin-kao-novac",
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",

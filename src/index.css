@@ -4520,8 +4520,8 @@
 
 .standard-check-teaser {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(25rem, 0.9fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 0.66fr) minmax(37rem, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 3.4rem);
   align-items: center;
   border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 42%);
   border-bottom: 1px solid color-mix(in oklab, var(--line-warm), transparent 48%);
@@ -4616,8 +4616,8 @@
 
 .sample-standard-teaser {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(25rem, 0.9fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 0.66fr) minmax(37rem, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 3.4rem);
   align-items: center;
   background:
     radial-gradient(
@@ -8494,8 +8494,8 @@
 }
 
 .standard-check-hero .hero-shell {
-  grid-template-columns: minmax(0, 0.9fr) minmax(27rem, 0.86fr);
-  gap: clamp(2rem, 5vw, 5.5rem);
+  grid-template-columns: minmax(0, 0.68fr) minmax(38rem, 1fr);
+  gap: clamp(2rem, 4vw, 4.4rem);
   align-items: center;
   padding: clamp(4.5rem, 8vw, 7rem) clamp(1.6rem, 5.6vw, 5rem);
 }
@@ -8531,7 +8531,7 @@
 
 .standard-check-cover-card {
   position: relative;
-  width: min(100%, clamp(31rem, 42vw, 42rem));
+  width: min(100%, clamp(38rem, 54vw, 48rem));
   justify-self: end;
   margin: 0;
   border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 62%);
@@ -8710,8 +8710,8 @@
 }
 
 .sample-standard-hero .hero-shell {
-  grid-template-columns: minmax(0, 0.9fr) minmax(27rem, 0.86fr);
-  gap: clamp(2rem, 5vw, 5.5rem);
+  grid-template-columns: minmax(0, 0.68fr) minmax(38rem, 1fr);
+  gap: clamp(2rem, 4vw, 4.4rem);
   align-items: center;
   padding: clamp(4.5rem, 8vw, 7rem) clamp(1.6rem, 5.6vw, 5rem);
 }
@@ -8997,6 +8997,18 @@
 
   .sample-standard-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .standard-check-hero .hero-shell,
+  .sample-standard-hero .hero-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .standard-check-hero__visual,
+  .sample-standard-hero__visual {
+    justify-items: start;
   }
 }
 

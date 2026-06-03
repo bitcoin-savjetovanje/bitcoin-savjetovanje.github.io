@@ -2311,6 +2311,231 @@ const guideEntries: Guide[] = [
       "Ako imate Bitcoin izloženost kroz ETF, burzu, brokera ili Bitcoin rizničku kompaniju, vrijedi razjasniti što točno posjedujete i koju ulogu to ima u vašoj neto imovini.",
   },
   {
+    slug: "bitcoin-bilanca-pojacana-izlozenost",
+    title: "Bitcoin, bilanca i pojačana izloženost",
+    seoTitle: "Bitcoin, bilanca i pojačana izloženost",
+    metaDescription:
+      "Napredni vodič o Bitcoin riznicama, povlaštenim instrumentima, digitalnom kreditu, pojačanoj izloženosti i riziku bilance. Nije svaki instrument povezan s Bitcoinom isto što i Bitcoin.",
+    excerpt:
+      "Financijski instrumenti povezani s Bitcoinom nisu Bitcoin. Prije prinosa treba razumjeti bilancu, kapitalnu strukturu, skrbništvo, izdavatelja i što se događa pod stresom.",
+    category: "Neto imovina",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
+    theme: "worth",
+    order: 93,
+    publishedAt: "2026-06-03",
+    updatedAt: "2026-06-03",
+    practicalQuestion:
+      "Možete li za svaki instrument povezan s Bitcoinom objasniti što točno posjedujete, tko kontrolira Bitcoin i što se događa ako bilanca dođe pod stres?",
+    relatedSlugs: [
+      "svaki-euro-ima-namjenu",
+      "dug-je-buduci-novac",
+      "davanje-u-proracunu-nulte-osnove",
+      "bitcoin-kao-novac",
+      "bitcoin-u-neto-imovini",
+      "bitcoin-etfovi-i-riznicke-kompanije",
+      "digitalni-kredit-nije-bitcoin",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+    ],
+    safetyNote:
+      "Ovaj vodič nije investicijski savjet, nije porezni savjet, nije pravni savjet ni računovodstveni savjet. Ne preporučuje kupnju ili prodaju Bitcoina, Strategyja, Strivea, STRC-a, SATA-e, dionica, povlaštenih dionica, dužničkih instrumenata ili drugih financijskih instrumenata.",
+    visual: {
+      type: "sequence",
+      title: "Slojevi izloženosti",
+      steps: [
+        "Izravan Bitcoin",
+        "Bitcoin kod skrbnika",
+        "Dionica poduzeća s Bitcoin riznicom",
+        "Povlašteni ili dužnički instrument",
+      ],
+      caption:
+        "Što je sloj udaljeniji od Bitcoina, to je važnije razumjeti pravila, bilancu i ljude koji upravljaju slojem.",
+    },
+    sections: [
+      {
+        heading: "Bitcoin nije isto što i instrument izgrađen na Bitcoinu",
+        body: [
+          "Izravno držanje Bitcoina nije isto što i držanje obične dionice poduzeća koje drži Bitcoin. Dionica poduzeća s Bitcoin riznicom nije isto što i povlaštena dionica tog poduzeća. Instrument koji isplaćuje dividendu nije isto što i Bitcoin.",
+          "Čitatelj mora znati što točno posjeduje. Je li to Bitcoin pod vlastitom kontrolom? Je li to potraživanje prema skrbniku? Je li to vlasnički udio u poduzeću? Je li to instrument čija isplata ovisi o pravilima izdavatelja?",
+          "Što je sloj udaljeniji od Bitcoina, to više morate razumjeti bilancu, pravila i ljude koji upravljaju tim slojem.",
+        ],
+        link: {
+          before:
+            "Ako prvo želite razdvojiti Bitcoin od vrijednosnih papira, pročitajte",
+          label:
+            "Bitcoin ETF-ovi i rizničke kompanije: gdje prestaje Bitcoin, a počinje kapital",
+          href: "/vodici/bitcoin-etfovi-i-riznicke-kompanije/",
+          after: "kao uvod u ovu temu.",
+        },
+      },
+      {
+        heading: "Četiri sloja izloženosti",
+        body: [
+          "Prvi sloj je izravan Bitcoin. Posjedujete bitcoin, a glavno pitanje je tko kontrolira ključeve. Ako imate vlastiti posjed, glavni rizik nije izdavatelj, nego sigurnost, oporavak i obiteljski pristup.",
+          "Drugi sloj je Bitcoin kod skrbnika. Posjedujete potraživanje ili račun koji vam daje izloženost Bitcoinu. Skrbnik kontrolira operativni pristup, a glavni rizik je povjerenje, pravila računa i dostupnost sredstava.",
+          "Treći sloj je obična dionica poduzeća s Bitcoin riznicom. Posjedujete dionicu, ne bitcoin. Uprava poduzeća kontrolira Bitcoin, kapitalnu strukturu i odluke o izdavanju novih instrumenata.",
+          "Četvrti sloj je povlašteni ili dužnički instrument izgrađen na Bitcoin bilanci. Posjedujete vrijednosni papir s pravilima isplate, pravima i ograničenjima. Glavni rizik je bilanca izdavatelja, kreditni rizik, tržišna likvidnost i redoslijed naplate.",
+        ],
+        items: [
+          "Što posjedujem: novac, potraživanje, običnu dionicu ili instrument s pravilima isplate?",
+          "Tko kontrolira Bitcoin: ja, skrbnik, uprava poduzeća ili struktura izdavatelja?",
+          "Koji je glavni rizik: sigurnost, skrbništvo, upravljanje, kreditni rizik ili tržišno povjerenje?",
+          "Zašto to nije isto što i Bitcoin: jer svaki dodatni sloj uvodi pravila, ljude i bilancu.",
+        ],
+      },
+      {
+        heading:
+          "Mala prodaja Bitcoina ne mora značiti odustajanje od Bitcoin teze",
+        body: [
+          "Poduzeće koje koristi Bitcoin kao kapital može ponekad prodati mali dio Bitcoina radi obveza, dividendi ili upravljanja bilancom. To nije automatski znak slabosti.",
+          "Takva prodaja može značiti da se Bitcoin tretira kao likvidan kapital, a ne kao nedodirljiva ikona. Kapital postoji da bi služio pravilima, obvezama i dugoročnom preživljavanju sustava.",
+          "Ali postoji velika razlika između male, promišljene prodaje i prisilne prodaje. Promišljena prodaja dolazi iz pravila. Prisilna prodaja dolazi iz stresa, duga, manjka likvidnosti ili izgubljenog povjerenja.",
+          "Strategy se u javnim razgovorima često koristi kao primjer poduzeća koje oko Bitcoina gradi kapitalnu strukturu. To ne znači da je Strategy preporuka. Znači samo da primjer pomaže vidjeti kako Bitcoin može postati aktivan dio bilance.",
+          "Bitcoin kao novac ne znači da se nikada ne koristi. Znači da se koristi po pravilima, a ne iz panike.",
+        ],
+      },
+      {
+        heading: "Bilanca prije prinosa",
+        body: [
+          "Visok prinos nije prvo pitanje. Prvo pitanje je može li bilanca preživjeti loš scenarij.",
+          "Važno je ima li poduzeće dug. Važno je postoji li zid dospijeća. Važno je je li Bitcoin založen ili je riječ o neopterećenom Bitcoinu. Važno je postoji li pričuva za dividende.",
+          "Važno je i može li poduzeće preživjeti razdoblje bez pristupa tržištima kapitala. Ako novo izdavanje dionica, povlaštenih dionica ili duga mora stalno dolaziti da bi sustav disao, bilanca je osjetljivija nego što prinos pokazuje.",
+          "Novčana pričuva nije detalj. Ona može biti razlika između mirne odluke i prodaje u lošem trenutku.",
+          "Prinos bez razumijevanja bilance nije ulaganje. To je nada.",
+        ],
+        link: {
+          before: "Za osobnu stranu iste logike počnite od vodiča",
+          label: "Svaki euro ima namjenu",
+          href: "/vodici/svaki-euro-ima-namjenu/",
+          after: "jer bilanca bez proračuna lako postaje samo dojam.",
+        },
+      },
+      {
+        heading: "Pojačana izloženost",
+        body: [
+          "Pojačana izloženost znači da obična dionica može biti osjetljivija na rast Bitcoina nego sama pasivna Bitcoin imovina u pozadini. To se može dogoditi kada poduzeće kroz kapitalnu strukturu pokušava povećati Bitcoin po dionici.",
+          "To može biti korisno u nekim okolnostima. Ali povećana osjetljivost djeluje u oba smjera. Ako Bitcoin pada, ako tržište izgubi povjerenje ili ako bilanca postane krhka, isti mehanizam može pojačati gubitak.",
+          "Poluga može biti izravna ili neizravna. Ponekad dolazi iz duga, ponekad iz strukture prava različitih vrijednosnih papira, a ponekad iz tržišnog vrednovanja obične dionice.",
+          "Zato je omjer pojačane izloženosti važan podatak, ali nije dovoljan. Još je važnije što stoji ispod njega: dug, rokovi, zalog, pričuve, obične dionice, povlaštene dionice i ponašanje izdavatelja.",
+          "Postoje dvije vrste rizika. Prvi je rizik trajnog oštećenja bilance. Drugi je rizik da se ne sudjeluje dovoljno u rastu Bitcoina.",
+          "Drugi rizik ima smisla tek kada je prvi strogo ograničen.",
+        ],
+      },
+      {
+        heading: "SATA i dnevne dividende",
+        body: [
+          "SATA koristim kao primjer instrumenta koji se u razgovoru promatra kroz dnevne dividende, likvidnost i odnos prema Bitcoin bilanci. STRC je drugi primjer instrumenta povezanog s kapitalnom strukturom izdavatelja. Ni SATA ni STRC nisu Bitcoin.",
+          "Dnevna dividenda mijenja ponašanje ulagača jer se ne čeka jedan veliki datum. Prinos se doživljava kroz kraći ritam. To može povećati pažnju tržišta i promijeniti način vrednovanja instrumenta.",
+          "To ne uklanja rizik. Dnevna dividenda nije jamstvo sigurnosti. Ona je pravilo ili cilj instrumenta, ovisno o njegovim uvjetima i odlukama izdavatelja.",
+          "Stabilnija cijena oko nominalne vrijednosti nije isto što i uklanjanje rizika. Nominalna vrijednost je vrijednost zapisana u pravilima instrumenta. Tržišna cijena može se kretati oko nje, ali to ne znači da bilanca nema rizik.",
+          "Zato se SATA ne smije gledati samo kroz prinos. Treba gledati izdavatelja, pričuvu za dividende, tržišnu likvidnost, kreditni rizik i ponašanje instrumenta pod stresom.",
+        ],
+      },
+      {
+        heading: "Stresno ispitivanje bilance",
+        body: [
+          "Stresno ispitivanje nije pesimizam. To je način da se odluka donese prije panike.",
+          "Što bi se dogodilo ako Bitcoin padne 50%? Što ako pristup tržištima kapitala nestane na godinu dana? Što ako se dividende moraju plaćati iz pričuve? Što ako se potražnja za novim instrumentima uspori?",
+          "Što ako obična dionica padne? Što ako tržište izgubi povjerenje u izdavatelja? Što ako založeni Bitcoin mora biti prodan? Što ako dug dospijeva u najgorem trenutku?",
+          "Ako odgovor nije jasan, problem nije samo u instrumentu. Problem je u tome što odluka nije prošla kroz loš scenarij prije nego što je donesena.",
+        ],
+        items: [
+          "Bitcoin padne 50%.",
+          "Pristup tržištima kapitala nestane na godinu dana.",
+          "Dividende se moraju plaćati iz pričuve.",
+          "Potražnja za novim instrumentima se uspori.",
+          "Obična dionica padne.",
+          "Tržište izgubi povjerenje u izdavatelja.",
+          "Založeni Bitcoin mora biti prodan.",
+          "Dug dospijeva u najgorem trenutku.",
+        ],
+      },
+      {
+        heading: "Pojačana izloženost mora se mijenjati kroz cikluse",
+        body: [
+          "Omjer pojačane izloženosti ne treba biti fiksan. Ista izloženost ne znači isto u mirnom razdoblju, nakon snažnog pada ili nakon razdoblja euforije.",
+          "U silaznom tržištu, kada je Bitcoin već snažno pao, pojačana izloženost može imati drukčiju logiku. Tada se često gradi kapacitet, pod uvjetom da bilanca može preživjeti.",
+          "U uzlaznom tržištu, kada svi postanu sigurni u sebe, ista pojačana izloženost može postati opasnija. Rast može sakriti slabosti, a samopouzdanje može potaknuti previše duga ili premalo pričuve.",
+          "Nitko ne zna savršeno pogoditi ciklus. Zato je važan sustav, a ne osjećaj.",
+          "U silaznom tržištu gradi se kapacitet. U uzlaznom tržištu smanjuje se krhkost.",
+        ],
+        link: {
+          before: "Za osobna pravila kroz rast i pad pogledajte",
+          label:
+            "Usklađivanje kupovne moći: što raditi kad Bitcoin raste ili pada?",
+          href: "/vodici/uskladivanje-kupovne-moci-bitcoina/",
+          after: "jer tržište ne smije donositi odluke umjesto vas.",
+        },
+      },
+      {
+        heading: "Digitalni kredit",
+        body: [
+          "Digitalni kredit je dužnički instrument koji je podržan bilancom u kojoj važnu ulogu ima digitalna imovina, u ovom slučaju Bitcoin.",
+          "Kroz povijest su tržišta stvarala instrumente za raspodjelu velikog rizika. Nekada su to bili brodovi i trgovačke ekspedicije. Nizozemska istočnoindijska kompanija, poznata po oznaci VOC, često se spominje kao rani primjer organiziranja kapitala oko velikih i rizičnih pothvata.",
+          "Danas se pojavljuju instrumenti izgrađeni oko Bitcoin bilanci. To ne znači da su automatski dobri. To znači da se oko novog novca razvijaju novi oblici kapitala.",
+          "Analogija pomaže samo ako ostane skromna. Povijest ne uklanja kreditni rizik, rizik uprave, rizik skrbništva, rizik regulacije ni oportunitetni trošak.",
+        ],
+        link: {
+          before: "Za osnovnu razliku između novca i ugovora pročitajte",
+          label: "Digitalni kredit nije Bitcoin",
+          href: "/vodici/digitalni-kredit-nije-bitcoin/",
+          after: "kao kraći uvod u ovu temu.",
+        },
+      },
+      {
+        heading: "Prije nego kupite instrument povezan s Bitcoinom",
+        body: [
+          "Prije nego kupite instrument povezan s Bitcoinom, odgovorite na ova pitanja.",
+          "Posjedujem li Bitcoin ili potraživanje prema nekome? Tko kontrolira Bitcoin? Je li Bitcoin založen? Postoji li dug? Kada dug dospijeva? Postoji li pričuva za dividende?",
+          "Kako se dividenda isplaćuje? Što se događa ako Bitcoin padne 50%? Što se događa ako tržište kapitala zatvori vrata? Mogu li biti razrijeđen kao dioničar?",
+          "Koliki je moj povrat izražen u Bitcoinu, a ne samo u eurima ili dolarima? Razumijem li tko prvi prima novac ako stvari krenu loše? Je li ovo ulaganje ili samo složeniji način da izbjegnem držati Bitcoin?",
+        ],
+        items: [
+          "Posjedujem li Bitcoin ili potraživanje prema nekome?",
+          "Tko kontrolira Bitcoin?",
+          "Je li Bitcoin založen?",
+          "Postoji li dug?",
+          "Kada dug dospijeva?",
+          "Postoji li pričuva za dividende?",
+          "Kako se dividenda isplaćuje?",
+          "Što se događa ako Bitcoin padne 50%?",
+          "Što se događa ako tržište kapitala zatvori vrata?",
+          "Mogu li biti razrijeđen kao dioničar?",
+          "Koliki je moj povrat izražen u Bitcoinu, a ne samo u eurima ili dolarima?",
+          "Razumijem li tko prvi prima novac ako stvari krenu loše?",
+          "Je li ovo ulaganje ili samo složeniji način da izbjegnem držati Bitcoin?",
+        ],
+        link: {
+          before:
+            "Za širu ravnotežu u kojoj ovakvi instrumenti imaju ili nemaju mjesto pročitajte",
+          label: "Bitcoin i ravnoteža neto imovine",
+          href: "/vodici/bitcoin-u-neto-imovini/",
+          after: ".",
+        },
+      },
+      {
+        heading: "Završetak",
+        body: [
+          "Bitcoin financijski instrumenti nisu Bitcoin. Oni su slojevi iznad Bitcoina. Mogu povećati izloženost, likvidnost i prinos, ali uvode dodatne rizike: bilancu, upravljanje, kapitalnu strukturu, dividende, tržišno povjerenje, skrbništvo, zakonodavni okvir i ponašanje izdavatelja.",
+          "Zato ih ne treba procjenjivati samo po tome koliko Bitcoina neka tvrtka drži. Treba gledati cijelu bilancu i što se događa pod stresom.",
+          "Ako instrument ne možete objasniti mirno, nećete ga razumjeti bolje kada tržište postane nemirno. Ako bilanca nije jasna, prinos nije dovoljan razlog.",
+          "Bitcoin traži više reda, ne manje.",
+        ],
+        link: {
+          before:
+            "Ako vrijednost raste, sigurnosna pravila moraju rasti s njom. Za taj dio nastavite s vodičem",
+          label: "Sigurnost ne smije ovisiti samo o vama",
+          href: "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
+          after: ".",
+        },
+      },
+    ],
+    finalCta: "Dogovorite 15-minutni razgovor",
+    finalCtaTitle: "Želite razumjeti što Bitcoin znači za vašu bilancu?",
+    finalCtaPrompt:
+      "U 15 minuta možemo vidjeti gdje ste sada: proračun, dug, Bitcoin, likvidnost, neto imovina i sigurnost.",
+  },
+  {
     slug: "bitcoin-kao-stopa-prepreke",
     title: "Bitcoin kao stopa prepreke za financijske odluke",
     metaDescription:
@@ -4660,6 +4885,7 @@ export const guidesIndexAdditionalGroups = [
       "novac-kapital-potrosnja",
       "bitcoin-kao-stopa-prepreke",
       "bitcoin-etfovi-i-riznicke-kompanije",
+      "bitcoin-bilanca-pojacana-izlozenost",
       "pravilo-trecina",
     ],
   },
@@ -4702,6 +4928,7 @@ export const guidesIndexOrderedSlugs = [
   "bitcoin-kao-stopa-prepreke",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
+  "bitcoin-bilanca-pojacana-izlozenost",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "poslovni-bitcoin-nije-privatni-bitcoin",
   "obiteljski-bitcoin-trezor",
@@ -4729,6 +4956,7 @@ export const recommendedGuideSlugs = [
   "bitcoin-kao-stopa-prepreke",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
+  "bitcoin-bilanca-pojacana-izlozenost",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "poslovni-bitcoin-nije-privatni-bitcoin",
   "obiteljski-bitcoin-trezor",

@@ -32,6 +32,7 @@ const requiredGuidePaths = [
   "/vodici/bitcoin-kao-stopa-prepreke",
   "/vodici/pravilo-trecina",
   "/vodici/bitcoin-etfovi-i-riznicke-kompanije",
+  "/vodici/bitcoin-bilanca-pojacana-izlozenost",
   "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama",
   "/vodici/poslovni-bitcoin-nije-privatni-bitcoin",
   "/vodici/obiteljski-bitcoin-trezor",
@@ -2836,6 +2837,7 @@ assertArrayEquals(
     "/vodici/bitcoin-kao-stopa-prepreke/",
     "/vodici/pravilo-trecina/",
     "/vodici/bitcoin-etfovi-i-riznicke-kompanije/",
+    "/vodici/bitcoin-bilanca-pojacana-izlozenost/",
     "/vodici/uskladivanje-kupovne-moci-bitcoina/",
     "/vodici/cijena-kao-mjera-vremena/",
     "/vodici/saylor-bitcoin-ciklus-ponuda-potraznja/",
@@ -3006,6 +3008,10 @@ const guideFinalCtaTitles = new Map([
   [
     "/vodici/digitalni-kredit-nije-bitcoin",
     "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+  ],
+  [
+    "/vodici/bitcoin-bilanca-pojacana-izlozenost",
+    "Želite razumjeti što Bitcoin znači za vašu bilancu?",
   ],
   [
     "/vodici/vremenski-oporavak-bitcoin-trezor",
@@ -3283,6 +3289,36 @@ const focusedGuideChecks = [
     ],
   },
   {
+    path: "vodici/bitcoin-bilanca-pojacana-izlozenost/index.html",
+    checks: [
+      "Bitcoin, bilanca i pojačana izloženost",
+      "Bitcoin nije isto što i instrument izgrađen na Bitcoinu",
+      "Ovaj vodič nije investicijski savjet, nije porezni savjet, nije pravni savjet ni računovodstveni savjet.",
+      "Što je sloj udaljeniji od Bitcoina",
+      "Četiri sloja izloženosti",
+      "Bitcoin kao novac ne znači da se nikada ne koristi.",
+      "Prinos bez razumijevanja bilance nije ulaganje. To je nada.",
+      "Drugi rizik ima smisla tek kada je prvi strogo ograničen.",
+      "SATA koristim kao primjer instrumenta",
+      "STRC je drugi primjer instrumenta",
+      "Dnevna dividenda nije jamstvo sigurnosti.",
+      "Stabilnija cijena oko nominalne vrijednosti nije isto što i uklanjanje rizika.",
+      "Stresno ispitivanje nije pesimizam.",
+      "U silaznom tržištu gradi se kapacitet. U uzlaznom tržištu smanjuje se krhkost.",
+      "Digitalni kredit je dužnički instrument",
+      "Nizozemska istočnoindijska kompanija",
+      "Prije nego kupite instrument povezan s Bitcoinom",
+      "povrat izražen u Bitcoinu",
+      "Bitcoin traži više reda, ne manje.",
+      "Dogovorite 15-minutni razgovor",
+      'href="/vodici/svaki-euro-ima-namjenu/"',
+      'href="/vodici/uskladivanje-kupovne-moci-bitcoina/"',
+      'href="/vodici/digitalni-kredit-nije-bitcoin/"',
+      'href="/vodici/bitcoin-u-neto-imovini/"',
+      'href="/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"',
+    ],
+  },
+  {
     path: "vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/index.html",
     checks: [
       "Sigurnost ne smije ovisiti samo o vama",
@@ -3414,6 +3450,133 @@ for (const guideCheck of focusedGuideChecks) {
     )
   }
 }
+
+const balanceAmplificationGuidePath =
+  "vodici/bitcoin-bilanca-pojacana-izlozenost/index.html"
+const balanceAmplificationGuideHtml = readFile(balanceAmplificationGuidePath)
+const balanceAmplificationArticleText = guideArticleVisibleText(
+  balanceAmplificationGuideHtml
+)
+const balanceAmplificationLowerText =
+  balanceAmplificationArticleText.toLowerCase()
+const balanceAmplificationGlossaryCount =
+  balanceAmplificationGuideHtml.match(/class="glossary-term"/g)?.length ?? 0
+
+if (balanceAmplificationGlossaryCount >= 20) {
+  pass(`${balanceAmplificationGuidePath} contains several glossary explanations`)
+} else {
+  fail(
+    `${balanceAmplificationGuidePath} contains ${balanceAmplificationGlossaryCount} glossary explanations, expected at least 20`
+  )
+}
+
+assertIncludes(
+  balanceAmplificationGuidePath,
+  balanceAmplificationGuideHtml,
+  '<link rel="canonical" href="https://bitcoin-savjetovanje.com/vodici/bitcoin-bilanca-pojacana-izlozenost/" />',
+  "balance amplification guide canonical URL with trailing slash"
+)
+
+for (const [expected, label] of [
+  ['aria-label="Objasni pojam: Bilanca"', "Bilanca glossary"],
+  ['aria-label="Objasni pojam: Bitcoin riznica"', "Bitcoin riznica glossary"],
+  ['aria-label="Objasni pojam: Obična dionica"', "Obična dionica glossary"],
+  [
+    'aria-label="Objasni pojam: Povlaštena dionica"',
+    "Povlaštena dionica glossary",
+  ],
+  ['aria-label="Objasni pojam: Dividenda"', "Dividenda glossary"],
+  ['aria-label="Objasni pojam: Dnevna dividenda"', "Dnevna dividenda glossary"],
+  ['aria-label="Objasni pojam: Likvidnost"', "Likvidnost glossary"],
+  [
+    'aria-label="Objasni pojam: Nominalna vrijednost"',
+    "Nominalna vrijednost glossary",
+  ],
+  ['aria-label="Objasni pojam: Izdavatelj"', "Izdavatelj glossary"],
+  [
+    'aria-label="Objasni pojam: Kapitalna struktura"',
+    "Kapitalna struktura glossary",
+  ],
+  [
+    'aria-label="Objasni pojam: Tržišta kapitala"',
+    "Tržišta kapitala glossary",
+  ],
+  ['aria-label="Objasni pojam: Poluga"', "Poluga glossary"],
+  ['aria-label="Objasni pojam: Zalog"', "Zalog glossary"],
+  [
+    'aria-label="Objasni pojam: Neopterećeni Bitcoin"',
+    "Neopterećeni Bitcoin glossary",
+  ],
+  ['aria-label="Objasni pojam: Zid dospijeća"', "Zid dospijeća glossary"],
+  [
+    'aria-label="Objasni pojam: Omjer pojačane izloženosti"',
+    "Omjer pojačane izloženosti glossary",
+  ],
+  ['aria-label="Objasni pojam: Digitalni kredit"', "Digitalni kredit glossary"],
+  [
+    'aria-label="Objasni pojam: Dužnički instrument"',
+    "Dužnički instrument glossary",
+  ],
+  ['aria-label="Objasni pojam: Kreditni rizik"', "Kreditni rizik glossary"],
+  [
+    'aria-label="Objasni pojam: Stresno ispitivanje"',
+    "Stresno ispitivanje glossary",
+  ],
+  ['aria-label="Objasni pojam: Novčana pričuva"', "Novčana pričuva glossary"],
+  [
+    'aria-label="Objasni pojam: Pričuva za dividende"',
+    "Pričuva za dividende glossary",
+  ],
+  [
+    'aria-label="Objasni pojam: Oportunitetni trošak"',
+    "Oportunitetni trošak glossary",
+  ],
+  [
+    'aria-label="Objasni pojam: Povrat izražen u Bitcoinu"',
+    "Povrat izražen u Bitcoinu glossary",
+  ],
+  ['aria-label="Objasni pojam: SATA"', "SATA glossary"],
+]) {
+  assertIncludes(
+    balanceAmplificationGuidePath,
+    balanceAmplificationGuideHtml,
+    expected,
+    label
+  )
+}
+
+for (const forbidden of [
+  "seta",
+  "upside",
+  "downside",
+  "leverage",
+  "equity",
+  "treasury",
+  "yield",
+  "bull market",
+  "bear market",
+  "framework",
+  "stack",
+  "hurdle rate",
+  "game changer",
+  "bullish",
+  "hype",
+]) {
+  assertNotIncludes(
+    balanceAmplificationGuidePath,
+    balanceAmplificationLowerText,
+    forbidden,
+    `balance amplification forbidden wording: ${forbidden}`
+  )
+}
+
+assertCount(
+  balanceAmplificationGuidePath,
+  balanceAmplificationGuideHtml,
+  'data-cta="guide-final-intro-call"',
+  1,
+  "balance amplification final CTA"
+)
 
 const timedRecoveryGuidePath =
   "vodici/vremenski-oporavak-bitcoin-trezor/index.html"

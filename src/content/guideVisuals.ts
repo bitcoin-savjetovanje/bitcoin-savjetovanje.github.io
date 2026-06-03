@@ -83,6 +83,8 @@ const artPromptsBySlug: Record<string, string> = {
     "Mediterranean stone and paper scene showing purchasing power through household objects and time, carved Bitcoin symbol, warm side light, no speculative price graph.",
   "saylor-bitcoin-ciklus-ponuda-potraznja":
     "Mediterranean limestone table with three calm blocks: mining supply, institutional capital flows, and household rules, carved Bitcoin money symbol, warm side light, no price chart, editorial nonfiction cover.",
+  "bitcoin-bilanca-pojacana-izlozenost":
+    "Mediterranean limestone table with a carved Bitcoin money symbol, balance sheet papers, dividend envelopes, and layered capital instruments arranged around the Bitcoin reserve, warm sea light, calm editorial cover, no price chart.",
   "bitcoin-kao-stopa-prepreke":
     "Mediterranean limestone desk with a carved Bitcoin money symbol in the center and surrounding household, business, investment and net worth decision notes, warm sea light, calm nonfiction cover.",
   "od-duga-prema-vlasnistvu":

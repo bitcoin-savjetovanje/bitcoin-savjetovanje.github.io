@@ -578,7 +578,12 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "likvidnost",
-    terms: ["likvidnost", "likvidnosti"],
+    terms: [
+      "tržišna likvidnost",
+      "tržišne likvidnosti",
+      "likvidnost",
+      "likvidnosti",
+    ],
     title: "Likvidnost",
     description:
       "Koliko brzo i lako nešto možete pretvoriti u novac bez velikog gubitka vrijednosti. Gotovina je obično likvidnija od nekretnine.",
@@ -598,11 +603,238 @@ export const glossaryTerms: GlossaryTerm[] = [
       "Vrsta dionice koja obično ima drukčija prava od obične dionice, često vezana uz dividendu. Nije isto što i obveznica i nije bez rizika.",
   },
   {
+    id: "obicna-dionica",
+    terms: ["obična dionica", "obične dionice", "običnu dionicu"],
+    title: "Obična dionica",
+    description:
+      "Dionica koja predstavlja vlasnički udio u poduzeću. Obično sudjeluje u rastu i padu vrijednosti nakon što se podmire obveze višeg reda.",
+  },
+  {
     id: "dividenda",
-    terms: ["dividenda", "dividende", "dividendi"],
+    terms: ["dividenda", "dividende", "dividendi", "dividendu"],
     title: "Dividenda",
     description:
       "Isplata koju kompanija može dati vlasnicima određenih dionica. Nije zajamčena ako uvjeti proizvoda i odluke kompanije to ne dopuštaju.",
+  },
+  {
+    id: "dnevna-dividenda",
+    priority: 45,
+    terms: [
+      "dnevna dividenda",
+      "dnevne dividende",
+      "dnevnu dividendu",
+      "dnevnih dividendi",
+    ],
+    title: "Dnevna dividenda",
+    description:
+      "Dividenda koja se obračunava ili najavljuje u kratkom dnevnom ritmu. Takav ritam može promijeniti ponašanje tržišta, ali ne uklanja rizik instrumenta.",
+  },
+  {
+    id: "bilanca",
+    priority: 55,
+    terms: ["bilanca", "bilance", "bilanci", "bilancom", "bilancu"],
+    title: "Bilanca",
+    description:
+      "Pregled imovine, obveza i kapitala poduzeća ili osobe. Kod Bitcoin instrumenata pokazuje što stoji ispod obećanog prinosa.",
+  },
+  {
+    id: "bitcoin-riznica",
+    priority: 55,
+    terms: [
+      "Bitcoin riznica",
+      "Bitcoin riznice",
+      "Bitcoin riznicom",
+      "Bitcoin riznicu",
+      "poduzeće s Bitcoin riznicom",
+      "poduzeća s Bitcoin riznicom",
+    ],
+    title: "Bitcoin riznica",
+    description:
+      "Bitcoin koji poduzeće drži kao važan dio svoje imovine. Dionica takvog poduzeća nije isto što i bitcoin pod osobnom kontrolom.",
+  },
+  {
+    id: "nominalna-vrijednost",
+    priority: 50,
+    terms: [
+      "nominalna vrijednost",
+      "nominalne vrijednosti",
+      "nominalnoj vrijednosti",
+      "nominalnu vrijednost",
+    ],
+    title: "Nominalna vrijednost",
+    description:
+      "Vrijednost zapisana u pravilima instrumenta. Tržišna cijena se može kretati oko nje, iznad nje ili ispod nje.",
+  },
+  {
+    id: "izdavatelj",
+    priority: 45,
+    terms: ["izdavatelj", "izdavatelja", "izdavatelju", "izdavateljem"],
+    title: "Izdavatelj",
+    description:
+      "Poduzeće ili institucija koja izdaje vrijednosni papir. Kupac instrumenta preuzima dio rizika da izdavatelj neće ispuniti očekivanja ili obveze.",
+  },
+  {
+    id: "kapitalna-struktura",
+    priority: 50,
+    terms: [
+      "kapitalna struktura",
+      "kapitalne strukture",
+      "kapitalnoj strukturi",
+      "kapitalnom strukturom",
+      "kapitalnu strukturu",
+    ],
+    title: "Kapitalna struktura",
+    description:
+      "Način na koji je poduzeće financirano: obične dionice, povlaštene dionice, dug, pričuve i druga prava na novac poduzeća.",
+  },
+  {
+    id: "trzista-kapitala",
+    priority: 45,
+    terms: [
+      "tržišta kapitala",
+      "tržištima kapitala",
+      "tržište kapitala",
+      "tržištu kapitala",
+    ],
+    title: "Tržišta kapitala",
+    description:
+      "Sustav kroz koji poduzeća prikupljaju novac izdavanjem dionica, duga ili drugih instrumenata. Pristup tom sustavu može nestati u stresu.",
+  },
+  {
+    id: "zalog",
+    priority: 45,
+    terms: ["zalog", "zaloga", "založen", "založeni Bitcoin", "založiti"],
+    title: "Zalog",
+    description:
+      "Imovina dana kao osiguranje za obvezu. Ako se obveza ne ispuni, založena imovina može morati biti prodana ili preuzeta.",
+  },
+  {
+    id: "neoptereceni-bitcoin",
+    priority: 50,
+    terms: [
+      "neopterećeni Bitcoin",
+      "neopterećenom Bitcoinu",
+      "neopterećenog Bitcoina",
+      "neopterećen",
+      "neopterećeni bitcoin",
+    ],
+    title: "Neopterećeni Bitcoin",
+    description:
+      "Bitcoin koji nije založen za dug ili drugu obvezu. Takav Bitcoin daje veću fleksibilnost u stresnom razdoblju.",
+  },
+  {
+    id: "zid-dospijeca",
+    priority: 50,
+    terms: ["zid dospijeća", "zida dospijeća", "zidu dospijeća"],
+    title: "Zid dospijeća",
+    description:
+      "Velik budući rok u kojem dospijevaju obveze. Ako dođe u lošem trenutku, može stvoriti pritisak na bilancu.",
+  },
+  {
+    id: "omjer-pojacane-izlozenosti",
+    priority: 60,
+    terms: [
+      "omjer pojačane izloženosti",
+      "omjera pojačane izloženosti",
+      "omjerom pojačane izloženosti",
+    ],
+    title: "Omjer pojačane izloženosti",
+    description:
+      "Pokušaj mjerenja koliko je dionica ili instrument osjetljiviji na Bitcoin od same pasivne Bitcoin imovine u pozadini.",
+  },
+  {
+    id: "digitalni-kredit",
+    priority: 45,
+    terms: ["digitalni kredit", "digitalnog kredita", "digitalnim kreditom"],
+    title: "Digitalni kredit",
+    description:
+      "Dužnički instrument podržan bilancom u kojoj važnu ulogu ima digitalna imovina, ovdje Bitcoin. Nije isto što i Bitcoin.",
+  },
+  {
+    id: "duznicki-instrument",
+    priority: 45,
+    terms: [
+      "dužnički instrument",
+      "dužničkog instrumenta",
+      "dužnički instrumenti",
+      "dužničkih instrumenata",
+    ],
+    title: "Dužnički instrument",
+    description:
+      "Instrument u kojem izdavatelj preuzima obvezu plaćanja ili povrata prema pravilima ugovora. Kupac preuzima rizik da obveza neće biti ispunjena kako očekuje.",
+  },
+  {
+    id: "kreditni-rizik",
+    priority: 45,
+    terms: ["kreditni rizik", "kreditnog rizika", "kreditnim rizikom"],
+    title: "Kreditni rizik",
+    description:
+      "Rizik da druga strana neće moći ili neće htjeti ispuniti svoju obvezu plaćanja, povrata ili održavanja pravila instrumenta.",
+  },
+  {
+    id: "stresno-ispitivanje",
+    priority: 45,
+    terms: [
+      "stresno ispitivanje",
+      "stresnog ispitivanja",
+      "stresnom ispitivanju",
+      "stresno ispitati",
+    ],
+    title: "Stresno ispitivanje",
+    description:
+      "Provjera što se događa u lošem scenariju prije nego što se panika stvarno dogodi. Ne predviđa krizu, nego testira otpornost.",
+  },
+  {
+    id: "novcana-pricuva",
+    priority: 45,
+    terms: ["novčana pričuva", "novčane pričuve", "novčanom pričuvom"],
+    title: "Novčana pričuva",
+    description:
+      "Dio novca koji je odvojen za obveze, sigurnost ili razdoblje bez novog kapitala. Smanjuje pritisak na prodaju imovine.",
+  },
+  {
+    id: "pricuva-za-dividende",
+    priority: 50,
+    terms: [
+      "pričuva za dividende",
+      "pričuve za dividende",
+      "pričuvom za dividende",
+    ],
+    title: "Pričuva za dividende",
+    description:
+      "Novac odvojen za moguće isplate dividendi. Postojanje pričuve ne znači da je isplata sigurna, ali smanjuje kratkoročni pritisak.",
+  },
+  {
+    id: "oportunitetni-trosak",
+    priority: 45,
+    terms: [
+      "oportunitetni trošak",
+      "oportunitetnog troška",
+      "oportunitetnim troškom",
+    ],
+    title: "Oportunitetni trošak",
+    description:
+      "Vrijednost onoga čega se odričete kada odaberete jednu mogućnost umjesto druge. Kod Bitcoina se često mjeri izgubljenom kupovnom moći.",
+  },
+  {
+    id: "povrat-izrazen-u-bitcoinu",
+    priority: 55,
+    terms: [
+      "povrat izražen u Bitcoinu",
+      "povrata izraženog u Bitcoinu",
+      "povratom izraženim u Bitcoinu",
+    ],
+    title: "Povrat izražen u Bitcoinu",
+    description:
+      "Način mjerenja ishoda prema količini bitcoina ili kupovnoj moći u Bitcoinu, a ne samo prema eurima ili dolarima.",
+  },
+  {
+    id: "sata",
+    priority: 60,
+    terms: ["SATA", "SATA-e", "SATA-u"],
+    title: "SATA",
+    description:
+      "Oznaka financijskog instrumenta spomenutog kao primjer. Nije Bitcoin i treba ga procjenjivati prema pravilima izdavatelja, bilanci i riziku.",
   },
   {
     id: "dca",

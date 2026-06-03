@@ -109,6 +109,22 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Svaki euro dobiva namjenu prije nego što Bitcoin odluka postane stvarno slobodna.",
   },
+  "prihod-nije-slobodan-novac": {
+    webpSrc: "/images/prihod-nije-slobodan-novac-hero-20260603.webp",
+    src: "/images/prihod-nije-slobodan-novac-hero-20260603.jpg",
+    alt: "Mediteranska kamena scena s poslovnom bilježnicom, računima, omotnicom i Bitcoin simbolom za vodič Prihod nije slobodan novac",
+    position: "62% 52%",
+    caption:
+      "Prihod nije slobodan dok se ne vide porezi, plaće, dobavljači, pričuva i stvarni vlasnički višak.",
+  },
+  "starost-novca": {
+    webpSrc: "/images/starost-novca-hero-20260603.webp",
+    src: "/images/starost-novca-hero-20260603.jpg",
+    alt: "Mediteranska kamena scena s proračunskom bilježnicom, pješčanim satom i Bitcoin simbolom za vodič Starost novca",
+    position: "62% 52%",
+    caption:
+      "Što duže novac preživi prije potrošnje, to odluke o Bitcoinu imaju više vremena i manje pritiska.",
+  },
   "bitcoin-etfovi-i-riznicke-kompanije": {
     webpSrc: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp",
     src: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg",

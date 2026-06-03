@@ -200,6 +200,10 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: "node",
     terms: [
+      "puni čvor",
+      "punog čvora",
+      "punim čvorom",
+      "pune čvorove",
       "vlastiti node",
       "vlastitim nodeom",
       "Bitcoin node",
@@ -220,6 +224,13 @@ export const glossaryTerms: GlossaryTerm[] = [
     title: "Bitcoin Core",
     description:
       "Najpoznatiji program za pokretanje Bitcoin nodea. Preuzima i provjerava Bitcoin blockchain prema pravilima mreže.",
+  },
+  {
+    id: "lightning",
+    terms: ["Lightning", "Lightningu", "Lightninga", "Lightningom"],
+    title: "Lightning",
+    description:
+      "Bitcoin mreža za brža i jeftinija plaćanja manjih iznosa. Korisna je za plaćanja, ali ima vlastita pravila, ograničenja i sigurnosne odluke.",
   },
   {
     id: "fulcrum",
@@ -354,6 +365,18 @@ export const glossaryTerms: GlossaryTerm[] = [
       "Korištenje posuđenog novca ili financijskih ugovora kako bi se povećala izloženost kretanju cijene. Poluga može pojačati dobitke, ali i gubitke.",
   },
   {
+    id: "alternativne-digitalne-imovine",
+    terms: [
+      "alternativne digitalne imovine",
+      "alternativnih digitalnih imovina",
+      "alternativnim digitalnim imovinama",
+      "širi svijet digitalnih imovina",
+    ],
+    title: "Alternativne digitalne imovine",
+    description:
+      "Digitalna imovina izvan Bitcoina. Može imati različite rizike, izdavatelje, pravila i tržišne poticaje, pa se ne smije miješati s Bitcoinom kao novcem.",
+  },
+  {
     id: "marginalni-kupac",
     terms: [
       "marginalni kupac",
@@ -427,6 +450,13 @@ export const glossaryTerms: GlossaryTerm[] = [
     title: "Neto imovina",
     description:
       "Ono što stvarno posjedujete nakon što od ukupne imovine oduzmete dugove. Pomaže vidjeti odnos novca, kapitala i potrošačkih dobara.",
+  },
+  {
+    id: "skrbnistvo",
+    terms: ["skrbništvo", "skrbništva", "skrbništvu", "skrbništvom"],
+    title: "Skrbništvo",
+    description:
+      "Način čuvanja pristupa Bitcoinu. Može značiti da ključeve držite sami, s drugim osobama ili preko vanjskog skrbnika, uz različite odgovornosti i rizike.",
   },
   {
     id: "volatilnost",
@@ -815,6 +845,32 @@ export const glossaryTerms: GlossaryTerm[] = [
     title: "Oportunitetni trošak",
     description:
       "Vrijednost onoga čega se odričete kada odaberete jednu mogućnost umjesto druge. Kod Bitcoina se često mjeri izgubljenom kupovnom moći.",
+  },
+  {
+    id: "komparativna-prednost",
+    priority: 45,
+    terms: [
+      "komparativna prednost",
+      "komparativne prednosti",
+      "komparativnom prednošću",
+      "komparativnu prednost",
+    ],
+    title: "Komparativna prednost",
+    description:
+      "Područje u kojem možete stvarati vrijednost bolje ili s manjim troškom od drugih mogućnosti koje su vam dostupne.",
+  },
+  {
+    id: "proracun-nulte-osnove",
+    priority: 45,
+    terms: [
+      "proračun nulte osnove",
+      "proračuna nulte osnove",
+      "proračunu nulte osnove",
+      "proračunom nulte osnove",
+    ],
+    title: "Proračun nulte osnove",
+    description:
+      "Način vođenja novca u kojem svaki euro dobiva namjenu prije nego što se potroši, daruje, čuva ili pretvori u Bitcoin.",
   },
   {
     id: "povrat-izrazen-u-bitcoinu",

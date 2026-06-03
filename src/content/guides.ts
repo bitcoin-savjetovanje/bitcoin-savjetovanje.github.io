@@ -1077,6 +1077,145 @@ const guideEntries: Guide[] = [
       "Ako imate osjećaj da ste zakasnili u Bitcoin, uvodni razgovor može pomoći razjasniti što danas stvarno trebate napraviti.",
   },
   {
+    slug: "kada-bitcoin-postane-distrakcija",
+    title: "Kada Bitcoin postane distrakcija",
+    seoTitle: "Kada Bitcoin postane distrakcija",
+    metaDescription:
+      "Vodič o tome kako razlikovati korisno učenje, hobi, karijerni put i Bitcoin distrakciju koja zamjenjuje proračun, rad, sigurnost i jasne odluke.",
+    excerpt:
+      "Tehnologija, trgovanje i zečje rupe nisu zamjena za proračun, rad, vještinu i bolji novac.",
+    category: "Bitcoin kao novac",
+    difficulty: "Početno",
+    freshness: "stabilno",
+    order: 58,
+    publishedAt: "2026-06-03",
+    updatedAt: "2026-06-03",
+    practicalQuestion:
+      "Donosi li vam Bitcoin više jasnoće u novcu, radu i obitelji ili više nemira, provjeravanja i odgađanja stvarnih odluka?",
+    relatedSlugs: [
+      "bitcoin-kao-novac",
+      "bitcoin-nije-kripto-portfelj",
+      "svaki-euro-ima-namjenu",
+      "dca-nije-dovoljan",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
+    ],
+    cover: {
+      webpSrc: "/images/hero-bitcoin-savjetovanje-realistic.webp",
+      src: "/images/hero-bitcoin-savjetovanje-realistic.jpg",
+      alt: "Mediteranska radna scena s Bitcoinom, bilježnicom, grafovima i tehničkim alatima koji se odvajaju od središnjeg plana odluka.",
+      position: "56% 52%",
+      caption:
+        "Privremeni cover koristi postojeći hero asset dok se ne izradi zasebna naslovnica vodiča.",
+    },
+    visual: {
+      type: "split",
+      title: "Jasnoća ili distrakcija",
+      leftLabel: "Bitcoin kao novac",
+      leftItems: [
+        "proračun",
+        "dug",
+        "sigurnost",
+        "obitelj",
+        "odluke kroz vrijeme",
+      ],
+      rightLabel: "Bitcoin kao distrakcija",
+      rightItems: [
+        "stalni grafovi",
+        "tehničko petljanje",
+        "poluga",
+        "rasprave bez ishoda",
+        "odgađanje reda",
+      ],
+      caption:
+        "Učenje ima vrijednost kada služi stvarnom životu. Gubi je kada zamijeni odluke koje su već pred vama.",
+    },
+    intro: [
+      "Neki ljudi u Bitcoin uđu kroz tehnologiju. Drugi uđu kroz cijenu. Prvi se mogu izgubiti u novčanicima, punim čvorovima, UTXO-ima, Lightningu i tehničkim raspravama. Drugi se mogu izgubiti u grafovima, burzama, naknadama, trgovanju, poluzi i alternativnim digitalnim imovinama.",
+      "Naizgled su to različiti smjerovi. U praksi se često radi o istoj pogrešci: Bitcoin prestane biti novac i postane stalna distrakcija.",
+      "Bitcoin treba povećati jasnoću. Treba pomoći čovjeku da bolje vidi proračun, dug, rad, obitelj, sigurnost, neto imovinu i buduće odluke. Ako se pretvori u beskonačno praćenje, petljanje ili dokazivanje, promašena je njegova najvažnija uloga.",
+    ],
+    sections: [
+      {
+        heading: "Dvije zečje rupe",
+        body: [
+          "Prva je tehnička zečja rupa. Osoba počne učiti o novčanicima, punim čvorovima, UTXO-ima, Lightningu, rudarenju, hardverskim uređajima, privatnosti i sigurnosnim modelima. To može biti korisno. Može biti i uzbudljivo. Bitcoin je stvarna tehnologija i zaslužuje ozbiljno razumijevanje.",
+          "Druga je financijska zečja rupa. Osoba počne gledati cijenu, rast, pad, volatilnost, burze, naknade, grafove, trgovanje, polugu i alternativne digitalne imovine. I tu može postojati korisno znanje. Tržišta imaju svoje zakonitosti. Likvidnost, ciklusi i ponašanje sudionika nisu nevažni.",
+          "Problem nije u učenju. Problem nastaje kada učenje postane bijeg od odluka koje su stvarno pred vama. Ako Bitcoin više ne vodi prema boljem novcu, nego prema još jednom izvoru nemira, nešto treba zaustaviti i imenovati.",
+          "Glavno pitanje nije koliko još možete proučiti. Glavno pitanje glasi: što Bitcoin treba napraviti u vašem životu?",
+        ],
+      },
+      {
+        heading: "Tehničko znanje je korisno, ali nije svačiji posao",
+        body: [
+          "Nije svaka osoba koja koristi Bitcoin dužna postati stručnjak za protokol. Nije svatko dužan znati svaki detalj transakcija, skripti, čvorova, kanala plaćanja i hardverskih uređaja. To ne znači da treba biti nemaran. Znači da razina tehničkog znanja treba služiti stvarnoj potrebi.",
+          "Puni čvor, UTXO, Lightning, hardverski novčanici i sigurnosni modeli mogu biti korisni. Za neke ljude oni su nužni. Za druge su sljedeći korak tek nakon što urede osnovni proračun, dug, sigurnosnu zalihu, obiteljske upute i pravila za kupnju ili prodaju.",
+          "Zato je dobro postaviti jednostavno pitanje: služi li mi ovo sada ili me odvlači od proračuna, rada, obitelji i sigurnosnog plana? Ako znanje vodi prema jasnijem sustavu, dobro je. Ako postaje stalna promjena alata bez jasnog razloga, možda više ne služite vi Bitcoinu kao novcu, nego vaša pozornost služi novoj distrakciji.",
+          "Ako netko želi od Bitcoina napraviti karijeru, to može biti dobar put. Ali to je ozbiljna odluka. Ako ne želi, onda treba naučiti dovoljno za sigurnu uporabu, a ne beskonačno tehnički petljati.",
+          "Nije problem pokrenuti puni čvor. Problem je ako puni čvor postane zamjena za proračun, posao, obitelj i stvarni plan.",
+        ],
+      },
+      {
+        heading: "Trgovanje nije isto što i Bitcoin standard",
+        body: [
+          "Mnogi ljudi u Bitcoin uđu kroz rast cijene. To je razumljivo. Cijena privlači pozornost jer pokazuje da se nešto događa. Ali pozornost se brzo može pretvoriti u naviku stalnog provjeravanja. Prvo dolaze grafovi, zatim internetski komentatori, burze, naknade i kratkoročni signali.",
+          "Nakon toga često dolaze trgovanje, poluga, stalno uspoređivanje s drugima i alternativne digitalne imovine. Sve to može izgledati kao angažman. U stvarnosti često postane nova forma nemira. Čovjek provjerava više, a odlučuje lošije.",
+          "Bitcoin kao novac traži drukčije pitanje. Kako čuvam kupovnu moć? Kako vodim proračun nulte osnove? Kako smanjujem dug? Kako uređujem neto imovinu? Kako čuvam pristup? Kako obitelj zna što se nikada ne smije napraviti?",
+          "Ovo nije zabrana učenja o tržištu. Nije tvrdnja da nitko ne smije trgovati. Ovo je upozorenje da trgovanje ne treba miješati s osobnim Bitcoin standardom.",
+          "Ako Bitcoin promatrate samo kao priliku za dodatnu zaradu, lako možete završiti u ponašanju koje više sliči klađenju nego štednji u boljem novcu.",
+        ],
+      },
+      {
+        heading: "Hobi, posao ili distrakcija?",
+        body: [
+          "Postoje tri poštena načina da pogledate vlastito ponašanje. Prvi je hobi. Radim ovo jer me zanima. Znam koliko vremena na to trošim. Ne ugrožavam posao, obitelj, proračun i mir. Ne pretvaram hobi u izgovor za lošije odluke.",
+          "Drugi je posao. Želim od toga napraviti karijeru. Imam plan učenja. Gradim vještinu. Znam kome ću stvarati vrijednost. Spreman sam uložiti godine rada, a ne samo nekoliko vikenda i nekoliko glasnih mišljenja.",
+          "Treći je distrakcija. Stalno otvaram grafove. Mijenjam alate bez jasnog razloga. Ulazim u rasprave koje mi ne pomažu. Učim puno sitnica, ali ne uređujem vlastiti novac. Radim slabije u području u kojem stvarno zarađujem. Bitcoin mi više ne donosi jasnoću, nego nemir.",
+          "Korisno je pitati se tri pitanja. Radim li ovo jer me stvarno zanima? Radim li ovo jer želim od toga napraviti karijeru? Ili radim ovo jer bježim od teškog, dosadnog ili neuređenog dijela vlastitog života?",
+          "Odgovor ne mora biti dramatičan. Ponekad je dovoljno priznati da je nešto bilo korisno prije šest mjeseci, ali danas više nije najbolja uporaba vremena.",
+        ],
+      },
+      {
+        heading: "Ako želite u Bitcoin profesionalno, idite namjerno",
+        body: [
+          "Ako vas Bitcoin snažno zanima, možda to nije problem. Možda je to znak da želite promijeniti karijerni smjer. Ali tada se to ne radi polovično, uz stalno praćenje utjecajnika, kratkoročne oklade i osjećaj da se uvijek nešto mora kupiti ili prodati.",
+          "Profesionalni put može značiti razvoj Bitcoin alata, sigurnost i skrbništvo, edukaciju, istraživanje, pravni, porezni ili računovodstveni rad povezan s Bitcoinom, rad u tvrtki usmjerenoj samo na Bitcoin, pisanje, prijevod, javnu edukaciju ili poslovne modele koji pomažu ljudima koristiti Bitcoin sigurnije i jasnije.",
+          "Nijedan od tih smjerova nije lak. Potreban je dugoročan rad. Potrebna je vještina. Potreban je stvaran doprinos. Potrebno je znati kome stvarate vrijednost. Interes nije isto što i sposobnost stvaranja prihoda.",
+          "Ako želite da Bitcoin bude vaš posao, tretirajte ga kao posao. Ako ne želite, nemojte mu dopustiti da potajno pojede posao koji već imate.",
+        ],
+      },
+      {
+        heading: "Vrijeme ima oportunitetni trošak",
+        body: [
+          "Svaki sat ima vrijednost. Sat proveden u grafovima, prepirkama, tehničkim sitnicama ili burzama nije neutralan. Taj sat je mogao otići u bolji rad, bolju uslugu, bolji posao, više prihoda, bolji proračun, sigurniji sustav ili mirniji odnos s obitelji.",
+          "Nije pitanje smijete li nešto proučavati. Naravno da smijete. Pitanje je je li to sada najbolja uporaba vašeg vremena. Ako imate komparativnu prednost u svojem poslu, možda je najbolji Bitcoin potez upravo bolje raditi taj posao i višak čuvati u boljem novcu.",
+          "Oportunitetni trošak nije samo financijski. Vrijeme izgubljeno u distrakciji moglo je postati znanje, vještina, prihod, mir ili više zarađenog Bitcoina. Moglo je postati razgovor s obitelji, jasniji dokument, riješen dug ili bolja usluga klijentu.",
+          "Bitcoin treba pomoći da vrijeme ponovno vidite jasnije. Ako vam ga stalno krade, treba promijeniti odnos prema njemu.",
+        ],
+      },
+      {
+        heading: "Većina ljudi treba bolji novac, ne novi hobi",
+        body: [
+          "Za većinu ljudi najbolji Bitcoin koraci nisu stalno pratiti cijenu, mijenjati novčanike bez potrebe, testirati svaki alat, slušati svakog internetskog komentatora, trgovati, koristiti polugu, ulaziti u alternativne digitalne imovine ili se svađati oko tehničkih detalja.",
+          "Bolji koraci su često običniji. Bolje raditi svoj posao. Povećati prihode. Smanjiti troškove. Ukloniti dug. Voditi proračun. Štedjeti u boljem novcu. Urediti sigurnost. Objasniti obitelji osnovne stvari. Prestati trošiti pozornost na stvari koje ne mijenjaju stvarni život.",
+          "To može zvučati manje uzbudljivo, ali je često zrelije. Bitcoin ne treba biti novi identitet koji proguta sve ostalo. Treba biti novac koji pomaže da vrijednost koju stvarate ne nestaje kroz loš novac, loše navike i nejasne odluke.",
+          "Bitcoin nije bijeg od rada. Bitcoin je bolji novac za vrijednost koju stvarate radom.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Bitcoin treba povećati jasnoću, ne rastresenost. Treba pomoći da bolje vidite novac, vrijeme, rizik, rad, dug, obitelj i buduće odluke. Ako proizvodi samo više provjeravanja, više rasprava i više nervoze, vrijeme je za povratak na osnovno pitanje.",
+          "Je li Bitcoin u vašem životu novac s jasnom ulogom ili distrakcija koja odgađa stvarne odluke?",
+          "Osobni Bitcoin standard ne traži da znate sve. Traži da znate dovoljno za sljedeći dobar korak. Za mnoge ljude taj korak nije još jedan alat, još jedan graf ili još jedna rasprava. Taj korak je red.",
+        ],
+      },
+    ],
+    finalCta: PRIMARY_CTA,
+    finalCtaTitle: "Želite provjeriti služi li vam Bitcoin kao novac?",
+    finalCtaPrompt:
+      "Ako niste sigurni je li Bitcoin u vašem životu jasan sustav ili nova distrakcija, uvodni razgovor može pomoći razdvojiti hobi, karijerni put i osobni Bitcoin standard.",
+  },
+  {
     slug: "bitcoin-nije-kripto-portfelj",
     title: "Bitcoin nije kripto portfelj",
     seoTitle: "Bitcoin nije kripto portfelj",
@@ -5078,6 +5217,7 @@ export const guidesIndexAdditionalGroups = [
     title: "Bitcoin kao novac",
     slugs: [
       "niste-zakasnili-u-bitcoin",
+      "kada-bitcoin-postane-distrakcija",
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
       "digitalni-kredit-nije-bitcoin",
@@ -5129,6 +5269,7 @@ export const guidesIndexOrderedSlugs = [
   "davanje-bez-duga",
   "novac-dolazi-od-ljudi",
   "niste-zakasnili-u-bitcoin",
+  "kada-bitcoin-postane-distrakcija",
   "bitcoin-kao-novac",
   "bitcoin-nije-kripto-portfelj",
   "pozitivni-neto-priljev",
@@ -5162,6 +5303,7 @@ export const recommendedGuideSlugs = [
   "dug-ili-bitcoin",
   "davanje-u-proracunu-nulte-osnove",
   "niste-zakasnili-u-bitcoin",
+  "kada-bitcoin-postane-distrakcija",
   "bitcoin-kao-novac",
   "bitcoin-nije-kripto-portfelj",
   "digitalni-kredit-nije-bitcoin",

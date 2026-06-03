@@ -125,6 +125,14 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Što je instrument udaljeniji od Bitcoina, to su važniji bilanca, pravila i izdavatelj.",
   },
+  "od-duga-prema-vlasnistvu": {
+    webpSrc: "/images/od-duga-prema-vlasnistvu-hero-20260603.webp",
+    src: "/images/od-duga-prema-vlasnistvu-hero-20260603.jpg",
+    alt: "Mediteranska kamena scena s bilježnicom, ključem i Bitcoin simbolom za vodič Od društva duga prema društvu vlasništva",
+    position: "58% 52%",
+    caption:
+      "Prijelaz iz duga prema vlasništvu počinje jasnim pravilima, stvarnim viškom i novcem koji ostaje pod vašom kontrolom.",
+  },
   "vremenski-oporavak-bitcoin-trezor": {
     webpSrc: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
     src: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",

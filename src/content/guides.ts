@@ -1794,8 +1794,8 @@ const guideEntries: Guide[] = [
   },
   {
     slug: "ne-cekajte-savrseno-dno-bitcoina",
-    title: "Zašto ne bih slijepo čekao dno Bitcoina u Q4 2026.",
-    seoTitle: "Zašto ne bih slijepo čekao dno Bitcoina u Q4 2026.",
+    title: "Ne čekajte savršeno dno Bitcoina",
+    seoTitle: "Ne čekajte savršeno dno Bitcoina",
     metaDescription:
       "Vodič o tome zašto osobni Bitcoin standard ne treba graditi na pogađanju tržišnog dna, nego na proračunu, dugu, pričuvi, sigurnosti i pravilima odlučivanja.",
     excerpt:

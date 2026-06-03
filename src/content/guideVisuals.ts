@@ -20,6 +20,7 @@ const timeGuideSlugs = new Set([
   "uskladivanje-kupovne-moci-bitcoina",
   "cijena-kao-mjera-vremena",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
+  "ne-cekajte-savrseno-dno-bitcoina",
 ])
 
 const defaultCovers: Record<GuideTheme, ThemeCoverDefaults> = {
@@ -131,6 +132,14 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     position: "50% 52%",
     caption:
       "Danas vrijedi 2 od 3, a nakon roka može se otvoriti oporavni put koji obitelj mora razumjeti prije nego što zatreba.",
+  },
+  "ne-cekajte-savrseno-dno-bitcoina": {
+    webpSrc: "/images/vrijeme-volatilnost-hero-20260521.webp",
+    src: "/images/vrijeme-volatilnost-hero-20260521.jpg",
+    alt: "Mirna mediteranska scena koja simbolizira Bitcoin odluke bez pogađanja savršenog dna.",
+    position: "52% 52%",
+    caption:
+      "Ciklusi su koristan kontekst, ali osobni Bitcoin plan ne smije ovisiti o pogađanju jednog kvartala.",
   },
 }
 

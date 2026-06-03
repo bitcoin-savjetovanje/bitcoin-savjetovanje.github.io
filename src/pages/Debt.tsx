@@ -25,27 +25,27 @@ type DebtOutcome = {
 
 const debtOutcomes: DebtOutcome[] = [
   {
-    iconSrc: "/images/medallions/12-proracun-i-plan.png",
+    iconSrc: "/images/stone-symbols/popisati-sve-obveze.webp",
     title: "Popisati sve obveze",
   },
   {
-    iconSrc: "/images/medallions/03-dug.png",
+    iconSrc: "/images/stone-symbols/vidjeti-stvarnu-cijenu-duga.webp",
     title: "Vidjeti stvarnu cijenu duga",
   },
   {
-    iconSrc: "/images/medallions/18-buduci-novac.png",
+    iconSrc: "/images/stone-symbols/osloboditi-buduci-novac.webp",
     title: "Osloboditi budući novac",
   },
   {
-    iconSrc: "/images/medallions/06-cilj-i-akcija.png",
+    iconSrc: "/images/stone-symbols/vratiti-slobodu-odlucivanja.webp",
     title: "Vratiti slobodu odlučivanja",
   },
   {
-    iconSrc: "/images/medallions/25-ciklusi.png",
+    iconSrc: "/images/stone-symbols/smanjiti-stres-i-pritisak.webp",
     title: "Smanjiti stres i pritisak",
   },
   {
-    iconSrc: "/images/medallions/17-primarni-novac.png",
+    iconSrc: "/images/stone-symbols/postaviti-temelj-za-bitcoin.webp",
     title: "Postaviti temelj za Bitcoin",
   },
 ]

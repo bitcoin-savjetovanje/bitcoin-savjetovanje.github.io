@@ -25,27 +25,27 @@ type TimeVolatilityOutcome = {
 
 const timeVolatilityOutcomes: TimeVolatilityOutcome[] = [
   {
-    iconSrc: "/images/medallions/10-volatilnost-i-rast.png",
+    iconSrc: "/images/stone-symbols/razumjeti-dugorocni-trend.webp",
     title: "Razumjeti dugoročni trend",
   },
   {
-    iconSrc: "/images/medallions/25-ciklusi.png",
+    iconSrc: "/images/stone-symbols/odvojiti-trend-od-buke.webp",
     title: "Odvojiti trend od buke",
   },
   {
-    iconSrc: "/images/medallions/14-edukacija.png",
+    iconSrc: "/images/stone-symbols/smanjiti-strah-i-euforiju.webp",
     title: "Smanjiti strah i euforiju",
   },
   {
-    iconSrc: "/images/medallions/25-ciklusi.png",
+    iconSrc: "/images/stone-symbols/uskladiti-odluke-kroz-cikluse.webp",
     title: "Uskladiti odluke kroz cikluse",
   },
   {
-    iconSrc: "/images/medallions/10-volatilnost-i-rast.png",
+    iconSrc: "/images/stone-symbols/planirati-s-vremenskim-horizontom.webp",
     title: "Planirati s vremenskim horizontom",
   },
   {
-    iconSrc: "/images/medallions/06-cilj-i-akcija.png",
+    iconSrc: "/images/stone-symbols/koristiti-volatilnost-kao-okvir.webp",
     title: "Koristiti volatilnost kao okvir",
   },
 ]

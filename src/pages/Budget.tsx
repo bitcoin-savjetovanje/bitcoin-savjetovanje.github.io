@@ -20,27 +20,28 @@ import {
 
 const budgetOutcomes = [
   {
-    iconSrc: "/images/medallions/16-proracun.png",
+    iconSrc: "/images/stone-symbols/svakoj-jedinici-novca-dati-namjenu.webp",
     title: "Svakoj jedinici novca dati namjenu",
   },
   {
-    iconSrc: "/images/medallions/02-novac.png",
+    iconSrc: "/images/stone-symbols/vidjeti-stvarno-stanje-bez-osudivanja.webp",
     title: "Vidjeti stvarno stanje bez osuđivanja",
   },
   {
-    iconSrc: "/images/medallions/21-stvarni-visak.png",
+    iconSrc: "/images/stone-symbols/prepoznati-stvarni-visak.webp",
     title: "Prepoznati stvarni višak",
   },
   {
-    iconSrc: "/images/medallions/05-neto-imovina.png",
+    iconSrc:
+      "/images/stone-symbols/uciniti-oportunitetni-trosak-vidljivim.webp",
     title: "Učiniti oportunitetni trošak vidljivim",
   },
   {
-    iconSrc: "/images/medallions/25-ciklusi.png",
+    iconSrc: "/images/stone-symbols/uskladivati-odluke-kroz-vrijeme.webp",
     title: "Usklađivati odluke kroz vrijeme",
   },
   {
-    iconSrc: "/images/medallions/27-obiteljski-trezor.png",
+    iconSrc: "/images/stone-symbols/proracun-za-pojedinca-obitelj-posao.webp",
     title: "Proračun za pojedinca, obitelj i posao",
   },
 ]

@@ -25,27 +25,27 @@ type GivingOutcome = {
 
 const givingOutcomes: GivingOutcome[] = [
   {
-    iconSrc: "/images/medallions/04-davanje.png",
+    iconSrc: "/images/stone-symbols/davanje-uciniti-pravilom.webp",
     title: "Davanje učiniti pravilom",
   },
   {
-    iconSrc: "/images/medallions/19-duh-velikodusnosti.png",
+    iconSrc: "/images/stone-symbols/jacati-zahvalnost-i-mir.webp",
     title: "Jačati zahvalnost i mir",
   },
   {
-    iconSrc: "/images/medallions/06-cilj-i-akcija.png",
+    iconSrc: "/images/stone-symbols/siriti-kapacitet-za-stvaranje.webp",
     title: "Širiti kapacitet za stvaranje",
   },
   {
-    iconSrc: "/images/medallions/05-neto-imovina.png",
+    iconSrc: "/images/stone-symbols/vratiti-novcu-mjeru.webp",
     title: "Vratiti novcu mjeru",
   },
   {
-    iconSrc: "/images/medallions/26-mentorstvo.png",
+    iconSrc: "/images/stone-symbols/uciniti-odnose-vidljivima.webp",
     title: "Učiniti odnose vidljivima",
   },
   {
-    iconSrc: "/images/medallions/27-obiteljski-trezor.png",
+    iconSrc: "/images/stone-symbols/davanje-za-pojedinca-obitelj-posao.webp",
     title: "Davanje za pojedinca, obitelj i posao",
   },
 ]

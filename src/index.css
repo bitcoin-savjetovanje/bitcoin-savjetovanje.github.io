@@ -6344,6 +6344,36 @@
   filter: drop-shadow(0 0.55rem 0.95rem rgba(89, 55, 21, 0.1));
 }
 
+.budget-page .budget-outcome-card .topic-outcome-stone-symbol,
+.debt-page .budget-outcome-card .topic-outcome-stone-symbol,
+.giving-page .budget-outcome-card .topic-outcome-stone-symbol,
+.bitcoin-money-page .budget-outcome-card .topic-outcome-stone-symbol,
+.net-worth-page .budget-outcome-card .topic-outcome-stone-symbol,
+.time-volatility-page .budget-outcome-card .topic-outcome-stone-symbol {
+  --stone-symbol-size: clamp(8.5rem, 9.8vw, 9.6rem);
+  align-self: center;
+}
+
+.budget-page .budget-outcome-card,
+.debt-page .budget-outcome-card,
+.giving-page .budget-outcome-card,
+.bitcoin-money-page .budget-outcome-card,
+.net-worth-page .budget-outcome-card,
+.time-volatility-page .budget-outcome-card {
+  grid-template-rows: 9.75rem auto;
+  min-height: 15.25rem;
+  align-content: start;
+}
+
+.budget-page .budget-outcome-card h3,
+.debt-page .budget-outcome-card h3,
+.giving-page .budget-outcome-card h3,
+.bitcoin-money-page .budget-outcome-card h3,
+.net-worth-page .budget-outcome-card h3,
+.time-volatility-page .budget-outcome-card h3 {
+  margin-top: 0.95rem;
+}
+
 .debt-outcome-bitcoin {
   width: 3rem;
   height: 3rem;

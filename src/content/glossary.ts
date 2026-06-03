@@ -967,4 +967,89 @@ export const glossaryTerms: GlossaryTerm[] = [
     description:
       "Potpisni uređaj koji seed obično ne sprema trajno na sam uređaj. Sigurnosno je zanimljiv, ali traži vrlo jasne upute za oporavak.",
   },
+  {
+    id: "halving",
+    terms: ["halving", "halvinga", "halvingom"],
+    title: "Halving",
+    description:
+      "Prepolovljenje nagrade koju rudari dobivaju za novi Bitcoin blok. Događa se otprilike svake četiri godine i smanjuje količinu novih bitcoina koji ulaze u optjecaj.",
+  },
+  {
+    id: "trzisno-dno",
+    terms: ["tržišno dno", "tržišnog dna", "tržišna dna", "dno", "dna"],
+    title: "Tržišno dno",
+    description:
+      "Razina cijene nakon koje se, gledano unatrag, pokazalo da je završio veći pad. U stvarnom vremenu ga nije moguće pouzdano znati.",
+  },
+  {
+    id: "trzisni-vrh",
+    terms: ["tržišni vrh", "tržišnog vrha", "tržišni vrhovi", "vrh"],
+    title: "Tržišni vrh",
+    description:
+      "Razina cijene nakon koje se, gledano unatrag, pokazalo da je završio veći rast. U stvarnom vremenu ga nije moguće pouzdano znati.",
+  },
+  {
+    id: "ciklus",
+    terms: ["ciklus", "ciklusa", "ciklusi", "ciklusima"],
+    title: "Ciklus",
+    description:
+      "Ponavljajući obrazac rasta, pada i oporavka cijene. Koristan je kao kontekst, ali nije zakon.",
+  },
+  {
+    id: "povijesni-vrh",
+    terms: ["povijesni vrh", "povijesnog vrha"],
+    title: "Povijesni vrh",
+    description: "Najviša cijena koju je Bitcoin do tada dosegnuo.",
+  },
+  {
+    id: "pricuva",
+    terms: ["pričuva", "pričuvu", "pričuve", "pričuvom"],
+    title: "Pričuva",
+    description:
+      "Novac odvojen za kratkoročne obveze, nepredviđene troškove i sigurnost. Smanjuje pritisak da se bitcoin prodaje u lošem trenutku.",
+  },
+  {
+    id: "proracun",
+    terms: ["proračun", "proračuna", "proračunu", "proračunom"],
+    title: "Proračun",
+    description:
+      "Sustav kojim se unaprijed određuje namjena novca prije trošenja, štednje ili kupnje Bitcoina.",
+  },
+  {
+    id: "vremenski-horizont",
+    terms: [
+      "vremenski horizont",
+      "vremenskog horizonta",
+      "vremenskim horizontom",
+    ],
+    title: "Vremenski horizont",
+    description:
+      "Razdoblje kroz koje osoba može držati Bitcoin bez prisile na prodaju.",
+  },
+  {
+    id: "pravila-kupnje",
+    terms: ["pravila kupnje", "pravilima kupnje", "pravila za kupnju"],
+    title: "Pravila kupnje",
+    description:
+      "Unaprijed definirana pravila koja određuju kada, koliko i kojim novcem osoba kupuje Bitcoin.",
+  },
+  {
+    id: "bull-market",
+    terms: ["bull market", "bull marketa"],
+    title: "Bull market",
+    description: "Razdoblje snažnog rasta cijene i optimizma na tržištu.",
+  },
+  {
+    id: "bear-market",
+    terms: ["bear market", "bear marketa"],
+    title: "Bear market",
+    description: "Razdoblje snažnog pada cijene i pesimizma na tržištu.",
+  },
+  {
+    id: "fiat-novac",
+    terms: ["fiat novac", "fiat novcu", "fiat novca"],
+    title: "Fiat novac",
+    description:
+      "Državni novac koji nije vezan uz zlato ili drugu robu, nego se temelji na zakonskoj prisili i povjerenju u izdavatelja.",
+  },
 ]

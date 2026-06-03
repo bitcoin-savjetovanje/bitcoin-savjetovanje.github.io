@@ -25,27 +25,30 @@ type NetWorthOutcome = {
 
 const netWorthOutcomes: NetWorthOutcome[] = [
   {
-    iconSrc: "/images/medallions/05-neto-imovina.png",
+    iconSrc: "/images/stone-symbols/graditi-produktivnu-imovinu.webp",
     title: "Promatrati neto imovinu kao jednu cjelinu",
   },
   {
-    iconSrc: "/images/medallions/20-pravilo-trecina.png",
+    iconSrc: "/images/stone-symbols/odrzavati-likvidnost-i-sigurnost.webp",
     title: "Primijeniti Pravilo trećina",
   },
   {
-    iconSrc: "/images/medallions/08-proizvodna-imovina.png",
+    iconSrc:
+      "/images/stone-symbols/rebalansirati-prema-vrijednostima-i-ciljevima.webp",
     title: "Graditi produktivnu imovinu",
   },
   {
-    iconSrc: "/images/medallions/09-likvidnost-i-stednja.png",
+    iconSrc:
+      "/images/stone-symbols/donositi-odluke-s-jasnocom-i-smirenoscu.webp",
     title: "Održavati likvidnost i sigurnost",
   },
   {
-    iconSrc: "/images/medallions/06-cilj-i-akcija.png",
+    iconSrc: "/images/stone-symbols/primijeniti-pravilo-trecina.webp",
     title: "Rebalansirati prema vrijednostima i ciljevima",
   },
   {
-    iconSrc: "/images/medallions/25-ciklusi.png",
+    iconSrc:
+      "/images/stone-symbols/promatrati-neto-imovinu-kao-jednu-cjelinu.webp",
     title: "Donositi odluke s jasnoćom i smirenošću",
   },
 ]

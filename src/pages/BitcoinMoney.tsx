@@ -1,6 +1,7 @@
 import { BookOpen, CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
@@ -12,12 +13,31 @@ import {
 } from "@/content/site"
 
 const outcomes = [
-  "Odvojiti novac od špekulacije",
-  "Postaviti Bitcoin kao primarni saldo",
-  "Uskladiti državni novac i kratke obveze",
-  "Donositi odluke bez trgovanja",
-  "Objasniti Bitcoin obitelji ili poslu",
-  "Povezati proračun, dug i neto imovinu",
+  {
+    iconSrc: "/images/stone-symbols/odvojiti-novac-od-spekulacije.webp",
+    title: "Odvojiti novac od špekulacije",
+  },
+  {
+    iconSrc: "/images/stone-symbols/postaviti-bitcoin-kao-primarni-saldo.webp",
+    title: "Postaviti Bitcoin kao primarni saldo",
+  },
+  {
+    iconSrc:
+      "/images/stone-symbols/uskladiti-drzavni-novac-i-kratke-obveze.webp",
+    title: "Uskladiti državni novac i kratke obveze",
+  },
+  {
+    iconSrc: "/images/stone-symbols/donositi-odluke-bez-trgovanja.webp",
+    title: "Donositi odluke bez trgovanja",
+  },
+  {
+    iconSrc: "/images/stone-symbols/objasniti-bitcoin-obitelji-ili-poslu.webp",
+    title: "Objasniti Bitcoin obitelji ili poslu",
+  },
+  {
+    iconSrc: "/images/stone-symbols/povezati-proracun-dug-i-neto-imovinu.webp",
+    title: "Povezati proračun, dug i neto imovinu",
+  },
 ]
 
 const investmentView = [
@@ -111,12 +131,13 @@ export function BitcoinMoney() {
         <section className="topic-section budget-outcomes-section">
           <h2>Što uređujete kada Bitcoin postane novac</h2>
           <div className="budget-outcomes-grid">
-            {outcomes.map((outcome) => (
-              <article className="budget-outcome-card" key={outcome}>
-                <span className="topic-outcome-stone-symbol" aria-hidden="true">
-                  ₿
-                </span>
-                <h3>{outcome}</h3>
+            {outcomes.map(({ iconSrc, title }) => (
+              <article className="budget-outcome-card" key={title}>
+                <StoneSymbol
+                  imageSrc={iconSrc}
+                  className="stone-symbol--small topic-outcome-stone-symbol"
+                />
+                <h3>{title}</h3>
               </article>
             ))}
           </div>

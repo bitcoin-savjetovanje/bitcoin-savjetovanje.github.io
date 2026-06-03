@@ -118,6 +118,15 @@ export function GuidePage({ guide }: { guide: Guide }) {
         ) : null}
         {guide.video ? <GuideVideoEmbed video={guide.video} /> : null}
         {guide.visual ? <GuideVisual visual={guide.visual} /> : null}
+        {guide.intro ? (
+          <section className="guide-content-section guide-intro-section">
+            <div>
+              {guide.intro.map((paragraph) => (
+                <p key={paragraph}>{renderWithGlossary(paragraph)}</p>
+              ))}
+            </div>
+          </section>
+        ) : null}
         {sectionLinks.length > 0 ? (
           <nav aria-labelledby="guide-toc-heading" className="guide-toc-card">
             <h2 id="guide-toc-heading">U ovom vodiču</h2>

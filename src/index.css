@@ -3694,6 +3694,98 @@
   text-underline-offset: 0.25rem;
 }
 
+.guide-callout {
+  margin: 0.4rem 0;
+  border-left: 0.28rem solid color-mix(in oklab, var(--guide-theme), var(--ink) 12%);
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--guide-theme), transparent 88%),
+      color-mix(in oklab, var(--paper), var(--stone-soft) 10%)
+    );
+  padding: clamp(1rem, 2.2vw, 1.35rem);
+}
+
+.guide-callout p {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.42;
+}
+
+.guide-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.guide-data-card {
+  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
+  border-radius: 0.65rem;
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
+  padding: 1rem;
+}
+
+.guide-data-card strong {
+  display: block;
+  color: color-mix(in oklab, var(--guide-theme), var(--ink) 28%);
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.guide-data-card span {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.guide-table-wrap {
+  overflow-x: auto;
+  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border-radius: 0.65rem;
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
+}
+
+.guide-table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+}
+
+.guide-table th,
+.guide-table td {
+  border-bottom: 1px solid var(--line-warm);
+  padding: 0.9rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.guide-table th {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guide-table td {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.guide-table tr:last-child td {
+  border-bottom: 0;
+}
+
 .guide-question-card,
 .guide-next-card,
 .guide-extra-cta-card,
@@ -3765,6 +3857,62 @@
   font-size: 0.9rem;
 }
 
+.guide-faq-section,
+.guide-disclaimer-note {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.guide-faq-section h2 {
+  color: var(--ink);
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.16;
+}
+
+.guide-faq-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.guide-faq-item {
+  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border-radius: 0.65rem;
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
+  padding: 1rem;
+  font-family: var(--font-sans);
+}
+
+.guide-faq-item summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.guide-faq-item p {
+  margin-top: 0.75rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  line-height: 1.66;
+}
+
+.guide-disclaimer-note {
+  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
+  border-radius: 0.65rem;
+  background: color-mix(in oklab, var(--paper), var(--sea-mist) 8%);
+  padding: clamp(1rem, 2vw, 1.25rem);
+  font-family: var(--font-sans);
+}
+
+.guide-disclaimer-note p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 .guide-extra-cta-card a {
   display: inline-flex;
   gap: 0.5rem;
@@ -3781,6 +3929,29 @@
       transparent 13rem
     ),
     color-mix(in oklab, var(--paper), var(--stone-soft) 12%);
+}
+
+.guide-final-cta-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.guide-final-cta-card__secondary {
+  border-color: color-mix(in oklab, var(--guide-theme), var(--card-border) 45%);
+  background: color-mix(in oklab, var(--paper), transparent 8%);
+  color: var(--ink);
+}
+
+@media (max-width: 680px) {
+  .guide-data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-table {
+    min-width: 36rem;
+  }
 }
 
 .home-editorial-page {

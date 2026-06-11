@@ -3,6 +3,9 @@ import { PRIMARY_CTA } from "./site"
 export type GuideSection = {
   heading: string
   body: string[]
+  callout?: string
+  dataCards?: GuideDataCard[]
+  table?: GuideTable
   items?: string[]
   links?: Array<{
     label: string
@@ -149,6 +152,21 @@ export type GuideVideo = {
   caption?: string
 }
 
+export type GuideDataCard = {
+  value: string
+  label: string
+}
+
+export type GuideTable = {
+  columns: string[]
+  rows: string[][]
+}
+
+export type GuideFaq = {
+  question: string
+  answer: string
+}
+
 export const guideCategoryDescriptions: Record<GuideCategory, string> = {
   "Osobni proračun nulte osnove":
     "Prvi korak je red. Svaki euro dobiva namjenu prije Bitcoin odluke.",
@@ -170,6 +188,8 @@ export type Guide = {
   previousSlugs?: string[]
   title: string
   seoTitle?: string
+  ogTitle?: string
+  ogDescription?: string
   metaDescription: string
   excerpt: string
   category: GuideCategory
@@ -189,9 +209,16 @@ export type Guide = {
   video?: GuideVideo
   intro?: string[]
   sections: GuideSection[]
+  faq?: GuideFaq[]
+  disclaimer?: string
   finalCta: string
   finalCtaTitle?: string
   finalCtaPrompt?: string
+  finalSecondaryCta?: {
+    label: string
+    href: string
+    dataCta: string
+  }
   extraCta?: {
     title: string
     text: string
@@ -3304,6 +3331,361 @@ const guideEntries: Guide[] = [
       "Ako imate Bitcoin i financijske instrumente povezane s Bitcoinom, ali ih još ne razdvajate jasno u neto imovini, uvodni razgovor može pomoći.",
   },
   {
+    slug: "digitalni-kredit-bitcoin-saylor",
+    title: "Digitalni kredit: sljedeća faza institucionalnog Bitcoina",
+    seoTitle:
+      "Digitalni kredit i Bitcoin: Saylorova vizija nove financijske mreže",
+    ogTitle: "Digitalni kredit: sljedeća faza institucionalnog Bitcoina",
+    ogDescription:
+      "Bitcoin je baza. Digitalni kredit je most prema kapitalu koji ne može držati punu Bitcoin volatilnost.",
+    metaDescription:
+      "Michael Saylor i Matt Cole objašnjavaju kako Bitcoin postaje temelj za digitalni kredit, digitalni novac i Bitcoin treasury kompanije. Što znači tržište kredita od 300 bilijuna dolara?",
+    excerpt:
+      "Michael Saylor i Matt Cole tvrde da Bitcoin više nije samo digitalna štednja. On postaje baza za digitalni kredit, digitalni novac i novu generaciju financijskih proizvoda.",
+    category: "Bitcoin kao novac",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
+    theme: "bitcoin",
+    order: 73,
+    publishedAt: "2026-06-11",
+    updatedAt: "2026-06-11",
+    practicalQuestion:
+      "Koji dio vaše imovine treba ostati u samom Bitcoinu, a koji dio uopće smije razmatrati instrumente iznad Bitcoina?",
+    relatedSlugs: [
+      "digitalni-kredit-nije-bitcoin",
+      "bitcoin-bilanca-pojacana-izlozenost",
+      "bitcoin-etfovi-i-riznicke-kompanije",
+      "bitcoin-nije-kripto-portfelj",
+      "poslovni-bitcoin-nije-privatni-bitcoin",
+      "samostalna-pohrana-ili-skrbnik",
+    ],
+    visual: {
+      type: "split",
+      title: "Baza i most",
+      leftLabel: "Bitcoin",
+      leftItems: ["temeljna imovina", "samostalna pohrana", "puna volatilnost"],
+      rightLabel: "Digitalni kredit",
+      rightItems: ["kreditni instrument", "niža volatilnost", "fiat mandat"],
+      caption:
+        "Digitalni kredit ima smisla samo ako ostane jasno odvojen od samog Bitcoina.",
+    },
+    intro: [
+      "Ako je Bitcoin digitalni kapital, sljedeće pitanje glasi: može li se oko njega izgraditi kreditni sustav koji će privući kapital iz tradicionalnih financija? U razgovoru Saylora i Colea pojavljuje se upravo ta teza: najveći rast Bitcoina možda neće doći samo kroz kupnju spot Bitcoina, nego kroz proizvode koji tradicionalnim investitorima nude nižu volatilnost, prinos i Bitcoin-backed sigurnost.",
+    ],
+    sections: [
+      {
+        heading: "Uvod: Bitcoin ulazi u novu fazu",
+        body: [
+          "Bitcoin je godinama objašnjavan kao digitalno zlato, štedna tehnologija i monetarna mreža bez centralnog izdavatelja. No u razgovoru Michaela Saylora i Matta Colea fokus se pomiče na sljedeću fazu: što se događa kada Bitcoin postane temelj za kredit, prinos i nove financijske instrumente?",
+          "Saylorova teza je jednostavna, ali ambiciozna: Bitcoin je osnovni sloj. On je digitalni kapital. Ali većina svjetskog kapitala još uvijek živi u fiat sustavu. Zato, ako Bitcoin želi privući bilijune dolara iz tradicionalnog financijskog sustava, mora postojati most između Bitcoin standarda i potreba investitora koji razmišljaju u dolarima, eurima, jenima, prinosima, riziku i volatilnosti.",
+          "Taj most Saylor naziva digitalnim kreditom.",
+        ],
+      },
+      {
+        heading: "Što je digitalni kapital?",
+        body: [
+          "Digitalni kapital je način na koji Saylor opisuje Bitcoin u jeziku tradicionalnih financija.",
+          "Za pogled blizak Bitcoinu, Bitcoin je novac. On nema klasični rizik druge strane, ne ovisi o obećanju banke, države ili kompanije i može se držati u vlastitom skrbništvu.",
+          "No za institucionalni svijet, pojam digitalni kapital lakše sjeda u postojeću mentalnu mapu. U tom okviru Bitcoin konkurira drugim oblicima kapitala: zlatu, nekretninama, dionicama, obveznicama, privatnom kreditu, državnim obveznicama i korporativnom kreditu.",
+          "Ključna ideja: Bitcoin je imovina. Digitalni kapital je način kako tu imovinu objasniti fiat svijetu.",
+        ],
+        link: {
+          before: "Za temeljni okvir pročitajte vodič",
+          label: "Bitcoin je novac",
+          href: guideHref("bitcoin-kao-novac"),
+          after: "prije nego što se Bitcoin počne promatrati kroz slojeve kapitala.",
+        },
+      },
+      {
+        heading: "Što je digitalni kredit?",
+        body: [
+          "Digitalni kredit je kreditni instrument koji se oslanja na Bitcoin kao temeljnu imovinu.",
+          "To može značiti vrijednosni papir, preferencijalnu dionicu, kreditni proizvod ili yield instrument čija logika proizlazi iz Bitcoin-backed kapitalne strukture.",
+          "Saylor i Cole tvrde da takvi instrumenti imaju važnu ulogu jer ne može svaki investitor držati imovinu koja može pasti 30%, 40% ili 50% u relativno kratkom roku. Obitelj koja treba novac za školarinu, kompanija koja upravlja likvidnošću ili fond koji ima mandat za kreditne instrumente neće nužno kupiti spot Bitcoin.",
+          "Ali možda može kupiti instrument koji ima nižu volatilnost, isplaćuje prinos, denominiran je u dolaru ili drugoj fiat valuti, a u pozadini se oslanja na Bitcoin.",
+          "Tu digitalni kredit postaje most između dvije realnosti: Bitcoin standarda i fiat financijskog sustava.",
+        ],
+      },
+      {
+        heading: "Digitalni kredit nije zamjena za Bitcoin",
+        body: [
+          "Ovo je najvažnija poruka za Bitcoin publiku.",
+          "Digitalni kredit nije namijenjen tome da Bitcoineri prodaju Bitcoin koji drže u samostalnoj pohrani i kupe neki financijski proizvod. Saylor upravo suprotno naglašava: ljudi koji kupuju takve instrumente najčešće ne izlaze iz Bitcoina, nego izlaze iz money market fondova, bankovnih depozita, stablecoina ili tradicionalnih kreditnih proizvoda.",
+          "Zato digitalni kredit ne treba promatrati kao konkurenciju Bitcoinu, nego kao dodatni sloj koji može privući kapital koji inače ne bi ušao u Bitcoin ekosustav.",
+        ],
+        callout:
+          "Bitcoin je baza. Digitalni kredit je most. Digitalni novac je korisnički proizvod za fiat svijet.",
+        link: {
+          before: "Kraći uvod u ovu razliku nalazi se u vodiču",
+          label: "Digitalni kredit nije Bitcoin",
+          href: guideHref("digitalni-kredit-nije-bitcoin"),
+          after: ".",
+        },
+      },
+      {
+        heading: "Ključne brojke iz razgovora",
+        body: [
+          "Brojevi iz razgovora ne služe kao prognoza koju treba slijediti, nego kao mapa veličine problema koji Saylor i Cole pokušavaju opisati.",
+        ],
+        dataCards: [
+          {
+            value: "300 bilijuna USD",
+            label: "procijenjena veličina globalnog kreditnog tržišta",
+          },
+          {
+            value: "15–30 bilijuna USD",
+            label:
+              "potencijalnih 5–10% globalnog kredita koji bi mogao prijeći u Bitcoin-backed kreditne instrumente",
+          },
+          {
+            value: "1.000 bilijuna USD",
+            label: "Saylorova procjena kapitala izvan Bitcoina",
+          },
+          {
+            value: "1 bilijun USD",
+            label: "zaokružena procjena kapitala u Bitcoinu",
+          },
+          {
+            value: "99,9%",
+            label:
+              "udio globalnog kapitala koji je još uvijek na fiat standardu",
+          },
+          {
+            value: "99,99999%",
+            label:
+              "tvrdnja o udjelu svjetskih cijena denominiranih u fiat valutama",
+          },
+          {
+            value: "50–51%",
+            label:
+              "pad Bitcoina od razine oko 125.000 USD u primjeru iz razgovora",
+          },
+          {
+            value: "90%",
+            label:
+              "procjena koliko je digitalni kredit uspio skinuti Bitcoin volatilnosti",
+          },
+          {
+            value: "95%",
+            label: "ambiciozni cilj uklanjanja volatilnosti",
+          },
+          {
+            value: "40 vol",
+            label: "spomenuta Bitcoin volatilnost kroz zadnjih 12 mjeseci",
+          },
+          {
+            value: "68–69%",
+            label: "procjena Bitcoin dominacije bez stablecoina",
+          },
+          {
+            value: "7%+",
+            label:
+              "prag prinosa koji Saylor navodi kao relevantan za nadmašivanje monetarnog obezvređenja",
+          },
+          {
+            value: "3%–3,2% godišnje",
+            label:
+              "minimalan rast Bitcoina koji se spominje kao važan za održivost kreditne strukture",
+          },
+          {
+            value: "8,5% godišnje",
+            label: "procijenjeni dugoročni trošak kapitala u jednom primjeru",
+          },
+          {
+            value: "10% godišnje",
+            label: "prag iznad kojeg equity strategija može nadmašiti Bitcoin",
+          },
+          {
+            value: "20%, 30%, 40% CAGR",
+            label:
+              "Coleov right-tail scenarij za Bitcoin u sljedećih 10–15 godina",
+          },
+        ],
+      },
+      {
+        heading: "Zašto je volatilnost glavni problem",
+        body: [
+          "Bitcoin je dugoročno najjači monetarni signal, ali kratkoročno je vrlo volatilan. Upravo tu nastaje problem za institucionalni kapital.",
+          "Za uvjerenog Bitcoinera volatilnost nije nužno problem. On gleda dugoročno, razumije cikluse i spreman je držati kroz padove. Ali većina kapitala u svijetu nije tako pozicionirana.",
+          "Zato Saylor tvrdi da edukacija sama po sebi nije dovoljna. Možete ljudima objasniti Bitcoin, ali ako njihov kapital ne može podnijeti 40 vol, oni ga neće kupiti u velikom postotku.",
+          "Rješenje koje predlaže: proizvodi koji zadržavaju Bitcoin kao temelj, ali smanjuju volatilnost za krajnjeg investitora.",
+        ],
+        items: [
+          "Kompanija ne može riskirati operativnu likvidnost.",
+          "Obitelj ne može držati novac za školarinu u imovini koja može pasti 50%.",
+          "Fond menadžer ima mandate i limite rizika.",
+          "Korporativna riznica mora opravdati kratkoročne gubitke.",
+          "Investicijski odbor često želi stabilnost i predvidljivost.",
+        ],
+      },
+      {
+        heading: "Što znači “skinuti 90% volatilnosti”?",
+        body: [
+          "Jedna od najzanimljivijih tvrdnji iz razgovora jest da digitalni kredit može ukloniti približno 90% Bitcoin volatilnosti.",
+          "To ne znači da rizik nestaje. To znači da se rizik preraspodjeljuje kroz kapitalnu strukturu.",
+          "Pojednostavljeno, spot Bitcoin nosi punu volatilnost. Equity Bitcoin treasury kompanije može imati pojačanu volatilnost. Kreditni instrument može imati nižu volatilnost. Digitalni novac želi biti gotovo bez volatilnosti prema fiat valuti.",
+        ],
+        table: {
+          columns: ["Sloj", "Za koga je"],
+          rows: [
+            [
+              "Spot Bitcoin",
+              "Za one koji žele držati temeljnu imovinu",
+            ],
+            [
+              "Bitcoin treasury equity",
+              "Za one koji žele pojačanu Bitcoin izloženost",
+            ],
+            [
+              "Digitalni kredit",
+              "Za one koji žele prinos i nižu volatilnost",
+            ],
+            [
+              "Digitalni novac",
+              "Za one koji žele fiat stabilnost, prinos i Bitcoin-backed strukturu",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Digitalni novac: fiat proizvod na Bitcoin temeljima",
+        body: [
+          "Saylor pojam digitalni novac ne koristi u Bitcoin maksimalističkom smislu. U Bitcoin standardu, Bitcoin je novac, a sve ostalo je kredit.",
+          "Ali kada govori o digitalnom novcu u ovom kontekstu, govori iz perspektive fiat svijeta. Za većinu ljudi i institucija novac znači nešto što je stabilno u odnosu na dolar, euro ili jen.",
+          "To je proizvod namijenjen ljudima koji možda još nisu spremni kupiti Bitcoin, ali žele bolje rješenje od bankovnog depozita, stablecoina bez prinosa ili money market fonda s niskim prinosom.",
+        ],
+        items: [
+          "Vezanost uz fiat valutu.",
+          "Vrlo niska ili nulta volatilnost.",
+          "Mogućnost razmjene bez velikih trenja.",
+          "Prinos.",
+          "Bitcoin-backed sigurnost u pozadini.",
+        ],
+      },
+      {
+        heading: "Zašto je tržište toliko veliko?",
+        body: [
+          "Najvažnija makro brojka iz razgovora je 300 bilijuna USD globalnog kreditnog tržišta.",
+          "Saylorova ambicija nije da cijelo tržište prijeđe na Bitcoin-backed kredit. Njegova teza je da bi i mali postotak bio ogroman.",
+          "Ako samo 5% globalnog kreditnog tržišta prijeđe u Bitcoin-backed instrumente, to je oko 15 bilijuna USD. Ako prijeđe 10%, to je oko 30 bilijuna USD.",
+          "U kontekstu Bitcoina, to su ogromne brojke. Zato je digitalni kredit potencijalno veća priča od same kategorije još jedan financijski proizvod.",
+          "Radi se o pokušaju da Bitcoin postane kolateralni i kapitalni temelj za dio globalnog kreditnog sustava.",
+        ],
+      },
+      {
+        heading: "Bitcoin treasury kompanije i pitanje razrjeđenja",
+        body: [
+          "Drugi veliki dio razgovora odnosi se na Bitcoin treasury kompanije. To su kompanije koje koriste svoju kapitalnu strukturu kako bi kupovale i držale Bitcoin.",
+          "Kod takvih kompanija investitori često raspravljaju o razrjeđenju. Ako kompanija izdaje nove dionice, je li to štetno za postojeće dioničare?",
+          "Saylorov odgovor: ne nužno.",
+          "Prema njemu, ključno pitanje nije samo izdaje li se novi equity, nego što kompanija dobiva zauzvrat. Ako izdaje dionice iznad neto vrijednosti imovine po dionici i kupuje Bitcoin ili gotovinu koja jača kreditnu strukturu, transakcija može biti akretivna. Ako izdaje equity i kupuje imovinu koja vrijedi manje od plaćenog iznosa, tada je transakcija razrjeđujuća.",
+        ],
+        table: {
+          columns: ["Transakcija", "Mogući učinak"],
+          rows: [
+            [
+              "Equity izdan iznad NAV-a za kupnju Bitcoina",
+              "Potencijalno akretivno",
+            ],
+            [
+              "Equity izdan za gotovinu koja jača kreditnu sposobnost",
+              "Može biti akretivno ako podržava poslovni model",
+            ],
+            ["Equity izdan za precijenjenu imovinu", "Razrjeđujuće"],
+            [
+              "Equity izdan ispod neto vrijednosti imovine",
+              "Razrjeđujuće",
+            ],
+            [
+              "Kratkoročni dug za kupnju Bitcoina",
+              "Visok rizik likvidacije",
+            ],
+            [
+              "Dugoročni ili perpetual kapital",
+              "Manji rizik prisilne likvidacije",
+            ],
+          ],
+        },
+        link: {
+          before: "Za širi okvir poslovne bilance pročitajte",
+          label: "Bitcoin, bilanca i pojačana izloženost",
+          href: guideHref("bitcoin-bilanca-pojacana-izlozenost"),
+          after: ".",
+        },
+      },
+      {
+        heading: "MNAV: korisna metrika, ali ne jedina",
+        body: [
+          "MNAV, odnosno multiple to net asset value, jedna je od najčešće korištenih metrika za Bitcoin treasury kompanije. Ona pokušava odgovoriti na pitanje: koliko tržište plaća kompaniju u odnosu na vrijednost Bitcoina i druge neto imovine koju kompanija drži?",
+          "Ali Saylor upozorava da ne postoji jedna savršena MNAV formula. Različiti investitori mogu drugačije tretirati dug, konvertibilne obveznice, preferred equity, perpetual instrumente, gotovinu, Bitcoin, opcionalnost instrumenata, dospijeća i kreditni rizik.",
+        ],
+        callout:
+          "MNAV nije čarobna brojka. Kod Bitcoin treasury kompanija treba gledati cijelu kapitalnu strukturu, a ne samo broj Bitcoina po dionici.",
+        link: {
+          before:
+            "Ako trebate razliku između Bitcoina, ETF-a i rizničke kompanije, krenite od vodiča",
+          label:
+            "Bitcoin ETF-ovi i rizničke kompanije: gdje prestaje Bitcoin, a počinje kapital",
+          href: guideHref("bitcoin-etfovi-i-riznicke-kompanije"),
+          after: ".",
+        },
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Saylor i Cole ne govore samo o novom investicijskom proizvodu. Oni govore o tome kako bi Bitcoin mogao ući u samu strukturu globalnih financija.",
+          "Prva faza Bitcoina bila je razumijevanje: što je Bitcoin i zašto je važan. Druga faza bila je akumulacija: pojedinci, fondovi i kompanije kupuju Bitcoin. Treća faza mogla bi biti financijalizacija: Bitcoin postaje temelj za kredit, prinos, digitalni novac i nove kapitalne strukture.",
+          "To ne znači da Bitcoin u samostalnoj pohrani postaje manje važan. Upravo suprotno. Spot Bitcoin ostaje baza. Ali oko te baze nastaje sve širi financijski ekosustav.",
+          "Ako Saylorova teza bude točna, najveći kapitalni tokovi prema Bitcoinu možda neće doći samo od ljudi koji žele kupiti Bitcoin, nego od institucija koje žele bolji kredit, bolji kolateral, bolji prinos i bolji monetarni temelj.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Je li digitalni kredit isto što i Bitcoin?",
+        answer:
+          "Nije. Bitcoin je temeljna imovina. Digitalni kredit je financijski instrument koji se može oslanjati na Bitcoin kao kolateral, kapitalnu bazu ili izvor ekonomske sigurnosti.",
+      },
+      {
+        question: "Je li digitalni kredit zamjena za samostalnu pohranu?",
+        answer:
+          "Ne. Bitcoin u samostalnoj pohrani ostaje najčišći način držanja Bitcoina. Digitalni kredit je proizvod za kapital koji traži nižu volatilnost, prinos ili fiat denominaciju.",
+      },
+      {
+        question: "Zašto bi netko kupio digitalni kredit umjesto Bitcoina?",
+        answer:
+          "Zato što ne može svaki investitor podnijeti Bitcoinovu volatilnost. Neki investitori trebaju stabilniji instrument, poznatu valutu, prinos ili kreditni profil.",
+      },
+      {
+        question: "Zašto Saylor spominje tržište od 300 bilijuna dolara?",
+        answer:
+          "Zato što globalno kreditno tržište predstavlja ogroman izvor kapitala. Ako bi se i mali postotak tog tržišta prebacio u Bitcoin-backed kreditne instrumente, radilo bi se o bilijunima dolara potencijalne potražnje.",
+      },
+      {
+        question: "Što je digitalni novac u ovom kontekstu?",
+        answer:
+          "U ovom kontekstu digitalni novac znači fiat-denominirani instrument s vrlo niskom volatilnošću, prinosom i Bitcoin-backed strukturom. To nije isto što i Bitcoin kao novac u austrijskom ili Bitcoin standardu.",
+      },
+      {
+        question: "Što je MNAV?",
+        answer:
+          "MNAV je omjer tržišne vrijednosti kompanije i neto vrijednosti njezine imovine. Kod Bitcoin treasury kompanija često se koristi za usporedbu tržišne cijene s vrijednošću Bitcoina koji kompanija drži, ali nije dovoljna metrika sama za sebe.",
+      },
+    ],
+    disclaimer:
+      "Ovaj članak je edukativnog karaktera i ne predstavlja investicijski savjet. Digitalni kredit, preferred equity, Bitcoin treasury kompanije i slični instrumenti mogu imati složene rizike, uključujući kreditni rizik, tržišni rizik, likvidnosni rizik i rizik kapitalne strukture.",
+    finalCta: "Zatraži Bitcoin savjetovanje",
+    finalCtaTitle:
+      "Želite razumjeti kako Bitcoin može ući u vašu osobnu ili poslovnu strategiju?",
+    finalCtaPrompt:
+      "Bitcoin više nije samo tema za pojedince. Sve više kompanija, investitora i obiteljskih ureda razmatra kako ga uključiti u dugoročnu strategiju štednje, riznice i zaštite kapitala. Kroz Bitcoin savjetovanje pomažemo razumjeti osnovne principe, rizike, samostalnu pohranu, regulativni kontekst i strateške mogućnosti.",
+    finalSecondaryCta: {
+      label: "Pročitaj više vodiča",
+      href: "/vodici/",
+      dataCta: "guide-final-guides-index",
+    },
+  },
+  {
     slug: "obiteljski-bitcoin-trezor",
     title: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
     seoTitle: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
@@ -5221,6 +5603,7 @@ export const guidesIndexAdditionalGroups = [
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
       "digitalni-kredit-nije-bitcoin",
+      "digitalni-kredit-bitcoin-saylor",
     ],
   },
   {
@@ -5274,6 +5657,7 @@ export const guidesIndexOrderedSlugs = [
   "bitcoin-nije-kripto-portfelj",
   "pozitivni-neto-priljev",
   "digitalni-kredit-nije-bitcoin",
+  "digitalni-kredit-bitcoin-saylor",
   "uskladivanje-kupovne-moci-bitcoina",
   "cijena-kao-mjera-vremena",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
@@ -5307,6 +5691,7 @@ export const recommendedGuideSlugs = [
   "bitcoin-kao-novac",
   "bitcoin-nije-kripto-portfelj",
   "digitalni-kredit-nije-bitcoin",
+  "digitalni-kredit-bitcoin-saylor",
   "uskladivanje-kupovne-moci-bitcoina",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
   "ne-cekajte-savrseno-dno-bitcoina",

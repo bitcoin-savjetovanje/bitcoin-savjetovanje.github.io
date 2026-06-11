@@ -71,6 +71,8 @@ export type RouteMeta = {
   title: string
   description: string
   canonical: string
+  ogTitle?: string
+  ogDescription?: string
   schema: unknown
   type: RouteType
   lastmod: string
@@ -513,6 +515,8 @@ export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   title: `${guide.seoTitle ?? guide.title} | Bitcoin Savjetovanje`,
   description: guide.metaDescription,
   canonical: `${SITE_URL}${guideHref(guide.slug)}`,
+  ogTitle: guide.ogTitle ?? guide.title,
+  ogDescription: guide.ogDescription ?? guide.metaDescription,
   schema: guideSchema(guide),
   type: "guide",
   lastmod: guide.updatedAt,

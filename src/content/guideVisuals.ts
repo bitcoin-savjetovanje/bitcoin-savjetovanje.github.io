@@ -92,6 +92,8 @@ const artPromptsBySlug: Record<string, string> = {
     "Mediterranean stone table split between debt obligations and ownership reserve, broken chain, simple ledger, carved Bitcoin money symbol, warm sober editorial cover.",
   "digitalni-kredit-nije-bitcoin":
     "Mediterranean limestone still life separating a carved Bitcoin money symbol from a paper contract and intermediary seal, calm editorial cover, no price chart, no product branding.",
+  "digitalni-kredit-bitcoin-saylor":
+    "Mediterranean limestone table with a carved Bitcoin base layer, subtle bridge of credit papers toward institutional capital, calm sea light, no security branding, no trading dashboard, editorial nonfiction cover.",
   "sigurnost-ne-smije-ovisiti-samo-o-vama":
     "Limestone security plan with separated keys, family note, warm Mediterranean light, calm inheritance and recovery mood, no exposed secret words.",
   "obiteljski-bitcoin-trezor":
@@ -108,6 +110,46 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     position: "50% 52%",
     caption:
       "Svaki euro dobiva namjenu prije nego što Bitcoin odluka postane stvarno slobodna.",
+  },
+  "stvarni-visak": {
+    webpSrc: undefined,
+    src: "/images/stvarni-visak-hero.png",
+    alt: "Mediteranska kamena scena s proračunskom bilježnicom, odvojenim novcem i Bitcoin simbolom za vodič Što je stvarni višak?",
+    position: "68% 52%",
+    caption:
+      "Stvarni višak postaje vidljiv tek nakon što obveze, pričuva i budući troškovi dobiju svoje mjesto.",
+  },
+  "dca-nije-dovoljan": {
+    webpSrc: undefined,
+    src: "/images/dca-nije-dovoljan-hero.png",
+    alt: "Mediteranska kamena scena s redovitom kupnjom Bitcoina i praznim okvirom za pravila za vodič Zašto redovita kupnja nije cijeli sustav?",
+    position: "68% 52%",
+    caption:
+      "Redovita kupnja može biti korisna navika, ali ne zamjenjuje proračun, stvarni višak i pisana pravila.",
+  },
+  "dug-je-buduci-novac": {
+    webpSrc: undefined,
+    src: "/images/dug-je-buduci-novac-hero.png",
+    alt: "Mediteranska kamena scena s lancem, kalendarom i Bitcoin simbolom za vodič Dug je budući novac koji ste već potrošili",
+    position: "68% 52%",
+    caption:
+      "Dug troši budući novac danas i s vremenom počinje odlučivati umjesto vas.",
+  },
+  "dug-ili-bitcoin": {
+    webpSrc: undefined,
+    src: "/images/dug-ili-bitcoin-hero.png",
+    alt: "Mediteranska kamena scena s vagom između duga i Bitcoina za vodič Dug ili Bitcoin?",
+    position: "68% 52%",
+    caption:
+      "Odluka između duga i Bitcoina nije samo računica, nego pitanje mira, jasnoće i slobode.",
+  },
+  "ne-zaduzujte-se-za-bitcoin": {
+    webpSrc: undefined,
+    src: "/images/ne-zaduzujte-se-za-bitcoin-hero.png",
+    alt: "Mediteranska kamena scena s lancem, budućim novcem i Bitcoin simbolom za vodič Ne zadužujte se za Bitcoin",
+    position: "68% 52%",
+    caption:
+      "Bitcoin standard ne kupuje novac budućim novcem, nego čeka stvarni višak.",
   },
   "prihod-nije-slobodan-novac": {
     webpSrc: "/images/prihod-nije-slobodan-novac-hero-20260603.webp",

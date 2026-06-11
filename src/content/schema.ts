@@ -416,6 +416,21 @@ export function audiencePageSchema(page: AudiencePage) {
 
 export function guideSchema(guide: Guide) {
   const guideUrl = `${SITE_URL}${guideHref(guide.slug)}`
+  const faqSchema = guide.faq?.length
+    ? [
+        {
+          "@type": "FAQPage",
+          mainEntity: guide.faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        },
+      ]
+    : []
 
   return {
     "@context": "https://schema.org",
@@ -461,6 +476,7 @@ export function guideSchema(guide: Guide) {
         { name: "Vodiči", item: guidesIndexSeo.canonical },
         { name: guide.title, item: guideUrl },
       ]),
+      ...faqSchema,
     ],
   }
 }

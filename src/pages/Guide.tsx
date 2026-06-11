@@ -45,6 +45,8 @@ export function Guide({ slug }: { slug?: string }) {
         title={route?.title ?? `${guide.title} | Bitcoin Savjetovanje`}
         description={route?.description ?? guide.metaDescription}
         canonical={route?.canonical ?? canonical}
+        ogTitle={route?.ogTitle ?? guide.ogTitle}
+        ogDescription={route?.ogDescription ?? guide.ogDescription}
         ogType={route?.ogType ?? "article"}
         schema={(route?.schema ?? {}) as object}
       />

@@ -6,6 +6,8 @@ export type SeoProps = {
   title: string
   description: string
   canonical: string
+  ogTitle?: string
+  ogDescription?: string
   ogType?: "website" | "article"
   schema?: object
 }
@@ -14,24 +16,28 @@ export function Seo({
   title,
   description,
   canonical,
+  ogTitle,
+  ogDescription,
   ogType = "website",
   schema,
 }: SeoProps) {
   useEffect(() => {
     document.title = title
+    const resolvedOgTitle = ogTitle ?? title
+    const resolvedOgDescription = ogDescription ?? description
 
     const entries = [
       ["meta[name='description']", "content", description],
       ["link[rel='canonical']", "href", canonical],
-      ["meta[property='og:title']", "content", title],
-      ["meta[property='og:description']", "content", description],
+      ["meta[property='og:title']", "content", resolvedOgTitle],
+      ["meta[property='og:description']", "content", resolvedOgDescription],
       ["meta[property='og:type']", "content", ogType],
       ["meta[property='og:url']", "content", canonical],
       ["meta[property='og:image']", "content", OG_IMAGE_URL],
       ["meta[property='og:image:width']", "content", "1200"],
       ["meta[property='og:image:height']", "content", "630"],
-      ["meta[name='twitter:title']", "content", title],
-      ["meta[name='twitter:description']", "content", description],
+      ["meta[name='twitter:title']", "content", resolvedOgTitle],
+      ["meta[name='twitter:description']", "content", resolvedOgDescription],
       ["meta[name='twitter:image']", "content", OG_IMAGE_URL],
     ] as const
 
@@ -75,7 +81,7 @@ export function Seo({
       schemaScript.textContent = JSON.stringify(schema)
       document.head.appendChild(schemaScript)
     }
-  }, [canonical, description, ogType, schema, title])
+  }, [canonical, description, ogDescription, ogTitle, ogType, schema, title])
 
   return null
 }

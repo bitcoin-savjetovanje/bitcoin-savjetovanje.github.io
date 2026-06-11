@@ -45,6 +45,8 @@ function stripRouteHead(html) {
 function routeHead(route) {
   const title = escapeHtml(route.title)
   const description = escapeAttribute(route.description)
+  const ogTitle = escapeAttribute(route.ogTitle ?? route.title)
+  const ogDescription = escapeAttribute(route.ogDescription ?? route.description)
   const canonical = escapeAttribute(route.canonical)
   const ogImage = escapeAttribute(route.ogImage)
   const ogType = escapeAttribute(route.ogType)
@@ -54,15 +56,15 @@ function routeHead(route) {
   return `    <title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${canonical}" />
-    <meta property="og:title" content="${escapeAttribute(route.title)}" />
-    <meta property="og:description" content="${description}" />
+    <meta property="og:title" content="${ogTitle}" />
+    <meta property="og:description" content="${ogDescription}" />
     <meta property="og:type" content="${ogType}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:image" content="${ogImage}" />
     <meta property="og:image:width" content="${width}" />
     <meta property="og:image:height" content="${height}" />
-    <meta name="twitter:title" content="${escapeAttribute(route.title)}" />
-    <meta name="twitter:description" content="${description}" />
+    <meta name="twitter:title" content="${ogTitle}" />
+    <meta name="twitter:description" content="${ogDescription}" />
     <meta name="twitter:image" content="${ogImage}" />
     <script type="application/ld+json" data-route-schema="true">${safeJson(route.schema)}</script>`
 }

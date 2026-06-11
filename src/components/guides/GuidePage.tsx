@@ -153,6 +153,47 @@ export function GuidePage({ guide }: { guide: Guide }) {
                     {section.body.map((paragraph) => (
                       <p key={paragraph}>{renderWithGlossary(paragraph)}</p>
                     ))}
+                    {section.callout ? (
+                      <blockquote className="guide-callout">
+                        <p>{renderWithGlossary(section.callout)}</p>
+                      </blockquote>
+                    ) : null}
+                    {section.dataCards ? (
+                      <div className="guide-data-grid">
+                        {section.dataCards.map((item) => (
+                          <article className="guide-data-card" key={item.value}>
+                            <strong>{item.value}</strong>
+                            <span>{renderWithGlossary(item.label)}</span>
+                          </article>
+                        ))}
+                      </div>
+                    ) : null}
+                    {section.table ? (
+                      <div className="guide-table-wrap">
+                        <table className="guide-table">
+                          <thead>
+                            <tr>
+                              {section.table.columns.map((column) => (
+                                <th key={column} scope="col">
+                                  {column}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {section.table.rows.map((row, rowIndex) => (
+                              <tr key={row.join("-")}>
+                                {row.map((cell, cellIndex) => (
+                                  <td key={`${rowIndex}-${cellIndex}`}>
+                                    {renderWithGlossary(cell)}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    ) : null}
                     {section.items ? (
                       <ul className="grid gap-2 pl-5">
                         {section.items.map((item) => (
@@ -236,6 +277,24 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 </ul>
               </section>
             ) : null}
+            {guide.faq?.length ? (
+              <section className="guide-faq-section">
+                <h2>FAQ</h2>
+                <div className="guide-faq-list">
+                  {guide.faq.map((item) => (
+                    <details className="guide-faq-item" key={item.question}>
+                      <summary>{item.question}</summary>
+                      <p>{renderWithGlossary(item.answer)}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            ) : null}
+            {guide.disclaimer ? (
+              <section className="guide-disclaimer-note">
+                <p>{renderWithGlossary(guide.disclaimer)}</p>
+              </section>
+            ) : null}
             {guide.extraCta ? (
               <div className="guide-extra-cta-card">
                 <h2>{guide.extraCta.title}</h2>
@@ -256,19 +315,36 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio
                 se odnosi na vas.
               </p>
-              <Button
-                asChild
-                className="cta-primary mt-6 w-full rounded-full sm:w-auto"
-              >
-                <a
-                  href={CONVERSATION_PATH}
-                  className="justify-center text-center"
-                  data-cta="guide-final-intro-call"
+              <div className="guide-final-cta-card__actions">
+                <Button
+                  asChild
+                  className="cta-primary w-full rounded-full sm:w-auto"
                 >
-                  <CalendarDays className="size-4" />
-                  {guide.finalCta}
-                </a>
-              </Button>
+                  <a
+                    href={CONVERSATION_PATH}
+                    className="justify-center text-center"
+                    data-cta="guide-final-intro-call"
+                  >
+                    <CalendarDays className="size-4" />
+                    {guide.finalCta}
+                  </a>
+                </Button>
+                {guide.finalSecondaryCta ? (
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="guide-final-cta-card__secondary w-full rounded-full sm:w-auto"
+                  >
+                    <a
+                      href={guide.finalSecondaryCta.href}
+                      className="justify-center text-center"
+                      data-cta={guide.finalSecondaryCta.dataCta}
+                    >
+                      {guide.finalSecondaryCta.label}
+                    </a>
+                  </Button>
+                ) : null}
+              </div>
             </div>
           </div>
           <GuideStickyCta readingProgress={readingProgress} />

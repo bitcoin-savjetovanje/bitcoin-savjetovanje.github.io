@@ -56,6 +56,12 @@ const roadmapGroups = [
     ],
   },
   {
+    id: "poslovanje",
+    area: "bitcoin",
+    title: "Poslovanje",
+    slugs: ["prihvacanje-bitcoina-u-poslovanju"],
+  },
+  {
     id: "neto-imovina",
     area: "worth",
     title: "Neto imovina",
@@ -100,6 +106,7 @@ const guideChips = [
   { label: "Dug", href: "#dug" },
   { label: "Davanje", href: "#davanje" },
   { label: "Bitcoin kao novac", href: "#bitcoin" },
+  { label: "Poslovanje", href: "#poslovanje" },
   { label: "Neto imovina", href: "#neto-imovina" },
   { label: "Vrijeme i volatilnost", href: "#vrijeme-volatilnost" },
   { label: "Sigurnost", href: "#sigurnost" },
@@ -123,6 +130,7 @@ const starterGuides = starterSlugs
   .filter((guide): guide is Guide => Boolean(guide))
 
 const businessSlugs = [
+  "prihvacanje-bitcoina-u-poslovanju",
   "svaki-euro-ima-namjenu",
   "novac-dolazi-od-ljudi",
   "dug-je-buduci-novac",

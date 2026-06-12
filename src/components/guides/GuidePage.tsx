@@ -17,16 +17,44 @@ import {
 } from "@/utils/readingTime"
 import { renderWithGlossary } from "@/utils/glossary"
 
+function linkSecurityProps(href: string) {
+  if (/^https?:\/\//.test(href)) {
+    return {
+      target: "_blank",
+      rel: "noopener noreferrer",
+    }
+  }
+
+  return {}
+}
+
+function renderLinkAfter(after?: string) {
+  if (!after) {
+    return null
+  }
+
+  if (/^[.,;:!?)]/.test(after)) {
+    return after
+  }
+
+  return ` ${after}`
+}
+
 export function GuidePage({ guide }: { guide: Guide }) {
   const [readingProgress, setReadingProgress] = useState(0)
   const guideTheme = resolveGuideTheme(guide)
   const relatedGuides = guide.relatedSlugs
     .map((slug) => findGuide(slug))
     .filter((item): item is Guide => Boolean(item))
-  const sectionLinks = guide.sections.map((section) => ({
-    heading: section.heading,
-    id: slugifyHeading(section.heading),
-  }))
+  const sectionLinks = [
+    ...guide.sections
+      .filter((section) => !section.hideFromToc)
+      .map((section) => ({
+        heading: section.heading,
+        id: slugifyHeading(section.heading),
+      })),
+    ...(guide.tocExtraLinks ?? []),
+  ]
   const nextGuide = guides.find((item) => item.order > guide.order)
 
   useEffect(() => {
@@ -71,13 +99,49 @@ export function GuidePage({ guide }: { guide: Guide }) {
       <header className="guide-hero hero-section editorial-section">
         <div className="hero-shell guide-hero__shell">
           <div className="hero-copy guide-hero__copy">
-            <p className="hero-eyebrow">{guide.category}</p>
+            <p className="hero-eyebrow">{guide.eyebrow ?? guide.category}</p>
             <h1 className="hero-title">{guide.title}</h1>
             <p className="guide-hero__reading-time">
               Vrijeme čitanja: {estimateGuideReadingMinutes(guide)} min
             </p>
             <GuideMetaBadges guide={guide} />
             <p className="hero-subtitle guide-hero__excerpt">{guide.excerpt}</p>
+            {guide.heroPrimaryCta || guide.heroSecondaryCta ? (
+              <div className="guide-hero__actions">
+                {guide.heroPrimaryCta ? (
+                  <Button
+                    asChild
+                    size="lg"
+                    className="cta-primary home-primary-button"
+                  >
+                    <a
+                      href={guide.heroPrimaryCta.href}
+                      className="justify-center text-center"
+                      data-cta={guide.heroPrimaryCta.dataCta}
+                    >
+                      <CalendarDays className="size-4" />
+                      {guide.heroPrimaryCta.label}
+                    </a>
+                  </Button>
+                ) : null}
+                {guide.heroSecondaryCta ? (
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="guide-hero__secondary-button"
+                  >
+                    <a
+                      href={guide.heroSecondaryCta.href}
+                      className="justify-center text-center"
+                      data-cta={guide.heroSecondaryCta.dataCta}
+                    >
+                      {guide.heroSecondaryCta.label}
+                    </a>
+                  </Button>
+                ) : null}
+              </div>
+            ) : null}
           </div>
           <GuideCoverFigure guide={guide} className="hero-image-frame" />
         </div>
@@ -194,6 +258,21 @@ export function GuidePage({ guide }: { guide: Guide }) {
                         </table>
                       </div>
                     ) : null}
+                    {section.cards ? (
+                      <div className="guide-card-grid">
+                        {section.cards.map((card) => (
+                          <article
+                            className="guide-section-card"
+                            key={card.title}
+                          >
+                            <h3>{card.title}</h3>
+                            {card.text ? (
+                              <p>{renderWithGlossary(card.text)}</p>
+                            ) : null}
+                          </article>
+                        ))}
+                      </div>
+                    ) : null}
                     {section.items ? (
                       <ul className="grid gap-2 pl-5">
                         {section.items.map((item) => (
@@ -209,20 +288,131 @@ export function GuidePage({ guide }: { guide: Guide }) {
                         <a
                           href={section.link.href}
                           className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary"
+                          {...linkSecurityProps(section.link.href)}
                         >
                           {section.link.label}
                         </a>
-                        {section.link.after ? ` ${section.link.after}` : null}
+                        {renderLinkAfter(section.link.after)}
                       </p>
                     ) : null}
                     {section.links ? (
                       <ul className="guide-source-list">
                         {section.links.map((item) => (
                           <li key={item.href}>
-                            <a href={item.href}>{item.label}</a>
+                            <a
+                              href={item.href}
+                              {...linkSecurityProps(item.href)}
+                            >
+                              {item.label}
+                            </a>
                           </li>
                         ))}
                       </ul>
+                    ) : null}
+                    {section.subsections ? (
+                      <div className="guide-subsection-list">
+                        {section.subsections.map((subsection) => (
+                          <section
+                            key={subsection.heading}
+                            className="guide-subsection"
+                          >
+                            <h3>{subsection.heading}</h3>
+                            {subsection.body.map((paragraph) => (
+                              <p key={paragraph}>
+                                {renderWithGlossary(paragraph)}
+                              </p>
+                            ))}
+                            {subsection.callout ? (
+                              <blockquote className="guide-callout">
+                                <p>{renderWithGlossary(subsection.callout)}</p>
+                              </blockquote>
+                            ) : null}
+                            {subsection.table ? (
+                              <div className="guide-table-wrap">
+                                <table className="guide-table">
+                                  <thead>
+                                    <tr>
+                                      {subsection.table.columns.map(
+                                        (column) => (
+                                          <th key={column} scope="col">
+                                            {column}
+                                          </th>
+                                        )
+                                      )}
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {subsection.table.rows.map(
+                                      (row, rowIndex) => (
+                                        <tr key={row.join("-")}>
+                                          {row.map((cell, cellIndex) => (
+                                            <td
+                                              key={`${rowIndex}-${cellIndex}`}
+                                            >
+                                              {renderWithGlossary(cell)}
+                                            </td>
+                                          ))}
+                                        </tr>
+                                      )
+                                    )}
+                                  </tbody>
+                                </table>
+                              </div>
+                            ) : null}
+                            {subsection.cards ? (
+                              <div className="guide-card-grid">
+                                {subsection.cards.map((card) => (
+                                  <article
+                                    className="guide-section-card"
+                                    key={card.title}
+                                  >
+                                    <h4>{card.title}</h4>
+                                    {card.text ? (
+                                      <p>{renderWithGlossary(card.text)}</p>
+                                    ) : null}
+                                  </article>
+                                ))}
+                              </div>
+                            ) : null}
+                            {subsection.items ? (
+                              <ul className="grid gap-2 pl-5">
+                                {subsection.items.map((item) => (
+                                  <li key={item} className="list-disc pl-1">
+                                    {renderWithGlossary(item)}
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : null}
+                            {subsection.link ? (
+                              <p>
+                                {subsection.link.before}{" "}
+                                <a
+                                  href={subsection.link.href}
+                                  className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary"
+                                  {...linkSecurityProps(subsection.link.href)}
+                                >
+                                  {subsection.link.label}
+                                </a>
+                                {renderLinkAfter(subsection.link.after)}
+                              </p>
+                            ) : null}
+                            {subsection.links ? (
+                              <ul className="guide-source-list">
+                                {subsection.links.map((item) => (
+                                  <li key={item.href}>
+                                    <a
+                                      href={item.href}
+                                      {...linkSecurityProps(item.href)}
+                                    >
+                                      {item.label}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : null}
+                          </section>
+                        ))}
+                      </div>
                     ) : null}
                     {section.visual ? (
                       <GuideSectionVisual visual={section.visual} />
@@ -278,7 +468,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
               </section>
             ) : null}
             {guide.faq?.length ? (
-              <section className="guide-faq-section">
+              <section id="faq" className="guide-faq-section scroll-mt-24">
                 <h2>FAQ</h2>
                 <div className="guide-faq-list">
                   {guide.faq.map((item) => (
@@ -296,56 +486,71 @@ export function GuidePage({ guide }: { guide: Guide }) {
               </section>
             ) : null}
             {guide.extraCta ? (
-              <div className="guide-extra-cta-card">
+              <div
+                id={guide.extraCta.id}
+                className="guide-extra-cta-card scroll-mt-24"
+              >
                 <h2>{guide.extraCta.title}</h2>
                 <p>{guide.extraCta.text}</p>
+                {guide.extraCta.items ? (
+                  <ul>
+                    {guide.extraCta.items.map((item) => (
+                      <li key={item}>{renderWithGlossary(item)}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {guide.extraCta.finalText ? (
+                  <p>{renderWithGlossary(guide.extraCta.finalText)}</p>
+                ) : null}
                 <a href={guide.extraCta.href} data-cta={guide.extraCta.dataCta}>
                   {guide.extraCta.label}
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </a>
               </div>
             ) : null}
-            <div className="guide-final-cta-card">
-              <h2>
-                {guide.finalCtaTitle ??
-                  "Želite ovo primijeniti na svoju situaciju?"}
-              </h2>
-              <p>
-                {guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : null}
-                Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio
-                se odnosi na vas.
-              </p>
-              <div className="guide-final-cta-card__actions">
-                <Button
-                  asChild
-                  className="cta-primary w-full rounded-full sm:w-auto"
-                >
-                  <a
-                    href={CONVERSATION_PATH}
-                    className="justify-center text-center"
-                    data-cta="guide-final-intro-call"
-                  >
-                    <CalendarDays className="size-4" />
-                    {guide.finalCta}
-                  </a>
-                </Button>
-                {guide.finalSecondaryCta ? (
+            {guide.hideDefaultFinalCta ? null : (
+              <div className="guide-final-cta-card">
+                <h2>
+                  {guide.finalCtaTitle ??
+                    "Želite ovo primijeniti na svoju situaciju?"}
+                </h2>
+                <p>
+                  {guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : null}
+                  Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji
+                  dio se odnosi na vas.
+                </p>
+                <div className="guide-final-cta-card__actions">
                   <Button
                     asChild
-                    variant="outline"
-                    className="guide-final-cta-card__secondary w-full rounded-full sm:w-auto"
+                    className="cta-primary w-full rounded-full sm:w-auto"
                   >
                     <a
-                      href={guide.finalSecondaryCta.href}
+                      href={CONVERSATION_PATH}
                       className="justify-center text-center"
-                      data-cta={guide.finalSecondaryCta.dataCta}
+                      data-cta="guide-final-intro-call"
                     >
-                      {guide.finalSecondaryCta.label}
+                      <CalendarDays className="size-4" />
+                      {guide.finalCta}
                     </a>
                   </Button>
-                ) : null}
+                  {guide.finalSecondaryCta ? (
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="guide-final-cta-card__secondary w-full rounded-full sm:w-auto"
+                    >
+                      <a
+                        href={guide.finalSecondaryCta.href}
+                        className="justify-center text-center"
+                        data-cta={guide.finalSecondaryCta.dataCta}
+                      >
+                        {guide.finalSecondaryCta.label}
+                      </a>
+                    </Button>
+                  ) : null}
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <GuideStickyCta readingProgress={readingProgress} />
         </div>

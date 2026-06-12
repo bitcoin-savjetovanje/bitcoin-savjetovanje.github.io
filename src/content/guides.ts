@@ -3,7 +3,10 @@ import { PRIMARY_CTA } from "./site"
 export type GuideSection = {
   heading: string
   body: string[]
+  hideFromToc?: boolean
   callout?: string
+  subsections?: GuideSectionSubsection[]
+  cards?: GuideCard[]
   dataCards?: GuideDataCard[]
   table?: GuideTable
   items?: string[]
@@ -12,6 +15,25 @@ export type GuideSection = {
     href: string
   }>
   visual?: GuideSectionVisual
+  link?: {
+    before: string
+    label: string
+    href: string
+    after?: string
+  }
+}
+
+export type GuideSectionSubsection = {
+  heading: string
+  body: string[]
+  callout?: string
+  table?: GuideTable
+  items?: string[]
+  cards?: GuideCard[]
+  links?: Array<{
+    label: string
+    href: string
+  }>
   link?: {
     before: string
     label: string
@@ -122,6 +144,7 @@ export const guideCategories = [
   "Neto imovina",
   "Vrijeme i volatilnost",
   "Sigurnost i obitelj",
+  "Poslovanje",
 ] as const
 
 export type GuideCategory = (typeof guideCategories)[number]
@@ -157,6 +180,11 @@ export type GuideDataCard = {
   label: string
 }
 
+export type GuideCard = {
+  title: string
+  text?: string
+}
+
 export type GuideTable = {
   columns: string[]
   rows: string[][]
@@ -181,12 +209,15 @@ export const guideCategoryDescriptions: Record<GuideCategory, string> = {
     "Vrijeme, ciklusi i volatilnost služe kao povod za jasnija osobna pravila, a ne kao zamjena za njih.",
   "Sigurnost i obitelj":
     "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
+  Poslovanje:
+    "Poslovni Bitcoin okvir počinje poslovnim modelom, likvidnošću, evidencijom, sigurnošću i jasnom odgovornošću.",
 }
 
 export type Guide = {
   slug: string
   previousSlugs?: string[]
   title: string
+  eyebrow?: string
   seoTitle?: string
   ogTitle?: string
   ogDescription?: string
@@ -208,6 +239,20 @@ export type Guide = {
   visual?: GuideVisual
   video?: GuideVideo
   intro?: string[]
+  heroPrimaryCta?: {
+    label: string
+    href: string
+    dataCta: string
+  }
+  heroSecondaryCta?: {
+    label: string
+    href: string
+    dataCta: string
+  }
+  tocExtraLinks?: Array<{
+    heading: string
+    id: string
+  }>
   sections: GuideSection[]
   faq?: GuideFaq[]
   disclaimer?: string
@@ -220,12 +265,16 @@ export type Guide = {
     dataCta: string
   }
   extraCta?: {
+    id?: string
     title: string
     text: string
+    items?: string[]
+    finalText?: string
     label: string
     href: string
     dataCta: string
   }
+  hideDefaultFinalCta?: boolean
 }
 
 const advancedSecuritySafetyNote =
@@ -3393,7 +3442,8 @@ const guideEntries: Guide[] = [
           before: "Za temeljni okvir pročitajte vodič",
           label: "Bitcoin je novac",
           href: guideHref("bitcoin-kao-novac"),
-          after: "prije nego što se Bitcoin počne promatrati kroz slojeve kapitala.",
+          after:
+            "prije nego što se Bitcoin počne promatrati kroz slojeve kapitala.",
         },
       },
       {
@@ -3528,18 +3578,12 @@ const guideEntries: Guide[] = [
         table: {
           columns: ["Sloj", "Za koga je"],
           rows: [
-            [
-              "Spot Bitcoin",
-              "Za one koji žele držati temeljnu imovinu",
-            ],
+            ["Spot Bitcoin", "Za one koji žele držati temeljnu imovinu"],
             [
               "Bitcoin treasury equity",
               "Za one koji žele pojačanu Bitcoin izloženost",
             ],
-            [
-              "Digitalni kredit",
-              "Za one koji žele prinos i nižu volatilnost",
-            ],
+            ["Digitalni kredit", "Za one koji žele prinos i nižu volatilnost"],
             [
               "Digitalni novac",
               "Za one koji žele fiat stabilnost, prinos i Bitcoin-backed strukturu",
@@ -3592,14 +3636,8 @@ const guideEntries: Guide[] = [
               "Može biti akretivno ako podržava poslovni model",
             ],
             ["Equity izdan za precijenjenu imovinu", "Razrjeđujuće"],
-            [
-              "Equity izdan ispod neto vrijednosti imovine",
-              "Razrjeđujuće",
-            ],
-            [
-              "Kratkoročni dug za kupnju Bitcoina",
-              "Visok rizik likvidacije",
-            ],
+            ["Equity izdan ispod neto vrijednosti imovine", "Razrjeđujuće"],
+            ["Kratkoročni dug za kupnju Bitcoina", "Visok rizik likvidacije"],
             [
               "Dugoročni ili perpetual kapital",
               "Manji rizik prisilne likvidacije",
@@ -5409,6 +5447,462 @@ const guideEntries: Guide[] = [
       "Ako niste sigurni koji je poslovni novac stvarno slobodan, to je dobro pitanje za uvodni razgovor.",
   },
   {
+    slug: "prihvacanje-bitcoina-u-poslovanju",
+    title: "Prihvaćanje Bitcoina u poslovanju",
+    eyebrow: "Bitcoin za tvrtke",
+    seoTitle: "Prihvaćanje Bitcoina u poslovanju",
+    metaDescription:
+      "Kako tvrtka, obrt, trgovina, restoran, hotel ili event može prihvatiti Bitcoin plaćanja i odlučiti hoće li zadržati Bitcoin ili primati eure.",
+    excerpt:
+      "Bitcoin plaćanja mogu biti novi kanal prodaje, marketinška prednost i način da dođete do kupaca koji aktivno traže mjesta na kojima mogu plaćati Bitcoinom. Pravo pitanje nije samo kako tehnički primiti uplatu, nego što će vaše poslovanje napraviti s primljenim Bitcoinom.",
+    category: "Poslovanje",
+    difficulty: "Srednje",
+    freshness: "često se mijenja",
+    theme: "bitcoin",
+    order: 19,
+    readingMinutes: 12,
+    publishedAt: "2026-06-11",
+    updatedAt: "2026-06-11",
+    practicalQuestion:
+      "Želite li Bitcoin samo kao novi kanal naplate ili primljeni Bitcoin stvarno postaje dio poslovne imovine?",
+    relatedSlugs: [
+      "prihod-nije-slobodan-novac",
+      "poslovni-bitcoin-nije-privatni-bitcoin",
+      "bitcoin-kao-novac",
+    ],
+    heroPrimaryCta: {
+      label: "Dogovorite razgovor o implementaciji",
+      href: "/razgovor/",
+      dataCta: "guide-business-bitcoin-payments-hero",
+    },
+    heroSecondaryCta: {
+      label: "Prvo pročitajte vodič",
+      href: "#guide-toc-heading",
+      dataCta: "guide-business-bitcoin-payments-toc",
+    },
+    tocExtraLinks: [
+      { heading: "FAQ", id: "faq" },
+      {
+        heading: "Razgovor o implementaciji",
+        id: "razgovor-o-implementaciji",
+      },
+    ],
+    sections: [
+      {
+        heading: "Uvod",
+        hideFromToc: true,
+        body: [
+          "Svako poslovanje već prihvaća određene oblike plaćanja: gotovinu, kartice, bankovne transfere, online plaćanja, ponekad strane valute, vaučere ili prepaid sustave.",
+          "Prihvaćanje Bitcoina može se promatrati kao dodavanje još jednog načina plaćanja. Ali Bitcoin nije samo tehnička opcija na blagajni. On može otvoriti pristup posebnoj skupini kupaca: ljudima koji aktivno žele koristiti Bitcoin kao novac.",
+          "To je posebno vidljivo u turizmu, ugostiteljstvu, eventima, konferencijama, webshopovima i poslovanjima koja imaju međunarodne kupce.",
+          "Kada se veći broj Bitcoin korisnika okupi na jednom mjestu, vrlo brzo postane jasno da postoji stvarna potražnja za Bitcoin plaćanjem. U takvoj situaciji poslovanje koje prihvati Bitcoin ne dobiva samo još jedan način naplate. Dobiva signal tržištu: ovdje razumijemo što dio naših kupaca želi.",
+        ],
+        link: {
+          before: "Vanjski pregled takve potražnje možete provjeriti kroz",
+          label: "BTC Map",
+          href: "https://btcmap.org/",
+          after:
+            "koji prikazuje lokacije koje prihvaćaju Bitcoin i omogućuje Bitcoin korisnicima da ih lakše pronađu.",
+        },
+      },
+      {
+        heading: "Zašto prihvatiti Bitcoin?",
+        body: [
+          "Za tvrtke, obrte, trgovine, restorane, hotele i evente Bitcoin plaćanje može imati više uloga. Nekome je dovoljno da kupac ima još jedan način plaćanja. Nekome je važan signal prema Bitcoin zajednici. Nekome je to prvi korak prema poslovnoj Bitcoin pričuvi.",
+        ],
+        table: {
+          columns: ["Korist", "Što to znači u praksi"],
+          rows: [
+            [
+              "Novi kanal naplate",
+              "Kupac može platiti izravno iz Bitcoin novčanika.",
+            ],
+            [
+              "Marketinška diferencijacija",
+              "Poslovanje se razlikuje od konkurencije.",
+            ],
+            [
+              "Pristup Bitcoin zajednici",
+              "Bitcoin korisnici često dijele informacije o mjestima koja prihvaćaju Bitcoin.",
+            ],
+            [
+              "Međunarodna dostupnost",
+              "Bitcoin je globalan i nije vezan uz kartične mreže ili lokalne bankovne navike.",
+            ],
+            [
+              "Mogućnost štednje u Bitcoinu",
+              "Poslovanje može dio primljenih sredstava zadržati kao Bitcoin pričuvu.",
+            ],
+            [
+              "Učenje o novcu",
+              "Tvrtka počinje jasnije razmišljati o prihodu, pričuvi, riziku i likvidnosti.",
+            ],
+          ],
+        },
+        callout:
+          "Ali postoji i opasnost: uvesti Bitcoin plaćanja bez jasnog poslovnog plana. Zato ovaj vodič ne počinje tehnologijom. Počinje najvažnijim pitanjem.",
+        link: {
+          before: "Za širi monetarni okvir pročitajte i vodič",
+          label: "Bitcoin kao novac",
+          href: "/vodici/bitcoin-kao-novac/",
+          after:
+            "jer prihvaćanje Bitcoina ima smisla tek kada znate koju ulogu novac ima u sustavu.",
+        },
+      },
+      {
+        heading: "Prvo pitanje: što ćete napraviti s primljenim Bitcoinom?",
+        body: [
+          "Prihvaćanje Bitcoina nije samo tehnička odluka. To je poslovna odluka. Pravo pitanje nije samo koji alat koristiti, nego što će poslovanje napraviti s primljenim Bitcoinom.",
+        ],
+        subsections: [
+          {
+            heading: "Kupac plaća Bitcoinom, vi primate eure",
+            body: [
+              "Ovo je često najjednostavniji početak za hrvatska poslovanja. Kupac dobije mogućnost plaćanja Bitcoinom, a poslovanje ne mora odmah upravljati Bitcoinom, privatnim ključevima ili vlastitom infrastrukturom.",
+              "PayCek je primjer lokalnog procesorskog rješenja za takav početak. U tom modelu račun može biti temeljen u eurima, a sustav pretvara plaćanje u euro iznos koji poslovanje prima. To može biti praktično za trgovinu, restoran, hotel, event ili webshop koji želi testirati potražnju bez promjene cijelog sustava naplate.",
+              "Ovo nije porezni, pravni ni računovodstveni savjet. Prije implementacije treba provjeriti kako se računi, evidencija, naknade i izvještaji uklapaju u vaš konkretan poslovni proces.",
+            ],
+            link: {
+              before: "Više o lokalnom procesorskom rješenju pogledajte na",
+              label: "PayCek",
+              href: "https://paycek.io/",
+              after: ".",
+            },
+          },
+          {
+            heading: "Dio zadržavate u Bitcoinu, dio pretvarate u eure",
+            body: [
+              "Prijelazni model često je zdraviji od naglog skoka u potpuno Bitcoin-native sustav. Primjerice, poslovanje može odlučiti da se 80 % primljenog iznosa pretvara u eure, a 20 % ostaje u Bitcoinu.",
+              "Takav model priznaje dvije stvarnosti odjednom: posao treba euro likvidnost za poreze, plaće, dobavljače i kratkoročne obveze, ali želi postupno graditi Bitcoin pričuvu. Tu odluku treba zapisati, pratiti i redovito preispitivati.",
+            ],
+            link: {
+              before:
+                "Ako još nije jasno koji novac u poslu stvarno može ostati po strani, prvo uredite",
+              label: "proračun i namjenu novca",
+              href: "/proracun/",
+              after: ".",
+            },
+          },
+          {
+            heading: "Bitcoin zadržavate kao Bitcoin",
+            body: [
+              "Ovo je najzahtjevniji model. Poslovanje stvarno prima Bitcoin i čuva ga kao dio svoje poslovne imovine. To traži jasnu euro likvidnost, sigurnost, računovodstvo i odgovornost.",
+              "Takva odluka više nije samo platna integracija. To je dio upravljanja poslovnom imovinom. Treba biti jasno tko smije odlučiti, tko smije provesti transakciju, kako se čuva pristup, što se događa ako odgovorna osoba nije dostupna i kako se odluka objašnjava računovodstveno.",
+            ],
+            link: {
+              before:
+                "Za taj sloj prije tehničke implementacije vrijedi pročitati i",
+              label: "sigurnosni okvir",
+              href: "/sigurnost/",
+              after: ".",
+            },
+          },
+        ],
+      },
+      {
+        heading: "Tri osnovna modela implementacije",
+        body: [
+          "Kako prihvatiti Bitcoin ovisi o tome što poslovanje želi postići. Isti QR kod na blagajni može skrivati vrlo različite poslovne modele.",
+        ],
+        subsections: [
+          {
+            heading:
+              "Model 1: Lokalni procesor koji kupcu omogućuje Bitcoin, a poslovanju euro",
+            body: [
+              "PayCek i Electrocoin su relevantni lokalni pojmovi kada hrvatsko poslovanje želi brzo omogućiti Bitcoin plaćanje, a primati eure. Taj model je praktičan kada poslovanje ne želi izravno upravljati privatnim ključevima i želi podršku na hrvatskom jeziku.",
+              "Prema Hanfa objavi od 9. travnja 2026., Electrocoin d.o.o. dobio je Hanfino odobrenje za rad kao pružatelj usluga povezanih s kriptoimovinom prema MiCA okviru. Takve informacije treba uvijek provjeriti na službenom izvoru jer se regulatorni status i opseg usluga mogu mijenjati.",
+              "Ovaj model je dobar kada poslovanje želi brzo omogućiti Bitcoin plaćanje, primati eure, izbjeći izravno upravljanje privatnim ključevima, imati podršku na hrvatskom jeziku i uklopiti plaćanje u postojeće prodajne procese.",
+            ],
+            callout:
+              "Glavni nedostatak: ovo nije Bitcoin-native pristup. Poslovanje zapravo ne koristi Bitcoin kao vlastiti novac, nego omogućuje kupcu da plati Bitcoinom dok poslovanje prima eure.",
+            links: [
+              { label: "PayCek", href: "https://paycek.io/" },
+              { label: "Electrocoin", href: "https://electrocoin.eu/" },
+              {
+                label: "Hanfa objava o MiCA odobrenju",
+                href: "https://www.hanfa.hr/news/hanfa-board-meeting-electrocoin-doo-becomes-the-first-company-to-obtain-hanfa-s-authorisation-to-operate-in-accordance-with-mica/",
+              },
+            ],
+          },
+          {
+            heading: "Model 2: Bitcoin procesor s Lightning podrškom",
+            body: [
+              "OpenNode je primjer procesora koji omogućuje Bitcoin i Lightning plaćanja bez toga da poslovanje mora voditi vlastiti čvor. Taj model može biti koristan za online prodaju, evente i međunarodne kupce.",
+              "Ovaj model je dobar kada poslovanje želi Lightning plaćanja, bržu Bitcoin-native implementaciju, manje tehničkog održavanja nego kod vlastitog servera, mogućnost primanja Bitcoina ili lokalne valute i praktičan model za prodaju s većim brojem kupaca.",
+            ],
+            callout:
+              "Glavni nedostatak: oslanjanje na tuđu infrastrukturu. To nije isto kao vlastiti Bitcoin čvor i vlastito skrbništvo.",
+            links: [{ label: "OpenNode", href: "https://opennode.com/" }],
+          },
+          {
+            heading: "Model 3: Vlastiti BTCPay Server",
+            body: [
+              "BTCPay Server je self-hosted open-source procesor za Bitcoin plaćanja. Ovo je najviše u duhu Bitcoina, ali traži najviše odgovornosti.",
+              "Dobar je za tehnički sposobna poslovanja, webshopove koji žele samostalnu infrastrukturu, Bitcoin-only brendove, organizatore Bitcoin događaja, poduzeća koja žele zadržavati Bitcoin i poslovanja koja žele izbjeći ovisnost o procesoru.",
+            ],
+            cards: [
+              {
+                title: "Prednosti",
+                text: "Veća kontrola, nema klasičnog platnog posrednika, open-source infrastruktura, mogućnost on-chain i Lightning plaćanja i izravniji odnos prema vlastitom Bitcoin novcu.",
+              },
+              {
+                title: "Nedostaci",
+                text: "Tehničko održavanje, potreba za internim znanjem, sigurnosna odgovornost, upravljanje Lightning likvidnošću i jasni procesi u slučaju greške, bolesti, odlaska zaposlenika ili promjene odgovorne osobe.",
+              },
+            ],
+            link: {
+              before: "Saznajte više na službenoj stranici",
+              label: "BTCPay Server",
+              href: "https://btcpayserver.org/",
+              after: ".",
+            },
+          },
+        ],
+      },
+      {
+        heading: "On-chain ili Lightning?",
+        body: [
+          "Bitcoin plaćanje nije uvijek ista tehnička situacija. Veći i rjeđi iznosi mogu imati drukčije potrebe od kave, pića, ulaznice ili brzog računa na eventu.",
+        ],
+        subsections: [
+          {
+            heading: "On-chain plaćanje",
+            body: [
+              "On-chain transakcija se zapisuje izravno u Bitcoin blockchain. Prikladna je za veće iznose, rjeđe uplate, situacije u kojima nije problem čekati potvrdu i uplate gdje je sigurnost važnija od brzine.",
+              "Nije idealna za kave, pića, male račune, gužve na blagajni i evente s puno brzih transakcija.",
+            ],
+          },
+          {
+            heading: "Lightning plaćanje",
+            body: [
+              "Lightning Network je drugi sloj iznad Bitcoina koji omogućuje brže i jeftinije uplate. Zato su lightning plaćanja posebno korisna kada je račun mali, kupac čeka ispred blagajne i potvrda mora biti praktično trenutna.",
+              "Lightning je prikladan za kafiće, restorane, male trgovine, suvenirnice, događaje, naplatu ulaznica, naplatu pića i hrane, turističke lokacije i veći broj manjih transakcija.",
+            ],
+            link: {
+              before: "Osnovni opis mreže dostupan je na stranici",
+              label: "Lightning Network",
+              href: "https://lightning.network/",
+              after: ".",
+            },
+          },
+          {
+            heading: "Što je Lightning inbound likvidnost?",
+            body: [
+              "Ako koristite vlastiti Lightning čvor, nije dovoljno samo uključiti Lightning. Da biste mogli primati uplate, vaši kanali moraju imati kapacitet za primanje. To se zove inbound likvidnost.",
+              "Vlastiti Lightning čvor daje više kontrole, ali ta kontrola dolazi s operativnom odgovornošću.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Kako odabrati pravo rješenje?",
+        body: [
+          "Pravo rješenje nije ono koje zvuči najnaprednije. Pravo rješenje je ono koje odgovara vašem poslovnom modelu, kupcima, likvidnosti, računovodstvu, sigurnosti i tehničkom kapacitetu.",
+        ],
+        table: {
+          columns: ["Pitanje", "Zašto je važno"],
+          rows: [
+            [
+              "Želite li zadržavati Bitcoin?",
+              "Ako ne želite, treba vam procesor s automatskom konverzijom.",
+            ],
+            [
+              "Imate li puno malih računa?",
+              "Ako imate, Lightning je vjerojatno važan.",
+            ],
+            ["Imate li webshop?", "Treba provjeriti integracije s platformom."],
+            ["Imate li fizičku lokaciju?", "Treba POS ili web POS rješenje."],
+            [
+              "Imate li računovođu koji razumije proces?",
+              "Evidencija mora biti jasna od prvog dana.",
+            ],
+            [
+              "Imate li osobu za tehničko održavanje?",
+              "Ako nemate, self-hosted rješenje može biti previše.",
+            ],
+            [
+              "Koliko je Bitcoin važan za vaš brend?",
+              "Ako je jako važan, Bitcoin-native pristup ima više smisla.",
+            ],
+            [
+              "Koliko brzo želite krenuti?",
+              "Brz pilot i idealna arhitektura nisu uvijek ista stvar.",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Preporučeni redoslijed implementacije",
+        body: [
+          "Uvođenje Bitcoin plaćanja najbolje funkcionira kada se prvo postavi redoslijed odluka, a tek onda bira alat.",
+        ],
+        items: [
+          "1. Odrediti poslovni cilj.",
+          "2. Odrediti politiku zadržavanja Bitcoina.",
+          "3. Provjeriti računovodstvo i porezni tretman. Ovaj vodič nije porezni, pravni ni računovodstveni savjet.",
+          "4. Odabrati tehnički model.",
+          "5. Napraviti pilot.",
+          "6. Komunicirati da prihvaćate Bitcoin.",
+          "7. Pregled nakon 30 i 90 dana.",
+        ],
+        link: {
+          before:
+            "Ako Bitcoin uvodite dok se posao još bori s obvezama, prvo prođite okvir za",
+          label: "dug i budući novac",
+          href: "/dug/",
+          after: ".",
+        },
+      },
+      {
+        heading: "Najčešće pogreške",
+        body: [
+          "Najveće pogreške ne događaju se zato što poslovanje nije izabralo savršen alat. Događaju se zato što nitko nije jasno odredio što alat treba postići.",
+        ],
+        cards: [
+          {
+            title: "Krenuti od tehnologije umjesto od poslovne odluke",
+            text: "Alat ne može zamijeniti odluku o tome želite li eure, Bitcoin ili kombinaciju.",
+          },
+          {
+            title: "Uvesti Bitcoin bez računovodstvenog procesa",
+            text: "Svaka naplata mora imati jasan trag, izvještaj i način evidentiranja.",
+          },
+          {
+            title: "Zadržavati Bitcoin bez plana likvidnosti",
+            text: "Posao mora znati iz čega plaća poreze, plaće, dobavljače i kratkoročne obveze.",
+          },
+          {
+            title: "Koristiti self-hosted rješenje bez osobe koja ga razumije",
+            text: "Samostalna infrastruktura ima smisla samo ako netko stvarno zna što održava.",
+          },
+          {
+            title: "Ignorirati sigurnost",
+            text: "Ako Bitcoin ostaje u poslu, sigurnost pristupa postaje poslovni proces.",
+          },
+          {
+            title: "Ne educirati zaposlenike",
+            text: "Zaposlenici ne moraju biti stručnjaci, ali moraju znati provesti osnovnu naplatu.",
+          },
+          {
+            title: "Ne reći tržištu da prihvaćate Bitcoin",
+            text: "Marketinška prednost postoji samo ako kupci mogu saznati da Bitcoin plaćanje postoji.",
+          },
+        ],
+      },
+      {
+        heading: "Koji model je za vas?",
+        body: [
+          "Ovo nije konačna preporuka za svako poslovanje, nego početna mapa odluke. Pravi izbor ovisi o iznosima, broju transakcija, kupcima, računovodstvu, sigurnosti i spremnosti za tehničko održavanje.",
+        ],
+        table: {
+          columns: ["Situacija", "Najvjerojatnije rješenje"],
+          rows: [
+            [
+              "Turistički objekt želi brzo omogućiti Bitcoin plaćanje, ali primati eure",
+              "PayCek ili slično lokalno procesorsko rješenje.",
+            ],
+            [
+              "Restoran ili kafić želi testirati potražnju među Bitcoinerima",
+              "PayCek za početak ili OpenNode ako je Lightning važan.",
+            ],
+            [
+              "Event s mnogo malih transakcija",
+              "Lightning rješenje, često OpenNode ili dobro pripremljen BTCPay.",
+            ],
+            [
+              "Webshop koji želi jednostavnu integraciju",
+              "PayCek, OpenNode ili BTCPay, ovisno o cilju.",
+            ],
+            ["Bitcoin-only brend", "BTCPay Server."],
+            [
+              "Tvrtka želi graditi Bitcoin pričuvu",
+              "BTCPay ili procesor koji omogućuje zadržavanje dijela Bitcoina.",
+            ],
+            [
+              "Poslovanje nema tehničku osobu",
+              "Ne počinjati sa self-hosted rješenjem.",
+            ],
+            ["Poslovanje ima tehnički tim i želi kontrolu", "BTCPay Server."],
+          ],
+        },
+      },
+      {
+        heading: "Zaključak",
+        hideFromToc: true,
+        body: [
+          "Prihvaćanje Bitcoina nije samo tehnička odluka.",
+          "To je poslovna odluka.",
+          "Može biti jednostavna: kupac plaća Bitcoinom, vi primate eure.",
+          "Može biti prijelazna: dio primljenog iznosa ostaje u Bitcoinu.",
+          "Može biti potpuno Bitcoin-native: poslovanje prima i čuva Bitcoin kao dio svoje novčane pričuve.",
+          "Svaki model može biti dobar ako odgovara stvarnosti poslovanja.",
+          "Problem nastaje kada se model izabere bez plana.",
+          "Zato prije implementacije treba jasno vidjeti poslovni cilj, očekivane kupce, računovodstveni proces, tehničku odgovornost, sigurnost, politiku zadržavanja ili konverzije i način komunikacije prema tržištu.",
+          "Bitcoin plaćanja mogu otvoriti nova vrata.",
+          "Ali najbolji rezultat nastaje kada se ne uvode kao trik, nego kao dio uređenog poslovnog sustava.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Treba li tvrtka zadržati Bitcoin koji primi?",
+        answer:
+          "Ne nužno. Mnogim poslovanjima je najjednostavnije započeti tako da kupac plaća Bitcoinom, a poslovanje prima eure. Zadržavanje Bitcoina ima smisla tek kada poslovanje ima jasan proračun, dovoljno euro likvidnosti, računovodstveni proces i sigurnosni plan.",
+      },
+      {
+        question: "Može li kupac platiti Bitcoinom, a poslovanje primiti eure?",
+        answer:
+          "Da. To je jedan od najpraktičnijih modela za početak. Kupac koristi Bitcoin, a platni procesor izvršava konverziju i poslovanje prima euro iznos.",
+      },
+      {
+        question: "Što je Lightning Network?",
+        answer:
+          "Lightning Network je drugi sloj iznad Bitcoina koji omogućuje brže i jeftinije uplate. Posebno je koristan za manje iznose, ugostiteljstvo, trgovine i evente gdje nije praktično čekati on-chain potvrde.",
+      },
+      {
+        question: "Treba li poslovanju vlastiti Bitcoin node?",
+        answer:
+          "Ne uvijek. Vlastiti node i BTCPay Server daju više kontrole, ali traže tehničko znanje i odgovornost. Za početak, mnoga poslovanja mogu koristiti procesorsko rješenje. Vlastiti node ima više smisla kada poslovanje želi ozbiljnije zadržavati Bitcoin i upravljati vlastitom infrastrukturom.",
+      },
+      {
+        question: "Je li Bitcoin naplata prikladna za male iznose?",
+        answer:
+          "Da, ali uglavnom preko Lightninga. On-chain Bitcoin transakcije su prikladnije za veće iznose ili situacije u kojima brzina nije presudna. Za kavu, piće, obrok ili event naplatu Lightning je praktičniji.",
+      },
+      {
+        question: "Što ako zaposlenici ne razumiju Bitcoin?",
+        answer:
+          "Ne moraju postati Bitcoin stručnjaci. Ali moraju znati osnovni proces naplate: kako otvoriti račun, prikazati QR kod, potvrditi uplatu i kome se obratiti ako nešto zapne. Edukacija zaposlenika je dio implementacije.",
+      },
+      {
+        question: "Je li prihvaćanje Bitcoina marketinška prednost?",
+        answer:
+          "Može biti. Bitcoin korisnici često aktivno traže mjesta koja prihvaćaju Bitcoin i dijele takve informacije unutar zajednice. Ali marketinška prednost postoji samo ako poslovanje jasno komunicira da prihvaća Bitcoin.",
+      },
+    ],
+    extraCta: {
+      id: "razgovor-o-implementaciji",
+      title: "Želite prihvaćati Bitcoin u svojem poslovanju?",
+      text: "Uvođenje Bitcoin plaćanja može biti jednostavno, ali rješenje treba odgovarati vašoj stvarnoj situaciji.",
+      items: [
+        "ima li Bitcoin naplata smisla za vaš tip poslovanja",
+        "želite li primati eure, Bitcoin ili kombinaciju",
+        "koje je rješenje prikladno za vašu lokaciju, webshop ili event",
+        "kako uklopiti Bitcoin u postojeći proračun i poslovnu likvidnost",
+        "kako postaviti računovodstveni i operativni proces",
+        "kako urediti sigurnost ako zadržavate Bitcoin",
+        "kako komunicirati Bitcoin plaćanja prema kupcima",
+      ],
+      finalText:
+        "Uvodni razgovor je najjednostavniji prvi korak prema implementaciji koja odgovara vašem poslovanju.",
+      label: "Dogovorite uvodni razgovor",
+      href: "/razgovor/",
+      dataCta: "guide-business-bitcoin-payments-final",
+    },
+    finalCta: "Dogovorite uvodni razgovor",
+    hideDefaultFinalCta: true,
+  },
+  {
     slug: "poslovni-bitcoin-nije-privatni-bitcoin",
     title: "Poslovni Bitcoin nije privatni Bitcoin",
     metaDescription:
@@ -5551,6 +6045,13 @@ export const guidesIndexPrimaryItems: GuidesIndexPrimaryItem[] = [
       "Bitcoin je novac, a ostale kriptovalute su eventualno rizične investicije koje treba mjeriti u Bitcoinu.",
   },
   {
+    slug: "prihvacanje-bitcoina-u-poslovanju",
+    title: "Prihvaćanje Bitcoina u poslovanju",
+    category: "Poslovanje",
+    excerpt:
+      "Kako odabrati model za Bitcoin plaćanja: primati eure, zadržati Bitcoin ili koristiti kombinaciju.",
+  },
+  {
     slug: "cijena-kao-mjera-vremena",
     title: "Cijena kao mjera vremena",
     category: "Kupovna moć",
@@ -5607,6 +6108,10 @@ export const guidesIndexAdditionalGroups = [
     ],
   },
   {
+    title: "Poslovanje",
+    slugs: ["prihvacanje-bitcoina-u-poslovanju"],
+  },
+  {
     title: "Vrijeme i volatilnost",
     slugs: [
       "uskladivanje-kupovne-moci-bitcoina",
@@ -5658,6 +6163,7 @@ export const guidesIndexOrderedSlugs = [
   "pozitivni-neto-priljev",
   "digitalni-kredit-nije-bitcoin",
   "digitalni-kredit-bitcoin-saylor",
+  "prihvacanje-bitcoina-u-poslovanju",
   "uskladivanje-kupovne-moci-bitcoina",
   "cijena-kao-mjera-vremena",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
@@ -5692,6 +6198,7 @@ export const recommendedGuideSlugs = [
   "bitcoin-nije-kripto-portfelj",
   "digitalni-kredit-nije-bitcoin",
   "digitalni-kredit-bitcoin-saylor",
+  "prihvacanje-bitcoina-u-poslovanju",
   "uskladivanje-kupovne-moci-bitcoina",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
   "ne-cekajte-savrseno-dno-bitcoina",

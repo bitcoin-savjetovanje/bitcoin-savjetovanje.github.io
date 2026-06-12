@@ -21,7 +21,20 @@ export function estimateGuideReadingMinutes(guide: Guide) {
     guide.title,
     guide.excerpt,
     guide.practicalQuestion ?? "",
-    ...guide.sections.flatMap((section) => [section.heading, ...section.body]),
+    ...guide.sections.flatMap((section) => [
+      section.heading,
+      ...section.body,
+      ...(section.cards ?? []).flatMap((card) => [card.title, card.text ?? ""]),
+      ...(section.subsections ?? []).flatMap((subsection) => [
+        subsection.heading,
+        ...subsection.body,
+        ...(subsection.items ?? []),
+        ...(subsection.cards ?? []).flatMap((card) => [
+          card.title,
+          card.text ?? "",
+        ]),
+      ]),
+    ]),
   ].join(" ")
   const words = text.trim().split(/\s+/).filter(Boolean).length
 

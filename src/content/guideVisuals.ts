@@ -14,6 +14,7 @@ const categoryThemes: Record<GuideCategory, GuideTheme> = {
   "Neto imovina": "worth",
   "Vrijeme i volatilnost": "time",
   "Sigurnost i obitelj": "security",
+  Poslovanje: "bitcoin",
 }
 
 const timeGuideSlugs = new Set([

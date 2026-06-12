@@ -3503,6 +3503,20 @@
   font-family: var(--font-sans);
 }
 
+.guide-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+.guide-hero__secondary-button {
+  border-color: color-mix(in oklab, var(--guide-theme), var(--card-border) 44%);
+  background: color-mix(in oklab, var(--paper), transparent 10%);
+  color: var(--ink);
+}
+
 .guide-cover-figure {
   margin: 0;
   overflow: hidden;
@@ -3565,6 +3579,9 @@
 .guide-video-card h2,
 .guide-toc-card h2,
 .guide-content-section h2,
+.guide-content-section h3,
+.guide-section-card h3,
+.guide-section-card h4,
 .guide-question-card h2,
 .guide-next-card h2,
 .guide-related-section h2,
@@ -3583,6 +3600,18 @@
 .guide-final-cta-card h2 {
   font-size: clamp(1.55rem, 2.2vw, 2.1rem);
   line-height: 1.16;
+}
+
+.guide-content-section h3 {
+  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
+  line-height: 1.22;
+}
+
+.guide-section-card h3,
+.guide-section-card h4 {
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.22vw, 1.2rem);
+  line-height: 1.25;
 }
 
 .guide-visual-card p,
@@ -3669,6 +3698,36 @@
   display: grid;
   gap: 1.05rem;
   margin-top: 1rem;
+}
+
+.guide-subsection-list {
+  display: grid;
+  gap: clamp(1.4rem, 2.8vw, 2.2rem);
+}
+
+.guide-subsection {
+  display: grid;
+  gap: 0.85rem;
+  padding-top: 0.35rem;
+}
+
+.guide-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.guide-section-card {
+  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border-radius: 0.65rem;
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
+  padding: 1rem;
+}
+
+.guide-section-card p {
+  margin-top: 0.55rem;
+  font-size: 0.97rem;
+  line-height: 1.6;
 }
 
 .guide-content-section p,
@@ -3921,6 +3980,17 @@
   font-weight: 700;
 }
 
+.guide-extra-cta-card ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  line-height: 1.62;
+  list-style: disc;
+}
+
 .guide-final-cta-card {
   background:
     radial-gradient(
@@ -3945,7 +4015,8 @@
 }
 
 @media (max-width: 680px) {
-  .guide-data-grid {
+  .guide-data-grid,
+  .guide-card-grid {
     grid-template-columns: 1fr;
   }
 

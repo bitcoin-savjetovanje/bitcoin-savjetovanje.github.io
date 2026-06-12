@@ -24,6 +24,7 @@ const requiredGuidePaths = [
   "/vodici/bitcoin-kao-novac",
   "/vodici/bitcoin-nije-kripto-portfelj",
   "/vodici/pozitivni-neto-priljev",
+  "/vodici/prihvacanje-bitcoina-u-poslovanju",
   "/vodici/dca-nije-dovoljan",
   "/vodici/od-duga-prema-vlasnistvu",
   "/vodici/uskladivanje-kupovne-moci-bitcoina",
@@ -2848,6 +2849,7 @@ assertArrayEquals(
     "/vodici/bitcoin-nije-kripto-portfelj/",
     "/vodici/pozitivni-neto-priljev/",
     "/vodici/digitalni-kredit-nije-bitcoin/",
+    "/vodici/prihvacanje-bitcoina-u-poslovanju/",
     "/vodici/novac-kapital-potrosnja/",
     "/vodici/bitcoin-u-neto-imovini/",
     "/vodici/bitcoin-kao-stopa-prepreke/",
@@ -3013,6 +3015,7 @@ if (!privacy) {
 }
 
 const defaultGuideFinalCtaTitle = "Želite ovo primijeniti na svoju situaciju?"
+const implementationCtaGuidePath = "/vodici/prihvacanje-bitcoina-u-poslovanju"
 const guideFinalCtaTitles = new Map([
   [
     "/vodici/bitcoin-kao-stopa-prepreke",
@@ -3075,18 +3078,51 @@ for (const guidePath of requiredGuidePaths) {
     'data-link="related-guide"',
     "related guide link metadata"
   )
-  assertIncludes(
-    relativePath,
-    html,
-    guideFinalCtaTitles.get(guidePath) ?? defaultGuideFinalCtaTitle,
-    "guide final CTA title"
-  )
-  assertIncludes(
-    relativePath,
-    html,
-    "Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se odnosi na vas.",
-    "guide final CTA text"
-  )
+  if (guidePath === implementationCtaGuidePath) {
+    assertIncludes(
+      relativePath,
+      html,
+      "Želite prihvaćati Bitcoin u svojem poslovanju?",
+      "guide implementation CTA title"
+    )
+    assertIncludes(
+      relativePath,
+      html,
+      "Uvođenje Bitcoin plaćanja može biti jednostavno, ali rješenje treba odgovarati vašoj stvarnoj situaciji.",
+      "guide implementation CTA text"
+    )
+    assertIncludes(
+      relativePath,
+      html,
+      'data-cta="guide-business-bitcoin-payments-final"',
+      "guide implementation CTA metadata"
+    )
+    assertNotIncludes(
+      relativePath,
+      html,
+      'data-cta="guide-final-intro-call"',
+      "hidden generic final CTA metadata"
+    )
+  } else {
+    assertIncludes(
+      relativePath,
+      html,
+      guideFinalCtaTitles.get(guidePath) ?? defaultGuideFinalCtaTitle,
+      "guide final CTA title"
+    )
+    assertIncludes(
+      relativePath,
+      html,
+      "Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se odnosi na vas.",
+      "guide final CTA text"
+    )
+    assertIncludes(
+      relativePath,
+      html,
+      'data-cta="guide-final-intro-call"',
+      "guide final CTA metadata"
+    )
+  }
   assertNotIncludes(
     relativePath,
     html,
@@ -3098,12 +3134,6 @@ for (const guidePath of requiredGuidePaths) {
     html,
     "Ovo se odnosi na vašu situaciju?",
     "duplicate guide rail title"
-  )
-  assertIncludes(
-    relativePath,
-    html,
-    'data-cta="guide-final-intro-call"',
-    "guide final CTA metadata"
   )
   assertIncludes(
     relativePath,

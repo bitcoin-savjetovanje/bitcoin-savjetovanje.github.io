@@ -71,6 +71,7 @@ const roadmapGroups = [
       "bitcoin-kao-stopa-prepreke",
       "pravilo-trecina",
       "bitcoin-etfovi-i-riznicke-kompanije",
+      "zaba-bitcoin-etf-certifikat",
       "bitcoin-bilanca-pojacana-izlozenost",
     ],
   },
@@ -144,6 +145,7 @@ const businessGuides = businessSlugs
 
 const advancedSlugs = [
   "bitcoin-etfovi-i-riznicke-kompanije",
+  "zaba-bitcoin-etf-certifikat",
   "bitcoin-bilanca-pojacana-izlozenost",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
   "vremenski-oporavak-bitcoin-trezor",

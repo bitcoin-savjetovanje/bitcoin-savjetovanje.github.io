@@ -282,6 +282,243 @@ const advancedSecuritySafetyNote =
 
 const guideEntries: Guide[] = [
   {
+    slug: "zaba-bitcoin-etf-certifikat",
+    title:
+      "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i ograničenje prinosa",
+    seoTitle:
+      "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i ograničenje prinosa",
+    ogTitle:
+      "Zabin Bitcoin ETF certifikat: što zapravo kupujete?",
+    ogDescription:
+      "Zaštita glavnice ima cijenu: troškove, rok, rizik izdavatelja i ograničenje prinosa na 50%.",
+    metaDescription:
+      "Što zapravo kupujete Zabinim Bitcoin ETF certifikatom, kada vrijedi zaštita glavnice, koliki su troškovi i što Power Law scenariji pokazuju o ograničenju prinosa na 50%.",
+    excerpt:
+      "Zabin certifikat povezan s IBIT-om može otvoriti razgovor o Bitcoinu, ali kupac ne posjeduje Bitcoin, nego neosigurano potraživanje prema izdavatelju s ograničenim prinosom.",
+    category: "Neto imovina",
+    difficulty: "Napredno",
+    freshness: "često se mijenja",
+    theme: "worth",
+    order: 92.5,
+    readingMinutes: 10,
+    publishedAt: "2026-06-18",
+    updatedAt: "2026-06-18",
+    practicalQuestion:
+      "Znate li kupujete li Bitcoin, udjel u Bitcoin ETF-u ili potraživanje prema izdavatelju strukturiranog proizvoda?",
+    relatedSlugs: [
+      "bitcoin-etfovi-i-riznicke-kompanije",
+      "bitcoin-kao-stopa-prepreke",
+      "samostalna-pohrana-ili-skrbnik",
+    ],
+    cover: {
+      webpSrc: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp",
+      src: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg",
+      alt: "Mediteranska kamena scena s Bitcoinom, burzovnim fondovima i strukturiranim proizvodima",
+      position: "50% 50%",
+      caption:
+        "Strukturirani proizvod može pratiti Bitcoin temu, ali nije isto što i bitcoin u vlastitoj pohrani.",
+    },
+    safetyNote:
+      "Ovaj vodič nije investicijski, porezni, pravni ni računovodstveni savjet. Podaci se odnose na dokumente i pretpostavke navedene u tekstu; prije odluke provjerite aktualni KID, dokumente izdavatelja, tečaj, naknade i vlastitu situaciju.",
+    visual: {
+      type: "split",
+      title: "Što zapravo kupujete",
+      leftLabel: "Bitcoin",
+      leftItems: [
+        "vlastita digitalna novčana imovina",
+        "privatni ključ i osobna kontrola",
+        "nema ugrađenog ograničenja prinosa",
+      ],
+      rightLabel: "Certifikat",
+      rightItems: [
+        "neosigurano potraživanje prema izdavatelju",
+        "zaštita nominale samo na dospijeću",
+        "rast ograničen na 50% nominale",
+      ],
+      caption:
+        "Isti narativ, različit instrument. Prije prinosa treba razumjeti što se stvarno posjeduje.",
+    },
+    sections: [
+      {
+        heading: "Dobra vijest, ali ne besplatna zaštitna mreža",
+        body: [
+          "Zagrebačka banka ponudila je strukturirani certifikat povezan s Bitcoin ETF-om. Za domaće tržište to je dobra vijest jer pokazuje da Bitcoin više nije rubna tema. Dolazi u razgovore privatnog bankarstva, portfelja i klasičnih investicijskih proizvoda.",
+          "Ali dobra vijest ne znači da je proizvod jednostavan. Kada netko čuje Bitcoin, ETF, 100% zaštita glavnice i ograničeni rizik, lako može pomisliti da kupuje neku sigurniju verziju Bitcoina. To nije precizno.",
+          "Zaštita glavnice ima cijenu: troškove, rok, rizik izdavatelja i ograničenje prinosa na 50%.",
+          "Ovdje se ne kupuje Bitcoin. Ne kupuje se ni udjel u američkom spot Bitcoin ETF-u. Kupuje se strukturirani certifikat koji izdaje UniCredit Bank GmbH, a isplata je vezana uz kretanje iShares Bitcoin Trust ETF-a, poznatog kao IBIT.",
+          "To je važna razlika. Ako se ta razlika preskoči, investitor može podcijeniti troškove, rizik izdavatelja i cijenu ograničenog prinosa.",
+          "Prema dokumentu s ključnim informacijama, proizvod je namijenjen malim ulagačima koji mogu razumjeti instrumente koji ovise o kretanju temeljne vrijednosti i žele zaštitu nominalnog iznosa samo na dospijeću.",
+        ],
+      },
+      {
+        heading: "Tri različite stvari",
+        body: [
+          "Prvo treba razdvojiti tri pojma koja se u razgovoru lako pomiješaju: Bitcoin, IBIT i Zabin certifikat.",
+          "Bitcoin je digitalna imovina koju osoba može držati u vlastitoj pohrani, uz vlastite privatne ključeve. Tada ne postoji izdavatelj koji obećava isplatu. Postoji imovina na Bitcoin mreži.",
+          "IBIT je američki spot Bitcoin ETF. On drži izloženost Bitcoinu kroz institucionalnu strukturu fonda, ali investitor u ETF-u drži udjel u fondu, ne privatne ključeve. IBIT ima vlastitu naknadu za upravljanje od 0,25% godišnje.",
+          "Zabin certifikat je još jedan sloj iznad toga. Kupac ne dobiva Bitcoin, ne dobiva udjel u IBIT-u, nego potraživanje prema izdavatelju certifikata. Isplata ovisi o kretanju IBIT-a, ali pravila isplate nisu ista kao izravno držanje IBIT-a.",
+        ],
+        table: {
+          columns: ["Proizvod", "Što osoba posjeduje"],
+          rows: [
+            ["Bitcoin", "digitalnu imovinu na Bitcoin mreži"],
+            ["IBIT", "udjel u spot Bitcoin ETF-u"],
+            [
+              "Zabin certifikat",
+              "neosigurano potraživanje prema izdavatelju",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Kako se računa isplata",
+        body: [
+          "Nominalna vrijednost jednog certifikata iznosi 1.000 američkih dolara. Izdajna cijena je 102%, odnosno 1.020 dolara. Datum dospijeća je 23. rujna 2031.",
+          "Ako se proizvod drži do dospijeća, isplata ima donju i gornju granicu. Donja granica je 100% nominalne vrijednosti, dakle 1.000 dolara. Gornja granica je 150% nominalne vrijednosti, dakle 1.500 dolara.",
+          "Ako IBIT od početne do završne vrijednosti padne, investitor na dospijeću dobiva 1.000 dolara. Ako IBIT poraste 20%, investitor dobiva 1.200 dolara. Ako IBIT poraste 50%, investitor dobiva 1.500 dolara. Ako IBIT poraste više od 50%, investitor i dalje dobiva najviše 1.500 dolara.",
+          "Drugim riječima: zaštita nominale dolazi s ograničenjem prinosa. Izdavatelj preuzima dio pada na dospijeću, ali investitor se odriče rasta iznad 50%.",
+        ],
+        dataCards: [
+          {
+            value: "1.020 USD",
+            label: "izdajna cijena jednog certifikata",
+          },
+          {
+            value: "1.000 USD",
+            label: "nominala i donja granica isplate na dospijeću",
+          },
+          {
+            value: "1.500 USD",
+            label: "najviša isplata po certifikatu na dospijeću",
+          },
+          {
+            value: "23. rujna 2031.",
+            label: "datum dospijeća iz dokumentacije proizvoda",
+          },
+        ],
+        table: {
+          columns: ["Kretanje IBIT-a", "Isplata po certifikatu"],
+          rows: [
+            ["Pad ispod početne vrijednosti", "1.000 USD"],
+            ["Rast 20%", "1.200 USD"],
+            ["Rast 50%", "1.500 USD"],
+            ["Rast iznad 50%", "1.500 USD"],
+          ],
+        },
+      },
+      {
+        heading: "Što znači 100% zaštita glavnice",
+        body: [
+          "Izraz 100% zaštita glavnice zvuči snažno, ali mora se čitati precizno. Zaštita se odnosi na nominalnu vrijednost certifikata na datum dospijeća, ne na sve što investitor može izgubiti ili propustiti.",
+          "Prvo, investitor plaća 102%, a zaštićeno je 100% nominale. Ako dobije 1.000 dolara na kraju, nije dobio natrag 1.020 dolara uloženih po certifikatu.",
+          "Drugo, zaštita vrijedi samo na dospijeću. Ako investitor mora prodati ranije, tržišna cijena certifikata može biti niža od nominale.",
+          "Treće, zaštita ovisi o sposobnosti izdavatelja da ispuni obvezu. KID izričito navodi da biste mogli izgubiti dio ili cijelo ulaganje ako UniCredit Bank GmbH ne može platiti. To je kreditni rizik izdavatelja.",
+          "Četvrto, ulaganje je denominirano u američkim dolarima. Za investitora koji troši u eurima postoji valutni rizik.",
+        ],
+        table: {
+          columns: ["Što nije zaštićeno", "Zašto je važno"],
+          rows: [
+            ["Premija od 2%", "plaća se 1.020 USD, a nominala je 1.000 USD"],
+            ["Rana prodaja", "cijena prije dospijeća može biti niža"],
+            ["Rizik izdavatelja", "isplata ovisi o UniCredit Bank GmbH"],
+            ["Valutni rizik", "ulaganje je u USD, a životni troškovi često u EUR"],
+            [
+              "Oportunitetni trošak",
+              "rast iznad 50% pripada strukturi proizvoda, ne kupcu",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Koliki su troškovi",
+        body: [
+          "U KID-u su navedeni procijenjeni ukupni troškovi od 5,00% ako se proizvod drži do dospijeća. To uključuje ulazne troškove od 4,00% i tekuće troškove od 1,00%.",
+          "Zabina dokumentacija navodi da je distributerska naknada 2,57%, odnosno oko 27,63 eura na ulaganje od 1.075 eura, ako se primijeni tečaj 1,075 EUR/USD.",
+          "Uz to, temeljni ETF IBIT ima vlastitu godišnju naknadu od 0,25%. Ona nije isto što i trošak certifikata, ali je dio ekonomije temeljne izloženosti.",
+          "Trošak se ne vidi uvijek kao zaseban račun koji treba platiti. Često je ugrađen u strukturu proizvoda, početnu cijenu i odnos rizika i prinosa.",
+        ],
+        table: {
+          columns: ["Trošak", "Navedena vrijednost"],
+          rows: [
+            ["Ukupni troškovi prema KID-u", "5,00% do dospijeća"],
+            ["Ulazni troškovi", "4,00%"],
+            ["Tekući troškovi", "1,00%"],
+            ["Distributerska naknada", "2,57%"],
+            ["IBIT naknada", "0,25% godišnje"],
+          ],
+        },
+      },
+      {
+        heading: "Power Law kao ilustracija oportunitetnog troška",
+        body: [
+          "Oportunitetni trošak najlakše se vidi ako se postavi pitanje: što ako Bitcoin tijekom razdoblja proizvoda snažno naraste?",
+          "Za ilustraciju možemo koristiti Power Law model Giovanni Santostasija. Važno: to nije jamstvo, nije preporuka i nije moj model za donošenje odluke. To je samo način da se pokaže koliko gornja granica prinosa može biti skupa u scenariju u kojem Bitcoin dugoročno raste.",
+          "Prema podacima s BitcoinFairPrice.com, 23. rujna 2026. model pokazuje Bitcoin cijenu od približno 202.435 USD, uz donju granicu od 91.565 USD i gornju granicu od 447.616 USD. Za 23. rujna 2031. model pokazuje približno 992.848 USD, uz donju granicu od 448.985 USD i gornju granicu od 2.195.397 USD.",
+          "Ako bi Bitcoin bio na donjoj granici modela 2031., to bi i dalje bilo oko 120% više od modelirane vrijednosti 2026. Ako bi bio na srednjoj vrijednosti modela, rast bi bio oko 390%. Ako bi bio na gornjoj granici, rast bi bio oko 984%.",
+          "Certifikat u sva tri ta scenarija ne isplaćuje više od 1.500 dolara po 1.000 dolara nominale. To znači da je maksimalni bruto prinos ograničen na 50% nominale.",
+        ],
+        table: {
+          columns: ["Scenarij", "Ilustrativni rast Bitcoina", "Certifikat"],
+          rows: [
+            ["Donja granica modela", "oko 120%", "najviše 50% nominale"],
+            ["Srednja vrijednost modela", "oko 390%", "najviše 50% nominale"],
+            ["Gornja granica modela", "oko 984%", "najviše 50% nominale"],
+          ],
+        },
+      },
+      {
+        heading: "Ilustracija na 10.200 USD",
+        body: [
+          "Zamislimo da investitor uloži 10.200 dolara, što odgovara kupnji nominale od 10.000 dolara po cijeni 102%.",
+          "Ako IBIT padne, a izdavatelj uredno plati na dospijeću, investitor dobiva 10.000 dolara. To je zaštita nominale, ali ne i cijelog uplaćenog iznosa.",
+          "Ako IBIT poraste 20%, investitor dobiva 12.000 dolara. Ako IBIT poraste 50% ili više, dobiva 15.000 dolara. Ako Bitcoin i IBIT narastu 120%, 390% ili 984%, certifikat i dalje završava na 15.000 dolara.",
+          "U dolarima to može izgledati prihvatljivo nekome tko želi ograničiti pad. Ali u Bitcoin jedinicama može izgledati vrlo skupo. Ako Bitcoin višestruko naraste, investitor kroz certifikat dobiva sve manje Bitcoina nego što bi dobio izravnom izloženošću bez gornje granice.",
+        ],
+        table: {
+          columns: ["Scenarij", "Isplata na 10.000 USD nominale"],
+          rows: [
+            ["IBIT padne", "10.000 USD"],
+            ["IBIT poraste 20%", "12.000 USD"],
+            ["IBIT poraste 50%", "15.000 USD"],
+            ["IBIT poraste više od 50%", "15.000 USD"],
+          ],
+        },
+      },
+      {
+        heading: "Kome proizvod može odgovarati",
+        body: [
+          "Ovakav proizvod može imati smisla za osobu koja želi ograničenu izloženost Bitcoin temi, ne želi izravno držati Bitcoin, ne želi punu volatilnost ETF-a, razumije kreditni rizik izdavatelja, prihvaća vremenski rok do 2031. i svjesno pristaje na ograničenje prinosa.",
+          "Takva osoba ne traži najčišću Bitcoin izloženost. Traži strukturirani financijski proizvod s pravilima igre koja su unaprijed definirana.",
+          "Ali proizvod ne odgovara osobi koja misli da kupuje Bitcoin. Ne odgovara osobi koja želi sudjelovati u cijelom rastu Bitcoina. Ne odgovara osobi kojoj bi smetalo da Bitcoin naraste višestruko, a njezin prinos ostane ograničen na 50% nominale.",
+        ],
+        items: [
+          "Može odgovarati ako vam je važnija zaštita nominale na dospijeću od punog sudjelovanja u rastu.",
+          "Može odgovarati ako razumijete da imate kreditni rizik izdavatelja.",
+          "Može odgovarati ako vam je rok do 2031. prihvatljiv.",
+          "Ne odgovara ako želite vlastiti Bitcoin ili neograničenu Bitcoin izloženost.",
+        ],
+      },
+      {
+        heading: "Zaključak",
+        body: [
+          "Zabin Bitcoin ETF certifikat je zanimljiv znak vremena. Bitcoin je dovoljno sazrio da ulazi u bankarske strukturirane proizvode za male ulagače. To je važno.",
+          "Ali proizvod treba čitati hladne glave. On ne daje Bitcoin. Ne daje udjel u IBIT-u. Daje potraživanje prema izdavatelju s isplatom vezanom uz IBIT, zaštitom nominale na dospijeću i gornjom granicom prinosa.",
+          "Najvažnija pitanja nisu samo koliko mogu zaraditi. Važnija su pitanja što zapravo posjedujem, od kojeg se rizika želim zaštititi, koliko sam spreman platiti za tu zaštitu i u kojoj jedinici mjerim uspjeh: u dolarima, eurima ili Bitcoinu.",
+          "Ako je cilj ograničena, bankarski zapakirana izloženost Bitcoin temi, proizvod može biti vrijedan razgovora. Ako je cilj posjedovati Bitcoin ili sudjelovati u punom rastu Bitcoina, onda je ovo sasvim druga odluka.",
+        ],
+        items: [
+          "Što zapravo posjedujem?",
+          "Od kojeg se rizika želim zaštititi?",
+          "Koliko sam spreman platiti za tu zaštitu?",
+          "U kojoj jedinici mjerim uspjeh: u dolarima, eurima ili Bitcoinu?",
+        ],
+      },
+    ],
+    finalCta: "Razjasnite Bitcoin izloženost prije odluke",
+    finalCtaPrompt:
+      "Ako imate ponudu za Bitcoin ETF certifikat, ETF, brokerski proizvod ili vlastiti Bitcoin plan, vrijedi prvo razdvojiti što točno posjedujete, koji rizik preuzimate i što želite postići.",
+  },
+  {
     slug: "svaki-euro-ima-namjenu",
     title: "Svaki euro ima namjenu",
     metaDescription:
@@ -6126,6 +6363,7 @@ export const guidesIndexAdditionalGroups = [
       "novac-kapital-potrosnja",
       "bitcoin-kao-stopa-prepreke",
       "bitcoin-etfovi-i-riznicke-kompanije",
+      "zaba-bitcoin-etf-certifikat",
       "bitcoin-bilanca-pojacana-izlozenost",
       "pravilo-trecina",
     ],
@@ -6173,6 +6411,7 @@ export const guidesIndexOrderedSlugs = [
   "bitcoin-kao-stopa-prepreke",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
+  "zaba-bitcoin-etf-certifikat",
   "bitcoin-bilanca-pojacana-izlozenost",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "poslovni-bitcoin-nije-privatni-bitcoin",
@@ -6205,6 +6444,7 @@ export const recommendedGuideSlugs = [
   "bitcoin-kao-stopa-prepreke",
   "pravilo-trecina",
   "bitcoin-etfovi-i-riznicke-kompanije",
+  "zaba-bitcoin-etf-certifikat",
   "bitcoin-bilanca-pojacana-izlozenost",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
   "poslovni-bitcoin-nije-privatni-bitcoin",

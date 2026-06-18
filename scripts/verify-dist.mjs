@@ -3017,6 +3017,7 @@ if (!privacy) {
 
 const defaultGuideFinalCtaTitle = "Želite ovo primijeniti na svoju situaciju?"
 const implementationCtaGuidePath = "/vodici/prihvacanje-bitcoina-u-poslovanju"
+const exactPasteGuidePath = "/vodici/zaba-bitcoin-etf-certifikat"
 const guideFinalCtaTitles = new Map([
   [
     "/vodici/bitcoin-kao-stopa-prepreke",
@@ -3071,14 +3072,35 @@ for (const guidePath of requiredGuidePaths) {
     "guide metadata badges"
   )
   assertIncludes(relativePath, html, "U ovom vodiču", "table of contents")
-  assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
-  assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
-  assertIncludes(
-    relativePath,
-    html,
-    'data-link="related-guide"',
-    "related guide link metadata"
-  )
+  if (guidePath === exactPasteGuidePath) {
+    assertNotIncludes(
+      relativePath,
+      html,
+      "Praktično pitanje",
+      "no added practical question"
+    )
+    assertNotIncludes(
+      relativePath,
+      html,
+      "Povezani vodiči",
+      "no added related guides"
+    )
+    assertNotIncludes(
+      relativePath,
+      html,
+      'data-link="related-guide"',
+      "no added related guide metadata"
+    )
+  } else {
+    assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
+    assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
+    assertIncludes(
+      relativePath,
+      html,
+      'data-link="related-guide"',
+      "related guide link metadata"
+    )
+  }
   if (guidePath === implementationCtaGuidePath) {
     assertIncludes(
       relativePath,
@@ -3103,6 +3125,13 @@ for (const guidePath of requiredGuidePaths) {
       html,
       'data-cta="guide-final-intro-call"',
       "hidden generic final CTA metadata"
+    )
+  } else if (guidePath === exactPasteGuidePath) {
+    assertNotIncludes(
+      relativePath,
+      html,
+      'data-cta="guide-final-intro-call"',
+      "no added generic final CTA metadata"
     )
   } else {
     assertIncludes(
@@ -3365,17 +3394,27 @@ const focusedGuideChecks = [
     checks: [
       "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i ograničenje prinosa",
       "Zaštita glavnice ima cijenu",
-      "neosigurano potraživanje prema izdavatelju",
+      "neosigurano potraživanje prema UniCreditu",
       "23. rujna 2031.",
       "Power Law kao ilustracija oportunitetnog troška",
-      "Ukupni troškovi prema KID-u",
-      "rast ograničen na 50% nominale",
-      "Često se mijenja",
-      "Napomena: ovaj vodič govori o temi čiji se detalji mogu mijenjati.",
+      "Leo Heartov model",
+      "64.362 USD",
+      "66.990",
+      "101.508",
+      "298.818 USD",
+      "404.820 USD",
+      "364,28%",
+      "528,97%",
+      "0,15848 BTC",
+      "47.356 USD",
+      "64.155 USD",
+      "68,3%",
+      "76,6%",
+      "Trošak proizvoda uključen u prodajnu cijenu",
+      "Vidljivi agio iznosi 2%",
+      "Ali nije Bitcoin s besplatnom zaštitnom mrežom.",
+      "Zabin certifikat je dobra vijest za Bitcoin.",
       '<source srcSet="/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp"',
-      'href="/vodici/bitcoin-etfovi-i-riznicke-kompanije/"',
-      'href="/vodici/samostalna-pohrana-ili-skrbnik/"',
-      'href="/razgovor/"',
     ],
   },
   {

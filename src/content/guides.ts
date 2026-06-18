@@ -65,6 +65,7 @@ export type GuideSectionVisual =
       alt: string
       href?: string
       credit?: string
+      variant?: "full-width"
     }
   | {
       type: "image-grid"
@@ -481,6 +482,7 @@ const guideEntries: Guide[] = [
         },
         visual: {
           type: "image-card",
+          variant: "full-width",
           title: "Bitcoin Root-Scale Cycles",
           caption:
             "Očitanje Leo Heartova modela korišteno u Power Law usporedbi.",

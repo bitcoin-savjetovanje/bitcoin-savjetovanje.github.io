@@ -2160,6 +2160,22 @@
     @apply mt-2 block text-xs leading-5 text-muted-foreground/75;
   }
 
+  .guide-section-visual--image-full {
+    @apply rounded-none border-0 bg-transparent shadow-none;
+  }
+
+  .guide-section-visual--image-full .guide-section-image-link {
+    @apply bg-transparent;
+  }
+
+  .guide-section-visual--image-full img {
+    @apply max-h-none p-0;
+  }
+
+  .guide-section-visual--image-full figcaption {
+    @apply border-t-0 bg-transparent px-0 pt-3 pb-0;
+  }
+
   .guide-product-grid {
     @apply mt-4 grid gap-3 sm:grid-cols-3;
   }

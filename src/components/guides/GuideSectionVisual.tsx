@@ -34,7 +34,13 @@ function ExternalLink({
 export function GuideSectionVisual({ visual }: GuideSectionVisualProps) {
   if (visual.type === "image-card") {
     return (
-      <figure className="guide-section-visual guide-section-visual--image">
+      <figure
+        className={`guide-section-visual guide-section-visual--image ${
+          visual.variant === "full-width"
+            ? "guide-section-visual--image-full"
+            : ""
+        }`}
+      >
         <ExternalLink href={visual.href} className="guide-section-image-link">
           <img src={visual.src} alt={visual.alt} loading="lazy" />
         </ExternalLink>

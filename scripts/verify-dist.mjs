@@ -818,7 +818,7 @@ const homeChecks = [
   ["Dogovorite 15-minutni uvodni razgovor", "primary intro call CTA copy"],
   ['data-cta="hero-intro-call"', "hero CTA metadata"],
   [
-    "Bez naknade i bez obveze. Ne upravljam sredstvima, ne prognoziram cijenu i nikada ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
+    "Bez naknade i bez obveze. Ne upravljam sredstvima i nikada ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
     "hero trust note",
   ],
   ["home-hero-20260521.webp", "sculpted home hero WebP asset"],
@@ -2185,7 +2185,6 @@ const bitcoinConsultationChecks = [
   ],
   ["Krenite od uvodnog razgovora", "Bitcoin konzultacija primary CTA"],
   ["ne tražim seed phrase", "Bitcoin konzultacija no seed phrase copy"],
-  ["ne prognoziram cijenu", "Bitcoin konzultacija no price prediction copy"],
   [
     "ne upravljam vašim sredstvima",
     "Bitcoin konzultacija no asset management copy",
@@ -3264,7 +3263,7 @@ const focusedGuideChecks = [
     checks: [
       "Bitcoin kao stopa prepreke za financijske odluke",
       "je li ova odluka bolja od držanja Bitcoina?",
-      "Stopa prepreke ne predviđa cijenu.",
+      "Stopa prepreke traži jasan razlog za odricanje od kupovne moći.",
       "Bitcoin ne uklanja ulaganje",
       "Potrošnja pod Bitcoin standardom",
       "Posao kao proizvodna imovina",

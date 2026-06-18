@@ -53,7 +53,6 @@ export type AudiencePage = {
 
 export const audienceSafetyBoundaries = [
   "Ne upravljam sredstvima.",
-  "Ne prognoziram cijenu.",
   "Ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
   "Odluka ostaje vaša.",
   "Za porezna i pravna pitanja trebate odgovarajuće stručnjake.",
@@ -143,7 +142,7 @@ export const audiencePages = [
       },
     ],
     trustNote:
-      "Ne upravljam vašim sredstvima, ne prognoziram cijenu i ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
+      "Ne upravljam vašim sredstvima i ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
     seo: {
       title: "Osobni Bitcoin standard za pojedinca | Bitcoin Savjetovanje",
       description:

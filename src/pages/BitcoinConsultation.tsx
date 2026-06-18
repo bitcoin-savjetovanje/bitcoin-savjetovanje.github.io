@@ -33,7 +33,6 @@ const reviewItems = [
 const notDoingItems = [
   "nije investicijsko savjetovanje",
   "nema naloga kupnje ili prodaje",
-  "ne prognoziram cijenu",
   "ne govorim vam koliko Bitcoina kupiti",
   "ne upravljam vašim sredstvima",
   "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",

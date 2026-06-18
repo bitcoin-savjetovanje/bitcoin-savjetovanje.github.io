@@ -29,7 +29,6 @@ const outcomes = [
 const notDoingItems = [
   "ne upravljam vašim sredstvima",
   "ne govorim vam kada kupiti ili prodati",
-  "ne prognoziram cijenu Bitcoina",
   "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",
   "ne dajem porezni ni pravni savjet",
 ]

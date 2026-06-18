@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: "Je li ovo financijsko savjetovanje?",
     answer:
-      "Ne. Ne upravljam sredstvima, ne dajem naloge za kupnju ili prodaju, ne predviđam cijenu i ne donosim investicijske odluke umjesto vas. Radimo na razumijevanju, pravilima, sigurnosti i osobnom okviru za odluke.",
+      "Ne. Ne upravljam sredstvima, ne dajem naloge za kupnju ili prodaju i ne donosim investicijske odluke umjesto vas. Radimo na razumijevanju, pravilima, sigurnosti i osobnom okviru za odluke.",
   },
   {
     question: "Hoćete li mi reći koliko Bitcoina da kupim?",

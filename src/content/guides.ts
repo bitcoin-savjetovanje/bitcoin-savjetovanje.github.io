@@ -2991,7 +2991,7 @@ const guideEntries: Guide[] = [
       center: "Je li ovo bolje od držanja Bitcoina?",
       nodes: ["potrošnja", "ulaganje", "posao", "neto imovina"],
       caption:
-        "Stopa prepreke ne predviđa cijenu. Ona traži jasan razlog za odricanje od kupovne moći.",
+        "Stopa prepreke traži jasan razlog za odricanje od kupovne moći.",
     },
     sections: [
       {

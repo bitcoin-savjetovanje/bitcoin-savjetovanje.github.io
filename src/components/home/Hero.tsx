@@ -37,9 +37,8 @@ export function Hero() {
           <div className="hero-trust-note">
             <ShieldCheck className="size-5" aria-hidden="true" />
             <p>
-              Bez naknade i bez obveze. Ne upravljam sredstvima, ne prognoziram
-              cijenu i nikada ne tražim seed phrase, privatne ključeve ni
-              pristup novčaniku.
+              Bez naknade i bez obveze. Ne upravljam sredstvima i nikada ne
+              tražim seed phrase, privatne ključeve ni pristup novčaniku.
             </p>
           </div>
         </div>

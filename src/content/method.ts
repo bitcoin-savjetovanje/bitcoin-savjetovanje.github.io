@@ -223,7 +223,6 @@ export const notForItems = [
 ]
 
 export const notDoingItems = [
-  "ne predviđam kratkoročnu cijenu",
   "ne dajem trading signale",
   "ne savjetujem altcoine ni kriptoimovinu",
   "ne upravljam vašim sredstvima",

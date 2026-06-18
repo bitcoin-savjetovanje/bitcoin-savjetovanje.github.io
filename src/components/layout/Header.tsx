@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
+import { SiteSearch } from "@/components/layout/SiteSearch"
 import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
 import { CONVERSATION_PATH } from "@/content/site"
@@ -184,6 +185,7 @@ export function Header({ currentPath }: HeaderProps) {
           </nav>
 
           <div className="site-header__actions">
+            <SiteSearch onOpen={() => setMobileMenuOpen(false)} />
             <Button asChild size="lg" className="cta-primary site-header__cta">
               {onConversationPage ? (
                 <CalBookingLink data-cta="header-intro-call">

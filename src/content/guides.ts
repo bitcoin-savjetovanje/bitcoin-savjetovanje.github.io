@@ -247,6 +247,7 @@ export type Guide = {
     items: string[]
   }
   intro?: string[]
+  introVisual?: GuideSectionVisual
   heroPrimaryCta?: {
     label: string
     href: string
@@ -329,6 +330,17 @@ const guideEntries: Guide[] = [
       "Ali nije Bitcoin s besplatnom zaštitnom mrežom.",
       "Operativno može biti jednostavniji od vlastitog skrbništva. Financijski je složeniji. Sam KID upozorava da proizvod nije jednostavan i da ga može biti teško razumjeti.",
     ],
+    introVisual: {
+      type: "image-card",
+      variant: "full-width",
+      title: "Službena stranica proizvoda",
+      caption:
+        "Screenshot službene Zaba stranice za certifikat sa 100% zaštitom glavnice povezan s Bitcoin ETF-om.",
+      src: "/images/zaba-bitcoin-etf-certifikat-product-page-20260618.jpg",
+      alt: "Screenshot službene stranice Zagrebačke banke s naslovom Certifikat sa 100% zaštitom glavnice – Bitcoin ETF",
+      href: "https://www.zaba.hr/home/certifikat-sa-100-zastitom-glavnice-kripto",
+      credit: "Izvor: zaba.hr",
+    },
     statusNotes: [
       "Objavljeno i provjereno: 18. lipnja 2026.",
       "Razdoblje upisa: 12. lipnja – 20. srpnja 2026., ili ranije u slučaju dosezanja maksimalnog iznosa izdanja.",

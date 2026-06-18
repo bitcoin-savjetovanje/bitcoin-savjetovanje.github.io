@@ -225,6 +225,9 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </div>
           </section>
         ) : null}
+        {guide.introVisual ? (
+          <GuideSectionVisual visual={guide.introVisual} />
+        ) : null}
         {guide.summary ? (
           <section
             className="guide-summary-callout"

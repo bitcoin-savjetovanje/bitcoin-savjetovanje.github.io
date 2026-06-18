@@ -438,6 +438,7 @@ const requiredFiles = [
   "images/neto-imovina-hero-20260521.jpg",
   "images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp",
   "images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg",
+  "images/leo-heart-root-scale-cycles-20260618.png",
   "images/bitcoin-bilanca-pojacana-izlozenost-hero-20260603.webp",
   "images/bitcoin-bilanca-pojacana-izlozenost-hero-20260603.jpg",
   "images/od-duga-prema-vlasnistvu-hero-20260603.webp",
@@ -3415,6 +3416,8 @@ const focusedGuideChecks = [
       "Ali nije Bitcoin s besplatnom zaštitnom mrežom.",
       "Zabin certifikat je dobra vijest za Bitcoin.",
       '<source srcSet="/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp"',
+      'href="https://bitcoinwave.net/rootchart.htm"',
+      '<img src="/images/leo-heart-root-scale-cycles-20260618.png" alt="Screenshot Bitcoin Root-Scale Cycles grafa Leo Heartova modela s oznakom 2031-09-11 i PL0 vrijednošću oko 403.339 USD"',
     ],
   },
   {

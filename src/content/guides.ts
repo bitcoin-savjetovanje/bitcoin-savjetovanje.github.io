@@ -466,6 +466,11 @@ const guideEntries: Guide[] = [
           "To nije kristalna kugla. Model ne obvezuje tržište da slijedi određenu cijenu. Visoki povijesni R² ne predstavlja vjerojatnost budućeg ishoda. Model služi kao okvir za procjenu dugoročnog smjera i relativnog položaja tržišne cijene.",
           "Prema očitanju modela na dan 18. lipnja 2026.:",
         ],
+        link: {
+          before: "Izvor:",
+          label: "Leo Heartov model",
+          href: "https://bitcoinwave.net/rootchart.htm",
+        },
         table: {
           columns: ["Linija", "USD"],
           rows: [
@@ -473,6 +478,16 @@ const guideEntries: Guide[] = [
             ["–2 standardne devijacije", "66.990"],
             ["Medijalni trend", "101.508"],
           ],
+        },
+        visual: {
+          type: "image-card",
+          title: "Bitcoin Root-Scale Cycles",
+          caption:
+            "Očitanje Leo Heartova modela korišteno u Power Law usporedbi.",
+          src: "/images/leo-heart-root-scale-cycles-20260618.png",
+          alt: "Screenshot Bitcoin Root-Scale Cycles grafa Leo Heartova modela s oznakom 2031-09-11 i PL0 vrijednošću oko 403.339 USD",
+          href: "https://bitcoinwave.net/rootchart.htm",
+          credit: "Izvor: bitcoinwave.net/rootchart.htm",
         },
         subsections: [
           {

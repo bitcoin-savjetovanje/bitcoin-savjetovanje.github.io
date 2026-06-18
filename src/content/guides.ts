@@ -4,6 +4,7 @@ export type GuideSection = {
   heading: string
   body: string[]
   hideFromToc?: boolean
+  calloutTitle?: string
   callout?: string
   subsections?: GuideSectionSubsection[]
   cards?: GuideCard[]
@@ -26,6 +27,7 @@ export type GuideSection = {
 export type GuideSectionSubsection = {
   heading: string
   body: string[]
+  calloutTitle?: string
   callout?: string
   table?: GuideTable
   items?: string[]
@@ -239,6 +241,11 @@ export type Guide = {
   relatedSlugs: string[]
   visual?: GuideVisual
   video?: GuideVideo
+  statusNotes?: string[]
+  summary?: {
+    title: string
+    items: string[]
+  }
   intro?: string[]
   heroPrimaryCta?: {
     label: string
@@ -260,6 +267,8 @@ export type Guide = {
   finalCta: string
   finalCtaTitle?: string
   finalCtaPrompt?: string
+  finalCtaPromptStandalone?: boolean
+  finalCtaNote?: string
   finalSecondaryCta?: {
     label: string
     href: string
@@ -287,13 +296,12 @@ const guideEntries: Guide[] = [
     title:
       "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i ograničenje prinosa",
     seoTitle:
-      "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i ograničenje prinosa",
-    ogTitle:
-      "Zabin Bitcoin ETF certifikat: što zapravo kupujete?",
+      "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i oportunitetni trošak",
+    ogTitle: "Zabin Bitcoin certifikat: koliko košta zaštita glavnice?",
     ogDescription:
-      "Zaštita glavnice ima cijenu: troškove, rok, rizik izdavatelja i ograničenje prinosa na 50%.",
+      "Pozitivan korak za prihvaćanje Bitcoina, uz detaljan prikaz isplate, troškova, rizika i mogućeg oportunitetnog troška.",
     metaDescription:
-      "Što zapravo kupujete Zabinim Bitcoin ETF certifikatom, kada vrijedi zaštita glavnice, koliki su troškovi i što Power Law scenariji pokazuju o ograničenju prinosa na 50%.",
+      "Što kupujete Zabinim Bitcoin ETF certifikatom, kada vrijedi zaštita glavnice, koliki su troškovi i što ograničenje prinosa znači za mogući rast.",
     excerpt:
       "Zaštita glavnice ima cijenu: troškove, rok, rizik izdavatelja i ograničenje prinosa na 50%.",
     category: "Neto imovina",
@@ -310,6 +318,8 @@ const guideEntries: Guide[] = [
       src: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg",
       alt: "Mediteranska kamena scena s Bitcoinom, burzovnim fondovima i strukturiranim proizvodima",
       position: "50% 50%",
+      caption:
+        "Bitcoin, burzovni fond i strukturirani certifikat tri su različita oblika izloženosti.",
     },
     intro: [
       "Zagrebačka banka ponudila je hrvatskim klijentima certifikat povezan s iShares Bitcoin Trust ETF-om, odnosno IBIT-om.",
@@ -319,12 +329,26 @@ const guideEntries: Guide[] = [
       "Ali nije Bitcoin s besplatnom zaštitnom mrežom.",
       "Operativno može biti jednostavniji od vlastitog skrbništva. Financijski je složeniji. Sam KID upozorava da proizvod nije jednostavan i da ga može biti teško razumjeti.",
     ],
+    statusNotes: [
+      "Objavljeno i provjereno: 18. lipnja 2026.",
+      "Razdoblje upisa: 12. lipnja – 20. srpnja 2026., ili ranije u slučaju dosezanja maksimalnog iznosa izdanja.",
+    ],
+    summary: {
+      title: "Sažetak u 30 sekundi",
+      items: [
+        "Za jedan certifikat klijent plaća 1.020 USD.",
+        "Iznos za izračun isplate iznosi 1.000 USD.",
+        "Minimalna isplata na dospijeću iznosi 1.000 USD, pod uvjetom da izdavatelj ispuni svoju obvezu.",
+        "Maksimalna isplata iznosi 1.500 USD.",
+        "Maksimalni prinos na stvarno uplaćenih 1.020 USD iznosi 47,06%, odnosno približno 7,75% godišnje prije zasebnog skrbništva, osobnog poreznog tretmana i valutnog učinka.",
+        "Kupac ne posjeduje Bitcoin ni udjel u IBIT-u, nego dužnički certifikat čija isplata ovisi o kretanju IBIT-a.",
+        "Zaštita vrijedi samo na dospijeću; prijevremeni izlazak može dovesti do gubitka.",
+      ],
+    },
     sections: [
       {
         heading: "Tri različite stvari",
-        body: [
-          "Prije analize treba razlikovati tri razine:",
-        ],
+        body: ["Prije analize treba razlikovati tri razine:"],
         table: {
           columns: ["Proizvod", "Što osoba posjeduje"],
           rows: [
@@ -346,9 +370,7 @@ const guideEntries: Guide[] = [
       },
       {
         heading: "Kako se računa isplata",
-        body: [
-          "Za jedan certifikat vrijedi:",
-        ],
+        body: ["Za jedan certifikat vrijedi:"],
         dataCards: [
           {
             value: "1.020 USD",
@@ -416,7 +438,10 @@ const guideEntries: Guide[] = [
               "1.000 USD 2031. ne mora kupovati isto što i 2026.",
             ],
             ["vrijednost u eurima", "rezultat ovisi i o tečaju USD/EUR"],
-            ["vrijednost pri ranom izlasku", "zaštita vrijedi samo na dospijeću"],
+            [
+              "vrijednost pri ranom izlasku",
+              "zaštita vrijedi samo na dospijeću",
+            ],
             ["rizik izdavatelja", "UniCredit možda neće moći ispuniti obvezu"],
             [
               "kupovna moć izražena u Bitcoinu",
@@ -467,6 +492,9 @@ const guideEntries: Guide[] = [
           "To nije kristalna kugla. Model ne obvezuje tržište da slijedi određenu cijenu. Visoki povijesni R² ne predstavlja vjerojatnost budućeg ishoda. Model služi kao okvir za procjenu dugoročnog smjera i relativnog položaja tržišne cijene.",
           "Prema očitanju modela na dan 18. lipnja 2026.:",
         ],
+        calloutTitle: "Važna metodološka napomena",
+        callout:
+          "Certifikat svoj prinos računa prema promjeni zaključne cijene IBIT-a između 21. srpnja 2026. i 16. rujna 2031. Power Law usporedba u nastavku polazi od tržišne cijene Bitcoina 18. lipnja 2026. Zato ona nije projekcija stvarne isplate certifikata, nego ilustracija reda veličine mogućeg oportunitetnog troška.",
         link: {
           before: "Izvor:",
           label: "Leo Heartov model",
@@ -485,9 +513,9 @@ const guideEntries: Guide[] = [
           variant: "full-width",
           title: "Bitcoin Root-Scale Cycles",
           caption:
-            "Očitanje Leo Heartova modela korišteno u Power Law usporedbi.",
+            "Graf služi kao vizualni prikaz Power Law modela. Izračuni u tekstu koriste zasebno očitanje za 16. rujna 2031.",
           src: "/images/leo-heart-root-scale-cycles-20260618.png",
-          alt: "Screenshot Bitcoin Root-Scale Cycles grafa Leo Heartova modela s oznakom 2031-09-11 i PL0 vrijednošću oko 403.339 USD",
+          alt: "Screenshot Bitcoin Root-Scale Cycles grafa s povijesnom cijenom Bitcoina i linijama Power Law modela",
           href: "https://bitcoinwave.net/rootchart.htm",
           credit: "Izvor: bitcoinwave.net/rootchart.htm",
         },
@@ -509,14 +537,14 @@ const guideEntries: Guide[] = [
           {
             heading: "Donji scenarij modela",
             body: [
-              "64.362 / 298.818 − 1 = 364,28%",
+              "298.818 ÷ 64.362 − 1 = 364,28%",
               "Bitcoin bi bio 4,64 puta skuplji, što odgovara približno 34,0% godišnje.",
             ],
           },
           {
             heading: "Medijalni scenarij modela",
             body: [
-              "64.362 / 404.820 − 1 = 528,97%",
+              "404.820 ÷ 64.362 − 1 = 528,97%",
               "Bitcoin bi bio 6,29 puta skuplji, što odgovara približno 42,0% godišnje.",
               "Drugi scenarij uključuje povratak cijene s današnjeg izrazito niskog položaja prema medijalnoj liniji. Sama medijalna linija od 101.508 do 404.820 raste približno 30,2% godišnje.",
               "Čak i donji modelni scenarij daleko prelazi ograničenje certifikata od 50%.",
@@ -547,20 +575,17 @@ const guideEntries: Guide[] = [
         },
         items: [
           "Razlika iznosi približno 32.356 USD u donjem scenariju i 49.155 USD u medijalnom scenariju.",
-          "To nije naknada koju banka izravno uzima. To je oportunitetni trošak odricanja od rasta iznad 50%.",
+          "To nije naknada koju banka naplaćuje niti zajamčeni gubitak. To je ilustracija mogućeg rasta kojega se klijent odriče u zamjenu za nominalnu zaštitu na dospijeću.",
           "U Bitcoin jedinici rezultat je još vidljiviji:",
           "početnih 10.200 USD predstavlja 0,15848 BTC",
           "15.000 USD pri cijeni od 298.818 USD predstavlja 0,05020 BTC",
           "15.000 USD pri cijeni od 404.820 USD predstavlja 0,03705 BTC",
           "U modelnim scenarijima maksimalna isplata certifikata izgubila bi približno 68,3%, odnosno 76,6% početne kupovne moći izražene u Bitcoinu.",
-          "Ova usporedba ima važno ograničenje: certifikat ne počinje pratiti Bitcoin 18. lipnja, nego zaključnu cijenu IBIT-a 21. srpnja 2026. IBIT također nije savršeno jednak Bitcoinu i njegova vrijednost već odražava vlastite troškove. Zato ove brojke nisu projekcija isplate certifikata, nego ilustracija veličine prodanog potencijala rasta.",
         ],
       },
       {
         heading: "Kome proizvod može odgovarati",
-        body: [
-          "Proizvod može biti racionalan za osobu koja:",
-        ],
+        body: ["Proizvod može biti racionalan za osobu koja:"],
         items: [
           "već ima imovinu i obveze u USD",
           "neće trebati novac prije rujna 2031.",
@@ -580,9 +605,9 @@ const guideEntries: Guide[] = [
           "Kupac zamjenjuje jednu vrstu rizika drugom:",
         ],
         items: [
-          "uklanja tržišni pad ispod nominalnih 1.000 USD na dospijeću",
+          "dobiva pravo na minimalnu isplatu od 1.000 USD po certifikatu na dospijeću, iako je pri upisu platio 1.020 USD, pod uvjetom da izdavatelj može ispuniti svoju obvezu",
           "prihvaća rizik izdavatelja",
-          "prihvaća troškove i nelikvidnost",
+          "prihvaća troškove, ograničenu likvidnost i mogućnost gubitka pri izlasku prije dospijeća",
           "prihvaća USD valutni rezultat",
           "odriče se rasta iznad 50%.",
         ],
@@ -610,9 +635,49 @@ const guideEntries: Guide[] = [
           },
         ],
       },
+      {
+        heading: "Izvori i dokumenti",
+        body: [
+          "Za ovaj vodič korišteni su službeni dokumenti proizvoda, službena stranica IBIT-a i javni prikaz Power Law modela.",
+        ],
+        links: [
+          {
+            label:
+              "Službena stranica proizvoda Zagrebačke banke: Certifikat sa 100% zaštitom glavnice – Bitcoin ETF",
+            href: "https://www.zaba.hr/home/certifikat-sa-100-zastitom-glavnice-kripto",
+          },
+          {
+            label:
+              "Dokument s ključnim informacijama, ažuriran 8. lipnja 2026. — dostupan u kartici Dokumenti službene stranice proizvoda",
+            href: "https://www.zaba.hr/home/certifikat-sa-100-zastitom-glavnice-kripto",
+          },
+          {
+            label:
+              "Informacije o troškovima, naknadama i negativnom ciljanom tržištu, 12. lipnja 2026. — dostupno u kartici Dokumenti službene stranice proizvoda",
+            href: "https://www.zaba.hr/home/certifikat-sa-100-zastitom-glavnice-kripto",
+          },
+          {
+            label: "Službena stranica iShares Bitcoin Trust ETF-a",
+            href: "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf",
+          },
+          {
+            label: "Leo Heartov Bitcoin Root-Scale Cycles graf",
+            href: "https://bitcoinwave.net/rootchart.htm",
+          },
+        ],
+        items: [
+          "Brojke, dokumenti i dostupnost proizvoda provjereni su 18. lipnja 2026.",
+        ],
+      },
     ],
-    finalCta: "Razjasnite Bitcoin izloženost prije odluke",
-    hideDefaultFinalCta: true,
+    finalCta: "Dogovorite uvodni razgovor",
+    finalCtaTitle:
+      "Razmišljate kako se proizvod povezan s Bitcoinom uklapa u vašu imovinu?",
+    finalCtaPrompt:
+      "Ne morate unaprijed imati spreman odgovor. U kratkom uvodnom razgovoru možemo razjasniti što zapravo posjedujete, koje rizike preuzimate, čega se odričete i koja pitanja trebate postaviti prije vlastite odluke.",
+    finalCtaPromptStandalone: true,
+    finalCtaNote:
+      "Razgovor je bez naknade i obveze. Ne upravljam vašim novcem i odluka uvijek ostaje vaša.",
   },
   {
     slug: "svaki-euro-ima-namjenu",

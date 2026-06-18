@@ -167,6 +167,13 @@ export function GuidePage({ guide }: { guide: Guide }) {
         <a href="/vodici/" className="guide-back-link">
           Natrag na vodiče
         </a>
+        {guide.statusNotes?.length ? (
+          <section className="guide-status-note">
+            {guide.statusNotes.map((note) => (
+              <p key={note}>{renderWithGlossary(note)}</p>
+            ))}
+          </section>
+        ) : null}
         {guide.freshness === "često se mijenja" ? (
           <section className="guide-info-note">
             <p>
@@ -189,6 +196,19 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 <p key={paragraph}>{renderWithGlossary(paragraph)}</p>
               ))}
             </div>
+          </section>
+        ) : null}
+        {guide.summary ? (
+          <section
+            className="guide-summary-callout"
+            aria-labelledby="guide-summary-heading"
+          >
+            <h2 id="guide-summary-heading">{guide.summary.title}</h2>
+            <ul>
+              {guide.summary.items.map((item) => (
+                <li key={item}>{renderWithGlossary(item)}</li>
+              ))}
+            </ul>
           </section>
         ) : null}
         {sectionLinks.length > 0 ? (
@@ -219,6 +239,9 @@ export function GuidePage({ guide }: { guide: Guide }) {
                     ))}
                     {section.callout ? (
                       <blockquote className="guide-callout">
+                        {section.calloutTitle ? (
+                          <strong>{section.calloutTitle}</strong>
+                        ) : null}
                         <p>{renderWithGlossary(section.callout)}</p>
                       </blockquote>
                     ) : null}
@@ -298,7 +321,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                     {section.links ? (
                       <ul className="guide-source-list">
                         {section.links.map((item) => (
-                          <li key={item.href}>
+                          <li key={`${item.href}-${item.label}`}>
                             <a
                               href={item.href}
                               {...linkSecurityProps(item.href)}
@@ -324,6 +347,9 @@ export function GuidePage({ guide }: { guide: Guide }) {
                             ))}
                             {subsection.callout ? (
                               <blockquote className="guide-callout">
+                                {subsection.calloutTitle ? (
+                                  <strong>{subsection.calloutTitle}</strong>
+                                ) : null}
                                 <p>{renderWithGlossary(subsection.callout)}</p>
                               </blockquote>
                             ) : null}
@@ -399,7 +425,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                             {subsection.links ? (
                               <ul className="guide-source-list">
                                 {subsection.links.map((item) => (
-                                  <li key={item.href}>
+                                  <li key={`${item.href}-${item.label}`}>
                                     <a
                                       href={item.href}
                                       {...linkSecurityProps(item.href)}
@@ -515,10 +541,15 @@ export function GuidePage({ guide }: { guide: Guide }) {
                     "Želite ovo primijeniti na svoju situaciju?"}
                 </h2>
                 <p>
-                  {guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : null}
-                  Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji
-                  dio se odnosi na vas.
+                  {guide.finalCtaPromptStandalone && guide.finalCtaPrompt
+                    ? guide.finalCtaPrompt
+                    : `${guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : ""}Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se odnosi na vas.`}
                 </p>
+                {guide.finalCtaNote ? (
+                  <p className="guide-final-cta-card__note">
+                    {guide.finalCtaNote}
+                  </p>
+                ) : null}
                 <div className="guide-final-cta-card__actions">
                   <Button
                     asChild

@@ -3092,6 +3092,30 @@ for (const guidePath of requiredGuidePaths) {
       'data-link="related-guide"',
       "no added related guide metadata"
     )
+    assertNotIncludes(
+      relativePath,
+      html,
+      "64.362 / 298.818",
+      "no reversed lower Power Law formula"
+    )
+    assertNotIncludes(
+      relativePath,
+      html,
+      "64.362 / 404.820",
+      "no reversed median Power Law formula"
+    )
+    assertNotIncludes(
+      relativePath,
+      html,
+      "Očitanje Leo Heartova modela korišteno u Power Law usporedbi.",
+      "no misleading Power Law screenshot caption"
+    )
+    assertNotIncludes(
+      relativePath,
+      html,
+      "Privremeni cover",
+      "no internal temporary cover note"
+    )
   } else {
     assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
     assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
@@ -3128,11 +3152,29 @@ for (const guidePath of requiredGuidePaths) {
       "hidden generic final CTA metadata"
     )
   } else if (guidePath === exactPasteGuidePath) {
-    assertNotIncludes(
+    assertIncludes(
+      relativePath,
+      html,
+      "Razmišljate kako se proizvod povezan s Bitcoinom uklapa u vašu imovinu?",
+      "Zaba guide final CTA title"
+    )
+    assertIncludes(
+      relativePath,
+      html,
+      "Ne morate unaprijed imati spreman odgovor.",
+      "Zaba guide final CTA text"
+    )
+    assertIncludes(
+      relativePath,
+      html,
+      "Razgovor je bez naknade i obveze. Ne upravljam vašim novcem i odluka uvijek ostaje vaša.",
+      "Zaba guide final CTA note"
+    )
+    assertIncludes(
       relativePath,
       html,
       'data-cta="guide-final-intro-call"',
-      "no added generic final CTA metadata"
+      "Zaba guide final CTA metadata"
     )
   } else {
     assertIncludes(
@@ -3394,16 +3436,29 @@ const focusedGuideChecks = [
     path: "vodici/zaba-bitcoin-etf-certifikat/index.html",
     checks: [
       "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i ograničenje prinosa",
+      "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i oportunitetni trošak",
+      '<meta property="og:title" content="Zabin Bitcoin certifikat: koliko košta zaštita glavnice?"',
+      '<meta name="description" content="Što kupujete Zabinim Bitcoin ETF certifikatom',
+      "Sažetak u 30 sekundi",
+      "Iznos za izračun isplate iznosi 1.000 USD.",
+      "Maksimalni prinos na stvarno uplaćenih 1.020 USD iznosi 47,06%",
+      "Kupac ne posjeduje Bitcoin ni udjel u IBIT-u",
+      "Objavljeno i provjereno: 18. lipnja 2026.",
+      "Razdoblje upisa: 12. lipnja – 20. srpnja 2026.",
       "Zaštita glavnice ima cijenu",
       "neosigurano potraživanje prema UniCreditu",
       "23. rujna 2031.",
       "Power Law kao ilustracija oportunitetnog troška",
+      "Važna metodološka napomena",
+      "Certifikat svoj prinos računa prema promjeni zaključne cijene IBIT-a između 21. srpnja 2026. i 16. rujna 2031.",
       "Leo Heartov model",
       "64.362 USD",
       "66.990",
       "101.508",
       "298.818 USD",
       "404.820 USD",
+      "298.818 ÷ 64.362 − 1 = 364,28%",
+      "404.820 ÷ 64.362 − 1 = 528,97%",
       "364,28%",
       "528,97%",
       "0,15848 BTC",
@@ -3411,13 +3466,25 @@ const focusedGuideChecks = [
       "64.155 USD",
       "68,3%",
       "76,6%",
+      "To nije naknada koju banka naplaćuje niti zajamčeni gubitak.",
       "Trošak proizvoda uključen u prodajnu cijenu",
       "Vidljivi agio iznosi 2%",
       "Ali nije Bitcoin s besplatnom zaštitnom mrežom.",
       "Zabin certifikat je dobra vijest za Bitcoin.",
+      "dobiva pravo na minimalnu isplatu od 1.000 USD po certifikatu",
+      "prihvaća troškove, ograničenu likvidnost i mogućnost gubitka pri izlasku prije dospijeća",
+      "Izvori i dokumenti",
+      "Dokument s ključnim informacijama, ažuriran 8. lipnja 2026.",
+      "Informacije o troškovima, naknadama i negativnom ciljanom tržištu, 12. lipnja 2026.",
+      "Brojke, dokumenti i dostupnost proizvoda provjereni su 18. lipnja 2026.",
+      "Razmišljate kako se proizvod povezan s Bitcoinom uklapa u vašu imovinu?",
+      "Dogovorite uvodni razgovor",
       '<source srcSet="/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp"',
       'href="https://bitcoinwave.net/rootchart.htm"',
-      '<img src="/images/leo-heart-root-scale-cycles-20260618.png" alt="Screenshot Bitcoin Root-Scale Cycles grafa Leo Heartova modela s oznakom 2031-09-11 i PL0 vrijednošću oko 403.339 USD"',
+      'href="https://www.zaba.hr/home/certifikat-sa-100-zastitom-glavnice-kripto"',
+      'href="https://www.ishares.com/us/products/333011/ishares-bitcoin-trust-etf"',
+      '<img src="/images/leo-heart-root-scale-cycles-20260618.png" alt="Screenshot Bitcoin Root-Scale Cycles grafa s povijesnom cijenom Bitcoina i linijama Power Law modela"',
+      "Graf služi kao vizualni prikaz Power Law modela. Izračuni u tekstu koriste zasebno očitanje za 16. rujna 2031.",
     ],
   },
   {

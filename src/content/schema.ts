@@ -416,6 +416,9 @@ export function audiencePageSchema(page: AudiencePage) {
 
 export function guideSchema(guide: Guide) {
   const guideUrl = `${SITE_URL}${guideHref(guide.slug)}`
+  const guideImageUrl = guide.cover?.src
+    ? `${SITE_URL}${guide.cover.src}`
+    : OG_IMAGE_URL
   const faqSchema = guide.faq?.length
     ? [
         {
@@ -454,7 +457,7 @@ export function guideSchema(guide: Guide) {
           "@id": `${SITE_URL}/#service`,
           name: "Bitcoin Savjetovanje",
         },
-        image: OG_IMAGE_URL,
+        image: guideImageUrl,
         isPartOf: {
           "@type": "WebSite",
           "@id": `${SITE_URL}/#website`,

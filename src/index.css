@@ -3769,6 +3769,41 @@
   text-underline-offset: 0.25rem;
 }
 
+.guide-status-note,
+.guide-summary-callout {
+  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border-radius: 0.8rem;
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 8%);
+  padding: clamp(1rem, 2.2vw, 1.4rem);
+}
+
+.guide-status-note {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: clamp(1.4rem, 3vw, 2rem);
+}
+
+.guide-status-note p,
+.guide-summary-callout p {
+  margin: 0;
+}
+
+.guide-summary-callout {
+  margin-bottom: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.guide-summary-callout h2 {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+}
+
+.guide-summary-callout ul {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
 .guide-callout {
   margin: 0.4rem 0;
   border-left: 0.28rem solid color-mix(in oklab, var(--guide-theme), var(--ink) 12%);
@@ -3780,6 +3815,15 @@
       color-mix(in oklab, var(--paper), var(--stone-soft) 10%)
     );
   padding: clamp(1rem, 2.2vw, 1.35rem);
+}
+
+.guide-callout strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .guide-callout p {
@@ -3894,6 +3938,11 @@
 .guide-extra-cta-card p,
 .guide-final-cta-card p {
   margin-top: 0.9rem;
+}
+
+.guide-final-cta-card__note {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
 }
 
 .guide-related-section {

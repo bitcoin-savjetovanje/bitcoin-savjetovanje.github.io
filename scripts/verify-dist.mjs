@@ -3469,6 +3469,7 @@ const focusedGuideChecks = [
       "To nije naknada koju banka naplaćuje niti zajamčeni gubitak.",
       "Trošak proizvoda uključen u prodajnu cijenu",
       "Vidljivi agio iznosi 2%",
+      '<button type="button" class="glossary-term" aria-label="Objasni pojam: Agio"',
       "Ali nije Bitcoin s besplatnom zaštitnom mrežom.",
       "Zabin certifikat je dobra vijest za Bitcoin.",
       "dobiva pravo na minimalnu isplatu od 1.000 USD po certifikatu",

@@ -696,6 +696,14 @@ export const glossaryTerms: GlossaryTerm[] = [
       "Vrijednost zapisana u pravilima instrumenta. Tržišna cijena se može kretati oko nje, iznad nje ili ispod nje.",
   },
   {
+    id: "agio",
+    priority: 55,
+    terms: ["agio", "agija", "agiju", "agijem"],
+    title: "Agio",
+    description:
+      "Razlika između cijene po kojoj se instrument izdaje ili kupuje i njegove nominalne vrijednosti. U ovom vodiču 1.020 USD cijene u odnosu na 1.000 USD nominale znači agio od 2%.",
+  },
+  {
     id: "izdavatelj",
     priority: 45,
     terms: ["izdavatelj", "izdavatelja", "izdavatelju", "izdavateljem"],

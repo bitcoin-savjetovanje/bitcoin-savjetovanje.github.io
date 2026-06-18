@@ -40,6 +40,33 @@ function renderLinkAfter(after?: string) {
   return ` ${after}`
 }
 
+function isStandaloneFormula(text: string) {
+  return (
+    text.includes("=") &&
+    /^[\d\s.,()/×÷^+−\-≈=%A-Z]+$/.test(text.trim()) &&
+    text.length <= 90
+  )
+}
+
+function renderGuideParagraph(paragraph: string) {
+  return (
+    <p
+      key={paragraph}
+      className={
+        isStandaloneFormula(paragraph) ? "guide-formula-line" : undefined
+      }
+    >
+      {renderWithGlossary(paragraph)}
+    </p>
+  )
+}
+
+function guideListItemClass(item: string) {
+  return isStandaloneFormula(item)
+    ? "guide-formula-list-item"
+    : "list-disc pl-1"
+}
+
 export function GuidePage({ guide }: { guide: Guide }) {
   const [readingProgress, setReadingProgress] = useState(0)
   const guideTheme = resolveGuideTheme(guide)
@@ -234,9 +261,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 >
                   <h2>{section.heading}</h2>
                   <div>
-                    {section.body.map((paragraph) => (
-                      <p key={paragraph}>{renderWithGlossary(paragraph)}</p>
-                    ))}
+                    {section.body.map(renderGuideParagraph)}
                     {section.callout ? (
                       <blockquote className="guide-callout">
                         {section.calloutTitle ? (
@@ -299,7 +324,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                     {section.items ? (
                       <ul className="grid gap-2 pl-5">
                         {section.items.map((item) => (
-                          <li key={item} className="list-disc pl-1">
+                          <li key={item} className={guideListItemClass(item)}>
                             {renderWithGlossary(item)}
                           </li>
                         ))}
@@ -340,11 +365,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                             className="guide-subsection"
                           >
                             <h3>{subsection.heading}</h3>
-                            {subsection.body.map((paragraph) => (
-                              <p key={paragraph}>
-                                {renderWithGlossary(paragraph)}
-                              </p>
-                            ))}
+                            {subsection.body.map(renderGuideParagraph)}
                             {subsection.callout ? (
                               <blockquote className="guide-callout">
                                 {subsection.calloutTitle ? (
@@ -403,7 +424,10 @@ export function GuidePage({ guide }: { guide: Guide }) {
                             {subsection.items ? (
                               <ul className="grid gap-2 pl-5">
                                 {subsection.items.map((item) => (
-                                  <li key={item} className="list-disc pl-1">
+                                  <li
+                                    key={item}
+                                    className={guideListItemClass(item)}
+                                  >
                                     {renderWithGlossary(item)}
                                   </li>
                                 ))}

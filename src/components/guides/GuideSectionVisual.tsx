@@ -93,6 +93,48 @@ export function GuideSectionVisual({ visual }: GuideSectionVisualProps) {
     )
   }
 
+  if (visual.type === "chart-gallery") {
+    return (
+      <aside
+        className="guide-section-visual guide-section-visual--charts"
+        aria-label={visual.title}
+      >
+        <div className="guide-section-visual__header">
+          <h3>{visual.title}</h3>
+          {visual.caption ? <p>{visual.caption}</p> : null}
+        </div>
+        <div className="guide-chart-gallery">
+          {visual.items.map((item) => (
+            <figure key={item.name} className="guide-chart-card">
+              <ExternalLink
+                href={item.href}
+                className="guide-chart-card__image"
+              >
+                <img src={item.src} alt={item.alt} loading="lazy" />
+              </ExternalLink>
+              <figcaption>
+                <span className="guide-chart-card__name">{item.name}</span>
+                {item.value ? (
+                  <span className="guide-chart-card__value">{item.value}</span>
+                ) : null}
+                {item.description ? (
+                  <span className="guide-chart-card__description">
+                    {item.description}
+                  </span>
+                ) : null}
+                {item.credit ? (
+                  <span className="guide-chart-card__credit">
+                    {item.credit}
+                  </span>
+                ) : null}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </aside>
+    )
+  }
+
   return (
     <aside className="guide-section-visual" aria-label={visual.title}>
       <div className="guide-section-visual__header">

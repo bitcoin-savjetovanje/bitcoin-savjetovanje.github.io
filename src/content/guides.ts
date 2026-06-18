@@ -70,6 +70,20 @@ export type GuideSectionVisual =
       variant?: "full-width"
     }
   | {
+      type: "chart-gallery"
+      title: string
+      caption?: string
+      items: Array<{
+        name: string
+        value?: string
+        description?: string
+        src: string
+        alt: string
+        href?: string
+        credit?: string
+      }>
+    }
+  | {
       type: "image-grid"
       title: string
       caption?: string
@@ -521,15 +535,52 @@ const guideEntries: Guide[] = [
           ],
         },
         visual: {
-          type: "image-card",
-          variant: "full-width",
-          title: "Bitcoin Root-Scale Cycles",
+          type: "chart-gallery",
+          title: "Power Law scenariji za rujan 2031.",
           caption:
-            "Graf služi kao vizualni prikaz Power Law modela. Izračuni u tekstu koriste zasebno očitanje za 16. rujna 2031.",
-          src: "/images/leo-heart-root-scale-cycles-20260618.png",
-          alt: "Screenshot Bitcoin Root-Scale Cycles grafa s povijesnom cijenom Bitcoina i linijama Power Law modela",
-          href: "https://bitcoinwave.net/rootchart.htm",
-          credit: "Izvor: bitcoinwave.net/rootchart.htm",
+            "Četiri očitanja Leo Heartova modela prikazuju raspon od PL-3 do PL5. Screenshoti su očitanja za 15. rujna 2031.; izračuni u tekstu koriste 16. rujna 2031. iz zasebnog očitanja.",
+          items: [
+            {
+              name: "PL-3: tri standardne devijacije ispod trenda",
+              value: "256.469,79 USD na screenshotu",
+              description:
+                "Konzervativniji modelni scenarij ispod dugoročnog trenda.",
+              src: "/images/power-law-pl-minus-3-20310915.png",
+              alt: "Power Law graf s PL-3 linijom i očitanjem oko 256.469 USD za rujan 2031.",
+              href: "https://bitcoinwave.net/rootchart.htm",
+              credit: "Izvor: bitcoinwave.net/rootchart.htm",
+            },
+            {
+              name: "PL-2: dvije standardne devijacije ispod trenda",
+              value: "298.523,84 USD na screenshotu",
+              description:
+                "Donji scenarij koji pokazuje red veličine ispod medijalnog trenda.",
+              src: "/images/power-law-pl-minus-2-20310915.png",
+              alt: "Power Law graf s PL-2 linijom i očitanjem oko 298.523 USD za rujan 2031.",
+              href: "https://bitcoinwave.net/rootchart.htm",
+              credit: "Izvor: bitcoinwave.net/rootchart.htm",
+            },
+            {
+              name: "PL0: medijalni trend",
+              value: "404.449,79 USD na screenshotu",
+              description:
+                "Medijalna linija modela, najbliža vrijednosti korištenoj u glavnom izračunu.",
+              src: "/images/power-law-pl0-20310915.png",
+              alt: "Power Law graf s PL0 medijalnom linijom i očitanjem oko 404.449 USD za rujan 2031.",
+              href: "https://bitcoinwave.net/rootchart.htm",
+              credit: "Izvor: bitcoinwave.net/rootchart.htm",
+            },
+            {
+              name: "PL5: ultra bullish scenarij",
+              value: "864.129,04 USD na screenshotu",
+              description:
+                "Gornji ekstremni scenarij koji pokazuje širinu modela, ne prognozu.",
+              src: "/images/power-law-pl5-20310915.png",
+              alt: "Power Law graf s PL5 linijom i očitanjem oko 864.129 USD za rujan 2031.",
+              href: "https://bitcoinwave.net/rootchart.htm",
+              credit: "Izvor: bitcoinwave.net/rootchart.htm",
+            },
+          ],
         },
         subsections: [
           {

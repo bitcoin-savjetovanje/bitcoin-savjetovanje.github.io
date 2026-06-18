@@ -2208,6 +2208,50 @@
     @apply mt-3 block text-[0.68rem] leading-4 text-muted-foreground/75;
   }
 
+  .guide-section-visual--charts {
+    @apply mt-9 rounded-none border-0 bg-transparent p-0 shadow-none;
+  }
+
+  .guide-section-visual--charts .guide-section-visual__header {
+    @apply max-w-3xl;
+  }
+
+  .guide-chart-gallery {
+    @apply mt-6 grid gap-8;
+  }
+
+  .guide-chart-card {
+    @apply m-0;
+  }
+
+  .guide-chart-card__image {
+    @apply block bg-white transition-opacity hover:opacity-95 focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none;
+  }
+
+  .guide-chart-card__image img {
+    @apply block w-full rounded-xl border border-border/60 object-contain;
+  }
+
+  .guide-chart-card figcaption {
+    @apply pt-3 text-sm leading-6 text-muted-foreground;
+  }
+
+  .guide-chart-card__name {
+    @apply block font-semibold text-foreground;
+  }
+
+  .guide-chart-card__value {
+    @apply mt-1 block font-semibold text-foreground;
+  }
+
+  .guide-chart-card__description {
+    @apply mt-1 block;
+  }
+
+  .guide-chart-card__credit {
+    @apply mt-2 block text-xs leading-5 text-muted-foreground/75;
+  }
+
   .glossary-term-wrap {
     @apply relative inline-block;
   }

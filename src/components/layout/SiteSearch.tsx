@@ -351,19 +351,21 @@ export function SiteSearch({ onOpen }: SiteSearchProps) {
                 onFocus={loadEntries}
                 onChange={(event) => setQuery(event.target.value)}
               />
-              {query ? (
-                <button
-                  type="button"
-                  className="site-search__clear"
-                  aria-label="Obriši pretragu"
-                  onClick={() => {
-                    setQuery("")
-                    inputRef.current?.focus()
-                  }}
-                >
-                  <X className="size-4" />
-                </button>
-              ) : null}
+              <button
+                type="button"
+                className="site-search__clear"
+                aria-label={query ? "Obriši pretragu" : undefined}
+                aria-hidden={!query}
+                data-visible={query ? "true" : undefined}
+                disabled={!query}
+                tabIndex={query ? undefined : -1}
+                onClick={() => {
+                  setQuery("")
+                  inputRef.current?.focus()
+                }}
+              >
+                <X className="size-4" />
+              </button>
             </div>
           </form>
 

@@ -208,11 +208,16 @@ export function Header({ currentPath }: HeaderProps) {
                 mobileMenuOpen ? "Zatvori navigaciju" : "Otvori navigaciju"
               }
             >
-              {mobileMenuOpen ? (
-                <X className="size-4" />
-              ) : (
-                <Menu className="size-4" />
-              )}
+              <span className="site-header__menu-icon-stack" aria-hidden="true">
+                <Menu
+                  className="site-header__menu-icon size-4"
+                  data-visible={!mobileMenuOpen ? "true" : undefined}
+                />
+                <X
+                  className="site-header__menu-icon size-4"
+                  data-visible={mobileMenuOpen ? "true" : undefined}
+                />
+              </span>
             </Button>
           </div>
         </div>

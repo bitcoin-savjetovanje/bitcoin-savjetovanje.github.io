@@ -4,8 +4,11 @@ import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { bitcoinConsultationRoute } from "@/content/routes"
 import {
+  BUSINESS_AUDIENCE_PATH,
   CONVERSATION_PATH,
+  FAMILY_AUDIENCE_PATH,
   PERSONAL_BITCOIN_STANDARD_PATH,
+  PERSONAL_AUDIENCE_PATH,
 } from "@/content/site"
 
 const serviceVisualsPath = "/images/service-visuals"
@@ -56,16 +59,22 @@ const consultationScopes = [
   {
     title: "Osobno",
     copy: "Jedna odluka oko Bitcoina, duga, proračuna, neto imovine ili veće kupnje.",
+    href: PERSONAL_AUDIENCE_PATH,
+    dataLink: "bitcoin-consultation-personal-audience",
     image: `${serviceVisualsPath}/consultation-scope-personal.webp`,
   },
   {
     title: "Obiteljski",
     copy: "Jedno pitanje koje treba objasniti partneru, obitelji ili osobi od povjerenja.",
+    href: FAMILY_AUDIENCE_PATH,
+    dataLink: "bitcoin-consultation-family-audience",
     image: `${serviceVisualsPath}/consultation-scope-family.webp`,
   },
   {
     title: "Poslovno",
     copy: "Jedna odluka oko poslovne riznice, viška novca, kratkoročnih obveza, sigurnosti ili razdvajanja privatnog i poslovnog Bitcoina.",
+    href: BUSINESS_AUDIENCE_PATH,
+    dataLink: "bitcoin-consultation-business-audience",
     image: `${serviceVisualsPath}/consultation-scope-business.webp`,
   },
 ]
@@ -276,14 +285,19 @@ export function BitcoinConsultation() {
             </div>
             <div className="service-card-grid">
               {consultationScopes.map((scope) => (
-                <article key={scope.title} className="service-card">
+                <a
+                  key={scope.title}
+                  href={scope.href}
+                  className="service-card service-card--link"
+                  data-link={scope.dataLink}
+                >
                   <DecorativeServiceImage
                     className="service-card__image"
                     src={scope.image}
                   />
                   <h3 className="service-card__title">{scope.title}</h3>
                   <p className="service-card__copy">{scope.copy}</p>
-                </article>
+                </a>
               ))}
             </div>
           </section>

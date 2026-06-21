@@ -8684,6 +8684,32 @@
   padding: clamp(1.25rem, 2vw, 2rem);
 }
 
+.service-page .service-card--link {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.service-page .service-card--link:hover,
+.service-page .service-card--link:focus-visible {
+  border-color: color-mix(in oklab, var(--primary), var(--card-border) 58%);
+  color: var(--ink);
+  outline: 0;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--primary), transparent 82%),
+    0 1.2rem 2.8rem rgba(73, 57, 36, 0.09);
+  transform: translateY(-2px);
+}
+
+.service-page .service-card--link:active {
+  transform: translateY(0) scale(0.995);
+}
+
 .service-page .service-card__image {
   max-width: clamp(6rem, 9vw, 9rem);
   margin: 0 auto 1.25rem;

@@ -113,7 +113,7 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
       "Svaki euro dobiva namjenu prije nego što Bitcoin odluka postane stvarno slobodna.",
   },
   "stvarni-visak": {
-    webpSrc: undefined,
+    webpSrc: "/images/stvarni-visak-hero.webp",
     src: "/images/stvarni-visak-hero.png",
     alt: "Mediteranska kamena scena s proračunskom bilježnicom, odvojenim novcem i Bitcoin simbolom za vodič Što je stvarni višak?",
     position: "68% 52%",
@@ -121,7 +121,7 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
       "Stvarni višak postaje vidljiv tek nakon što obveze, pričuva i budući troškovi dobiju svoje mjesto.",
   },
   "dca-nije-dovoljan": {
-    webpSrc: undefined,
+    webpSrc: "/images/dca-nije-dovoljan-hero.webp",
     src: "/images/dca-nije-dovoljan-hero.png",
     alt: "Mediteranska kamena scena s redovitom kupnjom Bitcoina i praznim okvirom za pravila za vodič Zašto redovita kupnja nije cijeli sustav?",
     position: "68% 52%",
@@ -129,7 +129,7 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
       "Redovita kupnja može biti korisna navika, ali ne zamjenjuje proračun, stvarni višak i pisana pravila.",
   },
   "dug-je-buduci-novac": {
-    webpSrc: undefined,
+    webpSrc: "/images/dug-je-buduci-novac-hero.webp",
     src: "/images/dug-je-buduci-novac-hero.png",
     alt: "Mediteranska kamena scena s lancem, kalendarom i Bitcoin simbolom za vodič Dug je budući novac koji ste već potrošili",
     position: "68% 52%",
@@ -137,7 +137,7 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
       "Dug troši budući novac danas i s vremenom počinje odlučivati umjesto vas.",
   },
   "dug-ili-bitcoin": {
-    webpSrc: undefined,
+    webpSrc: "/images/dug-ili-bitcoin-hero.webp",
     src: "/images/dug-ili-bitcoin-hero.png",
     alt: "Mediteranska kamena scena s vagom između duga i Bitcoina za vodič Dug ili Bitcoin?",
     position: "68% 52%",
@@ -145,7 +145,7 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
       "Odluka između duga i Bitcoina nije samo računica, nego pitanje mira, jasnoće i slobode.",
   },
   "ne-zaduzujte-se-za-bitcoin": {
-    webpSrc: undefined,
+    webpSrc: "/images/ne-zaduzujte-se-za-bitcoin-hero.webp",
     src: "/images/ne-zaduzujte-se-za-bitcoin-hero.png",
     alt: "Mediteranska kamena scena s lancem, budućim novcem i Bitcoin simbolom za vodič Ne zadužujte se za Bitcoin",
     position: "68% 52%",

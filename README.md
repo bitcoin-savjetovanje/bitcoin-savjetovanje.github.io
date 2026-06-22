@@ -92,9 +92,11 @@ Prerender i provjere:
 
 Vizualni asseti:
 
-- `public/bitcoin-kao-novac-cover.png`
+- `public/images/bitcoin-kao-novac-cover.webp`
+- `public/images/bitcoin-kao-novac-cover.jpg`
 - `public/og-bitcoin-kao-novac.png`
 - `public/og-bitcoin-kao-novac.svg`
+- `asset-sources/legacy-public-assets/bitcoin-kao-novac-cover.png`
 
 ## Routes
 

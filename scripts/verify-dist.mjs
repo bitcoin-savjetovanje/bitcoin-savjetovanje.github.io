@@ -423,6 +423,16 @@ const requiredFiles = [
   "images/proracun-hero-20260521.jpg",
   "images/guide-svaki-euro-ima-namjenu-cover.webp",
   "images/guide-svaki-euro-ima-namjenu-cover.jpg",
+  "images/stvarni-visak-hero.webp",
+  "images/stvarni-visak-hero.png",
+  "images/dca-nije-dovoljan-hero.webp",
+  "images/dca-nije-dovoljan-hero.png",
+  "images/dug-je-buduci-novac-hero.webp",
+  "images/dug-je-buduci-novac-hero.png",
+  "images/dug-ili-bitcoin-hero.webp",
+  "images/dug-ili-bitcoin-hero.png",
+  "images/ne-zaduzujte-se-za-bitcoin-hero.webp",
+  "images/ne-zaduzujte-se-za-bitcoin-hero.png",
   "images/dug-hero.webp",
   "images/dug-hero.jpg",
   "images/dug-hero-20260521.webp",
@@ -469,6 +479,9 @@ const requiredFiles = [
   "guide-assets/liana-logo.svg",
   "downloads/sample-osobni-bitcoin-standard.pdf",
   "downloads/7-provjera-osobnog-bitcoin-standarda.pdf",
+  "images/downloads/primjer-osobnog-bitcoin-standarda-cover.webp",
+  "images/downloads/primjer-osobnog-bitcoin-standarda-cover.png",
+  "images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.webp",
   "images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png",
   "razgovor/index.html",
   "proracun/index.html",
@@ -2386,6 +2399,14 @@ const samplePersonalStandardChecks = [
     'data-link="sample-standard-conversation"',
     "sample standard conversation metadata",
   ],
+  [
+    "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.webp",
+    "sample standard cover WebP image",
+  ],
+  [
+    "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.png",
+    "sample standard cover fallback image",
+  ],
   ["Što dokument pokazuje", "sample standard structure section"],
   [
     "Ovo nije stvarni klijent i nije financijski, porezni ni pravni savjet.",
@@ -2457,6 +2478,10 @@ const standardCheckChecks = [
   [
     'data-link="standard-check-conversation"',
     "standard check conversation metadata",
+  ],
+  [
+    "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.webp",
+    "standard check cover WebP image",
   ],
   [
     "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png",
@@ -3137,7 +3162,12 @@ for (const guidePath of requiredGuidePaths) {
       "no internal temporary cover note"
     )
   } else {
-    assertIncludes(relativePath, html, "Praktično pitanje", "practical question")
+    assertIncludes(
+      relativePath,
+      html,
+      "Praktično pitanje",
+      "practical question"
+    )
     assertIncludes(relativePath, html, "Povezani vodiči", "related guides")
     assertIncludes(
       relativePath,
@@ -3285,6 +3315,52 @@ for (const guidePath of requiredGuidePaths) {
 
   assertIncludes(relativePath, html, "guide-cover-figure", "guide cover markup")
   assertIncludes(relativePath, html, "data-guide-theme", "guide theme marker")
+}
+
+const optimizedGuideCoverChecks = [
+  {
+    path: "/vodici/stvarni-visak",
+    webp: "/images/stvarni-visak-hero.webp",
+    fallback: "/images/stvarni-visak-hero.png",
+  },
+  {
+    path: "/vodici/dca-nije-dovoljan",
+    webp: "/images/dca-nije-dovoljan-hero.webp",
+    fallback: "/images/dca-nije-dovoljan-hero.png",
+  },
+  {
+    path: "/vodici/dug-je-buduci-novac",
+    webp: "/images/dug-je-buduci-novac-hero.webp",
+    fallback: "/images/dug-je-buduci-novac-hero.png",
+  },
+  {
+    path: "/vodici/dug-ili-bitcoin",
+    webp: "/images/dug-ili-bitcoin-hero.webp",
+    fallback: "/images/dug-ili-bitcoin-hero.png",
+  },
+  {
+    path: "/vodici/ne-zaduzujte-se-za-bitcoin",
+    webp: "/images/ne-zaduzujte-se-za-bitcoin-hero.webp",
+    fallback: "/images/ne-zaduzujte-se-za-bitcoin-hero.png",
+  },
+]
+
+for (const cover of optimizedGuideCoverChecks) {
+  const relativePath = routeFile(cover.path)
+  const html = readFile(relativePath)
+
+  assertIncludes(
+    relativePath,
+    html,
+    `<source srcSet="${cover.webp}"`,
+    "optimized guide cover WebP source"
+  )
+  assertIncludes(
+    relativePath,
+    html,
+    `<img src="${cover.fallback}"`,
+    "optimized guide cover fallback"
+  )
 }
 
 const focusedGuideChecks = [
@@ -3696,7 +3772,9 @@ const balanceAmplificationGlossaryCount =
   balanceAmplificationGuideHtml.match(/class="glossary-term"/g)?.length ?? 0
 
 if (balanceAmplificationGlossaryCount >= 20) {
-  pass(`${balanceAmplificationGuidePath} contains several glossary explanations`)
+  pass(
+    `${balanceAmplificationGuidePath} contains several glossary explanations`
+  )
 } else {
   fail(
     `${balanceAmplificationGuidePath} contains ${balanceAmplificationGlossaryCount} glossary explanations, expected at least 20`
@@ -3730,10 +3808,7 @@ for (const [expected, label] of [
     'aria-label="Objasni pojam: Kapitalna struktura"',
     "Kapitalna struktura glossary",
   ],
-  [
-    'aria-label="Objasni pojam: Tržišta kapitala"',
-    "Tržišta kapitala glossary",
-  ],
+  ['aria-label="Objasni pojam: Tržišta kapitala"', "Tržišta kapitala glossary"],
   ['aria-label="Objasni pojam: Poluga"', "Poluga glossary"],
   ['aria-label="Objasni pojam: Zalog"', "Zalog glossary"],
   [

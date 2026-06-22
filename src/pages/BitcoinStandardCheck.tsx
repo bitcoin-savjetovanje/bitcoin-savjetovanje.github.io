@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { bitcoinStandardCheckRoute } from "@/content/clientRoutes"
 import {
   BITCOIN_STANDARD_CHECK_COVER_PATH,
+  BITCOIN_STANDARD_CHECK_COVER_WEBP_PATH,
   BITCOIN_STANDARD_CHECK_PDF_PATH,
   CONVERSATION_PATH,
 } from "@/content/site"
@@ -43,14 +44,20 @@ const checkCards = [
 function StandardCheckCoverPreview() {
   return (
     <figure className="standard-check-cover-card">
-      <img
-        src={BITCOIN_STANDARD_CHECK_COVER_PATH}
-        alt="Naslovnica PDF-a 7 provjera osobnog Bitcoin standarda"
-        width="848"
-        height="1200"
-        loading="eager"
-        decoding="async"
-      />
+      <picture>
+        <source
+          srcSet={BITCOIN_STANDARD_CHECK_COVER_WEBP_PATH}
+          type="image/webp"
+        />
+        <img
+          src={BITCOIN_STANDARD_CHECK_COVER_PATH}
+          alt="Naslovnica PDF-a 7 provjera osobnog Bitcoin standarda"
+          width="848"
+          height="1200"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
       <figcaption>
         <FileText className="size-4" aria-hidden="true" />
         Besplatni radni PDF

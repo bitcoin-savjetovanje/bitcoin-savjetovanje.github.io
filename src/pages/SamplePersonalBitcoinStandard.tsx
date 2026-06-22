@@ -12,6 +12,7 @@ import { samplePersonalBitcoinStandardRoute } from "@/content/clientRoutes"
 import {
   CONVERSATION_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH,
+  SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_WEBP_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PDF_PATH,
 } from "@/content/site"
 
@@ -67,14 +68,20 @@ function SampleDocumentPreview() {
 function SampleStandardCoverPreview() {
   return (
     <figure className="standard-check-cover-card">
-      <img
-        src={SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH}
-        alt="Naslovnica PDF-a Primjer osobnog Bitcoin standarda"
-        width="1055"
-        height="1491"
-        loading="eager"
-        decoding="async"
-      />
+      <picture>
+        <source
+          srcSet={SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_WEBP_PATH}
+          type="image/webp"
+        />
+        <img
+          src={SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH}
+          alt="Naslovnica PDF-a Primjer osobnog Bitcoin standarda"
+          width="1055"
+          height="1491"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
       <figcaption>
         <FileText className="size-4" aria-hidden="true" />
         Ogledni dokument

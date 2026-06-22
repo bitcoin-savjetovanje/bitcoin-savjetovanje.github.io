@@ -22,11 +22,15 @@ export const SAMPLE_PERSONAL_BITCOIN_STANDARD_PDF_PATH =
   "/downloads/sample-osobni-bitcoin-standard.pdf"
 export const SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH =
   "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.png"
+export const SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_WEBP_PATH =
+  "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.webp"
 export const BITCOIN_STANDARD_CHECK_PATH = "/provjera-bitcoin-standarda/"
 export const BITCOIN_STANDARD_CHECK_PDF_PATH =
   "/downloads/7-provjera-osobnog-bitcoin-standarda.pdf"
 export const BITCOIN_STANDARD_CHECK_COVER_PATH =
   "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png"
+export const BITCOIN_STANDARD_CHECK_COVER_WEBP_PATH =
+  "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.webp"
 export const PERSONAL_AUDIENCE_PATH = "/osobno/"
 export const FAMILY_AUDIENCE_PATH = "/obitelj/"
 export const BUSINESS_AUDIENCE_PATH = "/poduzetnici/"

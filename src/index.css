@@ -97,12 +97,10 @@
   --card-border: #e5d9c9;
   --shadow-soft: 0 18px 55px rgba(46, 38, 26, 0.075);
   --shadow-border:
-    0 0 0 1px rgba(0, 0, 0, 0.06),
-    0 1px 2px -1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06),
     0 2px 4px rgba(0, 0, 0, 0.04);
   --shadow-border-hover:
-    0 0 0 1px rgba(0, 0, 0, 0.08),
-    0 1px 2px -1px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08),
     0 2px 4px rgba(0, 0, 0, 0.06);
   --image-outline: rgba(0, 0, 0, 0.1);
   --bitcoin-orange-accent: #d97824;
@@ -270,21 +268,33 @@
       var(--background);
   }
 
-  body :where(p, li, figcaption, blockquote, label, dd, dt, input, textarea, select),
+  body
+    :where(
+      p,
+      li,
+      figcaption,
+      blockquote,
+      label,
+      dd,
+      dt,
+      input,
+      textarea,
+      select
+    ),
   body
     :where(a, button, small, strong, em, span):not(
       :where(
-          h1 *,
-          h2 *,
-          h3 *,
-          h4 *,
-          h5 *,
-          h6 *,
-          .site-header__brand,
-          .site-header__brand *,
-          [aria-hidden="true"],
-          [aria-hidden="true"] *
-        )
+        h1 *,
+        h2 *,
+        h3 *,
+        h4 *,
+        h5 *,
+        h6 *,
+        .site-header__brand,
+        .site-header__brand *,
+        [aria-hidden="true"],
+        [aria-hidden="true"] *
+      )
     ) {
     font-family: var(--font-sans) !important;
   }
@@ -319,21 +329,21 @@
   }
 
   :where(
-      .hero-subtitle,
-      .conversation-hero__body,
-      .site-search__result-description,
-      .trust-strip__item,
-      .hero-benefit,
-      .program-card p,
-      .case-panel > p,
-      .conversation-calendar-card p,
-      .conversation-calendar-card li,
-      .recognition-card p,
-      .three-levels-item p,
-      .starter-guide-card p,
-      .advanced-guide-card p,
-      .guide-roadmap-card p
-    ) {
+    .hero-subtitle,
+    .conversation-hero__body,
+    .site-search__result-description,
+    .trust-strip__item,
+    .hero-benefit,
+    .program-card p,
+    .case-panel > p,
+    .conversation-calendar-card p,
+    .conversation-calendar-card li,
+    .recognition-card p,
+    .three-levels-item p,
+    .starter-guide-card p,
+    .advanced-guide-card p,
+    .guide-roadmap-card p
+  ) {
     text-wrap: pretty;
   }
 }
@@ -429,7 +439,10 @@
         color-mix(in oklab, var(--book-border), transparent 82%) 1px,
         transparent 1px
       );
-    background-size: auto, auto, 5.5rem 5.5rem;
+    background-size:
+      auto,
+      auto,
+      5.5rem 5.5rem;
   }
 
   .hero-shell {
@@ -441,13 +454,18 @@
     perspective: 900px;
   }
 
+  .book-cover-shell picture {
+    display: block;
+  }
+
   .book-cover-card {
     @apply block h-auto w-full;
     border: 1px solid var(--book-border);
     border-radius: 0.45rem;
     box-shadow:
       0 1.4rem 3.2rem hsl(0 0% 0% / 0.22),
-      -0.75rem 0.55rem 0 -0.5rem color-mix(in oklab, var(--book-border), white 46%),
+      -0.75rem 0.55rem 0 -0.5rem
+        color-mix(in oklab, var(--book-border), white 46%),
       inset 0.8rem 0 1.4rem hsl(0 0% 0% / 0.08);
     transform: rotateY(-4deg) rotateZ(-0.7deg);
     transform-origin: 45% 50%;
@@ -969,12 +987,11 @@
   .audience-group {
     @apply min-w-0 rounded-2xl border bg-card/70 p-4 shadow-sm sm:p-5;
     border-color: color-mix(in oklab, var(--area-color), transparent 62%);
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--area-color), var(--card) 94%),
-        color-mix(in oklab, var(--card), transparent 0%)
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--area-color), var(--card) 94%),
+      color-mix(in oklab, var(--card), transparent 0%)
+    );
   }
 
   .audience-group__label {
@@ -1003,12 +1020,11 @@
   .framework-map {
     @apply relative mt-10 grid list-none gap-3 overflow-hidden rounded-2xl border p-4 shadow-sm sm:p-5 lg:grid-cols-7 lg:items-stretch;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 64%);
-    background:
-      linear-gradient(
-        135deg,
-        color-mix(in oklab, var(--paper), white 18%),
-        color-mix(in oklab, var(--paper-warm), white 10%)
-      );
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--paper), white 18%),
+      color-mix(in oklab, var(--paper-warm), white 10%)
+    );
   }
 
   .framework-map__item {
@@ -1050,12 +1066,11 @@
   .framework-area-card {
     @apply min-w-0 rounded-2xl border p-5 shadow-sm sm:p-6;
     border-color: color-mix(in oklab, var(--area-color), transparent 58%);
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--area-color), var(--card) 86%),
-        color-mix(in oklab, var(--card), transparent 2%)
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--area-color), var(--card) 86%),
+      color-mix(in oklab, var(--card), transparent 2%)
+    );
   }
 
   .framework-area-card__idea {
@@ -1273,12 +1288,11 @@
   .offer-section-panel {
     @apply rounded-3xl border p-5 shadow-sm sm:p-8 lg:p-10;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 68%);
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--paper), var(--card) 38%),
-        color-mix(in oklab, var(--card), transparent 1%)
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--paper), var(--card) 38%),
+      color-mix(in oklab, var(--card), transparent 1%)
+    );
   }
 
   .offer-path {
@@ -1413,7 +1427,7 @@
   }
 
   .guide-meta-badges li {
-    @apply inline-flex min-h-7 items-center rounded-full border border-border/80 bg-background/70 px-3 py-1 text-xs font-semibold leading-none text-muted-foreground;
+    @apply inline-flex min-h-7 items-center rounded-full border border-border/80 bg-background/70 px-3 py-1 text-xs leading-none font-semibold text-muted-foreground;
     min-width: auto;
     white-space: nowrap;
   }
@@ -1438,12 +1452,11 @@
   .before-after-panel {
     @apply rounded-2xl border p-5 shadow-sm sm:p-8 lg:p-10;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 72%);
-    background:
-      linear-gradient(
-        135deg,
-        color-mix(in oklab, var(--card), transparent 1%),
-        color-mix(in oklab, var(--paper-warm), var(--card) 52%)
-      );
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--card), transparent 1%),
+      color-mix(in oklab, var(--paper-warm), var(--card) 52%)
+    );
   }
 
   .before-after-static-grid {
@@ -1461,7 +1474,11 @@
 
   .before-after-static-grid section:last-child {
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 58%);
-    background: color-mix(in oklab, var(--bitcoin-orange-soft), var(--card) 82%);
+    background: color-mix(
+      in oklab,
+      var(--bitcoin-orange-soft),
+      var(--card) 82%
+    );
   }
 
   .before-after-static-grid ul {
@@ -1812,7 +1829,7 @@
   }
 
   .deliverable-stamp {
-    @apply absolute -top-3 right-4 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em];
+    @apply absolute -top-3 right-4 rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.12em] uppercase;
     border-color: color-mix(in oklab, var(--bitcoin-orange), transparent 45%);
     background: color-mix(in oklab, var(--bitcoin-orange), white 16%);
     color: white;
@@ -1942,11 +1959,7 @@
 
   .security-business-panel p,
   .security-business-panel li {
-    color: color-mix(
-      in oklab,
-      var(--section-dark-foreground),
-      transparent 10%
-    );
+    color: color-mix(in oklab, var(--section-dark-foreground), transparent 10%);
   }
 
   .security-business-panel ul {
@@ -1979,12 +1992,11 @@
   .guides-roadmap__group {
     @apply scroll-mt-24 rounded-3xl border p-5 shadow-sm sm:p-7;
     border-color: color-mix(in oklab, var(--area-color), transparent 58%);
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--area-color), var(--card) 92%),
-        color-mix(in oklab, var(--card), transparent 1%)
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--area-color), var(--card) 92%),
+      color-mix(in oklab, var(--card), transparent 1%)
+    );
   }
 
   .guides-roadmap__group-header {
@@ -3866,7 +3878,11 @@
 .guide-extra-cta-card a {
   color: var(--ink);
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--guide-theme), transparent 55%);
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--guide-theme),
+    transparent 55%
+  );
   text-underline-offset: 0.25rem;
 }
 
@@ -3974,7 +3990,8 @@
 .guide-toc-card {
   max-width: 64rem;
   margin-top: 2.4rem;
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 76%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 76%);
   background: color-mix(in oklab, var(--paper), var(--sea-mist) 9%);
   padding: clamp(1.2rem, 2.4vw, 1.8rem);
 }
@@ -4048,7 +4065,8 @@
   overflow: hidden;
   aspect-ratio: 16 / 9;
   margin-top: 1.2rem;
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
   border-radius: 0.5rem;
   background: var(--ink);
 }
@@ -4068,19 +4086,23 @@
   font-family: var(--font-sans);
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--guide-theme), transparent 55%);
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--guide-theme),
+    transparent 55%
+  );
   text-underline-offset: 0.25rem;
 }
 
 .guide-visual-tile {
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
   border-radius: 0.5rem;
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--guide-theme), var(--paper) 94%),
-      color-mix(in oklab, var(--paper), var(--stone-soft) 8%)
-    );
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--guide-theme), var(--paper) 94%),
+    color-mix(in oklab, var(--paper), var(--stone-soft) 8%)
+  );
   padding: 1rem;
   box-shadow: none;
 }
@@ -4122,7 +4144,8 @@
 }
 
 .guide-section-card {
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
   border-radius: 0.65rem;
   background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
   padding: 1rem;
@@ -4153,13 +4176,18 @@
   color: var(--ink);
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: color-mix(in oklab, var(--guide-theme), transparent 55%);
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--guide-theme),
+    transparent 55%
+  );
   text-underline-offset: 0.25rem;
 }
 
 .guide-status-note,
 .guide-summary-callout {
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
   border-radius: 0.8rem;
   background: color-mix(in oklab, var(--paper), var(--stone-soft) 8%);
   padding: clamp(1rem, 2.2vw, 1.4rem);
@@ -4194,14 +4222,14 @@
 
 .guide-callout {
   margin: 0.4rem 0;
-  border-left: 0.28rem solid color-mix(in oklab, var(--guide-theme), var(--ink) 12%);
+  border-left: 0.28rem solid
+    color-mix(in oklab, var(--guide-theme), var(--ink) 12%);
   border-radius: 0.65rem;
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in oklab, var(--guide-theme), transparent 88%),
-      color-mix(in oklab, var(--paper), var(--stone-soft) 10%)
-    );
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--guide-theme), transparent 88%),
+    color-mix(in oklab, var(--paper), var(--stone-soft) 10%)
+  );
   padding: clamp(1rem, 2.2vw, 1.35rem);
 }
 
@@ -4225,14 +4253,14 @@
 .guide-formula-line,
 .guide-formula-list-item {
   overflow-x: auto;
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 66%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 66%);
   border-radius: 0.65rem;
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in oklab, var(--guide-theme), transparent 91%),
-      color-mix(in oklab, var(--paper), var(--stone-soft) 8%)
-    );
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--guide-theme), transparent 91%),
+    color-mix(in oklab, var(--paper), var(--stone-soft) 8%)
+  );
   color: var(--ink);
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
@@ -4261,7 +4289,8 @@
 }
 
 .guide-data-card {
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
   border-radius: 0.65rem;
   background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
   padding: 1rem;
@@ -4287,7 +4316,8 @@
 
 .guide-table-wrap {
   overflow-x: auto;
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
   border-radius: 0.65rem;
   background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
 }
@@ -4330,7 +4360,8 @@
 .guide-extra-cta-card,
 .guide-final-cta-card {
   margin-top: clamp(2.5rem, 5vw, 4rem);
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
   background: color-mix(in oklab, var(--paper), var(--sea-mist) 10%);
   padding: clamp(1.25rem, 2.4vw, 1.8rem);
 }
@@ -4422,7 +4453,8 @@
 }
 
 .guide-faq-item {
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 72%);
   border-radius: 0.65rem;
   background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
   padding: 1rem;
@@ -4444,7 +4476,8 @@
 }
 
 .guide-disclaimer-note {
-  border: 1px solid color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
+  border: 1px solid
+    color-mix(in oklab, var(--guide-theme), var(--card-border) 70%);
   border-radius: 0.65rem;
   background: color-mix(in oklab, var(--paper), var(--sea-mist) 8%);
   padding: clamp(1rem, 2vw, 1.25rem);
@@ -4983,8 +5016,12 @@
   width: 9.5rem;
   height: 0.44rem;
   border-radius: 999px;
-  background:
-    linear-gradient(90deg, #b9874a 0 10%, #e7bc72 10% 84%, #273528 84% 100%);
+  background: linear-gradient(
+    90deg,
+    #b9874a 0 10%,
+    #e7bc72 10% 84%,
+    #273528 84% 100%
+  );
   box-shadow: 0 0.6rem 1.2rem rgba(52, 37, 21, 0.14);
   transform: rotate(-21deg);
 }
@@ -5247,13 +5284,13 @@
 
 .standard-check-teaser {
   display: grid;
-  grid-template-areas:
-    "copy cover";
+  grid-template-areas: "copy cover";
   grid-template-columns: minmax(0, 0.82fr) minmax(30rem, 0.78fr);
   gap: clamp(1.15rem, 2vw, 1.55rem) clamp(1.5rem, 3.5vw, 3.5rem);
   align-items: center;
   border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 42%);
-  border-bottom: 1px solid color-mix(in oklab, var(--line-warm), transparent 48%);
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--line-warm), transparent 48%);
   background:
     radial-gradient(
       circle at 86% 14%,
@@ -5292,7 +5329,8 @@
   display: grid;
   min-height: 16rem;
   align-content: center;
-  border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 58%);
+  border: 1px solid
+    color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 58%);
   border-radius: 0.65rem;
   background:
     linear-gradient(
@@ -5350,8 +5388,7 @@
 
 .sample-standard-teaser {
   display: grid;
-  grid-template-areas:
-    "copy cover";
+  grid-template-areas: "copy cover";
   grid-template-columns: minmax(0, 0.82fr) minmax(30rem, 0.78fr);
   gap: clamp(1.15rem, 2vw, 1.55rem) clamp(1.5rem, 3.5vw, 3.5rem);
   align-items: center;
@@ -5393,7 +5430,8 @@
   display: grid;
   min-height: 17rem;
   align-content: center;
-  border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 58%);
+  border: 1px solid
+    color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 58%);
   border-radius: 0.65rem;
   background:
     linear-gradient(
@@ -5736,8 +5774,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter:
-    drop-shadow(0 18px 24px rgba(70, 48, 28, 0.17))
+  filter: drop-shadow(0 18px 24px rgba(70, 48, 28, 0.17))
     drop-shadow(0 3px 4px rgba(70, 48, 28, 0.08));
   transition:
     transform 180ms ease,
@@ -6365,7 +6402,11 @@
 
 .home-outline-button:hover {
   border-color: var(--primary) !important;
-  background: color-mix(in oklab, var(--primary), var(--sea-mist) 88%) !important;
+  background: color-mix(
+    in oklab,
+    var(--primary),
+    var(--sea-mist) 88%
+  ) !important;
   color: var(--primary) !important;
 }
 
@@ -6814,7 +6855,11 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 78% 22%, rgba(255, 253, 248, 0.18), transparent 26rem),
+    radial-gradient(
+      circle at 78% 22%,
+      rgba(255, 253, 248, 0.18),
+      transparent 26rem
+    ),
     linear-gradient(180deg, transparent 62%, rgba(38, 30, 20, 0.1));
   pointer-events: none;
 }
@@ -6882,7 +6927,11 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 70% 18%, rgba(255, 253, 248, 0.13), transparent 24rem),
+    radial-gradient(
+      circle at 70% 18%,
+      rgba(255, 253, 248, 0.13),
+      transparent 24rem
+    ),
     linear-gradient(180deg, transparent 70%, rgba(45, 34, 20, 0.08));
   pointer-events: none;
 }
@@ -7373,7 +7422,8 @@
   gap: clamp(1.2rem, 3vw, 2.6rem);
   align-items: center;
   margin: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4.6rem) 0;
-  border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 55%);
+  border: 1px solid
+    color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 55%);
   border-radius: 0.65rem;
   background:
     radial-gradient(
@@ -7641,8 +7691,7 @@
   .hero-image-frame {
     height: 100%;
     min-height: calc(
-      clamp(34rem, calc(100svh - 7.1rem), 52rem) +
-        var(--hero-shell-pad-top)
+      clamp(34rem, calc(100svh - 7.1rem), 52rem) + var(--hero-shell-pad-top)
     );
     margin-left: clamp(-6.4rem, -6vw, -3rem);
     margin-top: calc(-1 * var(--hero-shell-pad-top));
@@ -8318,7 +8367,6 @@
   .budget-outcomes-grid {
     grid-template-columns: 1fr;
   }
-
 }
 
 .service-page {
@@ -8631,7 +8679,11 @@
   border: 1px solid rgba(111, 92, 64, 0.16);
   border-radius: 0.75rem;
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.72), transparent 18rem),
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(255, 255, 255, 0.72),
+      transparent 18rem
+    ),
     color-mix(in oklab, var(--paper), var(--stone-soft) 14%);
   padding: clamp(1.2rem, 2.6vw, 2rem);
   box-shadow: 0 1rem 2.6rem rgba(73, 57, 36, 0.055);
@@ -9338,7 +9390,8 @@
   width: min(100%, clamp(32rem, 43vw, 40rem));
   justify-self: end;
   margin: 0;
-  border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 62%);
+  border: 1px solid
+    color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 62%);
   border-radius: 0.8rem;
   background:
     radial-gradient(
@@ -9349,6 +9402,10 @@
     color-mix(in oklab, var(--paper), var(--stone-soft) 13%);
   padding: clamp(0.8rem, 2vw, 1.05rem);
   box-shadow: 0 1.35rem 3rem rgba(73, 57, 36, 0.1);
+}
+
+.standard-check-cover-card picture {
+  display: block;
 }
 
 .standard-check-cover-card img {
@@ -9454,7 +9511,8 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: clamp(1rem, 2.4vw, 1.7rem);
   align-items: center;
-  border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 58%);
+  border: 1px solid
+    color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 58%);
   border-radius: 0.75rem;
   background:
     radial-gradient(
@@ -9551,7 +9609,8 @@
 
 .sample-document-preview {
   width: min(100%, 28rem);
-  border: 1px solid color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 62%);
+  border: 1px solid
+    color-mix(in oklab, var(--bitcoin-orange), var(--card-border) 62%);
   border-radius: 0.8rem;
   background:
     radial-gradient(

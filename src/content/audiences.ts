@@ -1,4 +1,4 @@
-import { guideHref } from "./guides"
+import { guideHref } from "./guideLinks"
 import {
   BUSINESS_AUDIENCE_PATH,
   CONVERSATION_PATH,

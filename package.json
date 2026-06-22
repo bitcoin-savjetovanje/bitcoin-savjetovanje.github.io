@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && npm run build:client && npm run build:ssr && npm run prerender",
     "build:client": "vite build",
-    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist/server --emptyOutDir false",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "prerender": "node scripts/prerender.mjs",
     "verify:dist": "node scripts/verify-dist.mjs",
     "verify:live": "node scripts/verify-live.mjs",

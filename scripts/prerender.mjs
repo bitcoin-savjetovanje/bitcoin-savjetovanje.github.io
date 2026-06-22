@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url"
 
 const root = process.cwd()
 const distDir = path.join(root, "dist")
-const serverEntry = path.join(distDir, "server", "entry-server.js")
+const serverEntry = path.join(root, "dist-ssr", "entry-server.js")
 const templatePath = path.join(distDir, "index.html")
 
 function escapeHtml(value) {

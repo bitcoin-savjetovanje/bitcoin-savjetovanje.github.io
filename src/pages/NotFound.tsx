@@ -1,5 +1,5 @@
 import { Seo } from "@/components/Seo"
-import { notFoundRoute } from "@/content/routes"
+import { notFoundRoute } from "@/content/clientRoutes"
 
 export function NotFound() {
   return (

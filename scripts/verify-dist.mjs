@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url"
 
 const root = process.cwd()
 const distDir = path.join(root, "dist")
-const serverEntry = path.join(distDir, "server", "entry-server.js")
+const serverEntry = path.join(root, "dist-ssr", "entry-server.js")
 const failures = []
 
 const requiredGuidePaths = [
@@ -389,8 +389,11 @@ const requiredFiles = [
   "images/service-visuals/consultation-hero-20260601.jpg",
   "images/service-visuals/standard-hero-20260601.webp",
   "images/service-visuals/standard-hero-20260601.jpg",
+  "images/audiences/osobno-hero.webp",
   "images/audiences/osobno-hero.png",
+  "images/audiences/obitelj-hero.webp",
   "images/audiences/obitelj-hero.png",
+  "images/audiences/poduzetnici-hero.webp",
   "images/audiences/poduzetnici-hero.png",
   "images/medallions/02-novac.png",
   "images/medallions/03-dug.png",
@@ -2528,6 +2531,10 @@ const audiencePageChecks = [
         "Uredite proračun, dug, stvarni višak, neto imovinu i reakcije na volatilnost",
         "personal audience hero lead",
       ],
+      [
+        "/images/audiences/osobno-hero.webp",
+        "personal audience WebP hero source",
+      ],
       ["/images/audiences/osobno-hero.png", "personal audience hero image"],
       [
         "Mediteranski stol s bilježnicom, Bitcoin kovanicom i osobnim financijskim simbolima.",
@@ -2574,6 +2581,10 @@ const audiencePageChecks = [
         "Pretvorite osobno razumijevanje Bitcoina u obiteljski jezik",
         "family audience hero lead",
       ],
+      [
+        "/images/audiences/obitelj-hero.webp",
+        "family audience WebP hero source",
+      ],
       ["/images/audiences/obitelj-hero.png", "family audience hero image"],
       [
         "Par za stolom pregledava obiteljska pravila uz trezor, ključeve i Bitcoin kovanicu.",
@@ -2616,6 +2627,10 @@ const audiencePageChecks = [
       [
         "Razdvojite poreze, plaće, dobavljače, pričuvu, višak",
         "business audience hero lead",
+      ],
+      [
+        "/images/audiences/poduzetnici-hero.webp",
+        "business audience WebP hero source",
       ],
       [
         "/images/audiences/poduzetnici-hero.png",

@@ -13,7 +13,7 @@ import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
-import { custodySecurityRoute } from "@/content/routes"
+import { custodySecurityRoute } from "@/content/clientRoutes"
 import {
   CONVERSATION_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,

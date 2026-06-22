@@ -10,31 +10,41 @@ import {
   type AudiencePage as AudiencePageContent,
   type AudienceSlug,
 } from "@/content/audiences"
-import { findAudienceRouteMeta } from "@/content/routes"
+import { SITE_URL } from "@/content/site"
 
 const heroVisuals: Record<
   AudienceHeroVisual,
   {
     src: string
+    webpSrc: string
     alt: string
     className: string
   }
 > = {
   personal: {
     src: "/images/audiences/osobno-hero.png",
+    webpSrc: "/images/audiences/osobno-hero.webp",
     alt: "Mediteranski stol s bilježnicom, Bitcoin kovanicom i osobnim financijskim simbolima.",
     className: "audience-hero__image--personal",
   },
   family: {
     src: "/images/audiences/obitelj-hero.png",
+    webpSrc: "/images/audiences/obitelj-hero.webp",
     alt: "Par za stolom pregledava obiteljska pravila uz trezor, ključeve i Bitcoin kovanicu.",
     className: "audience-hero__image--family",
   },
   business: {
     src: "/images/audiences/poduzetnici-hero.png",
+    webpSrc: "/images/audiences/poduzetnici-hero.webp",
     alt: "Mediteranski radni stol s poslovnim dokumentima, ladicama obveza i Bitcoin kovanicom.",
     className: "audience-hero__image--business",
   },
+}
+
+const audienceOgImageFileBySlug: Record<AudienceSlug, string> = {
+  osobno: "osobno-hero.png",
+  obitelj: "obitelj-hero.png",
+  poduzetnici: "poduzetnici-hero.png",
 }
 
 function AudienceHero({ page }: { page: AudiencePageContent }) {
@@ -77,10 +87,13 @@ function AudienceHero({ page }: { page: AudiencePageContent }) {
           aria-label={page.title}
         >
           <picture className="service-hero__picture audience-hero__picture">
+            <source srcSet={visual.webpSrc} type="image/webp" />
             <img
               className={`service-hero__image audience-hero__image ${visual.className}`}
               src={visual.src}
               alt={visual.alt}
+              width="1672"
+              height="941"
               loading="eager"
               decoding="async"
               fetchPriority="high"
@@ -160,16 +173,18 @@ function CrossLinks({ page }: { page: AudiencePageContent }) {
 
 export function AudiencePage({ slug }: { slug: AudienceSlug }) {
   const page = audiencePagesBySlug[slug]
-  const route = findAudienceRouteMeta(slug)
+  const canonical = `${SITE_URL}${page.path}`
+  const ogImage = `${SITE_URL}/images/audiences/${audienceOgImageFileBySlug[slug]}`
 
   return (
     <>
       <Seo
-        title={route.title}
-        description={route.description}
-        canonical={route.canonical}
-        ogType={route.ogType}
-        schema={route.schema as object}
+        title={page.seo.title}
+        description={page.seo.description}
+        canonical={canonical}
+        ogImage={ogImage}
+        ogImageWidth={1672}
+        ogImageHeight={941}
       />
       <article className={`service-page audience-page audience-page--${slug}`}>
         <AudienceHero page={page} />

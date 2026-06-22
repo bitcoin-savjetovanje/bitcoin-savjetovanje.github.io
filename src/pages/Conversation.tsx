@@ -5,7 +5,7 @@ import { CalBookingLink } from "@/components/CalBookingLink"
 import { CalInlineEmbed } from "@/components/CalInlineEmbed"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import { conversationRoute } from "@/content/routes"
+import { conversationRoute } from "@/content/clientRoutes"
 import {
   BITCOIN_CONSULTATION_PATH,
   PERSONAL_BITCOIN_STANDARD_PATH,

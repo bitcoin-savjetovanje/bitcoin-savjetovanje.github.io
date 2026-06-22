@@ -2,7 +2,7 @@ import { CalendarDays, Check, X } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import { securityRoute } from "@/content/routes"
+import { securityRoute } from "@/content/clientRoutes"
 import {
   neverAskItems,
   notDoingSecurityItems,

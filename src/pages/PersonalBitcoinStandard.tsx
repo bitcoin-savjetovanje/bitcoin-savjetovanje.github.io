@@ -2,7 +2,7 @@ import { ArrowUpRight, CalendarDays, Check, FileText, X } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import { personalBitcoinStandardRoute } from "@/content/routes"
+import { personalBitcoinStandardRoute } from "@/content/clientRoutes"
 import {
   CONVERSATION_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,

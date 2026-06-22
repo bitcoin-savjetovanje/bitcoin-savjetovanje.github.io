@@ -1,7 +1,7 @@
 import { Seo } from "@/components/Seo"
 import { GuidePage } from "@/components/guides/GuidePage"
+import { resolveGuideCover } from "@/content/guideVisuals"
 import { findGuide, guideHref } from "@/content/guides"
-import { findGuideRouteMeta } from "@/content/routes"
 import { SITE_URL } from "@/content/site"
 
 export function Guide({ slug }: { slug?: string }) {
@@ -37,18 +37,20 @@ export function Guide({ slug }: { slug?: string }) {
   }
 
   const canonical = `${SITE_URL}${guideHref(guide.slug)}`
-  const route = findGuideRouteMeta(guide.slug)
+  const cover = resolveGuideCover(guide)
 
   return (
     <>
       <Seo
-        title={route?.title ?? `${guide.title} | Bitcoin Savjetovanje`}
-        description={route?.description ?? guide.metaDescription}
-        canonical={route?.canonical ?? canonical}
-        ogTitle={route?.ogTitle ?? guide.ogTitle}
-        ogDescription={route?.ogDescription ?? guide.ogDescription}
-        ogType={route?.ogType ?? "article"}
-        schema={(route?.schema ?? {}) as object}
+        title={`${guide.seoTitle ?? guide.title} | Bitcoin Savjetovanje`}
+        description={guide.metaDescription}
+        canonical={canonical}
+        ogTitle={guide.ogTitle ?? guide.title}
+        ogDescription={guide.ogDescription ?? guide.metaDescription}
+        ogType="article"
+        ogImage={`${SITE_URL}${cover.src}`}
+        ogImageWidth={1200}
+        ogImageHeight={630}
       />
       <GuidePage guide={guide} />
     </>

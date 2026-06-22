@@ -6,7 +6,7 @@ import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
 import { resolveGuideCover } from "@/content/guideVisuals"
-import { bitcoinMoneyRoute } from "@/content/routes"
+import { bitcoinMoneyRoute } from "@/content/clientRoutes"
 import {
   CONVERSATION_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,

@@ -2,7 +2,7 @@ import { ArrowUpRight, CalendarDays, Check, X } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import { bitcoinConsultationRoute } from "@/content/routes"
+import { bitcoinConsultationRoute } from "@/content/clientRoutes"
 import {
   BUSINESS_AUDIENCE_PATH,
   CONVERSATION_PATH,

@@ -7,7 +7,7 @@ import { SampleStandardSection } from "@/components/home/SampleStandardSection"
 import { ServicesSection } from "@/components/home/ServicesSection"
 import { StandardCheckSection } from "@/components/home/StandardCheckSection"
 import { ThreeLevelsSection } from "@/components/home/ThreeLevelsSection"
-import { homeRoute } from "@/content/routes"
+import { homeRoute } from "@/content/clientRoutes"
 
 export function Home() {
   return (

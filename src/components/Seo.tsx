@@ -9,6 +9,9 @@ export type SeoProps = {
   ogTitle?: string
   ogDescription?: string
   ogType?: "website" | "article"
+  ogImage?: string
+  ogImageWidth?: number
+  ogImageHeight?: number
   schema?: object
 }
 
@@ -19,12 +22,29 @@ export function Seo({
   ogTitle,
   ogDescription,
   ogType = "website",
+  ogImage,
+  ogImageWidth,
+  ogImageHeight,
   schema,
 }: SeoProps) {
   useEffect(() => {
     document.title = title
     const resolvedOgTitle = ogTitle ?? title
     const resolvedOgDescription = ogDescription ?? description
+    const existingOgImage = document.head
+      .querySelector("meta[property='og:image']")
+      ?.getAttribute("content")
+    const existingOgImageWidth = document.head
+      .querySelector("meta[property='og:image:width']")
+      ?.getAttribute("content")
+    const existingOgImageHeight = document.head
+      .querySelector("meta[property='og:image:height']")
+      ?.getAttribute("content")
+    const resolvedOgImage = ogImage ?? existingOgImage ?? OG_IMAGE_URL
+    const resolvedOgImageWidth =
+      ogImageWidth?.toString() ?? existingOgImageWidth ?? "1200"
+    const resolvedOgImageHeight =
+      ogImageHeight?.toString() ?? existingOgImageHeight ?? "630"
 
     const entries = [
       ["meta[name='description']", "content", description],
@@ -33,12 +53,12 @@ export function Seo({
       ["meta[property='og:description']", "content", resolvedOgDescription],
       ["meta[property='og:type']", "content", ogType],
       ["meta[property='og:url']", "content", canonical],
-      ["meta[property='og:image']", "content", OG_IMAGE_URL],
-      ["meta[property='og:image:width']", "content", "1200"],
-      ["meta[property='og:image:height']", "content", "630"],
+      ["meta[property='og:image']", "content", resolvedOgImage],
+      ["meta[property='og:image:width']", "content", resolvedOgImageWidth],
+      ["meta[property='og:image:height']", "content", resolvedOgImageHeight],
       ["meta[name='twitter:title']", "content", resolvedOgTitle],
       ["meta[name='twitter:description']", "content", resolvedOgDescription],
-      ["meta[name='twitter:image']", "content", OG_IMAGE_URL],
+      ["meta[name='twitter:image']", "content", resolvedOgImage],
     ] as const
 
     entries.forEach(([selector, attribute, value]) => {
@@ -72,16 +92,28 @@ export function Seo({
     const existingSchema = document.head.querySelector(
       "script[data-route-schema='true']"
     )
-    existingSchema?.remove()
 
     if (schema) {
+      existingSchema?.remove()
+
       const schemaScript = document.createElement("script")
       schemaScript.type = "application/ld+json"
       schemaScript.dataset.routeSchema = "true"
       schemaScript.textContent = JSON.stringify(schema)
       document.head.appendChild(schemaScript)
     }
-  }, [canonical, description, ogDescription, ogTitle, ogType, schema, title])
+  }, [
+    canonical,
+    description,
+    ogDescription,
+    ogImage,
+    ogImageHeight,
+    ogImageWidth,
+    ogTitle,
+    ogType,
+    schema,
+    title,
+  ])
 
   return null
 }

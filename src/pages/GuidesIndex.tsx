@@ -5,7 +5,7 @@ import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { Button } from "@/components/ui/button"
 import { resolveGuideCover, resolveGuideTheme } from "@/content/guideVisuals"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
-import { guidesIndexRoute } from "@/content/routes"
+import { guidesIndexRoute } from "@/content/clientRoutes"
 import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
 
 const roadmapGroups = [

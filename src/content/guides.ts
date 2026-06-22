@@ -1,4 +1,7 @@
+import { guideHref } from "./guideLinks"
 import { PRIMARY_CTA } from "./site"
+
+export { guideHref } from "./guideLinks"
 
 export type GuideSection = {
   heading: string
@@ -6680,10 +6683,6 @@ export const recommendedGuideSlugs = [
 ]
 
 export const featuredGuides = guides.filter((guide) => guide.featured)
-
-export function guideHref(slug: string) {
-  return `/vodici/${slug}/`
-}
 
 export const guideRoutes = guides.map((guide) => guideHref(guide.slug))
 

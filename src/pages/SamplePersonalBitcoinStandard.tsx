@@ -8,7 +8,7 @@ import {
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import { samplePersonalBitcoinStandardRoute } from "@/content/routes"
+import { samplePersonalBitcoinStandardRoute } from "@/content/clientRoutes"
 import {
   CONVERSATION_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH,

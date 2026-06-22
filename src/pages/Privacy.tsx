@@ -2,7 +2,7 @@ import { CalendarDays, Check, X } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
-import { privacyRoute } from "@/content/routes"
+import { privacyRoute } from "@/content/clientRoutes"
 import { CONVERSATION_PATH, EMAIL } from "@/content/site"
 
 const doNotSendItems = [

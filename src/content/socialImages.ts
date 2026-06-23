@@ -36,9 +36,9 @@ export const socialImages = {
     height: 1024,
   }),
   guidesIndex: socialImage({
-    path: "/images/guide-svaki-euro-ima-namjenu-cover.jpg",
-    width: 1536,
-    height: 1024,
+    path: "/images/social/vodici-og-20260623.jpg",
+    width: 1200,
+    height: 630,
   }),
   budget: socialImage({
     path: "/images/proracun-hero-20260521.jpg",

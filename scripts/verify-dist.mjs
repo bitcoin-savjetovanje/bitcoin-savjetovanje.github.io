@@ -411,6 +411,7 @@ const requiredFiles = [
   "og-bitcoin-kao-novac.svg",
   "images/home-hero-20260521.webp",
   "images/home-hero-20260521.jpg",
+  "images/social/vodici-og-20260623.jpg",
   "images/stone-symbols/area-01-budget.webp",
   "images/stone-symbols/area-02-debt.webp",
   "images/stone-symbols/area-03-giving.webp",

@@ -9,7 +9,6 @@ import {
   DEBT_PATH,
   GIVING_PATH,
   NET_WORTH_PATH,
-  OG_IMAGE_URL,
   PERSONAL_BITCOIN_STANDARD_PATH,
   PRIVACY_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
@@ -34,6 +33,7 @@ import {
   securitySeo,
   timeVolatilitySeo,
 } from "./site"
+import { type SocialImageMeta, socialImages } from "./socialImages"
 
 export type ClientRouteType =
   | "home"
@@ -75,13 +75,16 @@ function clientRoute({
   description,
   canonical,
   type,
+  ogImage,
+  ogImageWidth,
+  ogImageHeight,
 }: {
   path: string
   title: string
   description: string
   canonical: string
   type: ClientRouteType
-}): ClientRouteMeta {
+} & SocialImageMeta): ClientRouteMeta {
   return {
     path,
     title,
@@ -90,9 +93,9 @@ function clientRoute({
     type,
     lastmod: SITE_UPDATED_AT,
     ogType: "website",
-    ogImage: OG_IMAGE_URL,
-    ogImageWidth: 1200,
-    ogImageHeight: 630,
+    ogImage,
+    ogImageWidth,
+    ogImageHeight,
   }
 }
 
@@ -102,6 +105,7 @@ export const homeRoute = clientRoute({
   description: homeSeo.description,
   canonical: `${SITE_URL}/`,
   type: "home",
+  ...socialImages.home,
 })
 
 export const guidesIndexRoute = clientRoute({
@@ -110,6 +114,7 @@ export const guidesIndexRoute = clientRoute({
   description: guidesIndexSeo.description,
   canonical: guidesIndexSeo.canonical,
   type: "guides-index",
+  ...socialImages.guidesIndex,
 })
 
 export const budgetRoute = clientRoute({
@@ -118,6 +123,7 @@ export const budgetRoute = clientRoute({
   description: budgetSeo.description,
   canonical: budgetSeo.canonical,
   type: "budget",
+  ...socialImages.budget,
 })
 
 export const debtRoute = clientRoute({
@@ -126,6 +132,7 @@ export const debtRoute = clientRoute({
   description: debtSeo.description,
   canonical: debtSeo.canonical,
   type: "debt",
+  ...socialImages.debt,
 })
 
 export const givingRoute = clientRoute({
@@ -134,6 +141,7 @@ export const givingRoute = clientRoute({
   description: givingSeo.description,
   canonical: givingSeo.canonical,
   type: "giving",
+  ...socialImages.giving,
 })
 
 export const bitcoinMoneyRoute = clientRoute({
@@ -142,6 +150,7 @@ export const bitcoinMoneyRoute = clientRoute({
   description: bitcoinMoneySeo.description,
   canonical: bitcoinMoneySeo.canonical,
   type: "bitcoin-money",
+  ...socialImages.bitcoinMoney,
 })
 
 export const netWorthRoute = clientRoute({
@@ -150,6 +159,7 @@ export const netWorthRoute = clientRoute({
   description: netWorthSeo.description,
   canonical: netWorthSeo.canonical,
   type: "net-worth",
+  ...socialImages.netWorth,
 })
 
 export const timeVolatilityRoute = clientRoute({
@@ -158,6 +168,7 @@ export const timeVolatilityRoute = clientRoute({
   description: timeVolatilitySeo.description,
   canonical: timeVolatilitySeo.canonical,
   type: "time-volatility",
+  ...socialImages.timeVolatility,
 })
 
 export const custodySecurityRoute = clientRoute({
@@ -166,6 +177,7 @@ export const custodySecurityRoute = clientRoute({
   description: custodySecuritySeo.description,
   canonical: custodySecuritySeo.canonical,
   type: "custody-security",
+  ...socialImages.custodySecurity,
 })
 
 export const bitcoinAdviceRoute = clientRoute({
@@ -174,6 +186,7 @@ export const bitcoinAdviceRoute = clientRoute({
   description: bitcoinAdviceSeo.description,
   canonical: bitcoinAdviceSeo.canonical,
   type: "bitcoin-advice",
+  ...socialImages.bitcoinAdvice,
 })
 
 export const conversationRoute = clientRoute({
@@ -182,6 +195,7 @@ export const conversationRoute = clientRoute({
   description: conversationSeo.description,
   canonical: conversationSeo.canonical,
   type: "conversation",
+  ...socialImages.conversation,
 })
 
 export const bitcoinConsultationRoute = clientRoute({
@@ -190,6 +204,7 @@ export const bitcoinConsultationRoute = clientRoute({
   description: bitcoinConsultationSeo.description,
   canonical: bitcoinConsultationSeo.canonical,
   type: "bitcoin-consultation",
+  ...socialImages.bitcoinConsultation,
 })
 
 export const personalBitcoinStandardRoute = clientRoute({
@@ -198,6 +213,7 @@ export const personalBitcoinStandardRoute = clientRoute({
   description: personalBitcoinStandardSeo.description,
   canonical: personalBitcoinStandardSeo.canonical,
   type: "personal-bitcoin-standard",
+  ...socialImages.personalBitcoinStandard,
 })
 
 export const samplePersonalBitcoinStandardRoute = clientRoute({
@@ -206,6 +222,7 @@ export const samplePersonalBitcoinStandardRoute = clientRoute({
   description: samplePersonalBitcoinStandardSeo.description,
   canonical: samplePersonalBitcoinStandardSeo.canonical,
   type: "sample-personal-bitcoin-standard",
+  ...socialImages.samplePersonalBitcoinStandard,
 })
 
 export const bitcoinStandardCheckRoute = clientRoute({
@@ -214,6 +231,7 @@ export const bitcoinStandardCheckRoute = clientRoute({
   description: bitcoinStandardCheckSeo.description,
   canonical: bitcoinStandardCheckSeo.canonical,
   type: "bitcoin-standard-check",
+  ...socialImages.bitcoinStandardCheck,
 })
 
 export const securityRoute = clientRoute({
@@ -222,6 +240,7 @@ export const securityRoute = clientRoute({
   description: securitySeo.description,
   canonical: securitySeo.canonical,
   type: "security",
+  ...socialImages.security,
 })
 
 export const privacyRoute = clientRoute({
@@ -230,6 +249,7 @@ export const privacyRoute = clientRoute({
   description: privacySeo.description,
   canonical: privacySeo.canonical,
   type: "privacy",
+  ...socialImages.privacy,
 })
 
 export const notFoundRoute = clientRoute({
@@ -238,4 +258,5 @@ export const notFoundRoute = clientRoute({
   description: "Stranica koju tražite ne postoji.",
   canonical: `${SITE_URL}/404`,
   type: "not-found",
+  ...socialImages.default,
 })

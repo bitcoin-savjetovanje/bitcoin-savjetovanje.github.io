@@ -113,13 +113,7 @@ const timeVolatilityPrinciples = [
 export function TimeVolatility() {
   return (
     <>
-      <Seo
-        title={timeVolatilityRoute.title}
-        description={timeVolatilityRoute.description}
-        canonical={timeVolatilityRoute.canonical}
-        ogType={timeVolatilityRoute.ogType}
-        schema={timeVolatilityRoute.schema as object}
-      />
+      <Seo {...timeVolatilityRoute} />
 
       <div className="topic-page time-volatility-page">
         <TopicHero

@@ -106,13 +106,7 @@ const givingPrinciples = [
 export function Giving() {
   return (
     <>
-      <Seo
-        title={givingRoute.title}
-        description={givingRoute.description}
-        canonical={givingRoute.canonical}
-        ogType={givingRoute.ogType}
-        schema={givingRoute.schema as object}
-      />
+      <Seo {...givingRoute} />
 
       <div className="topic-page giving-page">
         <TopicHero

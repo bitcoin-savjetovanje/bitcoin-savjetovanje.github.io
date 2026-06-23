@@ -175,13 +175,7 @@ const roadmap = roadmapGroups
 export function GuidesIndex() {
   return (
     <>
-      <Seo
-        title={guidesIndexRoute.title}
-        description={guidesIndexRoute.description}
-        canonical={guidesIndexRoute.canonical}
-        ogType={guidesIndexRoute.ogType}
-        schema={guidesIndexRoute.schema as object}
-      />
+      <Seo {...guidesIndexRoute} />
       <section className="guides-index-page">
         <header className="guides-index-hero hero-section editorial-section">
           <div className="hero-shell guides-index-hero__shell">

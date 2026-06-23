@@ -4,13 +4,7 @@ import { notFoundRoute } from "@/content/clientRoutes"
 export function NotFound() {
   return (
     <section className="section-shell">
-      <Seo
-        title={notFoundRoute.title}
-        description={notFoundRoute.description}
-        canonical={notFoundRoute.canonical}
-        ogType={notFoundRoute.ogType}
-        schema={notFoundRoute.schema as object}
-      />
+      <Seo {...notFoundRoute} />
       <div className="case-panel max-w-3xl">
         <h1 className="font-display text-4xl font-semibold">
           Stranica nije pronađena

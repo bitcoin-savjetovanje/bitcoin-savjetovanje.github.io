@@ -12,13 +12,7 @@ import { homeRoute } from "@/content/clientRoutes"
 export function Home() {
   return (
     <>
-      <Seo
-        title={homeRoute.title}
-        description={homeRoute.description}
-        canonical={homeRoute.canonical}
-        ogType={homeRoute.ogType}
-        schema={homeRoute.schema as object}
-      />
+      <Seo {...homeRoute} />
       <Hero />
       <div className="home-editorial-page home-editorial-page--content">
         <RecognitionSection />

@@ -88,13 +88,7 @@ function CheckList({ items }: { items: string[] }) {
 export function BitcoinAdvice() {
   return (
     <>
-      <Seo
-        title={bitcoinAdviceRoute.title}
-        description={bitcoinAdviceRoute.description}
-        canonical={bitcoinAdviceRoute.canonical}
-        ogType={bitcoinAdviceRoute.ogType}
-        schema={bitcoinAdviceRoute.schema as object}
-      />
+      <Seo {...bitcoinAdviceRoute} />
       <article className="bitcoin-advice-page">
         <header className="bitcoin-advice-hero hero-section editorial-section">
           <div className="hero-shell">

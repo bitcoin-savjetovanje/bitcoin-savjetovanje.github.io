@@ -3,6 +3,7 @@ import { GuidePage } from "@/components/guides/GuidePage"
 import { resolveGuideCover } from "@/content/guideVisuals"
 import { findGuide, guideHref } from "@/content/guides"
 import { SITE_URL } from "@/content/site"
+import { guideCoverSocialImage } from "@/content/socialImages"
 
 export function Guide({ slug }: { slug?: string }) {
   const guide = findGuide(slug)
@@ -37,7 +38,7 @@ export function Guide({ slug }: { slug?: string }) {
   }
 
   const canonical = `${SITE_URL}${guideHref(guide.slug)}`
-  const cover = resolveGuideCover(guide)
+  const socialImage = guideCoverSocialImage(resolveGuideCover(guide).src)
 
   return (
     <>
@@ -48,9 +49,9 @@ export function Guide({ slug }: { slug?: string }) {
         ogTitle={guide.ogTitle ?? guide.title}
         ogDescription={guide.ogDescription ?? guide.metaDescription}
         ogType="article"
-        ogImage={`${SITE_URL}${cover.src}`}
-        ogImageWidth={1200}
-        ogImageHeight={630}
+        ogImage={socialImage.ogImage}
+        ogImageWidth={socialImage.ogImageWidth}
+        ogImageHeight={socialImage.ogImageHeight}
       />
       <GuidePage guide={guide} />
     </>

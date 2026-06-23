@@ -93,13 +93,7 @@ function SampleStandardCoverPreview() {
 export function SamplePersonalBitcoinStandard() {
   return (
     <>
-      <Seo
-        title={samplePersonalBitcoinStandardRoute.title}
-        description={samplePersonalBitcoinStandardRoute.description}
-        canonical={samplePersonalBitcoinStandardRoute.canonical}
-        ogType={samplePersonalBitcoinStandardRoute.ogType}
-        schema={samplePersonalBitcoinStandardRoute.schema as object}
-      />
+      <Seo {...samplePersonalBitcoinStandardRoute} />
       <article className="service-page sample-standard-page">
         <header className="sample-standard-hero hero-section editorial-section">
           <div className="hero-shell">

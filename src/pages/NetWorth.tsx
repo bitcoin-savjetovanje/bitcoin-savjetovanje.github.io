@@ -110,13 +110,7 @@ const netWorthPrinciples = [
 export function NetWorth() {
   return (
     <>
-      <Seo
-        title={netWorthRoute.title}
-        description={netWorthRoute.description}
-        canonical={netWorthRoute.canonical}
-        ogType={netWorthRoute.ogType}
-        schema={netWorthRoute.schema as object}
-      />
+      <Seo {...netWorthRoute} />
 
       <div className="topic-page net-worth-page">
         <TopicHero

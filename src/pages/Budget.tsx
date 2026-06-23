@@ -102,13 +102,7 @@ const budgetPrinciples = [
 export function Budget() {
   return (
     <>
-      <Seo
-        title={budgetRoute.title}
-        description={budgetRoute.description}
-        canonical={budgetRoute.canonical}
-        ogType={budgetRoute.ogType}
-        schema={budgetRoute.schema as object}
-      />
+      <Seo {...budgetRoute} />
 
       <div className="topic-page budget-page">
         <TopicHero

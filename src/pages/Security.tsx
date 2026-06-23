@@ -46,13 +46,7 @@ function SecurityList({
 export function Security() {
   return (
     <>
-      <Seo
-        title={securityRoute.title}
-        description={securityRoute.description}
-        canonical={securityRoute.canonical}
-        ogType={securityRoute.ogType}
-        schema={securityRoute.schema as object}
-      />
+      <Seo {...securityRoute} />
       <article className="security-page">
         <header className="security-hero hero-section editorial-section">
           <div className="hero-shell">

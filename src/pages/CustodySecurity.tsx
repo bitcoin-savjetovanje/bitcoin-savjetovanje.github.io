@@ -120,13 +120,7 @@ const guideCards = [
 export function CustodySecurity() {
   return (
     <>
-      <Seo
-        title={custodySecurityRoute.title}
-        description={custodySecurityRoute.description}
-        canonical={custodySecurityRoute.canonical}
-        ogType={custodySecurityRoute.ogType}
-        schema={custodySecurityRoute.schema as object}
-      />
+      <Seo {...custodySecurityRoute} />
 
       <div className="topic-page custody-security-page">
         <TopicHero

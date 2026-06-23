@@ -190,6 +190,40 @@ function assertIncludes(relativePath, contents, expected, label = expected) {
   fail(`${relativePath} is missing ${label}`)
 }
 
+function assertSocialImageMeta(
+  relativePath,
+  contents,
+  imageUrl,
+  width,
+  height,
+  label
+) {
+  assertIncludes(
+    relativePath,
+    contents,
+    `<meta property="og:image" content="${imageUrl}" />`,
+    `${label} og:image`
+  )
+  assertIncludes(
+    relativePath,
+    contents,
+    `<meta property="og:image:width" content="${width}" />`,
+    `${label} og:image width`
+  )
+  assertIncludes(
+    relativePath,
+    contents,
+    `<meta property="og:image:height" content="${height}" />`,
+    `${label} og:image height`
+  )
+  assertIncludes(
+    relativePath,
+    contents,
+    `<meta name="twitter:image" content="${imageUrl}" />`,
+    `${label} twitter:image`
+  )
+}
+
 function assertNotIncludes(relativePath, contents, expected, label = expected) {
   if (!contents.includes(expected)) {
     pass(`${relativePath} does not contain ${label}`)
@@ -331,6 +365,21 @@ const routeByCanonical = new Map(
     .filter((route) => route.includeInSitemap !== false)
     .map((route) => [route.canonical, route])
 )
+
+for (const route of prerenderRoutes) {
+  const relativePath = routeFile(route.path)
+  const html = readFile(relativePath)
+
+  assertSocialImageMeta(
+    relativePath,
+    html,
+    route.ogImage,
+    route.ogImageWidth,
+    route.ogImageHeight,
+    `${route.path} social preview image`
+  )
+}
+
 const home = routeMap.get("/")
 const budget = routeMap.get("/proracun/")
 const debt = routeMap.get("/dug/")
@@ -1011,8 +1060,8 @@ const homeChecks = [
   ],
   ['href="/razgovor/"', "homepage CTA to /razgovor/"],
   [
-    "https://bitcoin-savjetovanje.com/og-bitcoin-kao-novac.png",
-    "book-aligned OG image",
+    "https://bitcoin-savjetovanje.com/images/home-hero-20260521.jpg",
+    "homepage hero social preview image",
   ],
   ['data-link="footer-security"', "footer security link metadata"],
   ['data-link="footer-privacy"', "footer privacy link metadata"],

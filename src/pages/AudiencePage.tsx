@@ -11,6 +11,7 @@ import {
   type AudienceSlug,
 } from "@/content/audiences"
 import { SITE_URL } from "@/content/site"
+import { socialImages } from "@/content/socialImages"
 
 const heroVisuals: Record<
   AudienceHeroVisual,
@@ -39,12 +40,6 @@ const heroVisuals: Record<
     alt: "Mediteranski radni stol s poslovnim dokumentima, ladicama obveza i Bitcoin kovanicom.",
     className: "audience-hero__image--business",
   },
-}
-
-const audienceOgImageFileBySlug: Record<AudienceSlug, string> = {
-  osobno: "osobno-hero.png",
-  obitelj: "obitelj-hero.png",
-  poduzetnici: "poduzetnici-hero.png",
 }
 
 function AudienceHero({ page }: { page: AudiencePageContent }) {
@@ -174,7 +169,7 @@ function CrossLinks({ page }: { page: AudiencePageContent }) {
 export function AudiencePage({ slug }: { slug: AudienceSlug }) {
   const page = audiencePagesBySlug[slug]
   const canonical = `${SITE_URL}${page.path}`
-  const ogImage = `${SITE_URL}/images/audiences/${audienceOgImageFileBySlug[slug]}`
+  const socialImage = socialImages.audiences[slug]
 
   return (
     <>
@@ -182,9 +177,9 @@ export function AudiencePage({ slug }: { slug: AudienceSlug }) {
         title={page.seo.title}
         description={page.seo.description}
         canonical={canonical}
-        ogImage={ogImage}
-        ogImageWidth={1672}
-        ogImageHeight={941}
+        ogImage={socialImage.ogImage}
+        ogImageWidth={socialImage.ogImageWidth}
+        ogImageHeight={socialImage.ogImageHeight}
       />
       <article className={`service-page audience-page audience-page--${slug}`}>
         <AudienceHero page={page} />

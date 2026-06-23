@@ -106,13 +106,7 @@ const debtPrinciples = [
 export function Debt() {
   return (
     <>
-      <Seo
-        title={debtRoute.title}
-        description={debtRoute.description}
-        canonical={debtRoute.canonical}
-        ogType={debtRoute.ogType}
-        schema={debtRoute.schema as object}
-      />
+      <Seo {...debtRoute} />
 
       <div className="topic-page debt-page">
         <TopicHero

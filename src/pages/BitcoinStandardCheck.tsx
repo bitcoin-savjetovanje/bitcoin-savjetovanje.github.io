@@ -69,13 +69,7 @@ function StandardCheckCoverPreview() {
 export function BitcoinStandardCheck() {
   return (
     <>
-      <Seo
-        title={bitcoinStandardCheckRoute.title}
-        description={bitcoinStandardCheckRoute.description}
-        canonical={bitcoinStandardCheckRoute.canonical}
-        ogType={bitcoinStandardCheckRoute.ogType}
-        schema={bitcoinStandardCheckRoute.schema as object}
-      />
+      <Seo {...bitcoinStandardCheckRoute} />
       <article className="service-page standard-check-page">
         <header className="standard-check-hero hero-section editorial-section">
           <div className="hero-shell standard-check-hero__shell">

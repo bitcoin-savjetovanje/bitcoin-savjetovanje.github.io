@@ -42,9 +42,9 @@ export function Seo({
       ?.getAttribute("content")
     const resolvedOgImage = ogImage ?? existingOgImage ?? OG_IMAGE_URL
     const resolvedOgImageWidth =
-      ogImageWidth?.toString() ?? existingOgImageWidth ?? "1200"
+      ogImageWidth?.toString() ?? existingOgImageWidth ?? "1536"
     const resolvedOgImageHeight =
-      ogImageHeight?.toString() ?? existingOgImageHeight ?? "630"
+      ogImageHeight?.toString() ?? existingOgImageHeight ?? "1024"
 
     const entries = [
       ["meta[name='description']", "content", description],

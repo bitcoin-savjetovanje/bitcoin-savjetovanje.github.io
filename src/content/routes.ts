@@ -21,7 +21,6 @@ import {
   securityPageSchema,
 } from "./schema"
 import {
-  OG_IMAGE_URL,
   SITE_UPDATED_AT,
   SITE_URL,
   budgetSeo,
@@ -42,6 +41,7 @@ import {
   securitySeo,
   timeVolatilitySeo,
 } from "./site"
+import { guideCoverSocialImage, socialImages } from "./socialImages"
 
 export type RouteType =
   | "home"
@@ -92,9 +92,7 @@ export const homeRoute: RouteMeta = {
   type: "home",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.home,
 }
 
 export const guidesIndexRoute: RouteMeta = {
@@ -106,9 +104,7 @@ export const guidesIndexRoute: RouteMeta = {
   type: "guides-index",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.guidesIndex,
 }
 
 export const budgetRoute: RouteMeta = {
@@ -147,9 +143,7 @@ export const budgetRoute: RouteMeta = {
   type: "budget",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.budget,
 }
 
 export const debtRoute: RouteMeta = {
@@ -188,9 +182,7 @@ export const debtRoute: RouteMeta = {
   type: "debt",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.debt,
 }
 
 export const givingRoute: RouteMeta = {
@@ -229,9 +221,7 @@ export const givingRoute: RouteMeta = {
   type: "giving",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.giving,
 }
 
 export const bitcoinMoneyRoute: RouteMeta = {
@@ -271,9 +261,7 @@ export const bitcoinMoneyRoute: RouteMeta = {
   type: "bitcoin-money",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.bitcoinMoney,
 }
 
 export const netWorthRoute: RouteMeta = {
@@ -312,9 +300,7 @@ export const netWorthRoute: RouteMeta = {
   type: "net-worth",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.netWorth,
 }
 
 export const timeVolatilityRoute: RouteMeta = {
@@ -356,9 +342,7 @@ export const timeVolatilityRoute: RouteMeta = {
   type: "time-volatility",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.timeVolatility,
 }
 
 export const custodySecurityRoute: RouteMeta = {
@@ -401,9 +385,7 @@ export const custodySecurityRoute: RouteMeta = {
   type: "custody-security",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.custodySecurity,
 }
 
 export const bitcoinAdviceRoute: RouteMeta = {
@@ -415,9 +397,7 @@ export const bitcoinAdviceRoute: RouteMeta = {
   type: "bitcoin-advice",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.bitcoinAdvice,
 }
 
 export const conversationRoute: RouteMeta = {
@@ -429,9 +409,7 @@ export const conversationRoute: RouteMeta = {
   type: "conversation",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.conversation,
 }
 
 export const bitcoinConsultationRoute: RouteMeta = {
@@ -443,9 +421,7 @@ export const bitcoinConsultationRoute: RouteMeta = {
   type: "bitcoin-consultation",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.bitcoinConsultation,
 }
 
 export const personalBitcoinStandardRoute: RouteMeta = {
@@ -457,9 +433,7 @@ export const personalBitcoinStandardRoute: RouteMeta = {
   type: "personal-bitcoin-standard",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.personalBitcoinStandard,
 }
 
 export const samplePersonalBitcoinStandardRoute: RouteMeta = {
@@ -471,9 +445,7 @@ export const samplePersonalBitcoinStandardRoute: RouteMeta = {
   type: "sample-personal-bitcoin-standard",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.samplePersonalBitcoinStandard,
 }
 
 export const bitcoinStandardCheckRoute: RouteMeta = {
@@ -485,15 +457,7 @@ export const bitcoinStandardCheckRoute: RouteMeta = {
   type: "bitcoin-standard-check",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
-}
-
-const audienceOgImageFileBySlug: Record<AudienceSlug, string> = {
-  osobno: "osobno-hero.png",
-  obitelj: "obitelj-hero.png",
-  poduzetnici: "poduzetnici-hero.png",
+  ...socialImages.bitcoinStandardCheck,
 }
 
 export const audienceRouteMetas: RouteMeta[] = audiencePages.map((page) => ({
@@ -505,9 +469,7 @@ export const audienceRouteMetas: RouteMeta[] = audiencePages.map((page) => ({
   type: "audience",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: `${SITE_URL}/images/audiences/${audienceOgImageFileBySlug[page.slug]}`,
-  ogImageWidth: 1672,
-  ogImageHeight: 941,
+  ...socialImages.audiences[page.slug],
 }))
 
 export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
@@ -521,9 +483,7 @@ export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   type: "guide",
   lastmod: guide.updatedAt,
   ogType: "article",
-  ogImage: `${SITE_URL}${resolveGuideCover(guide).src}`,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...guideCoverSocialImage(resolveGuideCover(guide).src),
 }))
 
 export const guideAliasRouteMetas: RouteMeta[] = guides.flatMap((guide) =>
@@ -536,9 +496,7 @@ export const guideAliasRouteMetas: RouteMeta[] = guides.flatMap((guide) =>
     type: "guide" as const,
     lastmod: guide.updatedAt,
     ogType: "article" as const,
-    ogImage: OG_IMAGE_URL,
-    ogImageWidth: 1200,
-    ogImageHeight: 630,
+    ...guideCoverSocialImage(resolveGuideCover(guide).src),
     includeInSitemap: false,
   }))
 )
@@ -552,9 +510,7 @@ export const securityRoute: RouteMeta = {
   type: "security",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.security,
 }
 
 export const privacyRoute: RouteMeta = {
@@ -566,9 +522,7 @@ export const privacyRoute: RouteMeta = {
   type: "privacy",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.privacy,
 }
 
 export const notFoundRoute: RouteMeta = {
@@ -586,9 +540,7 @@ export const notFoundRoute: RouteMeta = {
   type: "not-found",
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
-  ogImage: OG_IMAGE_URL,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ...socialImages.default,
 }
 
 export const prerenderRoutes: RouteMeta[] = [

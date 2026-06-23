@@ -74,13 +74,7 @@ const principles = [
 export function BitcoinMoney() {
   return (
     <>
-      <Seo
-        title={bitcoinMoneyRoute.title}
-        description={bitcoinMoneyRoute.description}
-        canonical={bitcoinMoneyRoute.canonical}
-        ogType={bitcoinMoneyRoute.ogType}
-        schema={bitcoinMoneyRoute.schema as object}
-      />
+      <Seo {...bitcoinMoneyRoute} />
 
       <div className="topic-page bitcoin-money-page">
         <section className="topic-hero bitcoin-money-hero">

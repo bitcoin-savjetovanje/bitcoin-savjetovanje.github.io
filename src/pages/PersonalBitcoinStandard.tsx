@@ -228,13 +228,7 @@ function Checklist({
 export function PersonalBitcoinStandard() {
   return (
     <>
-      <Seo
-        title={personalBitcoinStandardRoute.title}
-        description={personalBitcoinStandardRoute.description}
-        canonical={personalBitcoinStandardRoute.canonical}
-        ogType={personalBitcoinStandardRoute.ogType}
-        schema={personalBitcoinStandardRoute.schema as object}
-      />
+      <Seo {...personalBitcoinStandardRoute} />
       <article className="service-page service-page--standard">
         <header className="service-hero hero-section editorial-section">
           <div className="hero-shell">

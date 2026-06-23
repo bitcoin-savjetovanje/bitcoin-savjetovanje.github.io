@@ -174,13 +174,7 @@ function Checklist({
 export function BitcoinConsultation() {
   return (
     <>
-      <Seo
-        title={bitcoinConsultationRoute.title}
-        description={bitcoinConsultationRoute.description}
-        canonical={bitcoinConsultationRoute.canonical}
-        ogType={bitcoinConsultationRoute.ogType}
-        schema={bitcoinConsultationRoute.schema as object}
-      />
+      <Seo {...bitcoinConsultationRoute} />
       <article className="service-page service-page--consultation">
         <header className="service-hero hero-section editorial-section">
           <div className="hero-shell">

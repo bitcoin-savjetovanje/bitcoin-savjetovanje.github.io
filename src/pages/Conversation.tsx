@@ -103,13 +103,7 @@ export function Conversation() {
 
   return (
     <>
-      <Seo
-        title={conversationRoute.title}
-        description={conversationRoute.description}
-        canonical={conversationRoute.canonical}
-        ogType={conversationRoute.ogType}
-        schema={conversationRoute.schema as object}
-      />
+      <Seo {...conversationRoute} />
       <article className="conversation-page">
         <header className="conversation-hero hero-section editorial-section">
           <div className="hero-shell">

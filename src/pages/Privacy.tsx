@@ -31,13 +31,7 @@ function DoNotSendList() {
 export function Privacy() {
   return (
     <>
-      <Seo
-        title={privacyRoute.title}
-        description={privacyRoute.description}
-        canonical={privacyRoute.canonical}
-        ogType={privacyRoute.ogType}
-        schema={privacyRoute.schema as object}
-      />
+      <Seo {...privacyRoute} />
       <article className="privacy-page">
         <header className="privacy-hero hero-section editorial-section">
           <div className="hero-shell">

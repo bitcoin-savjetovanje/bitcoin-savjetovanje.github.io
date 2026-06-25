@@ -2912,8 +2912,8 @@ for (const [expected, label] of [
     "guide index book cover is larger in homepage hero frame",
   ],
   [
-    ".starter-guides-panel{max-width:none}",
-    "starter guide panel is full width",
+    ".starter-guides-panel,.business-guide-path,.guides-roadmap,.advanced-guides-section{max-width:none;box-shadow:none;background:0 0;border:0;border-radius:0;scroll-margin-top:clamp(6.5rem,8vw,8rem)}",
+    "guide index feature sections use open layout without outer frames",
   ],
   [".guides-roadmap{max-width:none}", "guide roadmap is full width"],
   [
@@ -2925,8 +2925,8 @@ for (const [expected, label] of [
     "guide roadmap cards use three columns per row",
   ],
   [
-    ".guide-roadmap-card{border:1px solid var(--area-color);padding:clamp(.9rem,1.45vw,1.1rem)}",
-    "guide roadmap cards are visible",
+    ".guide-roadmap-card{box-shadow:var(--shadow-border);transition-property:box-shadow,transform,background-color",
+    "guide roadmap cards use subtle shadow-ring surfaces",
   ],
 ]) {
   assertIncludes("dist/assets/*.css", cssBundleText, expected, label)

@@ -103,6 +103,21 @@ const artPromptsBySlug: Record<string, string> = {
     "Mediterranean limestone family Bitcoin vault with three separated keys and a subtle time marker opening a recovery path later, warm side light, no exposed secret words, editorial nonfiction cover.",
 }
 
+function generatedGuideCover(
+  slug: string,
+  alt: string,
+  caption: string,
+  position = "50% 52%"
+): Partial<GuideCover> {
+  return {
+    webpSrc: `/images/${slug}-cover-20260625.webp`,
+    src: `/images/${slug}-cover-20260625.png`,
+    alt,
+    position,
+    caption,
+  }
+}
+
 const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
   "svaki-euro-ima-namjenu": {
     webpSrc: "/images/guide-svaki-euro-ima-namjenu-cover.webp",
@@ -136,14 +151,12 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Dug troši budući novac danas i s vremenom počinje odlučivati umjesto vas.",
   },
-  "dug-ili-bitcoin": {
-    webpSrc: "/images/dug-ili-bitcoin-hero.webp",
-    src: "/images/dug-ili-bitcoin-hero.png",
-    alt: "Mediteranska kamena scena s vagom između duga i Bitcoina za vodič Dug ili Bitcoin?",
-    position: "68% 52%",
-    caption:
-      "Odluka između duga i Bitcoina nije samo računica, nego pitanje mira, jasnoće i slobode.",
-  },
+  "dug-ili-bitcoin": generatedGuideCover(
+    "dug-ili-bitcoin",
+    "Mediteranska kamena scena s vagom između duga i Bitcoina za vodič Dug ili Bitcoin?",
+    "Odluka između duga i Bitcoina nije samo računica, nego pitanje mira, jasnoće i slobode.",
+    "62% 52%"
+  ),
   "ne-zaduzujte-se-za-bitcoin": {
     webpSrc: "/images/ne-zaduzujte-se-za-bitcoin-hero.webp",
     src: "/images/ne-zaduzujte-se-za-bitcoin-hero.png",
@@ -208,6 +221,121 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Ciklusi su koristan kontekst, ali osobni Bitcoin plan ne smije ovisiti o pogađanju jednog kvartala.",
   },
+  "davanje-u-proracunu-nulte-osnove": generatedGuideCover(
+    "davanje-u-proracunu-nulte-osnove",
+    "Mediteranska kamena scena s proračunskom bilježnicom i omotnicom za davanje",
+    "Davanje postaje pravilo tek kada dobije mjesto u proračunu, a ne samo u dobrim namjerama."
+  ),
+  "davanje-bez-duga": generatedGuideCover(
+    "davanje-bez-duga",
+    "Mediteranska kamena scena s otplaćenim dugom, otvorenim lancem i omotnicom za davanje",
+    "Davanje bez duga počinje nakon što budući novac više nije zarobljen obvezama."
+  ),
+  "novac-dolazi-od-ljudi": generatedGuideCover(
+    "novac-dolazi-od-ljudi",
+    "Mediteranska kamena scena s rukama, omotnicom zahvalnosti i Bitcoin simbolom",
+    "Novac nije apstrakcija odvojena od života, nego trag vrijednosti koju ljudi razmjenjuju."
+  ),
+  "niste-zakasnili-u-bitcoin": generatedGuideCover(
+    "niste-zakasnili-u-bitcoin",
+    "Mediteranska jutarnja scena s otvorenom bilježnicom i kamenim Bitcoin simbolom",
+    "Niste zakasnili ako danas možete početi mirnije, jasnije i s boljim pravilima."
+  ),
+  "bitcoin-nije-kripto-portfelj": generatedGuideCover(
+    "bitcoin-nije-kripto-portfelj",
+    "Mediteranska kamena scena s Bitcoin simbolom odvojenim od spekulativnih tokena",
+    "Bitcoin u ovom okviru nije kripto portfelj, nego novac koji treba odvojiti od špekulacije."
+  ),
+  "bitcoin-kao-novac": generatedGuideCover(
+    "bitcoin-kao-novac",
+    "Mediteranska kamena scena s kućnim proračunom i kamenim Bitcoin simbolom kao novcem",
+    "Bitcoin kao novac dobiva mjesto uz proračun, obveze i pravila, a ne uz kratkoročni graf."
+  ),
+  "pozitivni-neto-priljev": generatedGuideCover(
+    "pozitivni-neto-priljev",
+    "Mediteranska kamena scena s omotnicama obveza i preostalim novcem za vodič Novac koji ostaje",
+    "Novac koji ostaje vidi se tek nakon što obveze, pričuva i pravila dobiju svoje mjesto."
+  ),
+  "digitalni-kredit-nije-bitcoin": generatedGuideCover(
+    "digitalni-kredit-nije-bitcoin",
+    "Mediteranska kamena scena s Bitcoin simbolom odvojenim od ugovora i posredničkog papira",
+    "Digitalni kredit može pratiti Bitcoin, ali nije isto što i Bitcoin pod vlastitom kontrolom."
+  ),
+  "digitalni-kredit-bitcoin-saylor": generatedGuideCover(
+    "digitalni-kredit-bitcoin-saylor",
+    "Mediteranska kamena scena s Bitcoin temeljem i slojevima institucionalnog kredita",
+    "Kreditni slojevi mogu nastati oko Bitcoina, ali treba vidjeti koliko su udaljeni od temelja."
+  ),
+  "prihvacanje-bitcoina-u-poslovanju": generatedGuideCover(
+    "prihvacanje-bitcoina-u-poslovanju",
+    "Mediteranska poslovna scena s knjigovodstvenim papirima i kamenim Bitcoin simbolom",
+    "Prihvaćanje Bitcoina u poslu traži evidenciju, likvidnost, odgovornost i jasna pravila."
+  ),
+  "uskladivanje-kupovne-moci-bitcoina": generatedGuideCover(
+    "uskladivanje-kupovne-moci-bitcoina",
+    "Mediteranska kamena scena s kućnim predmetima, vremenom i Bitcoin simbolom",
+    "Kupovna moć se ne usklađuje panikom, nego pravilima koja prežive rastove i padove."
+  ),
+  "cijena-kao-mjera-vremena": generatedGuideCover(
+    "cijena-kao-mjera-vremena",
+    "Mediteranska kamena scena s pješčanim satom, vremenskim oznakama i Bitcoin simbolom",
+    "Cijena je korisna tek kada pomaže razumjeti vrijeme, a ne kada zamijeni odluke."
+  ),
+  "saylor-bitcoin-ciklus-ponuda-potraznja": generatedGuideCover(
+    "saylor-bitcoin-ciklus-ponuda-potraznja",
+    "Mediteranska kamena scena s rudarskom ponudom, kapitalnim tokovima i kućnim pravilima",
+    "Bitcoin ciklus više ne objašnjava samo ponuda, nego i potražnja, kapital i osobna pravila."
+  ),
+  "novac-kapital-potrosnja": generatedGuideCover(
+    "novac-kapital-potrosnja",
+    "Mediteranska kamena scena s tri predmeta za novac, potrošnju i proizvodnu imovinu",
+    "Novac, potrošna dobra i proizvodna imovina imaju različite uloge u istoj neto imovini."
+  ),
+  "bitcoin-u-neto-imovini": generatedGuideCover(
+    "bitcoin-u-neto-imovini",
+    "Mediteranska kamena scena s mapom neto imovine i kamenim Bitcoin simbolom",
+    "Bitcoin nije izolirana odluka, nego dio šire slike imovine, obveza i ciljeva."
+  ),
+  "pravilo-trecina": generatedGuideCover(
+    "pravilo-trecina",
+    "Mediteranska kamena scena podijeljena na Bitcoin, produktivnu imovinu i likvidni novac",
+    "Pravilo trećina pomaže održati ravnotežu između novca, rasta i likvidnosti."
+  ),
+  "bitcoin-kao-stopa-prepreke": generatedGuideCover(
+    "bitcoin-kao-stopa-prepreke",
+    "Mediteranska kamena scena s Bitcoin simbolom i financijskim odlukama oko njega",
+    "Bitcoin kao stopa prepreke vraća mjeru odlukama koje se natječu za vaš kapital."
+  ),
+  "sigurnost-ne-smije-ovisiti-samo-o-vama": generatedGuideCover(
+    "sigurnost-ne-smije-ovisiti-samo-o-vama",
+    "Mediteranska kućna scena s odvojenim ključevima, zapečaćenom omotnicom i Bitcoin simbolom",
+    "Sigurnost nije dovršena ako pristup ovisi samo o jednoj osobi."
+  ),
+  "obiteljski-bitcoin-trezor": generatedGuideCover(
+    "obiteljski-bitcoin-trezor",
+    "Mediteranska obiteljska scena s kamenim trezorom, odvojenim ključevima i Bitcoin simbolom",
+    "Obiteljski trezor mora spojiti sigurnost, oporavak i razumljivo nasljeđivanje."
+  ),
+  "samostalna-pohrana-ili-skrbnik": generatedGuideCover(
+    "samostalna-pohrana-ili-skrbnik",
+    "Mediteranska kamena scena s dva puta čuvanja Bitcoina: osobni ključ i skrbnički omot",
+    "Samostalna pohrana i skrbnik nisu isti rizik, ista odgovornost ni ista kontrola."
+  ),
+  "bitkey-bitcoin-sigurnost": generatedGuideCover(
+    "bitkey-bitcoin-sigurnost",
+    "Mediteranska kućna scena s jednostavnim sigurnosnim uređajem, tri ključa i Bitcoin simbolom",
+    "Jednostavniji alat može pomoći samo ako obitelj razumije što se čuva i kako se oporavlja."
+  ),
+  "obiteljski-pristup-bitcoinu": generatedGuideCover(
+    "obiteljski-pristup-bitcoinu",
+    "Mediteranska kućna scena sa zapečaćenom uputom, odvojenim ključevima i Bitcoin simbolom",
+    "Obiteljski pristup treba pripremiti prije trenutka u kojem postaje hitan."
+  ),
+  "poslovni-bitcoin-nije-privatni-bitcoin": generatedGuideCover(
+    "poslovni-bitcoin-nije-privatni-bitcoin",
+    "Mediteranska poslovna scena s odvojenim privatnim i poslovnim Bitcoin knjigama",
+    "Poslovni Bitcoin traži odvojene uloge, evidenciju i odgovornost od privatnog Bitcoina."
+  ),
 }
 
 export function resolveGuideTheme(guide: Guide): GuideTheme {

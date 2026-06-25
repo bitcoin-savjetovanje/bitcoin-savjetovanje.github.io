@@ -4595,12 +4595,31 @@
 }
 
 .home-hero {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: none;
   margin: 0;
   border: 0;
   border-radius: 0;
   box-shadow: none;
+}
+
+.home-hero-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.1;
+  mix-blend-mode: screen;
+  filter: grayscale(100%);
+}
+
+.home-hero-noise__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-shell {
@@ -7307,39 +7326,13 @@
   box-shadow: 0 0.7rem 2rem rgba(45, 34, 20, 0.035);
 }
 
-.budget-guide-card__image {
-  min-height: 9.5rem;
-  border-radius: 0.45rem;
-  background-image: url("/images/proracun-hero.jpg");
-  background-image: image-set(
-    url("/images/proracun-hero.webp") type("image/webp"),
-    url("/images/proracun-hero.jpg") type("image/jpeg")
-  );
-  background-size: 245%;
-}
-
 .topic-guide-cover {
   display: block;
+  height: 100%;
   min-height: 9.5rem;
   overflow: hidden;
   border-radius: 0.45rem;
   background: var(--stone-soft);
-}
-
-.debt-guide-card__image {
-  background-image: url("/images/dug-hero.jpg");
-  background-image: image-set(
-    url("/images/dug-hero.webp") type("image/webp"),
-    url("/images/dug-hero.jpg") type("image/jpeg")
-  );
-}
-
-.giving-guide-card__image {
-  background-image: url("/images/davanje-hero.jpg");
-  background-image: image-set(
-    url("/images/davanje-hero.webp") type("image/webp"),
-    url("/images/davanje-hero.jpg") type("image/jpeg")
-  );
 }
 
 .net-worth-guides-grid {
@@ -7348,14 +7341,6 @@
 
 .net-worth-guides-grid .budget-guide-card {
   grid-template-columns: minmax(7.4rem, 0.82fr) minmax(0, 1.18fr);
-}
-
-.net-worth-guide-card__image {
-  background-image: url("/images/neto-imovina-hero.jpg");
-  background-image: image-set(
-    url("/images/neto-imovina-hero.webp") type("image/webp"),
-    url("/images/neto-imovina-hero.jpg") type("image/jpeg")
-  );
 }
 
 .time-volatility-guides-grid {
@@ -7374,28 +7359,12 @@
   grid-template-columns: minmax(6.6rem, 0.76fr) minmax(0, 1.24fr);
 }
 
-.time-volatility-guide-card__image {
-  background-image: url("/images/vrijeme-volatilnost-hero.jpg");
-  background-image: image-set(
-    url("/images/vrijeme-volatilnost-hero.webp") type("image/webp"),
-    url("/images/vrijeme-volatilnost-hero.jpg") type("image/jpeg")
-  );
-}
-
 .custody-guides-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .custody-guides-grid .budget-guide-card {
   grid-template-columns: minmax(7.4rem, 0.82fr) minmax(0, 1.18fr);
-}
-
-.custody-guide-card__image {
-  background-image: url("/images/skrbnistvo-sigurnost-hero.jpg");
-  background-image: image-set(
-    url("/images/skrbnistvo-sigurnost-hero.webp") type("image/webp"),
-    url("/images/skrbnistvo-sigurnost-hero.jpg") type("image/jpeg")
-  );
 }
 
 .budget-guide-card h3 {
@@ -8232,9 +8201,8 @@
     grid-template-columns: 1fr;
   }
 
-  .budget-guide-card__image {
+  .topic-guide-cover {
     min-height: 12rem;
-    background-size: cover;
   }
 
   .budget-principle-strip,

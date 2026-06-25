@@ -332,12 +332,12 @@ const guideEntries: Guide[] = [
     practicalQuestion: "",
     relatedSlugs: [],
     cover: {
-      webpSrc: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp",
-      src: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg",
-      alt: "Mediteranska kamena scena s Bitcoinom, burzovnim fondovima i strukturiranim proizvodima",
+      webpSrc: "/images/zaba-bitcoin-etf-certifikat-cover-20260625.webp",
+      src: "/images/zaba-bitcoin-etf-certifikat-cover-20260625.png",
+      alt: "Mediteranska kamena scena sa strukturiranim certifikatom, zaštitom glavnice i odvojenim Bitcoin simbolom",
       position: "50% 50%",
       caption:
-        "Bitcoin, burzovni fond i strukturirani certifikat tri su različita oblika izloženosti.",
+        "Certifikat povezan s Bitcoinom nije Bitcoin, nego strukturirani proizvod s izdavateljem, rokom i ograničenjem prinosa.",
     },
     intro: [
       "Zagrebačka banka ponudila je hrvatskim klijentima certifikat povezan s iShares Bitcoin Trust ETF-om, odnosno IBIT-om.",
@@ -1640,12 +1640,12 @@ const guideEntries: Guide[] = [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
     ],
     cover: {
-      webpSrc: "/images/hero-bitcoin-savjetovanje-realistic.webp",
-      src: "/images/hero-bitcoin-savjetovanje-realistic.jpg",
-      alt: "Mediteranska radna scena s Bitcoinom, bilježnicom, grafovima i tehničkim alatima koji se odvajaju od središnjeg plana odluka.",
+      webpSrc: "/images/kada-bitcoin-postane-distrakcija-cover-20260625.webp",
+      src: "/images/kada-bitcoin-postane-distrakcija-cover-20260625.png",
+      alt: "Mediteranska radna scena s jasnim Bitcoin planom i tehničkim distrakcijama odmaknutima u stranu",
       position: "56% 52%",
       caption:
-        "Privremeni cover koristi postojeći hero asset dok se ne izradi zasebna naslovnica vodiča.",
+        "Bitcoin pomaže tek kada vraća jasnoću u proračun, rad i sigurnost, a ne kada postane odgoda stvarnih odluka.",
     },
     visual: {
       type: "split",

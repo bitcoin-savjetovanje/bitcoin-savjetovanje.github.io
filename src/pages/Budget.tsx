@@ -8,11 +8,13 @@ import {
 } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { GuideCardCover } from "@/components/guides/GuideCardCover"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { budgetRoute } from "@/content/clientRoutes"
+import { findGuide, guideHref } from "@/content/guides"
 import {
   CONVERSATION_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
@@ -74,22 +76,19 @@ const audienceItems = [
 
 const guideCards = [
   {
+    slug: "svaki-euro-ima-namjenu",
     title: "Proračun nije kazna, nego jasnoća",
     copy: "Zašto proračun donosi slobodu umjesto ograničenja i kako promijeniti način na koji gledate na novac.",
-    href: "/vodici/svaki-euro-ima-namjenu/",
-    imagePosition: "42% 60%",
   },
   {
+    slug: "svaki-euro-ima-namjenu",
     title: "Svakoj jedinici novca dati namjenu",
     copy: "Praktičan postupak kako rasporediti prihod i svakom euru dati svrhu.",
-    href: "/vodici/svaki-euro-ima-namjenu/",
-    imagePosition: "50% 78%",
   },
   {
+    slug: "stvarni-visak",
     title: "Stvarni višak nije ono što ostane na računu",
     copy: "Kako prepoznati višak nakon planiranja i usmjeriti ga prema onome što vam je važno.",
-    href: "/vodici/stvarni-visak/",
-    imagePosition: "18% 44%",
   },
 ]
 
@@ -185,28 +184,35 @@ export function Budget() {
         <section className="topic-section budget-guides-section">
           <h2>Vodiči iz ovog dijela</h2>
           <div className="budget-guides-grid">
-            {guideCards.map((guide) => (
-              <article className="budget-guide-card" key={guide.title}>
-                <div
-                  className="budget-guide-card__image"
-                  style={{ backgroundPosition: guide.imagePosition }}
-                  aria-hidden="true"
-                />
-                <div>
-                  <h3>{guide.title}</h3>
-                  <p>{guide.copy}</p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="home-outline-button"
-                  >
-                    <a href={guide.href} data-link="budget-guide-card">
-                      Pročitaj vodič
-                    </a>
-                  </Button>
-                </div>
-              </article>
-            ))}
+            {guideCards.map((card) => {
+              const guide = findGuide(card.slug)
+
+              if (!guide) {
+                return null
+              }
+
+              return (
+                <article className="budget-guide-card" key={card.title}>
+                  <GuideCardCover guide={guide} />
+                  <div>
+                    <h3>{card.title}</h3>
+                    <p>{card.copy}</p>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="home-outline-button"
+                    >
+                      <a
+                        href={guideHref(guide.slug)}
+                        data-link="budget-guide-card"
+                      >
+                        Pročitaj vodič
+                      </a>
+                    </Button>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </section>
 

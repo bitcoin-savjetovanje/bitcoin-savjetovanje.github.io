@@ -8,11 +8,13 @@ import {
 } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { GuideCardCover } from "@/components/guides/GuideCardCover"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { timeVolatilityRoute } from "@/content/clientRoutes"
+import { findGuide, guideHref } from "@/content/guides"
 import {
   CONVERSATION_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
@@ -78,28 +80,24 @@ const audienceItems = [
 
 const guideCards = [
   {
+    slug: "uskladivanje-kupovne-moci-bitcoina",
     title: "Zašto Bitcoin raste kroz vrijeme",
     copy: "Kako ograničena ponuda i vrijeme oblikuju dugoročni trend.",
-    href: "/vodici/uskladivanje-kupovne-moci-bitcoina/",
-    imagePosition: "28% 66%",
   },
   {
+    slug: "cijena-kao-mjera-vremena",
     title: "Power Law nije kristalna kugla",
     copy: "Kako koristiti model kao okvir, a ne kao obećanje.",
-    href: "/vodici/cijena-kao-mjera-vremena/",
-    imagePosition: "32% 58%",
   },
   {
+    slug: "saylor-bitcoin-ciklus-ponuda-potraznja",
     title: "Saylor: ponuda, potražnja i Bitcoin ciklus",
     copy: "Zašto stari četverogodišnji obrazac nije dovoljan kada kapitalni tokovi postanu važniji.",
-    href: "/vodici/saylor-bitcoin-ciklus-ponuda-potraznja/",
-    imagePosition: "42% 56%",
   },
   {
+    slug: "dca-nije-dovoljan",
     title: "Kako koristiti volatilnost u svoju korist",
     copy: "Praktična pravila za ponašanje kroz rastove i padove.",
-    href: "/vodici/dca-nije-dovoljan/",
-    imagePosition: "34% 86%",
   },
 ]
 
@@ -196,28 +194,35 @@ export function TimeVolatility() {
         <section className="topic-section budget-guides-section">
           <h2>Vodiči iz ovog dijela</h2>
           <div className="budget-guides-grid time-volatility-guides-grid">
-            {guideCards.map((guide) => (
-              <article className="budget-guide-card" key={guide.title}>
-                <div
-                  className="budget-guide-card__image time-volatility-guide-card__image"
-                  style={{ backgroundPosition: guide.imagePosition }}
-                  aria-hidden="true"
-                />
-                <div>
-                  <h3>{guide.title}</h3>
-                  <p>{guide.copy}</p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="home-outline-button"
-                  >
-                    <a href={guide.href} data-link="time-volatility-guide-card">
-                      Pročitaj vodič
-                    </a>
-                  </Button>
-                </div>
-              </article>
-            ))}
+            {guideCards.map((card) => {
+              const guide = findGuide(card.slug)
+
+              if (!guide) {
+                return null
+              }
+
+              return (
+                <article className="budget-guide-card" key={card.title}>
+                  <GuideCardCover guide={guide} />
+                  <div>
+                    <h3>{card.title}</h3>
+                    <p>{card.copy}</p>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="home-outline-button"
+                    >
+                      <a
+                        href={guideHref(guide.slug)}
+                        data-link="time-volatility-guide-card"
+                      >
+                        Pročitaj vodič
+                      </a>
+                    </Button>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </section>
 

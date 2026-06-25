@@ -1,11 +1,11 @@
 import { BookOpen, CalendarDays } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { GuideCardCover } from "@/components/guides/GuideCardCover"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { Button } from "@/components/ui/button"
 import { findGuide, guideHref, type Guide } from "@/content/guides"
-import { resolveGuideCover } from "@/content/guideVisuals"
 import { bitcoinMoneyRoute } from "@/content/clientRoutes"
 import {
   CONVERSATION_PATH,
@@ -168,45 +168,30 @@ export function BitcoinMoney() {
         <section className="topic-section budget-guides-section">
           <h2>Vodiči iz ovog dijela</h2>
           <div className="budget-guides-grid bitcoin-money-guides-grid">
-            {bitcoinMoneyGuides.map((guide) => {
-              const cover = resolveGuideCover(guide)
-
-              return (
-                <article
-                  className="budget-guide-card bitcoin-money-guide-card"
-                  key={guide.slug}
-                >
-                  <picture className="topic-guide-cover" aria-hidden="true">
-                    {cover.webpSrc ? (
-                      <source srcSet={cover.webpSrc} type="image/webp" />
-                    ) : null}
-                    <img
-                      src={cover.src}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      style={{ objectPosition: cover.position }}
-                    />
-                  </picture>
-                  <div>
-                    <h3>{guide.title}</h3>
-                    <p>{guide.excerpt}</p>
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="home-outline-button"
+            {bitcoinMoneyGuides.map((guide) => (
+              <article
+                className="budget-guide-card bitcoin-money-guide-card"
+                key={guide.slug}
+              >
+                <GuideCardCover guide={guide} />
+                <div>
+                  <h3>{guide.title}</h3>
+                  <p>{guide.excerpt}</p>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="home-outline-button"
+                  >
+                    <a
+                      href={guideHref(guide.slug)}
+                      data-link="bitcoin-money-guide-card"
                     >
-                      <a
-                        href={guideHref(guide.slug)}
-                        data-link="bitcoin-money-guide-card"
-                      >
-                        Pročitaj vodič
-                      </a>
-                    </Button>
-                  </div>
-                </article>
-              )
-            })}
+                      Pročitaj vodič
+                    </a>
+                  </Button>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 

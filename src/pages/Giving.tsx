@@ -8,11 +8,13 @@ import {
 } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { GuideCardCover } from "@/components/guides/GuideCardCover"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { givingRoute } from "@/content/clientRoutes"
+import { findGuide, guideHref } from "@/content/guides"
 import {
   CONVERSATION_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
@@ -78,22 +80,19 @@ const audienceItems = [
 
 const guideCards = [
   {
+    slug: "davanje-u-proracunu-nulte-osnove",
     title: "Davanje mijenja odnos prema novcu",
     copy: "Zašto tvrdi novac traži otvorenu ruku i kako davanje vraća mjeru novcu.",
-    href: "/vodici/davanje-u-proracunu-nulte-osnove/",
-    imagePosition: "48% 72%",
   },
   {
+    slug: "davanje-bez-duga",
     title: "Što se smatra davanjem",
     copy: "Kako razlikovati spontanu pomoć od namjernog, uređenog davanja.",
-    href: "/vodici/davanje-bez-duga/",
-    imagePosition: "76% 70%",
   },
   {
+    slug: "novac-dolazi-od-ljudi",
     title: "Kako uvesti kategoriju Davanje",
     copy: "Praktičan korak kako davanje postaje dio proračuna i sustava.",
-    href: "/vodici/novac-dolazi-od-ljudi/",
-    imagePosition: "50% 62%",
   },
 ]
 
@@ -189,28 +188,35 @@ export function Giving() {
         <section className="topic-section budget-guides-section">
           <h2>Vodiči iz ovog dijela</h2>
           <div className="budget-guides-grid">
-            {guideCards.map((guide) => (
-              <article className="budget-guide-card" key={guide.title}>
-                <div
-                  className="budget-guide-card__image giving-guide-card__image"
-                  style={{ backgroundPosition: guide.imagePosition }}
-                  aria-hidden="true"
-                />
-                <div>
-                  <h3>{guide.title}</h3>
-                  <p>{guide.copy}</p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="home-outline-button"
-                  >
-                    <a href={guide.href} data-link="giving-guide-card">
-                      Pročitaj vodič
-                    </a>
-                  </Button>
-                </div>
-              </article>
-            ))}
+            {guideCards.map((card) => {
+              const guide = findGuide(card.slug)
+
+              if (!guide) {
+                return null
+              }
+
+              return (
+                <article className="budget-guide-card" key={card.title}>
+                  <GuideCardCover guide={guide} />
+                  <div>
+                    <h3>{card.title}</h3>
+                    <p>{card.copy}</p>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="home-outline-button"
+                    >
+                      <a
+                        href={guideHref(guide.slug)}
+                        data-link="giving-guide-card"
+                      >
+                        Pročitaj vodič
+                      </a>
+                    </Button>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </section>
 

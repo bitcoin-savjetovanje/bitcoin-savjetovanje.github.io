@@ -366,6 +366,35 @@ const routeByCanonical = new Map(
     .map((route) => [route.canonical, route])
 )
 
+const generatedGuideCoverSlugs = [
+  "bitcoin-kao-novac",
+  "bitcoin-kao-stopa-prepreke",
+  "bitcoin-nije-kripto-portfelj",
+  "bitcoin-u-neto-imovini",
+  "bitkey-bitcoin-sigurnost",
+  "cijena-kao-mjera-vremena",
+  "davanje-bez-duga",
+  "davanje-u-proracunu-nulte-osnove",
+  "digitalni-kredit-bitcoin-saylor",
+  "digitalni-kredit-nije-bitcoin",
+  "dug-ili-bitcoin",
+  "kada-bitcoin-postane-distrakcija",
+  "niste-zakasnili-u-bitcoin",
+  "novac-dolazi-od-ljudi",
+  "novac-kapital-potrosnja",
+  "obiteljski-bitcoin-trezor",
+  "obiteljski-pristup-bitcoinu",
+  "poslovni-bitcoin-nije-privatni-bitcoin",
+  "pozitivni-neto-priljev",
+  "pravilo-trecina",
+  "prihvacanje-bitcoina-u-poslovanju",
+  "samostalna-pohrana-ili-skrbnik",
+  "saylor-bitcoin-ciklus-ponuda-potraznja",
+  "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "uskladivanje-kupovne-moci-bitcoina",
+  "zaba-bitcoin-etf-certifikat",
+]
+
 for (const route of prerenderRoutes) {
   const relativePath = routeFile(route.path)
   const html = readFile(relativePath)
@@ -475,6 +504,10 @@ const requiredFiles = [
   "images/guide-svaki-euro-ima-namjenu-cover.jpg",
   "images/stvarni-visak-hero.webp",
   "images/stvarni-visak-hero.png",
+  ...generatedGuideCoverSlugs.flatMap((slug) => [
+    `images/${slug}-cover-20260625.webp`,
+    `images/${slug}-cover-20260625.png`,
+  ]),
   "images/dca-nije-dovoljan-hero.webp",
   "images/dca-nije-dovoljan-hero.png",
   "images/dug-je-buduci-novac-hero.webp",
@@ -3385,8 +3418,8 @@ const optimizedGuideCoverChecks = [
   },
   {
     path: "/vodici/dug-ili-bitcoin",
-    webp: "/images/dug-ili-bitcoin-hero.webp",
-    fallback: "/images/dug-ili-bitcoin-hero.png",
+    webp: "/images/dug-ili-bitcoin-cover-20260625.webp",
+    fallback: "/images/dug-ili-bitcoin-cover-20260625.png",
   },
   {
     path: "/vodici/ne-zaduzujte-se-za-bitcoin",
@@ -3626,7 +3659,7 @@ const focusedGuideChecks = [
       "Brojke, dokumenti i dostupnost proizvoda provjereni su 18. lipnja 2026.",
       "Razmišljate kako se proizvod povezan s Bitcoinom uklapa u vašu imovinu?",
       "Dogovorite uvodni razgovor",
-      '<source srcSet="/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp"',
+      '<source srcSet="/images/zaba-bitcoin-etf-certifikat-cover-20260625.webp"',
       '<img src="/images/zaba-bitcoin-etf-certifikat-product-page-20260618.jpg" alt="Screenshot službene stranice Zagrebačke banke s naslovom Certifikat sa 100% zaštitom glavnice – Bitcoin ETF"',
       "Službena stranica proizvoda",
       'href="https://bitcoinwave.net/rootchart.htm"',

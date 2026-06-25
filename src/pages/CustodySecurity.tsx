@@ -9,11 +9,13 @@ import {
 } from "lucide-react"
 
 import { Seo } from "@/components/Seo"
+import { GuideCardCover } from "@/components/guides/GuideCardCover"
 import { StoneSymbol } from "@/components/home/StoneSymbol"
 import { StandardCheckCta } from "@/components/topic/StandardCheckCta"
 import { TopicHero } from "@/components/topic/TopicHero"
 import { Button } from "@/components/ui/button"
 import { custodySecurityRoute } from "@/content/clientRoutes"
+import { findGuide, guideHref } from "@/content/guides"
 import {
   CONVERSATION_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
@@ -98,22 +100,19 @@ const audienceItems = [
 
 const guideCards = [
   {
+    slug: "samostalna-pohrana-ili-skrbnik",
     title: "Slojevi skrbništva",
     copy: "Kako strukturirati Bitcoin imovinu u slojeve prema namjeni i riziku.",
-    href: "/vodici/samostalna-pohrana-ili-skrbnik/",
-    imagePosition: "20% 52%",
   },
   {
+    slug: "sigurnost-ne-smije-ovisiti-samo-o-vama",
     title: "Backup i oporavak",
     copy: "Kako sigurno napraviti i pohraniti backup fraze te testirati oporavak.",
-    href: "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/",
-    imagePosition: "74% 54%",
   },
   {
+    slug: "obiteljski-pristup-bitcoinu",
     title: "Plan nasljeđivanja",
     copy: "Korak po korak vodič za prijenos pristupa vašim nasljednicima.",
-    href: "/vodici/obiteljski-pristup-bitcoinu/",
-    imagePosition: "38% 62%",
   },
 ]
 
@@ -206,31 +205,35 @@ export function CustodySecurity() {
         <section className="topic-section budget-guides-section">
           <h2>Vodiči iz ovog dijela</h2>
           <div className="budget-guides-grid custody-guides-grid">
-            {guideCards.map((guide) => (
-              <article className="budget-guide-card" key={guide.title}>
-                <div
-                  className="budget-guide-card__image custody-guide-card__image"
-                  style={{ backgroundPosition: guide.imagePosition }}
-                  aria-hidden="true"
-                />
-                <div>
-                  <h3>{guide.title}</h3>
-                  <p>{guide.copy}</p>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="home-outline-button"
-                  >
-                    <a
-                      href={guide.href}
-                      data-link="custody-security-guide-card"
+            {guideCards.map((card) => {
+              const guide = findGuide(card.slug)
+
+              if (!guide) {
+                return null
+              }
+
+              return (
+                <article className="budget-guide-card" key={card.title}>
+                  <GuideCardCover guide={guide} />
+                  <div>
+                    <h3>{card.title}</h3>
+                    <p>{card.copy}</p>
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="home-outline-button"
                     >
-                      Pročitaj vodič
-                    </a>
-                  </Button>
-                </div>
-              </article>
-            ))}
+                      <a
+                        href={guideHref(guide.slug)}
+                        data-link="custody-security-guide-card"
+                      >
+                        Pročitaj vodič
+                      </a>
+                    </Button>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </section>
 

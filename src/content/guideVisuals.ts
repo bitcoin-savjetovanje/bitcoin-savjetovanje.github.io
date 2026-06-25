@@ -127,68 +127,54 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Svaki euro dobiva namjenu prije nego što Bitcoin odluka postane stvarno slobodna.",
   },
-  "stvarni-visak": {
-    webpSrc: "/images/stvarni-visak-hero.webp",
-    src: "/images/stvarni-visak-hero.png",
-    alt: "Mediteranska kamena scena s proračunskom bilježnicom, odvojenim novcem i Bitcoin simbolom za vodič Što je stvarni višak?",
-    position: "68% 52%",
-    caption:
-      "Stvarni višak postaje vidljiv tek nakon što obveze, pričuva i budući troškovi dobiju svoje mjesto.",
-  },
-  "dca-nije-dovoljan": {
-    webpSrc: "/images/dca-nije-dovoljan-hero.webp",
-    src: "/images/dca-nije-dovoljan-hero.png",
-    alt: "Mediteranska kamena scena s redovitom kupnjom Bitcoina i praznim okvirom za pravila za vodič Zašto redovita kupnja nije cijeli sustav?",
-    position: "68% 52%",
-    caption:
-      "Redovita kupnja može biti korisna navika, ali ne zamjenjuje proračun, stvarni višak i pisana pravila.",
-  },
-  "dug-je-buduci-novac": {
-    webpSrc: "/images/dug-je-buduci-novac-hero.webp",
-    src: "/images/dug-je-buduci-novac-hero.png",
-    alt: "Mediteranska kamena scena s lancem, kalendarom i Bitcoin simbolom za vodič Dug je budući novac koji ste već potrošili",
-    position: "68% 52%",
-    caption:
-      "Dug troši budući novac danas i s vremenom počinje odlučivati umjesto vas.",
-  },
+  "stvarni-visak": generatedGuideCover(
+    "stvarni-visak",
+    "Mediteranska kamena scena s proračunskom bilježnicom, odvojenim novcem i Bitcoin simbolom za vodič Što je stvarni višak?",
+    "Stvarni višak postaje vidljiv tek nakon što obveze, pričuva i budući troškovi dobiju svoje mjesto.",
+    "50% 52%"
+  ),
+  "dca-nije-dovoljan": generatedGuideCover(
+    "dca-nije-dovoljan",
+    "Mediteranska kamena scena s redovitom kupnjom Bitcoina i okvirom za pravila za vodič Zašto redovita kupnja nije cijeli sustav?",
+    "Redovita kupnja može biti korisna navika, ali ne zamjenjuje proračun, stvarni višak i pisana pravila.",
+    "50% 52%"
+  ),
+  "dug-je-buduci-novac": generatedGuideCover(
+    "dug-je-buduci-novac",
+    "Mediteranska kamena scena s lancem, kalendarom i Bitcoin simbolom za vodič Dug je budući novac koji ste već potrošili",
+    "Dug troši budući novac danas i s vremenom počinje odlučivati umjesto vas.",
+    "50% 52%"
+  ),
   "dug-ili-bitcoin": generatedGuideCover(
     "dug-ili-bitcoin",
     "Mediteranska kamena scena s vagom između duga i Bitcoina za vodič Dug ili Bitcoin?",
     "Odluka između duga i Bitcoina nije samo računica, nego pitanje mira, jasnoće i slobode.",
     "62% 52%"
   ),
-  "ne-zaduzujte-se-za-bitcoin": {
-    webpSrc: "/images/ne-zaduzujte-se-za-bitcoin-hero.webp",
-    src: "/images/ne-zaduzujte-se-za-bitcoin-hero.png",
-    alt: "Mediteranska kamena scena s lancem, budućim novcem i Bitcoin simbolom za vodič Ne zadužujte se za Bitcoin",
-    position: "68% 52%",
-    caption:
-      "Bitcoin standard ne kupuje novac budućim novcem, nego čeka stvarni višak.",
-  },
-  "prihod-nije-slobodan-novac": {
-    webpSrc: "/images/prihod-nije-slobodan-novac-hero-20260603.webp",
-    src: "/images/prihod-nije-slobodan-novac-hero-20260603.jpg",
-    alt: "Mediteranska kamena scena s poslovnom bilježnicom, računima, omotnicom i Bitcoin simbolom za vodič Prihod nije slobodan novac",
-    position: "62% 52%",
-    caption:
-      "Prihod nije slobodan dok se ne vide porezi, plaće, dobavljači, pričuva i stvarni vlasnički višak.",
-  },
-  "starost-novca": {
-    webpSrc: "/images/starost-novca-hero-20260603.webp",
-    src: "/images/starost-novca-hero-20260603.jpg",
-    alt: "Mediteranska kamena scena s proračunskom bilježnicom, pješčanim satom i Bitcoin simbolom za vodič Starost novca",
-    position: "62% 52%",
-    caption:
-      "Što duže novac preživi prije potrošnje, to odluke o Bitcoinu imaju više vremena i manje pritiska.",
-  },
-  "bitcoin-etfovi-i-riznicke-kompanije": {
-    webpSrc: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp",
-    src: "/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg",
-    alt: "Mediteranska kamena scena s Bitcoinom, burzovnim fondovima i rizničkim kompanijama",
-    position: "50% 50%",
-    caption:
-      "Bitcoin, burzovni fond i riznička kompanija nisu isti sloj iste odluke.",
-  },
+  "ne-zaduzujte-se-za-bitcoin": generatedGuideCover(
+    "ne-zaduzujte-se-za-bitcoin",
+    "Mediteranska kamena scena s lancem, budućim novcem i Bitcoin simbolom za vodič Ne zadužujte se za Bitcoin",
+    "Bitcoin standard ne kupuje novac budućim novcem, nego čeka stvarni višak.",
+    "50% 52%"
+  ),
+  "prihod-nije-slobodan-novac": generatedGuideCover(
+    "prihod-nije-slobodan-novac",
+    "Mediteranska kamena poslovna scena s bilježnicom, računima, pričuvom i Bitcoin simbolom za vodič Prihod nije slobodan novac",
+    "Prihod nije slobodan dok se ne vide porezi, plaće, dobavljači, pričuva i stvarni vlasnički višak.",
+    "50% 52%"
+  ),
+  "starost-novca": generatedGuideCover(
+    "starost-novca",
+    "Mediteranska kamena scena s proračunskom bilježnicom, pješčanim satom i Bitcoin simbolom za vodič Starost novca",
+    "Što duže novac preživi prije potrošnje, to odluke o Bitcoinu imaju više vremena i manje pritiska.",
+    "50% 52%"
+  ),
+  "bitcoin-etfovi-i-riznicke-kompanije": generatedGuideCover(
+    "bitcoin-etfovi-i-riznicke-kompanije",
+    "Mediteranska kamena scena s Bitcoinom, burzovnim fondom i rizničkom kompanijom za vodič o Bitcoin instrumentima",
+    "Bitcoin, burzovni fond i riznička kompanija nisu isti sloj iste odluke.",
+    "50% 52%"
+  ),
   "bitcoin-bilanca-pojacana-izlozenost": {
     webpSrc: "/images/bitcoin-bilanca-pojacana-izlozenost-hero-20260603.webp",
     src: "/images/bitcoin-bilanca-pojacana-izlozenost-hero-20260603.jpg",
@@ -197,22 +183,18 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     caption:
       "Što je instrument udaljeniji od Bitcoina, to su važniji bilanca, pravila i izdavatelj.",
   },
-  "od-duga-prema-vlasnistvu": {
-    webpSrc: "/images/od-duga-prema-vlasnistvu-hero-20260603.webp",
-    src: "/images/od-duga-prema-vlasnistvu-hero-20260603.jpg",
-    alt: "Mediteranska kamena scena s bilježnicom, ključem i Bitcoin simbolom za vodič Od društva duga prema društvu vlasništva",
-    position: "58% 52%",
-    caption:
-      "Prijelaz iz duga prema vlasništvu počinje jasnim pravilima, stvarnim viškom i novcem koji ostaje pod vašom kontrolom.",
-  },
-  "vremenski-oporavak-bitcoin-trezor": {
-    webpSrc: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
-    src: "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",
-    alt: "Mediteranska scena s Bitcoin trezorom, pješčanim satom i tri ključa za vodič o vremenskom oporavku",
-    position: "50% 52%",
-    caption:
-      "Danas vrijedi 2 od 3, a nakon roka može se otvoriti oporavni put koji obitelj mora razumjeti prije nego što zatreba.",
-  },
+  "od-duga-prema-vlasnistvu": generatedGuideCover(
+    "od-duga-prema-vlasnistvu",
+    "Mediteranska kamena scena s bilježnicom, ključem i Bitcoin simbolom za vodič Od društva duga prema društvu vlasništva",
+    "Prijelaz iz duga prema vlasništvu počinje jasnim pravilima, stvarnim viškom i novcem koji ostaje pod vašom kontrolom.",
+    "50% 52%"
+  ),
+  "vremenski-oporavak-bitcoin-trezor": generatedGuideCover(
+    "vremenski-oporavak-bitcoin-trezor",
+    "Mediteranska scena s obiteljskim Bitcoin trezorom, odvojenim ključevima i vremenskim oporavkom",
+    "Danas vrijedi 2 od 3, a nakon roka može se otvoriti oporavni put koji obitelj mora razumjeti prije nego što zatreba.",
+    "50% 52%"
+  ),
   "ne-cekajte-savrseno-dno-bitcoina": {
     webpSrc: "/images/vrijeme-volatilnost-hero-20260521.webp",
     src: "/images/vrijeme-volatilnost-hero-20260521.jpg",

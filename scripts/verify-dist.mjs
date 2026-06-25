@@ -367,6 +367,7 @@ const routeByCanonical = new Map(
 )
 
 const generatedGuideCoverSlugs = [
+  "bitcoin-etfovi-i-riznicke-kompanije",
   "bitcoin-kao-novac",
   "bitcoin-kao-stopa-prepreke",
   "bitcoin-nije-kripto-portfelj",
@@ -375,23 +376,31 @@ const generatedGuideCoverSlugs = [
   "cijena-kao-mjera-vremena",
   "davanje-bez-duga",
   "davanje-u-proracunu-nulte-osnove",
+  "dca-nije-dovoljan",
   "digitalni-kredit-bitcoin-saylor",
   "digitalni-kredit-nije-bitcoin",
+  "dug-je-buduci-novac",
   "dug-ili-bitcoin",
   "kada-bitcoin-postane-distrakcija",
+  "ne-zaduzujte-se-za-bitcoin",
   "niste-zakasnili-u-bitcoin",
   "novac-dolazi-od-ljudi",
   "novac-kapital-potrosnja",
   "obiteljski-bitcoin-trezor",
   "obiteljski-pristup-bitcoinu",
+  "od-duga-prema-vlasnistvu",
   "poslovni-bitcoin-nije-privatni-bitcoin",
   "pozitivni-neto-priljev",
   "pravilo-trecina",
+  "prihod-nije-slobodan-novac",
   "prihvacanje-bitcoina-u-poslovanju",
   "samostalna-pohrana-ili-skrbnik",
   "saylor-bitcoin-ciklus-ponuda-potraznja",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "starost-novca",
+  "stvarni-visak",
   "uskladivanje-kupovne-moci-bitcoina",
+  "vremenski-oporavak-bitcoin-trezor",
   "zaba-bitcoin-etf-certifikat",
 ]
 
@@ -3403,18 +3412,18 @@ for (const guidePath of requiredGuidePaths) {
 const optimizedGuideCoverChecks = [
   {
     path: "/vodici/stvarni-visak",
-    webp: "/images/stvarni-visak-hero.webp",
-    fallback: "/images/stvarni-visak-hero.png",
+    webp: "/images/stvarni-visak-cover-20260625.webp",
+    fallback: "/images/stvarni-visak-cover-20260625.png",
   },
   {
     path: "/vodici/dca-nije-dovoljan",
-    webp: "/images/dca-nije-dovoljan-hero.webp",
-    fallback: "/images/dca-nije-dovoljan-hero.png",
+    webp: "/images/dca-nije-dovoljan-cover-20260625.webp",
+    fallback: "/images/dca-nije-dovoljan-cover-20260625.png",
   },
   {
     path: "/vodici/dug-je-buduci-novac",
-    webp: "/images/dug-je-buduci-novac-hero.webp",
-    fallback: "/images/dug-je-buduci-novac-hero.png",
+    webp: "/images/dug-je-buduci-novac-cover-20260625.webp",
+    fallback: "/images/dug-je-buduci-novac-cover-20260625.png",
   },
   {
     path: "/vodici/dug-ili-bitcoin",
@@ -3423,8 +3432,8 @@ const optimizedGuideCoverChecks = [
   },
   {
     path: "/vodici/ne-zaduzujte-se-za-bitcoin",
-    webp: "/images/ne-zaduzujte-se-za-bitcoin-hero.webp",
-    fallback: "/images/ne-zaduzujte-se-za-bitcoin-hero.png",
+    webp: "/images/ne-zaduzujte-se-za-bitcoin-cover-20260625.webp",
+    fallback: "/images/ne-zaduzujte-se-za-bitcoin-cover-20260625.png",
   },
 ]
 
@@ -3465,8 +3474,8 @@ const focusedGuideChecks = [
       "Dobit nije isto što i slobodan novac",
       "Poslovni Bitcoin okvir počinje razlikovanjem operativnog novca i viška riznice.",
       "Ovo nije računovodstveni ili porezni savjet.",
-      '<source srcSet="/images/prihod-nije-slobodan-novac-hero-20260603.webp"',
-      '<img src="/images/prihod-nije-slobodan-novac-hero-20260603.jpg" alt="Mediteranska kamena scena s poslovnom bilježnicom, računima, omotnicom i Bitcoin simbolom za vodič Prihod nije slobodan novac"',
+      '<source srcSet="/images/prihod-nije-slobodan-novac-cover-20260625.webp"',
+      '<img src="/images/prihod-nije-slobodan-novac-cover-20260625.png" alt="Mediteranska kamena poslovna scena s bilježnicom, računima, pričuvom i Bitcoin simbolom za vodič Prihod nije slobodan novac"',
       "Prihod nije slobodan dok se ne vide porezi, plaće, dobavljači, pričuva i stvarni vlasnički višak.",
       "Imate poslovnu Bitcoin odluku? Dogovorite uvodni razgovor.",
     ],
@@ -3477,8 +3486,8 @@ const focusedGuideChecks = [
       "Starost novca: koliko dugo vaš novac preživi?",
       "Novac koji odmah nestaje",
       "Stariji novac daje prostor",
-      '<source srcSet="/images/starost-novca-hero-20260603.webp"',
-      '<img src="/images/starost-novca-hero-20260603.jpg" alt="Mediteranska kamena scena s proračunskom bilježnicom, pješčanim satom i Bitcoin simbolom za vodič Starost novca"',
+      '<source srcSet="/images/starost-novca-cover-20260625.webp"',
+      '<img src="/images/starost-novca-cover-20260625.png" alt="Mediteranska kamena scena s proračunskom bilježnicom, pješčanim satom i Bitcoin simbolom za vodič Starost novca"',
       "Što duže novac preživi prije potrošnje, to odluke o Bitcoinu imaju više vremena i manje pritiska.",
     ],
   },
@@ -3533,8 +3542,8 @@ const focusedGuideChecks = [
       "Dug kao gubitak izbora",
       "Društvo vlasništva",
       "Praktični prijelaz",
-      '<source srcSet="/images/od-duga-prema-vlasnistvu-hero-20260603.webp"',
-      '<img src="/images/od-duga-prema-vlasnistvu-hero-20260603.jpg" alt="Mediteranska kamena scena s bilježnicom, ključem i Bitcoin simbolom za vodič Od društva duga prema društvu vlasništva"',
+      '<source srcSet="/images/od-duga-prema-vlasnistvu-cover-20260625.webp"',
+      '<img src="/images/od-duga-prema-vlasnistvu-cover-20260625.png" alt="Mediteranska kamena scena s bilježnicom, ključem i Bitcoin simbolom za vodič Od društva duga prema društvu vlasništva"',
       "Prijelaz iz duga prema vlasništvu počinje jasnim pravilima, stvarnim viškom i novcem koji ostaje pod vašom kontrolom.",
       "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
     ],
@@ -3602,8 +3611,8 @@ const focusedGuideChecks = [
       "Strategy je predložio češću, polumjesečnu isplatu dividendi",
       "Često se mijenja",
       "Napomena: ovaj vodič govori o temi čiji se detalji mogu mijenjati.",
-      '<source srcSet="/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.webp"',
-      '<img src="/images/bitcoin-etfovi-riznicke-kompanije-hero-20260603.jpg" alt="Mediteranska kamena scena s Bitcoinom, burzovnim fondovima i rizničkim kompanijama"',
+      '<source srcSet="/images/bitcoin-etfovi-i-riznicke-kompanije-cover-20260625.webp"',
+      '<img src="/images/bitcoin-etfovi-i-riznicke-kompanije-cover-20260625.png" alt="Mediteranska kamena scena s Bitcoinom, burzovnim fondom i rizničkom kompanijom za vodič o Bitcoin instrumentima"',
       "Bitcoin, burzovni fond i riznička kompanija nisu isti sloj iste odluke.",
       'href="/vodici/samostalna-pohrana-ili-skrbnik/"',
       'href="/vodici/obiteljski-bitcoin-trezor/"',
@@ -4014,15 +4023,15 @@ for (const [expected, label] of [
 
 for (const [expected, label] of [
   [
-    "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.webp",
+    "/images/vremenski-oporavak-bitcoin-trezor-cover-20260625.webp",
     "timed recovery guide cover WebP image",
   ],
   [
-    "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg",
-    "timed recovery guide cover JPEG image",
+    "/images/vremenski-oporavak-bitcoin-trezor-cover-20260625.png",
+    "timed recovery guide cover PNG image",
   ],
   [
-    "Mediteranska scena s Bitcoin trezorom, pješčanim satom i tri ključa za vodič o vremenskom oporavku",
+    "Mediteranska scena s obiteljskim Bitcoin trezorom, odvojenim ključevima i vremenskim oporavkom",
     "timed recovery guide cover alt text",
   ],
   [

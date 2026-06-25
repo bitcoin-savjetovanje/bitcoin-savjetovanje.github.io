@@ -152,6 +152,39 @@ const guideCoverDimensionsByPath: Record<
     width: 1536,
     height: 1024,
   },
+  "/images/stvarni-visak-cover-20260625.png": { width: 1774, height: 887 },
+  "/images/dca-nije-dovoljan-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
+  "/images/dug-je-buduci-novac-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
+  "/images/ne-zaduzujte-se-za-bitcoin-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
+  "/images/prihod-nije-slobodan-novac-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
+  "/images/starost-novca-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
+  "/images/bitcoin-etfovi-i-riznicke-kompanije-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
+  "/images/od-duga-prema-vlasnistvu-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
+  "/images/vremenski-oporavak-bitcoin-trezor-cover-20260625.png": {
+    width: 1774,
+    height: 887,
+  },
   "/images/stvarni-visak-hero.png": { width: 1774, height: 887 },
   "/images/dca-nije-dovoljan-hero.png": { width: 1774, height: 887 },
   "/images/dug-je-buduci-novac-hero.png": { width: 1774, height: 887 },

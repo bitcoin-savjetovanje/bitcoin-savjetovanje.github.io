@@ -10560,6 +10560,257 @@
   padding-top: calc(var(--hero-shell-pad-top) + clamp(2.4rem, 5vw, 5.25rem));
 }
 
+/* Site-wide polish pass: open large wrappers, keep individual content surfaces quiet. */
+.home-editorial-page--content {
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.home-editorial-page--content::before {
+  display: none;
+}
+
+.home-editorial-page--content .editorial-section + .editorial-section {
+  border-top: 0;
+}
+
+.standard-check-teaser,
+.sample-standard-teaser,
+.editorial-levels-section,
+.services-section {
+  border-block: 0;
+}
+
+.service-section + .service-section {
+  border-top-color: color-mix(in oklab, var(--line-warm), transparent 58%);
+}
+
+.service-section--warm {
+  border-block: 0;
+}
+
+.three-levels-frieze {
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.three-levels-frieze::before {
+  display: none;
+}
+
+.three-levels-item {
+  border-radius: var(--radius);
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 8%);
+  box-shadow: var(--shadow-border);
+  transition-property: background-color, box-shadow, color, transform;
+}
+
+.three-levels-item:hover {
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 14%);
+  box-shadow: var(--shadow-border-hover);
+}
+
+.page-hero,
+.question-panel,
+.pattern-panel,
+.case-panel,
+.case-card,
+.value-card,
+.process-card,
+.program-card,
+.comparison-card,
+.recognition-card,
+.standard-check-teaser__panel,
+.sample-standard-teaser__panel,
+.offer-card,
+.service-card,
+.selected-question-card,
+.pre-booking-panel,
+.conversation-referral-card,
+.conversation-final-card,
+.conversation-scope-panel,
+.safety-note-card,
+.consultation-hero,
+.consultation-price-card,
+.consultation-hero-note,
+.consultation-price-card__note,
+.consultation-comparison,
+.consultation-safety-card,
+.consultation-outcome-card,
+.consultation-scope-card,
+.consultation-scope-grid article,
+.business-decision-type-grid article,
+.consultation-outcome-item,
+.program-step-card,
+.program-layer-card,
+.program-business-section,
+.program-business-grid article,
+.deliverable-section,
+.security-principle-card,
+.security-technical-note,
+.guide-sticky-cta__card,
+.guide-section-visual,
+.guide-logo-card,
+.guide-logo-card__mark,
+.guide-product-card,
+.guide-video-card,
+.guide-visual-card,
+.guide-toc-card,
+.guide-question-card,
+.guide-next-card,
+.guide-extra-cta-card,
+.guide-final-cta-card,
+.guide-related-card,
+.guide-section-card,
+.guide-visual-tile,
+.guide-status-note,
+.guide-summary-callout,
+.guide-data-card,
+.guide-faq-item,
+.guide-disclaimer-note,
+.budget-outcome-card,
+.budget-guide-card,
+.budget-principle-strip,
+.budget-book-panel,
+.custody-final-panel,
+.topic-standard-check-cta,
+.standard-check-card,
+.sample-standard-card,
+.conversation-sample-card,
+.service-hero__summary-card,
+.service-emphasis-card,
+.service-side-panel,
+.service-written-standard__visual,
+.service-business-standard__visual,
+.service-page .service-card,
+.service-number-card,
+.service-timeline-card,
+.service-checklist-panel,
+.service-process-card,
+.service-document-panel,
+.service-comparison,
+.service-warning-panel,
+.service-question-panel,
+.service-final-cta,
+.service-quiet-panel,
+.audience-card,
+.audience-guide-link,
+.audience-boundaries,
+.audience-crosslinks a {
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-border);
+}
+
+.security-goals-card,
+.security-business-panel {
+  border: 0;
+  box-shadow:
+    0 0 0 1px hsl(0 0% 100% / 0.08),
+    0 1rem 2.8rem rgba(24, 20, 14, 0.12);
+}
+
+.recognition-card,
+.offer-card,
+.service-card,
+.program-card,
+.budget-guide-card,
+.audience-guide-link,
+.service-page .service-card--link,
+.guide-logo-card,
+.guide-product-card,
+.guide-next-card,
+.guide-extra-cta-card,
+.guide-related-card {
+  transition-property: background-color, box-shadow, color, transform;
+}
+
+.recognition-card:hover,
+.offer-card:hover,
+.service-card:hover,
+.program-card:hover,
+.budget-guide-card:hover,
+.budget-guide-card:focus-within,
+.audience-guide-link:hover,
+.audience-guide-link:focus-visible,
+.service-page .service-card--link:hover,
+.service-page .service-card--link:focus-visible,
+.guide-logo-card:hover,
+.guide-logo-card:focus-visible,
+.guide-product-card:hover,
+.guide-product-card:focus-visible,
+.guide-next-card:hover,
+.guide-extra-cta-card:hover,
+.guide-related-card:hover {
+  border-color: transparent;
+  box-shadow: var(--shadow-border-hover);
+}
+
+.audience-crosslinks {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.service-comparison__grid article {
+  border: 0;
+  border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 34%);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding-inline: 0;
+}
+
+.topic-guide-cover,
+.guide-section-visual--image img,
+.guide-chart-card__image img,
+.service-page--consultation .service-hero__image,
+.service-page--standard .service-hero__image,
+.audience-hero .service-hero__image {
+  outline: 1px solid var(--image-outline);
+  outline-offset: -1px;
+}
+
+.guide-logo-card__mark,
+.guide-product-card__image {
+  border: 0;
+  box-shadow: var(--shadow-border);
+}
+
+.glossary-term__tooltip {
+  transition-property: opacity, visibility, transform;
+}
+
+@media (max-width: 760px) {
+  .three-levels-frieze {
+    gap: 0.85rem;
+  }
+
+  .topic-hero__actions,
+  .topic-hero-v2__actions {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .topic-hero__actions .home-primary-button,
+  .topic-hero__actions .home-outline-button,
+  .topic-hero-v2__actions .home-primary-button,
+  .topic-hero-v2__actions .home-outline-button {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
+}
+
 .guide-editorial-page {
   padding: 0;
 }

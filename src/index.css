@@ -2184,19 +2184,19 @@
   }
 
   .guide-section-visual--image {
-    @apply overflow-hidden p-0;
+    @apply overflow-visible rounded-none border-0 bg-transparent p-0 shadow-none;
   }
 
   .guide-section-image-link {
-    @apply block bg-background/70;
+    @apply block bg-transparent;
   }
 
   .guide-section-visual--image img {
-    @apply mx-auto block max-h-[22rem] w-full object-contain p-5 sm:p-7;
+    @apply block h-auto max-h-none w-full p-0;
   }
 
   .guide-section-visual--image figcaption {
-    @apply border-t border-border/70 bg-card px-4 py-4 text-sm leading-6 text-muted-foreground sm:px-5;
+    @apply border-t-0 bg-transparent px-0 pt-3 pb-0 text-sm leading-6 text-muted-foreground;
   }
 
   .guide-section-visual--image figcaption span {
@@ -10752,6 +10752,11 @@
   border: 0;
   border-radius: var(--radius);
   box-shadow: var(--shadow-border);
+}
+
+.guide-section-visual--image {
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .security-goals-card,

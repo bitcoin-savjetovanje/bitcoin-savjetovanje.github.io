@@ -124,16 +124,28 @@ Vizualni asseti:
 
 ## Deployment
 
-GitHub Pages deploys from `main`.
+Production is moving to Cloudflare Pages from the GitHub repository.
 
-The deploy workflow runs:
+Cloudflare Pages settings:
+
+- Repository: `bitcoin-savjetovanje/bitcoin-savjetovanje.github.io`
+- Production branch: `main`
+- Framework preset: `Vite`
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Node version: `22.22.1` from `.node-version`
+- Environment variables: none required; do not set `GITHUB_PAGES`
+
+The CI workflow runs:
 
 - `npm run typecheck`
 - `npm run lint`
 - `npm run build`
 - `npm run verify:dist`
 
-The Pages artifact is uploaded only after `verify:dist` passes. The verification
-script checks prerendered HTML, sitemap, robots, schema, guide pages, the
-program page, security/privacy pages, OG asset, visual pass copy markers and
-core CTA/link metadata.
+The verification script checks prerendered HTML, sitemap, robots, schema, guide
+pages, the program page, security/privacy pages, OG asset, visual pass copy
+markers and core CTA/link metadata.
+
+The legacy GitHub Pages deploy workflow should be disabled or removed after the
+Cloudflare Pages production domain is live.

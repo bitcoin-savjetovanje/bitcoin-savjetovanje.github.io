@@ -3,7 +3,7 @@
 Stranica za Bitcoin Savjetovanje, usklađena s knjigom u nastajanju “Bitcoin kao
 novac: Praktični vodič za život s Bitcoinom”.
 
-Stack ostaje Vite, React, TypeScript, SSR/prerender i GitHub Pages. Primarni
+Stack ostaje Vite, React, TypeScript, SSR/prerender i Cloudflare Pages. Primarni
 poslovni cilj je što više kvalitetnih 15-minutnih uvodnih razgovora na lokalnoj
 ruti `/razgovor/`, prije odlaska na vanjski Cal.com booking link.
 
@@ -124,17 +124,44 @@ Vizualni asseti:
 
 ## Deployment
 
-Production is moving to Cloudflare Pages from the GitHub repository.
+Production runs on Cloudflare Pages. The preferred workflow is local direct
+deploy from this repository, without GitHub Pages or Cloudflare Git integration.
 
 Cloudflare Pages settings:
 
-- Repository: `bitcoin-savjetovanje/bitcoin-savjetovanje.github.io`
-- Production branch: `main`
+- Project: `bitcoin-savjetovanje`
+- Production branch / deploy branch: `main`
 - Framework preset: `Vite`
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Node version: `22.22.1` from `.node-version`
 - Environment variables: none required; do not set `GITHUB_PAGES`
+
+One-time Cloudflare auth check:
+
+```bash
+npm run cloudflare:login
+npm run cloudflare:whoami
+```
+
+Normal local production deploy:
+
+```bash
+npm run deploy:cloudflare
+```
+
+This runs:
+
+- `npm run build`
+- `npm run verify:dist`
+- `wrangler pages deploy dist --project-name bitcoin-savjetovanje --branch main`
+
+By default the deploy script refuses to publish when the working tree has
+uncommitted changes. To intentionally publish the current local state:
+
+```bash
+npm run deploy:cloudflare:dirty
+```
 
 The CI workflow runs:
 
@@ -147,5 +174,5 @@ The verification script checks prerendered HTML, sitemap, robots, schema, guide
 pages, the program page, security/privacy pages, OG asset, visual pass copy
 markers and core CTA/link metadata.
 
-The legacy GitHub Pages deploy workflow should be disabled or removed after the
-Cloudflare Pages production domain is live.
+The legacy GitHub Pages deploy workflow has been removed. Cloudflare Git
+integration is optional and is not required for production deploys.

@@ -417,6 +417,9 @@
   .back-to-top-button {
     right: max(0.75rem, env(safe-area-inset-right));
     bottom: max(0rem, calc(env(safe-area-inset-bottom) - 1rem));
+    transition-property: background-color, box-shadow, color, transform;
+    transition-duration: 160ms;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   }
 
   .site-nav-link {
@@ -2923,7 +2926,13 @@
 
   .back-to-top-button {
     right: max(0.65rem, env(safe-area-inset-right));
-    bottom: calc(max(0rem, calc(env(safe-area-inset-bottom) - 1rem)) + 0.24rem);
+    bottom: calc(
+      max(0.65rem, calc(env(safe-area-inset-bottom) + 0.25rem)) + 4.15rem
+    );
+    background: color-mix(in oklab, var(--paper), transparent 2%);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.62) inset,
+      0 0.75rem 1.6rem rgba(35, 28, 18, 0.16);
   }
 
   .sticky-mobile-cta a {
@@ -4225,6 +4234,43 @@
   line-height: 1.25;
 }
 
+.guide-heading-with-icon {
+  display: flex;
+  gap: 0.68rem;
+  align-items: flex-start;
+}
+
+.guide-heading-with-icon > span:last-child {
+  min-width: 0;
+}
+
+.guide-pictogram {
+  display: inline-grid;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.02rem;
+  place-items: center;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--guide-theme), var(--paper) 82%);
+  color: color-mix(in oklab, var(--guide-theme), var(--ink) 18%);
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--guide-theme), transparent 66%) inset,
+    0 0.45rem 1rem rgba(74, 54, 26, 0.08);
+}
+
+.guide-pictogram--inline {
+  width: 1.45rem;
+  height: 1.45rem;
+  margin-top: -0.12rem;
+  background: color-mix(in oklab, var(--guide-theme), var(--paper) 78%);
+}
+
+.guide-pictogram--inline svg {
+  width: 0.82rem;
+  height: 0.82rem;
+}
+
 .guide-visual-card p,
 .guide-video-card p,
 .guide-toc-card a,
@@ -4431,6 +4477,12 @@
   font-size: 0.78rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+.guide-callout__title {
+  display: flex !important;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .guide-callout p {
@@ -8454,6 +8506,26 @@
 
   .guide-content-section h3 {
     font-size: clamp(1.12rem, 5.5vw, 1.32rem);
+  }
+
+  .guide-heading-with-icon {
+    gap: 0.55rem;
+  }
+
+  .guide-pictogram {
+    width: 1.72rem;
+    height: 1.72rem;
+    margin-top: 0.01rem;
+  }
+
+  .guide-pictogram svg {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .guide-pictogram--inline {
+    width: 1.35rem;
+    height: 1.35rem;
   }
 
   .guide-summary-callout,

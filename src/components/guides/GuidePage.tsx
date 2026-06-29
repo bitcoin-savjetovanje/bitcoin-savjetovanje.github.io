@@ -1,4 +1,14 @@
-import { ArrowRight, CalendarDays } from "lucide-react"
+import {
+  ArrowRight,
+  BookOpen,
+  CalendarDays,
+  CheckCircle2,
+  FileText,
+  ListChecks,
+  ShieldCheck,
+  Users,
+  type LucideIcon,
+} from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { GuideCoverFigure } from "@/components/guides/GuideCoverFigure"
@@ -65,6 +75,29 @@ function guideListItemClass(item: string) {
   return isStandaloneFormula(item)
     ? "guide-formula-list-item"
     : "list-disc pl-1"
+}
+
+const guideSectionIcons: LucideIcon[] = [
+  BookOpen,
+  CheckCircle2,
+  ShieldCheck,
+  Users,
+  ListChecks,
+  FileText,
+]
+
+function GuidePictogram({
+  icon: Icon,
+  className,
+}: {
+  icon: LucideIcon
+  className?: string
+}) {
+  return (
+    <span className={`guide-pictogram ${className ?? ""}`} aria-hidden="true">
+      <Icon className="size-4" strokeWidth={2.25} />
+    </span>
+  )
 }
 
 export function GuidePage({ guide }: { guide: Guide }) {
@@ -233,7 +266,10 @@ export function GuidePage({ guide }: { guide: Guide }) {
             className="guide-summary-callout"
             aria-labelledby="guide-summary-heading"
           >
-            <h2 id="guide-summary-heading">{guide.summary.title}</h2>
+            <h2 id="guide-summary-heading" className="guide-heading-with-icon">
+              <GuidePictogram icon={CheckCircle2} />
+              <span>{guide.summary.title}</span>
+            </h2>
             <ul>
               {guide.summary.items.map((item) => (
                 <li key={item}>{renderWithGlossary(item)}</li>
@@ -243,7 +279,10 @@ export function GuidePage({ guide }: { guide: Guide }) {
         ) : null}
         {sectionLinks.length > 0 ? (
           <nav aria-labelledby="guide-toc-heading" className="guide-toc-card">
-            <h2 id="guide-toc-heading">U ovom vodiču</h2>
+            <h2 id="guide-toc-heading" className="guide-heading-with-icon">
+              <GuidePictogram icon={ListChecks} />
+              <span>U ovom vodiču</span>
+            </h2>
             <ol>
               {sectionLinks.map((section) => (
                 <li key={section.id}>
@@ -256,19 +295,34 @@ export function GuidePage({ guide }: { guide: Guide }) {
         <div className="guide-layout">
           <div className="min-w-0">
             <div className="space-y-12">
-              {guide.sections.map((section) => (
+              {guide.sections.map((section, sectionIndex) => (
                 <section
                   key={section.heading}
                   id={slugifyHeading(section.heading)}
                   className="guide-content-section scroll-mt-24"
                 >
-                  <h2>{section.heading}</h2>
+                  <h2 className="guide-heading-with-icon">
+                    <GuidePictogram
+                      icon={
+                        guideSectionIcons[
+                          sectionIndex % guideSectionIcons.length
+                        ]
+                      }
+                    />
+                    <span>{section.heading}</span>
+                  </h2>
                   <div>
                     {section.body.map(renderGuideParagraph)}
                     {section.callout ? (
                       <blockquote className="guide-callout">
                         {section.calloutTitle ? (
-                          <strong>{section.calloutTitle}</strong>
+                          <strong className="guide-callout__title">
+                            <GuidePictogram
+                              icon={CheckCircle2}
+                              className="guide-pictogram--inline"
+                            />
+                            <span>{section.calloutTitle}</span>
+                          </strong>
                         ) : null}
                         <p>{renderWithGlossary(section.callout)}</p>
                       </blockquote>
@@ -372,7 +426,13 @@ export function GuidePage({ guide }: { guide: Guide }) {
                             {subsection.callout ? (
                               <blockquote className="guide-callout">
                                 {subsection.calloutTitle ? (
-                                  <strong>{subsection.calloutTitle}</strong>
+                                  <strong className="guide-callout__title">
+                                    <GuidePictogram
+                                      icon={CheckCircle2}
+                                      className="guide-pictogram--inline"
+                                    />
+                                    <span>{subsection.calloutTitle}</span>
+                                  </strong>
                                 ) : null}
                                 <p>{renderWithGlossary(subsection.callout)}</p>
                               </blockquote>

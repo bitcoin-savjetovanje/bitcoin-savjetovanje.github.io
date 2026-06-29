@@ -353,14 +353,17 @@
     position: fixed;
     left: 50%;
     right: auto;
-    bottom: max(0rem, calc(env(safe-area-inset-bottom) - 1rem));
-    width: min(22rem, calc(100vw - 1.5rem));
+    bottom: max(0.65rem, calc(env(safe-area-inset-bottom) + 0.25rem));
+    width: min(20rem, calc(100vw - 1.25rem));
     z-index: 40;
-    padding: 0.2rem;
-    border: 1px solid color-mix(in oklab, var(--border), transparent 30%);
+    padding: 0.24rem;
+    border: 1px solid color-mix(in oklab, var(--cta-orange), white 38%);
     border-radius: 9999px;
-    background: color-mix(in oklab, var(--background), transparent 8%);
-    box-shadow: 0 12px 28px hsl(0 0% 0% / 0.13);
+    background: color-mix(in oklab, var(--cta-orange), var(--paper) 86%);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.72) inset,
+      0 1rem 2.2rem rgba(70, 40, 12, 0.22),
+      0 0.35rem 0.9rem rgba(217, 120, 36, 0.2);
     backdrop-filter: blur(18px);
     opacity: 0;
     pointer-events: none;
@@ -377,6 +380,38 @@
     opacity: 1;
     pointer-events: auto;
     transform: translate(-50%, var(--mobile-cta-visual-shift, 0px));
+  }
+
+  .sticky-mobile-cta a {
+    min-height: 2.9rem;
+    border: 0 !important;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--cta-orange), white 14%),
+      var(--cta-orange)
+    ) !important;
+    color: var(--ink) !important;
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+      0 0.75rem 1.4rem rgba(117, 61, 12, 0.28);
+    transition-property: background-color, box-shadow, transform;
+    transition-duration: 160ms;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .sticky-mobile-cta a:hover,
+  .sticky-mobile-cta a:focus-visible {
+    color: var(--ink) !important;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+      0 0.9rem 1.6rem rgba(117, 61, 12, 0.34);
+  }
+
+  .sticky-mobile-cta a:active {
+    transform: scale(0.96);
   }
 
   .back-to-top-button {
@@ -2882,8 +2917,8 @@
   }
 
   .sticky-mobile-cta {
-    bottom: max(0rem, calc(env(safe-area-inset-bottom) - 1rem));
-    width: min(17.75rem, calc(100vw - 5rem));
+    bottom: max(0.65rem, calc(env(safe-area-inset-bottom) + 0.25rem));
+    width: min(19.25rem, calc(100vw - 3.75rem));
   }
 
   .back-to-top-button {
@@ -2892,9 +2927,9 @@
   }
 
   .sticky-mobile-cta a {
-    height: 2.45rem;
-    min-height: 2.45rem;
-    font-size: 0.78rem;
+    height: 2.9rem;
+    min-height: 2.9rem;
+    font-size: 0.9rem;
   }
 
   .conversation-calendar-card,

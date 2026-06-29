@@ -357,11 +357,10 @@
     width: min(20rem, calc(100vw - 1.25rem));
     z-index: 40;
     padding: 0.24rem;
-    border: 1px solid color-mix(in oklab, var(--cta-orange), white 38%);
+    border: 0;
     border-radius: 9999px;
     background: color-mix(in oklab, var(--cta-orange), var(--paper) 86%);
     box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.72) inset,
       0 1rem 2.2rem rgba(70, 40, 12, 0.22),
       0 0.35rem 0.9rem rgba(217, 120, 36, 0.2);
     backdrop-filter: blur(18px);
@@ -394,9 +393,7 @@
     font-size: 0.92rem;
     font-weight: 800;
     letter-spacing: 0.01em;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.18) inset,
-      0 0.75rem 1.4rem rgba(117, 61, 12, 0.28);
+    box-shadow: 0 0.75rem 1.4rem rgba(117, 61, 12, 0.28);
     transition-property: background-color, box-shadow, transform;
     transition-duration: 160ms;
     transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
@@ -405,9 +402,7 @@
   .sticky-mobile-cta a:hover,
   .sticky-mobile-cta a:focus-visible {
     color: var(--ink) !important;
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.22) inset,
-      0 0.9rem 1.6rem rgba(117, 61, 12, 0.34);
+    box-shadow: 0 0.9rem 1.6rem rgba(117, 61, 12, 0.34);
   }
 
   .sticky-mobile-cta a:active {

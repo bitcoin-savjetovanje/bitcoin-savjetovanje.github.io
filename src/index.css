@@ -4396,6 +4396,14 @@
   text-wrap: pretty;
 }
 
+.guide-content-section .guide-key-sentence {
+  margin: 0.25rem 0;
+  color: var(--ink);
+  font-size: clamp(1.08rem, 1vw + 0.86rem, 1.24rem);
+  font-weight: 760;
+  line-height: 1.45;
+}
+
 .guide-source-list {
   display: grid;
   gap: 0.55rem;
@@ -8485,8 +8493,13 @@
 
   .guide-content-section p,
   .guide-content-section li {
-    font-size: 1rem;
-    line-height: 1.62;
+    font-size: 0.96rem;
+    line-height: 1.58;
+  }
+
+  .guide-content-section .guide-key-sentence {
+    font-size: 1.02rem;
+    line-height: 1.42;
   }
 
   .guide-visual-card h2,
@@ -8534,7 +8547,17 @@
   .guide-final-cta-card,
   .guide-faq-item,
   .guide-disclaimer-note {
-    padding: 0.95rem;
+    padding: 0.85rem;
+  }
+
+  .guide-summary-callout ul {
+    gap: 0.48rem;
+    margin-top: 0.7rem;
+  }
+
+  .guide-section-card p {
+    font-size: 0.92rem;
+    line-height: 1.52;
   }
 
   .guide-toc-card {

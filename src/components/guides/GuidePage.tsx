@@ -18,8 +18,15 @@ import { GuideSectionVisual } from "@/components/guides/GuideSectionVisual"
 import { GuideStickyCta } from "@/components/guides/GuideStickyCta"
 import { GuideVideoEmbed } from "@/components/guides/GuideVideoEmbed"
 import { Button } from "@/components/ui/button"
-import { resolveGuideTheme } from "@/content/guideVisuals"
-import { findGuide, guideHref, guides, type Guide } from "@/content/guides"
+import { resolveGuideCover, resolveGuideTheme } from "@/content/guideVisuals"
+import {
+  findGuide,
+  guideHref,
+  guides,
+  type Guide,
+  type GuideSection,
+  type GuideSectionVisual as GuideSectionVisualContent,
+} from "@/content/guides"
 import { CONVERSATION_PATH } from "@/content/site"
 import {
   estimateGuideReadingMinutes,
@@ -58,13 +65,31 @@ function isStandaloneFormula(text: string) {
   )
 }
 
+function isStandaloneKeySentence(text: string) {
+  const trimmed = text.trim()
+
+  if (isStandaloneFormula(trimmed) || trimmed.length > 145) {
+    return false
+  }
+
+  return (
+    /[.!?]$/.test(trimmed) &&
+    /\b(Bitcoin|Dug|Davanje|Cilj|Pravilo|Najvažnije|Dobar|Loše|Stvarni|Ne\s|Nije|Zato|Ako)\b/i.test(
+      trimmed
+    )
+  )
+}
+
 function renderGuideParagraph(paragraph: string) {
   return (
     <p
       key={paragraph}
-      className={
-        isStandaloneFormula(paragraph) ? "guide-formula-line" : undefined
-      }
+      className={[
+        isStandaloneFormula(paragraph) ? "guide-formula-line" : null,
+        isStandaloneKeySentence(paragraph) ? "guide-key-sentence" : null,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       {renderWithGlossary(paragraph)}
     </p>
@@ -86,6 +111,25 @@ const guideSectionIcons: LucideIcon[] = [
   FileText,
 ]
 
+const categorySummaryIntro: Record<Guide["category"], string> = {
+  "Osobni proračun nulte osnove":
+    "Prvo se vidi što novac mora napraviti prije Bitcoin odluke.",
+  "Život bez duga":
+    "Prvo se vidi kako dug mijenja mir, vrijeme i sposobnost čekanja.",
+  Davanje:
+    "Prvo se vidi kada davanje dolazi iz reda, a kada iz pritiska.",
+  "Bitcoin kao novac":
+    "Prvo se razdvaja Bitcoin kao novac od špekulacije, kapitala i navike.",
+  "Neto imovina":
+    "Prvo se razdvaja novac, potrošnja, kapital i stvarna uloga Bitcoina.",
+  "Vrijeme i volatilnost":
+    "Prvo se razdvaja tržišni signal od osobnih pravila odlučivanja.",
+  "Sigurnost i obitelj":
+    "Prvo se razdvaja kontrola, oporavak i ono što obitelj stvarno može provesti.",
+  Poslovanje:
+    "Prvo se razdvaja likvidnost, evidencija, odgovornost i sigurnost.",
+}
+
 function GuidePictogram({
   icon: Icon,
   className,
@@ -100,9 +144,76 @@ function GuidePictogram({
   )
 }
 
+function buildGuideSummary(guide: Guide) {
+  if (guide.summary || guide.sections.length === 0) {
+    return guide.summary
+  }
+
+  return {
+    title: "Brza orijentacija",
+    items: [
+      categorySummaryIntro[guide.category],
+      guide.practicalQuestion
+        ? `Praktično pitanje: ${guide.practicalQuestion}`
+        : `Tema vodiča: ${guide.category}.`,
+      "Okvir prvo razdvaja uloge, rizike i sljedeći razuman korak.",
+    ],
+  }
+}
+
+function resolveInlineSectionVisual(
+  guide: Guide,
+  section: GuideSection,
+  sectionIndex: number
+): GuideSectionVisualContent | undefined {
+  if (section.visual) {
+    return section.visual
+  }
+
+  const guideHasSectionVisual = guide.sections.some((item) => item.visual)
+
+  const visualSectionIndex = Math.min(1, guide.sections.length - 1)
+
+  if (guideHasSectionVisual || sectionIndex !== visualSectionIndex) {
+    return undefined
+  }
+
+  const cover = resolveGuideCover(guide)
+
+  return {
+    type: "image-card",
+    variant: "full-width",
+    title: section.heading,
+    caption:
+      cover.caption ??
+      "Vizualna pauza koja povezuje temu vodiča s konkretnim čitateljskim okvirom.",
+    src: cover.webpSrc ?? cover.src,
+    alt: cover.alt,
+  }
+}
+
+function GuideSectionVisualSlot({
+  guide,
+  section,
+  sectionIndex,
+}: {
+  guide: Guide
+  section: GuideSection
+  sectionIndex: number
+}) {
+  const visual = resolveInlineSectionVisual(guide, section, sectionIndex)
+
+  if (!visual) {
+    return null
+  }
+
+  return <GuideSectionVisual visual={visual} />
+}
+
 export function GuidePage({ guide }: { guide: Guide }) {
   const [readingProgress, setReadingProgress] = useState(0)
   const guideTheme = resolveGuideTheme(guide)
+  const guideSummary = buildGuideSummary(guide)
   const relatedGuides = guide.relatedSlugs
     .map((slug) => findGuide(slug))
     .filter((item): item is Guide => Boolean(item))
@@ -261,17 +372,17 @@ export function GuidePage({ guide }: { guide: Guide }) {
         {guide.introVisual ? (
           <GuideSectionVisual visual={guide.introVisual} />
         ) : null}
-        {guide.summary ? (
+        {guideSummary ? (
           <section
             className="guide-summary-callout"
             aria-labelledby="guide-summary-heading"
           >
             <h2 id="guide-summary-heading" className="guide-heading-with-icon">
               <GuidePictogram icon={CheckCircle2} />
-              <span>{guide.summary.title}</span>
+              <span>{guideSummary.title}</span>
             </h2>
             <ul>
-              {guide.summary.items.map((item) => (
+              {guideSummary.items.map((item) => (
                 <li key={item}>{renderWithGlossary(item)}</li>
               ))}
             </ul>
@@ -527,9 +638,11 @@ export function GuidePage({ guide }: { guide: Guide }) {
                         ))}
                       </div>
                     ) : null}
-                    {section.visual ? (
-                      <GuideSectionVisual visual={section.visual} />
-                    ) : null}
+                    <GuideSectionVisualSlot
+                      guide={guide}
+                      section={section}
+                      sectionIndex={sectionIndex}
+                    />
                   </div>
                 </section>
               ))}

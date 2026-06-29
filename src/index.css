@@ -4272,13 +4272,13 @@
 }
 
 .guide-layout {
-  margin-top: clamp(2.5rem, 4.8vw, 4rem);
+  margin-top: clamp(2.35rem, 4.4vw, 3.6rem);
 }
 
 .guide-content-section > div {
   display: grid;
-  gap: 1.05rem;
-  margin-top: 1rem;
+  gap: 0.95rem;
+  margin-top: 0.9rem;
 }
 
 .guide-subsection-list {
@@ -4315,8 +4315,9 @@
 .guide-content-section p,
 .guide-content-section li {
   font-family: var(--font-sans);
-  font-size: 1.08rem;
-  line-height: 1.72;
+  font-size: clamp(1rem, 0.96rem + 0.22vw, 1.07rem);
+  line-height: 1.68;
+  text-wrap: pretty;
 }
 
 .guide-source-list {
@@ -4662,6 +4663,10 @@
   font-family: var(--font-sans);
   line-height: 1.62;
   list-style: disc;
+}
+
+.guide-content-section + .guide-content-section {
+  margin-top: clamp(2.85rem, 5.2vw, 4.4rem);
 }
 
 .guide-final-cta-card {
@@ -8373,6 +8378,68 @@
     padding-inline: 1.1rem;
   }
 
+  .guide-editorial-page {
+    width: min(100% - 0.5rem, 1400px);
+    padding-inline: 0.3rem;
+  }
+
+  .guide-content-shell {
+    width: 100%;
+    padding: 1.65rem 0.625rem 2.5rem;
+  }
+
+  .guide-layout {
+    margin-top: 2rem;
+  }
+
+  .guide-content-section + .guide-content-section {
+    margin-top: 2.65rem;
+  }
+
+  .guide-content-section > div {
+    gap: 0.82rem;
+    margin-top: 0.75rem;
+  }
+
+  .guide-content-section p,
+  .guide-content-section li {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .guide-visual-card h2,
+  .guide-video-card h2,
+  .guide-content-section h2,
+  .guide-question-card h2,
+  .guide-final-cta-card h2,
+  .guide-faq-section h2 {
+    font-size: clamp(1.42rem, 8vw, 1.8rem);
+    line-height: 1.14;
+  }
+
+  .guide-content-section h3 {
+    font-size: clamp(1.12rem, 5.5vw, 1.32rem);
+  }
+
+  .guide-summary-callout,
+  .guide-status-note,
+  .guide-callout,
+  .guide-data-card,
+  .guide-section-card,
+  .guide-question-card,
+  .guide-next-card,
+  .guide-extra-cta-card,
+  .guide-final-cta-card,
+  .guide-faq-item,
+  .guide-disclaimer-note {
+    padding: 0.95rem;
+  }
+
+  .guide-toc-card {
+    margin-top: 1.7rem;
+    padding: 1rem;
+  }
+
   .guides-index-hero {
     grid-template-columns: 1fr;
   }
@@ -10881,5 +10948,17 @@
 
   .service-page .service-hero__image {
     max-width: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .guide-editorial-page {
+    width: min(100% - 0.5rem, 1400px);
+    padding-inline: 0.3rem;
+  }
+
+  .guide-content-shell {
+    width: 100%;
+    padding-inline: 0.625rem;
   }
 }

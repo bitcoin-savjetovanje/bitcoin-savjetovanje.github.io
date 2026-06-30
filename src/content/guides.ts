@@ -323,6 +323,21 @@ function custodySectionImage(
   }
 }
 
+function zabaSectionImage(
+  title: string,
+  caption: string,
+  fileName: string,
+  alt: string
+): GuideSectionVisual {
+  return {
+    type: "image-card",
+    title,
+    caption,
+    src: `/images/guide-sections/${fileName}`,
+    alt,
+  }
+}
+
 const guideEntries: Guide[] = [
   {
     slug: "zaba-bitcoin-etf-certifikat",
@@ -393,6 +408,9 @@ const guideEntries: Guide[] = [
       {
         heading: "Tri različite stvari",
         body: ["Prije analize treba razlikovati tri razine:"],
+        calloutTitle: "Prvo imenovati stvar",
+        callout:
+          "Ako osoba misli da kupuje Bitcoin, a zapravo kupuje dužnički certifikat vezan uz IBIT, odluka počinje na pogrešnom mjestu.",
         table: {
           columns: ["Proizvod", "Što osoba posjeduje"],
           rows: [
@@ -411,10 +429,19 @@ const guideEntries: Guide[] = [
           "To znači da kupac certifikata nema Bitcoin. Nema privatne ključeve. Nema ni izravna prava prema IBIT-u. Posjeduje dužnički instrument koji je izdao UniCredit.",
           "IBIT sam po sebi naplaćuje sponzorsku naknadu od 0,25% godišnje. Ta se naknada ne pojavljuje kao zaseban račun Zabinom klijentu, nego je ugrađena u kretanje vrijednosti IBIT-a, jer trust prodaje dio Bitcoina radi podmirenja svojih troškova.",
         ],
+        visual: zabaSectionImage(
+          "Tri sloja nisu ista stvar.",
+          "Bitcoin, ETF udjel i bankarski certifikat mogu pratiti istu temu, ali nose različita prava, rizike i razinu kontrole.",
+          "zaba-bitcoin-certifikat-tri-sloja-20260630.webp",
+          "Mediteranska radna scena s odvojenim kamenim Bitcoin simbolom, investicijskom mapom i certifikatom iza stakla"
+        ),
       },
       {
         heading: "Kako se računa isplata",
         body: ["Za jedan certifikat vrijedi:"],
+        calloutTitle: "Strop je dio proizvoda",
+        callout:
+          "Zaštita glavnice i ograničenje prinosa dolaze u istom paketu: certifikat smanjuje jedan oblik pada, ali odrezuje rast iznad dogovorene granice.",
         dataCards: [
           {
             value: "1.020 USD",
@@ -464,6 +491,12 @@ const guideEntries: Guide[] = [
             ],
           },
         ],
+        visual: zabaSectionImage(
+          "Isplata se kreće unutar zadanog raspona.",
+          "Na dospijeću postoji donja granica izračuna, ali postoji i gornja granica koja zaustavlja prinos iznad 50% nominale.",
+          "zaba-bitcoin-certifikat-raspon-isplate-20260630.webp",
+          "Mediteranska kamena scena s Bitcoin simbolom između niske kamene podloge i prozirnog gornjeg ograničenja"
+        ),
       },
       {
         heading: "Što znači 100% zaštita glavnice",
@@ -493,10 +526,30 @@ const guideEntries: Guide[] = [
             ],
           ],
         },
+        cards: [
+          {
+            title: "Samo na dospijeću",
+            text: "Zaštita se ne ponaša isto ako klijent izlazi prije roka.",
+          },
+          {
+            title: "Samo ako izdavatelj plati",
+            text: "Minimalna isplata ovisi o sposobnosti izdavatelja da ispuni obvezu.",
+          },
+          {
+            title: "Samo nominalno u USD",
+            text: "Zaštićeni iznos nije isto što i očuvana kupovna moć u eurima ili Bitcoinu.",
+          },
+        ],
         items: [
           "KID izričito upozorava da zaštita ne vrijedi pri ranom izlasku te da bi u slučaju nemogućnosti isplate izdavatelja ulagatelj mogao izgubiti cjelokupni kapital. Proizvod nije pokriven osiguranjem depozita, a u postupku sanacije potraživanje može biti smanjeno, ukinuto ili pretvoreno u dionice izdavatelja.",
           "Zato „zaštićena glavnica” nije isto što i bankovni depozit.",
         ],
+        visual: zabaSectionImage(
+          "Zaštita ima granice.",
+          "Zaštićena glavnica ne uklanja sve rizike: rok, izdavatelj, valuta, troškovi i Bitcoin kupovna moć ostaju odvojena pitanja.",
+          "zaba-bitcoin-certifikat-zastita-glavnice-20260630.webp",
+          "Mediteranska scena s dokumentom u kamenoj zaštitnoj podlozi, kalendarom i odvojenim simbolima rizika oko njega"
+        ),
       },
       {
         heading: "Koliki su troškovi",
@@ -511,6 +564,9 @@ const guideEntries: Guide[] = [
           "očekivani godišnji prinos od 9% prije troškova i 7,7% nakon troškova proizvoda.",
           "Zabin zaseban dokument o troškovima za pretpostavljenih 10.000 USD prikazuje:",
         ],
+        calloutTitle: "Trošak nije samo jedna naknada",
+        callout:
+          "Kod strukturiranog proizvoda dio troška vidi se odmah, a dio je ugrađen u cijenu, dokumentaciju i godišnji utjecaj na povrat.",
         table: {
           columns: ["Stavka", "Iznos"],
           rows: [
@@ -522,12 +578,32 @@ const guideEntries: Guide[] = [
             ["Godišnji utjecaj na povrat pri dospijeću", "1,50%"],
           ],
         },
+        cards: [
+          {
+            title: "Vidljivi agio",
+            text: "Klijent plaća 1.020 USD za nominalu od 1.000 USD.",
+          },
+          {
+            title: "Ugrađeni trošak proizvoda",
+            text: "Dio ekonomskog troška nalazi se u konstrukciji i prodajnoj cijeni proizvoda.",
+          },
+          {
+            title: "Skrbništvo i usluga",
+            text: "Zasebne naknade treba gledati uz rok držanja i stvarni povrat.",
+          },
+        ],
         items: [
           "Poticaj distributeru od 400 USD uključen je u iskazane troškove proizvoda i nije dodatna naknada povrh ukupnog iznosa.",
           "Dokumenti koriste različite pojmove: ukupni trošak, trošak proizvoda, trošak usluge i utjecaj troškova na povrat. Zato ih ne treba nekritički zbrajati.",
           "Najpošteniji sažetak glasi:",
           "Vidljivi agio iznosi 2%, ali ukupni ekonomski trošak proizvoda veći je od samog agija. Zabin dokument procjenjuje ukupan godišnji utjecaj troškova pri držanju do dospijeća na približno 1,5%.",
         ],
+        visual: zabaSectionImage(
+          "Troškovi su slojeviti.",
+          "Jedan proizvod može imati vidljiv ulazni trošak, ugrađene troškove proizvoda i zasebne usluge koje zajedno utječu na povrat.",
+          "zaba-bitcoin-certifikat-troskovi-20260630.webp",
+          "Mediteranska radna scena sa slojevima papira i kamena, certifikatom i povećalom za pregled troškova"
+        ),
       },
       {
         heading: "Power Law kao ilustracija oportunitetnog troška",
@@ -552,6 +628,20 @@ const guideEntries: Guide[] = [
             ["Medijalni trend", "101.508"],
           ],
         },
+        cards: [
+          {
+            title: "Nije prognoza",
+            text: "Model pomaže razmišljati o redu veličine, ali ne jamči buduću cijenu.",
+          },
+          {
+            title: "Nije formula certifikata",
+            text: "Certifikat se računa prema IBIT-u i datumima iz dokumentacije proizvoda.",
+          },
+          {
+            title: "Jedinica mjere je važna",
+            text: "Dolarni rezultat može izgledati zaštićeno dok kupovna moć izražena u Bitcoinu pada.",
+          },
+        ],
         visual: {
           type: "chart-gallery",
           title: "Power Law scenariji za rujan 2031.",
@@ -643,6 +733,9 @@ const guideEntries: Guide[] = [
           "10.200 / 64.362 = 0,15848 BTC",
           "Modelni ishodi bili bi:",
         ],
+        calloutTitle: "Oportunitetni trošak nije naknada",
+        callout:
+          "Razlika u ovim scenarijima nije novac koji banka dodatno naplaćuje, nego rast kojega se klijent odriče kada prihvati gornju granicu isplate.",
         table: {
           columns: [
             "Scenarij za 16. 9. 2031.",
@@ -663,10 +756,33 @@ const guideEntries: Guide[] = [
           "15.000 USD pri cijeni od 404.820 USD predstavlja 0,03705 BTC",
           "U modelnim scenarijima maksimalna isplata certifikata izgubila bi približno 68,3%, odnosno 76,6% početne kupovne moći izražene u Bitcoinu.",
         ],
+        visual: zabaSectionImage(
+          "Ograničena isplata mijenja mogući ishod.",
+          "Certifikat može imati mirniji nominalni okvir, ali u snažnom Bitcoin scenariju otvoreni rast i gornja granica prinosa brzo se razdvoje.",
+          "zaba-bitcoin-certifikat-oportunitetni-trosak-20260630.webp",
+          "Mediteranska scena s papirom na kojem se jedan put zaustavlja kod certifikata, a drugi nastavlja prema Bitcoin simbolu na višoj kamenoj razini"
+        ),
       },
       {
         heading: "Kome proizvod može odgovarati",
         body: ["Proizvod može biti racionalan za osobu koja:"],
+        calloutTitle: "Ovo nije početnički proizvod",
+        callout:
+          "Prikladnost ovisi o roku, valuti, znanju, toleranciji na rizik izdavatelja i spremnosti da se rast iznad 50% prepusti.",
+        cards: [
+          {
+            title: "Rok odgovara cilju",
+            text: "Novac ne bi trebao trebati prije dospijeća proizvoda.",
+          },
+          {
+            title: "USD rizik je razumljiv",
+            text: "Rezultat se mora gledati i kroz valutni učinak, ne samo kroz cijenu Bitcoina.",
+          },
+          {
+            title: "Struktura je jasna",
+            text: "Osoba razumije da ne posjeduje Bitcoin ni izravni udjel u IBIT-u.",
+          },
+        ],
         items: [
           "već ima imovinu i obveze u USD",
           "neće trebati novac prije rujna 2031.",
@@ -676,6 +792,12 @@ const guideEntries: Guide[] = [
           "prihvaća da nema Bitcoin ni izravna prava prema IBIT-u.",
           "Službena dokumentacija proizvod ne svrstava u početnički „probni” instrument. Negativno ciljano tržište obuhvaća osobe bez prethodnog znanja i osobe samo s osnovnom razinom znanja, dok javna stranica navodi naprednu razinu znanja i iskustva.",
         ],
+        visual: zabaSectionImage(
+          "Prikladnost je pitanje konteksta.",
+          "Isti proizvod može imati smisla jednoj osobi, a biti pogrešan za drugu ako se razlikuju rok, valuta, znanje i cilj.",
+          "zaba-bitcoin-certifikat-prikladnost-20260630.webp",
+          "Mediteranski savjetodavni stol s checklistom, certifikatom, kalendarom, neutralnim kovanicama i odvojenim Bitcoin simbolom"
+        ),
       },
       {
         heading: "Zaključak",
@@ -684,6 +806,23 @@ const guideEntries: Guide[] = [
           "Pokazuje da je Bitcoin postao dovoljno relevantan da se oko njega grade bankarski strukturirani proizvodi za hrvatsko tržište. Donosi novu mogućnost ljudima koji žele reguliran okvir i nominalnu zaštitu na dospijeću.",
           "Ali nije Bitcoin bez rizika.",
           "Kupac zamjenjuje jednu vrstu rizika drugom:",
+        ],
+        calloutTitle: "Dobra vijest nije isto što i jednostavna odluka",
+        callout:
+          "Važno je da banke uopće nude proizvode povezane s Bitcoinom, ali kupac i dalje mora znati koju vrstu prava, rizika i ograničenja zapravo prihvaća.",
+        cards: [
+          {
+            title: "Izloženost cijeni",
+            text: "Sudjelujete u kretanju instrumenta koji prati Bitcoin, ali ne držite Bitcoin.",
+          },
+          {
+            title: "Strukturirani proizvod",
+            text: "Dobivate unaprijed zadanu isplatu s rokom, izdavateljem i gornjom granicom.",
+          },
+          {
+            title: "Vlastiti Bitcoin",
+            text: "Druga odluka, s drugim obvezama: privatni ključevi, oporavak i odgovornost.",
+          },
         ],
         items: [
           "dobiva pravo na minimalnu isplatu od 1.000 USD po certifikatu na dospijeću, iako je pri upisu platio 1.020 USD, pod uvjetom da izdavatelj može ispuniti svoju obvezu",
@@ -715,6 +854,12 @@ const guideEntries: Guide[] = [
             ],
           },
         ],
+        visual: zabaSectionImage(
+          "Tri odluke treba držati odvojeno.",
+          "Izloženost cijeni Bitcoina, udjel u Bitcoin ETF-u i držanje Bitcoina pod vlastitom kontrolom nisu ista odluka.",
+          "zaba-bitcoin-certifikat-tri-odluke-20260630.webp",
+          "Mediteranska konzultacijska scena s tri odvojene kamene kartice za tržišnu izloženost, fond i Bitcoin s ključem"
+        ),
       },
       {
         heading: "Izvori i dokumenti",

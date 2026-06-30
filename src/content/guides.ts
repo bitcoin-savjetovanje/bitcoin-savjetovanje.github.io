@@ -338,6 +338,21 @@ function zabaSectionImage(
   }
 }
 
+function etfTreasurySectionImage(
+  title: string,
+  caption: string,
+  fileName: string,
+  alt: string
+): GuideSectionVisual {
+  return {
+    type: "image-card",
+    title,
+    caption,
+    src: `/images/guide-sections/${fileName}`,
+    alt,
+  }
+}
+
 const guideEntries: Guide[] = [
   {
     slug: "zaba-bitcoin-etf-certifikat",
@@ -3084,7 +3099,7 @@ const guideEntries: Guide[] = [
     freshness: "često se mijenja",
     order: 92,
     publishedAt: "2026-05-12",
-    updatedAt: "2026-05-12",
+    updatedAt: "2026-07-01",
     practicalQuestion:
       "Znate li posjedujete li bitcoin, vrijednosni papir, potraživanje ili kapitalnu izloženost povezanu s Bitcoinom?",
     relatedSlugs: [
@@ -3124,6 +3139,29 @@ const guideEntries: Guide[] = [
           "Neki oblici pripadaju području novca pod osobnom kontrolom. Neki pripadaju području kapitalnih dobara. Neki su prijelazna rješenja. Neki su prikladni samo za osobe koje razumiju dodatne rizike.",
           "Zato ih treba jasno razdvojiti.",
         ],
+        calloutTitle: "Prvo razdvojiti oblik",
+        callout:
+          "Kada netko kaže da ima Bitcoin, prvo pitanje nije koliki je iznos, nego u kojem obliku ga ima: vlastiti bitcoin, financijski proizvod ili kapitalnu izloženost povezanu s Bitcoinom.",
+        cards: [
+          {
+            title: "Novac pod kontrolom",
+            text: "Bitcoin u vlastitoj pohrani ima ulogu novca koji možete premjestiti bez dopuštenja posrednika.",
+          },
+          {
+            title: "Financijski proizvod",
+            text: "ETF ili brokerski proizvod može pratiti temu Bitcoina, ali ostaje unutar pravila financijskog sustava.",
+          },
+          {
+            title: "Kapitalna izloženost",
+            text: "Riznička kompanija je poslovna i tržišna odluka, čak i kada je snažno povezana s Bitcoinom.",
+          },
+        ],
+        visual: etfTreasurySectionImage(
+          "Tri oblika izloženosti nisu ista stvar.",
+          "Bitcoin pod vlastitim ključevima, ETF u brokerskom sustavu i dionica rizničke kompanije mogu biti povezani s istom temom, ali nemaju istu funkciju.",
+          "bitcoin-etfovi-riznice-tri-oblika-20260701.webp",
+          "Mediteranska scena s tri odvojena pladnja za Bitcoin kamen, financijski omot i mapu kompanije"
+        ),
       },
       {
         heading: "Spot Bitcoin ETF-ovi",
@@ -3176,6 +3214,29 @@ const guideEntries: Guide[] = [
           "Četvrta prednost je psihološka. Za obitelj koja se boji samostalne pohrane, ETF može biti prvi korak prema razumijevanju Bitcoina.",
           "ETF ne uklanja volatilnost Bitcoina. On uklanja dio operativne složenosti.",
         ],
+        calloutTitle: "Jednostavnije ne znači isto",
+        callout:
+          "ETF može smanjiti operativnu složenost, ali ne pretvara brokerski račun u vlastiti Bitcoin novčanik.",
+        cards: [
+          {
+            title: "Poznata administracija",
+            text: "ETF se može uklopiti u izvještaje, portfelj vrijednosnih papira i postojeći proces nasljeđivanja.",
+          },
+          {
+            title: "Skrbnička infrastruktura",
+            text: "Veliki izdavatelji imaju formalne procese, revizore i skrbnike, ali to ne uklanja povjerenje u sustav.",
+          },
+          {
+            title: "Psihološki ulaz",
+            text: "Za dio obitelji ETF može biti manje zastrašujući prvi susret s Bitcoin temom.",
+          },
+        ],
+        visual: etfTreasurySectionImage(
+          "ETF je financijski omot oko teme Bitcoina.",
+          "Prednost ETF-a je jednostavniji ulazak kroz brokerski sustav, ali omot ne daje privatne ključeve ni izravan pristup Bitcoin mreži.",
+          "bitcoin-etfovi-riznice-etf-omot-20260701.webp",
+          "Bitcoin kameni simbol djelomično prekriven prozirnim financijskim omotom na mediteranskom stolu"
+        ),
       },
       {
         heading: "Mane Bitcoin ETF-a",
@@ -3188,6 +3249,31 @@ const guideEntries: Guide[] = [
           "Za hrvatske i europske ulagače postoji još jedan praktičan sloj: američki ETF-ovi nisu nužno dostupni svakom malom ulagaču u Europskoj uniji. Konkretna dostupnost ovisi o brokeru, statusu klijenta, jurisdikciji i dokumentaciji proizvoda.",
           "Shvatite ovo kao okvir za razmišljanje, a ne kao porezni, pravni ili investicijski savjet.",
         ],
+        table: {
+          columns: ["Pitanje", "Bitcoin u vlastitoj pohrani", "Bitcoin ETF"],
+          rows: [
+            [
+              "Tko drži ključeve?",
+              "Vi ili vaš vlastiti sigurnosni sustav.",
+              "Skrbnik i institucionalna infrastruktura iza proizvoda.",
+            ],
+            [
+              "Možete li poslati bitcoin?",
+              "Da, ako imate pristup vlastitim ključevima.",
+              "Ne. Možete kupiti ili prodati vrijednosni papir.",
+            ],
+            [
+              "O čemu ovisite?",
+              "O vlastitoj sigurnosti, backupu i planu oporavka.",
+              "O brokeru, izdavatelju, skrbniku, pravilima proizvoda i tržištu.",
+            ],
+            [
+              "Koja je glavna uloga?",
+              "Novac pod osobnom kontrolom.",
+              "Financijska izloženost cijeni Bitcoina.",
+            ],
+          ],
+        },
       },
       {
         heading: "ETF kao dio obiteljskog portfelja",
@@ -3199,6 +3285,31 @@ const guideEntries: Guide[] = [
           "Vlastiti bitcoin može biti dio koji daje suverenost, otpornost na cenzuru i kontrolu.",
           "Ti dijelovi ne moraju imati istu funkciju.",
         ],
+        table: {
+          columns: ["Dio portfelja", "Moguća uloga", "Što ne treba zaboraviti"],
+          rows: [
+            [
+              "Vlastiti bitcoin",
+              "Novac pod osobnom kontrolom i dugoročna suverenost.",
+              "Traži ozbiljan plan sigurnosti, oporavka i nasljeđivanja.",
+            ],
+            [
+              "Bitcoin ETF",
+              "Administrativno lakša izloženost kroz brokera.",
+              "Nije isti oblik kontrole kao bitcoin u vlastitom novčaniku.",
+            ],
+            [
+              "Burza ili mjenjačnica",
+              "Likvidnost, kupnja, prodaja ili prijelazni iznos.",
+              "Ne bi smjela postati dugoročna pohrana bez jasnog razloga.",
+            ],
+            [
+              "Riznička kompanija",
+              "Kapitalna izloženost poslovnom modelu povezanom s Bitcoinom.",
+              "Nosi rizik dionice, bilance, uprave i tržišne premije.",
+            ],
+          ],
+        },
       },
       {
         heading: "Burze i mjenjačnice",
@@ -3210,6 +3321,9 @@ const guideEntries: Guide[] = [
           "Zato se ne treba pitati je li burza uvijek loša, nego zašto je taj iznos tamo i koliko dugo treba ostati tamo.",
           "Mali iznos radi likvidnosti može imati smisla. Velik dugoročni iznos bez plana obično nema.",
         ],
+        calloutTitle: "Likvidnost nije pohrana",
+        callout:
+          "Burza može biti koristan ulaz i izlaz, ali ako dugoročni iznos ostane ondje samo zato što nema plana, burza je postala sigurnosni model bez odluke.",
       },
       {
         heading: "Bitcoin rizničke kompanije",
@@ -3220,6 +3334,9 @@ const guideEntries: Guide[] = [
           "MSTR ipak nije bitcoin.",
           "MSTR je dionica kompanije. Ali vrijednost i rizik kompanije snažno su povezani s Bitcoinom.",
         ],
+        calloutTitle: "Dionica nije novčanik",
+        callout:
+          "Riznička kompanija može imati Bitcoin u bilanci, ali osoba koja kupi dionicu ne dobiva privatne ključeve ni izravan zahtjev prema tom Bitcoinu.",
         visual: {
           type: "logo-grid",
           title: "Riznička kompanija nije isto što i bitcoin",
@@ -3247,6 +3364,26 @@ const guideEntries: Guide[] = [
           "Neki ulagači žele snažniju izloženost Bitcoinu. Neki žele prihod. Neki žele manju volatilnost. Neki žele likvidan vrijednosni papir u brokerskom računu. Neki žele proizvod koji se ponaša drukčije od samog Bitcoina.",
           "U tome je smisao usporedbe s rafinerijom. Samo treba biti jasno: ovdje više ne govorimo o čistom Bitcoinu, nego o kapitalnoj strukturi kompanije koja Bitcoin koristi kao temelj.",
         ],
+        cards: [
+          {
+            title: "Bitcoin kao temelj",
+            text: "Kompanija može koristiti Bitcoin kao ključnu imovinu oko koje gradi kapitalnu strukturu.",
+          },
+          {
+            title: "Vrijednosni papiri kao proizvodi",
+            text: "Dionice, povlašteni instrumenti i kreditni proizvodi mogu imati različite profile rizika.",
+          },
+          {
+            title: "Tržište kao sudac",
+            text: "Vrijednost ne ovisi samo o Bitcoinu, nego i o premiji, povjerenju i sposobnosti uprave.",
+          },
+        ],
+        visual: etfTreasurySectionImage(
+          "Riznička kompanija je poslovni sloj iznad Bitcoina.",
+          "Bitcoin može biti temelj bilance, ali dionica kompanije uključuje dodatne slojeve: upravu, dug, tržišnu premiju i pravila kapitalnih tržišta.",
+          "bitcoin-etfovi-riznice-kompanija-20260701.webp",
+          "Mediteranska scena s Bitcoin kamenom, mapom kompanije i malim kamenim modelom zgrade"
+        ),
       },
       {
         heading: "MSTR kao pojačana izloženost Bitcoinu",
@@ -3258,6 +3395,40 @@ const guideEntries: Guide[] = [
           "MSTR nije bitcoin. MSTR je dionica kompanije s poslovnom, financijskom, tržišnom i upravljačkom složenošću.",
           "Zato ga ne treba promatrati kao zamjenu za bitcoin u vlastitom posjedu. Više ima smisla promatrati ga kao kapitalno dobro povezano s Bitcoinom.",
         ],
+        calloutTitle: "Pojačanje radi u oba smjera",
+        callout:
+          "Ako instrument može rasti jače od Bitcoina zbog bilance, premije i kapitalnih tržišta, isti slojevi mogu pojačati i pad, stres ili nesporazum ulagača.",
+        table: {
+          columns: ["Sloj", "Što može pomoći", "Što može povećati rizik"],
+          rows: [
+            [
+              "Bitcoin u bilanci",
+              "Vrijednost kompanije može biti snažno vezana uz rast Bitcoina.",
+              "Pad Bitcoina može opteretiti tržišno povjerenje i kapitalnu strukturu.",
+            ],
+            [
+              "Dug i izdavanje kapitala",
+              "Kompanija može povećavati Bitcoin po dionici ako tržište surađuje.",
+              "Uvjeti financiranja, razrjeđenje i refinanciranje postaju važni.",
+            ],
+            [
+              "Tržišna premija",
+              "Dionica se može vrednovati iznad same vrijednosti Bitcoina u pozadini.",
+              "Premija se može smanjiti i kad Bitcoin nije glavni problem.",
+            ],
+            [
+              "Upravljanje",
+              "Dobra izvedba može stvoriti dodatnu vrijednost.",
+              "Loše odluke ili promjena povjerenja mogu utjecati na rezultat.",
+            ],
+          ],
+        },
+        visual: etfTreasurySectionImage(
+          "Bilanca može pojačati i priliku i rizik.",
+          "Kod MSTR-a više ne gledamo samo cijenu Bitcoina, nego i slojeve bilance, financiranja, tržišne premije i upravljanja.",
+          "bitcoin-etfovi-riznice-bilanca-20260701.webp",
+          "Kamena vaga s Bitcoin simbolom na jednoj strani i slojevima kapitalnih papira na drugoj strani"
+        ),
       },
       {
         heading: "STRC: Stretch kao drukčiji proizvod",
@@ -3271,6 +3442,23 @@ const guideEntries: Guide[] = [
           "U pojednostavljenom jeziku: MSTR je više pojačana dionica povezana s Bitcoinom, a STRC je više prihodovni proizvod povezan s kapitalnom strukturom Bitcoin kompanije.",
           "Ne preporučujem kupnju ili prodaju; ovdje samo razdvajam pojmove.",
         ],
+        calloutTitle: "Prinos nije isto što i sigurnost",
+        callout:
+          "Kod prihodovnih instrumenata prvo treba razumjeti tko isplaćuje prihod, pod kojim uvjetima, s kojim senioritetom i što se događa ako se uvjeti promijene.",
+        cards: [
+          {
+            title: "Nije Bitcoin",
+            text: "Kupac ne dobiva bitcoin pod vlastitom kontrolom, nego vrijednosni papir povezan s kapitalnom strukturom kompanije.",
+          },
+          {
+            title: "Nije obična dionica",
+            text: "Profil se razlikuje od MSTR-a jer je naglasak više na prihodovnom okviru i nominalnoj vrijednosti.",
+          },
+          {
+            title: "Nije bez rizika",
+            text: "Dividenda, likvidnost, uvjeti tržišta i sposobnost isplate ostaju ključna pitanja.",
+          },
+        ],
       },
       {
         heading: "Zašto bi obitelj gledala STRC?",
@@ -3282,6 +3470,27 @@ const guideEntries: Guide[] = [
           "Zato STRC ne bih stavio u kategoriju novca, nego u kategoriju kapitalnih dobara, odnosno vrijednosnih papira.",
           "Može imati mjesto u portfelju. Ali nije zamjena za bitcoin pod osobnom kontrolom.",
         ],
+        table: {
+          columns: ["Mogući razlog interesa", "Pitanje koje treba postaviti"],
+          rows: [
+            [
+              "Želja za prihodovnim dijelom portfelja",
+              "Odakle prihod dolazi i što se događa ako ga kompanija ne može ili ne želi isplatiti?",
+            ],
+            [
+              "Manja očekivana volatilnost od obične dionice",
+              "Koji rizici ostaju i može li tržišna cijena ipak značajno odstupiti?",
+            ],
+            [
+              "Vrijednosni papir u brokerskom računu",
+              "Razumije li obitelj instrument, senioritet i postupak nasljeđivanja?",
+            ],
+            [
+              "Povezanost s Bitcoin temom",
+              "Je li cilj Bitcoin novac, kapitalni rizik ili prihodovni instrument?",
+            ],
+          ],
+        },
       },
       {
         heading: "Gdje ovo pripada u osobnom Bitcoin standardu?",
@@ -3293,6 +3502,37 @@ const guideEntries: Guide[] = [
           "Bitcoin u vlastitoj pohrani nije isto što i Bitcoin ETF. Bitcoin ETF nije isto što i MSTR. MSTR nije isto što i STRC. STRC nije isto što i bitcoin u višepotpisnom trezoru.",
           "Svi ti oblici mogu biti povezani s Bitcoinom. Ali nemaju istu funkciju.",
         ],
+        table: {
+          columns: ["Oblik", "Primarna uloga", "Glavna zabuna"],
+          rows: [
+            [
+              "Bitcoin u vlastitoj pohrani",
+              "Novac pod osobnom kontrolom.",
+              "Podcijeniti odgovornost sigurnosti, oporavka i obitelji.",
+            ],
+            [
+              "Bitcoin ETF",
+              "Financijska izloženost kroz brokerski sustav.",
+              "Misliti da je to isto što i vlastiti ključ.",
+            ],
+            [
+              "MSTR",
+              "Kapitalno dobro povezano s Bitcoinom.",
+              "Misliti da je dionica kompanije zamjena za bitcoin.",
+            ],
+            [
+              "STRC i slični instrumenti",
+              "Prihodovni ili kreditni sloj kapitalne strukture.",
+              "Misliti da prinos znači sigurnost.",
+            ],
+          ],
+        },
+        visual: etfTreasurySectionImage(
+          "Ovo su različite odluke, ne jedna odluka.",
+          "Vlastiti bitcoin, ETF i riznička kompanija mogu stajati u istom planu, ali svaki dio treba imati svoju ulogu i vlastito objašnjenje.",
+          "bitcoin-etfovi-riznice-tri-odluke-20260701.webp",
+          "Tri odvojene odluke na papiru s Bitcoin ključem, financijskim omotom i kamenim modelom kompanije"
+        ),
         link: {
           before: "Za temeljnu podjelu uloga imovine pročitajte vodič",
           label: "Novac, potrošna dobra i proizvodna imovina",
@@ -3307,6 +3547,22 @@ const guideEntries: Guide[] = [
           "Treba pitati postoji li prihod, odakle dolazi taj prihod, što se događa ako Bitcoin padne 50%, što se događa ako tržište izgubi povjerenje, što se događa ako kompanija ne može izdavati nove instrumente i što se događa ako obitelj mora naslijediti taj proizvod.",
           "Nije dovoljno gledati samo očekivani prinos. Treba gledati što se događa u lošem scenariju.",
         ],
+        calloutTitle: "Prinos dolazi tek nakon strukture",
+        callout:
+          "Ako ne možete objasniti što posjedujete, tko kontrolira Bitcoin i što se događa u lošem scenariju, očekivani prinos još nije glavna tema.",
+        items: [
+          "Što točno posjedujem: bitcoin, udjel, dionicu, potraživanje ili prihodovni instrument?",
+          "Tko drži privatne ključeve i pod kojim pravilima?",
+          "Gdje je skrbnički, pravni, tržišni i poslovni rizik?",
+          "Što se događa ako Bitcoin snažno padne ili tržište izgubi povjerenje?",
+          "Kako obitelj nasljeđuje taj oblik imovine ako se nešto dogodi vlasniku?",
+        ],
+        visual: etfTreasurySectionImage(
+          "Prije prinosa dolazi provjera pitanja.",
+          "Kod svakog Bitcoin povezanog proizvoda korisno je proći istu listu: što posjedujem, tko drži ključeve, gdje je rizik i što se događa pod stresom.",
+          "bitcoin-etfovi-riznice-pitanja-20260701.webp",
+          "Mediteranska checklist scena s Bitcoin kamenom, ključem, financijskim omotom i mapom kompanije"
+        ),
       },
       {
         heading: "Kako ovo može izgledati u osobnom planu?",
@@ -3315,6 +3571,24 @@ const guideEntries: Guide[] = [
           "Navedeno nije preporuka, nego primjer kako razmišljati o ulogama različitih dijelova imovine.",
           "Svačija situacija je drukčija. Netko nema obitelj. Netko ima malu djecu. Netko ima supružnika koji ne želi ništa znati o Bitcoinu. Netko ima postojeći portfelj vrijednosnih papira. Netko ima firmu. Netko ima većinu neto imovine u nekretnini. Netko ima dug. Netko tek počinje.",
           "Zato plan ne može biti isti.",
+        ],
+        cards: [
+          {
+            title: "Jezgra",
+            text: "Dio koji ima ulogu dugoročnog novca i za koji postoji ozbiljan plan sigurnosti.",
+          },
+          {
+            title: "Prijelaz",
+            text: "Dio koji ostaje u jednostavnijem obliku dok znanje, obitelj i dokumentacija ne sustignu iznos.",
+          },
+          {
+            title: "Kapitalni rizik",
+            text: "Dio koji se svjesno tretira kao vrijednosni papir ili poslovna izloženost, ne kao vlastiti bitcoin.",
+          },
+          {
+            title: "Likvidnost",
+            text: "Mali operativni dio koji služi kupnji, prodaji, testiranju ili kratkoročnom prijelazu.",
+          },
         ],
         link: {
           before: "Za razliku između samostalne pohrane i skrbnika pogledajte",
@@ -3332,6 +3606,9 @@ const guideEntries: Guide[] = [
           "Ja ne mogu dati investicijski, porezni ili pravni savjet o tome što točno kupiti, držati ili prodati.",
           "Ali mogu pomoći razjasniti logiku. Mogu pomoći razlikovati novac od kapitala. Mogu pomoći vidjeti gdje skrbnik ima mjesto, a gdje je nepotreban rizik. Mogu pomoći napraviti plan prijelaza. Mogu pomoći da odluka bude mirnija.",
         ],
+        calloutTitle: "Cilj nije pogoditi proizvod",
+        callout:
+          "Cilj razgovora je razjasniti ulogu: što je novac, što je kapital, što je prijelazno rješenje i gdje obitelj stvarno razumije rizik.",
         link: {
           before: "Ako želite razgovarati o vlastitoj situaciji, krenite od",
           label: "uvodnog Bitcoin razgovora",
@@ -3349,6 +3626,9 @@ const guideEntries: Guide[] = [
           "Nisu isto što i bitcoin u vlastitom posjedu. Nisu isto što i obiteljski višepotpisni trezor. Nisu nužno loši. Nisu nužno dobri.",
           "To su alati, a alati imaju smisla samo kada znamo zašto ih koristimo.",
         ],
+        calloutTitle: "Najkraći sažetak",
+        callout:
+          "Ako je alat povezan s Bitcoinom, to još ne znači da ima istu ulogu kao bitcoin pod vlastitim ključevima.",
         link: {
           before: "Za primjer vlastitog obiteljskog sustava pročitajte",
           label: "obiteljski Bitcoin trezor",

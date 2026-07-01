@@ -353,6 +353,21 @@ function etfTreasurySectionImage(
   }
 }
 
+function familyVaultSectionImage(
+  title: string,
+  caption: string,
+  fileName: string,
+  alt: string
+): GuideSectionVisual {
+  return {
+    type: "image-card",
+    title,
+    caption,
+    src: `/images/guide-sections/${fileName}`,
+    alt,
+  }
+}
+
 const guideEntries: Guide[] = [
   {
     slug: "zaba-bitcoin-etf-certifikat",
@@ -4642,7 +4657,7 @@ const guideEntries: Guide[] = [
     order: 102,
     featured: true,
     publishedAt: "2026-05-12",
-    updatedAt: "2026-05-12",
+    updatedAt: "2026-07-01",
     practicalQuestion:
       "Može li vaša obitelj razumjeti i oporaviti Bitcoin sustav bez panike, nagađanja i predaje kontrole pogrešnoj osobi?",
     relatedSlugs: [
@@ -4679,6 +4694,29 @@ const guideEntries: Guide[] = [
           "Zato veći iznos bitcoina ne treba promatrati kao aplikaciju na mobitelu. Treba ga promatrati kao obiteljski trezor. Ne trezor u banci. Ne trezor kojemu drugi imaju ključ. Nego osobni sustav u kojem su jasno odvojeni ključevi, uređaji, pričuvne kopije, upute, obiteljski plan, tehnička pomoć i nasljeđivanje.",
           "Cilj nije napraviti sustav koji izgleda pametno. Cilj je napraviti sustav koji preživi stvarni život.",
         ],
+        calloutTitle: "Trezor mora preživjeti stvarni život",
+        callout:
+          "Dobar obiteljski Bitcoin sustav ne rješava samo krađu. Rješava zaborav, paniku, bolest, smrt, požar, kvar uređaja i nejasne obiteljske upute.",
+        cards: [
+          {
+            title: "Kontrola",
+            text: "Bitcoin ostaje pod vašom kontrolom, bez predaje ključeva banci, burzi ili skrbniku.",
+          },
+          {
+            title: "Oporavak",
+            text: "Jedan kvar, požar ili izgubljeni uređaj ne smiju značiti gubitak pristupa.",
+          },
+          {
+            title: "Obitelj",
+            text: "Ljudi koji će možda morati reagirati moraju znati što ne smiju napraviti u panici.",
+          },
+        ],
+        visual: familyVaultSectionImage(
+          "Obiteljski trezor nije aplikacija.",
+          "Kada Bitcoin postane važan dio neto imovine, sigurnost više nije samo uređaj, nego obiteljski sustav ključeva, uputa, lokacija i oporavka.",
+          "obiteljski-bitcoin-trezor-sloboda-i-plan-20260701.webp",
+          "Mediteranska scena s kamenim trezorom, tri odvojena ključa, Bitcoin simbolom i obiteljskom uputom bez teksta"
+        ),
       },
       {
         heading: "Prvo pitanje nije koji uređaj kupiti",
@@ -4688,6 +4726,27 @@ const guideEntries: Guide[] = [
           "Ako obitelj zna da postoji plan, zna gdje su upute, zna koga kontaktirati i zna što ne smije napraviti, tada sustav počinje imati smisla.",
           "Bitcoin sigurnost nije samo zaštita od lopova. Bitcoin sigurnost je i zaštita od zaborava, požara, smrti, panike, loših uputa i obiteljske nejasnoće.",
         ],
+        table: {
+          columns: ["Pogrešno prvo pitanje", "Bolje prvo pitanje"],
+          rows: [
+            [
+              "Koji hardverski novčanik kupiti?",
+              "Tko zna što treba napraviti ako ja nisam dostupan?",
+            ],
+            [
+              "Gdje sakriti seed riječi?",
+              "Kako spriječiti da jedna lokacija, osoba ili uputa bude presudna?",
+            ],
+            [
+              "Kako sustav učiniti maksimalno tvrdim?",
+              "Može li ga obitelj stvarno razumjeti i oporaviti?",
+            ],
+            [
+              "Kome vjerovati?",
+              "Kako dobiti pomoć bez predaje potpune kontrole?",
+            ],
+          ],
+        },
       },
       {
         heading: "Jednostavna slika: sef s tri ključa",
@@ -4698,6 +4757,40 @@ const guideEntries: Guide[] = [
           "U stvarnom životu stvari nestaju. Uređaj se može pokvariti. Jedna lokacija može izgorjeti. Jedan papir može biti izgubljen. Jedna osoba može postati nedostupna. Jedan proizvođač uređaja može nestati. Jedan član obitelji može pogriješiti.",
           "Kod jednog ključa, jedna ozbiljna greška može biti kraj. Kod 2 od 3 sustava, jedna greška ne mora biti kraj.",
         ],
+        calloutTitle: "Jedan ključ nije dovoljan",
+        callout:
+          "2 od 3 sustav pokušava spojiti dvije stvari koje obitelj treba: jedan gubitak ne smije uništiti pristup, a jedan pronađeni ključ ne smije omogućiti krađu.",
+        table: {
+          columns: ["Situacija", "Jedan ključ", "2 od 3 trezor"],
+          rows: [
+            [
+              "Jedan uređaj se pokvari",
+              "Može značiti gubitak ako nema dobrog backupa.",
+              "I dalje postoje druga dva ključa ili backup put.",
+            ],
+            [
+              "Jedan seed je pronađen",
+              "Napadač može imati sve.",
+              "Jedan seed sam po sebi nije dovoljan.",
+            ],
+            [
+              "Jedna lokacija izgori",
+              "Može nestati cijeli sustav.",
+              "Plan je složen tako da jedna lokacija nije dovoljna za gubitak.",
+            ],
+            [
+              "Obitelj mora reagirati",
+              "Često ovisi o jednoj tajni i sjećanju.",
+              "Postoji dokumentiran put do dva od tri ključa.",
+            ],
+          ],
+        },
+        visual: familyVaultSectionImage(
+          "Sef se otvara s dva od tri ključa.",
+          "Model je namjerno jednostavan: tri neovisna ključa, a za pomicanje sredstava trebaju bilo koja dva.",
+          "obiteljski-bitcoin-trezor-dva-od-tri-20260701.webp",
+          "Kameni sef na mediteranskom stolu s tri odvojena ključa i Bitcoin simbolom"
+        ),
       },
       {
         heading: "Predloženi sustav",
@@ -4719,6 +4812,45 @@ const guideEntries: Guide[] = [
           "Foundation Passport Core",
           "višepotpisni novčanik 2 od 3",
         ],
+        cards: [
+          {
+            title: "Provjera mreže",
+            text: "Mini računalo s Bitcoin Coreom i Fulcrumom služi za privatno čitanje stanja bez javnog poslužitelja.",
+          },
+          {
+            title: "Koordinacija",
+            text: "Odvojeni laptop sa Sparrowom priprema transakcije i povezuje sustav, ali ne čuva privatne ključeve.",
+          },
+          {
+            title: "Potpisivanje",
+            text: "Tri hardverska novčanika čuvaju tri odvojena ključa; za pomicanje bitcoina trebaju dva.",
+          },
+        ],
+        table: {
+          columns: ["Sloj", "Primjer iz vodiča", "Uloga"],
+          rows: [
+            [
+              "Node i poslužitelj",
+              "Lenovo mini PC, Debian, Bitcoin Core, Fulcrum",
+              "Provjera Bitcoin mreže i privatno čitanje novčanika.",
+            ],
+            [
+              "Radno Bitcoin računalo",
+              "ThinkPad, Linux Mint, Sparrow",
+              "Prikaz stanja, primanje, priprema transakcija i koordinacija potpisa.",
+            ],
+            [
+              "Potpisnici",
+              "COLDCARD Q, BitBox02 Bitcoin-only, Passport Core",
+              "Tri odvojena ključa u istom 2 od 3 trezoru.",
+            ],
+            [
+              "Dokumentacija",
+              "Obiteljska uputa, tehnički dodatak, descriptor",
+              "Oporavak bez panike i bez jedne osobe kao jedine točke znanja.",
+            ],
+          ],
+        },
         visual: {
           type: "logo-grid",
           title: "Softverski sloj obiteljskog trezora",
@@ -4768,6 +4900,9 @@ const guideEntries: Guide[] = [
           "Za manji iznos koji koristite svakodnevno, mobilni novčanik može imati smisla. Za obiteljski Bitcoin trezor, ne.",
           "Obiteljski trezor treba biti dosadan. Treba se koristiti rijetko. Treba biti odvojen od svakodnevnog života.",
         ],
+        calloutTitle: "Dosadno je sigurnosna značajka",
+        callout:
+          "Obiteljski trezor nije mjesto za svakodnevne navike, brze klikove i poruke. Što se rjeđe koristi i što je odvojeniji od kaosa, to ga je lakše zaštititi.",
       },
       {
         heading: "Uloga mini računala",
@@ -4778,6 +4913,15 @@ const guideEntries: Guide[] = [
           "Za ozbiljan dugoročan sustav ima smisla koristiti mini PC s barem 2 TB NVMe diskom, žičnom mrežom i stabilnim napajanjem.",
           "Mini računalo ne mora biti posebno snažno. Važnije je da bude stabilno, tiho, pouzdano i da godinama može raditi jednu stvar.",
         ],
+        calloutTitle: "Node nije novčanik",
+        callout:
+          "Mini računalo ne čuva bitcoin i ne potpisuje transakcije. Njegova snaga je u tome što vaš novčanik ne mora pitati tuđi poslužitelj što posjedujete.",
+        visual: familyVaultSectionImage(
+          "Sustav ima slojeve, ali svaki sloj ima jednostavnu ulogu.",
+          "Node provjerava, Sparrow koordinira, hardverski novčanici potpisuju, a dokumentacija omogućuje obiteljski oporavak.",
+          "obiteljski-bitcoin-trezor-slojevi-sustava-20260701.webp",
+          "Mediteranska scena s mini računalom, laptopom, tri generička potpisna uređaja, ključevima i Bitcoin simbolom"
+        ),
       },
       {
         heading: "Zašto privatni Electrum poslužitelj?",
@@ -4788,6 +4932,26 @@ const guideEntries: Guide[] = [
           "Bolji model je: Sparrow → vaš Fulcrum → vaš Bitcoin Core → Bitcoin mreža.",
           "To znači da vaš novčanik ne pita nepoznati javni poslužitelj što posjedujete. Pita vaš vlastiti poslužitelj.",
         ],
+        table: {
+          columns: ["Način čitanja novčanika", "Prednost", "Rizik ili kompromis"],
+          rows: [
+            [
+              "Javni poslužitelj",
+              "Jednostavnije je početi.",
+              "Treća strana može vidjeti previše o adresama, UTXO-ima i navikama otvaranja novčanika.",
+            ],
+            [
+              "Privatni Fulcrum",
+              "Sparrow pita vaš vlastiti poslužitelj.",
+              "Treba održavati mini računalo, disk, mrežu i softver.",
+            ],
+            [
+              "Bitcoin Core kao temelj",
+              "Sami provjeravate Bitcoin mrežu.",
+              "Početno postavljanje traži više vremena i discipline.",
+            ],
+          ],
+        },
       },
       {
         heading: "Uloga ThinkPada",
@@ -4816,6 +4980,9 @@ const guideEntries: Guide[] = [
           "Ne bih kupio tri ista uređaja. Ne želite da cijeli obiteljski trezor ovisi o jednom proizvođaču, jednom ugrađenom softveru, jednom načinu rada i jednom mogućem problemu.",
           "Tri različita uređaja smanjuju ovisnost o jednoj točki kvara.",
         ],
+        calloutTitle: "Različitost je dio sigurnosti",
+        callout:
+          "Tri uređaja nisu tu zato da sustav izgleda napredno, nego zato da jedna greška proizvođača, firmwarea ili načina rada ne postane greška cijelog trezora.",
         visual: {
           type: "image-grid",
           title: "Tri različita potpisnika",
@@ -4882,6 +5049,26 @@ const guideEntries: Guide[] = [
           "Kod 2 od 3 sustava gubitak jednog ključa nije kraj. Ako se jedan uređaj pokvari, ako jedna lokacija izgori ili ako jedna pričuvna kopija nestane, i dalje postoje dva ključa.",
           "Za obitelj je to važno. Cilj nije samo spriječiti krađu. Cilj je spriječiti i gubitak pristupa.",
         ],
+        table: {
+          columns: ["Model", "Što štiti", "Što može pokvariti obiteljski oporavak"],
+          rows: [
+            [
+              "1 od 1",
+              "Jednostavan početak i malo operativne složenosti.",
+              "Jedan izgubljeni seed, uređaj ili lokacija može biti kraj.",
+            ],
+            [
+              "2 od 3",
+              "Jedan gubitak ne mora biti kraj, a jedan pronađeni ključ nije dovoljan za krađu.",
+              "Treba dokumentirati raspored, descriptor i postupak korištenja.",
+            ],
+            [
+              "3 od 3",
+              "Izgleda strože jer traži sve ključeve.",
+              "Jedan izgubljeni ključ može blokirati obitelj.",
+            ],
+          ],
+        },
       },
       {
         heading: "Što su seed riječi?",
@@ -4899,6 +5086,9 @@ const guideEntries: Guide[] = [
           "Papir je dobar za početak, ali može izgorjeti, smočiti se ili propasti. Metalni backup je bolji za dugoročnu pohranu.",
           "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
         ],
+        calloutTitle: "Seed je fizička tajna",
+        callout:
+          "Najopasniji trenutak često nije uređaj, nego pokušaj da se seed učini 'praktičnim'. Fotografija, cloud i poruke pretvaraju fizičku tajnu u digitalni rizik.",
         items: [
           "ne slikati mobitelom",
           "ne spremati u bilješke na mobitelu",
@@ -4916,6 +5106,20 @@ const guideEntries: Guide[] = [
           "Bolji primjer je da kod kuće stoji COLDCARD Q, a na drugoj lokaciji COLDCARD seed backup. Uređaj i njegov backup trebaju biti razdvojeni.",
           "Ako netko ukrade uređaj, nema njegov seed. Ako netko pronađe seed, nema ostale ključeve. Kod 2 od 3 sustava jedan seed nije dovoljan za krađu, ali svejedno ne treba olakšavati napad.",
         ],
+        cards: [
+          {
+            title: "Uređaj i seed odvojeno",
+            text: "Ako netko pronađe uređaj, ne smije odmah pronaći i njegovu pričuvnu kopiju.",
+          },
+          {
+            title: "Jedna lokacija nije cijeli sustav",
+            text: "Požar, krađa ili poplava na jednom mjestu ne smiju uništiti sve dijelove plana.",
+          },
+          {
+            title: "Jedan seed nije dovoljan",
+            text: "U 2 od 3 sustavu jedan seed je ozbiljan incident, ali ne bi trebao biti potpuna kontrola.",
+          },
+        ],
       },
       {
         heading: "Konkretan primjer raspodjele u Hrvatskoj",
@@ -4929,6 +5133,40 @@ const guideEntries: Guide[] = [
           "Lokacija C, odvjetnik ili osoba od povjerenja: Passport Core, BitBox02 seed backup i kontakt tehničke osobe.",
           "Lokacija D, druga obiteljska lokacija: Passport seed backup, dodatna kopija Sparrow descriptora i tehnički dodatak.",
         ],
+        calloutTitle: "Nitko nema sve sam",
+        callout:
+          "Dobar raspored nije onaj koji je najtajnovitiji, nego onaj u kojem jedna lokacija ili jedna osoba nema dovoljno za krađu, a obitelj ipak može doći do oporavka.",
+        table: {
+          columns: ["Lokacija", "Što tamo može stajati", "Zašto nije dovoljno samo po sebi"],
+          rows: [
+            [
+              "Dom",
+              "Računala, jedan potpisnik, obiteljska uputa bez seed riječi.",
+              "Nema dovoljno ključeva ni seedova za samostalno pomicanje sredstava.",
+            ],
+            [
+              "Bankovni sef",
+              "Jedan uređaj, jedan seed backup ili zapečaćena uputa.",
+              "Ne sadrži cijeli trezor ni sve informacije za krađu.",
+            ],
+            [
+              "Odvjetnik ili osoba od povjerenja",
+              "Zapečaćeni dokument, kontakt, jedan fizički dio plana.",
+              "Nema tehničku i potpisnu kontrolu nad cijelim sustavom.",
+            ],
+            [
+              "Druga obiteljska lokacija",
+              "Dodatna kopija descriptora ili jedan backup.",
+              "Služi otpornosti, ne centralizaciji.",
+            ],
+          ],
+        },
+        visual: familyVaultSectionImage(
+          "Lokacije moraju biti odvojene po ulozi.",
+          "Raspored ima smisla samo ako jedna kuća, jedan sef ili jedna osoba ne mogu sami uništiti sustav ili preuzeti kontrolu nad njim.",
+          "obiteljski-bitcoin-trezor-lokacije-20260701.webp",
+          "Četiri odvojene lokacijske kartice s kućom, sefom, zapečaćenom omotnicom, ključevima i Bitcoin simbolom"
+        ),
       },
       {
         heading: "Što je Sparrow descriptor?",
@@ -4939,6 +5177,9 @@ const guideEntries: Guide[] = [
           "Descriptor sam po sebi ne bi trebao biti dovoljan za krađu, jer ne sadrži privatne ključeve. Ali otkriva privatnost novčanika. Zato ga ne treba držati javno ili u cloud folderu.",
           "Za nasljeđivanje je iznimno važan. Bez njega nasljednici mogu imati seedove, ali ne znati kako rekonstruirati novčanik.",
         ],
+        calloutTitle: "Seedovi nisu cijela mapa",
+        callout:
+          "Kod višepotpisnog trezora obitelj ne treba samo ključeve. Treba znati kako su ključevi spojeni u isti novčanik.",
         items: [
           "ovo je 2 od 3 višepotpisni novčanik",
           "ovo su javni ključevi",
@@ -5009,6 +5250,9 @@ const guideEntries: Guide[] = [
           "Zato mora postojati obiteljski dokument. Taj dokument ne mora sadržavati seed riječi. Dapače, ne bi trebao sadržavati sve što je potrebno za krađu. Ali mora objasniti sustav.",
           "Obitelj ne mora odmah razumjeti UTXO, PSBT, descriptor i derivation path. Ali mora znati što ne smije napraviti.",
         ],
+        calloutTitle: "Nasljeđivanje počinje prije hitnog slučaja",
+        callout:
+          "Upute ne moraju obitelji odmah dati tehničku samostalnost. Moraju joj dati miran redoslijed: što postoji, što se ne dira, gdje su dokumenti i koga se kontaktira.",
         items: [
           "Ova obitelj ima Bitcoin trezor složen kao 2 od 3 višepotpisni sustav.",
           "Za pomicanje sredstava trebaju dva od tri ključa.",
@@ -5031,6 +5275,32 @@ const guideEntries: Guide[] = [
           "Obiteljska uputa pisana je jednostavnim jezikom. Sadrži što postoji, što se ne smije napraviti, gdje su opće lokacije, koga kontaktirati, koji je redoslijed koraka i zašto ne treba žuriti. Ne sadrži sve seed riječi i ne sadrži sve privatne tajne na jednom mjestu.",
           "Tehnički dodatak pisan je za osobu koja zna Sparrow i Bitcoin. Ne piše se za svakodnevno čitanje, nego za oporavak u izvanrednoj situaciji.",
         ],
+        table: {
+          columns: ["Dokument", "Za koga je", "Što smije sadržavati"],
+          rows: [
+            [
+              "Obiteljska uputa",
+              "Za članove obitelji koji možda nisu tehnički korisnici Bitcoina.",
+              "Što postoji, što se ne smije napraviti, koga kontaktirati i kojim redom postupiti.",
+            ],
+            [
+              "Tehnički dodatak",
+              "Za tehničku osobu koja zna Sparrow, descriptor i višepotpisni oporavak.",
+              "Konfiguraciju, descriptor, upute za uvoz, potpisivanje i provjeru.",
+            ],
+            [
+              "Seed backup",
+              "Za oporavak pojedinog ključa, ali samo u kontroliranom procesu.",
+              "Fizičku pričuvnu kopiju jednog ključa, nikada sve dijelove zajedno.",
+            ],
+          ],
+        },
+        visual: familyVaultSectionImage(
+          "Obiteljska uputa i tehnički dodatak nisu isti dokument.",
+          "Jedan dokument treba smiriti obitelj, drugi treba pomoći tehničkom oporavku. Ni jedan ne bi smio samostalno otvoriti cijeli trezor.",
+          "obiteljski-bitcoin-trezor-dokumentacija-20260701.webp",
+          "Dvije odvojene mape dokumenata na mediteranskom stolu s omotnicom, ključem i Bitcoin simbolom"
+        ),
         items: [
           "naziv novčanika",
           "2 od 3 struktura",
@@ -5061,6 +5331,20 @@ const guideEntries: Guide[] = [
           "Njihova uloga može biti čuvati zapečaćenu uputu, potvrditi identitet nasljednika, otvoriti dokument u slučaju smrti ili držati jedan fizički dio plana.",
           "Ne bih očekivao da odvjetnik zna rekonstruirati Sparrow novčanik. Za to treba posebna tehnička osoba od povjerenja.",
         ],
+        cards: [
+          {
+            title: "Pravna uloga",
+            text: "Čuvanje dokumenta, potvrda identiteta i uredan obiteljski postupak.",
+          },
+          {
+            title: "Tehnička granica",
+            text: "Rekonstrukcija višepotpisnog novčanika nije posao koji treba improvizirati kod bilježnika.",
+          },
+          {
+            title: "Bez potpune kontrole",
+            text: "Nitko izvan obitelji ne bi trebao sam imati dovoljno dijelova za pomicanje sredstava.",
+          },
+        ],
       },
       {
         heading: "Tehnička osoba od povjerenja",
@@ -5085,6 +5369,9 @@ const guideEntries: Guide[] = [
           "Obiteljski Bitcoin trezor treba provjeriti barem jednom godišnje. Ne zato što Bitcoin treba održavanje. Bitcoin mreža radi bez vas. Ali vaši uređaji, dokumenti, lokacije i ljudi trebaju provjeru.",
           "Može se napraviti i mali test s malim iznosom. Ne provjeravate sustav zato da stalno mičete veliki bitcoin, nego da znate da oporavak i potpisivanje stvarno rade.",
         ],
+        calloutTitle: "Provjera je održavanje ljudi, ne Bitcoina",
+        callout:
+          "Bitcoin mreža ne treba vašu godišnju provjeru, ali vaša obitelj, uređaji, dokumenti, lokacije i kontakti trebaju.",
         items: [
           "Lenovo mini PC se pali",
           "Bitcoin Core radi",
@@ -5100,6 +5387,12 @@ const guideEntries: Guide[] = [
           "tehnička osoba je dostupna",
           "lokacije su i dalje valjane",
         ],
+        visual: familyVaultSectionImage(
+          "Godišnja provjera smanjuje improvizaciju.",
+          "Najbolji obiteljski sustav nije onaj koji se nikada ne dira, nego onaj koji se mirno provjeri prije nego što ga stvarno trebate.",
+          "obiteljski-bitcoin-trezor-godisnja-provjera-20260701.webp",
+          "Mediteranska scena s praznom checklistom, kalendarom bez brojeva, ključevima, potpisnim uređajem i Bitcoin simbolom"
+        ),
       },
       {
         heading: "Najveće greške",
@@ -5107,6 +5400,9 @@ const guideEntries: Guide[] = [
           "Najveće greške nisu uvijek tehničke. Najveće greške su često ljudske.",
           "Dobar sustav smanjuje potrebu za improvizacijom.",
         ],
+        calloutTitle: "Najveći rizik je panika",
+        callout:
+          "Većina loših odluka nastaje kad netko u stresu traži prečac. Zato upute, kontakti i zabrane moraju biti jasni prije stresnog trenutka.",
         items: [
           "svi seedovi u istoj kuverti",
           "sva tri uređaja u istoj ladici",
@@ -5126,6 +5422,20 @@ const guideEntries: Guide[] = [
           "Ne treba početi s tehnologijom. Treba reći jednostavno: imamo obiteljski Bitcoin sef. Ne otvara se jednim ključem. Postoje tri ključa, a trebaju dva. Jedan ključ sam po sebi nije dovoljan.",
           "Ako se meni nešto dogodi, postoje upute. Ne smijete slikati riječi, slati ih nikome ni unositi ih u aplikacije. Ne treba žuriti. Prvo se čitaju upute i zove se osoba navedena u dokumentu.",
           "Obitelj ne mora odmah znati sve. Ali mora znati da sustav postoji i da se ne smije dirati panično.",
+        ],
+        cards: [
+          {
+            title: "Jedna rečenica",
+            text: "Imamo obiteljski Bitcoin sef koji se ne otvara jednim ključem.",
+          },
+          {
+            title: "Jedna zabrana",
+            text: "Ne slikati, ne slati i ne unositi seed riječi u aplikacije.",
+          },
+          {
+            title: "Jedan redoslijed",
+            text: "Prvo pročitati upute, zatim kontaktirati osobu navedenu u dokumentu.",
+          },
         ],
       },
       {
@@ -5250,6 +5560,27 @@ const guideEntries: Guide[] = [
           "Ali ne bih mijenjao glavnu logiku: odvojeno računalo za Bitcoin node, odvojeno računalo za Sparrow, privatni ključevi na hardverskim novčanicima, 2 od 3 višepotpisni sustav, tri različita proizvođača, odvojene lokacije, fizičke pričuvne kopije, Sparrow descriptor, obiteljske upute i godišnja provjera.",
           "Tu je srž sustava: proizvodi su zamjenjivi, načelo nije.",
         ],
+        table: {
+          columns: ["Zamjenjivo", "Ne bih mijenjao načelo"],
+          rows: [
+            [
+              "Model mini računala ili laptopa",
+              "Odvojeno računalo za node i odvojeno računalo za rad s novčanikom.",
+            ],
+            [
+              "Linux distribucija ili Electrum poslužitelj",
+              "Vlastita provjera mreže i izbjegavanje javnog poslužitelja za veći trezor.",
+            ],
+            [
+              "Točan treći hardverski novčanik",
+              "Tri neovisna potpisnika i 2 od 3 struktura.",
+            ],
+            [
+              "Format uputa i lokacije",
+              "Nitko nema sve sam, a obitelj ima miran put oporavka.",
+            ],
+          ],
+        },
       },
       {
         heading: "Zašto je ovo dio osobnog Bitcoin standarda?",
@@ -5269,6 +5600,9 @@ const guideEntries: Guide[] = [
           "Najjednostavnije rečeno: Bitcoin mora ostati pod vašom kontrolom, ali ne smije ovisiti samo o vama.",
           "Tu počinje razlika između “imam bitcoin” i obiteljskog Bitcoin trezora.",
         ],
+        calloutTitle: "Kontrola bez osamljenosti",
+        callout:
+          "Cilj nije predati kontrolu, nego maknuti jednu osobu, jedan uređaj, jednu lokaciju i jednu tajnu iz središta cijelog sustava.",
       },
       {
         heading: "Završna napomena",

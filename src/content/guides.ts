@@ -5083,7 +5083,7 @@ const guideEntries: Guide[] = [
         body: [
           "Seed riječi se backupaju fizički. Ne digitalno.",
           "Za ozbiljan obiteljski sustav, seed se prvo zapiše na papir radi provjere, a zatim se trajno spremi na metalni backup.",
-          "Papir je dobar za početak, ali može izgorjeti, smočiti se ili propasti. Metalni backup je bolji za dugoročnu pohranu.",
+          "Papir je dobar za početak, ali može izgorjeti, smočiti se ili propasti. Metalni backup je bolji za dugoročnu pohranu, a Seedplate je samo jedan primjer takvog rješenja.",
           "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
         ],
         calloutTitle: "Seed je fizička tajna",
@@ -5098,6 +5098,23 @@ const guideEntries: Guide[] = [
           "ne printati preko tuđeg printera",
           "ne diktirati preko telefona",
         ],
+        link: {
+          before: "Jedan primjer metalnog seed backupa je",
+          label: "Seedplate",
+          href: "https://seedplate.com/",
+          after:
+            ", ali postoje i druga metalna rješenja. Poanta nije konkretan brend, nego da backup ostane fizički, čitljiv i otporan na dugoročna oštećenja.",
+        },
+        visual: {
+          type: "image-card",
+          title: "Primjer metalnog seed backupa.",
+          caption:
+            "Metalna pločica služi kao trajnija fizička kopija seed riječi. Ovo je samo jedan primjer proizvoda, ne jedina ispravna opcija.",
+          src: "/images/guide-sections/obiteljski-bitcoin-trezor-seedplate-20260701.webp",
+          alt: "Seedplate metalna pločica za backup seed riječi s alatom za označavanje",
+          href: "https://seedplate.com/",
+          credit: "Slika: Seedplate",
+        },
       },
       {
         heading: "Što znači da seed ne bude na istoj lokaciji kao uređaj?",

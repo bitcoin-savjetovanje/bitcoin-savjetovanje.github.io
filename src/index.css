@@ -2000,9 +2000,10 @@
   }
 
   .security-business-panel li {
-    @apply flex gap-3 rounded-xl border p-3 text-sm leading-6;
+    @apply flex gap-3 rounded-xl border text-sm leading-6;
     border-color: hsl(0 0% 100% / 0.14);
     background: hsl(0 0% 100% / 0.06);
+    padding: clamp(1rem, 3.125vw, 1.5rem);
   }
 
   .never-request-panel {
@@ -3917,7 +3918,7 @@
 }
 
 .guide-roadmap-card {
-  padding: clamp(0.9rem, 1.45vw, 1.1rem);
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   border-radius: var(--radius);
 }
 
@@ -4941,7 +4942,7 @@
   min-height: 3.05rem;
   width: auto;
   border-radius: 0.42rem !important;
-  padding: 0.78rem 1.2rem !important;
+  padding: 0.78rem 1.5rem !important;
   font-family: Georgia, ui-serif, serif;
   font-size: 1rem !important;
   font-weight: 700 !important;
@@ -4952,7 +4953,7 @@
 .hero-actions .home-primary-button {
   min-height: 3.45rem;
   border-radius: 0.48rem !important;
-  padding: 0.9rem 1.45rem !important;
+  padding: 0.9rem 1.5rem !important;
   font-size: 1.12rem !important;
 }
 
@@ -5623,7 +5624,7 @@
       transparent 0.42rem
     ),
     color-mix(in oklab, var(--paper), white 10%);
-  padding: 1.4rem;
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   box-shadow: 0 1rem 2.6rem rgba(73, 57, 36, 0.06);
 }
 
@@ -5724,7 +5725,7 @@
       transparent 0.42rem
     ),
     color-mix(in oklab, var(--paper), white 10%);
-  padding: 1.4rem;
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   box-shadow: 0 1rem 2.6rem rgba(73, 57, 36, 0.06);
 }
 
@@ -8619,7 +8620,7 @@
   }
 
   .hero-actions .home-primary-button {
-    padding-inline: 0.85rem !important;
+    padding-inline: 1rem !important;
     font-size: 0.86rem !important;
     line-height: 1.18;
     overflow-wrap: anywhere;
@@ -9486,7 +9487,7 @@
   border: 1px solid var(--line-warm);
   border-radius: 0.42rem;
   background: color-mix(in oklab, var(--paper), white 8%);
-  padding: 0.78rem 1.15rem;
+  padding: 0.78rem 1.5rem;
   color: var(--ink);
   font-size: 1rem;
   font-weight: 700;
@@ -9955,7 +9956,7 @@
       transparent 13rem
     ),
     color-mix(in oklab, var(--paper), var(--stone-soft) 13%);
-  padding: clamp(1rem, 2vw, 1.35rem);
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   box-shadow: 0 1.35rem 3rem rgba(73, 57, 36, 0.09);
 }
 
@@ -9970,7 +9971,7 @@
       transparent 0.55rem
     ),
     color-mix(in oklab, var(--paper), white 12%);
-  padding: clamp(1rem, 2.4vw, 1.55rem);
+  padding: clamp(1rem, 3.125vw, 1.55rem);
   box-shadow:
     0 1rem 2rem rgba(59, 43, 24, 0.1),
     inset 0.55rem 0 0 rgba(139, 107, 70, 0.045);
@@ -10026,7 +10027,7 @@
   border: 1px solid color-mix(in oklab, var(--line-warm), transparent 18%);
   border-radius: 0.42rem;
   background: color-mix(in oklab, var(--paper), var(--stone-soft) 7%);
-  padding: 0.62rem 0.7rem;
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   color: var(--ink-soft);
   font-size: 0.94rem;
   line-height: 1.25;
@@ -10076,7 +10077,7 @@
   border: 1px solid rgba(111, 92, 64, 0.16);
   border-radius: 0.65rem;
   background: rgba(255, 252, 246, 0.78);
-  padding: clamp(1rem, 1.8vw, 1.35rem);
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   box-shadow: 0 1rem 2.6rem rgba(73, 57, 36, 0.05);
 }
 
@@ -10651,7 +10652,7 @@
   .service-cta-list .home-primary-button,
   .service-link-button {
     justify-content: center;
-    padding-inline: 0.8rem !important;
+    padding-inline: 1rem !important;
     text-align: center;
     white-space: normal;
   }
@@ -11180,7 +11181,7 @@
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.85rem;
   align-items: start;
-  padding: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1rem, 3.125vw, 2rem);
 }
 
 .standard-assessment-hero-card__header > span {
@@ -11215,18 +11216,18 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
-  padding: 0 clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem);
+  padding: 0 clamp(1rem, 3.125vw, 2rem) clamp(1rem, 3.125vw, 2rem);
 }
 
 .standard-assessment-hero-card__facts div {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  padding-right: 0.75rem;
+  padding-right: clamp(1rem, 3.125vw, 1.5rem);
 }
 
 .standard-assessment-hero-card__facts div + div {
-  padding-left: 0.9rem;
+  padding-left: clamp(1rem, 3.125vw, 1.5rem);
   border-left: 1px solid rgba(255, 255, 255, 0.14);
 }
 
@@ -11319,7 +11320,7 @@
   gap: 0.9rem;
   align-items: start;
   border-radius: calc(var(--radius) * 1.5);
-  padding: clamp(1.1rem, 2.5vw, 1.6rem);
+  padding: clamp(1rem, 3.125vw, 1.6rem);
   box-shadow: var(--shadow-border);
 }
 
@@ -11348,7 +11349,7 @@
   min-width: 0;
   border-radius: calc(var(--radius) * 1.25);
   background: color-mix(in oklab, var(--paper), var(--area-color) 6%);
-  padding: 0.8rem;
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   box-shadow: var(--shadow-border);
 }
 
@@ -11429,7 +11430,7 @@
   border: 0;
   border-radius: calc(var(--radius) * 1.5);
   background: color-mix(in oklab, var(--paper), var(--stone-soft) 8%);
-  padding: clamp(1rem, 2.4vw, 1.5rem);
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   box-shadow: var(--shadow-border);
 }
 
@@ -11469,7 +11470,7 @@
   align-items: center;
   border-radius: var(--radius);
   background: var(--paper);
-  padding: 0.75rem;
+  padding: clamp(1rem, 3.125vw, 1.5rem);
   color: var(--ink-soft);
   cursor: pointer;
   box-shadow: var(--shadow-border);
@@ -11585,7 +11586,7 @@
 .standard-assessment__focus-card,
 .standard-assessment__task-card {
   border-radius: calc(var(--radius) * 1.5);
-  padding: clamp(1.15rem, 2.8vw, 1.75rem);
+  padding: clamp(1rem, 3.125vw, 1.75rem);
   box-shadow: var(--shadow-border);
 }
 
@@ -11617,7 +11618,7 @@
 
 .standard-assessment__continuation {
   background: color-mix(in oklab, var(--paper), var(--brass-soft) 24%);
-  padding: clamp(1.2rem, 3vw, 2rem);
+  padding: clamp(1rem, 3.125vw, 2rem);
   border-radius: calc(var(--radius) * 1.5);
   box-shadow: var(--shadow-border);
 }

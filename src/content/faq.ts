@@ -31,9 +31,9 @@ export const faqs = [
   },
   {
     question:
-      "Tražite li seed phrase, privatne ključeve ili pristup novčaniku?",
+      "Tražite li početne riječi, privatne ključeve ili pristup novčaniku?",
     answer:
-      "Ne. Seed phrase se nikada ne dijeli. Ne tražim privatne ključeve, lozinke, pristup burzi, pristup novčaniku ni kontrolu nad vašim Bitcoinom.",
+      "Ne. Početne riječi se nikada ne dijele. Ne tražim privatne ključeve, lozinke, pristup burzi, pristup novčaniku ni kontrolu nad vašim Bitcoinom.",
   },
   {
     question: "Što dobivam u uvodnom razgovoru?",
@@ -44,7 +44,7 @@ export const faqs = [
     question:
       "Koja je razlika između uvodnog razgovora, Bitcoin konzultacije i osobnog Bitcoin standarda?",
     answer:
-      "Uvodni razgovor traje 15 minuta i služi kao filter. Bitcoin konzultacija je jedan dubinski razgovor za jedno ozbiljno pitanje. Osobni Bitcoin standard je program od 4–6 tjedana za pisani okvir pravila. Ponekad je rezultat samo jasnije pitanje ili učvršćena Bitcoin teza, bez plaćenog nastavka.",
+      "Uvodni razgovor traje 15 minuta i služi kao filter. Bitcoin konzultacija je jedan dubinski razgovor za jedno ozbiljno pitanje. Osobni Bitcoin standard je program od 4–6 tjedana za prioritizaciju, donošenje pravila, stres-test, provedbu i reviziju. Pisani standard bilježi donesene odluke. Ponekad je rezultat samo jasnije pitanje ili učvršćena Bitcoin teza, bez plaćenog nastavka.",
   },
   {
     question: "Je li ovo i za poduzetnike?",
@@ -80,7 +80,7 @@ export const homepageFaqs = faqs.filter((faq) =>
     "Hoćete li mi reći koliko Bitcoina da kupim?",
     "Je li ovo i za poduzetnike?",
     "Moram li već imati Bitcoin?",
-    "Tražite li seed phrase, privatne ključeve ili pristup novčaniku?",
+    "Tražite li početne riječi, privatne ključeve ili pristup novčaniku?",
     "Koja je razlika između uvodnog razgovora, Bitcoin konzultacije i osobnog Bitcoin standarda?",
   ].includes(faq.question)
 )

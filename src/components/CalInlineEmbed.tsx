@@ -65,7 +65,7 @@ export function CalInlineEmbed() {
         </div>
         <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
           Odaberite termin koji vam odgovara. U bilješku napišite jedno Bitcoin
-          pitanje koje želite razjasniti. Ne šaljite seed phrase, privatne
+          pitanje koje želite razjasniti. Ne šaljite početne riječi, privatne
           ključeve, iznose ni osjetljive dokumente.
         </p>
       </div>

@@ -1,8 +1,14 @@
+import {
+  BITCOIN_CONSULTATION_PATH,
+  BITCOIN_STANDARD_CHECK_PATH,
+  PERSONAL_BITCOIN_STANDARD_PATH,
+} from "./site"
+
 export const navLinks = [
-  { label: "O pristupu", href: "/#okvir" },
-  { label: "Usluge", href: "/#ponude" },
-  { label: "Knjiga", href: "/#knjiga" },
-  { label: "O meni", href: "/#o-meni" },
-  { label: "Česta pitanja", href: "/razgovor/#pitanja" },
-  { label: "Kontakt", href: "/razgovor/" },
+  { label: "Program", href: PERSONAL_BITCOIN_STANDARD_PATH },
+  { label: "Konzultacija", href: BITCOIN_CONSULTATION_PATH },
+  { label: "Provjera", href: BITCOIN_STANDARD_CHECK_PATH },
+  { label: "Vodiči", href: "/vodici/" },
+  { label: "Sigurnost", href: "/sigurnost/" },
+  { label: "O meni", href: "/bitcoin-savjetovanje/" },
 ]

@@ -219,7 +219,7 @@ function Route({
     return <PersonalBitcoinStandard />
   }
 
-  if (path === "/primjer-osobnog-bitcoin-standarda") {
+  if (path === "/osobni-bitcoin-standard/primjer") {
     return <SamplePersonalBitcoinStandard />
   }
 

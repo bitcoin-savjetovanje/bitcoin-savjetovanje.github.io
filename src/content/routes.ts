@@ -37,6 +37,7 @@ import {
   netWorthSeo,
   personalBitcoinStandardSeo,
   privacySeo,
+  SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
   samplePersonalBitcoinStandardSeo,
   securitySeo,
   timeVolatilitySeo,
@@ -437,7 +438,7 @@ export const personalBitcoinStandardRoute: RouteMeta = {
 }
 
 export const samplePersonalBitcoinStandardRoute: RouteMeta = {
-  path: "/primjer-osobnog-bitcoin-standarda/",
+  path: SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
   title: samplePersonalBitcoinStandardSeo.title,
   description: samplePersonalBitcoinStandardSeo.description,
   canonical: samplePersonalBitcoinStandardSeo.canonical,
@@ -481,7 +482,8 @@ export const guideRouteMetas: RouteMeta[] = guides.map((guide) => ({
   ogDescription: guide.ogDescription ?? guide.metaDescription,
   schema: guideSchema(guide),
   type: "guide",
-  lastmod: guide.updatedAt,
+  lastmod:
+    guide.updatedAt > SITE_UPDATED_AT ? guide.updatedAt : SITE_UPDATED_AT,
   ogType: "article",
   ...guideCoverSocialImage(resolveGuideCover(guide).src),
 }))

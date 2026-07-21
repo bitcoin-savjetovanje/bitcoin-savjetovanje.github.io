@@ -1,7 +1,8 @@
 export const neverAskItems = [
-  "seed phrase se nikada ne traži — 12 ili 24 riječi za oporavak novčanika",
+  "početne riječi — 12 ili 24 riječi za oporavak novčanika",
   "privatne ključeve",
   "lozinke",
+  "pristup računima",
   "pristup burzi",
   "pristup novčaniku",
   "pristup uređajima",
@@ -22,9 +23,14 @@ export const securityReviewItems = [
 ]
 
 export const skrbnistvoAssessmentItems = [
+  "iznos i posljedice mogućeg gubitka",
   "tehničko znanje",
   "sigurnosne navike",
   "obiteljski pristup",
+  "poslovni kontekst i odgovorne osobe",
+  "vremenski horizont",
+  "sposobnost oporavka",
+  "stvarne prijetnje, a ne zamišljeni ideal",
   "rizik gubitka pristupa",
   "rizik neovlaštenog pristupa",
   "mogući prijelaz prema većoj samostalnosti",
@@ -33,9 +39,10 @@ export const skrbnistvoAssessmentItems = [
 export const notDoingSecurityItems = [
   "ne čuvam Bitcoin",
   "ne potpisujem transakcije za vas",
+  "ne upravljam transakcijama umjesto vas",
   "ne kupujem ni prodajem u vaše ime",
   "ne upravljam novcem",
   "ne donosim odluke umjesto vas",
-  "ne tražim seed phrase ni privatne ključeve",
+  "ne tražim početne riječi ni privatne ključeve",
   "ne dajem porezni, pravni ili licencirani investicijski savjet",
 ]

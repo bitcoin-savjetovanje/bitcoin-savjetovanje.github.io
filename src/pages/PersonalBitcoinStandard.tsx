@@ -3,6 +3,7 @@ import { ArrowUpRight, CalendarDays, Check, FileText, X } from "lucide-react"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { personalBitcoinStandardRoute } from "@/content/clientRoutes"
+import { offerFacts } from "@/content/offers"
 import {
   CONVERSATION_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
@@ -10,214 +11,178 @@ import {
 
 const serviceVisualsPath = "/images/service-visuals"
 
-const programSteps = [
+const publicLimits = [
+  "koje je vaše prvo stvarno usko grlo",
+  "kojim redoslijedom rješavati dug, pričuvu, Bitcoin, potrošnju i proizvodnu imovinu",
+  "koja se vaša pravila međusobno sukobljavaju",
+  "kako uključiti partnera, obitelj ili poslovne suradnike",
+  "kako pravila reagiraju u nepovoljnim scenarijima",
+  "jesu li pravila provediva u stvarnom životu",
+  "što treba promijeniti nakon prvih 30 dana primjene",
+] as const
+
+const processStages = [
   {
+    label: "Prije početka",
+    title: "Priprema stvarnog konteksta",
     area: "budget",
-    title: "Novac, obveze i stvarni višak",
-    copy: "Prvo vidimo što novac već radi i koji je novac stvarno slobodan nakon obveza, budućih troškova i sigurnosne pričuve.",
-    image: `${serviceVisualsPath}/standard-process-money-obligations.webp`,
+    items: [
+      "pripremni upitnik",
+      "pregled sadašnjeg stanja",
+      "popis otvorenih pitanja i odluka",
+    ],
   },
   {
-    area: "debt",
-    title: "Dug i davanje",
-    copy: "Dug pokazuje koji je dio budućnosti već obećan, a davanje pomaže da novac ne postane samo obrana od straha.",
-    image: `${serviceVisualsPath}/standard-process-debt-giving.webp`,
+    label: "Radni razgovor 1",
+    title: "Proračun, priljevi, odljevi, dug i stvarni višak",
+    area: "budget",
+    items: ["vidljiv novčani tok", "obveze i pričuva", "prvi prioritet"],
   },
   {
+    label: "Radni razgovor 2",
+    title: "Davanje, Bitcoin kao novac i promjene kupovne moći",
     area: "bitcoin",
-    title: "Bitcoin kao novac",
-    copy: "Bitcoin ne promatramo samo kao ulaganje. Gledamo u kojem obliku držite novčani saldo nakon što ste ga zaradili i kako Bitcoin ulazi u stvarne odluke.",
-    image: `${serviceVisualsPath}/standard-process-bitcoin-money.webp`,
+    items: ["uloga novca", "pravila bez trgovanja", "odgovor na rast i pad"],
   },
   {
+    label: "Radni razgovor 3",
+    title: "Neto imovina, potrošna i proizvodna imovina te pravila ravnoteže",
     area: "worth",
-    title: "Neto imovina, vrijeme i volatilnost",
-    copy: "Neto imovinu gledamo kao cjelinu, a rast, padove i cikluse pretvaramo u pravila umjesto u paniku ili euforiju.",
-    image: `${serviceVisualsPath}/standard-process-net-worth-volatility.webp`,
+    items: [
+      "bilanca kao cjelina",
+      "suprotstavljeni ciljevi",
+      "pravila ravnoteže",
+    ],
   },
   {
+    label: "Radni razgovor 4",
+    title: "Sigurnost, skrbništvo, obitelj i nasljeđivanje",
     area: "security",
-    title: "Sigurnost, obitelj i nasljeđivanje",
-    copy: "Sigurnost nije uređaj, nego sustav. Dobar sustav otežava krađu, ali ne smije toliko otežati pristup da vi, obitelj ili ovlaštene osobe izgubite mogućnost oporavka.",
-    image: `${serviceVisualsPath}/standard-process-security-family.webp`,
-  },
-]
-
-const outcomeItems = [
-  "pravila za državni novac i Bitcoin",
-  "pravila za proračun, dug i davanje",
-  "okvir za neto imovinu i veće odluke",
-  "pravila za volatilnost i vrijeme",
-  "sigurnosna i obiteljska pravila",
-  "poslovni sloj ako je primjenjivo",
-]
-
-const standardLayers = [
-  {
-    title: "Privatni i obiteljski sloj",
-    copy: "Pravila za državni novac, Bitcoin saldo, dug, davanje, veće kupnje i obiteljske upute.",
-    image: `${serviceVisualsPath}/standard-layer-private-family.webp`,
+    items: ["stvarne prijetnje", "oporavak", "uloge drugih ljudi"],
   },
   {
-    title: "Poslovni sloj, ako je primjenjivo",
-    copy: "Razdvajanje privatnog i poslovnog Bitcoina, operativni fiat sloj i višak poslovne riznice.",
-    image: `${serviceVisualsPath}/standard-layer-business.webp`,
+    label: "Između razgovora",
+    title: "Od uvida prema provedivom pravilu",
+    area: "debt",
+    items: [
+      "kratki konkretni zadaci",
+      "provjera otvorenih Bitcoin pitanja",
+      "dorada pravila i razjašnjavanje proturječnosti",
+    ],
   },
   {
-    title: "Sigurnosni sloj",
-    copy: "Što se nikada ne dijeli, gdje počinje oporavak i tko zna prvi korak.",
-    image: `${serviceVisualsPath}/standard-layer-security.webp`,
+    label: "Nakon radnih razgovora",
+    title: "Stres-test i redoslijed provedbe",
+    area: "time",
+    items: [
+      "osobni dokument s pravilima",
+      "mapa prioriteta i stres-test",
+      "redoslijed provedbe i završni pregled",
+    ],
+  },
+  {
+    label: "Nakon 30 dana",
+    title: "Revizija nakon stvarne primjene",
+    area: "security",
+    items: [
+      "provjera što je provedeno",
+      "utvrđivanje što nije radilo",
+      "revizija pravila gdje je potrebna",
+    ],
   },
 ] as const
 
-const businessLayerItems = [
-  {
-    title: "Razdvajanje privatnog i poslovnog Bitcoina",
-    copy: "Cilj je da privatni i poslovni Bitcoin ne budu pomiješani.",
-  },
-  {
-    title: "Operativni fiat sloj",
-    copy: "Porezi, plaće, najam i dobavljači trebaju jasna kratkoročna pravila.",
-  },
-  {
-    title: "Višak poslovne riznice",
-    copy: "Tek novac koji nije potreban za bliske obveze može dobiti drugačija Bitcoin pravila.",
-  },
-  {
-    title: "Dug, oprema, zalihe i rast",
-    copy: "Bitcoin okvir ne smije biti izgovor za neurednu operativnu disciplinu.",
-  },
-  {
-    title: "Ovlaštene osobe i oporavak",
-    copy: "Tvrtka treba znati što se događa ako vlasnik, direktor ili tehnička osoba nije dostupna.",
-  },
-]
+const outcomeItems = [
+  "jasna hijerarhija odluka",
+  "razriješene kontradikcije",
+  "pravila za stvarne situacije",
+  "dogovor s relevantnim ljudima",
+  "stres-test nepovoljnih scenarija",
+  "provedbeni redoslijed",
+  "pisani osobni Bitcoin standard",
+  "revizija nakon stvarne primjene",
+] as const
 
-const deliverableSections = [
-  {
-    title: "I. Privatni i obiteljski sloj",
-    items: [
-      "pravilo za državni novac",
-      "pravilo za Bitcoin saldo",
-      "pravilo za dug",
-      "pravilo za veće kupnje",
-      "obiteljske upute",
-    ],
-  },
-  {
-    title: "II. Poslovni sloj, ako je primjenjivo",
-    items: [
-      "razdvajanje privatnog i poslovnog Bitcoina",
-      "fiat sloj za poreze, plaće i dobavljače",
-      "pravilo za višak poslovne riznice",
-      "ovlaštene osobe i odobravanje transakcija",
-    ],
-  },
-  {
-    title: "III. Sigurnosni sloj",
-    items: [
-      "što se nikada ne dijeli",
-      "gdje počinje plan oporavka",
-      "tko zna prvi korak",
-      "godišnja provjera",
-    ],
-  },
-]
+const fitItems = [
+  "već imate Bitcoin ili ozbiljno razmatrate njegovu veću ulogu",
+  "odluke utječu na obitelj, posao ili značajniju imovinu",
+  "ne trebate još sadržaja, nego redoslijed i pravila",
+  "spremni ste ozbiljno pogledati vlastite brojke, obveze i rizike",
+  "želite sustav koji se može objasniti drugoj osobi",
+] as const
 
-const notItems = [
+const notForItems = [
+  "tražite kratkoročno predviđanje cijene ili upute za trgovanje",
+  "želite da netko preuzme ključeve ili upravlja Bitcoinom umjesto vas",
+  "želite univerzalnu formulu bez razgovora o stvarnoj situaciji",
+  "ne želite razmotriti kako odluke utječu na relevantnog partnera, člana obitelji ili suradnika",
+  "ne želite provesti dogovorene korake",
+] as const
+
+const serviceBoundaries = [
   "nije investicijski savjet",
   "nije porezni, pravni ili računovodstveni savjet",
-  "nije prognoza cijene",
-  "nije trading program",
-  "nije upravljanje sredstvima",
-  "nije preuzimanje skrbništva",
-  "nije traženje seed phrase, privatnih ključeva ili pristupa novčaniku",
-]
+  "nije prognoza cijene ni program trgovanja",
+  "ne uključuje upravljanje sredstvima ili preuzimanje skrbništva",
+  "ne traži početne riječi, privatne ključeve, lozinke ili pristup novčaniku",
+] as const
 
 const programFaqs = [
   {
     question: "Moram li već imati Bitcoin?",
     answer:
-      "Ne morate, ali razgovor mora biti povezan sa stvarnom odlukom. Program je najkorisniji kada Bitcoin već ima ili bi mogao imati važnu ulogu u vašem novčanom životu.",
+      "Ne morate, ali program mora biti povezan sa stvarnom odlukom. Najkorisniji je kada Bitcoin već ima ili bi mogao imati važnu ulogu u vašem novčanom životu.",
   },
   {
     question: "Može li partner ili član obitelji sudjelovati?",
     answer:
-      "Da. To je često korisno, posebno ako se pravila tiču zajedničkog proračuna, sigurnosti, obiteljskog pristupa ili nasljeđivanja.",
+      "Da. To je često nužan dio rada ako se pravila tiču zajedničkog proračuna, sigurnosti, obiteljskog pristupa ili nasljeđivanja.",
   },
   {
-    question: "Je li ovo financijski plan?",
+    question: "Je li pisani standard glavni proizvod?",
     answer:
-      "Ne. Ovo je pisani okvir pravila i odluka. Ne dajem porezni, pravni ili licencirani investicijski savjet i ne donosim odluke umjesto vas.",
+      "Ne. Dokument bilježi odluke, prioritete, stres-test i provedbeni redoslijed nastale tijekom privatnog rada. Dokument je zapis procesa, ne njegova zamjena.",
   },
   {
     question: "Hoćete li mi reći koliko Bitcoina kupiti?",
     answer:
-      "Ne. Pomažem vam razumjeti proračun, dug, neto imovinu, sigurnost i posljedice odluka. Odluka ostaje vaša.",
+      "Ne. Pomažem vam razumjeti proračun, dug, neto imovinu, sigurnost, kompromise i posljedice odluka. Odluka ostaje vaša.",
   },
   {
     question: "Radimo li tehničko postavljanje novčanika?",
     answer:
-      "U programu možemo razgovarati o sigurnosnoj strukturi i pravilima, ali ne tražim seed phrase, privatne ključeve, lozinke ni pristup uređajima ili novčaniku.",
-  },
-  {
-    question: "Što ako nakon uvodnog razgovora program nema smisla?",
-    answer:
-      "Tada to otvoreno kažem. Uvodni razgovor služi kao filter i ne mora završiti plaćenim nastavkom.",
+      "Možemo razjasniti sigurnosni model, kriterije i redoslijed sigurnih koraka. Ne tražim početne riječi, privatne ključeve, lozinke ni pristup uređajima ili novčaniku.",
   },
   {
     question: "Mogu li prvo uzeti samo Bitcoin konzultaciju?",
     answer:
-      "Da. Ako imate jedno ozbiljno pitanje, Bitcoin konzultacija može biti bolji prvi plaćeni korak od punog programa.",
+      "Da. Ako imate jedno ozbiljno pitanje, konzultacija od 60 minuta može biti razumniji prvi plaćeni korak od cjelovitog programa.",
   },
-]
-
-function DecorativeServiceImage({
-  src,
-  className = "",
-}: {
-  src: string
-  className?: string
-}) {
-  return (
-    <img
-      className={`service-stone-image ${className}`}
-      src={src}
-      alt=""
-      aria-hidden="true"
-      loading="lazy"
-      decoding="async"
-    />
-  )
-}
+] as const
 
 function Checklist({
   items,
   kind = "positive",
-  className = "",
 }: {
-  items: string[]
+  items: readonly string[]
   kind?: "positive" | "negative"
-  className?: string
 }) {
   const Icon = kind === "positive" ? Check : X
-  const iconClass = kind === "positive" ? "positive-icon" : "negative-icon"
-  const listClass = [
-    "service-checklist",
-    kind === "negative" ? "service-checklist--negative" : "",
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ")
 
   return (
-    <ul className={listClass}>
+    <ul
+      className={`service-checklist ${
+        kind === "negative" ? "service-checklist--negative" : ""
+      }`}
+    >
       {items.map((item) => (
-        <li
-          key={item}
-          className={item.includes("seed phrase") ? "is-sensitive" : undefined}
-        >
-          <Icon className={`${iconClass} service-checklist__icon`} />
+        <li key={item}>
+          <Icon
+            className={`${
+              kind === "positive" ? "positive-icon" : "negative-icon"
+            } service-checklist__icon`}
+            aria-hidden="true"
+          />
           <span>{item}</span>
         </li>
       ))}
@@ -233,19 +198,19 @@ export function PersonalBitcoinStandard() {
         <header className="service-hero hero-section editorial-section">
           <div className="hero-shell">
             <div className="hero-copy service-hero__content">
-              <p className="hero-eyebrow">Program</p>
-              <h1 className="hero-title">Osobni Bitcoin standard</h1>
+              <p className="hero-eyebrow">Privatni program</p>
+              <h1 className="hero-title">
+                Osobni Bitcoin standard: 4–6 tjedana privatnog rada na odlukama
+              </h1>
               <p className="hero-subtitle service-hero__lead">
-                4–6 tjedana rada na pisanom sustavu odluka za život s Bitcoinom.
-              </p>
-              <p>
-                Osobni Bitcoin standard nije samo posjedovanje Bitcoina. To je
-                pisani okvir pravila za proračun, dug, davanje, Bitcoin kao
-                novac, neto imovinu, volatilnost, sigurnost, obiteljski pristup
-                i po potrebi poslovnu riznicu.
+                Ne kupujete tajne informacije ni generički predložak. Kroz
+                strukturirani proces donosimo, testiramo i provodimo pravila
+                koja odgovaraju vašem proračunu, dugu, imovini, obitelji, poslu
+                i sigurnosnim rizicima.
               </p>
               <p className="service-hero__note">
-                Program se ne kupuje preko checkouta. Prvi korak je razgovor.
+                Pisani standard bilježi donesene odluke. Ne može zamijeniti
+                proces kojim se do njih dolazi.
               </p>
               <div className="service-hero__actions">
                 <Button asChild className="cta-primary home-primary-button">
@@ -255,7 +220,7 @@ export function PersonalBitcoinStandard() {
                     data-cta="personal-standard-hero-call"
                   >
                     <CalendarDays className="size-4" aria-hidden="true" />
-                    Dogovorite razgovor
+                    Rezervirajte razgovor
                   </a>
                 </Button>
               </div>
@@ -263,7 +228,7 @@ export function PersonalBitcoinStandard() {
 
             <aside
               className="hero-image-frame service-hero__visual"
-              aria-label="Vizual osobnog Bitcoin standarda"
+              aria-label="Sažetak programa Osobni Bitcoin standard"
             >
               <picture className="service-hero__picture">
                 <source
@@ -273,70 +238,103 @@ export function PersonalBitcoinStandard() {
                 <img
                   className="service-hero__image"
                   src={`${serviceVisualsPath}/standard-hero-20260601.jpg`}
-                  alt="Mediteranska scena s otvorenom knjigom osobnog Bitcoin standarda i simbolima za obitelj, sigurnost, imovinu i davanje."
+                  alt="Radni stol s otvorenom knjigom i simbolima za obitelj, sigurnost i imovinu."
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
                 />
               </picture>
+              <div className="service-hero__summary-card">
+                <p>Privatni program</p>
+                <strong>{offerFacts.personalStandard.price}</strong>
+                <span>{offerFacts.personalStandard.duration}</span>
+                <em>Prioritizacija, stres-test, provedba i revizija.</em>
+              </div>
             </aside>
           </div>
         </header>
 
         <div className="service-page__inner">
-          <section className="service-section service-section--split service-written-standard">
+          <section className="service-section service-section--split">
             <div className="service-editorial-column">
-              <p className="service-eyebrow">pisani okvir</p>
-              <h2>Na kraju programa imate pisani osobni Bitcoin standard.</h2>
-              <Checklist
-                items={outcomeItems}
-                className="service-checklist--two"
-              />
+              <p className="service-eyebrow">Okvir i odluka</p>
+              <h2>
+                Vodiči pokazuju okvir. Privatni rad pretvara okvir u odluke.
+              </h2>
+              <p>
+                Možete samostalno naučiti načela. Privatni rad počinje ondje
+                gdje se ta načela sudare s ograničenim novcem, obvezama,
+                odnosima, sigurnosnim rizicima i vremenom. Tada više nije
+                dovoljno znati što je razumno općenito; treba odrediti što je
+                prvo, što može čekati i što je provedivo za vas.
+              </p>
             </div>
-            <aside className="service-written-standard__visual">
-              <p>pisani okvir</p>
-              <DecorativeServiceImage
-                className="service-written-standard__image"
-                src={`${serviceVisualsPath}/standard-written-frame.webp`}
-              />
+            <aside className="service-side-panel">
+              <FileText aria-hidden="true" />
+              <h3>Dokument je zapis procesa, ne njegova zamjena.</h3>
+              <p>
+                Njegova vrijednost je u odlukama koje može jasno sačuvati i
+                kasnije pomoći revidirati.
+              </p>
             </aside>
           </section>
 
-          <section className="service-section service-document-section">
+          <section className="service-section service-section--warm">
             <div className="service-section__header">
-              <p className="service-eyebrow">Pisani okvir</p>
-              <h2>Kako izgleda pisani osobni Bitcoin standard?</h2>
+              <p className="service-eyebrow">Granica javnog sadržaja</p>
+              <h2>Što ne možete dobiti iz članka ili PDF-a</h2>
               <p>
-                Na kraju programa cilj nije imati još jednu bilješku iz
-                razgovora, nego pisani okvir pravila koji možete ponovno
-                otvoriti kada se promijene prihod, cijena, obiteljska situacija,
-                poslovne obveze ili sigurnosne okolnosti.
+                Članak može pošteno objasniti načelo i kompromise. Ne poznaje
+                vašu bilancu, ljude koji ovise o vama ni posljedice pogrešnog
+                redoslijeda.
               </p>
             </div>
-            <div className="service-document-panel">
-              <div className="service-document-panel__intro">
-                <h3>Osobni Bitcoin standard</h3>
-                <p>
-                  Ovo je okvir pravila, ne financijski plan, porezni savjet,
-                  pravni savjet, računovodstveni savjet ili nalog za
-                  kupnju/prodaju.
-                </p>
-              </div>
-              <div className="service-document-columns">
-                {deliverableSections.map((section) => (
-                  <section
-                    key={section.title}
-                    className="service-document-column"
-                  >
-                    <h3>{section.title}</h3>
-                    <ul>
-                      {section.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </section>
-                ))}
-              </div>
+            <Checklist items={publicLimits} />
+          </section>
+
+          <section className="service-section">
+            <div className="service-section__header">
+              <p className="service-eyebrow">Strukturirani proces</p>
+              <h2>Kako radimo kroz {offerFacts.personalStandard.duration}</h2>
+            </div>
+            <div className="service-process-grid">
+              {processStages.map((stage, index) => (
+                <article
+                  key={stage.label}
+                  className="service-process-card"
+                  data-area={stage.area}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p className="service-eyebrow mt-4">{stage.label}</p>
+                  <h3>{stage.title}</h3>
+                  <ul className="service-checklist">
+                    {stage.items.map((item) => (
+                      <li key={item}>
+                        <Check
+                          className="positive-icon service-checklist__icon"
+                          aria-hidden="true"
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="service-section service-section--warm">
+            <div className="service-section__header">
+              <p className="service-eyebrow">Ishodi programa</p>
+              <h2>Što ostaje nakon privatnog rada</h2>
+            </div>
+            <div className="service-number-grid">
+              {outcomeItems.map((item, index) => (
+                <article key={item} className="service-number-card">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{item}</p>
+                </article>
+              ))}
             </div>
           </section>
 
@@ -348,23 +346,22 @@ export function PersonalBitcoinStandard() {
               <FileText />
             </div>
             <div>
-              <h2>Ne kupujete samo razgovor. Dobivate pisani sustav odluka.</h2>
+              <h2>Kako izgleda rezultat rada</h2>
               <p>
-                Program završava konkretnim dokumentom: vašim osobnim Bitcoin
-                standardom. U njemu su zapisana pravila za novac, dug, davanje,
-                Bitcoin, neto imovinu, volatilnost, sigurnost i obiteljski
-                pristup. Ovdje možete pogledati ogledni primjer takvog
-                dokumenta.
+                Javni HTML primjer pokazuje strukturu i vrstu odluka, ali nije
+                predložak za kopiranje. Pisani standard je sedmi ishod procesa,
+                nakon prioritizacije, razrješenja proturječnosti, stres-testa i
+                provedbenog redoslijeda.
               </p>
             </div>
             <ul className="service-cta-list">
               <li>
-                <Button asChild className="cta-primary home-primary-button">
+                <Button asChild variant="outline">
                   <a
                     href={SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}
-                    data-cta="personal-standard-sample"
+                    data-link="personal-standard-result-example"
                   >
-                    Preuzmite ogledni primjer
+                    Pogledajte kako izgleda rezultat
                     <ArrowUpRight className="size-4" aria-hidden="true" />
                   </a>
                 </Button>
@@ -372,90 +369,47 @@ export function PersonalBitcoinStandard() {
             </ul>
           </section>
 
-          <section className="service-section service-section--warm">
-            <div className="service-section__header">
-              <h2>Tri sloja standarda</h2>
-            </div>
-            <div className="service-card-grid">
-              {standardLayers.map((layer) => (
-                <article key={layer.title} className="service-card">
-                  <DecorativeServiceImage
-                    className="service-card__image"
-                    src={layer.image}
-                  />
-                  <h3 className="service-card__title">{layer.title}</h3>
-                  <p className="service-card__copy">{layer.copy}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
           <section className="service-section">
-            <div className="service-section__header">
-              <h2>Kako radimo kroz 4–6 tjedana</h2>
-            </div>
-            <div className="service-process-grid">
-              {programSteps.map((step, index) => (
-                <article
-                  key={step.title}
-                  className="service-process-card"
-                  data-area={step.area}
-                >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <DecorativeServiceImage
-                    className="service-card__image"
-                    src={step.image}
-                  />
-                  <h3>{step.title}</h3>
-                  <p>{step.copy}</p>
-                </article>
-              ))}
+            <div className="service-checklist-grid">
+              <article className="service-checklist-panel">
+                <h2>Za koga je program</h2>
+                <Checklist items={fitItems} />
+              </article>
+              <article className="service-checklist-panel">
+                <h2>Kada program vjerojatno nije pravi korak</h2>
+                <p>
+                  To ne znači da je samostalni put pogrešan. Znači samo da ovaj
+                  oblik privatnog rada traži stvaran kontekst i provedbu.
+                </p>
+                <Checklist items={notForItems} kind="negative" />
+              </article>
             </div>
           </section>
 
-          <section className="service-section service-section--split service-business-standard">
-            <div className="service-editorial-column">
-              <p className="service-eyebrow">Poslovni sloj</p>
-              <h2>Ako vodite posao, standard ima i poslovni sloj</h2>
-              <p>
-                Kod poduzetnika Bitcoin odluka ne smije pomiješati privatni
-                život, obiteljsku sigurnost i poslovnu riznicu.
-              </p>
-              <div className="service-business-list">
-                {businessLayerItems.map((item, index) => (
-                  <article key={item.title}>
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                    <h3>{item.title}</h3>
-                    <p>{item.copy}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-            <aside className="service-business-standard__visual">
-              <DecorativeServiceImage
-                className="service-business-standard__image"
-                src={`${serviceVisualsPath}/standard-business-treasury.webp`}
-              />
-            </aside>
+          <section className="service-section service-warning-panel">
+            <h2>Granice usluge</h2>
+            <Checklist items={serviceBoundaries} kind="negative" />
           </section>
 
           <section className="service-section service-final-cta service-final-cta--pricing">
             <div>
               <h2>Cijena i ulaz</h2>
               <p>
-                Program traje 4–6 tjedana i cijena je 1.500 EUR. Ne kreće se
-                izravno preko checkouta. Prvi korak je 15-minutni uvodni
-                razgovor u kojem vidimo ima li program smisla za vašu situaciju.
+                Program traje {offerFacts.personalStandard.duration} i cijena je{" "}
+                {offerFacts.personalStandard.price}. Ne kreće se preko
+                checkouta. Prvi korak je 15-minutni uvodni razgovor u kojem
+                vidimo ima li program smisla za vašu situaciju.
               </p>
             </div>
             <div
               className="service-pricing-summary"
-              aria-label="Sažetak cijene"
+              role="group"
+              aria-label="Sažetak cijene i trajanja"
             >
-              <p>Program</p>
-              <strong>1.500 EUR</strong>
-              <span>4–6 tjedana</span>
-              <em>Ne kupuje se odmah. Prvo vidimo ima li smisla.</em>
+              <p>Osobni Bitcoin standard</p>
+              <strong>{offerFacts.personalStandard.price}</strong>
+              <span>{offerFacts.personalStandard.duration}</span>
+              <em>Privatni proces, provedba i 30-dnevna revizija.</em>
             </div>
             <ul className="service-cta-list">
               <li>
@@ -466,16 +420,11 @@ export function PersonalBitcoinStandard() {
                     data-cta="personal-standard-pricing-call"
                   >
                     <CalendarDays className="size-4" aria-hidden="true" />
-                    Dogovorite uvodni razgovor
+                    Rezervirajte razgovor
                   </a>
                 </Button>
               </li>
             </ul>
-          </section>
-
-          <section className="service-section service-warning-panel">
-            <h2>Ovo nije</h2>
-            <Checklist items={notItems} kind="negative" />
           </section>
 
           <section className="service-section service-faq-section">
@@ -493,7 +442,11 @@ export function PersonalBitcoinStandard() {
           <section className="service-section service-final-cta service-final-cta--quiet">
             <div>
               <h2>Želite vidjeti ima li program smisla za vas?</h2>
-              <p>Prvi korak nije checkout, nego 15-minutni uvodni razgovor.</p>
+              <p>
+                Uvodni razgovor je filter, ne obveza. Ako je za vaše pitanje
+                dovoljna jedna konzultacija ili besplatan vodič, to ćemo jasno
+                odvojiti od cjelovitog programa.
+              </p>
             </div>
             <ul className="service-cta-list">
               <li>
@@ -504,7 +457,7 @@ export function PersonalBitcoinStandard() {
                     data-cta="personal-standard-final-call"
                   >
                     <CalendarDays className="size-4" aria-hidden="true" />
-                    Dogovorite uvodni razgovor
+                    Rezervirajte razgovor
                   </a>
                 </Button>
               </li>

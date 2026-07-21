@@ -3,6 +3,7 @@ import { ArrowUpRight, CalendarDays, Check, X } from "lucide-react"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { bitcoinConsultationRoute } from "@/content/clientRoutes"
+import { offerFacts } from "@/content/offers"
 import {
   BUSINESS_AUDIENCE_PATH,
   CONVERSATION_PATH,
@@ -38,21 +39,25 @@ const notDoingItems = [
   "nema naloga kupnje ili prodaje",
   "ne govorim vam koliko Bitcoina kupiti",
   "ne upravljam vašim sredstvima",
-  "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",
+  "ne tražim početne riječi, privatne ključeve, lozinke ili pristup novčaniku",
   "ne dajem porezni ni pravni savjet",
   "odluka ostaje vaša",
 ]
 
 const outcomes = [
-  "jasniju i čvršću Bitcoin tezu koju možete objasniti sebi, partneru, obitelji ili poslovnom partneru",
-  "jasniji okvir za jednu odluku koju odgađate",
-  "jasnu procjenu da jedno pitanje nije dovoljno i da treba graditi osobni Bitcoin standard",
+  "jasniju definiciju problema",
+  "pregled glavnih rizika i kompromisa",
+  "odluku ili uži skup mogućnosti",
+  "sljedeći konkretan korak",
+  "relevantan izvor ili vodič kada je potreban",
 ]
 
 const outcomeImages = [
   `${serviceVisualsPath}/consultation-outcome-thesis.webp`,
   `${serviceVisualsPath}/consultation-outcome-decision.webp`,
   `${serviceVisualsPath}/consultation-outcome-standard.webp`,
+  `${serviceVisualsPath}/consultation-outcome-decision.webp`,
+  `${serviceVisualsPath}/consultation-outcome-thesis.webp`,
 ]
 
 const consultationScopes = [
@@ -89,7 +94,7 @@ const preparationItems = [
 const consultationFlow = [
   {
     title: "Prije razgovora",
-    copy: "Ne šaljete seed phrase, privatne ključeve, lozinke ni dokumente. Dovoljno je zapisati jednu odluku i pitanja koja se stalno vraćaju.",
+    copy: "Ne šaljete početne riječi, privatne ključeve, lozinke ni dokumente. Dovoljno je zapisati jednu odluku i pitanja koja se stalno vraćaju.",
     image: `${serviceVisualsPath}/consultation-flow-before.webp`,
   },
   {
@@ -99,7 +104,7 @@ const consultationFlow = [
   },
   {
     title: "Nakon razgovora",
-    copy: "Znate je li jedno pitanje dovoljno razjašnjeno ili ima smisla graditi osobni Bitcoin standard.",
+    copy: "Imate jasniju definiciju problema, glavne kompromise, uži skup mogućnosti i jedan konkretan sljedeći korak.",
     image: `${serviceVisualsPath}/consultation-flow-after.webp`,
   },
 ]
@@ -180,13 +185,16 @@ export function BitcoinConsultation() {
           <div className="hero-shell">
             <div className="hero-copy service-hero__content">
               <p className="hero-eyebrow">Bitcoin konzultacija</p>
-              <h1 className="hero-title">Bitcoin konzultacija</h1>
+              <h1 className="hero-title">
+                Jedna odluka, jedan razgovor, jasan sljedeći korak
+              </h1>
               <p className="hero-subtitle service-hero__lead">
                 Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje
                 utječe na vašu osobnu, obiteljsku ili poslovnu odluku.
               </p>
               <p className="service-hero__note">
-                Jedan dubinski razgovor, ali tek nakon uvodnog razgovora.
+                Ne plaćate tajnu informaciju. Plaćate kompresiju, kontekst i
+                prosudbu primijenjenu na vašu situaciju.
               </p>
               <div className="service-hero__actions">
                 <Button asChild className="cta-primary home-primary-button">
@@ -220,6 +228,12 @@ export function BitcoinConsultation() {
                   fetchPriority="high"
                 />
               </picture>
+              <div className="service-hero__summary-card">
+                <p>Samostalna dijagnostička usluga</p>
+                <strong>{offerFacts.bitcoinConsultation.price}</strong>
+                <span>{offerFacts.bitcoinConsultation.duration}</span>
+                <em>Jedno primarno pitanje, ograničen opseg.</em>
+              </div>
             </aside>
           </div>
         </header>
@@ -298,10 +312,7 @@ export function BitcoinConsultation() {
 
           <section className="service-section">
             <div className="service-section__header">
-              <h2>
-                Nakon Bitcoin konzultacije trebali biste imati jednu od tri
-                stvari
-              </h2>
+              <h2>Što trebate dobiti nakon Bitcoin konzultacije</h2>
             </div>
             <div className="service-number-grid">
               {outcomes.map((outcome, index) => (
@@ -422,7 +433,7 @@ export function BitcoinConsultation() {
               <article className="service-checklist-panel">
                 <h2>Kada je dovoljan jedan razgovor</h2>
                 <p>
-                  Jedan razgovor može biti dovoljan ako vam treba razjasniti
+                  Jedan razgovor može biti dovoljan ako trebate razjasniti
                   konkretno pitanje, jedan dio Bitcoin teze ili sigurnosnu
                   odluku. Ako se pokaže da jedno pitanje nije dovoljno, sljedeći
                   korak može biti{" "}
@@ -452,9 +463,9 @@ export function BitcoinConsultation() {
                 <article>
                   <h3>Osobni Bitcoin standard</h3>
                   <p>
-                    Osobni Bitcoin standard je za pisani sustav pravila kroz 4–6
-                    tjedana: proračun, dug, Bitcoin, neto imovina, sigurnost i
-                    obitelj.
+                    Program povezuje sva glavna područja kroz 4–6 tjedana i
+                    uključuje prioritizaciju, stres-test, provedbu,
+                    dokumentiranje odluka i reviziju nakon 30 dana.
                   </p>
                   <a
                     href={PERSONAL_BITCOIN_STANDARD_PATH}
@@ -472,11 +483,10 @@ export function BitcoinConsultation() {
                   konzultacija.
                 </li>
                 <li>
-                  Pisana pravila za cijeli sustav: Osobni Bitcoin standard.
+                  Povezivanje svih glavnih područja: Osobni Bitcoin standard.
                 </li>
                 <li>
-                  Sigurnost i obiteljski pristup trebaju cijeli plan: Osobni
-                  Bitcoin standard.
+                  Provedba i revizija cijelog sustava: Osobni Bitcoin standard.
                 </li>
               </ul>
             </div>
@@ -491,8 +501,10 @@ export function BitcoinConsultation() {
                 procjeni.
               </p>
               <p className="service-price-note">
-                Bitcoin konzultacija je prvi plaćeni korak: 200 € za jedan
-                dubinski razgovor. Ne kupuje se odmah. Prvo vidimo ima li
+                Bitcoin konzultacija je prvi plaćeni korak:{" "}
+                {offerFacts.bitcoinConsultation.price} za{" "}
+                {offerFacts.bitcoinConsultation.duration} rada na jednom
+                ozbiljnom pitanju. Ne kupuje se odmah. Prvo vidimo ima li
                 smisla.
               </p>
             </div>
@@ -517,7 +529,7 @@ export function BitcoinConsultation() {
                 <a
                   href="/sigurnost/"
                   className="service-link-button"
-                  data-cta="bitcoin-consultation-security"
+                  data-link="bitcoin-consultation-security"
                 >
                   Pogledajte sigurnosna pravila
                   <ArrowUpRight className="size-4" aria-hidden="true" />

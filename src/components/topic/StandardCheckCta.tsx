@@ -1,7 +1,7 @@
-import { ArrowUpRight, FileCheck2 } from "lucide-react"
+import { ArrowUpRight, CalendarDays, FileCheck2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { BITCOIN_STANDARD_CHECK_PATH } from "@/content/site"
+import { BITCOIN_STANDARD_CHECK_PATH, CONVERSATION_PATH } from "@/content/site"
 
 export function StandardCheckCta({ dataCta }: { dataCta: string }) {
   return (
@@ -11,14 +11,27 @@ export function StandardCheckCta({ dataCta }: { dataCta: string }) {
       </div>
       <div>
         <h2>Želite provjeriti svoj Bitcoin standard?</h2>
-        <p>Preuzmite besplatni radni PDF i prođite kroz 7 osnovnih provjera.</p>
+        <p>
+          Odgovorite na 21 kratku tvrdnju i odmah saznajte koje područje prvo
+          treba urediti. Bez registracije i bez slanja odgovora.
+        </p>
       </div>
-      <Button asChild className="cta-primary home-primary-button">
-        <a href={BITCOIN_STANDARD_CHECK_PATH} data-cta={dataCta}>
-          Preuzmite PDF
-          <ArrowUpRight className="size-4" aria-hidden="true" />
+      <div className="flex flex-col items-start gap-3">
+        <Button asChild className="cta-primary home-primary-button">
+          <a href={BITCOIN_STANDARD_CHECK_PATH} data-cta={dataCta}>
+            Napravite besplatnu provjeru
+            <ArrowUpRight className="size-4" aria-hidden="true" />
+          </a>
+        </Button>
+        <a
+          href={CONVERSATION_PATH}
+          className="service-link-button w-full justify-center sm:w-auto"
+          data-cta="topic-standard-check-conversation"
+        >
+          <CalendarDays className="size-4" aria-hidden="true" />
+          Rezervirajte razgovor
         </a>
-      </Button>
+      </div>
     </section>
   )
 }

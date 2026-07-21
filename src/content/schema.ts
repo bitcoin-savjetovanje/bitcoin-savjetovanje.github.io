@@ -5,7 +5,7 @@ import {
   guidesIndexPrimaryItems,
   type Guide,
 } from "./guides"
-import { offers } from "./offers"
+import { offerFacts, offers } from "./offers"
 import { audienceCanonical, type AudiencePage } from "./audiences"
 import {
   EMAIL,
@@ -191,9 +191,9 @@ export function bitcoinConsultationPageSchema() {
       {
         "@type": "Service",
         name: "Bitcoin konzultacija",
-        serviceType: "Jedan dubinski Bitcoin razgovor",
+        serviceType: "Dijagnostička Bitcoin konzultacija",
         description:
-          "Jedan dubinski razgovor za jedno ozbiljno osobno, obiteljsko ili poslovno pitanje o Bitcoinu, proračunu, dugu, poslovnoj riznici, neto imovini, sigurnosti ili obitelji. Bez naloga za kupnju ili prodaju, bez prognoza cijene i bez traženja seed phrase.",
+          "Jedan dubinski razgovor za jasniju definiciju ozbiljnog osobnog, obiteljskog ili poslovnog Bitcoin pitanja, pregled glavnih rizika i kompromisa te konkretan sljedeći korak. Bez naloga za kupnju ili prodaju, prognoza cijene i traženja početnih riječi.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -201,10 +201,10 @@ export function bitcoinConsultationPageSchema() {
         },
         offers: {
           "@type": "Offer",
-          name: "Bitcoin konzultacija",
-          price: "200",
+          name: offerFacts.bitcoinConsultation.title,
+          price: String(offerFacts.bitcoinConsultation.priceAmount),
           priceCurrency: "EUR",
-          url: bitcoinConsultationSeo.canonical,
+          url: `${SITE_URL}${offerFacts.bitcoinConsultation.detailsHref}`,
         },
       },
       breadcrumbSchema([
@@ -249,9 +249,9 @@ export function personalBitcoinStandardPageSchema() {
         "@type": "Service",
         name: "Osobni Bitcoin standard",
         serviceType:
-          "Program za izgradnju pisanog sustava odluka za život s Bitcoinom",
+          "Privatni program za donošenje i provedbu odluka za život s Bitcoinom",
         description:
-          "Program od 4 do 6 tjedana za pisani okvir pravila za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, poslovnu riznicu, volatilnost, sigurnost i obiteljski pristup. Ne uključuje upravljanje sredstvima, prognoze cijene, porezni, pravni ili računovodstveni savjet.",
+          "Privatni program od 4 do 6 tjedana za prioritizaciju, donošenje pravila, stres-test, provedbu i reviziju odluka o proračunu, dugu, davanju, Bitcoinu kao novcu, neto imovini, sigurnosti i obitelji. Pisani standard bilježi donesene odluke, ali ne zamjenjuje proces. Program ne uključuje upravljanje sredstvima, prognoze cijene ni porezni, pravni ili računovodstveni savjet.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -272,10 +272,10 @@ export function personalBitcoinStandardPageSchema() {
         url: personalBitcoinStandardSeo.canonical,
         offers: {
           "@type": "Offer",
-          name: "Osobni Bitcoin standard",
-          price: "1500",
+          name: offerFacts.personalStandard.title,
+          price: String(offerFacts.personalStandard.priceAmount),
           priceCurrency: "EUR",
-          url: personalBitcoinStandardSeo.canonical,
+          url: `${SITE_URL}${offerFacts.personalStandard.detailsHref}`,
         },
       },
       breadcrumbSchema([
@@ -295,7 +295,7 @@ export function samplePersonalBitcoinStandardPageSchema() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Primjer osobnog Bitcoin standarda",
+        name: "Kako izgleda rezultat rada",
         description: samplePersonalBitcoinStandardSeo.description,
         url: samplePersonalBitcoinStandardSeo.canonical,
         inLanguage: "hr-HR",
@@ -306,7 +306,8 @@ export function samplePersonalBitcoinStandardPageSchema() {
         },
         about: [
           "osobni Bitcoin standard",
-          "ogledni primjer dokumenta",
+          "rezultat savjetodavnog procesa",
+          "osobna pravila odluke",
           "Bitcoin kao novac",
           "proračun",
           "dug",
@@ -320,7 +321,11 @@ export function samplePersonalBitcoinStandardPageSchema() {
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
         {
-          name: "Primjer osobnog Bitcoin standarda",
+          name: "Osobni Bitcoin standard",
+          item: personalBitcoinStandardSeo.canonical,
+        },
+        {
+          name: "Kako izgleda rezultat rada",
           item: samplePersonalBitcoinStandardSeo.canonical,
         },
       ]),
@@ -334,10 +339,11 @@ export function bitcoinStandardCheckPageSchema() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "7 provjera osobnog Bitcoin standarda",
+        name: "Provjera osobnog Bitcoin standarda",
         description: bitcoinStandardCheckSeo.description,
         url: bitcoinStandardCheckSeo.canonical,
         inLanguage: "hr-HR",
+        isAccessibleForFree: true,
         isPartOf: {
           "@type": "WebSite",
           "@id": `${SITE_URL}/#website`,
@@ -345,7 +351,7 @@ export function bitcoinStandardCheckPageSchema() {
         },
         about: [
           "osobni Bitcoin standard",
-          "radni PDF",
+          "interaktivna samoprocjena",
           "Bitcoin kao novac",
           "proračun",
           "dug",
@@ -359,7 +365,7 @@ export function bitcoinStandardCheckPageSchema() {
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
         {
-          name: "7 provjera osobnog Bitcoin standarda",
+          name: "Provjera osobnog Bitcoin standarda",
           item: bitcoinStandardCheckSeo.canonical,
         },
       ]),
@@ -494,7 +500,7 @@ export function guidesIndexSchema() {
     "@graph": [
       {
         "@type": "CollectionPage",
-        name: "Vodiči za knjigu Bitcoin kao novac",
+        name: "Bitcoin vodiči i istraživačke bilješke",
         description: guidesIndexSeo.description,
         url: guidesIndexSeo.canonical,
         inLanguage: "hr-HR",
@@ -537,7 +543,7 @@ export function securityPageSchema() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Sigurnost i povjerljivost",
+        name: "Bitcoin sigurnost i povjerljivost",
         description: securitySeo.description,
         url: securitySeo.canonical,
         inLanguage: "hr-HR",
@@ -549,7 +555,10 @@ export function securityPageSchema() {
       },
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
-        { name: "Sigurnost i povjerljivost", item: securitySeo.canonical },
+        {
+          name: "Bitcoin sigurnost i povjerljivost",
+          item: securitySeo.canonical,
+        },
       ]),
     ],
   }

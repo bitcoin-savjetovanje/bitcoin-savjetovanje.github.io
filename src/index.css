@@ -4976,11 +4976,26 @@
   stroke-width: 1.7;
 }
 
-.hero-trust-note p {
+.hero-trust-note p,
+.hero-trust-note ul {
   color: var(--ink);
   font-family: Georgia, ui-serif, serif;
   font-size: 0.9rem;
   line-height: 1.34;
+}
+
+.hero-trust-note ul {
+  display: grid;
+  gap: 0.32rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-trust-note li::before {
+  content: "—";
+  margin-right: 0.4rem;
+  color: var(--ink-muted);
 }
 
 .hero-image-frame {
@@ -5765,7 +5780,9 @@
 }
 
 .standard-check-teaser > .standard-check-cover-card,
-.sample-standard-teaser > .standard-check-cover-card {
+.sample-standard-teaser > .standard-check-cover-card,
+.standard-check-teaser > .standard-check-teaser__panel,
+.sample-standard-teaser > .sample-standard-teaser__panel {
   grid-area: cover;
 }
 
@@ -8799,8 +8816,10 @@
 }
 
 .service-hero__actions {
+  display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
+  align-items: center;
   margin-top: 1.35rem;
 }
 
@@ -10170,7 +10189,9 @@
   }
 
   .standard-check-teaser > .standard-check-cover-card,
-  .sample-standard-teaser > .standard-check-cover-card {
+  .sample-standard-teaser > .standard-check-cover-card,
+  .standard-check-teaser > .standard-check-teaser__panel,
+  .sample-standard-teaser > .sample-standard-teaser__panel {
     justify-self: start;
     max-width: 100%;
   }
@@ -11085,5 +11106,616 @@
   .guide-content-shell {
     width: 100%;
     padding-inline: 0.625rem;
+  }
+}
+
+/* Interaktivna provjera osobnog Bitcoin standarda */
+.hero-actions {
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.hero-actions .home-outline-button {
+  min-height: 3.45rem;
+  margin-top: 0;
+  padding: 0.9rem 1.25rem;
+  font-size: 1rem !important;
+}
+
+.standard-check-hero .hero-title,
+.standard-assessment h2,
+.standard-assessment h3 {
+  text-wrap: balance;
+}
+
+.standard-check-hero .hero-subtitle,
+.standard-assessment p,
+.standard-assessment li,
+.standard-assessment dd {
+  text-wrap: pretty;
+}
+
+.standard-check-hero__privacy {
+  display: flex;
+  max-width: 38rem;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin-top: 1.15rem;
+  color: var(--ink-muted);
+  font-family: Georgia, ui-serif, serif;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.standard-check-hero__privacy svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+  margin-top: 0.16rem;
+  color: var(--primary);
+}
+
+.standard-assessment-hero-card {
+  width: min(100%, 38rem);
+  justify-self: end;
+  overflow: hidden;
+  border-radius: calc(var(--radius) * 2);
+  background:
+    radial-gradient(
+      circle at 86% 8%,
+      color-mix(in oklab, var(--bitcoin-orange), transparent 72%),
+      transparent 14rem
+    ),
+    var(--cypress);
+  color: var(--section-dark-foreground);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 1.5rem 3.5rem rgba(24, 20, 14, 0.17);
+}
+
+.standard-assessment-hero-card__header,
+.standard-assessment-hero-card__footer {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.standard-assessment-hero-card__header > span {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--bitcoin-orange);
+  color: white;
+}
+
+.standard-assessment-hero-card__header p {
+  color: color-mix(in oklab, var(--section-dark-foreground), transparent 30%);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.standard-assessment-hero-card__header h2 {
+  max-width: 17ch;
+  margin-top: 0.35rem;
+  color: white;
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.55rem, 2.6vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.standard-assessment-hero-card__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0 clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem);
+}
+
+.standard-assessment-hero-card__facts div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding-right: 0.75rem;
+}
+
+.standard-assessment-hero-card__facts div + div {
+  padding-left: 0.9rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.standard-assessment-hero-card__facts dt {
+  order: 2;
+  margin-top: 0.35rem;
+  color: color-mix(in oklab, var(--section-dark-foreground), transparent 35%);
+  font-size: 0.77rem;
+}
+
+.standard-assessment-hero-card__facts dd {
+  order: 1;
+  margin: 0;
+  color: white;
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.standard-assessment-hero-card__footer {
+  background: rgba(255, 255, 255, 0.055);
+  padding-block: 1rem;
+}
+
+.standard-assessment-hero-card__footer p {
+  color: color-mix(in oklab, var(--section-dark-foreground), transparent 20%);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.standard-assessment {
+  scroll-margin-top: 6.5rem;
+  border: 0 !important;
+  border-radius: calc(var(--radius) * 2);
+  background: color-mix(in oklab, var(--paper), white 6%);
+  padding: clamp(1.15rem, 3.5vw, 2.5rem) !important;
+  box-shadow: var(--shadow-border);
+}
+
+.standard-assessment h2[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.standard-assessment__intro,
+.standard-assessment__focus-grid,
+.standard-assessment__continuation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(17rem, 0.72fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.standard-assessment__intro-copy > h2,
+.standard-assessment__priority-copy > h2,
+.standard-assessment__question-heading > h2 {
+  max-width: 23ch;
+  margin-top: 0.55rem;
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  line-height: 1.04;
+}
+
+.standard-assessment__intro-copy > p:not(.service-eyebrow),
+.standard-assessment__priority-copy > p:not(.service-eyebrow),
+.standard-assessment__question-heading > p:not(.service-eyebrow) {
+  max-width: 48rem;
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.standard-assessment__intro-actions,
+.standard-assessment__navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.standard-assessment__navigation {
+  justify-content: space-between;
+}
+
+.standard-assessment__privacy-promise,
+.standard-assessment__security-note,
+.standard-assessment__task-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+  border-radius: calc(var(--radius) * 1.5);
+  padding: clamp(1.1rem, 2.5vw, 1.6rem);
+  box-shadow: var(--shadow-border);
+}
+
+.standard-assessment__privacy-promise {
+  background: color-mix(in oklab, var(--paper), var(--forest-soft) 55%);
+}
+
+.standard-assessment__privacy-promise p,
+.standard-assessment__security-note p {
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.standard-assessment__area-list {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.standard-assessment__area-list li {
+  min-width: 0;
+  border-radius: calc(var(--radius) * 1.25);
+  background: color-mix(in oklab, var(--paper), var(--area-color) 6%);
+  padding: 0.8rem;
+  box-shadow: var(--shadow-border);
+}
+
+.standard-assessment__area-list li > span,
+.standard-assessment__statement legend > span {
+  display: inline-grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(
+    in oklab,
+    var(--area-color, var(--bitcoin-orange)),
+    transparent 86%
+  );
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.standard-assessment__area-list strong,
+.standard-assessment__area-list small {
+  display: block;
+}
+
+.standard-assessment__area-list strong {
+  margin-top: 0.65rem;
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+.standard-assessment__area-list small {
+  margin-top: 0.25rem;
+  color: var(--ink-muted);
+  font-size: 0.74rem;
+  line-height: 1.35;
+}
+
+.standard-assessment__progress {
+  margin-bottom: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.standard-assessment__progress > div:first-child,
+.standard-assessment__bar-row > div:first-child {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.standard-assessment__progress-track,
+.standard-assessment__bar-track {
+  height: 0.5rem;
+  overflow: hidden;
+  margin-top: 0.6rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--line-warm), transparent 24%);
+}
+
+.standard-assessment__progress-track > span,
+.standard-assessment__bar-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--area-color, var(--bitcoin-orange));
+  transition: width 260ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.standard-assessment__statements,
+.standard-assessment__bars {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.standard-assessment__statement {
+  margin: 0;
+  border: 0;
+  border-radius: calc(var(--radius) * 1.5);
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 8%);
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+  box-shadow: var(--shadow-border);
+}
+
+.standard-assessment__statement legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  font-family: Georgia, ui-serif, serif;
+  line-height: 1.5;
+}
+
+.standard-assessment__statement legend > span {
+  margin-right: 0.55rem;
+  vertical-align: middle;
+}
+
+.standard-assessment__answer-grid,
+.standard-assessment__priority-options {
+  display: grid;
+  clear: both;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.standard-assessment__priority-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.standard-assessment__answer,
+.standard-assessment__priority-options label {
+  position: relative;
+  display: grid;
+  min-height: 3.5rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: center;
+  border-radius: var(--radius);
+  background: var(--paper);
+  padding: 0.75rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  box-shadow: var(--shadow-border);
+}
+
+.standard-assessment__answer[data-selected="true"],
+.standard-assessment__priority-options label[data-selected="true"] {
+  background: color-mix(in oklab, var(--paper), var(--forest-soft) 56%);
+  color: var(--ink);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--primary), transparent 24%);
+}
+
+.standard-assessment__answer input,
+.standard-assessment__priority-options input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.standard-assessment__radio-mark {
+  display: grid;
+  width: 1.25rem;
+  height: 1.25rem;
+  place-items: center;
+  border: 1px solid var(--line-warm);
+  border-radius: 50%;
+  background: var(--paper);
+  color: transparent;
+}
+
+[data-selected="true"] > .standard-assessment__radio-mark {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.standard-assessment__priority-fieldset {
+  margin: 1.5rem 0 0;
+  border: 0;
+  padding: 0;
+}
+
+.standard-assessment__priority-options strong,
+.standard-assessment__priority-options small {
+  display: block;
+}
+
+.standard-assessment__priority-options small {
+  margin-top: 0.2rem;
+  color: var(--ink-muted);
+}
+
+.standard-assessment__result-hero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1.25rem, 3.5vw, 2.5rem);
+  align-items: center;
+  border-radius: calc(var(--radius) * 1.5);
+  background: var(--cypress);
+  padding: clamp(1.25rem, 3.5vw, 2.25rem);
+  color: var(--section-dark-foreground);
+}
+
+.standard-assessment__score {
+  display: flex;
+  width: clamp(7.5rem, 15vw, 10rem);
+  aspect-ratio: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.standard-assessment__score strong {
+  color: white;
+  font-family: Georgia, ui-serif, serif;
+  font-size: clamp(3.2rem, 7vw, 5.3rem);
+  font-weight: 400;
+  line-height: 0.9;
+}
+
+.standard-assessment__result-hero h2,
+.standard-assessment__result-hero p,
+.standard-assessment__compass-note {
+  color: white;
+}
+
+.standard-assessment__area-results,
+.standard-assessment__security-note,
+.standard-assessment__focus-grid,
+.standard-assessment__continuation {
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+}
+
+.standard-assessment__bar-row b {
+  min-width: 3rem;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.standard-assessment__security-note {
+  background: color-mix(in oklab, var(--paper), var(--clay-soft) 70%);
+}
+
+.standard-assessment__focus-grid {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+}
+
+.standard-assessment__focus-card,
+.standard-assessment__task-card {
+  border-radius: calc(var(--radius) * 1.5);
+  padding: clamp(1.15rem, 2.8vw, 1.75rem);
+  box-shadow: var(--shadow-border);
+}
+
+.standard-assessment__focus-card {
+  background: color-mix(in oklab, var(--paper), var(--stone-soft) 16%);
+}
+
+.standard-assessment__focus-card dl {
+  margin: 1.2rem 0 0;
+}
+
+.standard-assessment__focus-card dt {
+  color: var(--bitcoin-orange);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.standard-assessment__focus-card dd {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.56;
+}
+
+.standard-assessment__task-card {
+  background: color-mix(in oklab, var(--paper), var(--forest-soft) 43%);
+}
+
+.standard-assessment__continuation {
+  background: color-mix(in oklab, var(--paper), var(--brass-soft) 24%);
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-radius: calc(var(--radius) * 1.5);
+  box-shadow: var(--shadow-border);
+}
+
+.standard-assessment__result-actions .home-primary-button {
+  width: 100%;
+  justify-content: center;
+  white-space: normal;
+}
+
+.standard-assessment__restart {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1.5rem;
+  border: 0;
+  background: transparent;
+  padding: 0.55rem 0.35rem;
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 1080px) {
+  .standard-assessment__area-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .standard-assessment__intro,
+  .standard-assessment__focus-grid,
+  .standard-assessment__continuation {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-actions .home-outline-button,
+  .hero-actions .home-outline-button > a {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .standard-assessment-hero-card {
+    justify-self: stretch;
+  }
+
+  .standard-assessment__area-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .standard-assessment__answer-grid,
+  .standard-assessment__priority-options,
+  .standard-assessment__result-hero,
+  .standard-assessment__task-card {
+    grid-template-columns: 1fr;
+  }
+
+  .standard-assessment__navigation,
+  .standard-assessment__intro-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .standard-assessment__navigation > *,
+  .standard-assessment__intro-actions > * {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 390px) {
+  .standard-assessment {
+    padding: 1rem !important;
+  }
+
+  .standard-assessment-hero-card__facts {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .standard-assessment-hero-card__facts div + div {
+    padding: 0.85rem 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .standard-assessment__area-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .standard-assessment__progress-track > span,
+  .standard-assessment__bar-track > span {
+    transition-duration: 0.01ms;
   }
 }

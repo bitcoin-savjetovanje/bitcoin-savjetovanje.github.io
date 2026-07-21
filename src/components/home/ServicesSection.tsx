@@ -1,20 +1,14 @@
 import { ArrowUpRight, CalendarDays } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import {
-  BITCOIN_CONSULTATION_PATH,
-  CONVERSATION_PATH,
-  PERSONAL_BITCOIN_STANDARD_PATH,
-} from "@/content/site"
+import { offerFacts, type OfferFacts, type OfferId } from "@/content/offers"
 
 type ServiceCard = {
-  title: string
-  price: string
+  id: OfferId
+  facts: OfferFacts
   copy: string
   primaryCta: string
-  primaryHref: string
   dataCta: string
-  detailHref?: string
   detailLabel?: string
   dataLink?: string
   visual: {
@@ -25,11 +19,10 @@ type ServiceCard = {
 
 const services: ServiceCard[] = [
   {
-    title: "Uvodni razgovor",
-    price: "0 €",
-    copy: "15 minuta da se upoznamo, razumijemo kontekst i vidimo je li suradnja smislena.",
+    id: "introCall",
+    facts: offerFacts.introCall,
+    copy: "Da se upoznamo, razumijemo kontekst i vidimo je li suradnja smislena.",
     primaryCta: "Dogovorite razgovor",
-    primaryHref: CONVERSATION_PATH,
     dataCta: "service-intro-call",
     visual: {
       eyebrow: "Početak",
@@ -37,13 +30,11 @@ const services: ServiceCard[] = [
     },
   },
   {
-    title: "Bitcoin konzultacija",
-    price: "200 €",
-    copy: "60 minuta rada na vašem kontekstu. Jasni prijedlozi i konkretni koraci koje možete odmah primijeniti.",
+    id: "bitcoinConsultation",
+    facts: offerFacts.bitcoinConsultation,
+    copy: "Rad na vašem kontekstu, uz jasne prijedloge i konkretne korake koje možete odmah primijeniti.",
     primaryCta: "Krenite od uvodnog razgovora",
-    primaryHref: CONVERSATION_PATH,
     dataCta: "service-consultation-intro-call",
-    detailHref: BITCOIN_CONSULTATION_PATH,
     detailLabel: "Pogledajte detalje",
     dataLink: "service-consultation-details",
     visual: {
@@ -52,13 +43,11 @@ const services: ServiceCard[] = [
     },
   },
   {
-    title: "Osobni Bitcoin standard",
-    price: "1.500 EUR",
-    copy: "Cjelovit, pisani okvir vašeg sustava: pravila, procesi i plan za provedbu u vašem životu ili poslovanju.",
+    id: "personalStandard",
+    facts: offerFacts.personalStandard,
+    copy: "Privatna prioritizacija, stres-test, provedba i revizija odluka. Pisani standard na kraju bilježi proces i donesena pravila.",
     primaryCta: "Krenite od uvodnog razgovora",
-    primaryHref: CONVERSATION_PATH,
     dataCta: "service-personal-standard-intro-call",
-    detailHref: PERSONAL_BITCOIN_STANDARD_PATH,
     detailLabel: "Pogledajte detalje",
     dataLink: "service-personal-standard-details",
     visual: {
@@ -97,6 +86,7 @@ export function ServicesSection() {
 
         <div
           className="services-card-grid offers-card-grid"
+          role="group"
           aria-label="Usluge"
         >
           {services.map(
@@ -104,70 +94,67 @@ export function ServicesSection() {
               copy,
               dataCta,
               dataLink,
-              detailHref,
               detailLabel,
-              price,
+              facts,
+              id,
               primaryCta,
-              primaryHref,
-              title,
               visual,
-            }) => (
-              <article
-                key={title}
-                className={`service-card offer-card ${
-                  dataCta === "service-intro-call" ? "offer-card--intro" : ""
-                } ${
-                  dataCta === "service-consultation-intro-call"
-                    ? "offer-card--featured"
-                    : ""
-                } ${
-                  dataCta === "service-personal-standard-intro-call"
-                    ? "offer-card--standard"
-                    : ""
-                }`}
-              >
-                <img
-                  className="offer-stone-image"
-                  src={visual.image}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="offer-card-eyebrow">{visual.eyebrow}</span>
-                <div className="offer-card__heading">
-                  <h3>{title}</h3>
-                  <strong className="offer-card-price">{price}</strong>
-                </div>
-                <p>{copy}</p>
-                <ul className="offer-card-actions">
-                  <li>
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="home-outline-button"
-                    >
-                      <a href={primaryHref} data-cta={dataCta}>
-                        <CalendarDays className="size-4" aria-hidden="true" />
-                        {primaryCta}
-                      </a>
-                    </Button>
-                  </li>
-                  {detailHref && detailLabel && dataLink ? (
+            }) => {
+              const { bookingHref, detailsHref, duration, price, title } = facts
+
+              return (
+                <article
+                  key={id}
+                  className={`service-card offer-card ${
+                    id === "introCall" ? "offer-card--intro" : ""
+                  } ${
+                    id === "bitcoinConsultation" ? "offer-card--featured" : ""
+                  } ${id === "personalStandard" ? "offer-card--standard" : ""}`}
+                >
+                  <img
+                    className="offer-stone-image"
+                    src={visual.image}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="offer-card-eyebrow">{visual.eyebrow}</span>
+                  <div className="offer-card__heading">
+                    <h3>{title}</h3>
+                    <strong className="offer-card-price">{price}</strong>
+                  </div>
+                  <p className="offer-card-duration">{duration}</p>
+                  <p>{copy}</p>
+                  <ul className="offer-card-actions">
                     <li>
-                      <a
-                        href={detailHref}
-                        className="offer-card__details-link"
-                        data-link={dataLink}
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="home-outline-button"
                       >
-                        {detailLabel}
-                        <ArrowUpRight className="size-4" aria-hidden="true" />
-                      </a>
+                        <a href={bookingHref} data-cta={dataCta}>
+                          <CalendarDays className="size-4" aria-hidden="true" />
+                          {primaryCta}
+                        </a>
+                      </Button>
                     </li>
-                  ) : null}
-                </ul>
-              </article>
-            )
+                    {detailsHref && detailLabel && dataLink ? (
+                      <li>
+                        <a
+                          href={detailsHref}
+                          className="offer-card__details-link"
+                          data-link={dataLink}
+                        >
+                          {detailLabel}
+                          <ArrowUpRight className="size-4" aria-hidden="true" />
+                        </a>
+                      </li>
+                    ) : null}
+                  </ul>
+                </article>
+              )
+            }
           )}
         </div>
       </div>

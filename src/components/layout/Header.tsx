@@ -42,6 +42,13 @@ function routeActiveHref(pathname: string) {
         )
       }
 
+      if (linkPath === "/osobni-bitcoin-standard") {
+        return (
+          normalizedPath === linkPath ||
+          normalizedPath.startsWith(`${linkPath}/`)
+        )
+      }
+
       return linkPath === normalizedPath
     })?.href ?? ""
   )

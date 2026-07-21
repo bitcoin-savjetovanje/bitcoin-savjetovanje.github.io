@@ -1,20 +1,27 @@
-import { CalendarDays, ShieldCheck } from "lucide-react"
+import { ArrowUpRight, CalendarDays, ShieldCheck } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
+import {
+  CONVERSATION_PATH,
+  PERSONAL_BITCOIN_STANDARD_PATH,
+} from "@/content/site"
 
 export function Hero() {
   return (
     <section className="home-hero hero-section editorial-section">
       <div className="hero-shell">
         <div className="hero-copy">
-          <p className="hero-eyebrow">BITCOIN KAO NOVAC</p>
+          <p className="hero-eyebrow">
+            Privatno Bitcoin savjetovanje za ljude koji već imaju Bitcoin,
+            imovinu ili odgovornost za druge.
+          </p>
           <h1 className="hero-title">
-            Od držanja Bitcoina do uređenog sustava odluka.
+            Imate Bitcoin? Izgradite osobni Bitcoin standard.
           </h1>
           <p className="hero-subtitle">
-            Za pojedince, obitelji i poduzetnike koji žele Bitcoin shvatiti kao
-            novac, a ne samo kao odvojenu imovinu koju drže sa strane.
+            Javni vodiči pokazuju moj okvir razmišljanja. Privatni rad pretvara
+            taj okvir u odluke koje odgovaraju vašem proračunu, obvezama,
+            imovini, obitelji i sigurnosnim rizicima.
           </p>
 
           <div className="hero-actions">
@@ -29,17 +36,34 @@ export function Hero() {
                 data-cta="hero-intro-call"
               >
                 <CalendarDays className="size-4" />
-                {PRIMARY_CTA}
+                Rezervirajte razgovor
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="home-outline-button"
+            >
+              <a
+                href={PERSONAL_BITCOIN_STANDARD_PATH}
+                className="justify-center text-center"
+                data-link="hero-personal-standard"
+              >
+                Pogledajte kako program radi
+                <ArrowUpRight className="size-4" />
               </a>
             </Button>
           </div>
 
           <div className="hero-trust-note">
             <ShieldCheck className="size-5" aria-hidden="true" />
-            <p>
-              Bez naknade i bez obveze. Ne upravljam sredstvima i nikada ne
-              tražim seed phrase, privatne ključeve ni pristup novčaniku.
-            </p>
+            <ul>
+              <li>Ne tražim privatne ključeve ni početne riječi.</li>
+              <li>Ne upravljam vašim Bitcoinom i ne čuvam ga.</li>
+              <li>Ne prodajem financijske proizvode.</li>
+              <li>Ne donosim odluke umjesto vas.</li>
+            </ul>
           </div>
         </div>
         <picture className="hero-image-frame">

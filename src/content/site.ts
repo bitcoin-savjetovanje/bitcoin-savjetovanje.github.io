@@ -17,16 +17,12 @@ export const CONVERSATION_PATH = "/razgovor/"
 export const BITCOIN_CONSULTATION_PATH = "/bitcoin-konzultacija/"
 export const PERSONAL_BITCOIN_STANDARD_PATH = "/osobni-bitcoin-standard/"
 export const SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH =
-  "/primjer-osobnog-bitcoin-standarda/"
-export const SAMPLE_PERSONAL_BITCOIN_STANDARD_PDF_PATH =
-  "/downloads/sample-osobni-bitcoin-standard.pdf"
+  "/osobni-bitcoin-standard/primjer/"
 export const SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_PATH =
   "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.png"
 export const SAMPLE_PERSONAL_BITCOIN_STANDARD_COVER_WEBP_PATH =
   "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.webp"
 export const BITCOIN_STANDARD_CHECK_PATH = "/provjera-bitcoin-standarda/"
-export const BITCOIN_STANDARD_CHECK_PDF_PATH =
-  "/downloads/7-provjera-osobnog-bitcoin-standarda.pdf"
 export const BITCOIN_STANDARD_CHECK_COVER_PATH =
   "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png"
 export const BITCOIN_STANDARD_CHECK_COVER_WEBP_PATH =
@@ -35,7 +31,7 @@ export const PERSONAL_AUDIENCE_PATH = "/osobno/"
 export const FAMILY_AUDIENCE_PATH = "/obitelj/"
 export const BUSINESS_AUDIENCE_PATH = "/poduzetnici/"
 export const PRIVACY_PATH = "/privatnost/"
-export const SITE_UPDATED_AT = "2026-05-29"
+export const SITE_UPDATED_AT = "2026-07-20"
 export const OG_IMAGE_PATH = "/images/home-hero-20260521.jpg"
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`
 export const PRACTICAL_BITCOIN_STANDARD_URL = "/vodici/"
@@ -50,9 +46,9 @@ export const BITCOIN_STANDARD_BOOK_URL = "https://saifedean.com/tbs"
 export const TWENTYONE_URL = "https://twentyone.world"
 
 export const homeSeo = {
-  title: "Bitcoin Savjetovanje — osobni Bitcoin standard",
+  title: "Osobni Bitcoin standard | Bitcoin Savjetovanje",
   description:
-    "Konzultacije za pojedince, obitelji i poduzetnike koji žele Bitcoin shvatiti kao novac i urediti proračun, dug, davanje, neto imovinu, volatilnost i sigurnost.",
+    "Javni vodiči pokazuju okvir za život s Bitcoinom kao novcem. Privatno Bitcoin savjetovanje pretvara taj okvir u odluke za vašu stvarnu situaciju.",
   canonical: `${SITE_URL}/`,
 }
 
@@ -120,44 +116,44 @@ export const conversationSeo = {
 }
 
 export const bitcoinConsultationSeo = {
-  title: "Bitcoin konzultacija od 200 € | Bitcoin Savjetovanje",
+  title: "Bitcoin konzultacija: jasan sljedeći korak | Bitcoin Savjetovanje",
   description:
-    "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje — osobno, obiteljsko ili poslovno.",
+    "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje: jasnija definicija problema, pregled kompromisa i konkretan sljedeći korak.",
   canonical: `${SITE_URL}${BITCOIN_CONSULTATION_PATH}`,
 }
 
 export const personalBitcoinStandardSeo = {
-  title: "Osobni Bitcoin standard | Bitcoin Savjetovanje",
+  title: "Osobni Bitcoin standard: privatni program | Bitcoin Savjetovanje",
   description:
-    "Program od 4–6 tjedana za izgradnju pisanog sustava odluka za proračun, dug, davanje, Bitcoin kao novac, neto imovinu, poslovnu riznicu, volatilnost, sigurnost i obitelj.",
+    "Privatni program od 4–6 tjedana za prioritizaciju, stres-test i provedbu odluka o proračunu, dugu, Bitcoinu, imovini, obitelji i sigurnosti.",
   canonical: `${SITE_URL}${PERSONAL_BITCOIN_STANDARD_PATH}`,
 }
 
 export const samplePersonalBitcoinStandardSeo = {
-  title: "Primjer osobnog Bitcoin standarda | Bitcoin Savjetovanje",
+  title: "Kako izgleda rezultat rada | Bitcoin Savjetovanje",
   description:
-    "Preuzmite anonimni ogledni primjer dokumenta koji pokazuje kako može izgledati osobni Bitcoin standard: proračun, dug, davanje, Bitcoin, neto imovina, volatilnost, sigurnost i obitelj.",
+    "Skraćeni HTML prikaz strukture i vrste osobnih odluka koje nastaju tijekom programa osobnog Bitcoin standarda.",
   canonical: `${SITE_URL}${SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}`,
 }
 
 export const bitcoinStandardCheckSeo = {
-  title: "7 provjera osobnog Bitcoin standarda | Bitcoin Savjetovanje",
+  title: "Provjera osobnog Bitcoin standarda | Bitcoin Savjetovanje",
   description:
-    "Preuzmite besplatni radni PDF za provjeru osobnog Bitcoin standarda: proračun, dug, davanje, Bitcoin kao novac, neto imovina, volatilnost, sigurnost i obitelj.",
+    "Odgovorite na 21 tvrdnju bez registracije i slanja odgovora te dobijte ukupnu sliku, prvo usko grlo i jedan početni korak.",
   canonical: `${SITE_URL}${BITCOIN_STANDARD_CHECK_PATH}`,
 }
 
 export const guidesIndexSeo = {
-  title: "Vodiči za knjigu Bitcoin kao novac | Bitcoin Savjetovanje",
+  title: "Bitcoin vodiči i istraživačke bilješke | Bitcoin Savjetovanje",
   description:
-    "Vodiči za život s Bitcoinom kao novcem: proračun, dug, davanje, Bitcoin kao primarni novac, neto imovina, poslovna riznica, vrijeme, volatilnost, sigurnost i obitelj.",
+    "Temeljni vodiči za razumijevanje okvira i istraživačke bilješke o naprednim ili promjenjivim Bitcoin temama.",
   canonical: `${SITE_URL}/vodici/`,
 }
 
 export const securitySeo = {
-  title: "Sigurnost i povjerljivost | Bitcoin Savjetovanje",
+  title: "Bitcoin sigurnost i povjerljivost | Bitcoin Savjetovanje",
   description:
-    "Sigurnosni okvir za Bitcoin bez dijeljenja seed phrase, privatnih ključeva, lozinki ili pristupa novčaniku.",
+    "Sigurnost je sustav koji smanjuje rizik krađe i trajnog gubitka, bez dijeljenja početnih riječi, privatnih ključeva ili pristupa novčaniku.",
   canonical: `${SITE_URL}/sigurnost/`,
 }
 

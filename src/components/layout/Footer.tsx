@@ -2,6 +2,8 @@ import { Copyright } from "lucide-react"
 
 import {
   BITCOIN_ADVICE_PATH,
+  BITCOIN_CONSULTATION_PATH,
+  BITCOIN_STANDARD_CHECK_PATH,
   BUSINESS_AUDIENCE_PATH,
   CONVERSATION_PATH,
   DVADESET_JEDAN_URL,
@@ -23,11 +25,11 @@ export function Footer() {
             <span>2026 Bitcoin Savjetovanje | Pavao Pahljina</span>
           </p>
           <p className="mt-2 text-xs leading-6">
-            Ovo nije investicijsko, porezno ni pravno savjetovanje. Ne upravljam
-            vašim novcem, ne donosim odluke umjesto vas, ne čuvam vaš Bitcoin i
-            ne tražim seed phrase ili privatne ključeve. Pomažem vam razumjeti
-            Bitcoin, vlastitu situaciju i sigurnosni okvir dovoljno jasno da
-            odluka ostane vaša.
+            Sadržaj i rad imaju edukativnu i savjetodavnu svrhu; nisu
+            investicijski, porezni, pravni ni računovodstveni savjet. Ne
+            upravljam vašim novcem, ne donosim odluke umjesto vas, ne čuvam vaš
+            Bitcoin i ne tražim početne riječi ili privatne ključeve.
+            Odgovornost za odluke ostaje na vama.
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
@@ -38,7 +40,19 @@ export function Footer() {
             href={PERSONAL_BITCOIN_STANDARD_PATH}
             data-link="footer-personal-bitcoin-standard"
           >
-            Osobni Bitcoin standard
+            Program
+          </a>{" "}
+          <a
+            href={BITCOIN_CONSULTATION_PATH}
+            data-link="footer-bitcoin-consultation"
+          >
+            Konzultacija
+          </a>{" "}
+          <a
+            href={BITCOIN_STANDARD_CHECK_PATH}
+            data-link="footer-standard-check"
+          >
+            Provjera
           </a>{" "}
           <a href={PERSONAL_AUDIENCE_PATH} data-link="footer-osobno">
             Osobno

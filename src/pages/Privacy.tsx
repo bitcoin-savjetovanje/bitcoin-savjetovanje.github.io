@@ -6,7 +6,7 @@ import { privacyRoute } from "@/content/clientRoutes"
 import { CONVERSATION_PATH, EMAIL } from "@/content/site"
 
 const doNotSendItems = [
-  "seed phrase",
+  "početne riječi",
   "privatne ključeve",
   "lozinke",
   "screenshotove novčanika",
@@ -40,7 +40,7 @@ export function Privacy() {
               <h1 className="hero-title">Privatnost i podaci</h1>
               <p className="hero-subtitle">
                 Za uvodni razgovor treba podijeliti samo ono što je potrebno za
-                dogovor termina i osnovni kontekst pitanja. Seed phrase i
+                dogovor termina i osnovni kontekst pitanja. Početne riječi i
                 privatni ključevi se nikada ne dijele.
               </p>
             </div>
@@ -122,7 +122,7 @@ export function Privacy() {
             <section className="safety-note-card">
               <h2 className="text-2xl font-semibold">Sigurnosno pravilo</h2>
               <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-                Seed phrase i privatni ključevi se nikada ne šalju, nikada ne
+                Početne riječi i privatni ključevi se nikada ne šalju, nikada ne
                 kopiraju u kalendar, nikada ne šalju emailom i nikada ne dijele
                 sa savjetnikom.
               </p>

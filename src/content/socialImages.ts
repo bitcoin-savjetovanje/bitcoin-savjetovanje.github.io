@@ -96,14 +96,14 @@ export const socialImages = {
     height: 941,
   }),
   samplePersonalBitcoinStandard: socialImage({
-    path: "/images/downloads/primjer-osobnog-bitcoin-standarda-cover.png",
-    width: 1055,
-    height: 1491,
+    path: "/images/service-visuals/standard-hero-20260601.jpg",
+    width: 1672,
+    height: 941,
   }),
   bitcoinStandardCheck: socialImage({
-    path: "/images/downloads/7-provjera-osobnog-bitcoin-standarda-cover.png",
-    width: 1055,
-    height: 1491,
+    path: "/images/home-hero-20260521.jpg",
+    width: 1536,
+    height: 1024,
   }),
   security: socialImage({
     path: "/images/sigurnost-povjerenje-hero-20260601.jpg",

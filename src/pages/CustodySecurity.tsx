@@ -62,7 +62,7 @@ const custodyOutcomes: CustodyOutcome[] = [
 
 const custodyItems = [
   {
-    title: "Samo-kontrola donosi slobodu — ali i odgovornost.",
+    title: "Samostalno skrbništvo donosi slobodu — ali i odgovornost.",
     copy: "Bez treće strane, vi ste potpuno odgovorni za sigurnost svoje imovine.",
   },
   {
@@ -101,18 +101,18 @@ const audienceItems = [
 const guideCards = [
   {
     slug: "samostalna-pohrana-ili-skrbnik",
-    title: "Slojevi skrbništva",
-    copy: "Kako strukturirati Bitcoin imovinu u slojeve prema namjeni i riziku.",
+    title: "Modeli skrbništva",
+    copy: "Koje vrste kontrole postoje i kako procijeniti njihove glavne kompromise.",
   },
   {
     slug: "sigurnost-ne-smije-ovisiti-samo-o-vama",
-    title: "Backup i oporavak",
-    copy: "Kako sigurno napraviti i pohraniti backup fraze te testirati oporavak.",
+    title: "Oporavak bez jedne točke kvara",
+    copy: "Koje prijetnje, kriterije i obiteljske uloge treba razmotriti prije odabira modela oporavka.",
   },
   {
     slug: "obiteljski-pristup-bitcoinu",
-    title: "Plan nasljeđivanja",
-    copy: "Korak po korak vodič za prijenos pristupa vašim nasljednicima.",
+    title: "Obiteljski prvi korak",
+    copy: "Što obitelj treba razumjeti, a koje osjetljive podatke nikada ne treba dijeliti.",
   },
 ]
 

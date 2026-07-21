@@ -9,13 +9,18 @@ ruti `/razgovor/`, prije odlaska na vanjski Cal.com booking link.
 
 Funnel:
 
-- `/` predstavlja okvir “Od držanja Bitcoina do uređenog sustava odluka”
+- `/` razlikuje javni okvir od privatnog rada na odlukama
 - `/razgovor/` priprema korisnika za 15-minutni uvodni razgovor
 - nakon razgovora nastavak može biti `/bitcoin-konzultacija/` ili
   `/osobni-bitcoin-standard/`
 
+Središnja sadržajna granica je: vodiči pokazuju okvir, a privatni rad pretvara
+okvir u odluke. Pisani osobni Bitcoin standard zapisuje prioritizaciju,
+stres-test, provedbu i reviziju; nije zamjena za taj proces. Smjernice za buduće
+članke nalaze se u `docs/public-content-boundaries.md`.
+
 Ne postoji checkout, CMS ni analytics. Stranica ne upravlja sredstvima i ne
-traži seed phrase, privatne ključeve, lozinke ili pristup novčaniku.
+traži početne riječi, privatne ključeve, lozinke ili pristup novčaniku.
 
 Najnoviji vizualni pass uvodi knjiški color system, semantičke boje za sedam
 područja knjige, tamnu procesnu sekciju i mockup pisanog osobnog Bitcoin
@@ -104,6 +109,8 @@ Vizualni asseti:
 - `/razgovor/`
 - `/bitcoin-konzultacija/`
 - `/osobni-bitcoin-standard/`
+- `/osobni-bitcoin-standard/primjer/`
+- `/provjera-bitcoin-standarda/`
 - `/bitcoin-savjetovanje/`
 - `/vodici/`
 - `/vodici/:slug/`

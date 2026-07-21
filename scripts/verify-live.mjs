@@ -6,10 +6,28 @@ const debtChoiceGuidePath = "/vodici/dug-ili-bitcoin/"
 const bitcoinMoneyGuidePath = "/vodici/bitcoin-kao-novac/"
 const thirdsGuidePath = "/vodici/pravilo-trecina/"
 const familyVaultGuidePath = "/vodici/obiteljski-bitcoin-trezor/"
+const timedRecoveryGuidePath = "/vodici/vremenski-oporavak-bitcoin-trezor/"
+const custodyChoiceGuidePath = "/vodici/samostalna-pohrana-ili-skrbnik/"
 const bitkeyGuidePath = "/vodici/bitkey-bitcoin-sigurnost/"
 const familyGuidePath = "/vodici/obiteljski-pristup-bitcoinu/"
 const securityGuidePath = "/vodici/sigurnost-ne-smije-ovisiti-samo-o-vama/"
 const failures = []
+
+const retiredPdfPaths = [
+  "/downloads/7-provjera-osobnog-bitcoin-standarda.pdf",
+  "/downloads/sample-osobni-bitcoin-standard.pdf",
+]
+
+const retiredSecurityBlueprintText = [
+  "Lenovo mini PC služi za provjeru Bitcoin mreže",
+  "Lokacija E, odvjetnički ili drugi neovisni sef",
+  "Lokacija F, druga neovisna lokacija ili sef u drugom gradu",
+  "Upalite ThinkPad.",
+  "Kliknete Receive.",
+  "Praktični tijek može izgledati ovako: otvoriti novi novčanik",
+  "Složite isti tip novčanika s malim iznosom.",
+  "Sparrow, vlastiti Bitcoin Core, privatni Fulcrum, 2 od 3 višepotpisni novčanik, tri neovisna hardverska novčanika",
+]
 
 const forbiddenVisibleText = [
   "crypto",
@@ -74,12 +92,6 @@ const forbiddenVisibleText = [
   "gdje ste zapeli",
   "monetarna teza",
   "vidimo ima li smisla za vas",
-  "početne riječi",
-  "početnih riječi",
-  "jedna točka kvara",
-  "točka kvara",
-  "točku kvara",
-  "točke kvara",
   "novcu→",
 ]
 
@@ -89,61 +101,21 @@ const pageChecks = [
   {
     path: "/",
     includes: [
-      "Prije veće Bitcoin odluke, posložite pitanja, rizike i vlastitu situaciju.",
-      "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku. U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
-      "Dođite s jednim stvarnim Bitcoin pitanjem koje utječe na vašu odluku.",
-      "U 15 minuta vidimo što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
-      "što još nije jasno u Bitcoin tezi",
-      "Ne morate unaprijed znati je li vaše pitanje dovoljno veliko",
-      "U 15 minuta ne rješavamo cijeli plan. Razjasnimo gdje ste sada i koji bi sljedeći korak bio razuman.",
-      "Ako nakon uvodnog razgovora vrijedi ići dublje, postoje dva plaćena puta.",
-      "Bitcoin konzultacija",
-      "Što je Bitcoin konzultacija?",
-      'href="/bitcoin-konzultacija/"',
-      "Jedan dubinski razgovor",
-      "200 €",
-      "Krenite od uvodnog razgovora",
-      "Vaš Bitcoin ostaje vaš.",
-      "Bez zahtjeva za seed phrase.",
-      "Seed phrase se nikada ne dijeli.",
-      "razgovor treba odmah prekinuti",
-      "Dobijete iskrenu procjenu.",
-      "Ako plaćeni nastavak nije koristan za vašu situaciju, reći ću vam to otvoreno.",
-      "Nekome još nije jasna Bitcoin teza.",
-      "Nekome treba razjasniti jedan dio odluke koji još nije dovoljno čvrst.",
-      "Jasniji odgovori na pitanja koja se stalno vraćaju",
-      "Cilj je vidjeti gdje ste, što prvo treba razjasniti i koji bi sljedeći korak bio razuman.",
-      "Razumijete dio priče, ali još nemate jasan odgovor na pitanja koja se stalno vraćaju.",
-      "kako odabrati način čuvanja Bitcoina",
-      "kako spriječiti da pristup Bitcoinu ovisi o jednoj osobi, uređaju ili lokaciji",
-      "Pregled osobne slike: dug, proračun, sigurnost, obitelj i struktura imovine",
-      "ne čuvam vaš Bitcoin",
-      "ne tražim seed phrase ili privatne ključeve",
-      "osobni Bitcoin standard je radni okvir iza mog savjetovanja: proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
-      "Kako radim",
-      "Kada ovo nije za vas",
-      "želite predati seed phrase, privatne ključeve ili pristup novčaniku",
-      "Dogovorite 15-minutni uvodni razgovor",
-      "Pogledajte pitanja koja možemo proći",
-      'href="#pitanja"',
-      'data-cta="hero-questions"',
-      "U razgovor možete doći s jednim stvarnim Bitcoin pitanjem.",
-      "Dovoljno je da imate stvarno pitanje koje utječe na vašu odluku.",
-      "što vas najviše brine",
-      "što još nedostaje za mirniju odluku",
-      "U 15 minuta razjasnimo gdje ste sada, koju odluku pokušavate donijeti i koji bi sljedeći korak bio razuman.",
-      "Dobivate jasniju sliku što zapravo stoji iza odluke",
-      "Mogu li ovu stranicu poslati nekome tko ima Bitcoin pitanje?",
-      "Najbolje je poslati stranicu za uvodni razgovor",
-      "Provjerite ima li uvodni razgovor smisla",
-      "Odaberite pitanje koje vam je najbliže.",
-      "Nakon odabira vidjet ćete zašto je to dobro pitanje za uvodni razgovor.",
-      "Što se mijenja kada postoji osobni okvir?",
-      "Imate Bitcoin pitanje?",
-      'data-cta="readiness-test-intro-call"',
-      'data-cta="before-after-intro-call"',
-      'data-cta="desktop-rail-intro-call"',
-      'data-cta="desktop-rail-questions"',
+      "<title>Osobni Bitcoin standard | Bitcoin Savjetovanje</title>",
+      "Imate Bitcoin? Izgradite osobni Bitcoin standard.",
+      "Javni vodiči pokazuju moj okvir razmišljanja.",
+      "Privatni rad pretvara taj okvir u odluke",
+      "Vodič vam može dati okvir. Ne može donijeti odluku umjesto vas.",
+      "Prvo pronađite usko grlo",
+      "Program nije PDF koji popunjavate",
+      "Dokument je zapis procesa, ne njegova zamjena.",
+      "Ne tražim privatne ključeve ni početne riječi.",
+      'href="/osobni-bitcoin-standard/"',
+      'href="/provjera-bitcoin-standarda/"',
+      'data-cta="hero-intro-call"',
+      'data-link="hero-personal-standard"',
+      'data-cta="home-standard-assessment"',
+      'data-cta="home-guides-conversation"',
     ],
     htmlMustNotMatch: [
       {
@@ -156,98 +128,47 @@ const pageChecks = [
       "Dođite s bilo kojim Bitcoin pitanjem",
       "U razgovor možete doći s bilo kojim Bitcoin pitanjem",
       "razgovorPromijeni",
-      "razgovorPogledajte",
       "uvodni razgovorPogledajte",
-      "razgovorŠto je Bitcoin konzultacija",
-      "uvodni razgovorŠto je Bitcoin konzultacija",
       "pravilaDogovorite",
       "vodičePrimijenite",
       "Odabrano pitanje:",
       "novcu→",
       "višak?Stvarni",
-      "još nije sjelo",
-      "glavni čvor",
-      "gdje ste zapeli",
-      "Tražimo gdje je čvor",
-      "pitanje koje vas koči",
     ],
   },
   {
     path: "/bitcoin-savjetovanje/",
     includes: [
       "<title>Bitcoin savjetovanje u Hrvatskoj | Bitcoin Savjetovanje</title>",
-      'content="Bitcoin savjetovanje jedan-na-jedan za ljude u Hrvatskoj koji žele razjasniti Bitcoin, sigurnost, dug, obitelj i osobni okvir za odluke."',
-      '<link rel="canonical" href="https://bitcoin-savjetovanje.com/bitcoin-savjetovanje/" />',
-      '"@type":"WebPage"',
-      '"@type":"Service"',
-      '"@type":"BreadcrumbList"',
-      "Bitcoin savjetovanje Hrvatska",
-      "Bitcoin savjetovanje za jasnije odluke, sigurnost i osobni okvir.",
+      "Bitcoin savjetovanje jedan-na-jedan za put od držanja Bitcoina do sustava odluka.",
       "Kada Bitcoin savjetovanje ima smisla",
-      "Što bi nakon razgovora trebalo biti jasnije",
       "Sigurnost bez predaje kontrole",
+      "Početne riječi se nikada ne dijele.",
       "Tri moguća oblika rada",
-      "Što ne radimo",
-      "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",
-      'href="/razgovor/"',
-      'href="/bitcoin-konzultacija/"',
-      'href="/vodici/"',
-      'href="/sigurnost/"',
+      "Vodiči objašnjavaju okvir, razgovor ga primjenjuje",
       'data-cta="bitcoin-advice-hero-intro-call"',
-      'data-cta="bitcoin-advice-consultation"',
-      'data-cta="bitcoin-advice-final-intro-call"',
       'data-link="bitcoin-advice-guides-index"',
       'data-link="bitcoin-advice-security"',
-    ],
-    textMustNotInclude: [
-      "trading signal",
-      "dogovorite 15-minutni uvodni razgovorpogledajte",
-      "uvodni razgovorpogledajte",
-      "seed phrase se dijeli",
+      'data-cta="bitcoin-advice-final-intro-call"',
     ],
   },
   {
     path: "/razgovor/",
     includes: [
       "Dogovorite 15-minutni uvodni razgovor",
-      "Razgovor je bez naknade i bez obveze.",
-      "što prvo treba razjasniti",
-      "Prije razgovora razmislite o jednom glavnom pitanju.",
-      "Dobra pitanja za uvodni razgovor zvuče ovako",
-      "Razjasnimo glavno pitanje.",
-      "Vidimo što nedostaje za sljedeći korak.",
+      "Najbolji razgovori počinju jednom konkretnom odlukom.",
+      "Ne šaljite početne riječi, privatne ključeve, lozinke",
       "Što se može dogoditi nakon razgovora?",
-      "Nakon razgovora moguća su tri ishoda",
-      "sljedeći korak je",
-      "Bitcoin konzultacija",
-      'href="/bitcoin-konzultacija/"',
-      'data-link="conversation-bitcoin-consultation"',
       "Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.",
-      "Dogovorimo sljedeći korak ili zaključimo da je za sada dovoljno.",
-      "Spremni za uvodni razgovor?",
-      "Odaberite termin i dođite s jednim stvarnim pitanjem.",
-      "Ne morate imati gotov plan",
-      "Imam Bitcoin, ali partner ili obitelj još nisu sigurni.",
-      "Brine me sigurnost i ne želim pogriješiti s čuvanjem Bitcoina.",
-      "Ne šaljite seed phrase, privatne ključeve, lozinke",
-      "Otvorite kalendar i odaberite termin",
-      "Otvorit će se kalendar. Odaberite termin",
-      "Ako vam je netko poslao ovu stranicu",
-      "Koju odluku pokušavate donijeti?",
-      'href="#kalendar"',
-      'data-cta="conversation-referral-calendar"',
-      'id="kalendar"',
-      "Odaberite termin za uvodni razgovor.",
-      'data-cal-inline="uvodni-bitcoin-razgovor"',
-      'data-cta="conversation-inline-calendar-fallback"',
-      'data-cta="conversation-inline-calendar-mobile"',
-      'data-cta="header-intro-call"',
+      "skraćeni HTML primjer rezultata",
+      'href="/osobni-bitcoin-standard/primjer/"',
+      'data-link="conversation-bitcoin-consultation"',
+      'data-link="conversation-personal-standard"',
+      'data-link="conversation-sample-standard"',
+      'data-cta="conversation-page-calendar"',
       'data-cta="conversation-page-final-calendar"',
       'data-cal-namespace="uvodni-bitcoin-razgovor"',
       'data-cal-link="btcpavao/uvodni-bitcoin-razgovor"',
-      'data-cal-mode="modal"',
-      "data-cal-config=",
-      "month_view",
       bookingUrl,
     ],
     htmlMustNotMatch: [
@@ -257,179 +178,225 @@ const pageChecks = [
         label: "Cal booking links opening in a new tab",
       },
     ],
-    textMustNotInclude: [
-      "još nije sjelo",
-      "glavni čvor",
-      "gdje ste zapeli",
-      "Tražimo gdje je čvor",
-      "pitanje koje vas koči",
-    ],
   },
   {
     path: "/bitcoin-konzultacija/",
     includes: [
-      "Bitcoin konzultacija",
+      "Jedna odluka, jedan razgovor, jasan sljedeći korak",
+      "Ne plaćate tajnu informaciju. Plaćate kompresiju, kontekst i prosudbu",
       "200 €",
-      "jedan dubinski razgovor",
-      "Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje",
-      "Nakon Bitcoin konzultacije najčešće imate",
-      "Što pripremiti",
-      "Prije, tijekom i poslije razgovora",
-      "Dobra pitanja za Bitcoin konzultaciju",
-      "Kada nije za vas",
+      "60 minuta",
+      "Što trebate dobiti nakon Bitcoin konzultacije",
+      "jasniju definiciju problema",
+      "pregled glavnih rizika i kompromisa",
       "Bitcoin konzultacija ili osobni Bitcoin standard?",
-      "Kako razgovor završava",
-      "Kako objasniti Bitcoin partneru bez pritiska i bez žargona?",
-      "Na kraju ne dobivate savjet",
-      "kupi",
-      "prodaj",
-      "gdje je stvarni rizik",
-      "sljedeći korak bio razuman",
-      "Bitcoin konzultacija je za jedno ozbiljno pitanje",
-      "Osobni Bitcoin standard je za pisani sustav pravila",
-      "Krenite od uvodnog razgovora",
-      "ne tražim seed phrase",
-      "ne prognoziram cijenu",
-      "ne upravljam vašim sredstvima",
+      "Program povezuje sva glavna područja kroz 4–6 tjedana",
+      "ne tražim početne riječi, privatne ključeve, lozinke ili pristup novčaniku",
+      'data-cta="bitcoin-consultation-intro-call"',
+      'data-link="bitcoin-consultation-personal-standard"',
+      'data-cta="bitcoin-consultation-final-intro-call"',
+      'data-link="bitcoin-consultation-security"',
+    ],
+  },
+  {
+    path: "/osobni-bitcoin-standard/",
+    includes: [
+      "Osobni Bitcoin standard: 4–6 tjedana privatnog rada na odlukama",
+      "Dokument je zapis procesa, ne njegova zamjena.",
+      "Što ne možete dobiti iz članka ili PDF-a",
+      "Kako radimo kroz",
+      "Ishodi programa",
+      "Prioritizacija, stres-test, provedba i revizija.",
+      "30-dnevna revizija",
+      "1.500 €",
+      "4–6 tjedana",
+      "Kako izgleda rezultat rada",
+      'href="/osobni-bitcoin-standard/primjer/"',
+      'data-cta="personal-standard-hero-call"',
+      'data-link="personal-standard-result-example"',
+      'data-cta="personal-standard-pricing-call"',
+      'data-cta="personal-standard-final-call"',
+    ],
+  },
+  {
+    path: "/osobni-bitcoin-standard/primjer/",
+    includes: [
+      "<title>Kako izgleda rezultat rada | Bitcoin Savjetovanje</title>",
+      "Kako izgleda rezultat rada",
+      "Ovo nije predložak za samostalno kopiranje",
+      "Zamišljena situacija prije rada",
+      "Djelomično redigiran primjer",
+      "Generičko načelo",
+      "Osobno pravilo",
+      "Javni primjer namjerno pokazuje strukturu, ali ne i cijeli provedbeni sustav.",
+      'data-link="result-example-program"',
+      'data-cta="result-example-conversation"',
+      'data-cta="result-example-final-conversation"',
+      'data-link="result-example-final-program"',
+    ],
+  },
+  {
+    path: "/provjera-bitcoin-standarda/",
+    includes: [
+      "Provjera osobnog Bitcoin standarda",
+      "Koliko je uređen vaš osobni Bitcoin standard?",
+      "Odgovorite na 21 kratku tvrdnju bez registracije i bez slanja odgovora.",
+      "ukupnu sliku, najslabije područje i jedan konkretan prvi korak",
+      "Odgovori i rezultat ostaju samo u ovom otvorenom prozoru preglednika.",
+      "Provjera osobnog i obiteljskog Bitcoin standarda",
+      "Vaši odgovori ostaju privatni.",
+      "Ne spremaju se u preglednik, URL, analitiku, bazu ni na server.",
+      'data-cta="standard-check-start"',
+      'data-cta="assessment-start"',
+      'id="provjera"',
     ],
   },
   {
     path: "/sigurnost/",
     includes: [
-      "Dobar sigurnosni okvir ima dva cilja.",
-      "Seed phrase se nikada ne dijeli. Dobar savjetnik vam pomaže urediti okvir bez preuzimanja kontrole.",
-      "nitko ne smije dobiti kontrolu nad vašim Bitcoinom bez vašeg znanja",
-      "vaša obitelj ne smije ostati potpuno izgubljena",
-      "seed phrase — 12 ili 24 riječi za oporavak novčanika",
-      "privatne ključeve",
-      "lozinke",
-      "ne čuvam Bitcoin",
-      "način čuvanja prikladan za vašu situaciju",
-      "kako složiti oporavak tako da ne ovisi o jednoj osobi, uređaju ili lokaciji",
-      "ne tražim seed phrase ni privatne ključeve",
-      "Za rad nije potrebno dijeliti seed phrase",
-      "Razgovarajmo o sigurnosti bez predaje kontrole",
+      "Sigurnost nije dogma. Sigurnost je sustav.",
+      "Početne riječi i privatni ključevi nikada se ne dijele.",
+      "Cilj nije najkompliciraniji sustav.",
+      "Samostalno skrbništvo",
+      "Prijelazni ili hibridni model",
+      "Profesionalno potpomognut model",
+      "Nikada ne tražim",
+      "ne upravljam transakcijama umjesto vas",
       "U uvodnom razgovoru ne radimo tehničke promjene.",
-      "Možemo urediti",
-      "Procjenjujemo rizike",
-      "Odluka ostaje vaša",
-    ],
-    includesAny: [
-      ["Bitcoin mora ostati pod vašom kontrolom", "Kontrola ostaje kod vas"],
+      'data-cta="security-intro-call"',
     ],
   },
   {
     path: "/vodici/",
     includes: [
-      "Vodiči",
+      "Bitcoin vodiči i istraživačke bilješke",
+      "Vodiči su put prema razumijevanju, ne popis koji morate završiti.",
+      "Počnite ovdje",
+      "Temeljni vodiči",
+      "Istraživačke bilješke",
+      "Istraživačke bilješke obrađuju napredne ili promjenjive teme.",
+      "Vodiči pokazuju okvir. Privatni rad pretvara okvir u odluke.",
+      'data-link="guide-starter-card"',
       'data-link="guide-card"',
-      "Ne morate čitati sve odjednom. Ako ne znate gdje krenuti, krenite od proračuna.",
-      "Korak 1 — Red u novcu",
-      "Korak 2 — Dug i sloboda odluke",
-      "Korak 3 — Davanje",
-      "Korak 4 — Bitcoin kao novac",
-      "Korak 5 — Neto imovina",
-      "Korak 6 — Sigurnost i obitelj",
-      'href="#proracun"',
-      'href="#dug"',
-      'href="#davanje"',
-      'href="#bitcoin"',
-      'href="#neto-imovina"',
-      'href="#sigurnost"',
-      'id="proracun"',
-      'id="dug"',
-      'id="davanje"',
-      'id="bitcoin"',
-      'id="neto-imovina"',
-      'id="sigurnost"',
-      "Uvodni razgovor pomaže vidjeti koji dio okvira je za vas trenutno najvažniji.",
-    ],
-    includesAny: [
-      [
-        "Želite primijeniti okvir na vlastitu situaciju?",
-        "Želite ovo primijeniti na svoju situaciju?",
-      ],
-      ["Dogovorite 15-minutni uvodni razgovor", "Dogovorite uvodni razgovor"],
+      'data-link="guide-research-card"',
+      'data-cta="guides-index-top-intro-call"',
+      'data-cta="guides-index-intro-call"',
     ],
   },
   {
     path: representativeGuidePath,
     includes: [
+      "Što je stvarni višak?",
+      "Stvarni višak je novac koji je slobodan tek nakon što svaki euro ima namjenu",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
       'href="/razgovor/"',
-      "Vodič objašnjava okvir",
-      "Dogovorite 15-minutni uvodni razgovor",
-      "Drugim riječima, stvarni višak je novac bez druge namjene",
-      "ne pripada budućem plaćanju",
-      "Manje je nagađanja",
+      'data-cta="guide-final-intro-call"',
     ],
-    textMustNotInclude: ["Ovo se odnosi na vašu situaciju?"],
   },
   {
     path: positiveMoneyGuidePath,
     includes: [
       "Novac koji ostaje",
       "Bitcoin standard počinje kada mjesec može stajati na vlastitim nogama.",
-      "Novac ulazi kroz plaću, posao, klijente, prodaju ili druge izvore.",
-      "Pet načina da više novca ostane u sustavu",
-      "Prvo popravljam prihode, troškove i stanje duga.",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
     ],
   },
   {
     path: debtChoiceGuidePath,
     includes: [
-      "Težak, ali čistiji put",
+      "Dug ili Bitcoin?",
       "Dug povećava nemir i skraćuje vrijeme za odluku.",
-      "Dug sužava izbor prije nego što odluka postane mirna.",
-      "Ako imate dug i niste sigurni treba li prvo čistiti bilancu ili nastaviti s Bitcoinom",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
     ],
   },
   {
     path: bitcoinMoneyGuidePath,
     includes: [
-      "Ako ne možete objasniti sebi ili partneru je li Bitcoin za vas novac",
+      "Bitcoin je novac",
+      "Bitcoin nije samo imovina koju držite.",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
     ],
   },
   {
     path: thirdsGuidePath,
     includes: [
-      "Ovo nije preporuka da kupujete ili prodajete određenu imovinu.",
-      "Ako želite provjeriti ravnotežu neto imovine bez pretvaranja toga u slijepu formulu",
+      "Pravilo trećina u neto imovini",
+      "Ne preporučujem kupnju ili prodaju određene imovine.",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
     ],
   },
   {
     path: familyVaultGuidePath,
+    implementationSensitive: true,
     includes: [
       "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
-      "Ovo nije univerzalni recept. Ovo je primjer kako razmišljati o obiteljskoj sigurnosti.",
-      "Seed riječi nikada ne idu u mobitel, cloud, e-mail ili fotografiju.",
-      "Ako Passport Core nije dostupan",
-      "Blockstream Jade Plus",
-      "Dogovorite uvodni Bitcoin razgovor",
+      "Nije univerzalni recept, nego primjer za razmišljanje o obiteljskoj sigurnosti.",
+      "Napredniji sustav nije automatski sigurniji.",
+      "Alati su primjeri, ne popis za kupnju",
+      "Domene kvara umjesto javne karte lokacija",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
+    ],
+  },
+  {
+    path: timedRecoveryGuidePath,
+    implementationSensitive: true,
+    includes: [
+      "Vremenski oporavak u obiteljskom Bitcoin trezoru",
+      "Napredniji sustav nije automatski sigurniji.",
+      "Kriteriji prije odabira modela",
+      "Testiranje bez javnog recepta",
+      "Nunchuk, Liana i vlastiti Miniscript kao modeli",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
+    ],
+  },
+  {
+    path: custodyChoiceGuidePath,
+    implementationSensitive: true,
+    includes: [
+      "Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti",
+      "Napredniji sustav nije automatski sigurniji.",
+      "Dobar Bitcoin plan ne počinje sloganom",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
     ],
   },
   {
     path: bitkeyGuidePath,
+    implementationSensitive: true,
     includes: [
       "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
-      "Bitkey uklanja seed riječi i uvodi 2 od 3 sigurnosni model",
-      'href="/vodici/obiteljski-bitcoin-trezor/"',
-      "Emergency Exit Kit",
-      "Dogovorite uvodni Bitcoin razgovor",
+      "Bitkey ne traži klasičan zapis početnih riječi i uvodi 2 od 3 sigurnosni model",
+      "Napredniji sustav nije automatski sigurniji.",
+      "Što provjeriti prije značajnijeg iznosa",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
     ],
   },
   {
     path: familyGuidePath,
     includes: [
+      "Kako obitelj može pristupiti Bitcoinu ako vam se nešto dogodi?",
       "Minimalna obiteljska uputa",
-      "Ako obitelj zna da Bitcoin postoji, ali nema jasne upute što smije i ne smije napraviti",
+      "Početne se riječi nikada ne dijele",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-final-intro-call"',
     ],
   },
   {
     path: securityGuidePath,
     includes: [
       "Sigurnost ne smije ovisiti samo o vama",
-      "Nitko ne smije tražiti seed phrase",
+      "Nitko ne smije tražiti početne riječi",
       "Za širi sigurnosni okvir pročitajte i sigurnosnu stranicu.",
+      "Vodič daje okvir. Vaša situacija određuje odluku.",
+      'data-cta="guide-security-page"',
+      'data-cta="guide-final-intro-call"',
     ],
   },
 ]
@@ -468,6 +435,10 @@ function textWithoutTags(contents) {
 function canonicalFromHtml(contents) {
   const match = contents.match(/<link rel="canonical" href="([^"]+)" \/>/)
   return match?.[1] ?? ""
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 }
 
 function assertIncludes(url, contents, expected) {
@@ -513,6 +484,24 @@ function assertHtmlDoesNotMatch(url, html, pattern, label = pattern.source) {
   }
 
   fail(`${url} HTML matches forbidden markup: ${label}`)
+}
+
+function assertNoRetiredPdfLinks(url, html) {
+  for (const retiredPath of retiredPdfPaths) {
+    const pattern = new RegExp(
+      `<a\\b[^>]*\\bhref=["'](?:${escapeRegExp(baseUrl)})?${escapeRegExp(
+        retiredPath
+      )}["'][^>]*>`,
+      "i"
+    )
+
+    assertHtmlDoesNotMatch(
+      url,
+      html,
+      pattern,
+      `active retired PDF link: ${retiredPath}`
+    )
+  }
 }
 
 function scriptUrlsFromHtml(html) {
@@ -563,13 +552,20 @@ for (const check of pageChecks) {
     }
 
     for (const forbidden of check.textMustNotInclude ?? []) {
-      assertTextDoesNotInclude(url, textWithoutTags(html), forbidden)
+      assertTextDoesNotInclude(url, rawVisibleText, forbidden)
     }
 
     for (const forbidden of check.htmlMustNotMatch ?? []) {
       assertHtmlDoesNotMatch(url, html, forbidden.pattern, forbidden.label)
     }
 
+    if (check.implementationSensitive) {
+      for (const retiredText of retiredSecurityBlueprintText) {
+        assertTextDoesNotInclude(url, rawVisibleText, retiredText)
+      }
+    }
+
+    assertNoRetiredPdfLinks(url, html)
     assertHtmlDoesNotInclude(url, html, 'alt="Image"')
     assertHtmlDoesNotInclude(url, html, 'alt="image"')
     assertHtmlDoesNotInclude(url, html, 'alt="Slika"')
@@ -613,6 +609,38 @@ try {
 }
 
 try {
+  const notFoundHtml = await fetchText(`${baseUrl}/404.html`)
+
+  assertIncludes(
+    `${baseUrl}/404.html`,
+    notFoundHtml,
+    'data-legacy-redirects="true"'
+  )
+  assertIncludes(
+    `${baseUrl}/404.html`,
+    notFoundHtml,
+    '"/downloads/7-provjera-osobnog-bitcoin-standarda.pdf":"/provjera-bitcoin-standarda/"'
+  )
+  assertIncludes(
+    `${baseUrl}/404.html`,
+    notFoundHtml,
+    '"/downloads/sample-osobni-bitcoin-standard.pdf":"/osobni-bitcoin-standard/primjer/"'
+  )
+  assertIncludes(
+    `${baseUrl}/404.html`,
+    notFoundHtml,
+    '"/primjer-osobnog-bitcoin-standarda/":"/osobni-bitcoin-standard/primjer/"'
+  )
+  assertIncludes(
+    `${baseUrl}/404.html`,
+    notFoundHtml,
+    "window.location.replace(redirectTarget)"
+  )
+} catch (error) {
+  fail(`${baseUrl}/404.html could not be verified: ${error.message}`)
+}
+
+try {
   const sitemap = await fetchText(`${baseUrl}/sitemap.xml`)
   pass(`${baseUrl}/sitemap.xml returned HTTP 200`)
 
@@ -624,6 +652,9 @@ try {
     `${baseUrl}/`,
     `${baseUrl}/razgovor/`,
     `${baseUrl}/bitcoin-konzultacija/`,
+    `${baseUrl}/osobni-bitcoin-standard/`,
+    `${baseUrl}/osobni-bitcoin-standard/primjer/`,
+    `${baseUrl}/provjera-bitcoin-standarda/`,
     `${baseUrl}/vodici/`,
     `${baseUrl}/sigurnost/`,
   ]) {
@@ -652,6 +683,8 @@ try {
 
   for (const removedUrl of [
     `${baseUrl}/bitcoin-jasnoca/`,
+    `${baseUrl}/primjer-osobnog-bitcoin-standarda/`,
+    ...retiredPdfPaths.map((retiredPath) => `${baseUrl}${retiredPath}`),
     `${baseUrl}/vodici/kredit-je-buduci-novac/`,
     `${baseUrl}/vodici/kredit-ili-bitcoin/`,
     `${baseUrl}/vodici/ne-uzimajte-kredit-za-bitcoin/`,
@@ -660,9 +693,9 @@ try {
     `${baseUrl}/vodici/davanje-u-proracunu/`,
   ]) {
     if (sitemapUrls.includes(removedUrl)) {
-      fail(`sitemap still contains alias URL ${removedUrl}`)
+      fail(`sitemap still contains retired URL ${removedUrl}`)
     } else {
-      pass(`sitemap does not contain alias URL ${removedUrl}`)
+      pass(`sitemap does not contain retired URL ${removedUrl}`)
     }
   }
 } catch (error) {

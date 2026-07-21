@@ -116,8 +116,7 @@ const categorySummaryIntro: Record<Guide["category"], string> = {
     "Prvo se vidi što novac mora napraviti prije Bitcoin odluke.",
   "Život bez duga":
     "Prvo se vidi kako dug mijenja mir, vrijeme i sposobnost čekanja.",
-  Davanje:
-    "Prvo se vidi kada davanje dolazi iz reda, a kada iz pritiska.",
+  Davanje: "Prvo se vidi kada davanje dolazi iz reda, a kada iz pritiska.",
   "Bitcoin kao novac":
     "Prvo se razdvaja Bitcoin kao novac od špekulacije, kapitala i navike.",
   "Neto imovina":
@@ -736,14 +735,11 @@ export function GuidePage({ guide }: { guide: Guide }) {
             ) : null}
             {guide.hideDefaultFinalCta ? null : (
               <div className="guide-final-cta-card">
-                <h2>
-                  {guide.finalCtaTitle ??
-                    "Želite ovo primijeniti na svoju situaciju?"}
-                </h2>
+                <h2>Vodič daje okvir. Vaša situacija određuje odluku.</h2>
                 <p>
-                  {guide.finalCtaPromptStandalone && guide.finalCtaPrompt
-                    ? guide.finalCtaPrompt
-                    : `${guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : ""}Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se odnosi na vas.`}
+                  Redoslijed ovisi o vašem proračunu, obvezama, imovini,
+                  obitelji i sigurnosnim rizicima. Ako želite povezati temu ovog
+                  vodiča s vlastitom situacijom, razgovor je sljedeći korak.
                 </p>
                 {guide.finalCtaNote ? (
                   <p className="guide-final-cta-card__note">
@@ -761,7 +757,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                       data-cta="guide-final-intro-call"
                     >
                       <CalendarDays className="size-4" />
-                      {guide.finalCta}
+                      Rezervirajte razgovor
                     </a>
                   </Button>
                   {guide.finalSecondaryCta ? (

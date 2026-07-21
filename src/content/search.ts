@@ -239,16 +239,18 @@ const pageEntries: SearchEntry[] = [
     description: samplePersonalBitcoinStandardSeo.description,
     href: SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
     kind: "Stranica",
-    category: "Preuzimanje",
-    keywords: "primjer osobnog bitcoin standarda pdf ogledni dokument",
+    category: "Program",
+    keywords:
+      "primjer osobnog bitcoin standarda rezultat rada struktura odluke program",
   },
   {
     title: plainTitle(bitcoinStandardCheckSeo.title),
     description: bitcoinStandardCheckSeo.description,
     href: BITCOIN_STANDARD_CHECK_PATH,
     kind: "Stranica",
-    category: "Preuzimanje",
-    keywords: "provjera bitcoin standarda radni pdf sedam provjera",
+    category: "Interaktivna provjera",
+    keywords:
+      "provjera bitcoin standarda rezultat upitnik usko grlo prvi korak proračun dug davanje volatilnost sigurnost obitelj",
   },
   {
     title: plainTitle(guidesIndexSeo.title),
@@ -264,7 +266,7 @@ const pageEntries: SearchEntry[] = [
     href: "/sigurnost/",
     kind: "Stranica",
     category: "Sigurnost",
-    keywords: "povjerljivost seed phrase privatni ključevi lozinke novčanik",
+    keywords: "povjerljivost početne riječi privatni ključevi lozinke novčanik",
   },
   {
     title: plainTitle(privacySeo.title),

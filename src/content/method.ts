@@ -208,7 +208,7 @@ export const bookingSteps = [
 
 export const securityRules = [
   "bez traženja ključeva",
-  "bez traženja seed phrase",
+  "bez traženja početnih riječi",
   "bez pristupa računima",
   "bez pristupa uređajima",
   "skrbništvo prema spremnosti",
@@ -227,7 +227,7 @@ export const notDoingItems = [
   "ne savjetujem altcoine ni kriptoimovinu",
   "ne upravljam vašim sredstvima",
   "ne tražim privatne ključeve",
-  "ne tražim seed phrase",
+  "ne tražim početne riječi",
   "ne pristupam vašim računima",
   "ne dajem porezni, pravni ili licencirani investicijski savjet",
   "ne preuzimam odluku",

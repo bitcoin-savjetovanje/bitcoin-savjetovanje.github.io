@@ -53,7 +53,7 @@ export type AudiencePage = {
 
 export const audienceSafetyBoundaries = [
   "Ne upravljam sredstvima.",
-  "Ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
+  "Ne tražim početne riječi, privatne ključeve ni pristup novčaniku.",
   "Odluka ostaje vaša.",
   "Za porezna i pravna pitanja trebate odgovarajuće stručnjake.",
 ] as const
@@ -142,7 +142,7 @@ export const audiencePages = [
       },
     ],
     trustNote:
-      "Ne upravljam vašim sredstvima i ne tražim seed phrase, privatne ključeve ni pristup novčaniku.",
+      "Ne upravljam vašim sredstvima i ne tražim početne riječi, privatne ključeve ni pristup novčaniku.",
     seo: {
       title: "Osobni Bitcoin standard za pojedinca | Bitcoin Savjetovanje",
       description:
@@ -235,7 +235,7 @@ export const audiencePages = [
       },
     ],
     trustNote:
-      "Ne tražim seed phrase, privatne ključeve, lozinke, iznose ni pristup novčaniku. Radimo na jeziku, pravilima, postupcima i sigurnosnoj arhitekturi.",
+      "Ne tražim početne riječi, privatne ključeve, lozinke, iznose ni pristup novčaniku. Radimo na jeziku, pravilima, postupcima i sigurnosnoj arhitekturi.",
     seo: {
       title: "Obiteljski Bitcoin standard | Bitcoin Savjetovanje",
       description:

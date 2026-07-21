@@ -1,94 +1,62 @@
-import { ArrowUpRight, CalendarDays, Check } from "lucide-react"
+import { CalendarDays, Check } from "lucide-react"
 
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import { Button } from "@/components/ui/button"
-import { BITCOIN_CONSULTATION_PATH, CONVERSATION_PATH } from "@/content/site"
+import { CONVERSATION_PATH } from "@/content/site"
 
-const selfDirectedItems = [
-  "vrijeme",
-  "šum",
-  "odgoda",
-  "pogrešni tragovi",
-  "oportunitetni trošak",
+const advisoryValues = [
+  {
+    title: "Pravo usko grlo",
+    copy: "Prepoznajemo problem koji je prvi, a ne samo problem koji je najvidljiviji.",
+  },
+  {
+    title: "Prioritet između suprotstavljenih ciljeva",
+    copy: "Dug, pričuva, Bitcoin, posao, obitelj i veće kupnje često traže isti novac.",
+  },
+  {
+    title: "Dogovor među ljudima",
+    copy: "Pravilo koje partner ili obitelj ne razumiju nije dovršen sustav.",
+  },
+  {
+    title: "Stres-test",
+    copy: "Provjeravamo što se događa pri padu kupovne moći, gubitku prihoda, velikom trošku ili naglom rastu.",
+  },
+  {
+    title: "Provedba i revizija",
+    copy: "Pravila se ne završavaju na papiru. Primjenjuju se, provjeravaju i po potrebi mijenjaju.",
+  },
 ]
 
-const conversationItems = [
-  "pitanje",
-  "kontekst",
-  "redoslijed",
-  "jasniji okvir",
-  "sljedeći korak",
-]
-
-function ComparisonCard({
-  title,
-  copy,
-  items,
-  emphasized = false,
-}: {
-  title: string
-  copy: string
-  items: string[]
-  emphasized?: boolean
-}) {
+function ValueCard({ title, copy }: { title: string; copy: string }) {
   return (
-    <article
-      className={`program-card h-full ${
-        emphasized ? "border-primary/30 bg-primary/5" : "bg-background/70"
-      }`}
-    >
+    <article className="program-card h-full bg-background/70">
       <h3>{title}</h3>
       <p>{copy}</p>
-      <ul className="mt-5 grid gap-2.5 text-sm leading-6 text-muted-foreground">
-        {items.map((item) => (
-          <li key={item} className="flex gap-2.5">
-            <Check className="positive-icon mt-1 size-3.5 shrink-0" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      <Check className="positive-icon mt-5 size-4" aria-hidden="true" />
     </article>
   )
 }
 
 export function InformationCostSection() {
   return (
-    <section id="cijena-informacije" className="section-shell section-muted">
+    <section id="privatni-rad" className="section-shell section-muted">
       <SectionHeader
-        title="Besplatna informacija nije uvijek najjeftiniji put."
+        title="Vodič vam može dati okvir. Ne može donijeti odluku umjesto vas."
         copy={
           <>
-            O Bitcoinu se može učiti samostalno. Knjige, podcasti, članci,
-            forumi i razgovori mogu biti izvrstan put. I sam sam dugo vjerovao
-            da je to jedini ispravan način: pronaći dobar materijal, poslati
-            poveznicu i pustiti čovjeka da sve sam prođe.
-            <br />
-            <br />
-            Danas mislim drukčije. Informacija može biti besplatna, ali vrijeme
-            nije. Ako ozbiljna osoba mora proći stotine sati materijala,
-            rasprava, šuma, pogrešnih tragova i nepotrebnih stranputica prije
-            nego što razumije što Bitcoin znači za njezin novac, dug, obitelj,
-            sigurnost i imovinu, taj put ima stvaran trošak.
-            <br />
-            <br />
-            Dobar razgovor ne zamjenjuje učenje. On ga skraćuje, usmjerava i
-            povezuje s odlukom koju stvarno trebate donijeti.
+            Dvije osobe mogu pročitati isti vodič i trebati potpuno drukčiji
+            redoslijed. Jedna prvo mora riješiti dug. Druga mora urediti
+            likvidnost. Treća mora uskladiti pravila s partnerom. Četvrta ima
+            dovoljno novca, ali sigurnosni sustav koji ovisi samo o jednoj
+            osobi.
           </>
         }
       />
 
-      <div className="mt-10 grid gap-4 lg:grid-cols-2">
-        <ComparisonCard
-          title="Samostalni put"
-          copy="Javni materijali mogu biti izvrsni, ali ne znaju vašu situaciju."
-          items={selfDirectedItems}
-        />
-        <ComparisonCard
-          title="Dobar razgovor"
-          copy="Razgovor povezuje Bitcoin tezu s odlukom koju stvarno trebate donijeti."
-          items={conversationItems}
-          emphasized
-        />
+      <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        {advisoryValues.map((value) => (
+          <ValueCard key={value.title} {...value} />
+        ))}
       </div>
 
       <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -99,17 +67,9 @@ export function InformationCostSection() {
             data-cta="information-cost-intro-call"
           >
             <CalendarDays className="size-4" />
-            Dođite s jednim stvarnim pitanjem
+            Rezervirajte razgovor
           </a>
         </Button>
-        <a
-          href={BITCOIN_CONSULTATION_PATH}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-semibold text-foreground hover:bg-muted hover:text-foreground"
-          data-link="information-cost-consultation"
-        >
-          Što je Bitcoin konzultacija?
-          <ArrowUpRight className="size-4" />
-        </a>
       </div>
     </section>
   )

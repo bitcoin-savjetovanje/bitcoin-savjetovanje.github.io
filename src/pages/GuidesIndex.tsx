@@ -1,12 +1,23 @@
 import { CalendarDays } from "lucide-react"
+import { preload } from "react-dom"
 
 import { Seo } from "@/components/Seo"
 import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
 import { Button } from "@/components/ui/button"
 import { resolveGuideCover, resolveGuideTheme } from "@/content/guideVisuals"
-import { findGuide, guideHref, type Guide } from "@/content/guides"
+import {
+  findGuide,
+  guideHref,
+  researchGuideSlugs,
+  type Guide,
+} from "@/content/guides"
 import { guidesIndexRoute } from "@/content/clientRoutes"
 import { CONVERSATION_PATH, PRIMARY_CTA } from "@/content/site"
+
+const guidesIndexCover = {
+  src: "/images/bitcoin-kao-novac-cover.jpg",
+  webpSrc: "/images/bitcoin-kao-novac-cover.webp",
+} as const
 
 const roadmapGroups = [
   {
@@ -52,14 +63,7 @@ const roadmapGroups = [
       "bitcoin-kao-novac",
       "bitcoin-nije-kripto-portfelj",
       "pozitivni-neto-priljev",
-      "digitalni-kredit-nije-bitcoin",
     ],
-  },
-  {
-    id: "poslovanje",
-    area: "bitcoin",
-    title: "Poslovanje",
-    slugs: ["prihvacanje-bitcoina-u-poslovanju"],
   },
   {
     id: "neto-imovina",
@@ -70,21 +74,13 @@ const roadmapGroups = [
       "bitcoin-u-neto-imovini",
       "bitcoin-kao-stopa-prepreke",
       "pravilo-trecina",
-      "bitcoin-etfovi-i-riznicke-kompanije",
-      "zaba-bitcoin-etf-certifikat",
-      "bitcoin-bilanca-pojacana-izlozenost",
     ],
   },
   {
     id: "vrijeme-volatilnost",
     area: "time",
     title: "Vrijeme i volatilnost",
-    slugs: [
-      "uskladivanje-kupovne-moci-bitcoina",
-      "cijena-kao-mjera-vremena",
-      "saylor-bitcoin-ciklus-ponuda-potraznja",
-      "ne-cekajte-savrseno-dno-bitcoina",
-    ],
+    slugs: ["uskladivanje-kupovne-moci-bitcoina"],
   },
   {
     id: "sigurnost",
@@ -93,10 +89,6 @@ const roadmapGroups = [
     slugs: [
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "poslovni-bitcoin-nije-privatni-bitcoin",
-      "obiteljski-bitcoin-trezor",
-      "vremenski-oporavak-bitcoin-trezor",
-      "samostalna-pohrana-ili-skrbnik",
-      "bitkey-bitcoin-sigurnost",
       "obiteljski-pristup-bitcoinu",
     ],
   },
@@ -107,53 +99,30 @@ const guideChips = [
   { label: "Dug", href: "#dug" },
   { label: "Davanje", href: "#davanje" },
   { label: "Bitcoin kao novac", href: "#bitcoin" },
-  { label: "Poslovanje", href: "#poslovanje" },
   { label: "Neto imovina", href: "#neto-imovina" },
   { label: "Vrijeme i volatilnost", href: "#vrijeme-volatilnost" },
   { label: "Sigurnost", href: "#sigurnost" },
 ] as const
 
 const guideSectionNav = [
-  { label: "Početak", href: "#pocetak" },
-  { label: "Za poduzetnike", href: "#poduzetnici" },
-  { label: "Cijela mapa", href: "#mapa" },
-  { label: "Napredno", href: "#napredno" },
+  { label: "Počnite ovdje", href: "#pocetak" },
+  { label: "Temeljni vodiči", href: "#temeljni" },
+  { label: "Istraživačke bilješke", href: "#istrazivacke-biljeske" },
 ] as const
 
 const starterSlugs = [
   "svaki-euro-ima-namjenu",
-  "dug-ili-bitcoin",
+  "dug-je-buduci-novac",
   "bitcoin-kao-novac",
 ] as const
+
+const starterSlugSet = new Set<string>(starterSlugs)
 
 const starterGuides = starterSlugs
   .map((slug) => findGuide(slug))
   .filter((guide): guide is Guide => Boolean(guide))
 
-const businessSlugs = [
-  "prihvacanje-bitcoina-u-poslovanju",
-  "svaki-euro-ima-namjenu",
-  "novac-dolazi-od-ljudi",
-  "dug-je-buduci-novac",
-  "novac-kapital-potrosnja",
-  "sigurnost-ne-smije-ovisiti-samo-o-vama",
-] as const
-
-const businessGuides = businessSlugs
-  .map((slug) => findGuide(slug))
-  .filter((guide): guide is Guide => Boolean(guide))
-
-const advancedSlugs = [
-  "bitcoin-etfovi-i-riznicke-kompanije",
-  "zaba-bitcoin-etf-certifikat",
-  "bitcoin-bilanca-pojacana-izlozenost",
-  "saylor-bitcoin-ciklus-ponuda-potraznja",
-  "vremenski-oporavak-bitcoin-trezor",
-  "samostalna-pohrana-ili-skrbnik",
-  "bitkey-bitcoin-sigurnost",
-] as const
-
-const advancedGuides = advancedSlugs
+const researchGuides = researchGuideSlugs
   .map((slug) => findGuide(slug))
   .filter((guide): guide is Guide => Boolean(guide))
 
@@ -161,6 +130,10 @@ const roadmap = roadmapGroups
   .map((group) => ({
     ...group,
     guides: group.slugs.flatMap((slug) => {
+      if (starterSlugSet.has(slug)) {
+        return []
+      }
+
       const guide = findGuide(slug)
 
       if (!guide) {
@@ -173,6 +146,12 @@ const roadmap = roadmapGroups
   .filter((group) => group.guides.length > 0)
 
 export function GuidesIndex() {
+  preload(guidesIndexCover.webpSrc, {
+    as: "image",
+    type: "image/webp",
+    fetchPriority: "high",
+  })
+
   return (
     <>
       <Seo {...guidesIndexRoute} />
@@ -183,14 +162,12 @@ export function GuidesIndex() {
               <p className="hero-eyebrow">Bitcoin kao novac</p>
               <h1 className="hero-title">Vodiči za knjigu Bitcoin kao novac</h1>
               <p className="hero-subtitle">
-                Vodiči objašnjavaju okvir za život s Bitcoinom kao novcem:
-                proračun, dug, davanje, Bitcoin kao primarni novac, neto
-                imovina, poslovna riznica, vrijeme, volatilnost, sigurnost i
-                obitelj.
+                Vodiči su put prema razumijevanju, ne popis koji morate
+                završiti.
               </p>
               <p className="guides-index-hero__body">
-                Ako želite primjenu na vlastitu situaciju, dogovorite 15-minutni
-                uvodni razgovor.
+                Ako želite razumjeti okvir, čitajte. Ako ga želite primijeniti
+                na svoju situaciju, rezervirajte razgovor.
               </p>
               <div className="hero-actions guides-index-hero__cta">
                 <Button
@@ -218,15 +195,15 @@ export function GuidesIndex() {
               aria-hidden="true"
             >
               <picture>
-                <source
-                  srcSet="/images/bitcoin-kao-novac-cover.webp"
-                  type="image/webp"
-                />
+                <source srcSet={guidesIndexCover.webpSrc} type="image/webp" />
                 <img
-                  src="/images/bitcoin-kao-novac-cover.jpg"
+                  src={guidesIndexCover.src}
                   alt=""
-                  loading="lazy"
+                  width="1024"
+                  height="1535"
+                  loading="eager"
                   decoding="async"
+                  fetchPriority="high"
                 />
               </picture>
             </div>
@@ -246,9 +223,7 @@ export function GuidesIndex() {
             id="pocetak"
             className="starter-guides-panel mx-auto mt-16 max-w-5xl"
           >
-            <h2 className="text-2xl font-semibold">
-              Ako želite samo početak, krenite ovdje
-            </h2>
+            <h2 className="text-2xl font-semibold">Počnite ovdje</h2>
             <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
               Ako prvi put prolazite ovaj okvir, nemojte odmah čitati sve.
               Krenite od tri vodiča koji stvaraju temelj za razgovor. Krenite
@@ -282,62 +257,30 @@ export function GuidesIndex() {
               ))}
             </div>
             <p className="mt-6 text-base leading-8 font-semibold text-foreground">
-              Kad to prođete, nastavite kroz cijelu mapu.
+              Nakon ova tri teksta nastavite kroz temeljne vodiče prema pitanju
+              koje vam je trenutačno najvažnije.
             </p>
           </section>
 
           <section
-            id="poduzetnici"
-            className="business-guide-path mx-auto mt-14 max-w-5xl"
-          >
-            <div className="max-w-4xl">
-              <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-                Put za poduzetnike
-              </p>
-              <h2 className="mt-3 text-2xl font-semibold">
-                Ako vodite posao, krenite ovdje
-              </h2>
-              <p className="mt-4 text-base leading-8 text-muted-foreground">
-                Poduzetnik ne treba samo pitanje ‘kupiti ili ne kupiti Bitcoin’.
-                Prvo treba vidjeti koji novac pripada porezima, plaćama,
-                dobavljačima, zalihama, opremi, pričuvi i vlasničkim odlukama.
-                Tek tada poslovna riznica može dobiti Bitcoin pravila.
-              </p>
-            </div>
-            <ol className="business-guide-list">
-              {businessGuides.map((guide, index) => (
-                <li key={guide.slug}>
-                  <span>{index + 1}</span>
-                  <a
-                    href={guideHref(guide.slug)}
-                    data-link="business-guide-path"
-                  >
-                    {guide.title}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section
-            id="mapa"
+            id="temeljni"
             className="guides-roadmap"
-            aria-labelledby="guides-method-map"
+            aria-labelledby="foundational-guides-heading"
           >
             <div className="max-w-3xl">
               <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-                Mapa metode
+                Temeljni sloj
               </p>
               <h2
-                id="guides-method-map"
+                id="foundational-guides-heading"
                 className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl"
               >
-                Cijela mapa vodiča
+                Temeljni vodiči
               </h2>
               <p className="mt-3 text-base leading-8 text-muted-foreground">
-                Krenite od proračuna i duga ako tek slažete temelj. Ako već
-                imate konkretno pitanje, preskočite na područje koje najviše
-                utječe na vašu odluku.
+                Ovi tekstovi objašnjavaju glavni okvir, pomažu dijagnosticirati
+                problem i razdvajaju osnovna pravila od tržišne buke. Ne morate
+                ih pročitati sve prije razgovora.
               </p>
             </div>
 
@@ -398,22 +341,24 @@ export function GuidesIndex() {
             </div>
           </section>
 
-          <section id="napredno" className="advanced-guides-section">
+          <section
+            id="istrazivacke-biljeske"
+            className="advanced-guides-section"
+          >
             <div className="max-w-3xl">
               <p className="text-sm font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-                Kontekstualno
+                Dublje i promjenjive teme
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl">
-                Napredno / često se mijenja
+                Istraživačke bilješke
               </h2>
               <p className="mt-4 text-base leading-8 text-muted-foreground">
-                Ove teme ovise o alatima, pravilima i tržišnim okolnostima.
-                Temeljni okvir ostaje: proračun, dug, davanje, Bitcoin kao
-                novac, neto imovina, vrijeme i sigurnost.
+                Istraživačke bilješke obrađuju napredne ili promjenjive teme. Ne
+                čine obvezan put prije razgovora.
               </p>
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {advancedGuides.map((guide) => (
+              {researchGuides.map((guide) => (
                 <article
                   key={guide.slug}
                   className="advanced-guide-card"
@@ -427,7 +372,7 @@ export function GuidesIndex() {
                     <a
                       href={guideHref(guide.slug)}
                       className="text-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:outline-none"
-                      data-link="guide-advanced-card"
+                      data-link="guide-research-card"
                     >
                       {guide.title}
                     </a>
@@ -441,11 +386,11 @@ export function GuidesIndex() {
 
           <div className="mx-auto mt-16 max-w-4xl rounded-3xl border border-border/80 bg-card p-6 text-center shadow-sm sm:p-8">
             <h2 className="text-2xl font-semibold">
-              Želite primijeniti okvir na vlastitu situaciju?
+              Vodiči pokazuju okvir. Privatni rad pretvara okvir u odluke.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-muted-foreground">
-              Vodiči objašnjavaju okvir. Uvodni razgovor pomaže vidjeti koji dio
-              okvira je za vas trenutno najvažniji.
+              Ako ne želite sami povezivati proračun, obveze, imovinu, obitelj i
+              sigurnosne rizike, razgovor je sljedeći korak.
             </p>
             <Button
               asChild

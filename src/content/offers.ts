@@ -23,11 +23,57 @@ export type Offer = {
   }
 }
 
-export const offers: Offer[] = [
-  {
+export type OfferId = "introCall" | "bitcoinConsultation" | "personalStandard"
+
+export type OfferFacts = {
+  title: string
+  price: string
+  priceAmount: number
+  duration: string
+  bookingHref: string
+  detailsHref?: string
+}
+
+export const offerFacts = {
+  introCall: {
     title: "Uvodni razgovor",
     price: "0 €",
+    priceAmount: 0,
     duration: "15 minuta",
+    bookingHref: CONVERSATION_PATH,
+  },
+  bitcoinConsultation: {
+    title: "Bitcoin konzultacija",
+    price: "200 €",
+    priceAmount: 200,
+    duration: "60 minuta",
+    bookingHref: CONVERSATION_PATH,
+    detailsHref: BITCOIN_CONSULTATION_PATH,
+  },
+  personalStandard: {
+    title: "Osobni Bitcoin standard",
+    price: "1.500 €",
+    priceAmount: 1500,
+    duration: "4–6 tjedana",
+    bookingHref: CONVERSATION_PATH,
+    detailsHref: PERSONAL_BITCOIN_STANDARD_PATH,
+  },
+} as const satisfies Record<OfferId, OfferFacts>
+
+type OfferCopy = Omit<Offer, "title" | "price" | "duration" | "href">
+
+function withOfferFacts(facts: OfferFacts, copy: OfferCopy): Offer {
+  return {
+    title: facts.title,
+    price: facts.price,
+    duration: facts.duration,
+    href: facts.bookingHref,
+    ...copy,
+  }
+}
+
+export const offers: Offer[] = [
+  withOfferFacts(offerFacts.introCall, {
     forWhom: "Bez naknade i bez obveze.",
     detail:
       "Prvi filter. Jedno pitanje, jedno usko grlo, jedan sljedeći razuman korak.",
@@ -39,13 +85,9 @@ export const offers: Offer[] = [
       "Procjena sljedećeg razumnog koraka",
     ],
     cta: "Dogovorite uvodni razgovor",
-    href: CONVERSATION_PATH,
     dataCta: "offer-intro-call",
-  },
-  {
-    title: "Bitcoin konzultacija",
-    price: "200 €",
-    duration: "Jedan dubinski razgovor",
+  }),
+  withOfferFacts(offerFacts.bitcoinConsultation, {
     forWhom:
       "Jedan dubinski razgovor za jedno ozbiljno pitanje koje utječe na odluku.",
     detail: "Jedno pitanje. Jedna odluka. Jedan dubinski razgovor.",
@@ -57,36 +99,32 @@ export const offers: Offer[] = [
       "Bez preuzimanja odluke",
     ],
     cta: "Prvo dogovorite uvodni razgovor",
-    href: CONVERSATION_PATH,
     dataCta: "offer-bitcoin-consultation",
     badge: "Prvi plaćeni korak",
     detailLink: {
       label: "Što je Bitcoin konzultacija?",
-      href: BITCOIN_CONSULTATION_PATH,
+      href: offerFacts.bitcoinConsultation.detailsHref,
       dataLink: "offer-bitcoin-consultation-details",
     },
-  },
-  {
-    title: "Osobni Bitcoin standard",
-    price: "1.500 €",
-    duration: "4–6 tjedana",
+  }),
+  withOfferFacts(offerFacts.personalStandard, {
     forWhom:
-      "Za osobu, obitelj ili vlasnika posla koji želi pisana pravila za novac, dug, Bitcoin, sigurnost i obiteljski ili poslovni pristup.",
-    detail: "Cijeli sustav. Više tjedana. Pisani okvir.",
+      "Za osobu, obitelj ili vlasnika posla koji želi razriješiti prioritete i provesti pravila za novac, dug, Bitcoin, sigurnost i obiteljski ili poslovni pristup.",
+    detail: "Cijeli sustav. Privatna prosudba. Provedba i revizija.",
     purpose:
-      "Izgradnja pisanog osobnog Bitcoin standarda za mirnije odluke, sigurnosni okvir i privatna, obiteljska ili poslovna pravila bez predaje kontrole.",
+      "Privatni rad na prioritizaciji, pravilima, stres-testu, provedbi i reviziji osobnog Bitcoin standarda bez predaje kontrole.",
     includes: [
-      "Pisani standard",
+      "Prioriteti i stres-test",
+      "Provedbeni redoslijed",
       "4–6 tjedana rada",
-      "Sigurnosni i operativni okvir",
+      "Pisani zapis donesenih pravila",
     ],
     cta: "Krenite od uvodnog razgovora",
-    href: CONVERSATION_PATH,
     dataCta: "offer-personal-standard",
     detailLink: {
       label: "Pogledajte program",
-      href: PERSONAL_BITCOIN_STANDARD_PATH,
+      href: offerFacts.personalStandard.detailsHref,
       dataLink: "offer-personal-standard-details",
     },
-  },
+  }),
 ]

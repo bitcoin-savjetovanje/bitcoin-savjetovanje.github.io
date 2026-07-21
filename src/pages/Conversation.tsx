@@ -1,5 +1,5 @@
 import { ArrowUpRight, CalendarDays, Check, FileText } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
 import { CalInlineEmbed } from "@/components/CalInlineEmbed"
@@ -46,12 +46,40 @@ const questionGroups = [
   },
 ] as const
 
+const assessmentTopicQuestions = {
+  proracun: "Nemam jasno pravilo koji je novac stvarno slobodan za Bitcoin.",
+  dug: "Imam dug i ne znam kojim redoslijedom krenuti.",
+  davanje:
+    "Želim urediti pravilo davanja koje ne ugrožava proračun ni dugoročni plan.",
+  "bitcoin-kao-novac":
+    "Želim jasnije odrediti koju ulogu Bitcoin ima u mom novčanom sustavu.",
+  "neto-imovina":
+    "Ne znam kako Bitcoin uklopiti u pregled cijele neto imovine.",
+  "vrijeme-volatilnost":
+    "Ne znam koja pravila slijediti tijekom velikog pada ili rasta cijene.",
+  "sigurnost-obitelj":
+    "Želim urediti sigurnosni i obiteljski plan bez dijeljenja osjetljivih podataka.",
+  "vise-podrucja":
+    "Više dijelova mog Bitcoin standarda treba urediti i nisam siguran odakle krenuti.",
+} as const
+
+type AssessmentTopic = keyof typeof assessmentTopicQuestions
+
+function isAssessmentTopic(value: string): value is AssessmentTopic {
+  return Object.hasOwn(assessmentTopicQuestions, value)
+}
+
 function selectedQuestionFromUrl() {
   if (typeof window === "undefined") {
     return ""
   }
 
   const params = new URLSearchParams(window.location.search)
+  const topic = params.get("tema")?.trim() ?? ""
+
+  if (isAssessmentTopic(topic)) {
+    return assessmentTopicQuestions[topic]
+  }
 
   return params.get("pitanje")?.trim() ?? ""
 }
@@ -99,7 +127,15 @@ function SelectedQuestionCard({ question }: { question: string }) {
 }
 
 export function Conversation() {
-  const [selectedQuestion] = useState(selectedQuestionFromUrl)
+  const [selectedQuestion, setSelectedQuestion] = useState("")
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setSelectedQuestion(selectedQuestionFromUrl())
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
 
   return (
     <>
@@ -162,7 +198,7 @@ export function Conversation() {
                 </span>
               </p>
               <p className="mt-3 font-semibold text-foreground">
-                Ne šaljite seed phrase, privatne ključeve, lozinke,
+                Ne šaljite početne riječi, privatne ključeve, lozinke,
                 screenshotove walleta, iznose, dokumente ni pristup računima.
               </p>
             </div>
@@ -250,10 +286,9 @@ export function Conversation() {
                 Želite vidjeti krajnji rezultat?
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-                Prije razgovora možete pogledati anonimni ogledni primjer
-                osobnog Bitcoin standarda. Dokument pokazuje vrstu jasnoće koju
-                pokušavamo izgraditi: ne općenite savjete, nego pravila za
-                stvarne odluke.
+                Prije razgovora možete pogledati skraćeni HTML primjer
+                rezultata. Pokazuje strukturu i vrstu odluka nastalih tijekom
+                programa, ali nije predložak za kopiranje.
               </p>
             </div>
             <Button
@@ -262,9 +297,9 @@ export function Conversation() {
             >
               <a
                 href={SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}
-                data-cta="conversation-sample-standard"
+                data-link="conversation-sample-standard"
               >
-                Pogledajte primjer dokumenta
+                Pogledajte primjer rezultata
                 <ArrowUpRight className="size-4" aria-hidden="true" />
               </a>
             </Button>

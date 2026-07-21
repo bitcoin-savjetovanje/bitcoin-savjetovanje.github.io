@@ -16,6 +16,7 @@
     "deploy:cloudflare": "node scripts/deploy-cloudflare.mjs",
     "deploy:cloudflare:dirty": "node scripts/deploy-cloudflare.mjs --allow-dirty",
     "lint": "eslint .",
+    "test:assessment": "node --experimental-strip-types --test src/lib/standardAssessment.test.ts",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview"

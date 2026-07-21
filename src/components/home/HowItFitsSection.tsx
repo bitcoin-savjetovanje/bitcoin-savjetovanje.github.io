@@ -22,7 +22,7 @@ const fitCards = [
   },
   {
     title: "Osobni Bitcoin standard",
-    copy: "Rad kroz 4–6 tjedana na pisanom okviru: proračun, dug, Bitcoin kao novac, neto imovina, sigurnost i obitelj.",
+    copy: "Privatni rad kroz 4–6 tjedana na prioritizaciji, pravilima, stres-testu, provedbi i reviziji kroz sva glavna područja.",
     cta: "Krenite od uvodnog razgovora",
     href: CONVERSATION_PATH,
   },

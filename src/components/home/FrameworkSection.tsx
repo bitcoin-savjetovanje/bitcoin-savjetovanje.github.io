@@ -67,6 +67,7 @@ export function FrameworkSection() {
 
       <div
         className="framework-sculpture-grid"
+        role="group"
         aria-label="Mapa osobnog Bitcoin standarda"
       >
         {frameworkItems.map((item) => (

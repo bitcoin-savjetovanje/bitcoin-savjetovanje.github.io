@@ -6,6 +6,13 @@ const root = process.cwd()
 const distDir = path.join(root, "dist")
 const serverEntry = path.join(root, "dist-ssr", "entry-server.js")
 const templatePath = path.join(distDir, "index.html")
+const legacyRedirects = {
+  "/downloads/7-provjera-osobnog-bitcoin-standarda.pdf":
+    "/provjera-bitcoin-standarda/",
+  "/downloads/sample-osobni-bitcoin-standard.pdf":
+    "/osobni-bitcoin-standard/primjer/",
+  "/primjer-osobnog-bitcoin-standarda/": "/osobni-bitcoin-standard/primjer/",
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -46,7 +53,9 @@ function routeHead(route) {
   const title = escapeHtml(route.title)
   const description = escapeAttribute(route.description)
   const ogTitle = escapeAttribute(route.ogTitle ?? route.title)
-  const ogDescription = escapeAttribute(route.ogDescription ?? route.description)
+  const ogDescription = escapeAttribute(
+    route.ogDescription ?? route.description
+  )
   const canonical = escapeAttribute(route.canonical)
   const ogImage = escapeAttribute(route.ogImage)
   const ogType = escapeAttribute(route.ogType)
@@ -74,6 +83,21 @@ function injectHead(html, route) {
     "</head>",
     `${routeHead(route)}\n  </head>`
   )
+}
+
+function injectLegacyRedirects(html) {
+  const redirectScript = `    <script data-legacy-redirects="true">
+      (() => {
+        const legacyRedirects = ${safeJson(legacyRedirects)};
+        const redirectTarget = legacyRedirects[window.location.pathname];
+
+        if (redirectTarget) {
+          window.location.replace(redirectTarget);
+        }
+      })();
+    </script>`
+
+  return html.replace("</head>", `${redirectScript}\n  </head>`)
 }
 
 function injectApp(template, appHtml) {
@@ -146,9 +170,11 @@ await Promise.all(
   })
 )
 
-const notFoundHtml = injectHead(
-  injectApp(template, await render(notFoundRoute.path)),
-  notFoundRoute
+const notFoundHtml = injectLegacyRedirects(
+  injectHead(
+    injectApp(template, await render(notFoundRoute.path)),
+    notFoundRoute
+  )
 )
 await fs.writeFile(path.join(distDir, "404.html"), notFoundHtml)
 

@@ -29,7 +29,7 @@ const outcomes = [
 const notDoingItems = [
   "ne upravljam vašim sredstvima",
   "ne govorim vam kada kupiti ili prodati",
-  "ne tražim seed phrase, privatne ključeve, lozinke ili pristup novčaniku",
+  "ne tražim početne riječi, privatne ključeve, lozinke ili pristup novčaniku",
   "ne dajem porezni ni pravni savjet",
 ]
 
@@ -50,7 +50,7 @@ const paths = [
   },
   {
     title: "Osobni Bitcoin standard",
-    copy: "Program od 4–6 tjedana za pisani okvir: proračun, dug, davanje, Bitcoin kao novac, neto imovina, volatilnost, sigurnost i obitelj.",
+    copy: "Program od 4–6 tjedana za prioritizaciju, stres-test, provedbu i reviziju odluka kroz sva glavna područja osobnog Bitcoin standarda.",
     href: PERSONAL_BITCOIN_STANDARD_PATH,
     label: "Pogledajte program",
     dataCta: "bitcoin-advice-personal-standard",
@@ -187,10 +187,11 @@ export function BitcoinAdvice() {
                   Sigurnost bez predaje kontrole
                 </h2>
                 <p className="mt-4 text-base leading-8 text-muted-foreground">
-                  Seed phrase se nikada ne dijeli. Bitcoin savjetovanje ne traži
-                  pristup novčaniku, burzi, uređajima ili privatnim ključevima.
-                  Možemo razgovarati o strukturi, rizicima i obiteljskom
-                  pristupu bez toga da itko osim vas dobije kontrolu.
+                  Početne riječi se nikada ne dijele. Bitcoin savjetovanje ne
+                  traži pristup novčaniku, burzi, uređajima ili privatnim
+                  ključevima. Možemo razgovarati o strukturi, rizicima i
+                  obiteljskom pristupu bez toga da itko osim vas dobije
+                  kontrolu.
                 </p>
                 <a
                   href="/sigurnost/"

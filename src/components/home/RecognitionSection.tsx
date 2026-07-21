@@ -16,7 +16,7 @@ const recognitionCards = [
   },
   {
     title: "Cijena previše pomiče odluke.",
-    copy: "Rast stvara euforiju, pad stvara paniku, a nedostaje pisani okvir koji odluke drži mirnima kroz vrijeme.",
+    copy: "Rast stvara euforiju, pad stvara paniku, a nedostaju dogovorena pravila koja odluke drže mirnima kroz vrijeme.",
     image: "/images/stone-symbols/problem-price-moving-decisions.webp",
   },
 ]

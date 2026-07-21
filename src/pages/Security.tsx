@@ -18,8 +18,27 @@ const businessBitcoinItems = [
   "razdvojiti dnevni, operativni i dugoročni sloj",
   "ne oslanjati se na pamćenje jedne osobe",
   "pravni, porezni i računovodstveni dio provjeriti sa stručnjacima",
-  "seed phrase ili privatne ključeve nikada ne stavljati u dokumente koji prolaze kroz institucije ili osobe koje ne smiju imati pristup",
+  "početne riječi ili privatne ključeve nikada ne stavljati u dokumente koji prolaze kroz institucije ili osobe koje ne smiju imati pristup",
 ]
+
+const custodyModels = [
+  {
+    title: "Samostalno skrbništvo",
+    copy: "Kontrola ostaje kod vas, zajedno s odgovornošću za sigurnosne kopije, oporavak i razumijevanje sustava.",
+  },
+  {
+    title: "Skrbnik",
+    copy: "Operativna jednostavnost može smanjiti neke korisničke pogreške, uz drukčiji skup rizika i ovisnosti.",
+  },
+  {
+    title: "Prijelazni ili hibridni model",
+    copy: "Različiti slojevi ili razdoblja mogu imati različitu razinu kontrole dok znanje i procesi sazrijevaju.",
+  },
+  {
+    title: "Profesionalno potpomognut model",
+    copy: "Stručna pomoć može pomoći u prosudbi i testiranju, bez predaje početnih riječi, ključeva ili kontrole.",
+  },
+] as const
 
 function SecurityList({
   items,
@@ -52,13 +71,14 @@ export function Security() {
           <div className="hero-shell">
             <div className="hero-copy security-hero__copy">
               <p className="hero-eyebrow">Sigurnost i povjerljivost</p>
-              <h1 className="hero-title">Sigurnost i povjerljivost</h1>
+              <h1 className="hero-title">
+                Sigurnost nije dogma. Sigurnost je sustav.
+              </h1>
               <p className="hero-subtitle">
-                Bitcoin mora ostati pod vašom kontrolom, ali pristup ne smije
-                ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiru.
-                Cilj nije da netko drugi ima kontrolu, nego da postoji jasan
-                plan koji obitelj može razumjeti bez otkrivanja osjetljivih
-                podataka.
+                Dobar sigurnosni model odgovara iznosu, znanju, navikama,
+                obitelji, poslu, vremenskom horizontu, sposobnosti oporavka i
+                stvarnim prijetnjama. Ne počinje proizvodom ni dogmom, nego
+                razumijevanjem rizika krađe i trajnog gubitka.
               </p>
             </div>
             <picture className="hero-image-frame security-hero__media">
@@ -81,8 +101,8 @@ export function Security() {
           <section className="security-principle-card">
             <h2 className="text-xl font-semibold">Sigurnosno pravilo</h2>
             <p className="mt-3 text-base leading-8 text-muted-foreground">
-              Seed phrase se nikada ne dijeli. Dobar savjetnik vam pomaže
-              urediti okvir bez preuzimanja kontrole.
+              Početne riječi i privatni ključevi nikada se ne dijele. Dobar
+              savjetnik pomaže urediti okvir bez preuzimanja kontrole.
             </p>
           </section>
 
@@ -100,8 +120,13 @@ export function Security() {
               životne okolnosti: zaborav, paniku, bolest, smrt, gubitak uređaja
               i dobronamjernu pogrešku.
             </p>
+            <p className="mt-4 text-base leading-8 font-semibold text-foreground">
+              Cilj nije najkompliciraniji sustav. Cilj je sustav koji smanjuje i
+              rizik krađe i rizik trajnog gubitka.
+            </p>
             <div
               className="security-balance-visual"
+              role="group"
               aria-label="Dvije strane dobre sigurnosti"
             >
               <div className="security-balance-node">
@@ -134,6 +159,27 @@ export function Security() {
                 </span>
               </li>
             </ul>
+          </section>
+
+          <section className="service-section service-section--warm">
+            <div className="service-section__header">
+              <p className="service-eyebrow">Modeli skrbništva</p>
+              <h2>Ne postoji jedna odgovorna arhitektura za sve</h2>
+              <p>
+                Rješenje može biti samostalno, skrbničko, prijelazno ili
+                profesionalno potpomognuto. Važan je spoj kontrole,
+                razumljivosti, oporavka i ljudi koji sustav moraju moći
+                provesti.
+              </p>
+            </div>
+            <div className="service-card-grid">
+              {custodyModels.map((model) => (
+                <article key={model.title} className="service-card">
+                  <h3 className="service-card__title">{model.title}</h3>
+                  <p className="service-card__copy">{model.copy}</p>
+                </article>
+              ))}
+            </div>
           </section>
 
           <section className="security-business-panel">
@@ -183,7 +229,7 @@ export function Security() {
               <p className="mt-5 text-base leading-8 text-muted-foreground">
                 Razgovori su povjerljivi. Ne objavljujem osobne podatke,
                 financijsku situaciju ni pojedinosti razgovora. Za rad nije
-                potrebno dijeliti seed phrase, privatne ključeve, lozinke ili
+                potrebno dijeliti početne riječi, privatne ključeve, lozinke ili
                 pristup računima. Obitelj treba znati što smije napraviti i što
                 nikada ne smije napraviti, ali savjetnik ne treba kontrolu nad
                 vašim Bitcoinom.
@@ -196,9 +242,9 @@ export function Security() {
               U uvodnom razgovoru ne radimo tehničke promjene.
             </h2>
             <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-              Ne mijenjamo wallet, ne diramo uređaje, ne unosimo seed phrase i
-              ne šaljemo transakcije. Prvo razgovaramo o strukturi, rizicima i
-              sljedećem sigurnom koraku.
+              Ne mijenjamo novčanik, ne diramo uređaje, ne unosimo početne
+              riječi i ne šaljemo transakcije. Prvo razgovaramo o strukturi,
+              rizicima i sljedećem sigurnom koraku.
             </p>
           </section>
 

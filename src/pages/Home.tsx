@@ -1,7 +1,9 @@
 import { Seo } from "@/components/Seo"
 import { AboutBookSection } from "@/components/home/AboutBookSection"
 import { FrameworkSection } from "@/components/home/FrameworkSection"
+import { GuidesTeaserSection } from "@/components/home/GuidesTeaserSection"
 import { Hero } from "@/components/home/Hero"
+import { InformationCostSection } from "@/components/home/InformationCostSection"
 import { RecognitionSection } from "@/components/home/RecognitionSection"
 import { SampleStandardSection } from "@/components/home/SampleStandardSection"
 import { ServicesSection } from "@/components/home/ServicesSection"
@@ -16,10 +18,12 @@ export function Home() {
       <Hero />
       <div className="home-editorial-page home-editorial-page--content">
         <RecognitionSection />
+        <InformationCostSection />
         <StandardCheckSection />
         <SampleStandardSection />
         <FrameworkSection />
         <ThreeLevelsSection />
+        <GuidesTeaserSection />
         <ServicesSection />
         <AboutBookSection />
       </div>

@@ -18,7 +18,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       "seed phrase",
       "recovery phrase",
     ],
-    title: "Seed fraza",
+    title: "Početne riječi",
     description:
       "Popis riječi koji služi kao pričuvna kopija ključa. Tko ima te riječi, može obnoviti pristup tom ključu, zato se ne smiju slikati, slati ni spremati u oblak.",
   },

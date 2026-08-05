@@ -1,0 +1,1344 @@
+.bitcoin-today-page {
+  --bitcoin-today-panel-radius: 24px;
+  --bitcoin-today-inner-radius: 14px;
+  --bitcoin-today-chart-primary: var(--sea-deep);
+  --bitcoin-today-chart-secondary: var(--brass);
+  overflow: hidden;
+  color: var(--foreground);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bitcoin-today-page *,
+.bitcoin-today-page *::before,
+.bitcoin-today-page *::after {
+  box-sizing: border-box;
+}
+
+.bitcoin-today-page h1,
+.bitcoin-today-page h2,
+.bitcoin-today-page h3 {
+  text-wrap: balance;
+}
+
+.bitcoin-today-page p,
+.bitcoin-today-page li,
+.bitcoin-today-page figcaption,
+.bitcoin-today-page summary {
+  text-wrap: pretty;
+}
+
+.bitcoin-today-page a {
+  overflow-wrap: anywhere;
+}
+
+.bitcoin-today-shell {
+  width: min(100%, 1280px);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.bitcoin-today-hero {
+  position: relative;
+  padding-block: clamp(3.5rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  background:
+    radial-gradient(
+      circle at 84% 7%,
+      color-mix(in srgb, var(--sea-soft) 74%, transparent),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 8% 30%,
+      color-mix(in srgb, var(--brass-soft) 64%, transparent),
+      transparent 25rem
+    ),
+    var(--background);
+}
+
+.bitcoin-today-hero__copy {
+  max-width: 850px;
+}
+
+.bitcoin-today-eyebrow {
+  margin: 0 0 0.9rem;
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+}
+
+.bitcoin-today-hero h1 {
+  max-width: 13ch;
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.bitcoin-today-hero__lead {
+  max-width: 720px;
+  margin: 1.5rem 0 0;
+  color: var(--muted-foreground);
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.65;
+}
+
+.bitcoin-today-refresh-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 64px;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
+  border-radius: 18px;
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--card) 90%, transparent);
+  box-shadow: var(--shadow-border);
+  backdrop-filter: blur(12px);
+}
+
+.bitcoin-today-refresh-panel > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.bitcoin-today-refresh-panel__indicator {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--sea-deep);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--sea) 16%, transparent);
+}
+
+.bitcoin-today-refresh-panel__indicator.is-refreshing {
+  opacity: 0.55;
+}
+
+.bitcoin-today-refresh-button {
+  min-width: 116px;
+  min-height: 44px;
+  flex: 0 0 auto;
+  padding-inline: 0.95rem;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+.bitcoin-today-refresh-button .is-spinning {
+  animation: bitcoin-today-spin 800ms linear infinite;
+}
+
+@keyframes bitcoin-today-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bitcoin-today-notice {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--brass);
+  border-radius: 0 12px 12px 0;
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--brass-soft) 76%, var(--card));
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.bitcoin-today-notice strong {
+  color: var(--foreground);
+}
+
+.bitcoin-today-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.bitcoin-today-metric-card {
+  display: flex;
+  min-width: 0;
+  min-height: 245px;
+  flex-direction: column;
+  padding: 1.4rem;
+  border-radius: var(--bitcoin-today-panel-radius);
+  background: var(--card);
+  box-shadow: var(--shadow-border);
+  transition-property: box-shadow, transform;
+  transition-duration: 160ms;
+  transition-timing-function: ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bitcoin-today-metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      var(--shadow-border-hover),
+      0 18px 48px -34px rgba(23, 22, 18, 0.38);
+  }
+}
+
+.bitcoin-today-metric-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bitcoin-today-metric-card__heading h3 {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.bitcoin-today-icon-medallion {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: var(--sea-deep);
+  background: var(--sea-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sea) 18%, transparent);
+}
+
+.bitcoin-today-icon-medallion svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke-width: 1.8;
+}
+
+.bitcoin-today-metric-card__value {
+  margin-top: 1.45rem;
+  overflow-wrap: anywhere;
+  color: var(--foreground);
+  font-size: clamp(1.6rem, 2.5vw, 2.05rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.bitcoin-today-metric-card__secondary {
+  margin-top: 0.65rem;
+  color: var(--muted-foreground);
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.bitcoin-today-price-equivalence {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.bitcoin-today-price-equivalence strong {
+  color: var(--foreground);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.bitcoin-today-price-equivalence small {
+  font-size: 0.7rem;
+}
+
+.tabular-nums,
+.bitcoin-today-page time {
+  font-variant-numeric: tabular-nums;
+}
+
+.bitcoin-today-empty-value {
+  display: inline-block;
+  min-width: 1ch;
+  color: color-mix(in srgb, var(--muted-foreground) 55%, transparent);
+}
+
+.bitcoin-today-empty-value--unavailable {
+  max-width: 16rem;
+  color: var(--muted-foreground);
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  font-weight: 550;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.bitcoin-today-meta {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.65rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.bitcoin-today-meta--waiting {
+  opacity: 0.72;
+}
+
+.bitcoin-today-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.bitcoin-today-status > span {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--sea-deep);
+}
+
+.bitcoin-today-status--stale > span {
+  background: var(--brass);
+}
+
+.bitcoin-today-status--unavailable > span {
+  background: var(--muted-foreground);
+}
+
+.bitcoin-today-card-source {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.bitcoin-today-market-tools {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.72fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.bitcoin-today-market-tools > .bitcoin-today-converter {
+  margin-top: 0;
+}
+
+.bitcoin-today-converter {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
+  gap: 0.75rem clamp(1.5rem, 4vw, 3rem);
+  margin-top: 1rem;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  border-radius: var(--bitcoin-today-panel-radius);
+  background: var(--card);
+  box-shadow: var(--shadow-border);
+}
+
+.bitcoin-today-converter__intro {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.bitcoin-today-converter__intro > div {
+  min-width: 0;
+}
+
+.bitcoin-today-converter__eyebrow {
+  margin: 0;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.bitcoin-today-converter h2 {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.bitcoin-today-converter__intro p:last-child {
+  margin: 0.55rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.bitcoin-today-converter__fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.bitcoin-today-converter__fields label {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.bitcoin-today-converter__input-wrap {
+  display: flex;
+  min-width: 0;
+  min-height: 52px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.85rem;
+  border-radius: var(--bitcoin-today-inner-radius);
+  color: var(--muted-foreground);
+  background: color-mix(in srgb, var(--muted) 60%, var(--card));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--border) 68%, transparent);
+  transition-property: box-shadow, background-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.bitcoin-today-converter__input-wrap:focus-within {
+  background: var(--card);
+  box-shadow:
+    inset 0 0 0 2px color-mix(in srgb, var(--ring) 62%, transparent),
+    0 0 0 4px color-mix(in srgb, var(--ring) 11%, transparent);
+}
+
+.bitcoin-today-converter__input-wrap:has(input[aria-invalid="true"]) {
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--destructive) 62%, transparent);
+}
+
+.bitcoin-today-converter__input-wrap input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  border: 0;
+  outline: 0;
+  color: var(--foreground);
+  background: transparent;
+  font: inherit;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
+.bitcoin-today-converter__input-wrap input::placeholder {
+  color: color-mix(in srgb, var(--muted-foreground) 58%, transparent);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.bitcoin-today-converter__input-wrap > span {
+  flex: 0 0 auto;
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.bitcoin-today-converter__arrow {
+  width: 1rem;
+  height: 52px;
+  color: var(--muted-foreground);
+  stroke-width: 1.7;
+}
+
+.bitcoin-today-converter__help {
+  grid-column: 2;
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.bitcoin-today-converter__error {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--destructive);
+  font-weight: 650;
+}
+
+.bitcoin-today-converter > .bitcoin-today-meta {
+  grid-column: 2;
+  margin-top: 0;
+  padding-top: 0.15rem;
+}
+
+.bitcoin-today-source-list a {
+  color: inherit;
+  font-weight: 550;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 0.2em;
+  transition-property: color, text-decoration-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.bitcoin-today-source-list a:hover {
+  color: var(--primary);
+  text-decoration-color: currentColor;
+}
+
+.bitcoin-today-explainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.34fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: 1.25rem;
+  padding: clamp(1.3rem, 3vw, 2rem);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--accent) 72%, var(--card));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--border) 54%, transparent);
+}
+
+.bitcoin-today-explainer p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.bitcoin-today-explainer .bitcoin-today-explainer__label {
+  margin-bottom: 0.4rem;
+  color: var(--foreground);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.bitcoin-today-guide-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.8rem 0.65rem 1rem;
+  border-radius: 12px;
+  color: var(--foreground);
+  background: var(--card);
+  box-shadow: var(--shadow-border);
+  font-size: 0.85rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-decoration: none;
+  transition-property: box-shadow, color, scale;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.bitcoin-today-guide-link:hover {
+  color: var(--primary);
+  box-shadow: var(--shadow-border-hover);
+}
+
+.bitcoin-today-guide-link:active {
+  scale: 0.96;
+}
+
+.bitcoin-today-guide-link svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
+.bitcoin-today-details {
+  margin-top: 0.85rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+.bitcoin-today-details summary {
+  position: relative;
+  display: flex;
+  min-height: 48px;
+  cursor: pointer;
+  list-style: none;
+  align-items: center;
+  padding: 0.55rem 2.4rem 0.55rem 0.2rem;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition-property: color;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.bitcoin-today-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.bitcoin-today-details summary::after {
+  content: "+";
+  position: absolute;
+  right: 0.35rem;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--foreground);
+  background: var(--muted);
+  font-size: 1rem;
+  font-weight: 450;
+  transition-property: transform, background-color;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.bitcoin-today-details[open] summary::after {
+  transform: rotate(45deg);
+  background: var(--secondary);
+}
+
+.bitcoin-today-details summary:hover {
+  color: var(--foreground);
+}
+
+.bitcoin-today-details__body {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 0.45rem 0.2rem 1.35rem;
+}
+
+.bitcoin-today-details__body h3 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.bitcoin-today-details__body p {
+  margin: 0.45rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.bitcoin-today-section {
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+  background: var(--background);
+}
+
+.bitcoin-today-section--muted {
+  border-block: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+  background: color-mix(in srgb, var(--muted) 34%, var(--background));
+}
+
+.bitcoin-today-section-intro {
+  max-width: 820px;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.bitcoin-today-section-intro h2 {
+  margin: 0;
+  font-size: clamp(2.15rem, 5vw, 4rem);
+  font-weight: 640;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.bitcoin-today-section-intro > p:last-child {
+  max-width: 720px;
+  margin: 1rem 0 0;
+  color: var(--muted-foreground);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.bitcoin-today-section-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.bitcoin-today-section-grid--monetary {
+  grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.65fr);
+}
+
+.bitcoin-today-metric-panel,
+.bitcoin-today-countdown-panel,
+.bitcoin-today-trend-panel,
+.bitcoin-today-chart {
+  border-radius: var(--bitcoin-today-panel-radius);
+  background: var(--card);
+  box-shadow: var(--shadow-border);
+}
+
+.bitcoin-today-metric-panel {
+  padding: clamp(1.3rem, 3vw, 2rem);
+}
+
+.bitcoin-today-metric-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+
+.bitcoin-today-metric-item {
+  min-width: 0;
+  padding: 1.15rem;
+}
+
+.bitcoin-today-metric-item:nth-child(odd) {
+  border-right: 1px solid color-mix(in srgb, var(--border) 74%, transparent);
+}
+
+.bitcoin-today-metric-item:nth-child(-n + 2) {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 74%, transparent);
+}
+
+.bitcoin-today-metric-item dt {
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.bitcoin-today-metric-item dd {
+  margin: 0.7rem 0 0;
+  overflow-wrap: anywhere;
+  color: var(--foreground);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.bitcoin-today-metric-item p {
+  margin: 0.45rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.bitcoin-today-supply-progress {
+  margin: 1rem 1.15rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 74%, transparent);
+}
+
+.bitcoin-today-supply-progress__labels,
+.bitcoin-today-gauge__labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bitcoin-today-supply-progress__track {
+  position: relative;
+  height: 10px;
+  margin-top: 0.7rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--muted);
+  box-shadow: inset 0 1px 2px
+    color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.bitcoin-today-supply-progress__track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--sea-deep);
+}
+
+.bitcoin-today-countdown-panel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.5rem, 4vw, 2.35rem);
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      color-mix(in srgb, var(--brass-soft) 82%, transparent),
+      transparent 15rem
+    ),
+    var(--card);
+}
+
+.bitcoin-today-countdown-panel__eyebrow {
+  margin: 1.3rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.bitcoin-today-countdown-clock {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+}
+
+.bitcoin-today-countdown-clock > span {
+  display: flex;
+  min-width: 0;
+  min-height: 68px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.2rem;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--muted) 62%, var(--card));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--border) 54%, transparent);
+}
+
+.bitcoin-today-countdown-clock strong {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  font-weight: 660;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-overflow: ellipsis;
+}
+
+.bitcoin-today-countdown-clock small {
+  margin-top: 0.35rem;
+  color: var(--muted-foreground);
+  font-size: 0.63rem;
+  line-height: 1;
+}
+
+.bitcoin-today-countdown-panel__blocks {
+  margin: 0.8rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.bitcoin-today-countdown-panel__blocks strong {
+  color: var(--foreground);
+  font-weight: 650;
+}
+
+.bitcoin-today-countdown-panel__number {
+  margin: 0.65rem 0 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(2.65rem, 6vw, 4.5rem);
+  font-weight: 660;
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+}
+
+.bitcoin-today-countdown-panel__number + p {
+  margin: 0.4rem 0 0;
+  color: var(--muted-foreground);
+}
+
+.bitcoin-today-countdown-panel__date {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 2.5rem;
+}
+
+.bitcoin-today-countdown-panel__date span {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.bitcoin-today-countdown-panel__date strong {
+  font-size: 1.1rem;
+}
+
+.bitcoin-today-countdown-panel__note {
+  margin: 0.7rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.bitcoin-today-network-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.bitcoin-today-network-metrics .bitcoin-today-metric-card {
+  min-height: 230px;
+}
+
+.bitcoin-today-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.bitcoin-today-chart {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1.15rem, 3vw, 1.65rem);
+}
+
+.bitcoin-today-chart figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.bitcoin-today-chart figcaption span {
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.bitcoin-today-chart figcaption small {
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+}
+
+.bitcoin-today-chart svg {
+  display: block;
+  width: 100%;
+  height: 210px;
+  margin-top: 1rem;
+  overflow: visible;
+}
+
+.bitcoin-today-chart__grid {
+  stroke: color-mix(in srgb, var(--border) 68%, transparent);
+  stroke-width: 1;
+}
+
+.bitcoin-today-chart__line {
+  fill: none;
+  stroke: var(--bitcoin-today-chart-primary);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.25;
+}
+
+.bitcoin-today-chart--secondary .bitcoin-today-chart__line {
+  stroke: var(--bitcoin-today-chart-secondary);
+}
+
+.bitcoin-today-chart__axis {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bitcoin-today-chart__axis span:nth-child(2) {
+  color: var(--foreground);
+  font-weight: 650;
+  text-align: center;
+}
+
+.bitcoin-today-chart__axis span:last-child {
+  text-align: right;
+}
+
+.bitcoin-today-chart--empty > div {
+  display: grid;
+  height: 210px;
+  margin-top: 1rem;
+  place-items: center;
+  border-radius: var(--bitcoin-today-inner-radius);
+  color: var(--muted-foreground);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 51px,
+      color-mix(in srgb, var(--border) 42%, transparent) 52px
+    ),
+    color-mix(in srgb, var(--muted) 35%, transparent);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.bitcoin-today-trend-panel {
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+}
+
+.bitcoin-today-trend-panel__summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.bitcoin-today-trend-panel__summary > div {
+  min-width: 0;
+  padding: 0 1.4rem 1.6rem;
+}
+
+.bitcoin-today-trend-panel__summary > div + div {
+  border-left: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.bitcoin-today-trend-panel__summary span {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.bitcoin-today-trend-panel__summary strong {
+  display: block;
+  margin-top: 0.65rem;
+  overflow-wrap: anywhere;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.bitcoin-today-gauge-wrap {
+  padding: 2.5rem 1.4rem 0.3rem;
+}
+
+.bitcoin-today-gauge {
+  position: relative;
+  height: 14px;
+  margin-top: 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--sea) 48%, var(--muted)),
+    var(--muted) 37.5%,
+    var(--muted) 62.5%,
+    color-mix(in srgb, var(--brass) 38%, var(--muted))
+  );
+  box-shadow: inset 0 1px 3px
+    color-mix(in srgb, var(--foreground) 11%, transparent);
+}
+
+.bitcoin-today-gauge__center {
+  position: absolute;
+  top: -5px;
+  bottom: -5px;
+  left: 37.5%;
+  width: 1px;
+  background: color-mix(in srgb, var(--foreground) 36%, transparent);
+}
+
+.bitcoin-today-gauge__marker {
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--card);
+  border-radius: 999px;
+  background: var(--foreground);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--foreground) 18%, transparent),
+    0 5px 14px -7px color-mix(in srgb, var(--foreground) 55%, transparent);
+  transform: translate(-50%, -50%);
+}
+
+.bitcoin-today-gauge__position {
+  margin: 0.85rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.bitcoin-today-final {
+  padding-block: clamp(4rem, 8vw, 7rem);
+  background: var(--background);
+}
+
+.bitcoin-today-final__panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: 30px;
+  color: var(--section-dark-foreground);
+  background:
+    radial-gradient(
+      circle at 87% 20%,
+      color-mix(in srgb, var(--sea-deep) 46%, transparent),
+      transparent 22rem
+    ),
+    linear-gradient(135deg, var(--section-dark), var(--section-dark-soft));
+  box-shadow: 0 28px 72px -42px
+    color-mix(in srgb, var(--foreground) 70%, transparent);
+}
+
+.bitcoin-today-final__panel .bitcoin-today-icon-medallion {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  color: var(--section-dark-foreground);
+  background: color-mix(
+    in srgb,
+    var(--section-dark-foreground) 11%,
+    transparent
+  );
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--section-dark-foreground) 13%, transparent);
+}
+
+.bitcoin-today-final h2 {
+  max-width: 720px;
+  margin: 0;
+  color: inherit;
+  font-size: clamp(1.7rem, 4vw, 2.75rem);
+  font-weight: 630;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.bitcoin-today-final p {
+  max-width: 720px;
+  margin: 0.8rem 0 0;
+  color: color-mix(in srgb, var(--section-dark-foreground) 72%, transparent);
+  line-height: 1.65;
+}
+
+.bitcoin-today-final__cta {
+  min-height: 48px;
+  padding-inline: 1rem 0.85rem;
+  border-radius: 12px;
+}
+
+.bitcoin-today-page :is(a, button, summary):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ring) 45%, transparent);
+  outline-offset: 3px;
+}
+
+.dark .bitcoin-today-hero {
+  background:
+    radial-gradient(
+      circle at 84% 7%,
+      color-mix(in srgb, var(--sea-deep) 14%, transparent),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 8% 30%,
+      color-mix(in srgb, var(--brass) 10%, transparent),
+      transparent 25rem
+    ),
+    var(--background);
+}
+
+.dark .bitcoin-today-refresh-panel {
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+}
+
+.dark .bitcoin-today-notice {
+  background: color-mix(in srgb, var(--brass) 11%, var(--card));
+}
+
+@media (max-width: 1100px) {
+  .bitcoin-today-market-tools {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-summary-grid,
+  .bitcoin-today-network-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bitcoin-today-final__panel {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .bitcoin-today-final__cta {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 820px) {
+  .bitcoin-today-section-grid--monetary,
+  .bitcoin-today-chart-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-explainer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-guide-link {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .bitcoin-today-details__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .bitcoin-today-converter {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-converter__help,
+  .bitcoin-today-converter > .bitcoin-today-meta {
+    grid-column: 1;
+  }
+
+  .bitcoin-today-countdown-panel {
+    min-height: 360px;
+  }
+
+  .bitcoin-today-trend-panel__summary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-trend-panel__summary > div {
+    padding: 1.1rem 0;
+  }
+
+  .bitcoin-today-trend-panel__summary > div + div {
+    border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+    border-left: 0;
+  }
+
+  .bitcoin-today-gauge-wrap {
+    padding-inline: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .bitcoin-today-hero {
+    padding-top: 3.5rem;
+  }
+
+  .bitcoin-today-refresh-panel {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 0.9rem;
+  }
+
+  .bitcoin-today-refresh-panel > div {
+    min-height: 40px;
+  }
+
+  .bitcoin-today-refresh-button {
+    width: 100%;
+  }
+
+  .bitcoin-today-summary-grid,
+  .bitcoin-today-network-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-metric-card {
+    min-height: 220px;
+  }
+
+  .bitcoin-today-converter__fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-converter__arrow {
+    height: 1rem;
+    margin-inline: auto;
+    transform: rotate(90deg);
+  }
+
+  .bitcoin-today-metric-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bitcoin-today-metric-item {
+    padding-inline: 0.2rem;
+  }
+
+  .bitcoin-today-metric-item:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .bitcoin-today-metric-item:nth-child(-n + 3) {
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 74%, transparent);
+  }
+
+  .bitcoin-today-supply-progress {
+    margin-inline: 0.2rem;
+  }
+
+  .bitcoin-today-chart svg,
+  .bitcoin-today-chart--empty > div {
+    height: 170px;
+  }
+
+  .bitcoin-today-final__panel {
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: var(--bitcoin-today-panel-radius);
+  }
+
+  .bitcoin-today-final__cta {
+    grid-column: auto;
+    width: 100%;
+    height: auto;
+    min-height: 52px;
+    justify-self: stretch;
+    padding-block: 0.7rem;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .bitcoin-today-shell {
+    padding-inline: 0.85rem;
+  }
+
+  .bitcoin-today-hero h1 {
+    font-size: 2.65rem;
+  }
+
+  .bitcoin-today-metric-card,
+  .bitcoin-today-metric-panel,
+  .bitcoin-today-countdown-panel,
+  .bitcoin-today-trend-panel,
+  .bitcoin-today-chart,
+  .bitcoin-today-converter,
+  .bitcoin-today-sentiment,
+  .bitcoin-today-explainer {
+    padding: 1.1rem;
+  }
+
+  .bitcoin-today-metric-card__value {
+    font-size: 1.55rem;
+  }
+
+  .bitcoin-today-chart__axis {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bitcoin-today-chart__axis span:nth-child(2) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bitcoin-today-page *,
+  .bitcoin-today-page *::before,
+  .bitcoin-today-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

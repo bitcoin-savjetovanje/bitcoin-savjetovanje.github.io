@@ -1,3 +1,5 @@
+import { preload } from "react-dom"
+
 import { resolveGuideCover } from "@/content/guideVisuals"
 import type { Guide } from "@/content/guides"
 
@@ -8,6 +10,13 @@ type GuideCoverFigureProps = {
 
 export function GuideCoverFigure({ guide, className }: GuideCoverFigureProps) {
   const cover = resolveGuideCover(guide)
+  const preferredCoverSrc = cover.webpSrc ?? cover.src
+
+  preload(preferredCoverSrc, {
+    as: "image",
+    fetchPriority: "high",
+    ...(cover.webpSrc ? { type: "image/webp" } : {}),
+  })
 
   return (
     <figure
@@ -21,8 +30,9 @@ export function GuideCoverFigure({ guide, className }: GuideCoverFigureProps) {
           src={cover.src}
           alt={cover.alt}
           style={{ objectPosition: cover.position }}
-          loading="lazy"
+          loading="eager"
           decoding="async"
+          fetchPriority="high"
         />
       </picture>
       {cover.caption ? <figcaption>{cover.caption}</figcaption> : null}

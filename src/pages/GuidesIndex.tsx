@@ -87,6 +87,8 @@ const roadmapGroups = [
     area: "security",
     title: "Sigurnost i obitelj",
     slugs: [
+      "bitcoin-core-standard",
+      "samostalna-pohrana-ili-skrbnik",
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "poslovni-bitcoin-nije-privatni-bitcoin",
       "obiteljski-pristup-bitcoinu",
@@ -314,13 +316,22 @@ export function GuidesIndex() {
                     {group.guides.map((guide) => (
                       <li key={guide.slug}>
                         <article
-                          className="guide-roadmap-card"
+                          className={
+                            guide.slug === "bitcoin-core-standard"
+                              ? "guide-roadmap-card guide-roadmap-card--featured"
+                              : "guide-roadmap-card"
+                          }
                           data-guide-theme={resolveGuideTheme(guide)}
                         >
                           <GuideCardImage
                             guide={guide}
                             className="guide-roadmap-card__image"
                           />
+                          {guide.slug === "bitcoin-core-standard" ? (
+                            <span className="guide-roadmap-card__featured-label">
+                              Preporučeni standard
+                            </span>
+                          ) : null}
                           <h4>
                             <a
                               href={guideHref(guide.slug)}

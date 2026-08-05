@@ -1,6 +1,5 @@
-import Cal, { getCalApi } from "@calcom/embed-react"
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react"
 import { CalendarDays } from "lucide-react"
-import { useEffect, type CSSProperties } from "react"
 
 import { CalBookingLink } from "@/components/CalBookingLink"
 import { Button } from "@/components/ui/button"
@@ -9,113 +8,241 @@ import {
   CAL_BOOKING_LINK,
   CAL_BOOKING_NAMESPACE,
 } from "@/content/site"
+import { trackFirstPartyInteraction } from "@/lib/ctaEvents"
 
-const calInlineConfig = {
-  layout: "month_view",
-  useSlotsViewOnSmallScreen: "true",
-  theme: "light",
-} as const
+const LazyCal = lazy(() =>
+  import("@calcom/embed-react").then((module) => ({
+    default: module.default,
+  }))
+)
+
+type CalInlineEmbedProps = {
+  prefillQuestion?: string
+  prefillContext?: string
+  topicReady?: boolean
+}
 
 const calInlineStyle = {
   width: "100%",
   height: "100%",
   maxWidth: "100%",
   overflow: "hidden",
-} satisfies CSSProperties
+} as const
 
-export function CalInlineEmbed() {
+function CalendarPlaceholder() {
+  return (
+    <div className="conversation-calendar__placeholder" aria-hidden="true">
+      <div className="conversation-calendar__placeholder-bar" />
+      <div className="conversation-calendar__placeholder-grid">
+        {Array.from({ length: 35 }, (_, index) => (
+          <span key={index} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export function CalInlineEmbed({
+  prefillQuestion,
+  prefillContext,
+  topicReady = true,
+}: CalInlineEmbedProps) {
+  const calendarViewTrackedRef = useRef(false)
+  const [isDesktop, setIsDesktop] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(min-width: 64rem)").matches
+  )
+  const [shouldLoad, setShouldLoad] = useState(false)
+  const [loadFailed, setLoadFailed] = useState(false)
+
+  const config = useMemo(
+    () => ({
+      layout: "month_view" as const,
+      useSlotsViewOnSmallScreen: "true",
+      theme: "light" as const,
+      ...(prefillQuestion ? { pitanje: prefillQuestion } : {}),
+      ...(prefillContext ? { kontekst: prefillContext } : {}),
+    }),
+    [prefillContext, prefillQuestion]
+  )
+
   useEffect(() => {
-    getCalApi({ namespace: CAL_BOOKING_NAMESPACE })
+    const mediaQuery = window.matchMedia("(min-width: 64rem)")
+
+    function updateViewport() {
+      setIsDesktop(mediaQuery.matches)
+    }
+
+    mediaQuery.addEventListener("change", updateViewport)
+    updateViewport()
+
+    return () => mediaQuery.removeEventListener("change", updateViewport)
+  }, [])
+
+  useEffect(() => {
+    if (!isDesktop || !topicReady || shouldLoad) {
+      return
+    }
+
+    setShouldLoad(true)
+
+    if (!calendarViewTrackedRef.current) {
+      calendarViewTrackedRef.current = true
+      trackFirstPartyInteraction("conversation-inline-calendar-view", {
+        mode: "desktop",
+      })
+    }
+  }, [isDesktop, shouldLoad, topicReady])
+
+  useEffect(() => {
+    if (!shouldLoad || !isDesktop) {
+      return
+    }
+
+    let active = true
+    let calApi:
+      | Awaited<ReturnType<(typeof import("@calcom/embed-react"))["getCalApi"]>>
+      | undefined
+
+    const handleReady = () => {
+      if (!active) {
+        return
+      }
+
+      setLoadFailed(false)
+      trackFirstPartyInteraction("conversation-inline-calendar-ready", {
+        mode: "desktop",
+      })
+    }
+
+    const handleBooking = () => {
+      if (!active) {
+        return
+      }
+
+      trackFirstPartyInteraction("conversation-booking-complete", {
+        mode: "desktop",
+      })
+    }
+
+    const handleFailure = () => {
+      if (!active) {
+        return
+      }
+
+      setLoadFailed(true)
+      trackFirstPartyInteraction("conversation-calendar-load-failed", {
+        mode: "desktop",
+      })
+    }
+
+    import("@calcom/embed-react")
+      .then(({ getCalApi }) => getCalApi({ namespace: CAL_BOOKING_NAMESPACE }))
       .then((cal) => {
+        if (!active) {
+          return
+        }
+
+        calApi = cal
         cal("ui", {
           theme: "light",
           cssVarsPerTheme: {
-            light: { "cal-brand": "#F7931A" },
-            dark: { "cal-brand": "#F7931A" },
+            light: { "cal-brand": "#D97824" },
+            dark: { "cal-brand": "#D97824" },
           },
-          hideEventTypeDetails: false,
+          hideEventTypeDetails: true,
           layout: "month_view",
         })
+        cal("on", { action: "linkReady", callback: handleReady })
+        cal("on", {
+          action: "bookingSuccessfulV2",
+          callback: handleBooking,
+        })
+        cal("on", { action: "linkFailed", callback: handleFailure })
       })
-      .catch((error: unknown) => {
-        if (import.meta.env.DEV) {
-          console.info(
-            "Inline Cal embed could not initialize; href fallback remains.",
-            error
-          )
-        }
+      .catch(() => {
+        handleFailure()
       })
-  }, [])
+
+    return () => {
+      active = false
+
+      if (!calApi) {
+        return
+      }
+
+      calApi("off", { action: "linkReady", callback: handleReady })
+      calApi("off", {
+        action: "bookingSuccessfulV2",
+        callback: handleBooking,
+      })
+      calApi("off", { action: "linkFailed", callback: handleFailure })
+    }
+  }, [isDesktop, shouldLoad])
 
   return (
     <section
       id="kalendar"
-      className="cal-inline-section"
-      aria-labelledby="cal-inline-title"
+      className="conversation-calendar"
+      aria-labelledby="conversation-calendar-title"
       data-cal-inline={CAL_BOOKING_NAMESPACE}
     >
-      <div className="cal-inline-section__header">
-        <div>
-          <p className="text-sm font-semibold tracking-[0.12em] text-muted-foreground uppercase">
-            Kalendar
-          </p>
-          <h2 id="cal-inline-title" className="mt-2 text-2xl font-semibold">
-            Odaberite termin za uvodni razgovor.
-          </h2>
-        </div>
-        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-          Odaberite termin koji vam odgovara. U bilješku napišite jedno Bitcoin
-          pitanje koje želite razjasniti. Ne šaljite početne riječi, privatne
-          ključeve, iznose ni osjetljive dokumente.
+      <div className="conversation-calendar__header">
+        <p className="conversation-booking-eyebrow">Rezervacija</p>
+        <h2 id="conversation-calendar-title">Odaberite termin</h2>
+        <p>
+          Pri rezervaciji napišite jednu odluku ili pitanje koje želite
+          razjasniti.
         </p>
       </div>
 
-      <div className="cal-inline-mobile-cta">
-        <p className="text-sm leading-6 text-muted-foreground">
-          Na mobitelu je odabir termina najpregledniji u zasebnom prozoru preko
-          stranice. Nakon odabira možete ga zatvoriti i nastaviti gdje ste
-          stali.
-        </p>
-        <Button asChild size="lg" className="cta-primary mt-4 rounded-full">
+      <div className="conversation-calendar__mobile">
+        <Button asChild size="lg" className="cta-primary">
           <CalBookingLink
-            className="justify-center text-center"
-            data-cta="conversation-inline-calendar-mobile"
+            prefillQuestion={prefillQuestion}
+            prefillContext={prefillContext}
+            data-cta="conversation-mobile-calendar-open"
           >
-            <CalendarDays className="size-4" />
-            Otvorite kalendar
+            <CalendarDays aria-hidden="true" />
+            Odaberite termin
           </CalBookingLink>
         </Button>
+        <p>
+          Ako se prozor ne može pokrenuti, poveznica će nastaviti na Cal.com.
+        </p>
       </div>
 
-      <div className="cal-inline-frame">
-        <Cal
-          namespace={CAL_BOOKING_NAMESPACE}
-          calLink={CAL_BOOKING_LINK}
-          style={calInlineStyle}
-          config={calInlineConfig}
-          className="cal-inline-frame__cal"
-        />
-        <noscript>
-          <div className="cal-inline-placeholder">
-            <div>
-              <p className="font-semibold text-foreground">
-                Kalendar se učitava.
-              </p>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Ako se ne prikaže, termin možete otvoriti preko Cal.com linka.
-              </p>
-            </div>
-          </div>
-        </noscript>
-      </div>
+      <div className="conversation-calendar__desktop">
+        <div className="conversation-calendar__frame">
+          {shouldLoad && isDesktop ? (
+            <Suspense fallback={<CalendarPlaceholder />}>
+              <LazyCal
+                namespace={CAL_BOOKING_NAMESPACE}
+                calLink={CAL_BOOKING_LINK}
+                style={calInlineStyle}
+                config={config}
+                className="conversation-calendar__cal"
+              />
+            </Suspense>
+          ) : (
+            <CalendarPlaceholder />
+          )}
+        </div>
 
-      <p className="cal-inline-fallback">
-        Ako se kalendar ne prikaže,{" "}
-        <a href={BOOKING_URL} data-cta="conversation-inline-calendar-fallback">
-          otvorite Cal.com termin
-        </a>
-        .
-      </p>
+        <p
+          className="conversation-calendar__fallback"
+          role={loadFailed ? "alert" : undefined}
+        >
+          {loadFailed
+            ? "Kalendar se nije mogao učitati. "
+            : "Ako se kalendar ne prikaže, "}
+          <a href={BOOKING_URL} data-cta="conversation-calendar-fallback">
+            otvorite termin na Cal.comu
+          </a>
+          .
+        </p>
+      </div>
     </section>
   )
 }

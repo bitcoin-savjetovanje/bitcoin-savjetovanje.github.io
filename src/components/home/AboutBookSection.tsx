@@ -1,7 +1,7 @@
 import { Check } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { BITCOIN_ADVICE_PATH } from "@/content/site"
+import { PAVAO_PAHLJINA_PATH } from "@/content/site"
 
 const bookItems = [
   "Uskoro dostupno u pretprodaji",
@@ -47,7 +47,7 @@ export function AboutBookSection() {
             principima, procesima i disciplinom koja traje.
           </p>
           <Button asChild variant="outline" className="home-outline-button">
-            <a href={BITCOIN_ADVICE_PATH} data-link="about-more">
+            <a href={PAVAO_PAHLJINA_PATH} data-link="about-more">
               Saznajte više o meni
             </a>
           </Button>
@@ -57,6 +57,7 @@ export function AboutBookSection() {
           alt="Pavao Pahljina"
           width="640"
           height="640"
+          loading="lazy"
           decoding="async"
         />
       </article>

@@ -39,7 +39,8 @@ export function IntroCallSection() {
           </Button>
           <p className="text-sm leading-6 text-muted-foreground">
             Razgovor je bez naknade i obveze. Ne morate slati iznose, dokumente,
-            lozinke, privatne ključeve ni početne riječi.
+            privatne ključeve, Bitcoin Core wallet backup datoteke, wallet
+            passphraseove, početne riječi drugih walleta ni lozinke.
           </p>
         </div>
       </div>

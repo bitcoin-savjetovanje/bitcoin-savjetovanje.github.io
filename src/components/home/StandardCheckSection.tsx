@@ -1,29 +1,35 @@
-import { ArrowUpRight, CheckCircle2, LockKeyhole } from "lucide-react"
+import { ArrowDown, CheckCircle2, LockKeyhole } from "lucide-react"
+import { useState } from "react"
 
+import { QuickBitcoinStandardAssessment } from "@/components/assessment/QuickBitcoinStandardAssessment"
 import { Button } from "@/components/ui/button"
-import { BITCOIN_STANDARD_CHECK_PATH } from "@/content/site"
 
 export function StandardCheckSection() {
+  const [isAssessmentOpen, setIsAssessmentOpen] = useState(false)
+
+  if (isAssessmentOpen) {
+    return <QuickBitcoinStandardAssessment embedded />
+  }
+
   return (
     <section className="editorial-section standard-check-teaser">
       <div className="standard-check-teaser__copy">
         <p className="section-eyebrow">BESPLATNA PROVJERA · OKO 3 MINUTE</p>
         <h2>Prvo pronađite usko grlo</h2>
         <p>
-          Besplatna provjera pomaže vam vidjeti koje područje trenutačno najviše
-          slabi vaš sustav. Kroz 21 tvrdnju dobit ćete ukupnu sliku, najslabije
-          područje i jedan konkretan prvi korak — bez registracije, bez slanja
-          odgovora i bez generičkog programa provedbe za svih sedam područja.
+          Besplatna provjera pomaže vam vidjeti imate li samo Bitcoin ili uređen
+          sustav za život s Bitcoinom. Kroz 10 pitanja dobit ćete prvi fokus i
+          konkretan sljedeći korak — bez registracije i bez slanja odgovora.
         </p>
         <div className="standard-check-teaser__actions">
-          <Button asChild className="cta-primary home-primary-button">
-            <a
-              href={BITCOIN_STANDARD_CHECK_PATH}
-              data-cta="home-standard-assessment"
-            >
-              Pokrenite provjeru
-              <ArrowUpRight className="size-4" aria-hidden="true" />
-            </a>
+          <Button
+            type="button"
+            className="cta-primary home-primary-button"
+            data-cta="home-standard-assessment"
+            onClick={() => setIsAssessmentOpen(true)}
+          >
+            Pokrenite provjeru
+            <ArrowDown className="size-4" aria-hidden="true" />
           </Button>
         </div>
       </div>

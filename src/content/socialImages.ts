@@ -31,9 +31,14 @@ export const socialImages = {
     height: 1024,
   }),
   home: socialImage({
-    path: "/images/home-hero-20260521.jpg",
-    width: 1536,
-    height: 1024,
+    path: "/images/bitcoin-savjetovanje-system-og-20260723.webp",
+    width: 1200,
+    height: 630,
+  }),
+  pavaoPahljina: socialImage({
+    path: "/pavao-pahljina.webp",
+    width: 800,
+    height: 800,
   }),
   guidesIndex: socialImage({
     path: "/images/social/vodici-og-20260623.jpg",
@@ -56,9 +61,9 @@ export const socialImages = {
     height: 941,
   }),
   bitcoinMoney: socialImage({
-    path: "/images/hero-bitcoin-savjetovanje-realistic.jpg",
-    width: 1536,
-    height: 1024,
+    path: "/images/bitcoin-primary-money-flow-og-20260724.webp",
+    width: 1200,
+    height: 630,
   }),
   netWorth: socialImage({
     path: "/images/neto-imovina-hero-20260521.jpg",
@@ -71,12 +76,22 @@ export const socialImages = {
     height: 941,
   }),
   custodySecurity: socialImage({
-    path: "/images/skrbnistvo-sigurnost-hero-20260521.jpg",
-    width: 1672,
-    height: 941,
+    path: "/images/custody/bitcoin-skrbnistvo-oporavak-og-20260724.webp",
+    width: 1200,
+    height: 630,
   }),
   bitcoinAdvice: socialImage({
     path: "/images/bitcoin-savjetovanje-hero-20260601.jpg",
+    width: 1672,
+    height: 941,
+  }),
+  missedBitcoin: socialImage({
+    path: "/images/niste-zakasnili-u-bitcoin-cover-20260625.jpg",
+    width: 1774,
+    height: 887,
+  }),
+  businessBitcoin: socialImage({
+    path: "/images/guide-sections/bitcoin-etfovi-riznice-tri-odluke-20260701.webp",
     width: 1672,
     height: 941,
   }),
@@ -86,29 +101,29 @@ export const socialImages = {
     height: 941,
   }),
   bitcoinConsultation: socialImage({
-    path: "/images/service-visuals/consultation-hero-20260601.jpg",
-    width: 1448,
-    height: 1086,
+    path: "/images/consultation/bitcoin-konzultacija-og-20260723.webp",
+    width: 1200,
+    height: 630,
   }),
   personalBitcoinStandard: socialImage({
-    path: "/images/service-visuals/standard-hero-20260601.jpg",
-    width: 1672,
-    height: 941,
+    path: "/images/program/personal-standard-og-20260723.webp",
+    width: 1200,
+    height: 630,
   }),
   samplePersonalBitcoinStandard: socialImage({
-    path: "/images/service-visuals/standard-hero-20260601.jpg",
-    width: 1672,
-    height: 941,
+    path: "/images/sample-standard/ogledni-standard-og.webp",
+    width: 1200,
+    height: 630,
   }),
   bitcoinStandardCheck: socialImage({
-    path: "/images/home-hero-20260521.jpg",
-    width: 1536,
-    height: 1024,
+    path: "/images/provjera-bitcoin-standarda-og-20260722.webp",
+    width: 1200,
+    height: 630,
   }),
   security: socialImage({
-    path: "/images/sigurnost-povjerenje-hero-20260601.jpg",
-    width: 1672,
-    height: 941,
+    path: "/images/security/bitcoin-sigurnost-ravnoteza-og-20260724.webp",
+    width: 1200,
+    height: 630,
   }),
   privacy: socialImage({
     path: "/images/povjerljivost-hero-20260601.jpg",
@@ -117,17 +132,17 @@ export const socialImages = {
   }),
   audiences: {
     osobno: socialImage({
-      path: "/images/audiences/osobno-hero.png",
+      path: "/images/audiences/osobno-hero.jpg",
       width: 1672,
       height: 941,
     }),
     obitelj: socialImage({
-      path: "/images/audiences/obitelj-hero.png",
-      width: 1672,
-      height: 941,
+      path: "/images/audiences/obitelj-og-20260724.webp",
+      width: 1200,
+      height: 630,
     }),
     poduzetnici: socialImage({
-      path: "/images/audiences/poduzetnici-hero.png",
+      path: "/images/audiences/poduzetnici-slojevi-hero-20260724.jpg",
       width: 1672,
       height: 941,
     }),
@@ -181,10 +196,6 @@ const guideCoverDimensionsByPath: Record<
     width: 1774,
     height: 887,
   },
-  "/images/vremenski-oporavak-bitcoin-trezor-cover-20260625.png": {
-    width: 1774,
-    height: 887,
-  },
   "/images/stvarni-visak-hero.png": { width: 1774, height: 887 },
   "/images/dca-nije-dovoljan-hero.png": { width: 1774, height: 887 },
   "/images/dug-je-buduci-novac-hero.png": { width: 1774, height: 887 },
@@ -213,7 +224,7 @@ const guideCoverDimensionsByPath: Record<
     width: 1672,
     height: 941,
   },
-  "/images/vremenski-oporavak-bitcoin-trezor-hero-20260529.jpg": {
+  "/images/guide-bip110/01-naslovna-slika-mediteranski.webp": {
     width: 1672,
     height: 941,
   },

@@ -13,6 +13,10 @@ type GlossaryMatch = {
 const MAX_GLOSSARY_TERMS_PER_TEXT = 3
 const WORD_BOUNDARY = String.raw`\p{L}\p{N}_-`
 
+type RenderGlossaryOptions = {
+  maxTerms?: number
+}
+
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
 }
@@ -63,7 +67,7 @@ function matchesOverlap(first: GlossaryMatch, second: GlossaryMatch) {
   return first.index < second.end && second.index < first.end
 }
 
-function glossaryMatchesForText(text: string) {
+function glossaryMatchesForText(text: string, maxTerms: number) {
   const matches = glossaryTerms
     .map((term) => findFirstTermMatch(text, term))
     .filter((match): match is GlossaryMatch => Boolean(match))
@@ -97,12 +101,18 @@ function glossaryMatchesForText(text: string) {
 
       return a.index - b.index
     })
-    .slice(0, MAX_GLOSSARY_TERMS_PER_TEXT)
+    .slice(0, maxTerms)
     .sort((a, b) => a.index - b.index)
 }
 
-export function renderWithGlossary(text: string): ReactNode[] {
-  const matches = glossaryMatchesForText(text)
+export function renderWithGlossary(
+  text: string,
+  options: RenderGlossaryOptions = {}
+): ReactNode[] {
+  const matches = glossaryMatchesForText(
+    text,
+    options.maxTerms ?? MAX_GLOSSARY_TERMS_PER_TEXT
+  )
 
   if (matches.length === 0) {
     return [text]

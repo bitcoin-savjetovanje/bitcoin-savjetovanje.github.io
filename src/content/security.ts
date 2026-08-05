@@ -1,6 +1,8 @@
 export const neverAskItems = [
-  "početne riječi — 12 ili 24 riječi za oporavak novčanika",
   "privatne ključeve",
+  "Bitcoin Core wallet backup datoteke",
+  "wallet passphrase — nije BIP39 passphrase i nije zamjena za backup",
+  "početne riječi — backup karakterističan za mnoge druge wallete, ne za opisani Bitcoin Core workflow",
   "lozinke",
   "pristup računima",
   "pristup burzi",
@@ -43,6 +45,6 @@ export const notDoingSecurityItems = [
   "ne kupujem ni prodajem u vaše ime",
   "ne upravljam novcem",
   "ne donosim odluke umjesto vas",
-  "ne tražim početne riječi ni privatne ključeve",
+  "ne tražim privatne ključeve, wallet backup datoteke, wallet passphrase ni početne riječi",
   "ne dajem porezni, pravni ili licencirani investicijski savjet",
 ]

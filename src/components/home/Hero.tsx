@@ -1,71 +1,52 @@
-import { ArrowUpRight, CalendarDays, ShieldCheck } from "lucide-react"
+import { ArrowUpRight, ClipboardCheck, ShieldCheck } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import {
-  CONVERSATION_PATH,
-  PERSONAL_BITCOIN_STANDARD_PATH,
-} from "@/content/site"
+import { BITCOIN_STANDARD_CHECK_PATH, CONVERSATION_PATH } from "@/content/site"
 
 export function Hero() {
   return (
-    <section className="home-hero hero-section editorial-section">
+    <header className="home-hero hero-section editorial-section home-v2-hero-legacy">
       <div className="hero-shell">
-        <div className="hero-copy">
-          <p className="hero-eyebrow">
-            Privatno Bitcoin savjetovanje za ljude koji već imaju Bitcoin,
-            imovinu ili odgovornost za druge.
-          </p>
-          <h1 className="hero-title">
-            Imate Bitcoin? Izgradite osobni Bitcoin standard.
-          </h1>
-          <p className="hero-subtitle">
-            Javni vodiči pokazuju moj okvir razmišljanja. Privatni rad pretvara
-            taj okvir u odluke koje odgovaraju vašem proračunu, obvezama,
-            imovini, obitelji i sigurnosnim rizicima.
+        <div className="hero-copy home-v2-hero__copy">
+          <p className="home-v2-eyebrow">PRIVATNO BITCOIN SAVJETOVANJE</p>
+          <h1>Bitcoin već imate. Sada uredite sustav za život s njim.</h1>
+          <p className="home-v2-hero__lead">
+            Povezujemo prihod, proračun, dug, imovinu, trošenje i sigurnost tako
+            da Bitcoin više nije izdvojena pozicija koju samo držite, nego
+            primarni novac iz kojeg donosite odluke.
           </p>
 
-          <div className="hero-actions">
-            <Button
-              asChild
-              size="lg"
-              className="cta-primary home-primary-button"
-            >
+          <div className="home-v2-hero__actions">
+            <Button asChild size="lg" className="home-v2-primary-button">
               <a
-                href={CONVERSATION_PATH}
-                className="justify-center text-center"
-                data-cta="hero-intro-call"
+                href={BITCOIN_STANDARD_CHECK_PATH}
+                data-cta="home-hero-assessment"
               >
-                <CalendarDays className="size-4" />
-                Rezervirajte razgovor
+                <ClipboardCheck aria-hidden="true" />
+                Napravite besplatnu provjeru
               </a>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="home-outline-button"
+            <a
+              href={CONVERSATION_PATH}
+              className="home-v2-text-link"
+              data-cta="home-hero-conversation"
             >
-              <a
-                href={PERSONAL_BITCOIN_STANDARD_PATH}
-                className="justify-center text-center"
-                data-link="hero-personal-standard"
-              >
-                Pogledajte kako program radi
-                <ArrowUpRight className="size-4" />
-              </a>
-            </Button>
+              Već imate jasno pitanje? Dogovorite uvodni razgovor.
+              <ArrowUpRight aria-hidden="true" />
+            </a>
           </div>
 
-          <div className="hero-trust-note">
-            <ShieldCheck className="size-5" aria-hidden="true" />
-            <ul>
-              <li>Ne tražim privatne ključeve ni početne riječi.</li>
-              <li>Ne upravljam vašim Bitcoinom i ne čuvam ga.</li>
-              <li>Ne prodajem financijske proizvode.</li>
-              <li>Ne donosim odluke umjesto vas.</li>
-            </ul>
-          </div>
+          <p className="home-v2-trust-note">
+            <ShieldCheck aria-hidden="true" />
+            <span>
+              Bez naknade i bez obveze. Ne upravljam vašim sredstvima i nikada
+              ne tražim privatne ključeve, Bitcoin Core wallet backup datoteke,
+              wallet passphraseove, početne riječi drugih walleta ni pristup
+              novčaniku.
+            </span>
+          </p>
         </div>
+
         <picture className="hero-image-frame">
           <source srcSet="/images/home-hero-20260521.webp" type="image/webp" />
           <img
@@ -79,6 +60,6 @@ export function Hero() {
           />
         </picture>
       </div>
-    </section>
+    </header>
   )
 }

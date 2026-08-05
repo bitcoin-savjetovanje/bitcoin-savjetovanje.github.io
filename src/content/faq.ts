@@ -31,9 +31,9 @@ export const faqs = [
   },
   {
     question:
-      "Tražite li početne riječi, privatne ključeve ili pristup novčaniku?",
+      "Tražite li privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove ili početne riječi drugih walleta?",
     answer:
-      "Ne. Početne riječi se nikada ne dijele. Ne tražim privatne ključeve, lozinke, pristup burzi, pristup novčaniku ni kontrolu nad vašim Bitcoinom.",
+      "Ne. Privatni ključevi, Bitcoin Core wallet backup datoteke, wallet passphraseovi i početne riječi drugih walleta nikada se ne dijele. Ne tražim lozinke, pristup burzi, pristup novčaniku ni kontrolu nad vašim Bitcoinom.",
   },
   {
     question: "Što dobivam u uvodnom razgovoru?",
@@ -74,13 +74,30 @@ export const faqs = [
   },
 ]
 
-export const homepageFaqs = faqs.filter((faq) =>
-  [
-    "Je li ovo financijsko savjetovanje?",
-    "Hoćete li mi reći koliko Bitcoina da kupim?",
-    "Je li ovo i za poduzetnike?",
-    "Moram li već imati Bitcoin?",
-    "Tražite li početne riječi, privatne ključeve ili pristup novčaniku?",
-    "Koja je razlika između uvodnog razgovora, Bitcoin konzultacije i osobnog Bitcoin standarda?",
-  ].includes(faq.question)
-)
+export const homepageFaqs = [
+  {
+    question: "Je li ovo investicijsko ili financijsko savjetovanje?",
+    answer:
+      "Ne upravljam sredstvima, ne dajem trgovačke signale ni univerzalne preporuke o tome koliko Bitcoina trebate imati. Pomažem vam povezati vlastiti proračun, dug, imovinu, sigurnost i ciljeve u okvir iz kojeg sami donosite i provodite odluke.",
+  },
+  {
+    question: "Što znači koristiti Bitcoin kao primarni novac?",
+    answer:
+      "Prihod, štednju i imovinu promatrate iz Bitcoina kao glavne novčane mjere. U eurima držite iznos potreban za najbliža operativna plaćanja, dok Bitcoin redovito koristite ili prema potrebi razmjenjujete u eure kako biste financirali stvarni život.",
+  },
+  {
+    question: "Što ako imam dug?",
+    answer:
+      "Dug je sastavni dio procjene jer utječe na novčani tok, vremenski horizont i sposobnost podnošenja rizika. Njegovu ulogu, cijenu i redoslijed otplate treba urediti prije nego što Bitcoin odluke mogu postati održiv dio sustava.",
+  },
+  {
+    question: "Pomažete li oko skrbništva?",
+    answer:
+      "Pomažem vam procijeniti, odabrati i dokumentirati sigurnosni model, sigurnosne kopije, prvi korak oporavka i uloge osoba od povjerenja. Ne preuzimam ključeve, sredstva ni pristup uređaju ili novčaniku.",
+  },
+  {
+    question: "Koja je razlika između konzultacije i programa?",
+    answer:
+      "Bitcoin konzultacija usmjerena je na jedno konkretno pitanje ili odluku. Program osobnog Bitcoin standarda povezuje cijeli sustav kroz 4–6 tjedana rada i završava pisanim dokumentom koji bilježi donesena pravila, provedbeni redoslijed i sljedeću reviziju.",
+  },
+] as const

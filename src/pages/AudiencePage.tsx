@@ -23,19 +23,19 @@ const heroVisuals: Record<
   }
 > = {
   personal: {
-    src: "/images/audiences/osobno-hero.png",
+    src: "/images/audiences/osobno-hero.jpg",
     webpSrc: "/images/audiences/osobno-hero.webp",
     alt: "Mediteranski stol s bilježnicom, Bitcoin kovanicom i osobnim financijskim simbolima.",
     className: "audience-hero__image--personal",
   },
   family: {
-    src: "/images/audiences/obitelj-hero.png",
+    src: "/images/audiences/obitelj-hero.jpg",
     webpSrc: "/images/audiences/obitelj-hero.webp",
     alt: "Par za stolom pregledava obiteljska pravila uz trezor, ključeve i Bitcoin kovanicu.",
     className: "audience-hero__image--family",
   },
   business: {
-    src: "/images/audiences/poduzetnici-hero.png",
+    src: "/images/audiences/poduzetnici-hero.jpg",
     webpSrc: "/images/audiences/poduzetnici-hero.webp",
     alt: "Mediteranski radni stol s poslovnim dokumentima, ladicama obveza i Bitcoin kovanicom.",
     className: "audience-hero__image--business",

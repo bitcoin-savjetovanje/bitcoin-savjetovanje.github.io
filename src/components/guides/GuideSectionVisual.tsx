@@ -42,7 +42,12 @@ export function GuideSectionVisual({ visual }: GuideSectionVisualProps) {
         }`}
       >
         <ExternalLink href={visual.href} className="guide-section-image-link">
-          <img src={visual.src} alt={visual.alt} loading="lazy" />
+          <img
+            src={visual.src}
+            alt={visual.alt}
+            loading="lazy"
+            decoding="async"
+          />
         </ExternalLink>
         <figcaption>
           <span>{visual.title}</span>
@@ -71,7 +76,12 @@ export function GuideSectionVisual({ visual }: GuideSectionVisualProps) {
               className="guide-product-card"
             >
               <span className="guide-product-card__image">
-                <img src={item.src} alt={item.alt} loading="lazy" />
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
               </span>
               <span className="guide-product-card__body">
                 <span className="guide-product-card__name">{item.name}</span>
@@ -110,7 +120,12 @@ export function GuideSectionVisual({ visual }: GuideSectionVisualProps) {
                 href={item.href}
                 className="guide-chart-card__image"
               >
-                <img src={item.src} alt={item.alt} loading="lazy" />
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
               </ExternalLink>
               <figcaption>
                 <span className="guide-chart-card__name">{item.name}</span>
@@ -155,7 +170,12 @@ export function GuideSectionVisual({ visual }: GuideSectionVisualProps) {
                   : ""
               }`}
             >
-              <img src={item.src} alt={item.alt} loading="lazy" />
+              <img
+                src={item.src}
+                alt={item.alt}
+                loading="lazy"
+                decoding="async"
+              />
             </span>
             <span className="guide-logo-card__body">
               <span className="guide-logo-card__name">{item.name}</span>

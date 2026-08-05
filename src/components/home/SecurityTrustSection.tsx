@@ -14,7 +14,7 @@ export function SecurityTrustSection() {
       <div className="case-panel border-primary/25">
         <SectionHeader
           title="Bitcoin ostaje pod vašom kontrolom."
-          copy="Ne upravljam sredstvima, ne tražim pristup novčaniku i nikada ne tražim početne riječi, privatne ključeve ili lozinke."
+          copy="Ne upravljam sredstvima, ne tražim pristup novčaniku i nikada ne tražim privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta ili lozinke."
         />
         <ul className="trust-mini-list">
           {trustItems.map((item) => (

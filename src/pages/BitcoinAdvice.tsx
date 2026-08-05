@@ -29,7 +29,7 @@ const outcomes = [
 const notDoingItems = [
   "ne upravljam vašim sredstvima",
   "ne govorim vam kada kupiti ili prodati",
-  "ne tražim početne riječi, privatne ključeve, lozinke ili pristup novčaniku",
+  "ne tražim privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, lozinke ili pristup novčaniku",
   "ne dajem porezni ni pravni savjet",
 ]
 
@@ -187,9 +187,10 @@ export function BitcoinAdvice() {
                   Sigurnost bez predaje kontrole
                 </h2>
                 <p className="mt-4 text-base leading-8 text-muted-foreground">
-                  Početne riječi se nikada ne dijele. Bitcoin savjetovanje ne
-                  traži pristup novčaniku, burzi, uređajima ili privatnim
-                  ključevima. Možemo razgovarati o strukturi, rizicima i
+                  Privatni ključevi, Bitcoin Core wallet backup datoteke, wallet
+                  passphraseovi i početne riječi drugih walleta nikada se ne
+                  dijele. Bitcoin savjetovanje ne traži pristup novčaniku, burzi
+                  ili uređajima. Možemo razgovarati o strukturi, rizicima i
                   obiteljskom pristupu bez toga da itko osim vas dobije
                   kontrolu.
                 </p>

@@ -8,29 +8,125 @@ import {
   BOOKING_URL,
   CAL_BOOKING_LINK,
   CAL_BOOKING_NAMESPACE,
+  CONVERSATION_PATH,
 } from "@/content/site"
+import { trackFirstPartyInteraction } from "@/lib/ctaEvents"
 
-const calBookingConfig = JSON.stringify({
-  layout: "month_view",
-  useSlotsViewOnSmallScreen: "true",
-  theme: "light",
-})
+type GetCalApi = (typeof import("@calcom/embed-react"))["getCalApi"]
+type CalApi = Awaited<ReturnType<GetCalApi>>
 
-const calModalConfig = {
-  layout: "month_view",
-  useSlotsViewOnSmallScreen: "true",
-  theme: "light",
-} as const
+type CalPrefill = {
+  prefillQuestion?: string
+  prefillContext?: string
+}
 
-type CalModalApi = (
-  instruction: "modal",
-  options: {
-    calLink: string
-    config: typeof calModalConfig
+function calBookingConfig({ prefillQuestion, prefillContext }: CalPrefill) {
+  return {
+    layout: "month_view",
+    useSlotsViewOnSmallScreen: "true",
+    theme: "light",
+    ...(prefillQuestion ? { pitanje: prefillQuestion } : {}),
+    ...(prefillContext ? { kontekst: prefillContext } : {}),
+  } as const
+}
+
+let calEmbedPromise: Promise<CalApi | null> | null = null
+let calEventsRegistered = false
+
+function onConversationPage() {
+  return (
+    window.location.pathname.replace(/\/$/, "") ===
+    CONVERSATION_PATH.replace(/\/$/, "")
+  )
+}
+
+function registerCalEvents(cal: CalApi) {
+  if (calEventsRegistered) {
+    return
   }
-) => void
 
-let calEmbedPromise: Promise<CalModalApi | null> | null = null
+  calEventsRegistered = true
+
+  cal("on", {
+    action: "linkReady",
+    callback: () => {
+      if (!onConversationPage()) {
+        return
+      }
+
+      trackFirstPartyInteraction("conversation-modal-calendar-ready", {
+        mode: "modal",
+      })
+    },
+  })
+
+  cal("on", {
+    action: "bookingSuccessfulV2",
+    callback: () => {
+      if (!onConversationPage()) {
+        return
+      }
+
+      trackFirstPartyInteraction("conversation-booking-complete", {
+        mode: "modal",
+      })
+    },
+  })
+
+  cal("on", {
+    action: "linkFailed",
+    callback: () => {
+      if (!onConversationPage()) {
+        return
+      }
+
+      trackFirstPartyInteraction("conversation-calendar-load-failed", {
+        mode: "modal",
+      })
+    },
+  })
+}
+
+function restoreFocusAfterModalClose(trigger: HTMLAnchorElement) {
+  function attach(modal: Element) {
+    modal.addEventListener(
+      "close",
+      () => {
+        if (trigger.isConnected) {
+          trigger.focus()
+        }
+      },
+      { once: true }
+    )
+  }
+
+  const existingModal = document.querySelector("cal-modal-box")
+
+  if (existingModal) {
+    attach(existingModal)
+    return
+  }
+
+  const observer = new MutationObserver(() => {
+    const modal = document.querySelector("cal-modal-box")
+
+    if (!modal) {
+      return
+    }
+
+    observer.disconnect()
+    attach(modal)
+  })
+
+  const body = document.body
+
+  if (!body) {
+    return
+  }
+
+  observer.observe(body, { childList: true })
+  window.setTimeout(() => observer.disconnect(), 10_000)
+}
 
 function ensureCalEmbed() {
   if (typeof window === "undefined") {
@@ -46,10 +142,11 @@ function ensureCalEmbed() {
           light: { "cal-brand": "#F7931A" },
           dark: { "cal-brand": "#F7931A" },
         },
-        hideEventTypeDetails: false,
+        hideEventTypeDetails: true,
         layout: "month_view",
       })
-      return cal as CalModalApi
+      registerCalEvents(cal)
+      return cal
     })
     .catch((error: unknown) => {
       if (import.meta.env.DEV) {
@@ -67,12 +164,18 @@ function ensureCalEmbed() {
 type CalBookingLinkProps = Omit<
   ComponentPropsWithoutRef<"a">,
   "href" | "target" | "rel"
->
+> &
+  CalPrefill
 
 export const CalBookingLink = forwardRef<
   HTMLAnchorElement,
   CalBookingLinkProps
->(function CalBookingLink({ children, onClick, ...props }, ref) {
+>(function CalBookingLink(
+  { children, onClick, prefillQuestion, prefillContext, ...props },
+  ref
+) {
+  const config = calBookingConfig({ prefillQuestion, prefillContext })
+
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     onClick?.(event)
 
@@ -89,17 +192,22 @@ export const CalBookingLink = forwardRef<
 
     event.preventDefault()
     event.stopPropagation()
+    const trigger = event.currentTarget
 
     ensureCalEmbed().then((cal) => {
       if (!cal) {
+        trackFirstPartyInteraction("conversation-calendar-fallback", {
+          reason: "embed-initialization",
+        })
         window.location.assign(BOOKING_URL)
         return
       }
 
       cal("modal", {
         calLink: CAL_BOOKING_LINK,
-        config: calModalConfig,
+        config,
       })
+      restoreFocusAfterModalClose(trigger)
     })
   }
 
@@ -112,7 +220,7 @@ export const CalBookingLink = forwardRef<
       data-cal-mode="modal"
       data-cal-namespace={CAL_BOOKING_NAMESPACE}
       data-cal-link={CAL_BOOKING_LINK}
-      data-cal-config={calBookingConfig}
+      data-cal-config={JSON.stringify(config)}
     >
       {children}
     </a>

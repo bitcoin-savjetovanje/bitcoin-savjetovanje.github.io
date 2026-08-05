@@ -43,6 +43,8 @@ export function BitcoinStressTestVisual() {
             alt=""
             className="size-full rounded-full object-cover"
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

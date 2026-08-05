@@ -9,10 +9,14 @@ const templatePath = path.join(distDir, "index.html")
 const legacyRedirects = {
   "/downloads/7-provjera-osobnog-bitcoin-standarda.pdf":
     "/provjera-bitcoin-standarda/",
-  "/downloads/sample-osobni-bitcoin-standard.pdf":
-    "/osobni-bitcoin-standard/primjer/",
-  "/primjer-osobnog-bitcoin-standarda/": "/osobni-bitcoin-standard/primjer/",
+  "/osobni-bitcoin-standard/primjer/": "/primjer-osobnog-bitcoin-standarda/",
+  "/vodici/obiteljski-bitcoin-trezor/": "/vodici/bitcoin-core-standard/",
+  "/vodici/bitkey-bitcoin-sigurnost/": "/vodici/bitcoin-core-standard/",
+  "/vodici/vremenski-oporavak-bitcoin-trezor/":
+    "/vodici/bitcoin-core-standard/",
 }
+const calAppOrigin = "https://app.cal.com"
+const calEmbedScriptUrl = `${calAppOrigin}/embed/embed.js`
 
 function escapeHtml(value) {
   return String(value)
@@ -61,8 +65,14 @@ function routeHead(route) {
   const ogType = escapeAttribute(route.ogType)
   const width = escapeAttribute(route.ogImageWidth)
   const height = escapeAttribute(route.ogImageHeight)
+  const calendarHints =
+    route.type === "conversation"
+      ? `    <link rel="dns-prefetch" href="//app.cal.com" />
+    <link rel="preconnect" href="${calAppOrigin}" />
+    <link rel="preload" href="${calEmbedScriptUrl}" as="script" />\n`
+      : ""
 
-  return `    <title>${title}</title>
+  return `${calendarHints}    <title>${title}</title>
     <meta name="description" content="${description}" />
     <link rel="canonical" href="${canonical}" />
     <meta property="og:title" content="${ogTitle}" />

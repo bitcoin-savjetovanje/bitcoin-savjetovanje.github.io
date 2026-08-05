@@ -1,0 +1,858 @@
+.conversation-booking-page {
+  width: 100%;
+  overflow: clip;
+  background:
+    radial-gradient(
+      circle at 9% 12%,
+      color-mix(in oklab, var(--stone-soft), transparent 22%),
+      transparent 31rem
+    ),
+    var(--paper-soft);
+  color: var(--ink);
+}
+
+.conversation-booking-page,
+.conversation-booking-page p,
+.conversation-booking-page li,
+.conversation-booking-page a,
+.conversation-booking-page button,
+.conversation-booking-page span,
+.conversation-booking-page strong,
+.conversation-booking-page summary,
+.conversation-booking-page blockquote {
+  font-family: "Geist Variable", ui-sans-serif, sans-serif;
+}
+
+.conversation-booking-page h1,
+.conversation-booking-page h2,
+.conversation-booking-page h3 {
+  font-family: Georgia, ui-serif, serif;
+  text-wrap: balance;
+}
+
+.conversation-booking-page h1,
+.conversation-booking-page h2,
+.conversation-booking-page h3,
+.conversation-booking-page p,
+.conversation-booking-page blockquote,
+.conversation-booking-page figure {
+  margin: 0;
+}
+
+.conversation-booking-page p,
+.conversation-booking-page li,
+.conversation-booking-page blockquote,
+.conversation-booking-page figcaption {
+  text-wrap: pretty;
+}
+
+.conversation-booking-page a:focus-visible,
+.conversation-booking-page button:focus-visible,
+.conversation-booking-page summary:focus-visible {
+  border-radius: 0.35rem;
+  outline: 3px solid color-mix(in oklab, var(--ring), transparent 12%);
+  outline-offset: 4px;
+}
+
+.conversation-booking-shell {
+  width: min(84rem, calc(100% - clamp(2rem, 6vw, 5rem)));
+  margin-inline: auto;
+}
+
+.conversation-booking-eyebrow {
+  color: var(--clay);
+  font-size: 0.76rem;
+  font-weight: 760;
+  letter-spacing: 0.15em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.conversation-booking-hero {
+  display: block;
+  padding: 0;
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--line-warm), transparent 12%);
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--paper-soft), white 12%),
+    color-mix(in oklab, var(--stone-soft), transparent 48%)
+  );
+}
+
+.conversation-booking-hero__grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5.25rem);
+  align-items: start;
+  padding-block: clamp(3rem, 6vw, 6.25rem);
+}
+
+.conversation-booking-hero__copy {
+  min-width: 0;
+}
+
+.conversation-booking-hero h1 {
+  max-width: 12ch;
+  margin-top: 0.9rem;
+  font-size: clamp(2.65rem, 7.6vw, 5.15rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.conversation-booking-hero__lead {
+  max-width: 43rem;
+  margin-top: 1.35rem !important;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.62;
+}
+
+.conversation-booking-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 1.45rem 0 0;
+  padding: 0;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 720;
+  line-height: 1.45;
+  list-style: none;
+}
+
+.conversation-booking-facts li {
+  display: inline-flex;
+  min-height: 2.4rem;
+  align-items: center;
+}
+
+.conversation-booking-facts li:not(:last-child)::after {
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-inline: 0.68rem;
+  border-radius: 999px;
+  background: var(--bitcoin-orange);
+  content: "";
+}
+
+.conversation-booking-hero__notice {
+  max-width: 43rem;
+  margin-top: 1.3rem !important;
+  padding: 1rem 1.05rem;
+  border-left: 3px solid var(--bitcoin-orange);
+  background: color-mix(in oklab, var(--paper-warm), transparent 25%);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+.conversation-booking-hero__notice strong {
+  color: var(--ink);
+}
+
+.conversation-selected-topic {
+  display: grid;
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 1.3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: var(--paper);
+  box-shadow: var(--shadow-border);
+}
+
+.conversation-selected-topic__business-note {
+  margin-top: 0.75rem !important;
+  color: var(--ink-muted) !important;
+  font-size: 0.84rem !important;
+  line-height: 1.5 !important;
+}
+
+.conversation-selected-topic__label {
+  color: var(--clay);
+  font-size: 0.72rem;
+  font-weight: 760;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.conversation-selected-topic h2 {
+  margin-top: 0.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.conversation-selected-topic div > p:last-child {
+  margin-top: 0.35rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.conversation-selected-topic button {
+  min-height: 2.75rem;
+  justify-self: start;
+  transition:
+    color 150ms ease-out,
+    border-color 150ms ease-out,
+    background-color 150ms ease-out,
+    scale 150ms ease-out;
+}
+
+.conversation-selected-topic button:active {
+  scale: 0.96;
+}
+
+.conversation-selected-topic button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.conversation-adviser {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  gap: 0.95rem;
+  align-items: start;
+  margin-top: 1.45rem !important;
+}
+
+.conversation-adviser img {
+  display: block;
+  width: 4.25rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 1px solid var(--image-outline);
+}
+
+.conversation-adviser figcaption > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.18rem 0.6rem;
+  align-items: baseline;
+  line-height: 1.35;
+}
+
+.conversation-adviser figcaption > p strong {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.conversation-adviser figcaption > p span {
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+}
+
+.conversation-adviser blockquote {
+  max-width: 39rem;
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.conversation-adviser__profile-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  border-radius: 0.4rem;
+  color: var(--forest);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--bitcoin-orange),
+    transparent 48%
+  );
+  text-underline-offset: 0.28rem;
+  transition-property: color, text-decoration-color, scale;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.conversation-adviser__profile-link:hover {
+  color: var(--bitcoin-orange);
+  text-decoration-color: var(--bitcoin-orange);
+}
+
+.conversation-adviser__profile-link:active {
+  scale: 0.96;
+}
+
+.conversation-adviser__profile-link svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.conversation-adviser__profile-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 0.2rem;
+}
+
+.conversation-safety-note {
+  display: flex;
+  max-width: 43rem;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-top: 1.25rem !important;
+  color: var(--ink-muted);
+  font-size: 0.84rem;
+  line-height: 1.52;
+}
+
+.conversation-safety-note svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  margin-top: 0.12rem;
+  color: var(--olive);
+}
+
+.conversation-calendar {
+  min-width: 0;
+  padding: clamp(1.25rem, 4vw, 1.75rem);
+  border-radius: 1.25rem;
+  background: var(--paper);
+  box-shadow:
+    var(--shadow-border),
+    0 1.4rem 4rem rgba(47, 37, 23, 0.09);
+}
+
+.conversation-calendar__header {
+  margin-bottom: 1.2rem;
+}
+
+.conversation-calendar__header h2 {
+  margin-top: 0.35rem;
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.conversation-calendar__header > p:last-child {
+  max-width: 36rem;
+  margin-top: 0.45rem;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.conversation-calendar__mobile {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.conversation-calendar__mobile .cta-primary {
+  width: 100%;
+  min-height: 3.25rem;
+  transition:
+    background-color 150ms ease-out,
+    box-shadow 150ms ease-out,
+    scale 150ms ease-out;
+}
+
+.conversation-calendar__mobile .cta-primary:active {
+  scale: 0.96;
+}
+
+.conversation-calendar__mobile .cta-primary svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.conversation-calendar__mobile p {
+  color: var(--ink-muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.conversation-calendar__desktop {
+  display: none;
+}
+
+.conversation-calendar__frame {
+  min-height: 43rem;
+  overflow: hidden;
+  border-radius: 0.85rem;
+  background: var(--paper-soft);
+  box-shadow: inset 0 0 0 1px
+    color-mix(in oklab, var(--line-warm), transparent 20%);
+}
+
+.conversation-calendar__cal {
+  min-height: 43rem;
+}
+
+.conversation-calendar__cal > div,
+.conversation-calendar__cal iframe {
+  min-height: 43rem !important;
+}
+
+.conversation-calendar__placeholder {
+  min-height: 43rem;
+  padding: 1rem;
+  opacity: 0.6;
+}
+
+.conversation-calendar__placeholder-bar {
+  width: 44%;
+  height: 1.1rem;
+  margin: 0.5rem auto 1.6rem;
+  border-radius: 999px;
+  background: var(--stone);
+}
+
+.conversation-calendar__placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.conversation-calendar__placeholder-grid span {
+  aspect-ratio: 1;
+  border-radius: 0.45rem;
+  background: color-mix(in oklab, var(--stone-soft), var(--paper) 18%);
+}
+
+.conversation-calendar__fallback {
+  margin-top: 0.8rem !important;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.conversation-calendar__fallback a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--forest);
+  font-weight: 720;
+  text-decoration: underline;
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--bitcoin-orange),
+    transparent 35%
+  );
+  text-underline-offset: 0.2rem;
+  transition:
+    color 150ms ease-out,
+    scale 150ms ease-out;
+}
+
+.conversation-calendar__fallback a:hover {
+  color: var(--clay);
+}
+
+.conversation-calendar__fallback a:active {
+  scale: 0.98;
+}
+
+.conversation-booking-main {
+  padding-block: clamp(4rem, 8vw, 7.5rem);
+}
+
+.conversation-booking-main > section + section {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.conversation-section-heading {
+  max-width: 46rem;
+}
+
+.conversation-section-heading h2,
+.conversation-question-prompt h2,
+.conversation-extra-questions > h2 {
+  margin-top: 0.55rem;
+  font-size: clamp(2rem, 4.8vw, 3.65rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+
+.conversation-question-prompt {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.conversation-question-prompt blockquote {
+  display: grid;
+  gap: 0.15rem;
+  max-width: 38rem;
+  margin-top: 1.2rem !important;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--bitcoin-orange);
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.conversation-question-prompt blockquote strong {
+  color: var(--ink);
+}
+
+.conversation-question-prompt ul,
+.conversation-purpose ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.conversation-question-prompt li {
+  display: grid;
+  grid-template-columns: 1.15rem minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: start;
+  padding-block: 0.9rem;
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--line-warm), transparent 16%);
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.52;
+}
+
+.conversation-question-prompt li:first-child {
+  border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 16%);
+}
+
+.conversation-question-prompt li svg {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2rem;
+  color: var(--olive);
+}
+
+.conversation-purpose__columns {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 3vw, 2.3rem);
+}
+
+.conversation-purpose__columns > div {
+  padding: clamp(1.25rem, 3vw, 1.7rem);
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--paper), transparent 8%);
+  box-shadow: var(--shadow-border);
+}
+
+.conversation-purpose__columns h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.conversation-purpose__columns ul {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.conversation-purpose__columns li {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr);
+  gap: 0.65rem;
+  color: var(--ink-soft);
+  font-size: 0.91rem;
+  line-height: 1.5;
+}
+
+.conversation-purpose__columns li svg {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.18rem;
+  color: var(--olive);
+}
+
+.conversation-purpose__columns > div:last-child li svg {
+  color: var(--clay);
+}
+
+.conversation-outcomes__list {
+  margin-top: clamp(1.5rem, 3vw, 2.35rem);
+  border-top: 1px solid var(--line-warm);
+}
+
+.conversation-outcomes__list article {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.7rem 0.9rem;
+  align-items: center;
+  padding-block: 1.35rem;
+  border-bottom: 1px solid var(--line-warm);
+}
+
+.conversation-outcomes__list article > span {
+  align-self: start;
+  padding-top: 0.16rem;
+  color: var(--clay);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 760;
+  letter-spacing: 0.1em;
+}
+
+.conversation-outcomes__list h3 {
+  font-size: clamp(1.3rem, 2.6vw, 1.65rem);
+  font-weight: 600;
+}
+
+.conversation-outcomes__list p {
+  max-width: 49rem;
+  margin-top: 0.35rem !important;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.conversation-outcomes__price {
+  display: inline-block;
+  margin-top: 0.7rem;
+  color: var(--forest);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.conversation-outcomes__list article > a {
+  display: inline-flex;
+  grid-column: 2;
+  width: max-content;
+  min-height: 2.75rem;
+  gap: 0.45rem;
+  align-items: center;
+  color: var(--forest);
+  font-size: 0.88rem;
+  font-weight: 720;
+  text-decoration: underline;
+  text-decoration-color: color-mix(
+    in oklab,
+    var(--bitcoin-orange),
+    transparent 35%
+  );
+  text-underline-offset: 0.25rem;
+  transition:
+    color 150ms ease-out,
+    scale 150ms ease-out;
+}
+
+.conversation-outcomes__list article > a:hover {
+  color: var(--clay);
+}
+
+.conversation-outcomes__list article > a:active {
+  scale: 0.98;
+}
+
+.conversation-outcomes__list article > a svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.conversation-extra-questions > h2 {
+  max-width: 28ch;
+  margin-bottom: 1.25rem;
+}
+
+.conversation-extra-questions details {
+  border-radius: 1rem;
+  background: var(--paper);
+  box-shadow: var(--shadow-border);
+}
+
+.conversation-extra-questions summary {
+  display: flex;
+  min-height: 4rem;
+  cursor: pointer;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.15rem;
+  color: var(--ink);
+  font-weight: 720;
+  list-style: none;
+  user-select: none;
+}
+
+.conversation-extra-questions summary::-webkit-details-marker {
+  display: none;
+}
+
+.conversation-extra-questions summary svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  color: var(--clay);
+  transition: rotate 180ms ease-out;
+}
+
+.conversation-extra-questions details[open] summary svg {
+  rotate: 180deg;
+}
+
+.conversation-extra-questions__groups {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 1.15rem 1.25rem;
+  border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 12%);
+}
+
+.conversation-extra-questions__groups > div {
+  padding-top: 1.1rem;
+}
+
+.conversation-extra-questions__groups h3 {
+  color: var(--clay);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.conversation-extra-questions__groups ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.7rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.conversation-alternatives {
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--line-warm);
+}
+
+.conversation-alternatives > div:last-child {
+  display: grid;
+  margin-top: 1.5rem;
+}
+
+.conversation-alternatives > div:last-child > a {
+  display: flex;
+  min-height: 4.5rem;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--line-warm), transparent 16%);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    color 150ms ease-out,
+    padding-left 150ms ease-out;
+}
+
+.conversation-alternatives > div:last-child > a:hover {
+  padding-left: 0.25rem;
+  color: var(--clay);
+}
+
+.conversation-alternatives a > span {
+  display: grid;
+  gap: 0.22rem;
+}
+
+.conversation-alternatives a strong {
+  font-family: Georgia, ui-serif, serif;
+  font-size: 1.06rem;
+  font-weight: 600;
+}
+
+.conversation-alternatives a small {
+  max-width: 48rem;
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.conversation-alternatives a svg {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+}
+
+@media (min-width: 45rem) {
+  .conversation-booking-hero__notice {
+    padding-inline: 1.5rem;
+  }
+
+  .conversation-selected-topic {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 1.5rem;
+  }
+
+  .conversation-question-prompt,
+  .conversation-purpose__columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .conversation-outcomes__list article {
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    gap: 1rem;
+  }
+
+  .conversation-outcomes__list article > a {
+    grid-column: auto;
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  .conversation-extra-questions__groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .conversation-extra-questions summary {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .conversation-booking-hero__grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  }
+
+  .conversation-booking-hero h1 {
+    font-size: clamp(3.25rem, 4.6vw, 5.2rem);
+  }
+
+  .conversation-calendar {
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .conversation-calendar__mobile {
+    display: none;
+  }
+
+  .conversation-calendar__desktop {
+    display: block;
+  }
+
+  .conversation-question-prompt {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conversation-booking-page *,
+  .conversation-booking-page *::before,
+  .conversation-booking-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 48rem) {
+  #root:has(.conversation-booking-page) footer a {
+    display: inline-flex;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    align-items: center;
+  }
+}

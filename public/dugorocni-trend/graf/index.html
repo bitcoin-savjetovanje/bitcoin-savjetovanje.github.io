@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="robots" content="noindex,follow" />
+    <meta
+      name="description"
+      content="Interaktivni graf dugoročnog trenda Bitcoina na korijenskoj skali, s modelom cijene i halving ciklusima od H0 do H12."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="hr_HR" />
+    <meta property="og:site_name" content="Bitcoin Savjetovanje" />
+    <meta property="og:title" content="Dugoročni trend Bitcoina" />
+    <meta
+      property="og:description"
+      content="Interaktivni graf dugoročnog trenda Bitcoina na korijenskoj skali, s modelom cijene i halving ciklusima od H0 do H12."
+    />
+    <meta
+      property="og:url"
+      content="https://bitcoin-savjetovanje.com/dugorocni-trend/graf/"
+    />
+    <meta
+      property="og:image"
+      content="https://bitcoin-savjetovanje.com/og-bitcoin-logo.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dugoročni trend Bitcoina" />
+    <meta
+      name="twitter:description"
+      content="Interaktivni graf dugoročnog trenda Bitcoina na korijenskoj skali, s modelom cijene i halving ciklusima od H0 do H12."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bitcoin-savjetovanje.com/og-bitcoin-logo.png"
+    />
+    <link rel="icon" type="image/png" href="/bitcoin-logo.png?v=20260724" />
+    <link rel="apple-touch-icon" href="/bitcoin-logo.png?v=20260724" />
+    <link
+      rel="canonical"
+      href="https://bitcoin-savjetovanje.com/dugorocni-trend/"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260724-interface-pass-1" />
+    <title>
+      Dugoročni trend Bitcoina — graf preko cijelog zaslona | Bitcoin
+      Savjetovanje
+    </title>
+  </head>
+  <body>
+    <main class="chart-page">
+      <section
+        class="chart-stage"
+        aria-label="Interaktivni graf Bitcoin ciklusa na korijenskoj skali"
+      >
+        <div id="bitcoin-root-scale-chart"></div>
+        <div
+          id="chart-status"
+          class="chart-status"
+          role="status"
+          aria-live="polite"
+        >
+          Učitavanje interaktivnog grafa…
+        </div>
+      </section>
+    </main>
+    <script src="./plotly.min.js?v=3.3.0"></script>
+    <script
+      type="module"
+      src="./chart.mjs?v=20260724-autoscale-default-1"
+    ></script>
+  </body>
+</html>

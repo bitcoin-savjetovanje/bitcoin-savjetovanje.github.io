@@ -1,16 +1,19 @@
 import {
+  ArrowLeft,
   ArrowRight,
   BookOpen,
   CalendarDays,
   CheckCircle2,
   FileText,
   ListChecks,
+  ShieldAlert,
   ShieldCheck,
   Users,
   type LucideIcon,
 } from "lucide-react"
 import { useEffect, useState } from "react"
 
+import { Bip110GuideArticle } from "@/components/guides/Bip110GuideArticle"
 import { GuideCoverFigure } from "@/components/guides/GuideCoverFigure"
 import { GuideVisual } from "@/components/guides/GuideVisual"
 import { GuideMetaBadges } from "@/components/guides/GuideMetaBadges"
@@ -18,6 +21,7 @@ import { GuideSectionVisual } from "@/components/guides/GuideSectionVisual"
 import { GuideStickyCta } from "@/components/guides/GuideStickyCta"
 import { GuideVideoEmbed } from "@/components/guides/GuideVideoEmbed"
 import { Button } from "@/components/ui/button"
+import { BIP110_GUIDE_SLUG } from "@/content/bip110Guide"
 import { resolveGuideCover, resolveGuideTheme } from "@/content/guideVisuals"
 import {
   findGuide,
@@ -55,6 +59,22 @@ function renderLinkAfter(after?: string) {
   }
 
   return ` ${after}`
+}
+
+function renderNonBreakingTerm(text: string, term: string) {
+  const termIndex = text.indexOf(term)
+
+  if (termIndex === -1) {
+    return text
+  }
+
+  return (
+    <>
+      {text.slice(0, termIndex)}
+      <span className="guide-title__nowrap">{term}</span>
+      {text.slice(termIndex + term.length)}
+    </>
+  )
 }
 
 function isStandaloneFormula(text: string) {
@@ -143,6 +163,53 @@ function GuidePictogram({
   )
 }
 
+function GuideSecurityAlert({ guide }: { guide: Guide }) {
+  if (!guide.securityAlert || !guide.securityReviewDate) {
+    return null
+  }
+
+  const alertHeadingId = `${guide.slug}-security-alert-heading`
+
+  return (
+    <aside className="guide-security-alert" aria-labelledby={alertHeadingId}>
+      <div className="guide-security-alert__header">
+        <GuidePictogram
+          icon={ShieldAlert}
+          className="guide-security-alert__icon"
+        />
+        <div>
+          <p className="guide-security-alert__date">
+            Ažurirano {guide.securityReviewDate}
+          </p>
+          <h2 id={alertHeadingId}>{guide.securityAlert.title}</h2>
+        </div>
+      </div>
+      <div className="guide-security-alert__content">
+        {guide.securityAlert.body.map((paragraph) => (
+          <p key={paragraph}>{renderWithGlossary(paragraph)}</p>
+        ))}
+        <ul>
+          {guide.securityAlert.items.map((item) => (
+            <li key={item}>{renderWithGlossary(item)}</li>
+          ))}
+        </ul>
+        {guide.securityAlert.afterItems?.map((paragraph) => (
+          <p key={paragraph}>{renderWithGlossary(paragraph)}</p>
+        ))}
+        <p className="guide-security-alert__emphasis">
+          {renderWithGlossary(guide.securityAlert.emphasis)}
+        </p>
+        <a
+          href={guide.securityAlert.link.href}
+          {...linkSecurityProps(guide.securityAlert.link.href)}
+        >
+          {guide.securityAlert.link.label}
+        </a>
+      </div>
+    </aside>
+  )
+}
+
 function buildGuideSummary(guide: Guide) {
   if (guide.summary || guide.sections.length === 0) {
     return guide.summary
@@ -225,7 +292,13 @@ export function GuidePage({ guide }: { guide: Guide }) {
       })),
     ...(guide.tocExtraLinks ?? []),
   ]
-  const nextGuide = guides.find((item) => item.order > guide.order)
+  const currentGuideIndex = guides.findIndex((item) => item.slug === guide.slug)
+  const previousGuide =
+    currentGuideIndex > 0 ? guides[currentGuideIndex - 1] : undefined
+  const nextGuide =
+    currentGuideIndex >= 0 && currentGuideIndex < guides.length - 1
+      ? guides[currentGuideIndex + 1]
+      : undefined
 
   useEffect(() => {
     function updateProgress() {
@@ -270,7 +343,11 @@ export function GuidePage({ guide }: { guide: Guide }) {
         <div className="hero-shell guide-hero__shell">
           <div className="hero-copy guide-hero__copy">
             <p className="hero-eyebrow">{guide.eyebrow ?? guide.category}</p>
-            <h1 className="hero-title">{guide.title}</h1>
+            <h1 className="hero-title">
+              {guide.slug === BIP110_GUIDE_SLUG
+                ? renderNonBreakingTerm(guide.title, "BIP-110")
+                : guide.title}
+            </h1>
             <p className="guide-hero__reading-time">
               Vrijeme čitanja: {estimateGuideReadingMinutes(guide)} min
             </p>
@@ -387,6 +464,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
             </ul>
           </section>
         ) : null}
+        <GuideSecurityAlert guide={guide} />
         {sectionLinks.length > 0 ? (
           <nav aria-labelledby="guide-toc-heading" className="guide-toc-card">
             <h2 id="guide-toc-heading" className="guide-heading-with-icon">
@@ -405,246 +483,292 @@ export function GuidePage({ guide }: { guide: Guide }) {
         <div className="guide-layout">
           <div className="min-w-0">
             <div className="space-y-12">
-              {guide.sections.map((section, sectionIndex) => (
-                <section
-                  key={section.heading}
-                  id={slugifyHeading(section.heading)}
-                  className="guide-content-section scroll-mt-24"
-                >
-                  <h2 className="guide-heading-with-icon">
-                    <GuidePictogram
-                      icon={
-                        guideSectionIcons[
-                          sectionIndex % guideSectionIcons.length
-                        ]
-                      }
-                    />
-                    <span>{section.heading}</span>
-                  </h2>
-                  <div>
-                    {section.body.map(renderGuideParagraph)}
-                    {section.callout ? (
-                      <blockquote className="guide-callout">
-                        {section.calloutTitle ? (
-                          <strong className="guide-callout__title">
-                            <GuidePictogram
-                              icon={CheckCircle2}
-                              className="guide-pictogram--inline"
-                            />
-                            <span>{section.calloutTitle}</span>
-                          </strong>
-                        ) : null}
-                        <p>{renderWithGlossary(section.callout)}</p>
-                      </blockquote>
-                    ) : null}
-                    {section.dataCards ? (
-                      <div className="guide-data-grid">
-                        {section.dataCards.map((item) => (
-                          <article className="guide-data-card" key={item.value}>
-                            <strong>{item.value}</strong>
-                            <span>{renderWithGlossary(item.label)}</span>
-                          </article>
-                        ))}
-                      </div>
-                    ) : null}
-                    {section.table ? (
-                      <div className="guide-table-wrap">
-                        <table className="guide-table">
-                          <thead>
-                            <tr>
-                              {section.table.columns.map((column) => (
-                                <th key={column} scope="col">
-                                  {column}
-                                </th>
-                              ))}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {section.table.rows.map((row, rowIndex) => (
-                              <tr key={row.join("-")}>
-                                {row.map((cell, cellIndex) => (
-                                  <td key={`${rowIndex}-${cellIndex}`}>
-                                    {renderWithGlossary(cell)}
-                                  </td>
+              {guide.slug === BIP110_GUIDE_SLUG ? (
+                <Bip110GuideArticle />
+              ) : (
+                guide.sections.map((section, sectionIndex) => (
+                  <section
+                    key={section.heading}
+                    id={slugifyHeading(section.heading)}
+                    className="guide-content-section scroll-mt-24"
+                  >
+                    <h2 className="guide-heading-with-icon">
+                      <GuidePictogram
+                        icon={
+                          guideSectionIcons[
+                            sectionIndex % guideSectionIcons.length
+                          ]
+                        }
+                      />
+                      <span>{section.heading}</span>
+                    </h2>
+                    <div>
+                      {section.showSecurityReviewDate &&
+                      guide.securityReviewDate ? (
+                        <p className="guide-security-review-date">
+                          Posljednja sigurnosna provjera preporuka:{" "}
+                          {guide.securityReviewDate}
+                        </p>
+                      ) : null}
+                      {section.body.map(renderGuideParagraph)}
+                      {section.callout && !section.calloutAfterItems ? (
+                        <blockquote className="guide-callout">
+                          {section.calloutTitle ? (
+                            <strong className="guide-callout__title">
+                              <GuidePictogram
+                                icon={CheckCircle2}
+                                className="guide-pictogram--inline"
+                              />
+                              <span>{section.calloutTitle}</span>
+                            </strong>
+                          ) : null}
+                          <p>{renderWithGlossary(section.callout)}</p>
+                        </blockquote>
+                      ) : null}
+                      {section.dataCards ? (
+                        <div className="guide-data-grid">
+                          {section.dataCards.map((item) => (
+                            <article
+                              className="guide-data-card"
+                              key={item.value}
+                            >
+                              <strong>{item.value}</strong>
+                              <span>{renderWithGlossary(item.label)}</span>
+                            </article>
+                          ))}
+                        </div>
+                      ) : null}
+                      {section.table ? (
+                        <div className="guide-table-wrap">
+                          <table className="guide-table">
+                            <thead>
+                              <tr>
+                                {section.table.columns.map((column) => (
+                                  <th key={column} scope="col">
+                                    {column}
+                                  </th>
                                 ))}
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    ) : null}
-                    {section.cards ? (
-                      <div className="guide-card-grid">
-                        {section.cards.map((card) => (
-                          <article
-                            className="guide-section-card"
-                            key={card.title}
-                          >
-                            <h3>{card.title}</h3>
-                            {card.text ? (
-                              <p>{renderWithGlossary(card.text)}</p>
-                            ) : null}
-                          </article>
-                        ))}
-                      </div>
-                    ) : null}
-                    {section.items ? (
-                      <ul className="grid gap-2 pl-5">
-                        {section.items.map((item) => (
-                          <li key={item} className={guideListItemClass(item)}>
-                            {renderWithGlossary(item)}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                    {section.link ? (
-                      <p>
-                        {section.link.before}{" "}
-                        <a
-                          href={section.link.href}
-                          className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary"
-                          {...linkSecurityProps(section.link.href)}
-                        >
-                          {section.link.label}
-                        </a>
-                        {renderLinkAfter(section.link.after)}
-                      </p>
-                    ) : null}
-                    {section.links ? (
-                      <ul className="guide-source-list">
-                        {section.links.map((item) => (
-                          <li key={`${item.href}-${item.label}`}>
-                            <a
-                              href={item.href}
-                              {...linkSecurityProps(item.href)}
+                            </thead>
+                            <tbody>
+                              {section.table.rows.map((row, rowIndex) => (
+                                <tr key={row.join("-")}>
+                                  {row.map((cell, cellIndex) => (
+                                    <td key={`${rowIndex}-${cellIndex}`}>
+                                      {renderWithGlossary(cell)}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : null}
+                      {section.cards ? (
+                        <div className="guide-card-grid">
+                          {section.cards.map((card) => (
+                            <article
+                              className="guide-section-card"
+                              key={card.title}
                             >
-                              {item.label}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                    {section.subsections ? (
-                      <div className="guide-subsection-list">
-                        {section.subsections.map((subsection) => (
-                          <section
-                            key={subsection.heading}
-                            className="guide-subsection"
+                              <h3>{card.title}</h3>
+                              {card.text ? (
+                                <p>{renderWithGlossary(card.text)}</p>
+                              ) : null}
+                            </article>
+                          ))}
+                        </div>
+                      ) : null}
+                      {section.items ? (
+                        <ul className="grid gap-2 pl-5">
+                          {section.items.map((item) => (
+                            <li key={item} className={guideListItemClass(item)}>
+                              {renderWithGlossary(item)}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                      {section.orderedItems ? (
+                        <ol className="guide-ordered-steps">
+                          {section.orderedItems.map((item) => (
+                            <li key={item}>{renderWithGlossary(item)}</li>
+                          ))}
+                        </ol>
+                      ) : null}
+                      {section.callout && section.calloutAfterItems ? (
+                        <blockquote className="guide-callout">
+                          {section.calloutTitle ? (
+                            <strong className="guide-callout__title">
+                              <GuidePictogram
+                                icon={CheckCircle2}
+                                className="guide-pictogram--inline"
+                              />
+                              <span>{section.calloutTitle}</span>
+                            </strong>
+                          ) : null}
+                          <p>{renderWithGlossary(section.callout)}</p>
+                        </blockquote>
+                      ) : null}
+                      {section.link ? (
+                        <p>
+                          {section.link.before}{" "}
+                          <a
+                            href={section.link.href}
+                            className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary"
+                            {...linkSecurityProps(section.link.href)}
                           >
-                            <h3>{subsection.heading}</h3>
-                            {subsection.body.map(renderGuideParagraph)}
-                            {subsection.callout ? (
-                              <blockquote className="guide-callout">
-                                {subsection.calloutTitle ? (
-                                  <strong className="guide-callout__title">
-                                    <GuidePictogram
-                                      icon={CheckCircle2}
-                                      className="guide-pictogram--inline"
-                                    />
-                                    <span>{subsection.calloutTitle}</span>
-                                  </strong>
-                                ) : null}
-                                <p>{renderWithGlossary(subsection.callout)}</p>
-                              </blockquote>
-                            ) : null}
-                            {subsection.table ? (
-                              <div className="guide-table-wrap">
-                                <table className="guide-table">
-                                  <thead>
-                                    <tr>
-                                      {subsection.table.columns.map(
-                                        (column) => (
-                                          <th key={column} scope="col">
-                                            {column}
-                                          </th>
+                            {section.link.label}
+                          </a>
+                          {renderLinkAfter(section.link.after)}
+                        </p>
+                      ) : null}
+                      {section.links ? (
+                        <ul className="guide-source-list">
+                          {section.links.map((item) => (
+                            <li key={`${item.href}-${item.label}`}>
+                              <a
+                                href={item.href}
+                                {...linkSecurityProps(item.href)}
+                              >
+                                {item.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                      {section.subsections ? (
+                        <div className="guide-subsection-list">
+                          {section.subsections.map((subsection) => (
+                            <section
+                              key={subsection.heading}
+                              className="guide-subsection"
+                            >
+                              <h3>{subsection.heading}</h3>
+                              {subsection.body.map(renderGuideParagraph)}
+                              {subsection.callout ? (
+                                <blockquote className="guide-callout">
+                                  {subsection.calloutTitle ? (
+                                    <strong className="guide-callout__title">
+                                      <GuidePictogram
+                                        icon={CheckCircle2}
+                                        className="guide-pictogram--inline"
+                                      />
+                                      <span>{subsection.calloutTitle}</span>
+                                    </strong>
+                                  ) : null}
+                                  <p>
+                                    {renderWithGlossary(subsection.callout)}
+                                  </p>
+                                </blockquote>
+                              ) : null}
+                              {subsection.table ? (
+                                <div className="guide-table-wrap">
+                                  <table className="guide-table">
+                                    <thead>
+                                      <tr>
+                                        {subsection.table.columns.map(
+                                          (column) => (
+                                            <th key={column} scope="col">
+                                              {column}
+                                            </th>
+                                          )
+                                        )}
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {subsection.table.rows.map(
+                                        (row, rowIndex) => (
+                                          <tr key={row.join("-")}>
+                                            {row.map((cell, cellIndex) => (
+                                              <td
+                                                key={`${rowIndex}-${cellIndex}`}
+                                              >
+                                                {renderWithGlossary(cell)}
+                                              </td>
+                                            ))}
+                                          </tr>
                                         )
                                       )}
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    {subsection.table.rows.map(
-                                      (row, rowIndex) => (
-                                        <tr key={row.join("-")}>
-                                          {row.map((cell, cellIndex) => (
-                                            <td
-                                              key={`${rowIndex}-${cellIndex}`}
-                                            >
-                                              {renderWithGlossary(cell)}
-                                            </td>
-                                          ))}
-                                        </tr>
-                                      )
-                                    )}
-                                  </tbody>
-                                </table>
-                              </div>
-                            ) : null}
-                            {subsection.cards ? (
-                              <div className="guide-card-grid">
-                                {subsection.cards.map((card) => (
-                                  <article
-                                    className="guide-section-card"
-                                    key={card.title}
-                                  >
-                                    <h4>{card.title}</h4>
-                                    {card.text ? (
-                                      <p>{renderWithGlossary(card.text)}</p>
-                                    ) : null}
-                                  </article>
-                                ))}
-                              </div>
-                            ) : null}
-                            {subsection.items ? (
-                              <ul className="grid gap-2 pl-5">
-                                {subsection.items.map((item) => (
-                                  <li
-                                    key={item}
-                                    className={guideListItemClass(item)}
-                                  >
-                                    {renderWithGlossary(item)}
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : null}
-                            {subsection.link ? (
-                              <p>
-                                {subsection.link.before}{" "}
-                                <a
-                                  href={subsection.link.href}
-                                  className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary"
-                                  {...linkSecurityProps(subsection.link.href)}
-                                >
-                                  {subsection.link.label}
-                                </a>
-                                {renderLinkAfter(subsection.link.after)}
-                              </p>
-                            ) : null}
-                            {subsection.links ? (
-                              <ul className="guide-source-list">
-                                {subsection.links.map((item) => (
-                                  <li key={`${item.href}-${item.label}`}>
-                                    <a
-                                      href={item.href}
-                                      {...linkSecurityProps(item.href)}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              ) : null}
+                              {subsection.cards ? (
+                                <div className="guide-card-grid">
+                                  {subsection.cards.map((card) => (
+                                    <article
+                                      className="guide-section-card"
+                                      key={card.title}
                                     >
-                                      {item.label}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : null}
-                          </section>
-                        ))}
-                      </div>
-                    ) : null}
-                    <GuideSectionVisualSlot
-                      guide={guide}
-                      section={section}
-                      sectionIndex={sectionIndex}
-                    />
-                  </div>
-                </section>
-              ))}
+                                      <h4>{card.title}</h4>
+                                      {card.text ? (
+                                        <p>{renderWithGlossary(card.text)}</p>
+                                      ) : null}
+                                    </article>
+                                  ))}
+                                </div>
+                              ) : null}
+                              {subsection.items ? (
+                                <ul className="grid gap-2 pl-5">
+                                  {subsection.items.map((item) => (
+                                    <li
+                                      key={item}
+                                      className={guideListItemClass(item)}
+                                    >
+                                      {renderWithGlossary(item)}
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : null}
+                              {subsection.orderedItems ? (
+                                <ol className="guide-ordered-steps">
+                                  {subsection.orderedItems.map((item) => (
+                                    <li key={item}>
+                                      {renderWithGlossary(item)}
+                                    </li>
+                                  ))}
+                                </ol>
+                              ) : null}
+                              {subsection.link ? (
+                                <p>
+                                  {subsection.link.before}{" "}
+                                  <a
+                                    href={subsection.link.href}
+                                    className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:text-primary"
+                                    {...linkSecurityProps(subsection.link.href)}
+                                  >
+                                    {subsection.link.label}
+                                  </a>
+                                  {renderLinkAfter(subsection.link.after)}
+                                </p>
+                              ) : null}
+                              {subsection.links ? (
+                                <ul className="guide-source-list">
+                                  {subsection.links.map((item) => (
+                                    <li key={`${item.href}-${item.label}`}>
+                                      <a
+                                        href={item.href}
+                                        {...linkSecurityProps(item.href)}
+                                      >
+                                        {item.label}
+                                      </a>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : null}
+                            </section>
+                          ))}
+                        </div>
+                      ) : null}
+                      <GuideSectionVisualSlot
+                        guide={guide}
+                        section={section}
+                        sectionIndex={sectionIndex}
+                      />
+                    </div>
+                  </section>
+                ))
+              )}
             </div>
             {guide.practicalQuestion ? (
               <section id="prakticno-pitanje" className="guide-question-card">
@@ -652,20 +776,48 @@ export function GuidePage({ guide }: { guide: Guide }) {
                 <p>{guide.practicalQuestion}</p>
               </section>
             ) : null}
-            {nextGuide ? (
-              <section className="guide-next-card">
-                <p>Sljedeći vodič u redoslijedu</p>
-                <h2>
-                  <a href={guideHref(nextGuide.slug)} data-link="next-guide">
-                    {nextGuide.title}
-                  </a>
-                  <ArrowRight
-                    className="mt-1 size-5 shrink-0 text-muted-foreground"
-                    aria-hidden="true"
-                  />
-                </h2>
-                <p>{nextGuide.excerpt}</p>
-              </section>
+            {previousGuide || nextGuide ? (
+              <nav
+                className="guide-sequence-nav"
+                aria-label="Prethodni i sljedeći vodič"
+              >
+                {previousGuide ? (
+                  <section className="guide-next-card guide-previous-card">
+                    <p>Prethodni vodič u redoslijedu</p>
+                    <h2>
+                      <ArrowLeft
+                        className="mt-1 size-5 shrink-0 text-muted-foreground"
+                        aria-hidden="true"
+                      />
+                      <a
+                        href={guideHref(previousGuide.slug)}
+                        data-link="previous-guide"
+                      >
+                        {previousGuide.title}
+                      </a>
+                    </h2>
+                    <p>{previousGuide.excerpt}</p>
+                  </section>
+                ) : null}
+                {nextGuide ? (
+                  <section className="guide-next-card">
+                    <p>Sljedeći vodič u redoslijedu</p>
+                    <h2>
+                      <a
+                        href={guideHref(nextGuide.slug)}
+                        data-link="next-guide"
+                      >
+                        {nextGuide.title}
+                      </a>
+                      <ArrowRight
+                        className="mt-1 size-5 shrink-0 text-muted-foreground"
+                        aria-hidden="true"
+                      />
+                    </h2>
+                    <p>{nextGuide.excerpt}</p>
+                  </section>
+                ) : null}
+              </nav>
             ) : null}
             {relatedGuides.length > 0 ? (
               <section className="guide-related-section">
@@ -735,11 +887,14 @@ export function GuidePage({ guide }: { guide: Guide }) {
             ) : null}
             {guide.hideDefaultFinalCta ? null : (
               <div className="guide-final-cta-card">
-                <h2>Vodič daje okvir. Vaša situacija određuje odluku.</h2>
+                <h2>
+                  {guide.finalCtaTitle ??
+                    "Želite ovo primijeniti na svoju situaciju?"}
+                </h2>
                 <p>
-                  Redoslijed ovisi o vašem proračunu, obvezama, imovini,
-                  obitelji i sigurnosnim rizicima. Ako želite povezati temu ovog
-                  vodiča s vlastitom situacijom, razgovor je sljedeći korak.
+                  {guide.finalCtaPromptStandalone && guide.finalCtaPrompt
+                    ? guide.finalCtaPrompt
+                    : `${guide.finalCtaPrompt ? `${guide.finalCtaPrompt} ` : ""}Vodič objašnjava okvir. Uvodni razgovor pomaže vidjeti koji dio se odnosi na vas.`}
                 </p>
                 {guide.finalCtaNote ? (
                   <p className="guide-final-cta-card__note">
@@ -757,7 +912,7 @@ export function GuidePage({ guide }: { guide: Guide }) {
                       data-cta="guide-final-intro-call"
                     >
                       <CalendarDays className="size-4" />
-                      Rezervirajte razgovor
+                      {guide.finalCta}
                     </a>
                   </Button>
                   {guide.finalSecondaryCta ? (

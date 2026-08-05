@@ -174,6 +174,13 @@ export function NetWorth() {
                 </li>
               ))}
             </ul>
+            <a
+              href="/bitcoin-kao-novac/#novac-potrosnja-kapital"
+              className="home-text-link"
+              data-link="net-worth-money-spending-capital"
+            >
+              Razlikujte novac, potrošnju i kapital
+            </a>
           </article>
 
           <article>
@@ -226,7 +233,13 @@ export function NetWorth() {
 
         <section className="budget-principle-strip net-worth-principle-strip">
           <div className="budget-principle-strip__mark">
-            <img src="/bitcoin-logo.png" alt="" aria-hidden="true" />
+            <img
+              src="/bitcoin-logo.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div className="budget-principle-strip__copy">
             <h2>Bitcoin je prvi korak.</h2>

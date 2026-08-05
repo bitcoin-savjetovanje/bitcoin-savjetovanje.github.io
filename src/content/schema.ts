@@ -10,17 +10,31 @@ import { audienceCanonical, type AudiencePage } from "./audiences"
 import {
   EMAIL,
   OG_IMAGE_URL,
+  PAVAO_PAHLJINA_GITHUB_URL,
+  PAVAO_PAHLJINA_IMAGE_URL,
+  PAVAO_PAHLJINA_LINKEDIN_URL,
+  PAVAO_PAHLJINA_PROFILE_URL,
+  PAVAO_PAHLJINA_X_URL,
   SITE_URL,
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   bitcoinStandardCheckSeo,
+  businessBitcoinSeo,
+  businessBitcoinOnePagerSeo,
   conversationSeo,
   guidesIndexSeo,
+  missedBitcoinSeo,
   personalBitcoinStandardSeo,
+  pavaoPahljinaSeo,
   privacySeo,
   samplePersonalBitcoinStandardSeo,
   securitySeo,
 } from "./site"
+import { personalBitcoinStandardFaqs } from "./personalBitcoinStandard"
+import { businessBitcoinFaqs } from "./business"
+import { consultationFaqs } from "./bitcoinConsultation"
+import { homepageFaqs } from "./faq"
+import { missedBitcoinFaqs } from "./missedBitcoin"
 
 type BreadcrumbItem = {
   name: string
@@ -54,9 +68,16 @@ export function homeSchema() {
         "@type": "Person",
         "@id": `${SITE_URL}/#pavao-pahljina`,
         name: "Pavao Pahljina",
-        jobTitle: "Bitcoin savjetnik",
-        url: `${SITE_URL}/`,
+        jobTitle: "Bitcoin savjetnik i autor",
+        url: PAVAO_PAHLJINA_PROFILE_URL,
+        image: PAVAO_PAHLJINA_IMAGE_URL,
+        description: pavaoPahljinaSeo.description,
         email: EMAIL,
+        sameAs: [
+          PAVAO_PAHLJINA_LINKEDIN_URL,
+          PAVAO_PAHLJINA_X_URL,
+          PAVAO_PAHLJINA_GITHUB_URL,
+        ],
       },
       {
         "@type": "ProfessionalService",
@@ -69,7 +90,7 @@ export function homeSchema() {
         serviceType:
           "Uvodni Bitcoin razgovor, Bitcoin konzultacija i osobni Bitcoin standard",
         description:
-          "Konzultacije za pojedince, obitelji i poduzetnike koji žele Bitcoin shvatiti kao novac i urediti proračun, dug, davanje, neto imovinu, volatilnost i sigurnost. Prvi korak je 15-minutni uvodni razgovor bez naknade i bez obveze. Nije financijsko, porezno, pravno ili računovodstveno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
+          "Privatno savjetovanje za pojedince, obitelji i poduzetnike koji žele Bitcoin koristiti kao primarni novac te povezati proračun, dug, imovinu, trošenje i sigurnost. Prvi korak može biti besplatna samoprovjera ili 15-minutni uvodni razgovor. Nije financijsko, porezno, pravno ili računovodstveno savjetovanje, upravljanje imovinom ili skrbništvo nad Bitcoinom.",
         audience: [
           { "@type": "Audience", audienceType: "individuals" },
           { "@type": "Audience", audienceType: "families" },
@@ -88,6 +109,75 @@ export function homeSchema() {
           description: offer.purpose,
         })),
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: homepageFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
+    ],
+  }
+}
+
+export function pavaoPahljinaProfileSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": `${PAVAO_PAHLJINA_PROFILE_URL}#profile-page`,
+        name: pavaoPahljinaSeo.title,
+        description: pavaoPahljinaSeo.description,
+        url: PAVAO_PAHLJINA_PROFILE_URL,
+        inLanguage: "hr-HR",
+        dateModified: "2026-07-24",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        mainEntity: { "@id": `${SITE_URL}/#pavao-pahljina` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#pavao-pahljina`,
+        name: "Pavao Pahljina",
+        givenName: "Pavao",
+        familyName: "Pahljina",
+        jobTitle: "Bitcoin savjetnik i autor",
+        description: pavaoPahljinaSeo.description,
+        url: PAVAO_PAHLJINA_PROFILE_URL,
+        image: PAVAO_PAHLJINA_IMAGE_URL,
+        email: EMAIL,
+        sameAs: [
+          PAVAO_PAHLJINA_LINKEDIN_URL,
+          PAVAO_PAHLJINA_X_URL,
+          PAVAO_PAHLJINA_GITHUB_URL,
+        ],
+        knowsAbout: [
+          "Bitcoin",
+          "Bitcoin kao novac",
+          "osobni Bitcoin standard",
+          "Bitcoin sigurnost",
+          "Bitcoin za tvrtke",
+          "monetarna ekonomija",
+        ],
+        worksFor: { "@id": `${SITE_URL}/#service` },
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${SITE_URL}/#service`,
+        name: "Bitcoin Savjetovanje",
+        url: `${SITE_URL}/`,
+        email: EMAIL,
+        areaServed: ["Hrvatska", "Online"],
+        founder: { "@id": `${SITE_URL}/#pavao-pahljina` },
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Pavao Pahljina", item: PAVAO_PAHLJINA_PROFILE_URL },
+      ]),
     ],
   }
 }
@@ -148,13 +238,158 @@ export function bitcoinAdvicePageSchema() {
   }
 }
 
+export function missedBitcoinPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Mogao sam kupiti Bitcoin ranije. Što sada?",
+        description: missedBitcoinSeo.description,
+        url: missedBitcoinSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "jesam li zakasnio u Bitcoin",
+          "kada kupiti Bitcoin",
+          "propustio sam Bitcoin",
+          "kako početi s Bitcoinom",
+          "osobni Bitcoin standard",
+          "Bitcoin sigurnost",
+        ],
+        provider: { "@id": `${SITE_URL}/#service` },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: missedBitcoinFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "Mogao sam kupiti Bitcoin ranije. Što sada?",
+          item: missedBitcoinSeo.canonical,
+        },
+      ]),
+    ],
+  }
+}
+
+export function businessBitcoinPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin briefing za upravu i tvrtke",
+        description: businessBitcoinSeo.description,
+        url: businessBitcoinSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin briefing za upravu",
+          "mapa poslovnih odluka",
+          "podjela odgovornosti",
+          "Bitcoin plaćanja",
+          "poslovni novac",
+          "pisani sažetak za upravu",
+        ],
+      },
+      {
+        "@type": "Service",
+        name: "Bitcoin briefing za upravu",
+        serviceType: "Zatvoreni i pripremljeni Bitcoin briefing za upravu",
+        description:
+          "Radni sastanak za vlasnika, upravu i financijski tim koji razdvaja poslovna pitanja, odgovornosti i potrebna stručna mišljenja te završava pisanim sažetkom. Ne uključuje upravljanje imovinom, skrbništvo, izvršavanje transakcija ni pravno, porezno, računovodstveno ili regulirano savjetovanje o kriptoimovini.",
+        provider: {
+          "@type": "ProfessionalService",
+          "@id": `${SITE_URL}/#service`,
+          name: "Bitcoin Savjetovanje",
+        },
+        areaServed: ["Hrvatska", "Online"],
+        audience: [
+          { "@type": "BusinessAudience", audienceType: "uprave" },
+          { "@type": "BusinessAudience", audienceType: "vlasnici i direktori" },
+          { "@type": "BusinessAudience", audienceType: "financijski timovi" },
+          { "@type": "BusinessAudience", audienceType: "hrvatske tvrtke" },
+        ],
+        url: businessBitcoinSeo.canonical,
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: businessBitcoinFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Bitcoin za tvrtke", item: businessBitcoinSeo.canonical },
+      ]),
+    ],
+  }
+}
+
+export function businessBitcoinOnePagerPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Sažetak Bitcoin briefinga za upravu",
+        description: businessBitcoinOnePagerSeo.description,
+        url: businessBitcoinOnePagerSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "Bitcoin briefing za upravu",
+          "poslovni povodi",
+          "dnevni red briefinga",
+          "pisani sažetak za upravu",
+          "podjela odgovornosti",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Bitcoin za tvrtke", item: businessBitcoinSeo.canonical },
+        {
+          name: "Sažetak Bitcoin briefinga za upravu",
+          item: businessBitcoinOnePagerSeo.canonical,
+        },
+      ]),
+    ],
+  }
+}
+
 export function conversationPageSchema() {
   return {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Dogovorite 15-minutni uvodni razgovor",
+        name: "Besplatni uvodni Bitcoin razgovor",
         description: conversationSeo.description,
         url: conversationSeo.canonical,
         inLanguage: "hr-HR",
@@ -178,7 +413,7 @@ export function bitcoinConsultationPageSchema() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Bitcoin konzultacija",
+        name: "Bitcoin konzultacija | 60 minuta za jedno ozbiljno pitanje",
         description: bitcoinConsultationSeo.description,
         url: bitcoinConsultationSeo.canonical,
         inLanguage: "hr-HR",
@@ -191,9 +426,9 @@ export function bitcoinConsultationPageSchema() {
       {
         "@type": "Service",
         name: "Bitcoin konzultacija",
-        serviceType: "Dijagnostička Bitcoin konzultacija",
+        serviceType: "Pripremljena Bitcoin konzultacija",
         description:
-          "Jedan dubinski razgovor za jasniju definiciju ozbiljnog osobnog, obiteljskog ili poslovnog Bitcoin pitanja, pregled glavnih rizika i kompromisa te konkretan sljedeći korak. Bez naloga za kupnju ili prodaju, prognoza cijene i traženja početnih riječi.",
+          "Jedno unaprijed definirano pitanje, pripremljen razgovor od 60 minuta i kratak Sažetak Bitcoin konzultacije s glavnim zaključcima, otvorenim pitanjima, preporučenim materijalima i prvim sljedećim korakom.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -202,10 +437,23 @@ export function bitcoinConsultationPageSchema() {
         offers: {
           "@type": "Offer",
           name: offerFacts.bitcoinConsultation.title,
+          description:
+            "Konzultacija se dogovara nakon besplatnog 15-minutnog uvodnog razgovora.",
           price: String(offerFacts.bitcoinConsultation.priceAmount),
           priceCurrency: "EUR",
           url: `${SITE_URL}${offerFacts.bitcoinConsultation.detailsHref}`,
         },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: consultationFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
       },
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
@@ -240,7 +488,6 @@ export function personalBitcoinStandardPageSchema() {
           "dug",
           "davanje",
           "neto imovina",
-          "poslovna riznica",
           "Bitcoin sigurnost",
           "obiteljski pristup Bitcoinu",
         ],
@@ -251,7 +498,7 @@ export function personalBitcoinStandardPageSchema() {
         serviceType:
           "Privatni program za donošenje i provedbu odluka za život s Bitcoinom",
         description:
-          "Privatni program od 4 do 6 tjedana za prioritizaciju, donošenje pravila, stres-test, provedbu i reviziju odluka o proračunu, dugu, davanju, Bitcoinu kao novcu, neto imovini, sigurnosti i obitelji. Pisani standard bilježi donesene odluke, ali ne zamjenjuje proces. Program ne uključuje upravljanje sredstvima, prognoze cijene ni porezni, pravni ili računovodstveni savjet.",
+          "Privatni program od 4 do 6 tjedana koji povezuje proces donošenja odluka, pisani osobni Bitcoin standard te primjenu i reviziju pravila za proračun, dug, Bitcoin kao primarni novac, neto imovinu, sigurnost i obiteljski kontinuitet.",
         provider: {
           "@type": "ProfessionalService",
           "@id": `${SITE_URL}/#service`,
@@ -266,8 +513,6 @@ export function personalBitcoinStandardPageSchema() {
         audience: [
           { "@type": "Audience", audienceType: "individuals" },
           { "@type": "Audience", audienceType: "families" },
-          { "@type": "Audience", audienceType: "entrepreneurs" },
-          { "@type": "Audience", audienceType: "business owners" },
         ],
         url: personalBitcoinStandardSeo.canonical,
         offers: {
@@ -277,6 +522,17 @@ export function personalBitcoinStandardPageSchema() {
           priceCurrency: "EUR",
           url: `${SITE_URL}${offerFacts.personalStandard.detailsHref}`,
         },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: personalBitcoinStandardFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
       },
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
@@ -295,14 +551,26 @@ export function samplePersonalBitcoinStandardPageSchema() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Kako izgleda rezultat rada",
+        name: "Primjer osobnog Bitcoin standarda",
         description: samplePersonalBitcoinStandardSeo.description,
         url: samplePersonalBitcoinStandardSeo.canonical,
         inLanguage: "hr-HR",
+        isAccessibleForFree: true,
         isPartOf: {
           "@type": "WebSite",
           "@id": `${SITE_URL}/#website`,
           name: "Bitcoin Savjetovanje",
+        },
+        mainEntity: {
+          "@type": "DigitalDocument",
+          name: "Izmišljeni ogledni primjer osobnog Bitcoin standarda",
+          description:
+            "Ogledni pisani dokument s 18 stranica sadržaja i naslovnicom.",
+          url: `${SITE_URL}/downloads/sample-osobni-bitcoin-standard.pdf`,
+          encodingFormat: "application/pdf",
+          numberOfPages: 19,
+          inLanguage: "hr-HR",
+          isAccessibleForFree: true,
         },
         about: [
           "osobni Bitcoin standard",
@@ -325,7 +593,7 @@ export function samplePersonalBitcoinStandardPageSchema() {
           item: personalBitcoinStandardSeo.canonical,
         },
         {
-          name: "Kako izgleda rezultat rada",
+          name: "Primjer osobnog Bitcoin standarda",
           item: samplePersonalBitcoinStandardSeo.canonical,
         },
       ]),
@@ -352,14 +620,10 @@ export function bitcoinStandardCheckPageSchema() {
         about: [
           "osobni Bitcoin standard",
           "interaktivna samoprocjena",
-          "Bitcoin kao novac",
-          "proračun",
-          "dug",
-          "davanje",
-          "neto imovina",
-          "volatilnost",
-          "Bitcoin sigurnost",
-          "obiteljski pristup Bitcoinu",
+          "razumijevanje Bitcoina",
+          "osobne financije",
+          "život s Bitcoinom",
+          "sigurnost i kontinuitet",
         ],
       },
       breadcrumbSchema([
@@ -375,6 +639,25 @@ export function bitcoinStandardCheckPageSchema() {
 
 export function audiencePageSchema(page: AudiencePage) {
   const canonical = audienceCanonical(page)
+  const serviceSchema =
+    page.slug === "osobno"
+      ? []
+      : [
+          {
+            "@type": "Service",
+            name: page.eyebrow,
+            serviceType:
+              "Bitcoin savjetovanje za osobni, obiteljski ili poslovni okvir odluka",
+            description: page.seo.description,
+            provider: {
+              "@type": "ProfessionalService",
+              "@id": `${SITE_URL}/#service`,
+              name: "Bitcoin Savjetovanje",
+            },
+            areaServed: ["Hrvatska", "Online"],
+            url: canonical,
+          },
+        ]
 
   return {
     "@context": "https://schema.org",
@@ -398,20 +681,7 @@ export function audiencePageSchema(page: AudiencePage) {
           page.eyebrow,
         ],
       },
-      {
-        "@type": "Service",
-        name: page.eyebrow,
-        serviceType:
-          "Bitcoin savjetovanje za osobni, obiteljski ili poslovni okvir odluka",
-        description: page.seo.description,
-        provider: {
-          "@type": "ProfessionalService",
-          "@id": `${SITE_URL}/#service`,
-          name: "Bitcoin Savjetovanje",
-        },
-        areaServed: ["Hrvatska", "Online"],
-        url: canonical,
-      },
+      ...serviceSchema,
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
         { name: page.eyebrow, item: canonical },
@@ -440,6 +710,27 @@ export function guideSchema(guide: Guide) {
         },
       ]
     : []
+  const guideTopics =
+    guide.slug === "bitcoin-core-standard"
+      ? [
+          "Bitcoin Core Standard",
+          "Bitcoin Core",
+          "offline potpisivanje",
+          "watch-only wallet",
+          "PSBT",
+          "Bitcoin Core wallet backup",
+          "obiteljski Bitcoin trezor",
+        ]
+      : [
+          "Bitcoin",
+          "proračun nulte osnove",
+          "dug",
+          "davanje",
+          "kupovna moć",
+          "neto imovina",
+          "skrbništvo",
+          "osobni Bitcoin standard",
+        ]
 
   return {
     "@context": "https://schema.org",
@@ -469,16 +760,7 @@ export function guideSchema(guide: Guide) {
           "@id": `${SITE_URL}/#website`,
           name: "Bitcoin Savjetovanje",
         },
-        about: [
-          "Bitcoin",
-          "proračun nulte osnove",
-          "dug",
-          "davanje",
-          "kupovna moć",
-          "neto imovina",
-          "skrbništvo",
-          "osobni Bitcoin standard",
-        ],
+        about: guideTopics,
       },
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
@@ -543,7 +825,7 @@ export function securityPageSchema() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Bitcoin sigurnost i povjerljivost",
+        name: "Bitcoin sigurnost i skrbništvo",
         description: securitySeo.description,
         url: securitySeo.canonical,
         inLanguage: "hr-HR",
@@ -556,7 +838,7 @@ export function securityPageSchema() {
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
         {
-          name: "Bitcoin sigurnost i povjerljivost",
+          name: "Bitcoin sigurnost i skrbništvo",
           item: securitySeo.canonical,
         },
       ]),

@@ -5,33 +5,47 @@ import {
   BITCOIN_CONSULTATION_PATH,
   BITCOIN_MONEY_PATH,
   BITCOIN_STANDARD_CHECK_PATH,
+  BITCOIN_TODAY_PATH,
   BUDGET_PATH,
+  BUDGET_ZERO_PATH,
+  BUSINESS_BITCOIN_PATH,
+  BUSINESS_BITCOIN_ONE_PAGER_PATH,
   CONVERSATION_PATH,
   CUSTODY_SECURITY_PATH,
   DEBT_PATH,
   GIVING_PATH,
+  MISSED_BITCOIN_PATH,
   NET_WORTH_PATH,
+  PAVAO_PAHLJINA_PATH,
   PERSONAL_BITCOIN_STANDARD_PATH,
   PRIVACY_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
   TIME_VOLATILITY_PATH,
+  LONG_TERM_TREND_PATH,
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   bitcoinMoneySeo,
   bitcoinStandardCheckSeo,
+  bitcoinTodaySeo,
   budgetSeo,
+  budgetZeroSeo,
+  businessBitcoinSeo,
+  businessBitcoinOnePagerSeo,
   conversationSeo,
   custodySecuritySeo,
   debtSeo,
   givingSeo,
   guidesIndexSeo,
   homeSeo,
+  missedBitcoinSeo,
   netWorthSeo,
   personalBitcoinStandardSeo,
+  pavaoPahljinaSeo,
   privacySeo,
   samplePersonalBitcoinStandardSeo,
   securitySeo,
   timeVolatilitySeo,
+  longTermTrendSeo,
 } from "./site"
 
 export type SearchEntryKind = "Stranica" | "Vodič" | "Publika"
@@ -146,12 +160,30 @@ const pageEntries: SearchEntry[] = [
       "osobni bitcoin standard proračun dug davanje neto imovina volatilnost sigurnost obitelj poduzetnici",
   },
   {
+    title: "Pavao Pahljina",
+    description: pavaoPahljinaSeo.description,
+    href: PAVAO_PAHLJINA_PATH,
+    kind: "Stranica",
+    category: "O meni",
+    keywords:
+      "Pavao Pahljina bitcoin savjetnik poduzetnik STEMI Saifedean Ammous bitcoin kao novac",
+  },
+  {
     title: plainTitle(budgetSeo.title),
     description: budgetSeo.description,
     href: BUDGET_PATH,
     kind: "Stranica",
     category: "Okvir",
     keywords: "proračun stvarni višak novac namjena nulta osnova",
+  },
+  {
+    title: plainTitle(budgetZeroSeo.title),
+    description: budgetZeroSeo.description,
+    href: BUDGET_ZERO_PATH,
+    kind: "Stranica",
+    category: "Interaktivni alat",
+    keywords:
+      "proračun nulte razine računi stanja gotovina tekući račun namjene kategorije još za namijeniti",
   },
   {
     title: plainTitle(debtSeo.title),
@@ -194,12 +226,31 @@ const pageEntries: SearchEntry[] = [
     keywords: "vrijeme volatilnost ciklusi dugoročni trend cijena",
   },
   {
+    title: plainTitle(longTermTrendSeo.title),
+    description: longTermTrendSeo.description,
+    href: LONG_TERM_TREND_PATH,
+    kind: "Stranica",
+    category: "Alati",
+    keywords:
+      "dugoročni trend bitcoin graf power law korijenska skala halving ciklusi cijena model",
+  },
+  {
+    title: plainTitle(bitcoinTodaySeo.title),
+    description: bitcoinTodaySeo.description,
+    href: BITCOIN_TODAY_PATH,
+    kind: "Stranica",
+    category: "Bitcoin uživo",
+    keywords:
+      "bitcoin danas uživo cijena euro bit bitovi kalkulator pretvarač satoshi blok visina naknade mempool sentiment strah pohlepa izdana količina subvencija emisija halving countdown hash rate hashrate težina mreže rudarenje energija gigavat elektrane PL0 power law",
+  },
+  {
     title: plainTitle(custodySecuritySeo.title),
     description: custodySecuritySeo.description,
     href: CUSTODY_SECURITY_PATH,
     kind: "Stranica",
     category: "Okvir",
-    keywords: "skrbništvo sigurnost privatni ključevi backup nasljeđivanje",
+    keywords:
+      "skrbništvo sigurnost privatni ključevi sigurnosna kopija oporavak kontinuitet pravno nasljeđivanje",
   },
   {
     title: plainTitle(bitcoinAdviceSeo.title),
@@ -209,6 +260,33 @@ const pageEntries: SearchEntry[] = [
     category: "Usluge",
     keywords:
       "bitcoin savjetovanje hrvatska jedan na jedan sigurnost dug obitelj",
+  },
+  {
+    title: plainTitle(missedBitcoinSeo.title),
+    description: missedBitcoinSeo.description,
+    href: MISSED_BITCOIN_PATH,
+    kind: "Stranica",
+    category: "Početak",
+    keywords:
+      "jesam li zakasnio bitcoin mogao sam kupiti bitcoin ranije kada kupiti bitcoin propustio sam bitcoin samoprocjena osobni bitcoin standard",
+  },
+  {
+    title: plainTitle(businessBitcoinSeo.title),
+    description: businessBitcoinSeo.description,
+    href: BUSINESS_BITCOIN_PATH,
+    kind: "Stranica",
+    category: "Usluge",
+    keywords:
+      "bitcoin briefing za upravu tvrtke vlasnik direktor financije mapa odluka odgovornosti placanja sigurnost poslovni novac",
+  },
+  {
+    title: plainTitle(businessBitcoinOnePagerSeo.title),
+    description: businessBitcoinOnePagerSeo.description,
+    href: BUSINESS_BITCOIN_ONE_PAGER_PATH,
+    kind: "Stranica",
+    category: "Usluge",
+    keywords:
+      "sazetak bitcoin briefinga uprava interno dijeljenje poslovni povodi dnevni red odgovornosti",
   },
   {
     title: plainTitle(conversationSeo.title),
@@ -250,7 +328,7 @@ const pageEntries: SearchEntry[] = [
     kind: "Stranica",
     category: "Interaktivna provjera",
     keywords:
-      "provjera bitcoin standarda rezultat upitnik usko grlo prvi korak proračun dug davanje volatilnost sigurnost obitelj",
+      "provjera bitcoin standarda rezultat upitnik prvi prioritet razumijevanje cijena osobne financije proračun dug život pravila sigurnost kontinuitet obitelj",
   },
   {
     title: plainTitle(guidesIndexSeo.title),

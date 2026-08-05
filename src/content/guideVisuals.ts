@@ -97,10 +97,6 @@ const artPromptsBySlug: Record<string, string> = {
     "Mediterranean limestone table with a carved Bitcoin base layer, subtle bridge of credit papers toward institutional capital, calm sea light, no security branding, no trading dashboard, editorial nonfiction cover.",
   "sigurnost-ne-smije-ovisiti-samo-o-vama":
     "Limestone security plan with separated keys, family note, warm Mediterranean light, calm inheritance and recovery mood, no exposed secret words.",
-  "obiteljski-bitcoin-trezor":
-    "Family Bitcoin treasury as carved stone layers, separate locations implied by envelopes and keys, Mediterranean table, warm side light, editorial cover image.",
-  "vremenski-oporavak-bitcoin-trezor":
-    "Mediterranean limestone family Bitcoin vault with three separated keys and a subtle time marker opening a recovery path later, warm side light, no exposed secret words, editorial nonfiction cover.",
 }
 
 function generatedGuideCover(
@@ -111,7 +107,7 @@ function generatedGuideCover(
 ): Partial<GuideCover> {
   return {
     webpSrc: `/images/${slug}-cover-20260625.webp`,
-    src: `/images/${slug}-cover-20260625.png`,
+    src: `/images/${slug}-cover-20260625.jpg`,
     alt,
     position,
     caption,
@@ -187,12 +183,6 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     "od-duga-prema-vlasnistvu",
     "Mediteranska kamena scena s bilježnicom, ključem i Bitcoin simbolom za vodič Od društva duga prema društvu vlasništva",
     "Prijelaz iz duga prema vlasništvu počinje jasnim pravilima, stvarnim viškom i novcem koji ostaje pod vašom kontrolom.",
-    "50% 52%"
-  ),
-  "vremenski-oporavak-bitcoin-trezor": generatedGuideCover(
-    "vremenski-oporavak-bitcoin-trezor",
-    "Mediteranska scena s obiteljskim Bitcoin trezorom, odvojenim ključevima i vremenskim oporavkom",
-    "Danas vrijedi 2 od 3, a nakon roka može se otvoriti oporavni put koji obitelj mora razumjeti prije nego što zatreba.",
     "50% 52%"
   ),
   "ne-cekajte-savrseno-dno-bitcoina": {
@@ -293,20 +283,10 @@ const coverOverridesBySlug: Record<string, Partial<GuideCover>> = {
     "Mediteranska kućna scena s odvojenim ključevima, zapečaćenom omotnicom i Bitcoin simbolom",
     "Sigurnost nije dovršena ako pristup ovisi samo o jednoj osobi."
   ),
-  "obiteljski-bitcoin-trezor": generatedGuideCover(
-    "obiteljski-bitcoin-trezor",
-    "Mediteranska obiteljska scena s kamenim trezorom, odvojenim ključevima i Bitcoin simbolom",
-    "Obiteljski trezor mora spojiti sigurnost, oporavak i razumljivo nasljeđivanje."
-  ),
   "samostalna-pohrana-ili-skrbnik": generatedGuideCover(
     "samostalna-pohrana-ili-skrbnik",
     "Mediteranska kamena scena s dva puta čuvanja Bitcoina: osobni ključ i skrbnički omot",
     "Samostalna pohrana i skrbnik nisu isti rizik, ista odgovornost ni ista kontrola."
-  ),
-  "bitkey-bitcoin-sigurnost": generatedGuideCover(
-    "bitkey-bitcoin-sigurnost",
-    "Mediteranska kućna scena s jednostavnim sigurnosnim uređajem, tri ključa i Bitcoin simbolom",
-    "Jednostavniji alat može pomoći samo ako obitelj razumije što se čuva i kako se oporavlja."
   ),
   "obiteljski-pristup-bitcoinu": generatedGuideCover(
     "obiteljski-pristup-bitcoinu",

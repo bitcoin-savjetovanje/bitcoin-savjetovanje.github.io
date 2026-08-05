@@ -225,7 +225,13 @@ export function Debt() {
 
         <section className="budget-principle-strip">
           <div className="budget-principle-strip__mark">
-            <img src="/bitcoin-logo.png" alt="" aria-hidden="true" />
+            <img
+              src="/bitcoin-logo.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div className="budget-principle-strip__copy">
             <h2>Razduživanje je prvi korak.</h2>

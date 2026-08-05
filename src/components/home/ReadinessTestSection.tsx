@@ -10,7 +10,7 @@ const questions = [
   "Znam koliko eura ili drugog državnog novca trebam ostaviti za kratke potrebe.",
   "Mogu objasniti ulogu Bitcoina partneru ili obitelji.",
   "Znam što bih napravio nakon pada Bitcoina od 50%.",
-  "Moja obitelj zna što ne smije napraviti s početnim riječima.",
+  "Moja obitelj zna što ne smije napraviti s privatnim ključevima, Bitcoin Core wallet backup datotekama, wallet passphraseovima i početnim riječima drugih walleta.",
 ] as const
 
 const answerOptions = [

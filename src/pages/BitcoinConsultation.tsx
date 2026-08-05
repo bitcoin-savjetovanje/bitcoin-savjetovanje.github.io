@@ -1,178 +1,85 @@
-import { ArrowUpRight, CalendarDays, Check, X } from "lucide-react"
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CalendarDays,
+  Check,
+  Clock3,
+  FileCheck2,
+  FileText,
+  ShieldCheck,
+} from "lucide-react"
 
+import { renderSaifedeanAmmousReference } from "@/components/SaifedeanAmmousReference"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
+import {
+  consultationBoundaries,
+  consultationContexts,
+  consultationFaqs,
+  consultationIncluded,
+  consultationOutcomes,
+  consultationProcess,
+  consultationQuestions,
+  consultationSummaryExample,
+} from "@/content/bitcoinConsultation"
 import { bitcoinConsultationRoute } from "@/content/clientRoutes"
 import { offerFacts } from "@/content/offers"
 import {
-  BUSINESS_AUDIENCE_PATH,
   CONVERSATION_PATH,
-  FAMILY_AUDIENCE_PATH,
   PERSONAL_BITCOIN_STANDARD_PATH,
-  PERSONAL_AUDIENCE_PATH,
 } from "@/content/site"
+import { trackFirstPartyInteraction } from "@/lib/ctaEvents"
 
-const serviceVisualsPath = "/images/service-visuals"
+const consultationHero =
+  "/images/consultation/bitcoin-konzultacija-hero-20260723.webp"
 
-const forWhomItems = [
-  "imate ozbiljno Bitcoin pitanje koje se stalno vraća",
-  "razmišljate o većoj ulozi Bitcoina u svojoj imovini",
-  "želite objasniti Bitcoin partneru ili obitelji",
-  "vodite posao i želite razjasniti poslovnu riznicu ili kratkoročne obveze",
-  "brine vas sigurnost",
-  "ne znate kako dug, proračun ili buduća plaćanja utječu na odluku",
-  "želite znati treba li vam cijeli osobni Bitcoin standard ili je dovoljan jedan razgovor",
-]
-
-const reviewItems = [
-  "Bitcoin tezu na jeziku koji možete ponoviti drugima",
-  "glavne nedoumice o cijeni, volatilnosti i riziku",
-  "odnos duga, proračuna i stvarnog viška",
-  "što je operativni novac, a što može biti višak poslovne riznice",
-  "ulogu Bitcoina u neto imovini",
-  "sigurnost i obiteljski pristup bez dijeljenja osjetljivih podataka",
-  "sljedeći razuman korak",
-]
-
-const notDoingItems = [
-  "nije investicijsko savjetovanje",
-  "nema naloga kupnje ili prodaje",
-  "ne govorim vam koliko Bitcoina kupiti",
-  "ne upravljam vašim sredstvima",
-  "ne tražim početne riječi, privatne ključeve, lozinke ili pristup novčaniku",
-  "ne dajem porezni ni pravni savjet",
-  "odluka ostaje vaša",
-]
-
-const outcomes = [
-  "jasniju definiciju problema",
-  "pregled glavnih rizika i kompromisa",
-  "odluku ili uži skup mogućnosti",
-  "sljedeći konkretan korak",
-  "relevantan izvor ili vodič kada je potreban",
-]
-
-const outcomeImages = [
-  `${serviceVisualsPath}/consultation-outcome-thesis.webp`,
-  `${serviceVisualsPath}/consultation-outcome-decision.webp`,
-  `${serviceVisualsPath}/consultation-outcome-standard.webp`,
-  `${serviceVisualsPath}/consultation-outcome-decision.webp`,
-  `${serviceVisualsPath}/consultation-outcome-thesis.webp`,
-]
-
-const consultationScopes = [
+const comparisonRows = [
   {
-    title: "Osobno",
-    copy: "Jedna odluka oko Bitcoina, duga, proračuna, neto imovine ili veće kupnje.",
-    href: PERSONAL_AUDIENCE_PATH,
-    dataLink: "bitcoin-consultation-personal-audience",
-    image: `${serviceVisualsPath}/consultation-scope-personal.webp`,
+    consultation: "Jedno pitanje ili odluka",
+    standard: "Povezan sustav odluka",
   },
   {
-    title: "Obiteljski",
-    copy: "Jedno pitanje koje treba objasniti partneru, obitelji ili osobi od povjerenja.",
-    href: FAMILY_AUDIENCE_PATH,
-    dataLink: "bitcoin-consultation-family-audience",
-    image: `${serviceVisualsPath}/consultation-scope-family.webp`,
+    consultation: offerFacts.bitcoinConsultation.duration,
+    standard: offerFacts.personalStandard.duration,
   },
   {
-    title: "Poslovno",
-    copy: "Jedna odluka oko poslovne riznice, viška novca, kratkoročnih obveza, sigurnosti ili razdvajanja privatnog i poslovnog Bitcoina.",
-    href: BUSINESS_AUDIENCE_PATH,
-    dataLink: "bitcoin-consultation-business-audience",
-    image: `${serviceVisualsPath}/consultation-scope-business.webp`,
-  },
-]
-
-const preparationItems = [
-  "koju odluku pokušavate donijeti",
-  "koja tri pitanja se stalno vraćaju",
-  "postoji li dug, poslovna riznica, sigurnosna ili obiteljska tema",
-  "što bi vam značilo da nakon razgovora bude jasnije",
-]
-
-const consultationFlow = [
-  {
-    title: "Prije razgovora",
-    copy: "Ne šaljete početne riječi, privatne ključeve, lozinke ni dokumente. Dovoljno je zapisati jednu odluku i pitanja koja se stalno vraćaju.",
-    image: `${serviceVisualsPath}/consultation-flow-before.webp`,
+    consultation: "Kratak pisani sažetak",
+    standard: "Cjelovit pisani standard",
   },
   {
-    title: "Tijekom razgovora",
-    copy: "Razdvajamo Bitcoin tezu, osobnu situaciju, dug, proračun, sigurnost i obiteljski kontekst. Ne tražimo savršen odgovor, nego jasniju sliku.",
-    image: `${serviceVisualsPath}/consultation-flow-during.webp`,
+    consultation: offerFacts.bitcoinConsultation.price,
+    standard: offerFacts.personalStandard.price,
   },
   {
-    title: "Nakon razgovora",
-    copy: "Imate jasniju definiciju problema, glavne kompromise, uži skup mogućnosti i jedan konkretan sljedeći korak.",
-    image: `${serviceVisualsPath}/consultation-flow-after.webp`,
+    consultation: "Za ograničeno usko grlo",
+    standard: "Za proračun, dug, imovinu, korištenje i sigurnost kao cjelinu",
   },
-]
+] as const
 
-const exampleQuestions = [
-  "Kako znati ima li Bitcoin preveliku ili premalu ulogu u mojoj imovini?",
-  "Kako objasniti Bitcoin partneru bez pritiska i bez žargona?",
-  "Što ako imam dug, a istovremeno ne želim izgubiti dugoročni Bitcoin pogled?",
-  "Kako složiti sigurnost tako da obitelj ne ostane izgubljena?",
-  "Kako razlikovati novac za poreze, plaće i dobavljače od viška poslovne riznice?",
-]
+const pricingIncludes = [
+  "definiranje pitanja",
+  "pregled pripreme",
+  "razgovor od 60 minuta",
+  "Sažetak Bitcoin konzultacije",
+  "preporučeni materijali",
+  "prvi sljedeći korak",
+] as const
 
-const notForItems = [
-  "tražite kratku uputu kada kupiti ili prodati",
-  "želite prognozu cijene",
-  "tražite upravljanje sredstvima",
-  "tražite porezni ili pravni savjet",
-  "želite da netko odluči umjesto vas",
-  "želite nekome predati osjetljive sigurnosne podatke",
-]
-
-function DecorativeServiceImage({
-  src,
-  className = "",
+function SectionHeading({
+  eyebrow,
+  title,
+  copy,
 }: {
-  src: string
-  className?: string
+  eyebrow?: string
+  title: string
+  copy?: string
 }) {
   return (
-    <img
-      className={`service-stone-image ${className}`}
-      src={src}
-      alt=""
-      aria-hidden="true"
-      loading="lazy"
-      decoding="async"
-    />
-  )
-}
-
-function Checklist({
-  items,
-  kind = "positive",
-  className = "",
-}: {
-  items: string[]
-  kind?: "positive" | "negative"
-  className?: string
-}) {
-  const Icon = kind === "positive" ? Check : X
-  const iconClass = kind === "positive" ? "positive-icon" : "negative-icon"
-  const listClass = [
-    "service-checklist",
-    kind === "negative" ? "service-checklist--negative" : "",
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ")
-
-  return (
-    <ul className={listClass}>
-      {items.map((item) => (
-        <li key={item}>
-          <Icon className={`${iconClass} service-checklist__icon`} />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
+    <div className="consultation-section-heading">
+      {eyebrow ? <p className="consultation-eyebrow">{eyebrow}</p> : null}
+      <h2>{title}</h2>
+      {copy ? <p>{copy}</p> : null}
+    </div>
   )
 }
 
@@ -180,362 +87,500 @@ export function BitcoinConsultation() {
   return (
     <>
       <Seo {...bitcoinConsultationRoute} />
-      <article className="service-page service-page--consultation">
-        <header className="service-hero hero-section editorial-section">
-          <div className="hero-shell">
-            <div className="hero-copy service-hero__content">
-              <p className="hero-eyebrow">Bitcoin konzultacija</p>
-              <h1 className="hero-title">
-                Jedna odluka, jedan razgovor, jasan sljedeći korak
+      <article className="consultation-page">
+        <header className="consultation-hero">
+          <div className="consultation-shell consultation-hero__grid">
+            <div className="consultation-hero__copy">
+              <p className="consultation-eyebrow">
+                Bitcoin konzultacija · {offerFacts.bitcoinConsultation.duration}{" "}
+                · {offerFacts.bitcoinConsultation.price}
+              </p>
+              <h1>
+                Razjasnite jedno ozbiljno Bitcoin pitanje u jednom dubinskom
+                razgovoru
               </h1>
-              <p className="hero-subtitle service-hero__lead">
-                Jedan dubinski razgovor za jedno ozbiljno Bitcoin pitanje koje
-                utječe na vašu osobnu, obiteljsku ili poslovnu odluku.
+              <p className="consultation-hero__lead">
+                Za odluku koja uključuje Bitcoin, dug, imovinu, obitelj,
+                sigurnost ili poslovni novac — kada vam općeniti vodiči više
+                nisu dovoljni, ali još ne trebate graditi cijeli osobni Bitcoin
+                standard.
               </p>
-              <p className="service-hero__note">
-                Ne plaćate tajnu informaciju. Plaćate kompresiju, kontekst i
-                prosudbu primijenjenu na vašu situaciju.
-              </p>
-              <div className="service-hero__actions">
-                <Button asChild className="cta-primary home-primary-button">
+
+              <ul
+                className="consultation-fact-strip"
+                aria-label="Ključne činjenice o konzultaciji"
+              >
+                <li>60 minuta</li>
+                <li>200 €</li>
+                <li>jedno pripremljeno pitanje</li>
+                <li>pisani sažetak</li>
+              </ul>
+
+              <div className="consultation-hero__actions">
+                <Button asChild size="lg" className="cta-primary">
                   <a
                     href={CONVERSATION_PATH}
-                    className="justify-center text-center"
-                    data-cta="bitcoin-consultation-intro-call"
+                    data-cta="bitcoin-consultation-hero-conversation"
                   >
-                    <CalendarDays className="size-4" aria-hidden="true" />
-                    Krenite od uvodnog razgovora
+                    <CalendarDays aria-hidden="true" />
+                    Provjerite je li konzultacija pravi korak
                   </a>
                 </Button>
+                <a
+                  href="#dobra-pitanja"
+                  className="consultation-text-link"
+                  data-link="bitcoin-consultation-questions"
+                >
+                  Pogledajte primjere dobrih pitanja
+                  <ArrowRight aria-hidden="true" />
+                </a>
               </div>
+
+              <p className="consultation-security-note">
+                <ShieldCheck aria-hidden="true" />
+                <span>
+                  Prvi korak je besplatni 15-minutni razgovor. Ne šaljete
+                  privatne ključeve, Bitcoin Core wallet backup datoteke, wallet
+                  passphraseove, početne riječi drugih walleta, lozinke ni
+                  pristup novčaniku.
+                </span>
+              </p>
             </div>
 
-            <aside
-              className="hero-image-frame service-hero__visual"
-              aria-label="Bitcoin konzultacija"
-            >
-              <picture className="service-hero__picture">
-                <source
-                  srcSet={`${serviceVisualsPath}/consultation-hero-20260601.webp`}
-                  type="image/webp"
-                />
-                <img
-                  className="service-hero__image"
-                  src={`${serviceVisualsPath}/consultation-hero-20260601.jpg`}
-                  alt="Mediteranski stol s bilježnicom i karticama za Bitcoin konzultaciju."
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                />
-              </picture>
-              <div className="service-hero__summary-card">
-                <p>Samostalna dijagnostička usluga</p>
-                <strong>{offerFacts.bitcoinConsultation.price}</strong>
-                <span>{offerFacts.bitcoinConsultation.duration}</span>
-                <em>Jedno primarno pitanje, ograničen opseg.</em>
-              </div>
-            </aside>
+            <figure className="consultation-hero__figure">
+              <img
+                src={consultationHero}
+                alt="Otvorena bilježnica na mediteranskom kamenom stolu povezuje jedno središnje pitanje s Bitcoinom, dugom, imovinom, obitelji, sigurnošću i vremenom."
+                width="1672"
+                height="941"
+                fetchPriority="high"
+                decoding="async"
+              />
+              <figcaption>
+                <span>Jedno pitanje u središtu</span>
+                <strong>Okolnosti postaju dio iste odluke.</strong>
+              </figcaption>
+            </figure>
           </div>
         </header>
 
-        <div className="service-page__inner">
-          <section className="service-section service-section--split">
-            <div className="service-editorial-column">
-              <h2>Što zapravo plaćate u Bitcoin konzultaciji?</h2>
-              <div className="service-copy-stack">
-                <p>
-                  Ne plaćate pristup tajnoj informaciji. Većina osnovnih
-                  informacija o Bitcoinu javno je dostupna. Plaćate skraćivanje
-                  puta između pitanja i razumijevanja.
-                </p>
-                <p>
-                  Razlika je u tome što javni materijal ne poznaje vašu
-                  situaciju. Knjiga ne zna imate li dug. Podcast ne zna kako
-                  vaša obitelj gleda na Bitcoin. Graf ne zna koliko državnog
-                  novca trebate ostaviti za kratke potrebe. Forum ne zna jeste
-                  li poduzetnik, zaposlenik, roditelj, vlasnik firme ili netko
-                  tko prvi put pokušava urediti sigurnost i nasljeđivanje.
-                </p>
-                <p>
-                  U razgovoru povezujemo Bitcoin tezu s vašim stvarnim životom:
-                  proračunom, dugom, vremenom, sigurnošću, obitelji, neto
-                  imovinom i odlukom koju pokušavate donijeti.
-                </p>
-                <p>
-                  Možete sve istraživati sami. To je legitiman put. Ali nije
-                  besplatan. Plaća se vremenom, pažnjom, šumom i mogućom
-                  odgodom. Ako je vaše vrijeme vrijedno, dobar razgovor može
-                  biti jeftiniji put do jasnije odluke.
-                </p>
-              </div>
-              <div className="service-emphasis-card">
-                Bitcoin je dovoljno široka tema da nitko ne mora znati sve.
-                Važno je znati dovoljno za odluku koju stvarno trebate donijeti.
-              </div>
-            </div>
+        <div className="consultation-shell consultation-main">
+          <section className="consultation-section consultation-fit">
+            <SectionHeading
+              eyebrow="Odabir pravog oblika rada"
+              title="Jedno pitanje ili cijeli sustav?"
+              copy="Konzultacija ima smisla kada postoji jedna dovoljno jasno ograničena odluka. Kada su proračun, dug, imovina, korištenje Bitcoina, sigurnost i obitelj međusobno povezani, vjerojatno je potreban cijeli osobni Bitcoin standard."
+            />
 
-            <aside className="service-side-panel">
-              <DecorativeServiceImage
-                className="service-side-panel__image"
-                src={`${serviceVisualsPath}/consultation-outcome-decision.webp`}
-              />
-              <ul className="service-side-list">
-                <li>skraćivanje puta</li>
-                <li>povezivanje s vašom situacijom</li>
-                <li>jasnija odluka</li>
-              </ul>
-            </aside>
-          </section>
-
-          <section className="service-section service-section--warm">
-            <div className="service-section__header">
-              <h2>Konzultacija može biti osobna, obiteljska ili poslovna</h2>
+            <div className="consultation-question-contrast">
+              <article>
+                <p>Dovoljno usko pitanje</p>
+                <blockquote>
+                  Kako odrediti redoslijed razduživanja i ulogu Bitcoina tijekom
+                  tog prijelaza?
+                </blockquote>
+              </article>
+              <article>
+                <p>Preširoko pitanje</p>
+                <blockquote>
+                  Kako urediti cijeli proračun, dug, nekretnine, Bitcoin,
+                  obitelj i sigurnost?
+                </blockquote>
+              </article>
             </div>
-            <div className="service-card-grid">
-              {consultationScopes.map((scope) => (
-                <a
-                  key={scope.title}
-                  href={scope.href}
-                  className="service-card service-card--link"
-                  data-link={scope.dataLink}
-                >
-                  <DecorativeServiceImage
-                    className="service-card__image"
-                    src={scope.image}
-                  />
-                  <h3 className="service-card__title">{scope.title}</h3>
-                  <p className="service-card__copy">{scope.copy}</p>
-                </a>
-              ))}
+            <p className="consultation-fit__note">
+              Drugo pitanje nije loše pitanje. Samo nije realno kvalitetno ga
+              riješiti u 60 minuta.
+            </p>
+
+            <div className="consultation-comparison">
+              <article className="consultation-comparison__plan">
+                <h3>Bitcoin konzultacija</h3>
+                <ul>
+                  {comparisonRows.map((row) => (
+                    <li key={row.consultation}>{row.consultation}</li>
+                  ))}
+                </ul>
+              </article>
+              <article className="consultation-comparison__plan">
+                <h3>Osobni Bitcoin standard</h3>
+                <ul>
+                  {comparisonRows.map((row) => (
+                    <li key={row.standard}>{row.standard}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+            <p className="consultation-fit__bitcoin-note">
+              Na punom Bitcoin standardu Bitcoin je primarni novac koji se
+              redovito koristi za stvarne troškove. Cilj nije izbjegavati svaku
+              prodaju ili trošenje Bitcoina, nego unaprijed znati zašto, kada i
+              koliko ga koristite.
+            </p>
+
+            <div className="consultation-fit__footer">
+              <a
+                href={PERSONAL_BITCOIN_STANDARD_PATH}
+                className="consultation-text-link"
+                data-link="bitcoin-consultation-early-standard"
+              >
+                Pogledajte Osobni Bitcoin standard
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+              <p>Ne morate sami odabrati. Uvodni razgovor služi upravo tome.</p>
             </div>
           </section>
 
-          <section className="service-section">
-            <div className="service-section__header">
-              <h2>Što trebate dobiti nakon Bitcoin konzultacije</h2>
-            </div>
-            <div className="service-number-grid">
-              {outcomes.map((outcome, index) => (
-                <article key={outcome} className="service-number-card">
+          <section className="consultation-section">
+            <SectionHeading
+              eyebrow="Pripremljen proces"
+              title="Što je uključeno u Bitcoin konzultaciju?"
+            />
+            <div className="consultation-included">
+              {consultationIncluded.map((item, index) => (
+                <article key={item.title}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  <DecorativeServiceImage
-                    className="service-card__image"
-                    src={outcomeImages[index]}
-                  />
-                  <p>{outcome}</p>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.copy}</p>
+                  </div>
                 </article>
               ))}
             </div>
-            <p className="service-section__support">
-              Za vlasnika posla to može značiti jasnije pitanje: što pripada
-              operativnim obvezama, a što je stvarno višak riznice?
-            </p>
-          </section>
+            <blockquote className="consultation-principle">
+              Bitcoin konzultacija nije pristup tajnoj informaciji. To je
+              pripremljen razgovor u kojem se javno dostupno znanje o Bitcoinu
+              povezuje s jednom stvarnom odlukom u vašem životu.
+            </blockquote>
 
-          <section className="service-section">
-            <div className="service-checklist-grid">
-              <article className="service-checklist-panel">
-                <h2>Za koga je</h2>
-                <Checklist items={forWhomItems} />
-              </article>
-
-              <article className="service-checklist-panel">
-                <h2>Što možemo proći</h2>
-                <Checklist items={reviewItems} />
-              </article>
+            <div className="consultation-outcomes">
+              <h3>Nakon konzultacije trebate imati</h3>
+              <div>
+                {consultationOutcomes.map((outcome) => (
+                  <article key={outcome.title}>
+                    <Check aria-hidden="true" />
+                    <h4>{outcome.title}</h4>
+                    <p>{outcome.copy}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </section>
 
-          <section className="service-section service-quiet-panel">
-            <div>
-              <h2>Bitcoin, ne kripto portfelj</h2>
-              <p>
-                U konzultaciji možemo razjasniti zašto Bitcoin u ovom okviru
-                tretiramo kao novac, a ostale kriptovalute kao rizične
-                investicije koje bi se morale mjeriti u Bitcoinu. Ne savjetujem
-                koje tokene kupiti, kada ući, kada izaći ni koliko držati.
-              </p>
-            </div>
-            <DecorativeServiceImage
-              className="service-quiet-panel__image"
-              src={`${serviceVisualsPath}/consultation-outcome-standard.webp`}
+          <section
+            className="consultation-section consultation-questions"
+            id="dobra-pitanja"
+          >
+            <SectionHeading
+              eyebrow="Dovoljno konkretno"
+              title="Primjeri pitanja koja su dovoljno konkretna za konzultaciju"
+              copy="Dobra pitanja mijenjaju stvarnu odluku. Općenito pitanje poput „što mislite o Bitcoinu?” nije najbolja uporaba dubinske konzultacije."
             />
-          </section>
-
-          <section className="service-section service-warning-panel">
-            <h2>Što ne radimo</h2>
-            <p>
-              Bitcoin konzultacija nije dobar izbor ako tražite kratku uputu
-              kada kupiti ili prodati, prognozu cijene, upravljanje sredstvima,
-              porezni ili pravni savjet, ili osobu koja će odlučiti umjesto vas.
-            </p>
-            <Checklist items={notDoingItems} kind="negative" />
-          </section>
-
-          <section className="service-section service-section--warm">
-            <div className="service-section__header">
-              <h2>Prije, tijekom i poslije razgovora</h2>
-            </div>
-            <div className="service-timeline">
-              {consultationFlow.map((step, index) => (
-                <article key={step.title} className="service-timeline-card">
+            <ol className="consultation-question-list">
+              {consultationQuestions.map((item, index) => (
+                <li key={item.area}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  <DecorativeServiceImage
-                    className="service-card__image"
-                    src={step.image}
-                  />
+                  <h3>{item.area}</h3>
+                  <p>{item.question}</p>
+                </li>
+              ))}
+            </ol>
+
+            <div className="consultation-contexts">
+              <h3>Pitanje može dolaziti iz tri konteksta</h3>
+              <div>
+                {consultationContexts.map((context) => (
+                  <article key={context.title}>
+                    <h4>{context.title}</h4>
+                    <p>{context.copy}</p>
+                    <a href={context.href}>
+                      Više o kontekstu
+                      <ArrowUpRight aria-hidden="true" />
+                    </a>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="consultation-section consultation-process">
+            <SectionHeading
+              eyebrow="Četiri koraka"
+              title="Od uvodnog razgovora do pisanog sažetka"
+            />
+            <ol className="consultation-timeline">
+              {consultationProcess.map((step, index) => (
+                <li key={step.title}>
+                  <span>{index + 1}</span>
                   <h3>{step.title}</h3>
                   <p>{step.copy}</p>
-                </article>
+                </li>
               ))}
+            </ol>
+          </section>
+
+          <section
+            className="consultation-section consultation-summary"
+            id="sazetak-konzultacije"
+          >
+            <div className="consultation-summary__intro">
+              <p className="consultation-eyebrow">Konkretan rezultat</p>
+              <h2>Kako izgleda Sažetak Bitcoin konzultacije?</h2>
+              <p>
+                Sažetak je približno jedna stranica. Bilježi pitanje koje se
+                obrađivalo, relevantne okolnosti, zaključke, otvorena pitanja,
+                rizike ili ovisnosti, prvi sljedeći korak i preporučene
+                materijale.
+              </p>
+              <p>
+                To nije individualni financijski plan, nalog za kupnju ili
+                prodaju niti pravni, porezni ili računovodstveni dokument.
+              </p>
+              <a
+                href="#ogledni-sazetak"
+                className="consultation-text-link"
+                data-link="bitcoin-consultation-summary-example"
+              >
+                Pogledajte ogledni sažetak
+                <ArrowRight aria-hidden="true" />
+              </a>
+            </div>
+
+            <figure className="consultation-summary-sheet" id="ogledni-sazetak">
+              <header>
+                <div>
+                  <span>Bitcoin Savjetovanje</span>
+                  <strong>Sažetak Bitcoin konzultacije</strong>
+                </div>
+                <p>Izmišljeni primjer</p>
+              </header>
+
+              <section>
+                <p className="consultation-summary-sheet__label">Pitanje</p>
+                <h3>{consultationSummaryExample.question}</h3>
+              </section>
+
+              <div className="consultation-summary-sheet__grid">
+                <section>
+                  <h4>Ključne okolnosti</h4>
+                  <ul>
+                    {consultationSummaryExample.circumstances.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+                <section>
+                  <h4>Otvorena pitanja</h4>
+                  <ul>
+                    {consultationSummaryExample.openQuestions.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+
+              <section>
+                <h4>Glavni zaključci</h4>
+                <p>{consultationSummaryExample.conclusions}</p>
+              </section>
+
+              <section className="consultation-summary-sheet__next">
+                <h4>Prvi sljedeći korak</h4>
+                <p>{consultationSummaryExample.nextStep}</p>
+              </section>
+
+              <footer>
+                <p>Preporučeni materijali</p>
+                <ul>
+                  {consultationSummaryExample.materials.map((material) => (
+                    <li key={material.href}>
+                      <a href={material.href}>{material.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              </footer>
+            </figure>
+          </section>
+
+          <section className="consultation-section consultation-founder">
+            <img
+              src="/pavao-pahljina.jpg"
+              alt="Pavao Pahljina, Bitcoin savjetnik"
+              width="640"
+              height="640"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <p className="consultation-eyebrow">Tko vodi razgovor</p>
+              <h2>Pavao Pahljina</h2>
+              <p>
+                Bitcoin sam prvi put kupio 2014., a na puni Bitcoin standard
+                prešao sam u listopadu 2020. Više od 10.000 sati proveo sam
+                proučavajući Bitcoin, novac i njihovu primjenu u stvarnim
+                osobnim, obiteljskim i poslovnim odlukama.
+              </p>
+              <ul>
+                <li>
+                  {renderSaifedeanAmmousReference(
+                    "iskustvo rada sa Saifedeanom Ammousom"
+                  )}
+                </li>
+                <li>rad u Bitcoin industriji od 2020.</li>
+                <li>višegodišnji javni edukativni rad</li>
+                <li>primjena Bitcoin standarda u vlastitom životu</li>
+              </ul>
+              <a
+                href="/pavao-pahljina/"
+                className="consultation-text-link"
+                data-link="bitcoin-consultation-founder-profile"
+              >
+                Više o iskustvu i radu
+                <ArrowUpRight aria-hidden="true" />
+              </a>
             </div>
           </section>
 
-          <section className="service-section service-question-panel">
-            <h2>Dobra pitanja za Bitcoin konzultaciju</h2>
-            <p>
-              Najkorisnija pitanja nisu općenita. Dobra su ona koja mijenjaju
-              stvarnu odluku, razgovor s obitelji ili sigurnosni okvir.
-            </p>
-            <ul className="service-question-list">
-              {exampleQuestions.map((question) => (
-                <li key={question}>{question}</li>
+          <section className="consultation-section consultation-boundaries">
+            <div>
+              <p className="consultation-eyebrow">Jasno od početka</p>
+              <h2>Granice konzultacije</h2>
+              <p>
+                Konzultacija nije nalog za kupnju ili prodaju, prognoza cijene,
+                upravljanje sredstvima, porezni, pravni ili računovodstveni
+                savjet niti preuzimanje skrbništva.
+              </p>
+            </div>
+            <ul>
+              {consultationBoundaries.map((boundary) => (
+                <li key={boundary}>
+                  <ShieldCheck aria-hidden="true" />
+                  <span>{boundary}</span>
+                </li>
               ))}
             </ul>
           </section>
 
-          <section className="service-section">
-            <div className="service-end-grid">
-              <article className="service-checklist-panel">
-                <h2>Kako razgovor završava</h2>
-                <p>
-                  Na kraju ne dobivate savjet ‘kupi’ ili ‘prodaj’. Dobivate
-                  jasniji okvir: što je pitanje, gdje je stvarni rizik, koje
-                  osobne okolnosti mijenjaju odluku i koji bi sljedeći korak bio
-                  razuman.
-                </p>
-              </article>
-
-              <article className="service-checklist-panel">
-                <h2>Što pripremiti</h2>
-                <p>
-                  Ne morate slati dokumente. Dovoljno je prije razgovora
-                  zapisati:
-                </p>
-                <Checklist items={preparationItems} />
-              </article>
-
-              <article className="service-checklist-panel">
-                <h2>Kada nije za vas</h2>
-                <Checklist items={notForItems} kind="negative" />
-              </article>
-
-              <article className="service-checklist-panel">
-                <h2>Kada je dovoljan jedan razgovor</h2>
-                <p>
-                  Jedan razgovor može biti dovoljan ako trebate razjasniti
-                  konkretno pitanje, jedan dio Bitcoin teze ili sigurnosnu
-                  odluku. Ako se pokaže da jedno pitanje nije dovoljno, sljedeći
-                  korak može biti{" "}
-                  <a
-                    href={PERSONAL_BITCOIN_STANDARD_PATH}
-                    data-link="bitcoin-consultation-standard-context"
-                  >
-                    osobni Bitcoin standard
-                  </a>
-                  .
-                </p>
-              </article>
+          <section className="consultation-section consultation-pricing">
+            <div className="consultation-pricing__heading">
+              <p className="consultation-eyebrow">Bitcoin konzultacija</p>
+              <h2>200 € za jedan pripremljeni razgovor od 60 minuta</h2>
+              <p>
+                Konzultacija se ne kupuje neposredno. Prvi korak je besplatni
+                15-minutni razgovor u kojem provjeravamo je li pitanje dovoljno
+                jasno i je li konzultacija pravi oblik rada.
+              </p>
             </div>
-          </section>
 
-          <section className="service-section service-section--warm">
-            <div className="service-comparison">
-              <h2>Bitcoin konzultacija ili osobni Bitcoin standard?</h2>
-              <div className="service-comparison__grid">
-                <article>
-                  <h3>Bitcoin konzultacija</h3>
-                  <p>
-                    Bitcoin konzultacija je za jedno ozbiljno pitanje, tezu ili
-                    odluku koju želite razjasniti u jednom dubinskom razgovoru.
-                  </p>
-                </article>
-                <article>
-                  <h3>Osobni Bitcoin standard</h3>
-                  <p>
-                    Program povezuje sva glavna područja kroz 4–6 tjedana i
-                    uključuje prioritizaciju, stres-test, provedbu,
-                    dokumentiranje odluka i reviziju nakon 30 dana.
-                  </p>
-                  <a
-                    href={PERSONAL_BITCOIN_STANDARD_PATH}
-                    data-link="bitcoin-consultation-personal-standard"
-                  >
-                    Pogledajte osobni Bitcoin standard
-                    <ArrowUpRight className="size-4" aria-hidden="true" />
-                  </a>
-                </article>
+            <div className="consultation-pricing__details">
+              <div className="consultation-pricing__facts">
+                <div>
+                  <Clock3 aria-hidden="true" />
+                  <span>Trajanje</span>
+                  <strong>60 minuta</strong>
+                </div>
+                <div>
+                  <FileCheck2 aria-hidden="true" />
+                  <span>Cijena</span>
+                  <strong>200 €</strong>
+                </div>
               </div>
-              <ul className="service-comparison__notes">
-                <li>Jedna odluka ili pitanje: Bitcoin konzultacija.</li>
-                <li>
-                  Jasnija Bitcoin teza za sebe ili partnera: Bitcoin
-                  konzultacija.
-                </li>
-                <li>
-                  Povezivanje svih glavnih područja: Osobni Bitcoin standard.
-                </li>
-                <li>
-                  Provedba i revizija cijelog sustava: Osobni Bitcoin standard.
-                </li>
+              <ul>
+                {pricingIncludes.map((item) => (
+                  <li key={item}>
+                    <Check aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
+
+            <div className="consultation-pricing__actions">
+              <Button asChild size="lg" className="cta-primary">
+                <a
+                  href={CONVERSATION_PATH}
+                  data-cta="bitcoin-consultation-pricing-conversation"
+                >
+                  <CalendarDays aria-hidden="true" />
+                  Dogovorite uvodni razgovor
+                </a>
+              </Button>
+              <a
+                href={PERSONAL_BITCOIN_STANDARD_PATH}
+                className="consultation-text-link"
+                data-link="bitcoin-consultation-pricing-standard"
+              >
+                Ili pogledajte Osobni Bitcoin standard
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
+            <p className="consultation-pricing__note">
+              Uvodni razgovor je bez naknade i bez obveze. Ako je za vaše
+              pitanje dovoljan kraći odgovor, vodič ili drugi stručnjak, to ću
+              otvoreno reći.
+            </p>
           </section>
 
-          <section className="service-section service-final-cta">
+          <section className="consultation-section consultation-faq">
+            <SectionHeading eyebrow="Česta pitanja" title="Prije razgovora" />
+            <div className="consultation-faq__list">
+              {consultationFaqs.map((faq) => (
+                <details
+                  key={faq.id}
+                  onToggle={(event) => {
+                    if (event.currentTarget.open) {
+                      trackFirstPartyInteraction(
+                        "bitcoin-consultation-faq-open",
+                        { faq: faq.id }
+                      )
+                    }
+                  }}
+                >
+                  <summary
+                    onKeyDown={(event) => {
+                      if (event.key !== "Enter" && event.key !== " ") {
+                        return
+                      }
+
+                      event.preventDefault()
+                      event.currentTarget.parentElement?.toggleAttribute("open")
+                    }}
+                  >
+                    <span>{faq.question}</span>
+                    <span aria-hidden="true">+</span>
+                  </summary>
+                  <p>{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <section className="consultation-final">
+            <FileText aria-hidden="true" />
             <div>
-              <h2>Krenite od uvodnog razgovora</h2>
+              <h2>
+                Jedno dobro definirano pitanje može promijeniti cijeli sljedeći
+                korak.
+              </h2>
               <p>
-                Uvodni razgovor služi tome da vidimo je li Bitcoin konzultacija
-                pravi sljedeći korak ili je za sada dovoljno stati na kratkoj
-                procjeni.
+                Uvodni razgovor služi tome da provjerimo je li vaše pitanje
+                dovoljno jasno za dubinsku Bitcoin konzultaciju ili je potreban
+                drukčiji oblik rada.
               </p>
-              <p className="service-price-note">
-                Bitcoin konzultacija je prvi plaćeni korak:{" "}
-                {offerFacts.bitcoinConsultation.price} za{" "}
-                {offerFacts.bitcoinConsultation.duration} rada na jednom
-                ozbiljnom pitanju. Ne kupuje se odmah. Prvo vidimo ima li
-                smisla.
+              <Button asChild size="lg" className="cta-primary">
+                <a
+                  href={CONVERSATION_PATH}
+                  data-cta="bitcoin-consultation-final-conversation"
+                >
+                  <CalendarDays aria-hidden="true" />
+                  Dogovorite 15-minutni razgovor
+                </a>
+              </Button>
+              <p className="consultation-final__note">
+                Bez naknade i bez obveze. Ne upravljam vašim sredstvima i ne
+                tražim pristup vašem Bitcoinu.
               </p>
             </div>
-            <ul className="service-cta-list">
-              <li>
-                <Button
-                  asChild
-                  size="lg"
-                  className="cta-primary home-primary-button"
-                >
-                  <a
-                    href={CONVERSATION_PATH}
-                    className="justify-center text-center"
-                    data-cta="bitcoin-consultation-final-intro-call"
-                  >
-                    <CalendarDays className="size-4" aria-hidden="true" />
-                    Krenite od uvodnog razgovora
-                  </a>
-                </Button>
-              </li>
-              <li>
-                <a
-                  href="/sigurnost/"
-                  className="service-link-button"
-                  data-link="bitcoin-consultation-security"
-                >
-                  Pogledajte sigurnosna pravila
-                  <ArrowUpRight className="size-4" aria-hidden="true" />
-                </a>
-              </li>
-            </ul>
           </section>
         </div>
       </article>

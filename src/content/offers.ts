@@ -89,14 +89,14 @@ export const offers: Offer[] = [
   }),
   withOfferFacts(offerFacts.bitcoinConsultation, {
     forWhom:
-      "Jedan dubinski razgovor za jedno ozbiljno pitanje koje utječe na odluku.",
-    detail: "Jedno pitanje. Jedna odluka. Jedan dubinski razgovor.",
+      "Pripremljen razgovor za jedno ozbiljno pitanje koje utječe na stvarnu odluku.",
+    detail: "Jedno unaprijed definirano pitanje, 60 minuta i pisani sažetak.",
     purpose:
-      "Razjašnjavamo Bitcoin tezu, osobnu, obiteljsku ili poslovnu situaciju, prepreke i sljedeći razuman korak bez preuzimanja odluke.",
+      "Jednu osobnu, obiteljsku ili poslovnu odluku povezujemo s relevantnim Bitcoin kontekstom i pretvaramo u razumljiv zaključak i jasan sljedeći korak.",
     includes: [
-      "Za jedno ozbiljno pitanje",
-      "Jedan dubinski razgovor",
-      "Bez preuzimanja odluke",
+      "Unaprijed definirano pitanje",
+      "Pripremljen razgovor od 60 minuta",
+      "Sažetak Bitcoin konzultacije",
     ],
     cta: "Prvo dogovorite uvodni razgovor",
     dataCta: "offer-bitcoin-consultation",

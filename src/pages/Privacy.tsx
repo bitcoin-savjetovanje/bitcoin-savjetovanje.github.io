@@ -6,8 +6,10 @@ import { privacyRoute } from "@/content/clientRoutes"
 import { CONVERSATION_PATH, EMAIL } from "@/content/site"
 
 const doNotSendItems = [
-  "početne riječi",
   "privatne ključeve",
+  "Bitcoin Core wallet backup datoteke",
+  "wallet passphraseove",
+  "početne riječi drugih walleta",
   "lozinke",
   "screenshotove novčanika",
   "iznose",
@@ -40,8 +42,9 @@ export function Privacy() {
               <h1 className="hero-title">Privatnost i podaci</h1>
               <p className="hero-subtitle">
                 Za uvodni razgovor treba podijeliti samo ono što je potrebno za
-                dogovor termina i osnovni kontekst pitanja. Početne riječi i
-                privatni ključevi se nikada ne dijele.
+                dogovor termina i osnovni kontekst pitanja. Privatni ključevi,
+                wallet backup datoteke, passphraseovi i početne riječi drugih
+                walleta nikada se ne dijele.
               </p>
             </div>
             <picture className="hero-image-frame privacy-hero__media">
@@ -122,9 +125,9 @@ export function Privacy() {
             <section className="safety-note-card">
               <h2 className="text-2xl font-semibold">Sigurnosno pravilo</h2>
               <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-                Početne riječi i privatni ključevi se nikada ne šalju, nikada ne
-                kopiraju u kalendar, nikada ne šalju emailom i nikada ne dijele
-                sa savjetnikom.
+                Privatni ključevi, wallet backup datoteke, passphraseovi i
+                početne riječi drugih walleta nikada se ne šalju, ne kopiraju u
+                kalendar, ne šalju emailom i ne dijele sa savjetnikom.
               </p>
               <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground">
                 <li className="flex gap-3">

@@ -228,7 +228,13 @@ export function TimeVolatility() {
 
         <section className="budget-principle-strip time-volatility-principle-strip">
           <div className="budget-principle-strip__mark">
-            <img src="/bitcoin-logo.png" alt="" aria-hidden="true" />
+            <img
+              src="/bitcoin-logo.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div className="budget-principle-strip__copy">
             <h2>Vrijeme je saveznik. Volatilnost je učitelj.</h2>

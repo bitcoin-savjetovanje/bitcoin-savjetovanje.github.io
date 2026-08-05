@@ -1,0 +1,1503 @@
+.bitcoin-standard-check-page {
+  min-width: 0;
+  overflow: clip;
+  color: var(--ink);
+  background:
+    radial-gradient(
+      circle at 8% 12%,
+      color-mix(in oklab, var(--paper-warm), transparent 42%),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 94% 72%,
+      color-mix(in oklab, var(--olive-soft), transparent 28%),
+      transparent 29rem
+    ),
+    var(--background);
+}
+
+.bitcoin-standard-check-page :where(h1, h2, h3) {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.bitcoin-check :where(h1, h2, h3) {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.bitcoin-standard-check-page :where(p, li, dd, figcaption, label) {
+  text-wrap: pretty;
+}
+
+.bitcoin-check :where(p, li, figcaption, label) {
+  text-wrap: pretty;
+}
+
+.bitcoin-standard-check-page :where(button, a, input) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bitcoin-check :where(button, a, input) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bitcoin-standard-check-page :where(button, a, input):focus-visible,
+.bitcoin-check :where(button, a, input):focus-visible,
+.bitcoin-check__question legend:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--ring), transparent 25%);
+  outline-offset: 4px;
+}
+
+.bitcoin-check {
+  position: relative;
+  isolation: isolate;
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--line-warm), transparent 24%);
+  background:
+    linear-gradient(
+      108deg,
+      color-mix(in oklab, var(--paper), var(--paper-warm) 22%),
+      color-mix(in oklab, var(--linen), transparent 6%) 58%,
+      color-mix(in oklab, var(--olive-soft), var(--paper) 64%)
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--line-warm), transparent 82%) 1px,
+      transparent 1px
+    );
+  background-size:
+    auto,
+    5.75rem 5.75rem;
+  scroll-margin-top: 5rem;
+}
+
+.bitcoin-check::before {
+  position: absolute;
+  z-index: -1;
+  top: -15rem;
+  right: -9rem;
+  width: 35rem;
+  height: 35rem;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--bitcoin-orange), transparent 88%);
+  content: "";
+  filter: blur(10px);
+}
+
+.bitcoin-check__shell,
+.bitcoin-check-page__content {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.bitcoin-check__shell {
+  padding-block: clamp(2.75rem, 6vw, 5.75rem);
+}
+
+.bitcoin-check--embedded {
+  min-width: 0;
+  overflow: clip;
+  border-block: 0;
+}
+
+.bitcoin-check--embedded .bitcoin-check__shell {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.bitcoin-check__eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--clay);
+  font-family: "Geist Variable", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 820;
+  letter-spacing: 0.115em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.bitcoin-check__intro {
+  display: grid;
+  align-items: center;
+  gap: clamp(2.25rem, 5vw, 4.75rem);
+  grid-template-columns: minmax(0, 1.02fr) minmax(22rem, 0.98fr);
+}
+
+.bitcoin-check__intro-copy {
+  min-width: 0;
+}
+
+.bitcoin-check__intro h1 {
+  max-width: 13ch;
+  margin: 0;
+  font-size: clamp(2.55rem, 5vw, 4.9rem);
+  line-height: 0.99;
+  letter-spacing: -0.048em;
+}
+
+.bitcoin-check__lead {
+  max-width: 42rem;
+  margin: 1.4rem 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.35vw, 1.14rem);
+  line-height: 1.7;
+}
+
+.bitcoin-check__facts {
+  display: flex;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--forest);
+  font-size: 0.85rem;
+  font-weight: 730;
+  line-height: 1.5;
+}
+
+.bitcoin-check__facts span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.bitcoin-check__facts span + span::before {
+  margin-inline: 0.6rem;
+  color: var(--clay);
+  content: "·";
+}
+
+.bitcoin-check__start,
+.bitcoin-check__continue,
+.bitcoin-check__recommendation-button {
+  min-height: 3.25rem;
+  height: auto !important;
+  border-radius: 999px !important;
+  background: var(--forest) !important;
+  color: white !important;
+  white-space: normal !important;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--forest), transparent 25%),
+    0 0.8rem 1.8rem rgba(31, 63, 48, 0.16);
+  line-height: 1.3 !important;
+  text-align: center;
+  transition-property: background-color, box-shadow, scale;
+  transition-duration: 160ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.bitcoin-check__start {
+  margin-top: 1.55rem;
+  padding: 0.8rem 1.3rem !important;
+}
+
+.bitcoin-check__start:hover,
+.bitcoin-check__continue:hover:not(:disabled),
+.bitcoin-check__recommendation-button:hover {
+  background: var(--cypress) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--forest), transparent 12%),
+    0 1rem 2.2rem rgba(31, 63, 48, 0.2);
+}
+
+.bitcoin-check__start:active,
+.bitcoin-check__continue:active:not(:disabled),
+.bitcoin-check__recommendation-button:active,
+.bitcoin-check__result-actions button:active,
+.bitcoin-check__back:active:not(:disabled),
+.bitcoin-check-info--business a:active {
+  scale: 0.96;
+}
+
+.bitcoin-check__start svg,
+.bitcoin-check__continue svg,
+.bitcoin-check__recommendation-button svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
+.bitcoin-check__intro-privacy {
+  display: grid;
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  align-items: start;
+  gap: 0.55rem;
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  line-height: 1.55;
+}
+
+.bitcoin-check__intro-privacy svg {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.15rem;
+  color: var(--forest);
+}
+
+.bitcoin-check__hero-visual {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 1.8rem;
+  background: var(--paper);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 1.8rem 4.6rem rgba(78, 55, 28, 0.15),
+    0 0.35rem 1rem rgba(78, 55, 28, 0.08);
+}
+
+.bitcoin-check__hero-visual picture,
+.bitcoin-check__hero-visual img {
+  display: block;
+  width: 100%;
+}
+
+.bitcoin-check__hero-visual img {
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
+}
+
+.bitcoin-check__hero-visual figcaption {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  display: grid;
+  padding: 0.65rem 0.75rem;
+  gap: 0.45rem;
+  border-radius: 0.95rem;
+  background: color-mix(in oklab, var(--paper), transparent 10%);
+  color: var(--ink-soft);
+  font-size: 0.67rem;
+  font-weight: 760;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 1181px) {
+  .bitcoin-check[data-phase="intro"] {
+    min-height: clamp(42rem, calc(100svh - 5rem), 60rem);
+    overflow: hidden;
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__shell {
+    width: 100%;
+    max-width: none;
+    min-height: inherit;
+    padding: 0;
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__intro {
+    min-height: inherit;
+    padding-left: clamp(1.8rem, 5.8vw, 5.2rem);
+    align-items: stretch;
+    gap: 0;
+    grid-template-columns: minmax(31rem, 0.78fr) minmax(0, 1.22fr);
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__intro-copy {
+    position: relative;
+    z-index: 3;
+    max-width: 49rem;
+    padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3.25rem) 3rem 0;
+    align-self: center;
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__hero-visual {
+    height: 100%;
+    min-height: inherit;
+    margin-left: clamp(-19rem, -19vw, -13rem);
+    align-self: stretch;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__hero-visual::before {
+    display: none;
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__hero-visual picture {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 10%,
+      rgba(0, 0, 0, 0.28) 18%,
+      rgba(0, 0, 0, 0.62) 25%,
+      #000 34%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.08) 10%,
+      rgba(0, 0, 0, 0.28) 18%,
+      rgba(0, 0, 0, 0.62) 25%,
+      #000 34%
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__hero-visual img {
+    height: 100%;
+    min-height: inherit;
+    aspect-ratio: auto;
+    object-position: 34% center;
+  }
+
+  .bitcoin-check[data-phase="intro"] .bitcoin-check__hero-visual figcaption {
+    z-index: 3;
+    right: clamp(1.25rem, 3vw, 3rem);
+    bottom: clamp(1.25rem, 3vw, 2.5rem);
+    left: auto;
+    width: min(38rem, calc(100% - 4rem));
+  }
+}
+
+.bitcoin-check__compact-heading {
+  display: grid;
+  max-width: 58rem;
+  margin: 0 auto clamp(1.5rem, 3vw, 2.5rem);
+  text-align: center;
+}
+
+.bitcoin-check__compact-heading :where(h1, h2) {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.65rem);
+  line-height: 1.1;
+}
+
+.bitcoin-check__card,
+.bitcoin-check__result {
+  width: min(100%, 58rem);
+  margin-inline: auto;
+  border-radius: 1.8rem;
+  background: color-mix(in oklab, var(--paper), transparent 1%);
+  box-shadow:
+    var(--shadow-border),
+    0 1.8rem 4.8rem rgba(72, 53, 30, 0.1);
+}
+
+.bitcoin-check__card {
+  padding: clamp(1rem, 3.4vw, 2.35rem);
+}
+
+.bitcoin-check__progress {
+  padding-bottom: clamp(1.3rem, 3vw, 2rem);
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--line-warm), transparent 20%);
+}
+
+.bitcoin-check__progress-copy {
+  display: flex;
+  margin-bottom: 0.95rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.bitcoin-check__progress-copy strong {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-weight: 780;
+}
+
+.bitcoin-check__timeline {
+  position: relative;
+  display: grid;
+  align-items: center;
+  gap: clamp(0.18rem, 0.9vw, 0.65rem);
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.bitcoin-check__timeline::before {
+  position: absolute;
+  z-index: 0;
+  right: 2.5%;
+  left: 2.5%;
+  height: 2px;
+  background: color-mix(in oklab, var(--line-warm), transparent 10%);
+  content: "";
+}
+
+.bitcoin-check__timeline-point {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: clamp(1.22rem, 2.5vw, 1.55rem);
+  height: clamp(1.22rem, 2.5vw, 1.55rem);
+  margin-inline: auto;
+  place-items: center;
+  border: 2px solid var(--stone);
+  border-radius: 50%;
+  background: var(--paper);
+  color: white;
+  transition-property: background-color, border-color, box-shadow, scale;
+  transition-duration: 220ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.bitcoin-check__timeline-point[data-state="complete"] {
+  border-color: var(--olive);
+  background: var(--olive);
+}
+
+.bitcoin-check__timeline-point[data-state="current"] {
+  border-color: var(--bitcoin-orange);
+  background: color-mix(in oklab, var(--bitcoin-orange), var(--paper) 84%);
+  box-shadow: 0 0 0 4px
+    color-mix(in oklab, var(--bitcoin-orange), transparent 80%);
+  scale: 1.1;
+}
+
+.bitcoin-check__timeline-point svg {
+  width: 0.72rem;
+  height: 0.72rem;
+  stroke-width: 3;
+}
+
+.bitcoin-check__question {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1.5rem, 4vw, 2.65rem) 0 0;
+  border: 0;
+  animation: bitcoin-check-enter 260ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+.bitcoin-check__question legend {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-margin-top: 7rem;
+}
+
+.bitcoin-check__question legend:focus {
+  outline: none;
+}
+
+.bitcoin-check__question-area {
+  display: flex;
+  margin-bottom: 0.7rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--clay);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.bitcoin-check__question-area > span {
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--clay-soft);
+}
+
+.bitcoin-check__question-area svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.bitcoin-check__question legend > strong {
+  display: block;
+  max-width: 46rem;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.65rem, 3.3vw, 2.45rem);
+  font-weight: 400;
+  letter-spacing: -0.027em;
+  line-height: 1.16;
+  text-wrap: balance;
+}
+
+.bitcoin-check__question-helper {
+  display: flex;
+  max-width: 43rem;
+  margin: 0.85rem 0 0;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.bitcoin-check__question-helper svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-top: 0.17rem;
+  flex: 0 0 auto;
+  color: var(--forest);
+}
+
+.bitcoin-check__answers {
+  display: grid;
+  margin-top: clamp(1.3rem, 3vw, 1.8rem);
+  gap: 0.75rem;
+}
+
+.bitcoin-check__answer {
+  position: relative;
+  display: grid;
+  min-height: 4.25rem;
+  padding: 0.9rem 3.15rem 0.9rem 0.85rem;
+  align-items: center;
+  gap: 0.8rem;
+  border: 2px solid color-mix(in oklab, var(--stone), transparent 15%);
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--paper), var(--linen) 8%);
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 0.96rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  line-height: 1.5;
+  transition-property: background-color, border-color, box-shadow, transform;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.bitcoin-check__answer:hover {
+  border-color: color-mix(in oklab, var(--clay), transparent 42%);
+  box-shadow: var(--shadow-border-hover);
+  transform: translateY(-1px);
+}
+
+.bitcoin-check__answer:active {
+  transform: scale(0.99);
+}
+
+.bitcoin-check__answer[data-selected="true"] {
+  border-color: var(--clay);
+  background: color-mix(in oklab, var(--clay-soft), var(--paper) 45%);
+  color: var(--ink);
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--clay), transparent 84%),
+    0 0.5rem 1.3rem rgba(87, 57, 35, 0.06);
+}
+
+.bitcoin-check__answer:has(input:focus-visible) {
+  outline: 3px solid color-mix(in oklab, var(--ring), transparent 25%);
+  outline-offset: 3px;
+}
+
+.bitcoin-check__answer input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.bitcoin-check__answer-number {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--paper-strong);
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  transition-property: background-color, color;
+  transition-duration: 150ms;
+}
+
+.bitcoin-check__answer[data-selected="true"] .bitcoin-check__answer-number {
+  background: var(--clay);
+  color: white;
+}
+
+.bitcoin-check__answer-check {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, var(--stone), transparent 5%);
+  border-radius: 50%;
+  background: var(--paper);
+  color: transparent;
+  opacity: 0.55;
+  scale: 0.9;
+  translate: 0 -50%;
+  transition-property: background-color, border-color, color, opacity, scale;
+  transition-duration: 180ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.bitcoin-check__answer[data-selected="true"] .bitcoin-check__answer-check {
+  border-color: var(--forest);
+  background: var(--forest);
+  color: white;
+  opacity: 1;
+  scale: 1;
+}
+
+.bitcoin-check__answer-check svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  stroke-width: 3;
+}
+
+.bitcoin-check__navigation {
+  display: flex;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+  padding-top: clamp(1.1rem, 2.5vw, 1.5rem);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 20%);
+}
+
+.bitcoin-check__back {
+  display: inline-flex;
+  min-width: 6.4rem;
+  min-height: 2.9rem;
+  padding: 0.7rem 0.9rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+  font-weight: 730;
+  transition-property: background-color, color, opacity, scale;
+  transition-duration: 150ms;
+}
+
+.bitcoin-check__back:hover:not(:disabled) {
+  background: var(--forest-soft);
+}
+
+.bitcoin-check__back:disabled {
+  cursor: default;
+  opacity: 0.32;
+}
+
+.bitcoin-check__back svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.bitcoin-check__continue {
+  min-width: min(100%, 11.5rem);
+  padding: 0.8rem 1.15rem !important;
+}
+
+.bitcoin-check__continue:disabled {
+  background: var(--stone) !important;
+  color: color-mix(in oklab, var(--ink), transparent 35%) !important;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.72;
+}
+
+.bitcoin-check__result {
+  padding: clamp(1.25rem, 4vw, 3rem);
+  animation: bitcoin-check-result-enter 360ms cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+.bitcoin-check__result-heading {
+  max-width: 48rem;
+}
+
+.bitcoin-check__result-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4.6vw, 3.7rem);
+  line-height: 1.06;
+}
+
+.bitcoin-check__result-heading h2:focus {
+  outline: none;
+}
+
+.bitcoin-check__result-heading > p:not(.bitcoin-check__eyebrow) {
+  margin: 1.15rem 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.bitcoin-check__result-date {
+  display: block;
+  margin-top: 0.9rem;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bitcoin-check__dimension-summary {
+  display: grid;
+  margin-top: clamp(1.7rem, 4vw, 2.6rem);
+  border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 15%);
+}
+
+.bitcoin-check__dimension-row {
+  display: grid;
+  min-width: 0;
+  padding: 0.9rem 0;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid
+    color-mix(in oklab, var(--line-warm), transparent 28%);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.bitcoin-check__dimension-icon {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--paper-strong);
+  color: var(--ink-muted);
+}
+
+.bitcoin-check__dimension-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.bitcoin-check__dimension-row strong {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.bitcoin-check__dimension-status {
+  display: inline-flex;
+  min-height: 1.8rem;
+  padding: 0.3rem 0.65rem;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 780;
+  line-height: 1.3;
+  text-align: right;
+}
+
+.bitcoin-check__dimension-status svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  stroke-width: 3;
+}
+
+.bitcoin-check__dimension-row[data-tone="organized"]
+  .bitcoin-check__dimension-status {
+  background: var(--olive-soft);
+  color: var(--forest);
+}
+
+.bitcoin-check__dimension-row[data-tone="partial"]
+  .bitcoin-check__dimension-status {
+  background: var(--paper-strong);
+  color: var(--ink-muted);
+}
+
+.bitcoin-check__dimension-row[data-tone="priority"]
+  .bitcoin-check__dimension-status {
+  background: var(--clay-soft);
+  color: color-mix(in oklab, var(--clay), var(--ink) 18%);
+}
+
+.bitcoin-check__result-sections {
+  display: grid;
+  margin-top: clamp(1.8rem, 4vw, 2.8rem);
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bitcoin-check__result-sections section {
+  min-width: 0;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  border-radius: 1.2rem;
+  background: color-mix(in oklab, var(--linen), var(--paper) 34%);
+  box-shadow: var(--shadow-border);
+}
+
+.bitcoin-check__result-sections .bitcoin-check__task {
+  background: linear-gradient(
+    150deg,
+    color-mix(in oklab, var(--clay-soft), var(--paper) 36%),
+    var(--paper)
+  );
+  grid-column: 1 / -1;
+}
+
+.bitcoin-check__result-kicker {
+  margin: 0;
+  color: var(--clay);
+  font-size: 0.72rem;
+  font-weight: 820;
+  letter-spacing: 0.09em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.bitcoin-check__result-sections section > p:not(.bitcoin-check__result-kicker) {
+  margin: 0.75rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.bitcoin-check__result-sections ul {
+  display: grid;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  gap: 0.65rem;
+  list-style: none;
+}
+
+.bitcoin-check__result-sections li {
+  display: grid;
+  align-items: start;
+  gap: 0.55rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  grid-template-columns: auto minmax(0, 1fr);
+  line-height: 1.55;
+}
+
+.bitcoin-check__result-sections li svg {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.17rem;
+  color: var(--forest);
+  stroke-width: 3;
+}
+
+.bitcoin-check__task > p:last-child {
+  color: var(--ink) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  line-height: 1.5 !important;
+}
+
+.bitcoin-check__recommendation {
+  display: grid;
+  margin-top: 1rem;
+  padding: clamp(1.1rem, 3vw, 1.7rem);
+  align-items: center;
+  gap: 1.25rem;
+  border-radius: 1.3rem;
+  background: color-mix(in oklab, var(--forest-soft), var(--paper) 44%);
+  box-shadow: var(--shadow-border);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.bitcoin-check__recommendation h3 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  line-height: 1.3;
+}
+
+.bitcoin-check__recommendation-button {
+  padding: 0.78rem 1.1rem !important;
+}
+
+.bitcoin-check__result-actions {
+  display: flex;
+  margin-top: 1.4rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.bitcoin-check__result-actions button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.8rem;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 730;
+  transition-property: background-color, color, scale;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.bitcoin-check__result-actions button:hover {
+  background: var(--forest-soft);
+}
+
+.bitcoin-check__result-actions svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.bitcoin-check__copy-status {
+  min-height: 1.3rem;
+  margin: 0.55rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.bitcoin-check-page__content {
+  padding-block: clamp(3.8rem, 8vw, 7rem);
+}
+
+.bitcoin-check-info + .bitcoin-check-info {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.bitcoin-check-info__heading {
+  max-width: 46rem;
+}
+
+.bitcoin-check-info__heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  line-height: 1.08;
+}
+
+.bitcoin-check-info__area-list {
+  display: grid;
+  margin: clamp(1.8rem, 4vw, 3rem) 0 0;
+  gap: 0 clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bitcoin-check-info__area-list > div {
+  padding-block: 1.4rem;
+  border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 22%);
+}
+
+.bitcoin-check-info__area-list dt {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.bitcoin-check-info__area-list dt span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--olive-soft);
+  color: var(--forest);
+}
+
+.bitcoin-check-info__area-list dt svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.bitcoin-check-info__area-list dd {
+  margin: 0.65rem 0 0 2.65rem;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.67;
+}
+
+.bitcoin-check-info--privacy {
+  display: grid;
+  max-width: 58rem;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  align-items: start;
+  gap: 0.85rem;
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, var(--olive-soft), var(--paper) 50%);
+  box-shadow: var(--shadow-border);
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.bitcoin-check-info--privacy > svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  color: var(--forest);
+}
+
+.bitcoin-check-info--privacy h2,
+.bitcoin-check-info--business h2 {
+  margin: 0;
+  font-family: "Geist Variable", sans-serif;
+  font-size: 1rem;
+  font-weight: 760;
+  letter-spacing: -0.01em;
+}
+
+.bitcoin-check-info--privacy p,
+.bitcoin-check-info--business p {
+  margin: 0.45rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.bitcoin-check-info--business {
+  display: grid;
+  padding-top: clamp(2rem, 4vw, 3rem);
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid color-mix(in oklab, var(--line-warm), transparent 18%);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.bitcoin-check-info--business > svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--ink-muted);
+}
+
+.bitcoin-check-info--business a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.2rem;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--forest);
+  font-size: 0.86rem;
+  font-weight: 760;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--forest), transparent 65%);
+  text-underline-offset: 0.25rem;
+  transition-property: color, scale, text-decoration-color;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.bitcoin-check-info--business a:hover {
+  color: var(--clay);
+  text-decoration-color: currentColor;
+}
+
+.bitcoin-check-info--business a svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+@keyframes bitcoin-check-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bitcoin-check-result-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .bitcoin-check__intro {
+    grid-template-columns: 1fr;
+  }
+
+  .bitcoin-check__intro-copy {
+    max-width: 48rem;
+  }
+
+  .bitcoin-check__hero-visual {
+    width: min(100%, 52rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .bitcoin-check__shell {
+    padding-inline: 1rem;
+    padding-block: 2.35rem 3.25rem;
+  }
+
+  .bitcoin-check__intro {
+    gap: 1.8rem;
+  }
+
+  .bitcoin-check__intro h1 {
+    max-width: 14ch;
+    font-size: clamp(2.1rem, 10vw, 3rem);
+    line-height: 1.02;
+  }
+
+  .bitcoin-check__lead {
+    margin-top: 1.05rem;
+    font-size: 0.98rem;
+    line-height: 1.62;
+  }
+
+  .bitcoin-check__start {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bitcoin-check__hero-visual {
+    border-radius: 1.3rem;
+  }
+
+  .bitcoin-check__hero-visual img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .bitcoin-check__hero-visual figcaption {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    padding: 0.8rem;
+    border-radius: 0;
+    background: var(--paper);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    box-shadow: none;
+  }
+
+  .bitcoin-check__compact-heading {
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+
+  .bitcoin-check__compact-heading h1 {
+    font-size: 1.65rem;
+  }
+
+  .bitcoin-check__card,
+  .bitcoin-check__result {
+    border-radius: 1.25rem;
+  }
+
+  .bitcoin-check__progress-copy {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .bitcoin-check__question legend > strong {
+    font-size: clamp(1.45rem, 7vw, 1.85rem);
+    line-height: 1.2;
+  }
+
+  .bitcoin-check__answer {
+    min-height: 3.85rem;
+    padding: 0.75rem 2.9rem 0.75rem 0.7rem;
+    gap: 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .bitcoin-check__answer-number {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .bitcoin-check__answer-check {
+    right: 0.72rem;
+    width: 1.65rem;
+    height: 1.65rem;
+  }
+
+  .bitcoin-check__navigation {
+    align-items: stretch;
+  }
+
+  .bitcoin-check__back,
+  .bitcoin-check__continue {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .bitcoin-check__dimension-row {
+    align-items: start;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .bitcoin-check__dimension-status {
+    width: fit-content;
+    margin-left: 2.75rem;
+    grid-column: 1 / -1;
+  }
+
+  .bitcoin-check__result-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .bitcoin-check__result-sections .bitcoin-check__task {
+    grid-column: auto;
+  }
+
+  .bitcoin-check__recommendation {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+  }
+
+  .bitcoin-check__recommendation-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bitcoin-check__result-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .bitcoin-check__result-actions button {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .bitcoin-check-page__content {
+    padding-inline: 1rem;
+    padding-block: 3.6rem;
+  }
+
+  .bitcoin-check-info__area-list {
+    grid-template-columns: 1fr;
+  }
+
+  .bitcoin-check-info__area-list dd {
+    margin-left: 0;
+  }
+
+  .bitcoin-check-info--business {
+    align-items: start;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .bitcoin-check-info--business a {
+    margin-left: 2.2rem;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 380px) {
+  .bitcoin-check__card,
+  .bitcoin-check__result {
+    padding: 0.9rem;
+  }
+
+  .bitcoin-check__facts {
+    display: grid;
+    gap: 0.18rem;
+  }
+
+  .bitcoin-check__facts span + span::before {
+    margin-inline: 0 0.45rem;
+  }
+
+  .bitcoin-check__question-area {
+    letter-spacing: 0.055em;
+  }
+
+  .bitcoin-check__answer {
+    font-size: 0.86rem;
+  }
+
+  .bitcoin-check__back,
+  .bitcoin-check__continue {
+    padding-inline: 0.55rem !important;
+    font-size: 0.82rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bitcoin-check__question,
+  .bitcoin-check__result {
+    animation: none;
+  }
+
+  .bitcoin-standard-check-page *,
+  .bitcoin-standard-check-page *::before,
+  .bitcoin-standard-check-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 10mm;
+  }
+
+  body:has(.bitcoin-standard-check-page) {
+    background: white !important;
+    color: #171612 !important;
+  }
+
+  body:has(.bitcoin-standard-check-page) .site-header,
+  body:has(.bitcoin-standard-check-page) footer,
+  body:has(.bitcoin-standard-check-page) .sticky-mobile-cta,
+  .bitcoin-check__compact-heading,
+  .bitcoin-check__result-actions,
+  .bitcoin-check__copy-status,
+  .bitcoin-check-page__content {
+    display: none !important;
+  }
+
+  .bitcoin-check,
+  .bitcoin-standard-check-page {
+    border: 0 !important;
+    background: white !important;
+  }
+
+  .bitcoin-check::before {
+    display: none !important;
+  }
+
+  .bitcoin-check__shell {
+    width: 100%;
+    padding: 0;
+  }
+
+  .bitcoin-check__result {
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    background: white !important;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .bitcoin-check__result-heading::before {
+    display: block;
+    margin-bottom: 6mm;
+    color: #6c6457;
+    content: "Bitcoin Savjetovanje · Provjera osobnog Bitcoin standarda";
+    font-family: "Geist Variable", sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .bitcoin-check__result-heading h2 {
+    color: #171612;
+    font-size: 24pt;
+    line-height: 1.02;
+  }
+
+  .bitcoin-check__result-heading > p:not(.bitcoin-check__eyebrow) {
+    margin-top: 4mm;
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+
+  .bitcoin-check__result-date {
+    margin-top: 2mm;
+    font-size: 8pt;
+  }
+
+  .bitcoin-check__dimension-summary {
+    margin-top: 5mm;
+  }
+
+  .bitcoin-check__dimension-row {
+    padding-block: 2.5mm;
+  }
+
+  .bitcoin-check__result-sections {
+    margin-top: 5mm;
+    gap: 3mm;
+  }
+
+  .bitcoin-check__result-sections section {
+    padding: 4mm;
+  }
+
+  .bitcoin-check__result-sections
+    section
+    > p:not(.bitcoin-check__result-kicker) {
+    margin-top: 2mm;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+
+  .bitcoin-check__result-sections ul {
+    margin-top: 2mm;
+    gap: 1.5mm;
+  }
+
+  .bitcoin-check__result-sections li {
+    font-size: 8.5pt;
+    line-height: 1.35;
+  }
+
+  .bitcoin-check__task > p:last-child {
+    font-size: 13pt;
+    line-height: 1.35 !important;
+  }
+
+  .bitcoin-check__recommendation {
+    margin-top: 3mm;
+    padding: 4mm;
+  }
+
+  .bitcoin-check__recommendation h3 {
+    font-size: 14pt;
+  }
+
+  .bitcoin-check__dimension-row,
+  .bitcoin-check__result-sections section,
+  .bitcoin-check__recommendation {
+    break-inside: avoid;
+  }
+
+  .bitcoin-check__result-sections section,
+  .bitcoin-check__recommendation {
+    border: 1px solid #ddd2c2;
+    background: white !important;
+    box-shadow: none;
+  }
+
+  .bitcoin-check__recommendation-button {
+    display: none !important;
+  }
+}

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 
-import { CalBookingLink } from "@/components/CalBookingLink"
 import { SiteSearch } from "@/components/layout/SiteSearch"
 import { Button } from "@/components/ui/button"
 import { navLinks } from "@/content/navigation"
@@ -159,6 +158,10 @@ export function Header({ currentPath }: HeaderProps) {
               alt=""
               aria-hidden="true"
               className="site-header__logo"
+              width="256"
+              height="256"
+              decoding="async"
+              fetchPriority="low"
               draggable="false"
             />
             <span>BITCOIN SAVJETOVANJE</span>
@@ -193,17 +196,17 @@ export function Header({ currentPath }: HeaderProps) {
 
           <div className="site-header__actions">
             <SiteSearch onOpen={() => setMobileMenuOpen(false)} />
-            <Button asChild size="lg" className="cta-primary site-header__cta">
-              {onConversationPage ? (
-                <CalBookingLink data-cta="header-intro-call">
-                  Dogovorite razgovor
-                </CalBookingLink>
-              ) : (
+            {!onConversationPage ? (
+              <Button
+                asChild
+                size="lg"
+                className="cta-primary site-header__cta"
+              >
                 <a href={CONVERSATION_PATH} data-cta="header-intro-call">
                   Dogovorite razgovor
                 </a>
-              )}
-            </Button>
+              </Button>
+            ) : null}
             <Button
               variant="outline"
               size="icon"
@@ -258,15 +261,7 @@ export function Header({ currentPath }: HeaderProps) {
               </a>
             )
           })}
-          {onConversationPage ? (
-            <CalBookingLink
-              className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
-              onClick={() => setMobileMenuOpen(false)}
-              data-cta="mobile-menu-intro-call"
-            >
-              Dogovorite razgovor
-            </CalBookingLink>
-          ) : (
+          {!onConversationPage ? (
             <a
               href={CONVERSATION_PATH}
               className="cta-primary mt-1 rounded-lg border border-border/70 px-4 py-3.5 text-center text-sm font-semibold shadow-sm"
@@ -275,7 +270,7 @@ export function Header({ currentPath }: HeaderProps) {
             >
               Dogovorite razgovor
             </a>
-          )}
+          ) : null}
         </nav>
       ) : null}
     </header>

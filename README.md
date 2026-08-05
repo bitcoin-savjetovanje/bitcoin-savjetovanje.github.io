@@ -109,7 +109,7 @@ Vizualni asseti:
 - `/razgovor/`
 - `/bitcoin-konzultacija/`
 - `/osobni-bitcoin-standard/`
-- `/osobni-bitcoin-standard/primjer/`
+- `/primjer-osobnog-bitcoin-standarda/`
 - `/provjera-bitcoin-standarda/`
 - `/bitcoin-savjetovanje/`
 - `/vodici/`

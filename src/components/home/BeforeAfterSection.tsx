@@ -24,7 +24,7 @@ const scenarios = [
     title: "Obitelj",
     without:
       "Obitelj zna da Bitcoin postoji, ali ne zna što smije ili ne smije napraviti.",
-    with: "Obitelj ima jasne upute bez predaje početnih riječi ili privatnih ključeva.",
+    with: "Obitelj ima jasne upute bez predaje privatnih ključeva, Bitcoin Core wallet backup datoteka, wallet passphraseova ili početnih riječi drugih walleta.",
   },
   {
     title: "Sigurnost",

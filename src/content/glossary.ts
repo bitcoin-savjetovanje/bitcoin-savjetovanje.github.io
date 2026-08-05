@@ -20,7 +20,82 @@ export const glossaryTerms: GlossaryTerm[] = [
     ],
     title: "Početne riječi",
     description:
-      "Popis riječi koji služi kao pričuvna kopija ključa. Tko ima te riječi, može obnoviti pristup tom ključu, zato se ne smiju slikati, slati ni spremati u oblak.",
+      "BIP39 popis riječi koji mnogi walleti koriste kao korisnički backup. Tko ima riječi, može obnoviti pripadajuće ključeve, zato se ne smiju slikati ni slati. U opisanom Bitcoin Core workflowu nisu primarni korisnički backup.",
+  },
+  {
+    id: "bitcoin-core-standard",
+    priority: 100,
+    terms: ["Bitcoin Core Standard", "Bitcoin Core Standarda"],
+    title: "Bitcoin Core Standard",
+    description:
+      "Sigurnosna arhitektura za dugoročnu Bitcoin štednju koja koristi Bitcoin Core, odvojene offline potpisnike, watch-only koordinaciju, vlastiti node, PSBT i provjerene sigurnosne kopije.",
+  },
+  {
+    id: "offline-signer",
+    priority: 80,
+    terms: [
+      "offline signer",
+      "offline signera",
+      "offline potpisnik",
+      "offline potpisnika",
+      "offline potpisnici",
+    ],
+    title: "Offline signer (offline potpisnik)",
+    description:
+      "Uređaj koji čuva privatni ključ i potpisuje transakcije bez izravne veze s internetom tijekom osjetljivih operacija.",
+  },
+  {
+    id: "watch-only-wallet",
+    priority: 80,
+    terms: [
+      "watch-only wallet",
+      "watch-only walleta",
+      "watch-only koordinator",
+      "watch-only koordinatoru",
+      "watch-only konfiguracija",
+      "watch-only konfiguraciju",
+    ],
+    title: "Watch-only wallet",
+    description:
+      "Wallet koji može pratiti adrese, stanje i transakcije, ali nema privatne ključeve potrebne za trošenje.",
+  },
+  {
+    id: "archival-full-node",
+    priority: 80,
+    terms: ["archival full node", "archival full nodeu", "arhivski puni node"],
+    title: "Archival full node",
+    description:
+      "Bitcoin node koji čuva sve validirane blokove i omogućuje kasnije ponovno skeniranje povijesti walleta bez ponovnog preuzimanja obrisanih blokova.",
+  },
+  {
+    id: "pruned-node",
+    priority: 80,
+    terms: ["pruned node", "pruned nodea", "pruned nodeu"],
+    title: "Pruned node",
+    description:
+      "Potpuno validirajući Bitcoin node koji radi uz ograničen prostor tako da stare blokove nakon validacije briše. Nije polovičan node, ali može otežati naknadno skeniranje stare povijesti walleta.",
+  },
+  {
+    id: "wallet-backup-datoteka",
+    priority: 90,
+    terms: [
+      "Bitcoin Core wallet backup datoteka",
+      "Bitcoin Core wallet backup datoteke",
+      "wallet backup datoteka",
+      "wallet backup datoteke",
+      "wallet backupi",
+    ],
+    title: "Wallet backup datoteka",
+    description:
+      "Sigurnosna kopija Bitcoin Core wallet baze koja sadrži podatke potrebne za obnovu tog walleta. Sadržaj i naziv ovise o vrsti walleta; datoteka se ne mora zvati wallet.dat.",
+  },
+  {
+    id: "wallet-passphrase",
+    priority: 90,
+    terms: ["wallet passphrase", "wallet passphraseom", "wallet passphraseove"],
+    title: "Wallet passphrase",
+    description:
+      "Lozinka kojom Bitcoin Core štiti privatni ključni materijal walleta. Nije BIP39 passphrase i nije sama po sebi zamjena za wallet backup.",
   },
   {
     id: "pricuvna-kopija",
@@ -78,17 +153,10 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: "descriptor",
     priority: 30,
-    terms: [
-      "Sparrow descriptor",
-      "wallet descriptor",
-      "descriptor",
-      "deskriptor",
-      "Sparrow descriptora",
-      "opisnik",
-    ],
+    terms: ["wallet descriptor", "descriptor", "deskriptor", "opisnik"],
     title: "Descriptor (opis novčanika)",
     description:
-      "Opis konstrukcije novčanika. Ne čuva privatne ključeve, ali govori kako su javni ključevi povezani i kako se novčanik može ponovno složiti.",
+      "Standardizirani opis ključeva i skripti iz kojih wallet izvodi adrese. Javni descriptor ne sadrži privatni ključ, dok privatni descriptor može sadržavati privatni materijal i zato se ne dijeli.",
   },
   {
     id: "derivation-path",
@@ -123,15 +191,39 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["PSBT", "PSBT-a", "PSBT transakcija", "PSBT transakcije"],
     title: "PSBT",
     description:
-      "Nepotpuna Bitcoin transakcija koja čeka potpise. Korisna je kada Sparrow pripremi transakciju, a hardverski novčanici je zatim potpisuju.",
+      "Standardizirani format za prijenos djelomično pripremljene ili potpisane Bitcoin transakcije između koordinatora i potpisnika. Nije privatni ključ, ali može otkrivati osjetljive podatke o walletu.",
   },
   {
     id: "bitcoin-skript",
     priority: 45,
-    terms: ["Bitcoin skript", "Bitcoin skripta", "Bitcoin skriptu"],
+    terms: [
+      "Bitcoin skript",
+      "Bitcoin skripta",
+      "Bitcoin skriptu",
+      "izlazna skripta",
+      "izlaznih skripti",
+      "skriptne mogućnosti",
+      "skriptne putove",
+      "skripta",
+      "skripti",
+    ],
     title: "Bitcoin skript",
     description:
       "Skup pravila koji određuje pod kojim se uvjetima bitcoin može potrošiti, primjerice koji potpisi, ključevi ili vremenski rokovi moraju vrijediti.",
+  },
+  {
+    id: "digitalni-potpis",
+    priority: 35,
+    terms: [
+      "digitalni potpis",
+      "digitalnog potpisa",
+      "digitalne potpise",
+      "potpise",
+      "potpis",
+    ],
+    title: "Digitalni potpis",
+    description:
+      "Matematički dokaz da je vlasnik privatnog ključa odobrio transakciju. Čvorovi ga mogu provjeriti bez otkrivanja privatnog ključa.",
   },
   {
     id: "miniscript",
@@ -153,14 +245,14 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["Nunchuk", "Nunchuka", "Nunchukom"],
     title: "Nunchuk",
     description:
-      "Bitcoin novčanik i usluga koja podržava višepotpisne sustave i naprednije politike, uključujući Miniscript.",
+      "Bitcoin novčanik i usluga koja podržava višepotpisne sustave i naprednije politike, uključujući Miniscript. Nije dio aktualnog Bitcoin Core Standarda ove stranice.",
   },
   {
     id: "liana",
     terms: ["Liana", "Liane", "Liani"],
     title: "Liana",
     description:
-      "Bitcoin novčanik usmjeren na sigurnost, oporavak i nasljeđivanje pomoću vremenskih uvjeta i Miniscripta.",
+      "Bitcoin novčanik usmjeren na oporavak pomoću vremenskih uvjeta i Miniscripta. Nije dio aktualnog Bitcoin Core Standarda ove stranice.",
   },
   {
     id: "checklocktimeverify",
@@ -198,6 +290,622 @@ export const glossaryTerms: GlossaryTerm[] = [
       "Prijedlog koji je u Bitcoin uveo CHECKSEQUENCEVERIFY, pravilo za relativne rokove u skriptu.",
   },
   {
+    id: "bip-110",
+    priority: 100,
+    terms: ["BIP-110"],
+    title: "BIP-110",
+    description:
+      "Prijedlog da se na ograničeno vrijeme postrože neka Bitcoinova pravila za podatke u transakcijama. Prijedlog nije isto što i prihvaćeno pravilo mreže.",
+  },
+  {
+    id: "bip",
+    priority: 20,
+    terms: ["BIP", "BIP-ovi", "BIP-ovima"],
+    title: "BIP",
+    description:
+      "Dokument kojim se predlaže ili opisuje poboljšanje Bitcoina. BIP može biti samo ideja, dovršena specifikacija ili već prihvaćen standard.",
+  },
+  {
+    id: "soft-fork",
+    priority: 50,
+    terms: ["soft fork", "soft forka", "soft forkove", "soft forkovi"],
+    title: "Soft fork",
+    description:
+      "Promjena koja postrožuje pravila tako da novi čvorovi prihvaćaju uži skup blokova, dok stari čvorovi te blokove još mogu smatrati valjanima.",
+  },
+  {
+    id: "hard-fork",
+    priority: 50,
+    terms: ["hard fork", "hard forka", "hard forkovi"],
+    title: "Hard fork",
+    description:
+      "Promjena pravila koja nije kompatibilna sa starim pravilima. Ako svi ne prijeđu na ista pravila, mreža se može trajno podijeliti na dva lanca.",
+  },
+  {
+    id: "konsenzus",
+    priority: 25,
+    terms: [
+      "konsenzus",
+      "konsenzusa",
+      "konsenzusu",
+      "konsenzusni",
+      "konsenzusna",
+      "konsenzusno",
+      "konsenzusnih",
+    ],
+    title: "Konsenzus",
+    description:
+      "Temeljna pravila po kojima čvorovi odlučuju jesu li transakcija i blok valjani. Čvor koji provodi drukčija pravila može završiti na drugom lancu.",
+  },
+  {
+    id: "politika-prosljedivanja",
+    priority: 45,
+    terms: [
+      "politika prosljeđivanja",
+      "politike prosljeđivanja",
+      "pravilima prosljeđivanja",
+      "relejna politika",
+      "relejne politike",
+      "relejnoj politici",
+      "prosljeđivanje transakcija",
+      "prosljeđivanja transakcija",
+    ],
+    title: "Politika prosljeđivanja",
+    description:
+      "Lokalna pravila po kojima čvor odlučuje koje nepotvrđene transakcije čuva i šalje dalje. Ona ne određuju je li transakcija u bloku konsenzusno valjana.",
+  },
+  {
+    id: "mempool",
+    priority: 45,
+    terms: ["mempool", "mempoola", "mempoolu"],
+    title: "Mempool",
+    description:
+      "Privremeni spremnik nepotvrđenih transakcija na pojedinom čvoru. Svaki čvor može imati malo drukčiji sadržaj mempoola.",
+  },
+  {
+    id: "op-return",
+    priority: 60,
+    terms: ["OP_RETURN", "OP_RETURN-a"],
+    title: "OP_RETURN",
+    description:
+      "Dio Bitcoin transakcije kojim se u lanac može zapisati mala količina podataka, a taj izlaz nije moguće potrošiti kao bitcoin.",
+  },
+  {
+    id: "witness",
+    priority: 45,
+    terms: [
+      "witness",
+      "witnessa",
+      "witness podaci",
+      "witness podataka",
+      "witness verzije",
+      "witness verzija",
+    ],
+    title: "Witness podaci",
+    description:
+      "Dio transakcije u kojem se uglavnom nalaze potpisi i drugi dokazi da je trošenje dopušteno. SegWit ih odvaja od osnovnog dijela transakcije.",
+  },
+  {
+    id: "taproot",
+    priority: 50,
+    terms: [
+      "Taproot",
+      "Taproota",
+      "Taprootov",
+      "Taprootove",
+      "Taproot annex",
+      "kontrolnih blokova",
+      "kontrolni blok",
+    ],
+    title: "Taproot",
+    description:
+      "Bitcoinova nadogradnja koja omogućuje učinkovitije potpise i naprednije uvjete trošenja. Annex i kontrolni blokovi posebni su dijelovi tih konstrukcija.",
+  },
+  {
+    id: "operacijski-kod",
+    priority: 55,
+    terms: [
+      "operacijski kod",
+      "operacijske kodove",
+      "OP_SUCCESS",
+      "OP_IF",
+      "OP_NOTIF",
+    ],
+    title: "Operacijski kod",
+    description:
+      "Pojedina naredba u Bitcoinovu skriptnom jeziku. Govori čvoru koju provjeru treba izvršiti prije nego što dopusti trošenje.",
+  },
+  {
+    id: "rudarska-signalizacija",
+    priority: 35,
+    terms: [
+      "rudarska signalizacija",
+      "rudarske signalizacije",
+      "rudarskoj signalizaciji",
+      "signalizira BIP-110",
+      "signaliziraju podršku",
+      "signalizacija rudara",
+      "obvezno signaliziranje",
+    ],
+    title: "Rudarska signalizacija",
+    description:
+      "Oznaka u blokovima kojom rudari javno pokazuju spremnost za određenu promjenu. Signal nije sam po sebi konačna odluka cijele mreže.",
+  },
+  {
+    id: "manjinski-lanac",
+    priority: 40,
+    terms: [
+      "manjinski lanac",
+      "manjinskog lanca",
+      "manjinskom lancu",
+      "rascjep",
+      "rascjepa",
+      "rascjepu",
+    ],
+    title: "Manjinski lanac i rascjep",
+    description:
+      "Odvojeni lanac koji slijedi manji dio mreže nakon neslaganja o pravilima. Tada dvije skupine više ne priznaju iste blokove kao Bitcoin.",
+  },
+  {
+    id: "p2p-mreza",
+    priority: 35,
+    terms: [
+      "P2P mreža",
+      "P2P mrežu",
+      "P2P distribucija",
+      "P2P distribucije",
+      "P2P",
+    ],
+    title: "P2P mreža",
+    description:
+      "Mreža ravnopravnih računala koja podatke razmjenjuju izravno, bez jednog središnjeg poslužitelja koji upravlja cijelim sustavom.",
+  },
+  {
+    id: "arhivski-cvor",
+    priority: 35,
+    terms: [
+      "arhivski čvor",
+      "arhivski čvorovi",
+      "arhivskih čvorova",
+      "početna sinkronizacija",
+      "početne sinkronizacije",
+    ],
+    title: "Arhivski čvor i početna sinkronizacija",
+    description:
+      "Arhivski čvor čuva punu povijest blokova. Početna sinkronizacija je prvo preuzimanje i provjera te povijesti kada se čvor pokrene.",
+  },
+  {
+    id: "vanjski-ucinak",
+    priority: 20,
+    terms: ["vanjski učinak", "vanjskog učinka", "negativan vanjski učinak"],
+    title: "Vanjski učinak",
+    description:
+      "Trošak ili korist koju neka aktivnost stvara drugima, iako oni nisu izravno sudjelovali u dogovoru ni plaćanju.",
+  },
+  {
+    id: "schellingova-tocka",
+    priority: 45,
+    terms: ["Schellingova točka", "Schellingove točke"],
+    title: "Schellingova točka",
+    description:
+      "Rješenje oko kojeg se ljudi mogu uskladiti bez središnjeg zapovjednika jer ga svi očekuju kao prirodnu zajedničku polaznu točku.",
+  },
+  {
+    id: "asic",
+    priority: 45,
+    terms: ["ASIC", "ASIC uređajima", "ASIC uređaji"],
+    title: "ASIC",
+    description:
+      "Specijalizirani uređaj napravljen gotovo isključivo za Bitcoin rudarenje. Mnogo je učinkovitiji od običnog računala za taj posao.",
+  },
+  {
+    id: "dokaz-rada",
+    priority: 45,
+    terms: [
+      "dokaz rada",
+      "dokaza rada",
+      "dokazu rada",
+      "algoritam dokaza rada",
+    ],
+    title: "Dokaz rada",
+    description:
+      "Mehanizam kojim rudari troše računalni rad i energiju da bi predložili novi blok. Čvorovi zatim provjeravaju je li taj rad valjan.",
+  },
+  {
+    id: "tezina-bloka",
+    priority: 40,
+    terms: [
+      "težina bloka",
+      "težine bloka",
+      "težine blokova",
+      "jedinica težine",
+      "jedinice težine",
+    ],
+    title: "Težina bloka",
+    description:
+      "Bitcoinova mjera količine podataka u bloku. Potpisni podaci računaju se povoljnije od osnovnih podataka, pa težina nije isto što i broj bajtova.",
+  },
+  {
+    id: "virtualni-bajt",
+    priority: 55,
+    terms: ["vB", "virtualna veličina", "virtualne veličine"],
+    title: "Virtualni bajt (vB)",
+    description:
+      "Jedinica koja približno pokazuje koliko mjesta transakcija zauzima nakon što se uračuna Bitcoinovo pravilo težine. Naknade se često izražavaju po vB-u.",
+  },
+  {
+    id: "segwit",
+    priority: 45,
+    terms: ["SegWit", "SegWita", "SegWit transakcija", "SegWit transakcije"],
+    title: "SegWit",
+    description:
+      "Bitcoinova nadogradnja koja odvaja potpise od osnovnog dijela transakcije. Time je poboljšala kapacitet i omogućila sigurniju gradnju Lightninga.",
+  },
+  {
+    id: "on-chain",
+    priority: 35,
+    terms: [
+      "on-chain",
+      "izvan lanca",
+      "izvanlančani",
+      "izvanlančana",
+      "u Bitcoinovu lancu",
+      "na Bitcoinovu lancu",
+    ],
+    title: "On-chain i izvan lanca",
+    description:
+      "On-chain znači da je zapis izravno potvrđen u Bitcoinovu lancu. Izvan lanca znači da se aktivnost odvija drugdje, a Bitcoin se koristi za konačnu provjeru ili namirenje.",
+  },
+  {
+    id: "osnovni-i-drugi-sloj",
+    priority: 35,
+    terms: [
+      "osnovni sloj",
+      "osnovnog sloja",
+      "osnovnom sloju",
+      "drugi sloj",
+      "drugog sloja",
+      "drugom sloju",
+      "dodatni sloj",
+      "dodatnih slojeva",
+    ],
+    title: "Osnovni i drugi sloj",
+    description:
+      "Osnovni sloj je sam Bitcoinov lanac. Drugi sloj obrađuje mnogo aktivnosti izvan njega, ali se za konačnu sigurnost ili namirenje oslanja na Bitcoin.",
+  },
+  {
+    id: "agregacija",
+    priority: 25,
+    terms: [
+      "agregacija",
+      "agregirati",
+      "agregira",
+      "grupirana namirenja",
+      "grupirati svoju aktivnost",
+      "grupira velik broj",
+    ],
+    title: "Agregacija",
+    description:
+      "Spajanje mnogo pojedinačnih radnji u manji broj sažetih zapisa. Time se štedi oskudan prostor na Bitcoinovu osnovnom sloju.",
+  },
+  {
+    id: "konacno-namirenje",
+    priority: 35,
+    terms: [
+      "konačno namirenje",
+      "konačnog namirenja",
+      "konačnom namirenju",
+      "konačnih namirenja",
+      "neto namirenje",
+      "neto namirenja",
+    ],
+    title: "Konačno namirenje",
+    description:
+      "Trenutak kada je prijenos konačno zabilježen na Bitcoinovu lancu i više ne ovisi samo o obećanju banke, operatora ili drugog sustava.",
+  },
+  {
+    id: "platni-kanal",
+    priority: 30,
+    terms: [
+      "platni kanal",
+      "platni kanali",
+      "platnih kanala",
+      "kanal za plaćanje",
+      "kanali za plaćanje",
+    ],
+    title: "Platni kanal",
+    description:
+      "Veza u kojoj sudionici mogu obaviti mnogo plaćanja bez zapisivanja svakoga na Bitcoin. Na lanac obično izlaze pri otvaranju, zatvaranju ili sporu.",
+  },
+  {
+    id: "ark",
+    priority: 45,
+    terms: ["Ark", "Arka", "Arku", "Ark-slični"],
+    title: "Ark",
+    description:
+      "Predloženi Bitcoin sustav koji grupira prava mnogih korisnika u mali broj zapisa na lancu, uz mogućnost da korisnik pod određenim uvjetima sam povuče sredstva.",
+  },
+  {
+    id: "vtxo",
+    priority: 55,
+    terms: ["VTXO", "VTXO-i", "VTXO-e"],
+    title: "VTXO",
+    description:
+      "Virtualni UTXO u Arku. Predstavlja korisnikovo pravo na bitcoin izvan osnovnog lanca, uz unaprijed pripremljen put za izlaz na Bitcoin.",
+  },
+  {
+    id: "unilateralni-izlaz",
+    priority: 45,
+    terms: [
+      "unilateralni izlaz",
+      "unilateralnog izlaza",
+      "unilateralnom izlazu",
+      "unilateralnim izlazom",
+    ],
+    title: "Unilateralni izlaz",
+    description:
+      "Mogućnost da korisnik sam povuče svoja sredstva na Bitcoin, bez dopuštenja operatora ili drugih sudionika sustava.",
+  },
+  {
+    id: "bitvm",
+    priority: 55,
+    terms: ["BitVM", "BitVM-a", "BitVM2", "BitVM sustav"],
+    title: "BitVM",
+    description:
+      "Pristup kojim se složeni izračun provjerava kroz spor i dokaz prijevare, umjesto da Bitcoin izravno izvršava cijeli program.",
+  },
+  {
+    id: "most",
+    priority: 25,
+    terms: [
+      "Bitcoin most",
+      "Bitcoin mostovi",
+      "BitVM most",
+      "BitVM mostom",
+      "mostovi",
+      "mostom",
+    ],
+    title: "Most",
+    description:
+      "Sustav koji povezuje bitcoin s drugim slojem ili mrežom. Korisnik zaključava ili predstavlja bitcoin drugdje, pa sigurnost ovisi o pravilima tog mosta.",
+  },
+  {
+    id: "rollup",
+    priority: 50,
+    terms: [
+      "rollup",
+      "rollupa",
+      "rollupu",
+      "rollupovi",
+      "rollupova",
+      "rollupove",
+    ],
+    title: "Rollup",
+    description:
+      "Sustav koji grupira mnogo transakcija i na osnovni sloj objavljuje sažetak ili dokaz promjene stanja. Tako jedan zapis može predstavljati velik broj radnji.",
+  },
+  {
+    id: "kriptografski-hash",
+    priority: 50,
+    terms: [
+      "kriptografski hash",
+      "kriptografskog hasha",
+      "hash",
+      "hasha",
+      "sažetak promjene stanja",
+      "sažeta promjena stanja",
+    ],
+    title: "Kriptografski hash",
+    description:
+      "Kratak digitalni otisak podataka. Vrlo mala promjena ulaza daje drugi otisak, pa hash može dokazati da se podaci nisu promijenili.",
+  },
+  {
+    id: "korijen-stanja",
+    priority: 45,
+    terms: ["korijen stanja", "korijena stanja", "korijenu stanja"],
+    title: "Korijen stanja",
+    description:
+      "Jedan kratki kriptografski sažetak cijelog stanja sustava. Može potvrditi konzistentnost, ali sam ne sadrži sve podatke potrebne za obnovu stanja.",
+  },
+  {
+    id: "dostupnost-podataka",
+    priority: 45,
+    terms: [
+      "dostupnost podataka",
+      "dostupnosti podataka",
+      "dostupnošću podataka",
+      "dostupni podaci",
+      "dostupnih podataka",
+    ],
+    title: "Dostupnost podataka",
+    description:
+      "Jamstvo da korisnici mogu doći do podataka potrebnih za provjeru i obnovu sustava, a ne samo do kratkog sažetka koji objavi operator.",
+  },
+  {
+    id: "sekvencer",
+    priority: 45,
+    terms: ["sekvencer", "sekvencera", "sekvencerom"],
+    title: "Sekvencer",
+    description:
+      "Sudionik koji prima i raspoređuje transakcije drugog sloja. Ako je samo jedan, može usporavati, preuređivati ili cenzurirati transakcije.",
+  },
+  {
+    id: "dokaz-prijevare",
+    priority: 40,
+    terms: [
+      "dokaz prijevare",
+      "dokaza prijevare",
+      "proof sustav",
+      "proof sustava",
+      "dokaziva tvrdnja",
+    ],
+    title: "Dokaz prijevare",
+    description:
+      "Kriptografski dokaz kojim se pokazuje da je operator objavio netočan rezultat. Sustav tada može odbaciti tvrdnju ili kazniti prekršitelja.",
+  },
+  {
+    id: "rudarski-bazen",
+    priority: 40,
+    terms: [
+      "rudarski bazen",
+      "rudarski bazeni",
+      "rudarskim bazenima",
+      "veliki bazeni",
+      "velikih bazena",
+    ],
+    title: "Rudarski bazen",
+    description:
+      "Skupina rudara koja udružuje računalnu snagu i dijeli zaradu. Bazen obično bira koje će transakcije pokušati uključiti u blok.",
+  },
+  {
+    id: "blokovska-subvencija",
+    priority: 45,
+    terms: [
+      "blokovska subvencija",
+      "blokovske subvencije",
+      "blokovskom subvencijom",
+      "subvencija bloka",
+      "subvencije",
+      "subvenciju",
+      "subvencioniranih bitcoina",
+    ],
+    title: "Blokovska subvencija",
+    description:
+      "Novi bitcoin koji protokol dodjeljuje rudaru za valjan blok. Iznos se povremeno prepolovljuje i s vremenom pada prema nuli.",
+  },
+  {
+    id: "transakcijska-naknada",
+    priority: 30,
+    terms: [
+      "transakcijska naknada",
+      "transakcijske naknade",
+      "transakcijskih naknada",
+      "tržište naknada",
+      "tržišta naknada",
+    ],
+    title: "Transakcijska naknada",
+    description:
+      "Iznos koji korisnik nudi rudaru da transakciju uključi u blok. Kada nema dovoljno mjesta, više naknade obično imaju prednost.",
+  },
+  {
+    id: "hashprice",
+    priority: 50,
+    terms: ["hashprice", "hashpriceu"],
+    title: "Hashprice",
+    description:
+      "Procjena prihoda koji rudar može ostvariti za određenu količinu računalne snage. Ovisi o cijeni bitcoina, naknadama i težini rudarenja.",
+  },
+  {
+    id: "tezina-rudarenja",
+    priority: 35,
+    terms: [
+      "težina rudarenja",
+      "težine rudarenja",
+      "rast težine",
+      "težina mreže",
+    ],
+    title: "Težina rudarenja",
+    description:
+      "Pravilo koje određuje koliko je teško pronaći novi blok. Bitcoin ga prilagođava kako bi blokovi u prosjeku i dalje dolazili približno svakih deset minuta.",
+  },
+  {
+    id: "dvostruka-potrosnja",
+    priority: 40,
+    terms: [
+      "dvostruka potrošnja",
+      "dvostruke potrošnje",
+      "dvostrukoj potrošnji",
+    ],
+    title: "Dvostruka potrošnja",
+    description:
+      "Pokušaj da se isti bitcoin potroši dvaput. Čvorovi provjeravaju povijest i prihvaćaju samo jednu valjanu potrošnju.",
+  },
+  {
+    id: "monetarna-baza",
+    priority: 20,
+    terms: [
+      "monetarna baza",
+      "monetarne baze",
+      "monetarnu bazu",
+      "monetarnom bazom",
+    ],
+    title: "Monetarna baza",
+    description:
+      "Temeljni novac na kojem se grade drugi oblici računa, kredita i plaćanja. U ovom vodiču to je konačno namirenje u samom bitcoinu.",
+  },
+  {
+    id: "kolateral",
+    priority: 20,
+    terms: ["kolateral", "kolaterala", "kolateralom"],
+    title: "Kolateral",
+    description:
+      "Imovina založena kao osiguranje obveze ili zajma. Ako dužnik ne ispuni obvezu, vjerovnik može posegnuti za tim osiguranjem.",
+  },
+  {
+    id: "bajt",
+    priority: 15,
+    terms: ["bajt", "bajta", "bajtova", "bajtom", "bajtovi"],
+    title: "Bajt",
+    description:
+      "Mala jedinica digitalnih podataka. U Bitcoinu je prostor u blokovima ograničen, pa broj bajtova utječe na kapacitet i naknadu.",
+  },
+  {
+    id: "bitcoin-blok",
+    priority: 15,
+    terms: [
+      "Bitcoinov blok",
+      "Bitcoinovi blokovi",
+      "Bitcoinovih blokova",
+      "blok",
+      "bloka",
+      "blokovi",
+      "blokova",
+      "blokovima",
+    ],
+    title: "Bitcoinov blok",
+    description:
+      "Paket potvrđenih transakcija koji rudar predlaže mreži. Čvorovi ga prihvaćaju samo ako poštuje sva Bitcoinova pravila.",
+  },
+  {
+    id: "transakcijski-ulaz-izlaz",
+    priority: 25,
+    terms: [
+      "transakcijski ulaz",
+      "transakcijski izlaz",
+      "ulazom",
+      "izlazom",
+      "ulaza",
+      "izlaza",
+      "izlazne puteve",
+    ],
+    title: "Ulaz i izlaz transakcije",
+    description:
+      "Ulaz pokazuje koji se postojeći komad bitcoina troši, a izlaz određuje novi iznos i uvjete pod kojima će ga netko poslije moći potrošiti.",
+  },
+  {
+    id: "rudarenje",
+    priority: 20,
+    terms: [
+      "Bitcoin rudarenje",
+      "rudarenje",
+      "rudarenja",
+      "rudarenju",
+      "rudarski pogon",
+      "rudarski pogoni",
+    ],
+    title: "Bitcoin rudarenje",
+    description:
+      "Natjecanje u kojem specijalizirani uređaji troše energiju kako bi pronašli valjan novi blok. Rudari dobivaju subvenciju i naknade.",
+  },
+  {
+    id: "btc",
+    priority: 20,
+    terms: ["BTC"],
+    title: "BTC",
+    description:
+      "Najčešća tržišna kratica za bitcoin, slično kao što se EUR koristi za euro. Ne označava poseban token odvojen od Bitcoina.",
+  },
+  {
     id: "node",
     terms: [
       "puni čvor",
@@ -213,6 +921,10 @@ export const glossaryTerms: GlossaryTerm[] = [
       "nodeu",
       "vlastiti čvor",
       "Bitcoin čvor",
+      "zadani čvorovi",
+      "gospodarskih čvorova",
+      "broj čvorova",
+      "čvorovi",
     ],
     title: "Node (vlastiti Bitcoin čvor)",
     description:
@@ -237,7 +949,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["Fulcrum"],
     title: "Fulcrum",
     description:
-      "Privatni Electrum poslužitelj koji radi uz vlastiti Bitcoin node. Sparrowu omogućuje brzo i privatnije čitanje stanja novčanika.",
+      "Electrum poslužitelj koji može raditi uz vlastiti Bitcoin node. Postoji u drugim arhitekturama, ali nije komponenta aktualnog Bitcoin Core Standarda ove stranice.",
   },
   {
     id: "electrum-posluzitelj",
@@ -281,7 +993,17 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     id: "samostalna-pohrana",
-    terms: ["samostalna pohrana", "samostalnoj pohrani", "samostalnu pohranu"],
+    terms: [
+      "samostalna pohrana",
+      "samostalnoj pohrani",
+      "samostalnu pohranu",
+      "samoskrbništvo",
+      "samoskrbništva",
+      "samoskrbništvu",
+      "samoskrbnički",
+      "samoskrbnička",
+      "samoskrbničke",
+    ],
     title: "Samostalna pohrana",
     description:
       "Način čuvanja u kojem vi kontrolirate ključeve. Daje više slobode, ali traži dobar plan, pričuvne kopije i nasljeđivanje.",
@@ -583,7 +1305,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["Sparrow"],
     title: "Sparrow",
     description:
-      "Bitcoin novčanik za računalo koji dobro radi s hardverskim novčanicima i višepotpisnim sustavima. Često služi kao kontrolna ploča, a ne kao mjesto gdje žive privatni ključevi.",
+      "Bitcoin novčanik za računalo koji podržava vanjske potpisnike i višepotpisne sustave. Nije koordinator u aktualnom Bitcoin Core Standardu ove stranice.",
   },
   {
     id: "bitcoin-blockchain",
@@ -940,14 +1662,14 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["Linux Mint"],
     title: "Linux Mint",
     description:
-      "Linux operativni sustav s jednostavnim grafičkim sučeljem. Praktičan je za računalo na kojem obitelj otvara Sparrow i slijedi upute.",
+      "Linux operativni sustav s grafičkim sučeljem. Prikladnost za namjenski Bitcoin uređaj ovisi o provjeri instalacije, podršci i sposobnosti korisnika da ga održava.",
   },
   {
     id: "ubuntu-server",
     terms: ["Ubuntu Server"],
     title: "Ubuntu Server",
     description:
-      "Poslužiteljska verzija Ubuntu Linuxa. Može služiti kao alternativa Debianu za računalo koje pokreće Bitcoin Core i Fulcrum.",
+      "Poslužiteljska verzija Ubuntu Linuxa. Može pokretati Bitcoin Core, ali izbor distribucije ne zamjenjuje provjeru instalacije i održavanje sustava.",
   },
   {
     id: "fedora-server",
@@ -975,28 +1697,28 @@ export const glossaryTerms: GlossaryTerm[] = [
     terms: ["ThinkPad", "ThinkPada", "ThinkPadu"],
     title: "ThinkPad",
     description:
-      "Lenovova poslovna linija laptopa, često dobro podržana na Linuxu. U vodiču je primjer odvojenog računala za Sparrow.",
+      "Lenovova poslovna linija laptopa, često dobro podržana na Linuxu. Marka sama po sebi nije sigurnosna preporuka; konkretan uređaj treba provjeriti.",
   },
   {
     id: "lenovo-mini-pc",
     terms: ["Lenovo mini PC"],
     title: "Lenovo mini PC",
     description:
-      "Malo stolno računalo poslovne klase. U ovom kontekstu služi kao miran, odvojen stroj za Bitcoin Core i Fulcrum.",
+      "Malo stolno računalo poslovne klase. Može pokretati Bitcoin Core node, ali nije zadani uređaj niti jamstvo sigurnosti.",
   },
   {
     id: "coldcard",
     terms: ["COLDCARD Q", "COLDCARD", "COLDCARD Mk4"],
     title: "COLDCARD",
     description:
-      "Bitcoin-only hardverski novčanik za korisnike koji žele stroži sigurnosni način rada. Dobar je kao jedan od potpisnika u višepotpisnom sustavu.",
+      "Specijalizirani Bitcoin hardverski novčanik. Ova neutralna definicija nije aktualna preporuka za glavni dugoročni sustav ove stranice.",
   },
   {
     id: "bitbox02",
     terms: ["BitBox02 Bitcoin-only", "BitBox02", "BitBox"],
     title: "BitBox02 Bitcoin-only",
     description:
-      "Jednostavniji Bitcoin-only hardverski novčanik. U obiteljskom sustavu može biti praktičan ključ za osobu koja ne želi tehnički složen uređaj.",
+      "Specijalizirani Bitcoin hardverski novčanik. Ova neutralna definicija nije aktualna preporuka za glavni dugoročni sustav ove stranice.",
   },
   {
     id: "passport-core",
@@ -1008,28 +1730,28 @@ export const glossaryTerms: GlossaryTerm[] = [
     ],
     title: "Foundation Passport Core",
     description:
-      "Bitcoin-only hardverski novčanik koji može raditi preko QR kodova. Koristan je kao treći, odvojeni potpisnik u obiteljskom planu.",
+      "Specijalizirani Bitcoin hardverski novčanik koji može razmjenjivati podatke QR kodovima. Nije dio aktualnog Bitcoin Core Standarda ove stranice.",
   },
   {
     id: "blockstream-jade-plus",
     terms: ["Blockstream Jade Plus", "Jade Plus", "Jade"],
     title: "Blockstream Jade Plus",
     description:
-      "Bitcoin hardverski novčanik koji može biti praktična zamjena za treći ključ. Važna je njegova uloga u sustavu, a ne samo naziv uređaja.",
+      "Specijalizirani Bitcoin hardverski novčanik. Ova neutralna definicija nije aktualna preporuka za glavni dugoročni sustav ove stranice.",
   },
   {
     id: "specter-diy",
     terms: ["Specter DIY"],
     title: "Specter DIY",
     description:
-      "Potpisni uređaj koji se više oslanja na ručno sastavljanje i provjeru. Zanimljiv je za napredne korisnike, ali obitelji može biti zahtjevniji.",
+      "Potpisni uređaj koji se više oslanja na ručno sastavljanje i provjeru. Ova neutralna definicija nije aktualna preporuka za glavni dugoročni sustav ove stranice.",
   },
   {
     id: "seedsigner",
     terms: ["SeedSigner"],
     title: "SeedSigner",
     description:
-      "Potpisni uređaj koji seed obično ne sprema trajno na sam uređaj. Sigurnosno je zanimljiv, ali traži vrlo jasne upute za oporavak.",
+      "Potpisni uređaj koji početne riječi obično ne sprema trajno na sam uređaj. Ova neutralna definicija nije aktualna preporuka za glavni dugoročni sustav ove stranice.",
   },
   {
     id: "halving",

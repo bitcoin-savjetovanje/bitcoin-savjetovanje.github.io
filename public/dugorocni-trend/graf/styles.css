@@ -1,0 +1,214 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #102033;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.chart-page {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  background: #ffffff;
+}
+
+.chart-stage {
+  position: relative;
+  min-height: 0;
+  overflow: visible;
+}
+
+#bitcoin-root-scale-chart {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.chart-status {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: #ffffff;
+  color: #5c7085;
+  font-size: 14px;
+  text-align: center;
+}
+
+.chart-status[hidden] {
+  display: none;
+}
+
+.chart-status::before {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border: 2px solid rgba(0, 123, 255, 0.2);
+  border-top-color: #007bff;
+  border-radius: 50%;
+  content: "";
+  animation: chart-spin 0.8s linear infinite;
+}
+
+.chart-status--error {
+  flex-direction: column;
+  color: #5a2630;
+}
+
+.chart-status--error::before {
+  display: none;
+}
+
+.chart-status--error strong {
+  color: #8f1730;
+  font-size: 16px;
+}
+
+.chart-status--error button {
+  min-width: 40px;
+  min-height: 40px;
+  margin-top: 4px;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 8px;
+  background: #102033;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition-property: background-color, scale;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.chart-status--error button:hover {
+  background: #263d56;
+}
+
+.chart-status--error button:active {
+  scale: 0.96;
+}
+
+.modebar-container {
+  top: 24px !important;
+  right: 24px !important;
+}
+
+.modebar {
+  display: flex !important;
+  gap: 2px;
+  padding: 2px !important;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow:
+    0 1px 2px rgba(16, 32, 51, 0.12),
+    0 6px 16px rgba(16, 32, 51, 0.08);
+}
+
+.modebar-group {
+  display: flex !important;
+  gap: 0;
+  padding: 0 !important;
+}
+
+.modebar-btn {
+  display: grid !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border-radius: 7px !important;
+  place-items: center;
+  color: #30475f !important;
+  transition-property: background-color, color, scale !important;
+  transition-duration: 140ms !important;
+  transition-timing-function: ease-out !important;
+}
+
+.modebar-btn:hover,
+.modebar-btn.active {
+  background: #edf3f8 !important;
+  color: #102033 !important;
+}
+
+.modebar-btn:active {
+  scale: 0.96;
+}
+
+.modebar-btn svg {
+  position: static !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+@keyframes chart-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 819px) {
+  #bitcoin-root-scale-chart {
+    height: 100%;
+  }
+
+  .modebar-container {
+    top: 16px !important;
+    right: 16px !important;
+  }
+
+  .modebar {
+    gap: 1px;
+    padding: 2px !important;
+  }
+
+  .modebar-group {
+    gap: 0;
+  }
+
+  .modebar-btn {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

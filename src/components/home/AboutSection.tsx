@@ -1,5 +1,6 @@
 import { CalendarDays, Mail } from "lucide-react"
 
+import { SaifedeanAmmousReference } from "@/components/SaifedeanAmmousReference"
 import { SectionHeader } from "@/components/layout/SectionHeader"
 import {
   CONVERSATION_PATH,
@@ -7,7 +8,6 @@ import {
   EMAIL,
   BITCOIN_STANDARD_AUDIO_URL,
   PRACTICAL_BITCOIN_STANDARD_URL,
-  SAIFEDEAN_AMMOUS_URL,
   SAIF_HOUSE_URL,
   STEMI_URL,
 } from "@/content/site"
@@ -58,14 +58,7 @@ export function AboutSection() {
             </p>
             <p>
               U Bitcoin industriji radio sam sa{" "}
-              <a
-                href={SAIFEDEAN_AMMOUS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Saifedeanom Ammousom
-              </a>
-              , autorom knjige Bitcoin Standard, na njegovoj online akademiji,{" "}
+              <SaifedeanAmmousReference />, na njegovoj online akademiji,{" "}
               <a
                 href={BITCOIN_STANDARD_AUDIO_URL}
                 target="_blank"
@@ -130,8 +123,8 @@ export function AboutSection() {
               <article>
                 <strong>Bitcoin industrija</strong>
                 <span>
-                  Rad sa Saifedeanom Ammousom na akademiji, podcastima i
-                  izdavačkoj kući.
+                  Rad sa <SaifedeanAmmousReference />, na akademiji, podcastima
+                  i izdavačkoj kući.
                 </span>
               </article>
               <article>

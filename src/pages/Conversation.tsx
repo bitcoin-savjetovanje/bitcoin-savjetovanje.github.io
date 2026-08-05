@@ -1,344 +1,561 @@
-import { ArrowUpRight, CalendarDays, Check, FileText } from "lucide-react"
-import { useEffect, useState } from "react"
+import {
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  Copy,
+  Minus,
+  ShieldCheck,
+} from "lucide-react"
+import {
+  useEffect,
+  useState,
+  type KeyboardEvent,
+  type SyntheticEvent,
+} from "react"
 
-import { CalBookingLink } from "@/components/CalBookingLink"
 import { CalInlineEmbed } from "@/components/CalInlineEmbed"
 import { Seo } from "@/components/Seo"
 import { Button } from "@/components/ui/button"
 import { conversationRoute } from "@/content/clientRoutes"
 import {
-  BITCOIN_CONSULTATION_PATH,
-  PERSONAL_BITCOIN_STANDARD_PATH,
-  SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
-} from "@/content/site"
+  businessConversationAlternativePaths,
+  businessConversationOutcomes,
+  businessConversationPreparation,
+  conversationAlternativePaths,
+  conversationOutcomes,
+  conversationPurpose,
+  conversationQuestionExamples,
+  conversationQuestionGroups,
+  conversationTopics,
+  entrepreneurConversationAlternativePaths,
+  entrepreneurConversationOutcomes,
+  entrepreneurConversationPreparation,
+  familyConversationPreparation,
+  personalConversationPreparation,
+  securityConversationPreparation,
+  type ConversationTopic,
+  type ConversationTopicId,
+} from "@/content/conversation"
+import { sanitizeConversationLocation } from "@/lib/conversationUrl"
+import { trackFirstPartyInteraction } from "@/lib/ctaEvents"
+import { PAVAO_PAHLJINA_PATH } from "@/content/site"
 
-const topExamples = [
-  "Ne znam koji je novac stvarno slobodan za Bitcoin.",
-  "Ne znam kako partneru ili obitelji objasniti odluku.",
-  "Vodim posao i ne znam što je stvarni višak riznice.",
-]
-
-const questionGroups = [
-  {
-    title: "Osobna pitanja",
-    items: [
-      "Želim učvrstiti Bitcoin tezu prije veće osobne, obiteljske ili poslovne odluke.",
-      "Imam dug i nisam siguran treba li prvo čistiti bilancu.",
-      "Bitcoin mi je jasan kao ideja, ali ne kao dio neto imovine.",
-      "Ne znam što bih radio nakon velikog pada ili rasta cijene.",
-    ],
-  },
-  {
-    title: "Obiteljska pitanja",
-    items: [
-      "Partner ili obitelj ne razumiju moju Bitcoin odluku.",
-      "Ako se meni nešto dogodi, nije jasno tko zna prvi sigurnosni korak.",
-      "Ne znam kako objasniti što se nikada ne smije dirati.",
-    ],
-  },
-  {
-    title: "Poslovna pitanja",
-    items: [
-      "Ne znam kako odvojiti privatni Bitcoin od poslovnog Bitcoina.",
-      "Imam višak u poslovnoj riznici i ne znam koja pravila trebaju postojati.",
-      "Posao ima dug, zalihe, opremu ili nestalan novčani tok.",
-    ],
-  },
-] as const
-
-const assessmentTopicQuestions = {
-  proracun: "Nemam jasno pravilo koji je novac stvarno slobodan za Bitcoin.",
-  dug: "Imam dug i ne znam kojim redoslijedom krenuti.",
-  davanje:
-    "Želim urediti pravilo davanja koje ne ugrožava proračun ni dugoročni plan.",
-  "bitcoin-kao-novac":
-    "Želim jasnije odrediti koju ulogu Bitcoin ima u mom novčanom sustavu.",
-  "neto-imovina":
-    "Ne znam kako Bitcoin uklopiti u pregled cijele neto imovine.",
-  "vrijeme-volatilnost":
-    "Ne znam koja pravila slijediti tijekom velikog pada ili rasta cijene.",
-  "sigurnost-obitelj":
-    "Želim urediti sigurnosni i obiteljski plan bez dijeljenja osjetljivih podataka.",
-  "vise-podrucja":
-    "Više dijelova mog Bitcoin standarda treba urediti i nisam siguran odakle krenuti.",
-} as const
-
-type AssessmentTopic = keyof typeof assessmentTopicQuestions
-
-function isAssessmentTopic(value: string): value is AssessmentTopic {
-  return Object.hasOwn(assessmentTopicQuestions, value)
+type TopicState = {
+  ready: boolean
+  id: ConversationTopicId | null
 }
 
-function selectedQuestionFromUrl() {
-  if (typeof window === "undefined") {
-    return ""
-  }
-
-  const params = new URLSearchParams(window.location.search)
-  const topic = params.get("tema")?.trim() ?? ""
-
-  if (isAssessmentTopic(topic)) {
-    return assessmentTopicQuestions[topic]
-  }
-
-  return params.get("pitanje")?.trim() ?? ""
-}
-
-function SelectedQuestionCard({ question }: { question: string }) {
-  const [copyLabel, setCopyLabel] = useState("Kopiraj pitanje")
+function SelectedTopic({
+  topic,
+  businessMode = false,
+  entrepreneurMode = false,
+  familyMode = false,
+  personalMode = false,
+  securityMode = false,
+}: {
+  topic: ConversationTopic
+  businessMode?: boolean
+  entrepreneurMode?: boolean
+  familyMode?: boolean
+  personalMode?: boolean
+  securityMode?: boolean
+}) {
+  const [copyStatus, setCopyStatus] = useState("")
 
   async function copyQuestion() {
-    if (typeof navigator === "undefined" || !navigator.clipboard) {
+    if (!navigator.clipboard) {
+      setCopyStatus("Kopiranje nije dostupno.")
       return
     }
 
     try {
-      await navigator.clipboard.writeText(question)
-      setCopyLabel("Kopirano")
-      window.setTimeout(() => setCopyLabel("Kopiraj pitanje"), 2200)
+      await navigator.clipboard.writeText(topic.question)
+      setCopyStatus("Pitanje je kopirano.")
     } catch {
-      setCopyLabel("Kopiranje nije dostupno")
-      window.setTimeout(() => setCopyLabel("Kopiraj pitanje"), 2200)
+      setCopyStatus("Kopiranje nije dostupno.")
     }
   }
 
   return (
-    <section className="selected-question-card" aria-label="Odabrano pitanje">
+    <aside
+      className="conversation-selected-topic"
+      aria-labelledby="conversation-selected-topic-title"
+    >
       <div>
-        <h2 className="text-xl font-semibold">Odabrano pitanje</h2>
-        <p className="mt-3 text-base leading-7 text-muted-foreground">
-          Odabrali ste pitanje:{" "}
-          <span className="text-foreground">{question}</span>
-        </p>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">
-          To pitanje možete kopirati u bilješku pri odabiru termina.
-        </p>
+        <p className="conversation-selected-topic__label">{topic.label}</p>
+        <h2 id="conversation-selected-topic-title">
+          {businessMode
+            ? "Poslovni povod"
+            : entrepreneurMode
+              ? "Pitanje za poduzetnika"
+              : familyMode
+                ? "Obiteljsko pitanje"
+                : personalMode
+                  ? "Osobni kontekst"
+                  : securityMode
+                    ? "Sigurnosno pitanje"
+                    : "Odabrana tema"}
+        </h2>
+        <p>{topic.question}</p>
+        {businessMode ||
+        entrepreneurMode ||
+        familyMode ||
+        personalMode ||
+        securityMode ? (
+          <p className="conversation-selected-topic__business-note">
+            {securityMode
+              ? "Dovoljna je jedna ili dvije rečenice. Ne šaljite iznose, lokacije, privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, fotografije sigurnosnih kopija, adrese ni pristup uređajima."
+              : familyMode || personalMode
+                ? "Dovoljna je jedna ili dvije rečenice. Ne navodite iznose i ne šaljite privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, lozinke, snimke zaslona, dokumente ni pristup uređajima."
+                : "Dovoljna je jedna ili dvije rečenice. Ne šaljite iznose, poslovne dokumente, podatke o računima, privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta ni pristup sustavima."}
+          </p>
+        ) : null}
       </div>
       <Button
         type="button"
         variant="outline"
-        className="w-full rounded-full sm:w-auto"
         onClick={copyQuestion}
+        aria-describedby="conversation-copy-status"
       >
-        {copyLabel}
+        <Copy aria-hidden="true" />
+        Kopirajte pitanje
       </Button>
-    </section>
+      <p
+        id="conversation-copy-status"
+        className="sr-only"
+        role="status"
+        aria-live="polite"
+      >
+        {copyStatus}
+      </p>
+    </aside>
   )
 }
 
 export function Conversation() {
-  const [selectedQuestion, setSelectedQuestion] = useState("")
+  const [topicState, setTopicState] = useState<TopicState>({
+    ready: false,
+    id: null,
+  })
+  const selectedTopic = topicState.id ? conversationTopics[topicState.id] : null
+  const businessMode = topicState.id === "tvrtka"
+  const entrepreneurMode = topicState.id === "poduzetnik"
+  const familyMode = topicState.id === "obitelj"
+  const personalMode =
+    topicState.id === "osobno" || topicState.id === "bitcoin-kao-novac"
+  const securityMode = topicState.id === "sigurnost"
+  const activeOutcomes = businessMode
+    ? businessConversationOutcomes
+    : entrepreneurMode
+      ? entrepreneurConversationOutcomes
+      : conversationOutcomes
+  const activeAlternatives = businessMode
+    ? businessConversationAlternativePaths
+    : entrepreneurMode
+      ? entrepreneurConversationAlternativePaths
+      : conversationAlternativePaths
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
-      setSelectedQuestion(selectedQuestionFromUrl())
+      setTopicState({ ready: true, id: sanitizeConversationLocation() })
     })
 
     return () => window.cancelAnimationFrame(frame)
   }, [])
 
+  function trackQuestionExamples(event: SyntheticEvent<HTMLDetailsElement>) {
+    if (!event.currentTarget.open) {
+      return
+    }
+
+    trackFirstPartyInteraction("conversation-more-questions-open")
+  }
+
+  function toggleQuestionExamplesWithKeyboard(
+    event: KeyboardEvent<HTMLElement>
+  ) {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return
+    }
+
+    event.preventDefault()
+
+    const details = event.currentTarget.parentElement
+
+    if (details instanceof HTMLDetailsElement) {
+      details.open = !details.open
+    }
+  }
+
   return (
     <>
       <Seo {...conversationRoute} />
-      <article className="conversation-page">
-        <header className="conversation-hero hero-section editorial-section">
-          <div className="hero-shell">
-            <div className="hero-copy conversation-hero__copy">
-              <p className="hero-eyebrow">Uvodni razgovor</p>
-              <h1 className="hero-title">
-                Dogovorite 15-minutni uvodni razgovor
-              </h1>
-              <p className="hero-subtitle">
-                Vidimo gdje ste na putu od držanja Bitcoina do sustava odluka —
-                osobno, obiteljski ili poslovno.
+      <article className="conversation-page conversation-booking-page">
+        <header className="conversation-booking-hero">
+          <div className="conversation-booking-shell conversation-booking-hero__grid">
+            <div className="conversation-booking-hero__copy">
+              <p className="conversation-booking-eyebrow">
+                {businessMode
+                  ? "Poslovni uvodni razgovor · 15 minuta"
+                  : entrepreneurMode
+                    ? "Razgovor za poduzetnika · 15 minuta"
+                    : familyMode
+                      ? "Obiteljski uvodni razgovor · 15 minuta"
+                      : personalMode
+                        ? "Osobni uvodni razgovor · 15 minuta"
+                        : securityMode
+                          ? "Sigurnosni uvodni razgovor · 15 minuta"
+                          : "Besplatni uvodni razgovor · 15 minuta"}
               </p>
-              <p className="conversation-hero__body">
-                Ne trebate pripremiti cijeli slučaj. Dovoljna je jedna odluka
-                koju pokušavate donijeti.
+              <h1>
+                {businessMode
+                  ? "Počnimo poslovnim povodom, bez osjetljivih podataka."
+                  : entrepreneurMode
+                    ? "Razdvojimo pitanje vlasnika od pitanja poslovanja."
+                    : familyMode
+                      ? "Počnimo jednom obiteljskom odlukom ili odgovornošću."
+                      : personalMode
+                        ? "Koju osobnu Bitcoin odluku želite razjasniti?"
+                        : securityMode
+                          ? "Koji dio svojeg modela skrbništva želite razjasniti?"
+                          : "Donesite jedno pitanje. Utvrdit ćemo koji je pravi sljedeći korak."}
+              </h1>
+              <p className="conversation-booking-hero__lead">
+                {businessMode
+                  ? "U kratkom razgovoru utvrđujemo što je otvorilo temu, tko treba sudjelovati i je li Bitcoin briefing za upravu pravi sljedeći korak."
+                  : entrepreneurMode
+                    ? "U kratkom razgovoru utvrđujemo pripada li pitanje jednoj Bitcoin konzultaciji, vlasnikovu osobnom Bitcoin standardu ili organizacijskom razgovoru s upravom i stručnjacima."
+                    : familyMode
+                      ? "U kratkom razgovoru utvrđujemo treba li razjasniti jedno obiteljsko pitanje, uključiti partnera u nastavak ili povezati prihod, dug, korištenje Bitcoina, sigurnost i kontinuitet u cijeli osobni Bitcoin standard."
+                      : personalMode
+                        ? "Dovoljna je jedna ili dvije rečenice o odluci koju želite razjasniti. Ne trebate unaprijed znati pripada li pitanje jednom razgovoru ili cijelom osobnom Bitcoin standardu."
+                        : securityMode
+                          ? "Dovoljna je jedna ili dvije rečenice o modelu, jednoj točki kvara, prvom koraku oporavka ili dokumentaciji bez tajni. Ne trebate opisati cijelu konfiguraciju."
+                          : "Uvodni razgovor služi tome da razumijemo vašu situaciju i odredimo je li dovoljan vodič, treba li pripremljena Bitcoin konzultacija ili je pitanje dio šireg osobnog Bitcoin standarda."}
+              </p>
+
+              <ul
+                className="conversation-booking-facts"
+                aria-label="Ključne činjenice o uvodnom razgovoru"
+              >
+                <li>15 minuta</li>
+                <li>0 €</li>
+                <li>bez obveze</li>
+                <li>bez osjetljivih podataka</li>
+              </ul>
+
+              <p className="conversation-booking-hero__notice">
+                <strong>
+                  {businessMode
+                    ? "Ovo nije skraćeni besplatni briefing."
+                    : entrepreneurMode
+                      ? "Ovo nije skraćena besplatna poslovna konzultacija."
+                      : familyMode
+                        ? "Ovo nije skraćena besplatna obiteljska konzultacija."
+                        : "Ovo nije skraćena besplatna konzultacija."}
+                </strong>{" "}
+                U 15 minuta ne rješavamo cijeli slučaj, nego određujemo što prvo
+                treba razjasniti i koji oblik rada, ako ikoji, ima smisla.
+              </p>
+
+              {selectedTopic ? (
+                <SelectedTopic
+                  topic={selectedTopic}
+                  businessMode={businessMode}
+                  entrepreneurMode={entrepreneurMode}
+                  familyMode={familyMode}
+                  personalMode={personalMode}
+                  securityMode={securityMode}
+                />
+              ) : null}
+
+              <figure className="conversation-adviser">
+                <img
+                  src="/pavao-pahljina.jpg"
+                  alt="Pavao Pahljina, Bitcoin savjetnik."
+                  width="300"
+                  height="300"
+                  loading="eager"
+                  decoding="async"
+                />
+                <figcaption>
+                  <p>
+                    <strong>Pavao Pahljina</strong>
+                    <span>Bitcoin savjetnik</span>
+                  </p>
+                  <blockquote>
+                    {businessMode
+                      ? "Razgovor nije prodajni pritisak. Ako briefing nije potreban ili pitanje prvo pripada pravniku, računovođi ili drugom stručnjaku, to ću otvoreno reći."
+                      : entrepreneurMode
+                        ? "Ako pitanje pripada vlasniku, poslovanju, upravi ili drugom stručnjaku, razdvojit ćemo to prije nego što odaberete oblik rada."
+                        : "Razgovor nije prodajni pritisak. Ako je za vaše pitanje dovoljan vodič, jedna konzultacija, drugi stručnjak ili nikakav nastavak, to ću otvoreno reći."}
+                  </blockquote>
+                  <a
+                    href={PAVAO_PAHLJINA_PATH}
+                    className="conversation-adviser__profile-link"
+                    data-link="conversation-founder-profile"
+                  >
+                    Više o mojem pristupu i iskustvu
+                    <ArrowUpRight aria-hidden="true" />
+                  </a>
+                </figcaption>
+              </figure>
+
+              <p className="conversation-safety-note">
+                <ShieldCheck aria-hidden="true" />
+                <span>
+                  {businessMode
+                    ? "Ne šaljite iznose, interne dokumente, podatke o računima, privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, lozinke ni pristup poslovnim sustavima."
+                    : entrepreneurMode
+                      ? "Dovoljna je jedna ili dvije rečenice. Ne šaljite iznose, poslovne dokumente, podatke o računima, privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta ni pristup sustavima."
+                      : familyMode || personalMode
+                        ? "Dovoljna je jedna ili dvije rečenice. Ne navodite iznose i ne šaljite privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, lozinke, snimke zaslona, dokumente ni pristup uređajima."
+                        : securityMode
+                          ? "Dovoljna je jedna ili dvije rečenice. Ne šaljite iznose, lokacije, privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, fotografije sigurnosnih kopija, adrese ni pristup uređajima."
+                          : "Ne navodite iznose i ne šaljite privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, lozinke, snimke zaslona novčanika, dokumente ni pristup računima."}
+                </span>
               </p>
             </div>
-            <picture className="hero-image-frame conversation-hero__media">
-              <source
-                srcSet="/images/razgovor-hero-20260601.webp"
-                type="image/webp"
-              />
-              <img
-                src="/images/razgovor-hero-20260601.jpg"
-                alt="Mediteranska scena s kalendarom, pitanjem i simbolima za uvodni Bitcoin razgovor."
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-              />
-            </picture>
+
+            <CalInlineEmbed
+              prefillQuestion={selectedTopic?.question}
+              prefillContext={selectedTopic?.context}
+              topicReady={topicState.ready}
+            />
           </div>
         </header>
 
-        <div className="section-shell page-flow">
-          <section className="conversation-calendar-card">
-            <h2 className="text-2xl font-semibold">
-              Najbolji razgovori počinju jednom konkretnom odlukom.
-            </h2>
-            <ul className="mt-5 grid gap-3 text-base leading-7 text-muted-foreground md:grid-cols-3">
-              {topExamples.map((question) => (
-                <li
-                  key={question}
-                  className="flex gap-3 rounded-2xl border border-border/70 bg-background/70 p-4"
-                >
-                  <Check className="positive-icon mt-1 size-4 shrink-0" />
+        <div className="conversation-booking-shell conversation-booking-main">
+          <section
+            className="conversation-question-prompt"
+            aria-labelledby="conversation-question-prompt-title"
+          >
+            <div>
+              <p className="conversation-booking-eyebrow">Kratka priprema</p>
+              <h2 id="conversation-question-prompt-title">
+                {businessMode
+                  ? "U bilješku napišite jednu ili dvije rečenice"
+                  : entrepreneurMode
+                    ? "U bilješku napišite jednu ili dvije rečenice"
+                    : familyMode
+                      ? "Koju obiteljsku odluku ili odgovornost želite razjasniti?"
+                      : personalMode
+                        ? "U bilješku napišite jednu ili dvije rečenice"
+                        : securityMode
+                          ? "Koji dio svojeg modela skrbništva želite razjasniti?"
+                          : "U bilješku napišite jednu rečenicu"}
+              </h2>
+              <blockquote>
+                {businessMode ? (
+                  <>
+                    <strong>
+                      Što je otvorilo Bitcoin kao poslovno pitanje u vašoj
+                      tvrtki?
+                    </strong>
+                    <span>
+                      Dovoljan je poslovni povod, bez iznosa i internih
+                      podataka.
+                    </span>
+                  </>
+                ) : entrepreneurMode ? (
+                  <>
+                    <strong>
+                      Što pokušavate razdvojiti između poslovanja i osobne
+                      bilance?
+                    </strong>
+                    <span>
+                      Dovoljan je kontekst bez iznosa, dokumenata i pristupnih
+                      podataka.
+                    </span>
+                  </>
+                ) : familyMode ? (
+                  <>
+                    <strong>Dovoljna je jedna ili dvije rečenice.</strong>
+                    <span>
+                      Ne navodite iznose i ne uključujte sigurnosne podatke.
+                    </span>
+                  </>
+                ) : personalMode ? (
+                  <>
+                    <strong>
+                      Koju osobnu Bitcoin odluku želite razjasniti?
+                    </strong>
+                    <span>
+                      Dovoljan je kratak kontekst bez iznosa, dokumenata i
+                      pristupnih podataka.
+                    </span>
+                  </>
+                ) : securityMode ? (
+                  <>
+                    <strong>Dovoljna je jedna ili dvije rečenice.</strong>
+                    <span>
+                      Opišite cilj ili jednu točku kvara, bez iznosa, lokacija i
+                      pristupnih podataka.
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <strong>Pokušavam odlučiti ______,</strong>
+                    <span>a nije mi jasno ______.</span>
+                  </>
+                )}
+              </blockquote>
+            </div>
+            <ul>
+              {(businessMode
+                ? businessConversationPreparation
+                : entrepreneurMode
+                  ? entrepreneurConversationPreparation
+                  : familyMode
+                    ? familyConversationPreparation
+                    : personalMode
+                      ? personalConversationPreparation
+                      : securityMode
+                        ? securityConversationPreparation
+                        : conversationQuestionExamples
+              ).map((question) => (
+                <li key={question}>
+                  <Check aria-hidden="true" />
                   <span>{question}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/5 p-4 text-sm leading-6 text-muted-foreground">
-              <p>
-                U bilješku ne trebate pisati iznose ni detalje. Dovoljna je
-                jedna rečenica:{" "}
-                <span className="font-semibold text-foreground">
-                  “Pokušavam odlučiti ____ i nije mi jasno ____.”
-                </span>
-              </p>
-              <p className="mt-3 font-semibold text-foreground">
-                Ne šaljite početne riječi, privatne ključeve, lozinke,
-                screenshotove walleta, iznose, dokumente ni pristup računima.
-              </p>
-            </div>
-            <ul className="conversation-cta-list mt-6">
-              <li>
-                <Button
-                  asChild
-                  size="lg"
-                  className="cta-primary h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
-                >
-                  <CalBookingLink
-                    className="justify-start text-left sm:justify-center sm:text-center"
-                    data-cta="conversation-page-calendar"
-                  >
-                    <CalendarDays className="size-4" />
-                    Otvorite kalendar i odaberite termin
-                  </CalBookingLink>
-                </Button>
-              </li>
-            </ul>
           </section>
 
-          {selectedQuestion ? (
-            <SelectedQuestionCard question={selectedQuestion} />
-          ) : null}
-
-          <CalInlineEmbed />
+          <section
+            className="conversation-purpose"
+            aria-labelledby="conversation-purpose-title"
+          >
+            <div className="conversation-section-heading">
+              <p className="conversation-booking-eyebrow">Jasna očekivanja</p>
+              <h2 id="conversation-purpose-title">
+                Što uvodni razgovor jest i što nije
+              </h2>
+            </div>
+            <div className="conversation-purpose__columns">
+              <div>
+                <h3>Uvodni razgovor jest</h3>
+                <ul>
+                  {conversationPurpose.is.map((item) => (
+                    <li key={item}>
+                      <Check aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>Uvodni razgovor nije</h3>
+                <ul>
+                  {conversationPurpose.isNot.map((item) => (
+                    <li key={item}>
+                      <Minus aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
 
           <section
-            id="pitanja"
-            className="case-panel conversation-examples-card"
+            className="conversation-outcomes"
+            aria-labelledby="conversation-outcomes-title"
           >
-            <h2 className="text-2xl font-semibold">
-              Još primjera pitanja, ako trebate pomoć
-            </h2>
-            <div className="mt-6 divide-y divide-border/70 border-y border-border/70">
-              {questionGroups.map((group) => (
-                <details key={group.title} className="faq-item">
-                  <summary>{group.title}</summary>
-                  <ul className="mt-4 grid gap-3 text-base leading-7 text-muted-foreground">
-                    {group.items.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <Check className="positive-icon mt-1 size-4 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
+            <div className="conversation-section-heading">
+              <p className="conversation-booking-eyebrow">Mogući ishod</p>
+              <h2 id="conversation-outcomes-title">
+                {businessMode
+                  ? "Nakon 15 minuta znat ćete treba li briefing uopće organizirati"
+                  : entrepreneurMode
+                    ? "Nakon 15 minuta znat ćete pripada li pitanje vlasniku, poslovanju ili upravi"
+                    : "Nakon 15 minuta znat ćete koji je sljedeći korak smislen"}
+              </h2>
+            </div>
+            <div className="conversation-outcomes__list">
+              {activeOutcomes.map((outcome, index) => (
+                <article key={outcome.title}>
+                  <span aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3>{outcome.title}</h3>
+                    <p>{outcome.copy}</p>
+                    {"price" in outcome ? (
+                      <strong className="conversation-outcomes__price">
+                        {outcome.price}
+                      </strong>
+                    ) : null}
+                  </div>
+                  {"href" in outcome ? (
+                    <a
+                      href={outcome.href}
+                      data-link={outcome.dataLink}
+                      aria-label={`Saznajte više: ${outcome.title}`}
+                    >
+                      Saznajte više
+                      <ArrowUpRight aria-hidden="true" />
+                    </a>
+                  ) : null}
+                </article>
               ))}
             </div>
           </section>
 
-          <section className="conversation-outcomes-card mt-10 rounded-3xl border border-border/80 bg-card p-6 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold">
-              Što se može dogoditi nakon razgovora?
-            </h2>
-            <p className="mt-4 max-w-4xl text-base leading-8 text-muted-foreground">
-              Nakon razgovora moguća su tri ishoda: kratak odgovor je dovoljan,
-              sljedeći korak je{" "}
-              <a
-                href={BITCOIN_CONSULTATION_PATH}
-                className="font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline"
-                data-link="conversation-bitcoin-consultation"
-              >
-                Bitcoin konzultacija
-              </a>
-              , ili vrijedi razgovarati o{" "}
-              <a
-                href={PERSONAL_BITCOIN_STANDARD_PATH}
-                className="font-semibold text-foreground underline-offset-4 hover:text-primary hover:underline"
-                data-link="conversation-personal-standard"
-              >
-                osobnom Bitcoin standardu
-              </a>
-              . Ne mora svaki uvodni razgovor završiti plaćenim nastavkom.
-            </p>
-          </section>
+          {!businessMode && !entrepreneurMode && !securityMode ? (
+            <section
+              className="conversation-extra-questions"
+              aria-labelledby="conversation-extra-questions-title"
+            >
+              <h2 id="conversation-extra-questions-title">
+                Niste sigurni kako formulirati pitanje?
+              </h2>
+              <details onToggle={trackQuestionExamples}>
+                <summary onKeyDown={toggleQuestionExamplesWithKeyboard}>
+                  <span>Pogledajte dodatne primjere</span>
+                  <ChevronDown aria-hidden="true" />
+                </summary>
+                <div className="conversation-extra-questions__groups">
+                  {conversationQuestionGroups.map((group) => (
+                    <div key={group.title}>
+                      <h3>{group.title}</h3>
+                      <ul>
+                        {group.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            </section>
+          ) : null}
 
-          <section className="conversation-sample-card">
-            <div className="conversation-sample-card__icon" aria-hidden="true">
-              <FileText />
+          <section
+            className="conversation-alternatives"
+            aria-labelledby="conversation-alternatives-title"
+          >
+            <div className="conversation-section-heading">
+              <p className="conversation-booking-eyebrow">Bez žurbe</p>
+              <h2 id="conversation-alternatives-title">
+                {businessMode
+                  ? "Trebate materijal za interno dijeljenje?"
+                  : entrepreneurMode
+                    ? "Želite najprije usporediti poslovne puteve?"
+                    : "Još niste spremni odabrati termin?"}
+              </h2>
             </div>
             <div>
-              <h2 className="text-2xl font-semibold">
-                Želite vidjeti krajnji rezultat?
-              </h2>
-              <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-                Prije razgovora možete pogledati skraćeni HTML primjer
-                rezultata. Pokazuje strukturu i vrstu odluka nastalih tijekom
-                programa, ali nije predložak za kopiranje.
-              </p>
-            </div>
-            <Button
-              asChild
-              className="cta-primary h-11 rounded-full px-4 text-sm sm:h-12 sm:px-5 sm:text-base"
-            >
-              <a
-                href={SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH}
-                data-link="conversation-sample-standard"
-              >
-                Pogledajte primjer rezultata
-                <ArrowUpRight className="size-4" aria-hidden="true" />
-              </a>
-            </Button>
-          </section>
-
-          <section className="conversation-final-card">
-            <h2 className="text-2xl font-semibold">
-              Spremni za uvodni razgovor?
-            </h2>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-muted-foreground">
-              Odaberite termin i dođite s jednim stvarnim pitanjem. Ne morate
-              imati gotov plan — cilj je vidjeti što treba razjasniti prvo.
-            </p>
-            <ul className="conversation-cta-list mt-6">
-              <li>
-                <Button
-                  asChild
-                  size="lg"
-                  className="cta-primary h-11 w-full rounded-full px-4 text-sm sm:h-12 sm:w-auto sm:px-5 sm:text-base"
-                >
-                  <CalBookingLink
-                    className="justify-start text-left sm:justify-center sm:text-center"
-                    data-cta="conversation-page-final-calendar"
-                  >
-                    <CalendarDays className="size-4" />
-                    Otvorite kalendar i odaberite termin
-                  </CalBookingLink>
-                </Button>
-              </li>
-              <li>
-                <a
-                  href="/sigurnost/"
-                  className="inline-flex h-11 items-center text-sm font-semibold text-foreground hover:text-primary"
-                  data-link="conversation-page-final-security"
-                >
-                  Sigurnosna pravila
+              {activeAlternatives.map((path) => (
+                <a key={path.href} href={path.href} data-link={path.dataLink}>
+                  <span>
+                    <strong>{path.title}</strong>
+                    <small>{path.copy}</small>
+                  </span>
+                  <ArrowUpRight aria-hidden="true" />
                 </a>
-              </li>
-            </ul>
+              ))}
+            </div>
           </section>
         </div>
       </article>

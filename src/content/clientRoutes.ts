@@ -3,48 +3,69 @@ import {
   BITCOIN_CONSULTATION_PATH,
   BITCOIN_MONEY_PATH,
   BITCOIN_STANDARD_CHECK_PATH,
+  BITCOIN_TODAY_PATH,
   BUDGET_PATH,
+  BUDGET_ZERO_PATH,
+  BUSINESS_BITCOIN_PATH,
+  BUSINESS_BITCOIN_ONE_PAGER_PATH,
   CONVERSATION_PATH,
   CUSTODY_SECURITY_PATH,
   DEBT_PATH,
   GIVING_PATH,
+  MISSED_BITCOIN_PATH,
   NET_WORTH_PATH,
+  PAVAO_PAHLJINA_PATH,
   PERSONAL_BITCOIN_STANDARD_PATH,
   PRIVACY_PATH,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
   SITE_UPDATED_AT,
   SITE_URL,
   TIME_VOLATILITY_PATH,
+  LONG_TERM_TREND_PATH,
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   bitcoinMoneySeo,
   bitcoinStandardCheckSeo,
+  bitcoinTodaySeo,
   budgetSeo,
+  budgetZeroSeo,
+  businessBitcoinSeo,
+  businessBitcoinOnePagerSeo,
   conversationSeo,
   custodySecuritySeo,
   debtSeo,
   givingSeo,
   guidesIndexSeo,
   homeSeo,
+  missedBitcoinSeo,
   netWorthSeo,
   personalBitcoinStandardSeo,
+  pavaoPahljinaSeo,
   privacySeo,
   samplePersonalBitcoinStandardSeo,
   securitySeo,
   timeVolatilitySeo,
+  longTermTrendSeo,
 } from "./site"
 import { type SocialImageMeta, socialImages } from "./socialImages"
 
 export type ClientRouteType =
   | "home"
+  | "pavao-pahljina"
   | "budget"
+  | "budget-zero"
   | "debt"
   | "giving"
   | "bitcoin-money"
   | "net-worth"
   | "time-volatility"
+  | "long-term-trend"
+  | "bitcoin-today"
   | "custody-security"
   | "bitcoin-advice"
+  | "missed-bitcoin"
+  | "business-bitcoin"
+  | "business-bitcoin-one-pager"
   | "conversation"
   | "bitcoin-consultation"
   | "personal-bitcoin-standard"
@@ -108,6 +129,15 @@ export const homeRoute = clientRoute({
   ...socialImages.home,
 })
 
+export const pavaoPahljinaRoute = clientRoute({
+  path: PAVAO_PAHLJINA_PATH,
+  title: pavaoPahljinaSeo.title,
+  description: pavaoPahljinaSeo.description,
+  canonical: pavaoPahljinaSeo.canonical,
+  type: "pavao-pahljina",
+  ...socialImages.pavaoPahljina,
+})
+
 export const guidesIndexRoute = clientRoute({
   path: "/vodici/",
   title: guidesIndexSeo.title,
@@ -123,6 +153,15 @@ export const budgetRoute = clientRoute({
   description: budgetSeo.description,
   canonical: budgetSeo.canonical,
   type: "budget",
+  ...socialImages.budget,
+})
+
+export const budgetZeroRoute = clientRoute({
+  path: BUDGET_ZERO_PATH,
+  title: budgetZeroSeo.title,
+  description: budgetZeroSeo.description,
+  canonical: budgetZeroSeo.canonical,
+  type: "budget-zero",
   ...socialImages.budget,
 })
 
@@ -171,6 +210,24 @@ export const timeVolatilityRoute = clientRoute({
   ...socialImages.timeVolatility,
 })
 
+export const longTermTrendRoute = clientRoute({
+  path: LONG_TERM_TREND_PATH,
+  title: longTermTrendSeo.title,
+  description: longTermTrendSeo.description,
+  canonical: longTermTrendSeo.canonical,
+  type: "long-term-trend",
+  ...socialImages.timeVolatility,
+})
+
+export const bitcoinTodayRoute = clientRoute({
+  path: BITCOIN_TODAY_PATH,
+  title: bitcoinTodaySeo.title,
+  description: bitcoinTodaySeo.description,
+  canonical: bitcoinTodaySeo.canonical,
+  type: "bitcoin-today",
+  ...socialImages.timeVolatility,
+})
+
 export const custodySecurityRoute = clientRoute({
   path: CUSTODY_SECURITY_PATH,
   title: custodySecuritySeo.title,
@@ -187,6 +244,33 @@ export const bitcoinAdviceRoute = clientRoute({
   canonical: bitcoinAdviceSeo.canonical,
   type: "bitcoin-advice",
   ...socialImages.bitcoinAdvice,
+})
+
+export const missedBitcoinRoute = clientRoute({
+  path: MISSED_BITCOIN_PATH,
+  title: missedBitcoinSeo.title,
+  description: missedBitcoinSeo.description,
+  canonical: missedBitcoinSeo.canonical,
+  type: "missed-bitcoin",
+  ...socialImages.missedBitcoin,
+})
+
+export const businessBitcoinRoute = clientRoute({
+  path: BUSINESS_BITCOIN_PATH,
+  title: businessBitcoinSeo.title,
+  description: businessBitcoinSeo.description,
+  canonical: businessBitcoinSeo.canonical,
+  type: "business-bitcoin",
+  ...socialImages.businessBitcoin,
+})
+
+export const businessBitcoinOnePagerRoute = clientRoute({
+  path: BUSINESS_BITCOIN_ONE_PAGER_PATH,
+  title: businessBitcoinOnePagerSeo.title,
+  description: businessBitcoinOnePagerSeo.description,
+  canonical: businessBitcoinOnePagerSeo.canonical,
+  type: "business-bitcoin-one-pager",
+  ...socialImages.businessBitcoin,
 })
 
 export const conversationRoute = clientRoute({

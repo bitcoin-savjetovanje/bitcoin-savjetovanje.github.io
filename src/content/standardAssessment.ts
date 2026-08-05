@@ -204,7 +204,7 @@ export const standardAssessmentAreas = [
     statements: [
       {
         id: "sigurnost-obitelj-1",
-        text: "Znam gdje je Bitcoin, koji je model skrbništva i koji je prvi korak oporavka — bez zapisivanja početnih riječi u ovaj upitnik.",
+        text: "Znam gdje je Bitcoin, koji je model skrbništva i koji je prvi korak oporavka — bez unošenja privatnih ključeva, Bitcoin Core wallet backup datoteka, wallet passphraseova ili početnih riječi drugih walleta u ovaj upitnik.",
       },
       {
         id: "sigurnost-obitelj-2",
@@ -289,10 +289,10 @@ export const standardAssessmentRecommendations = {
     interpretation:
       "Sigurnosni sustav mora istodobno smanjiti rizik krađe i rizik trajnog gubitka pristupa.",
     firstStep:
-      "Zapišite samo prvi korak koji pouzdana osoba treba poduzeti ako ste nedostupni, bez početnih riječi, ključeva ili osjetljivih lokacija.",
+      "Zapišite samo prvi korak koji pouzdana osoba treba poduzeti ako ste nedostupni, bez privatnih ključeva, Bitcoin Core wallet backup datoteka, wallet passphraseova, početnih riječi drugih walleta ili osjetljivih lokacija.",
     relevantGuide: {
-      title: "Sigurnost i obiteljski plan",
-      href: guideHref("sigurnost-ne-smije-ovisiti-samo-o-vama"),
+      title: "Bitcoin Core Standard za dugoročnu štednju",
+      href: guideHref("bitcoin-core-standard"),
     },
     contextualCtaLabel: "Razgovarajmo o sigurnosti i obitelji",
   },

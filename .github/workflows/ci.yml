@@ -31,8 +31,14 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Test
+        run: npm test
+
       - name: Build
         run: npm run build
 
       - name: Verify dist
         run: npm run verify:dist
+
+      - name: Verify Bitcoin Core Standard
+        run: npm run verify:core-standard

@@ -53,7 +53,7 @@ export type AudiencePage = {
 
 export const audienceSafetyBoundaries = [
   "Ne upravljam sredstvima.",
-  "Ne tražim početne riječi, privatne ključeve ni pristup novčaniku.",
+  "Ne tražim privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta ni pristup novčaniku.",
   "Odluka ostaje vaša.",
   "Za porezna i pravna pitanja trebate odgovarajuće stručnjake.",
 ] as const
@@ -62,103 +62,112 @@ export const audiencePages = [
   {
     slug: "osobno",
     path: PERSONAL_AUDIENCE_PATH,
-    eyebrow: "OSOBNI BITCOIN STANDARD ZA POJEDINCA",
-    title: "Imate Bitcoin. Sada trebate pravila.",
+    eyebrow: "ZA POJEDINCE KOJI VEĆ IMAJU BITCOIN",
+    title: "Bitcoin imate. Sada uredite kako iz njega živite.",
     subtitle:
-      "Uredite proračun, dug, stvarni višak, neto imovinu i reakcije na volatilnost kako Bitcoin ne bi bio odvojena imovina sa strane, nego dio mirnijeg sustava odluka.",
+      "Za osobu koja želi prijeći s povremenog kupovanja i držanja na sustav u kojem su prihod, proračun, dug, davanje, trošenje, imovina i sigurnost uređeni iz Bitcoin pozicije.",
     primaryCta: {
-      label: "Dogovorite 15-minutni razgovor",
-      href: CONVERSATION_PATH,
+      label: "Provjerite svoj osobni Bitcoin standard",
+      href: "/provjera-bitcoin-standarda/",
     },
     secondaryCta: {
-      label: "Pogledajte vodiče",
-      href: "/vodici/",
+      label: "Pogledajte privatni program",
+      href: "/osobni-bitcoin-standard/",
     },
     heroVisual: "personal",
-    problemTitle: "Gdje osobni Bitcoin okvir najčešće puca",
+    problemTitle: "Tri stanja osobnog Bitcoin sustava",
     problems: [
       {
-        title: "Ne znate koji je novac stvarno slobodan.",
-        text: "Na računu postoji saldo, ali nije jasno što pripada obvezama, što je stvarni višak, a što samo privremeni mir prije sljedećeg troška.",
+        title: "Bitcoin je još uvijek imovina sa strane.",
+        text: "Prihod i troškovi ostaju u eurima, a Bitcoin se kupuje povremeno ili iz ostatka.",
       },
       {
-        title: "Dug zauzima budućnost.",
-        text: "Kredit, minus, leasing ili kartica ne izgledaju dramatično dok Bitcoin raste, ali pod pritiskom cijene dug počinje diktirati odluke.",
+        title: "Bitcoin je glavni saldo, ali pravila nisu zapisana.",
+        text: "Operativni euri, dug, davanje i veliki troškovi nemaju zajednički sustav.",
       },
       {
-        title: "Volatilnost previše pomiče ponašanje.",
-        text: "Rast stvara euforiju, pad stvara paniku, a bez pisanih pravila svaka cijena izgleda kao nova odluka.",
+        title: "Bitcoin je postao i odgovornost.",
+        text: "Imovina, obitelj i sigurnost traže stres-test, osobu od povjerenja i plan kontinuiteta.",
       },
     ],
-    outcomeTitle: "Što postaje jasnije",
+    outcomeTitle: "Što uređeni sustav povezuje",
     outcomes: [
       {
-        title: "Jasnije vidite stvarni višak.",
-        text: "Odluka o Bitcoinu dolazi nakon obveza, pričuve i budućih troškova.",
+        title: "Bitcoin postaje primarni novac.",
+        text: "Prihod se prema pravilu pretvara u Bitcoin, a euri ostaju operativni oblik za bliska plaćanja.",
       },
       {
-        title: "Znate gdje Bitcoin pripada u osobnoj bilanci.",
-        text: "Bitcoin se ne promatra odvojeno od duga, troškova i neto imovine.",
+        title: "Proračun, dug i davanje dobivaju red.",
+        text: "Svaki dio novca dobiva namjenu, a cilj duga ostaje bilanca bez duga.",
       },
       {
-        title: "Imate pravila za kupnju, držanje, trošenje i čekanje.",
-        text: "Pravila se pišu prije pritiska, ne usred euforije ili panike.",
+        title: "Neto imovina dobiva jednu sliku.",
+        text: "Bitcoin, nekretnine, posao, druga imovina i dug promatraju se zajedno, uz različite uloge.",
       },
       {
-        title: "Volatilnost postaje povratna informacija, ne zapovijed.",
-        text: "Cijena može otvoriti pitanje, ali ne mora upravljati ponašanjem.",
+        title: "Sigurnost uključuje kontinuitet.",
+        text: "Osoba od povjerenja zna prvi korak, a pravila imaju datum revizije.",
       },
     ],
-    methodTitle: "Kako slažemo osobni okvir",
+    methodTitle: "Sedam područja osobnog Bitcoin standarda",
     methodSteps: [
       {
-        title: "Proračun",
-        text: "Vidjeti što sadašnji novac treba napraviti.",
+        title: "Proračun nulte osnove",
+        text: "Svaki dio novca dobiva namjenu prije potrošnje.",
       },
       {
         title: "Dug",
-        text: "Osloboditi budući novac.",
+        text: "Dug se promatra kao negativni dio bilance i zahtjev na budući prihod.",
+      },
+      {
+        title: "Davanje",
+        text: "Davanje postaje sastavni dio novčanog sustava.",
+      },
+      {
+        title: "Bitcoin kao primarni novac",
+        text: "Prihod, operativni euri i stvarni troškovi dobivaju zajednička pravila.",
       },
       {
         title: "Neto imovina",
-        text: "Gledati Bitcoin u cjelini, ne izolirano.",
+        text: "Bitcoin, nekretnine, posao, druga imovina i dug promatraju se u jednoj bilanci.",
       },
       {
         title: "Vrijeme i volatilnost",
-        text: "Zapisati pravila prije sljedećeg ciklusa.",
+        text: "Dugoročni trend daje kontekst, a pravila imaju datum revizije.",
       },
       {
-        title: "Sigurnost",
-        text: "Napraviti prvi osobni sigurnosni okvir bez izlaganja tajni.",
+        title: "Sigurnost i kontinuitet",
+        text: "Skrbništvo, osoba od povjerenja i prvi korak oporavka prilagođavaju se stvarnim rizicima.",
       },
     ],
     guideLinks: [
-      { label: "Stvarni višak", href: guideHref("stvarni-visak") },
+      { label: "Proračun nulte osnove", href: "/proracun/" },
       { label: "Dug ili Bitcoin", href: guideHref("dug-ili-bitcoin") },
       { label: "Bitcoin kao novac", href: guideHref("bitcoin-kao-novac") },
       {
-        label: "Cijena kao mjera vremena",
-        href: guideHref("cijena-kao-mjera-vremena"),
+        label: "Skrbništvo i sigurnost",
+        href: "/skrbnistvo-i-sigurnost/",
       },
     ],
     trustNote:
-      "Ne upravljam vašim sredstvima i ne tražim početne riječi, privatne ključeve ni pristup novčaniku.",
+      "Bez upravljanja sredstvima, preuzimanja skrbništva i pristupa vašem novčaniku.",
     seo: {
-      title: "Osobni Bitcoin standard za pojedinca | Bitcoin Savjetovanje",
+      title: "Bitcoin kao primarni novac za pojedinca | Bitcoin Savjetovanje",
       description:
-        "Za pojedince koji imaju Bitcoin, ali žele jasnija pravila za proračun, dug, stvarni višak, neto imovinu, volatilnost i sigurnost.",
+        "Za pojedince koji žele povezati prihod, proračun, dug, davanje, trošenje, imovinu i sigurnost u sustav za život s Bitcoinom kao primarnim novcem.",
     },
   },
   {
     slug: "obitelj",
     path: FAMILY_AUDIENCE_PATH,
-    eyebrow: "OBITELJSKI BITCOIN STANDARD",
-    title: "Bitcoin ne smije živjeti samo u glavi jedne osobe.",
+    eyebrow: "BITCOIN U OBITELJI",
+    title:
+      "Bitcoin ne smije ovisiti o razumijevanju, sjećanju i dostupnosti jedne osobe.",
     subtitle:
-      "Pretvorite osobno razumijevanje Bitcoina u obiteljski jezik, sigurnosni okvir i pravila koja smanjuju napetost, čuvaju pristup i pripremaju nasljeđivanje.",
+      "Za parove i obitelji koji žele povezati prihod, proračun nulte osnove, dug, korištenje Bitcoina, sigurnost i plan za slučaj nedostupnosti.",
     primaryCta: {
-      label: "Dogovorite obiteljski razgovor",
-      href: CONVERSATION_PATH,
+      label: "Razjasnite obiteljsko Bitcoin pitanje",
+      href: `${CONVERSATION_PATH}?tema=obitelj`,
     },
     secondaryCta: {
       label: "Pogledajte sigurnosni pristup",
@@ -226,8 +235,8 @@ export const audiencePages = [
       { label: "Sigurnost i povjerljivost", href: "/sigurnost/" },
       { label: "Vodiči", href: "/vodici/" },
       {
-        label: "Obiteljski Bitcoin trezor",
-        href: guideHref("obiteljski-bitcoin-trezor"),
+        label: "Bitcoin Core Standard za dugoročnu štednju",
+        href: guideHref("bitcoin-core-standard"),
       },
       {
         label: "Osobni Bitcoin standard",
@@ -235,84 +244,84 @@ export const audiencePages = [
       },
     ],
     trustNote:
-      "Ne tražim početne riječi, privatne ključeve, lozinke, iznose ni pristup novčaniku. Radimo na jeziku, pravilima, postupcima i sigurnosnoj arhitekturi.",
+      "Ne tražim privatne ključeve, Bitcoin Core wallet backup datoteke, wallet passphraseove, početne riječi drugih walleta, iznose ni pristup novčaniku. Radimo na jeziku, pravilima, postupcima i sigurnosnoj arhitekturi.",
     seo: {
-      title: "Obiteljski Bitcoin standard | Bitcoin Savjetovanje",
+      title: "Bitcoin u obitelji | Zajednička pravila, sigurnost i kontinuitet",
       description:
-        "Za parove i obitelji koje žele zajednički jezik, sigurnosni okvir i nasljedni plan za Bitcoin bez tehničkog pritiska i bez izlaganja tajni.",
+        "Za parove i obitelji koji žele povezati prihod, dug, korištenje Bitcoina, sigurnost i prvi korak oporavka u razumljiv obiteljski Bitcoin standard.",
     },
   },
   {
     slug: "poduzetnici",
     path: BUSINESS_AUDIENCE_PATH,
-    eyebrow: "BITCOIN STANDARD ZA PODUZETNIKE",
-    title: "Prije poslovnog Bitcoina treba urediti poslovni novac.",
+    eyebrow: "BITCOIN ZA PODUZETNIKE",
+    title: "Najprije razdvojite novac posla od novca vlasnika.",
     subtitle:
-      "Razdvojite poreze, plaće, dobavljače, pričuvu, višak, vlasničke odluke i privatni Bitcoin prije nego Bitcoin postane dio poslovne riznice.",
+      "Za poduzetnike kod kojih se privatne i poslovne odluke susreću u istoj osobi, ali ne smiju završiti u istoj bilanci, novčaniku ili sigurnosnom postupku.",
     primaryCta: {
-      label: "Dogovorite poslovni razgovor",
-      href: CONVERSATION_PATH,
+      label: "Razjasnite jednu poslovnu Bitcoin odluku",
+      href: `${CONVERSATION_PATH}?tema=poduzetnik`,
     },
     secondaryCta: {
-      label: "Pogledajte poslovne vodiče",
-      href: "/vodici/",
+      label: "Pogledajte briefing za tvrtke",
+      href: "/za-tvrtke/",
     },
     heroVisual: "business",
-    problemTitle: "Poslovni Bitcoin počinje prije kupnje",
+    problemTitle: "Gdje granica između poslovanja i vlasnika najčešće puca",
     problems: [
       {
-        title: "Prihod nije slobodan novac.",
-        text: "Novac na poslovnom računu često već pripada porezima, plaćama, dobavljačima, zalihama, opremi, pričuvama ili budućim obvezama.",
+        title: "Uplata na poslovni račun nema određenu namjenu.",
+        text: "Novac na računu još treba razdvojiti prema porezima, plaćama, dobavljačima, zalihama, opremi, pričuvama i drugim obvezama.",
       },
       {
         title: "Privatni i poslovni Bitcoin se miješaju.",
-        text: "Bez jasne granice lako nastane porezna, računovodstvena, sigurnosna i obiteljska magla.",
+        text: "Bez jasne granice nastaju nejasna računovodstvena, pravna, sigurnosna i vlasnička pitanja.",
       },
       {
-        title: "Riznica bez pravila pojačava stres.",
-        text: "Bitcoin može biti snažan novac, ali u poslu najprije treba znati koji novac smije postati dugoročni saldo.",
+        title: "Samo vlasnik razumije cijeli sustav.",
+        text: "Poslovanje ovisi o jednoj osobi, njezinim uređajima, pamćenju, ovlastima i dostupnosti.",
       },
     ],
-    outcomeTitle: "Što poslovni okvir razdvaja",
+    outcomeTitle: "Što treba jasno razdvojiti",
     outcomes: [
       {
-        title: "Jasnije razlikujete poslovni prihod, obveze i višak.",
-        text: "Novac za poreze, plaće, dobavljače i pričuvu ne ulazi u isti koš kao vlasnički višak.",
+        title: "Operativni novac poslovanja.",
+        text: "Novac za bliske obveze i normalno poslovanje ostaje odvojen od dugoročnih odluka.",
       },
       {
-        title: "Znate kada Bitcoin odluka pripada poslu, a kada vlasniku.",
-        text: "Privatna imovina i poslovna riznica dobivaju jasniju granicu.",
+        title: "Dugoročni poslovni saldo.",
+        text: "Svrha, vremenski horizont, odgovorne osobe i način odobravanja uređuju se prije Bitcoin odluke.",
       },
       {
-        title: "Poslovna riznica dobiva pravila, a ne impulzivnu kupnju.",
-        text: "Prvo se uređuje novčani tok, zatim uloga dugoročnog salda.",
+        title: "Osobna bilanca vlasnika.",
+        text: "Privatna imovina i osobni Bitcoin standard ostaju odvojeni od bilance i dokumentacije društva.",
       },
       {
-        title: "Ovlaštene osobe i sigurnosni postupci postaju dio sustava.",
-        text: "Pristup, odobravanje i odgovornosti promatraju se kao poslovni proces.",
+        title: "Ovlasti, sigurnost i kontinuitet.",
+        text: "Predlaganje, odobravanje, izvršenje, evidencija i nadzor postaju prepoznate poslovne uloge.",
       },
     ],
-    methodTitle: "Kako slažemo poslovni okvir",
+    methodTitle: "Redoslijed razjašnjavanja poslovne Bitcoin odluke",
     methodSteps: [
       {
-        title: "Novčani tok",
-        text: "Razdvojiti prihod od stvarno slobodnog novca.",
+        title: "Namjena novca",
+        text: "Odrediti koji je novac potreban za bliske poslovne obveze.",
       },
       {
-        title: "Obveze",
-        text: "Porezi, plaće, dobavljači, zalihe, oprema i pričuva.",
+        title: "Vremenski horizont",
+        text: "Razjasniti svrhu i trajanje dugoročnog poslovnog salda.",
       },
       {
-        title: "Vlasnički višak",
-        text: "Odvojiti poslovne odluke od privatne imovine.",
+        title: "Bilanca vlasnika",
+        text: "Odvojiti osobni novac i privatni Bitcoin od sredstava poslovanja.",
       },
       {
-        title: "Poslovna riznica",
-        text: "Definirati kada i zašto Bitcoin ulazi u bilancu.",
+        title: "Stručna pitanja",
+        text: "Pripremiti pitanja za računovođu, pravnika, poreznog ili drugog stručnjaka.",
       },
       {
-        title: "Sigurnost i ovlaštenja",
-        text: "Urediti pristup, odgovornosti i postupak bez izlaganja tajni.",
+        title: "Ovlasti i sigurnost",
+        text: "Prepoznati odgovornosti, odobrenja i kontinuitet bez izlaganja tajni.",
       },
     ],
     guideLinks: [
@@ -332,11 +341,11 @@ export const audiencePages = [
       },
     ],
     trustNote:
-      "Ovo nije računovodstveno, porezno, pravno ni investicijsko savjetovanje. Ne upravljam poslovnom riznicom i ne donosim odluke umjesto vas. Pomažem vam urediti okvir pitanja, procesa i odgovornosti.",
+      "Bitcoin Savjetovanje ne upravlja poslovnim sredstvima, ne preuzima skrbništvo i ne donosi odluke umjesto vas.",
     seo: {
-      title: "Bitcoin standard za poduzetnike | Bitcoin Savjetovanje",
+      title: "Bitcoin za poduzetnike | Odvojite poslovni i osobni novac",
       description:
-        "Za vlasnike posla koji žele razdvojiti poslovni novac, obveze, pričuvu, višak, privatni Bitcoin i poslovnu Bitcoin riznicu.",
+        "Za poduzetnike koji žele jasno razdvojiti poslovne obveze, dugoročni poslovni saldo, privatni Bitcoin, ovlasti i sigurnost prije poslovne Bitcoin odluke.",
     },
   },
 ] satisfies AudiencePage[]

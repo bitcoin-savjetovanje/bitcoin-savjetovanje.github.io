@@ -12,7 +12,7 @@ export function StandardCheckCta({ dataCta }: { dataCta: string }) {
       <div>
         <h2>Želite provjeriti svoj Bitcoin standard?</h2>
         <p>
-          Odgovorite na 21 kratku tvrdnju i odmah saznajte koje područje prvo
+          Odgovorite na 10 kratkih pitanja i odmah saznajte koje područje prvo
           treba urediti. Bez registracije i bez slanja odgovora.
         </p>
       </div>

@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+.wrangler/
+output/
+tmp/
+linkedin-vizuali/
+linkedin-vizuali-godina-u-bitovima/
 
 # Editor directories and files
 .vscode/*

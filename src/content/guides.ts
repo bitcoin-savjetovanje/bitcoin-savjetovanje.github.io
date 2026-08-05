@@ -1,3 +1,8 @@
+import { bip110Guide } from "./bip110Guide"
+import {
+  bitcoinCoreStandardGuide,
+  selfCustodyOrCustodianGuide,
+} from "./bitcoinCoreStandard"
 import { guideHref } from "./guideLinks"
 import { PRIMARY_CTA } from "./site"
 
@@ -7,6 +12,8 @@ export type GuideSection = {
   heading: string
   body: string[]
   hideFromToc?: boolean
+  showSecurityReviewDate?: boolean
+  calloutAfterItems?: boolean
   calloutTitle?: string
   callout?: string
   subsections?: GuideSectionSubsection[]
@@ -14,6 +21,7 @@ export type GuideSection = {
   dataCards?: GuideDataCard[]
   table?: GuideTable
   items?: string[]
+  orderedItems?: string[]
   links?: Array<{
     label: string
     href: string
@@ -34,6 +42,7 @@ export type GuideSectionSubsection = {
   callout?: string
   table?: GuideTable
   items?: string[]
+  orderedItems?: string[]
   cards?: GuideCard[]
   links?: Array<{
     label: string
@@ -215,6 +224,18 @@ export type GuideFaq = {
   answer: string
 }
 
+export type GuideSecurityAlert = {
+  title: string
+  body: string[]
+  items: string[]
+  afterItems?: string[]
+  emphasis: string
+  link: {
+    label: string
+    href: string
+  }
+}
+
 export const guideCategoryDescriptions: Record<GuideCategory, string> = {
   "Osobni proračun nulte osnove":
     "Prvi korak je red. Svaki euro dobiva namjenu prije Bitcoin odluke.",
@@ -249,6 +270,8 @@ export type Guide = {
   theme?: GuideTheme
   cover?: GuideCover
   safetyNote?: string
+  securityReviewDate?: string
+  securityAlert?: GuideSecurityAlert
   order: number
   readingMinutes?: number
   featured?: boolean
@@ -305,24 +328,6 @@ export type Guide = {
   hideDefaultFinalCta?: boolean
 }
 
-const advancedSecuritySafetyNote =
-  "Napredniji sustav nije automatski sigurniji. Sustav koji korisnik ili obitelj ne razumiju može povećati rizik trajnog gubitka. Ovo nije početna preporuka za svakoga: prije odabira treba razumjeti prijetnje, kompromise, put oporavka i ono što se nikada ne dijeli. Kada su iznos, obiteljske posljedice ili tehnička složenost značajni, profesionalna pomoć može biti razuman sljedeći korak."
-
-function custodySectionImage(
-  title: string,
-  caption: string,
-  fileName: string,
-  alt: string
-): GuideSectionVisual {
-  return {
-    type: "image-card",
-    title,
-    caption,
-    src: `/images/guide-sections/${fileName}`,
-    alt,
-  }
-}
-
 function zabaSectionImage(
   title: string,
   caption: string,
@@ -353,16 +358,31 @@ function etfTreasurySectionImage(
   }
 }
 
+function balanceExposureSectionImage(
+  title: string,
+  caption: string,
+  fileName: string,
+  alt: string
+): GuideSectionVisual {
+  return {
+    type: "image-card",
+    title,
+    caption,
+    src: `/images/guide-sections/${fileName}`,
+    alt,
+  }
+}
+
 const guideEntries: Guide[] = [
   {
     slug: "zaba-bitcoin-etf-certifikat",
-    title:
-      "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i ograničenje prinosa",
+    title: "UniCreditov Bitcoin ETF certifikat u Zabi",
     seoTitle:
-      "Zabin Bitcoin ETF certifikat: zaštita glavnice, troškovi i oportunitetni trošak",
-    ogTitle: "Zabin Bitcoin certifikat: koliko košta zaštita glavnice?",
+      "UniCreditov Bitcoin ETF certifikat u Zabi: troškovi, zaštita i ograničenje prinosa",
+    ogTitle:
+      "UniCreditov Bitcoin certifikat u Zabi: koliko košta zaštita glavnice?",
     ogDescription:
-      "Pozitivan korak za prihvaćanje Bitcoina, uz detaljan prikaz isplate, troškova, rizika i mogućeg oportunitetnog troška.",
+      "Detaljan prikaz UniCreditova certifikata koji distribuira Zaba: isplata, troškovi, rizik izdavatelja i ograničenje prinosa.",
     metaDescription:
       "Što kupujete Zabinim Bitcoin ETF certifikatom, kada vrijedi zaštita glavnice, koliki su troškovi i što ograničenje prinosa znači za mogući rast.",
     excerpt:
@@ -933,7 +953,7 @@ const guideEntries: Guide[] = [
     order: 10,
     featured: true,
     publishedAt: "2026-05-01",
-    updatedAt: "2026-05-01",
+    updatedAt: "2026-08-04",
     practicalQuestion:
       "Možete li za svaki euro koji imate reći što treba napraviti prije nego što odlučite kupiti Bitcoin?",
     relatedSlugs: [
@@ -1760,7 +1780,7 @@ const guideEntries: Guide[] = [
         body: [
           "U autoškoli ne počinjete s dubokom teorijom motora. Prvo učite kako se auto koristi. Gdje je kočnica. Kako se kreće. Kako se gleda mrtvi kut. Kako se ulazi u promet. Kako se sigurno zaustavlja.",
           "Slično je i s Bitcoinom kao novcem. Na početku morate svjesno urediti osnovne stvari: proračun, dug, stvarni višak, buduća plaćanja, sigurnost i pravila za obitelj. Možda se čini da to nema izravne veze s Bitcoinom, ali ima. Bez toga Bitcoinova volatilnost može pojačati nered koji već postoji.",
-          "Ako ne znate koji novac ima koju namjenu, ne znate ni koji novac stvarno može postati Bitcoin. Ako imate dug, dio vaše budućnosti već je potrošen. Ako obitelj ne zna što ne smije napraviti s početnim riječima, sigurnost ovisi o sreći. Ako ne znate što ćete napraviti pri velikom rastu ili padu, cijena će voditi odluku umjesto pravila.",
+          "Ako ne znate koji novac ima koju namjenu, ne znate ni koji novac stvarno može postati Bitcoin. Ako imate dug, dio vaše budućnosti već je potrošen. Ako obitelj ne zna što ne smije napraviti s privatnim ključevima, wallet backup datotekama, passphraseovima ili početnim riječima drugih walleta, sigurnost ovisi o sreći. Ako ne znate što ćete napraviti pri velikom rastu ili padu, cijena će voditi odluku umjesto pravila.",
           "Zato je redoslijed važan: prvo proračun, zatim izlazak iz duga, zatim davanje, zatim Bitcoin kao novac, neto imovina, volatilnost, sigurnost i obitelj.",
         ],
         link: {
@@ -3208,9 +3228,9 @@ const guideEntries: Guide[] = [
       {
         heading: "Prednosti Bitcoin ETF-a",
         body: [
-          "Prva prednost je jednostavnost. Ako obitelj već ima brokerski račun, vrijednosne papire i naviku ulaganja kroz brokera, Bitcoin ETF je razumljiviji od upravljanja početnim riječima, hardverskih novčanika i višepotpisnih sustava.",
+          "Prva prednost je jednostavnost. Ako obitelj već ima brokerski račun, vrijednosne papire i naviku ulaganja kroz brokera, Bitcoin ETF može biti razumljiviji od upravljanja privatnim ključevima, wallet backupima, offline potpisivanjem i oporavkom.",
           "Druga prednost je administracija. ETF se uklapa u brokerske izvještaje, portfelj, nasljeđivanje vrijednosnih papira i uobičajene investicijske procese.",
-          "Treća prednost je skrbnička infrastruktura. Kod velikih izdavatelja postoje revizori, skrbnici, brokeri, regulatori, tržišni sudionici i javna izvješća. To ne uklanja rizik, ali znači da proizvod ne ovisi o jednoj osobi koja kod kuće čuva papirić.",
+          "Treća prednost je skrbnička infrastruktura. Kod velikih izdavatelja postoje revizori, skrbnici, brokeri, regulatori, tržišni sudionici i javna izvješća. To ne uklanja rizik, ali znači da proizvod ne ovisi o jednoj osobi koja sama održava cijeli put ključeva, backupa i oporavka.",
           "Četvrta prednost je psihološka. Za obitelj koja se boji samostalne pohrane, ETF može biti prvi korak prema razumijevanju Bitcoina.",
           "ETF ne uklanja volatilnost Bitcoina. On uklanja dio operativne složenosti.",
         ],
@@ -3630,9 +3650,9 @@ const guideEntries: Guide[] = [
         callout:
           "Ako je alat povezan s Bitcoinom, to još ne znači da ima istu ulogu kao bitcoin pod vlastitim ključevima.",
         link: {
-          before: "Za primjer vlastitog obiteljskog sustava pročitajte",
-          label: "obiteljski Bitcoin trezor",
-          href: "/vodici/obiteljski-bitcoin-trezor/",
+          before: "Za preporučeni dugoročni sustav pročitajte",
+          label: "Bitcoin Core Standard",
+          href: "/vodici/bitcoin-core-standard/",
           after: "kao kontrast financijskoj izloženosti Bitcoinu.",
         },
       },
@@ -3713,6 +3733,12 @@ const guideEntries: Guide[] = [
           "Koji je glavni rizik: sigurnost, skrbništvo, upravljanje, kreditni rizik ili tržišno povjerenje?",
           "Zašto to nije isto što i Bitcoin: jer svaki dodatni sloj uvodi pravila, ljude i bilancu.",
         ],
+        visual: balanceExposureSectionImage(
+          "Slojevi nisu ista stvar.",
+          "Bitcoin, skrbnički račun, dionica i instrument s pravilima isplate mogu biti povezani s istom temom, ali nose različita prava i različite rizike.",
+          "bitcoin-bilanca-pojacana-izlozenost-slojevi-20260702.webp",
+          "Mediteranski stol s odvojenim Bitcoin kamenom, mapom, praznim papirima i certifikatom kao slojevima izloženosti"
+        ),
       },
       {
         heading:
@@ -3734,6 +3760,12 @@ const guideEntries: Guide[] = [
           "Novčana pričuva nije detalj. Ona može biti razlika između mirne odluke i prodaje u lošem trenutku.",
           "Prinos bez razumijevanja bilance nije ulaganje. To je nada.",
         ],
+        visual: balanceExposureSectionImage(
+          "Bilanca dolazi prije prinosa.",
+          "Prije pitanja koliko instrument nosi, treba vidjeti može li sustav preživjeti rokove, obveze i razdoblje bez novog kapitala.",
+          "bitcoin-bilanca-pojacana-izlozenost-bilanca-prije-prinosa-20260702.webp",
+          "Mediteranska scena s vagom, Bitcoin kamenom, kuvertom pričuve i praznim bilančnim papirima"
+        ),
         link: {
           before: "Za osobnu stranu iste logike počnite od vodiča",
           label: "Svaki euro ima namjenu",
@@ -3751,6 +3783,12 @@ const guideEntries: Guide[] = [
           "Postoje dvije vrste rizika. Prvi je rizik trajnog oštećenja bilance. Drugi je rizik da se ne sudjeluje dovoljno u rastu Bitcoina.",
           "Drugi rizik ima smisla tek kada je prvi strogo ograničen.",
         ],
+        visual: balanceExposureSectionImage(
+          "Pojačana izloženost nije samo rast.",
+          "Leća koja pojačava rast može pojačati i pad. Zato omjer izloženosti nikada nije dovoljan bez bilance ispod njega.",
+          "bitcoin-bilanca-pojacana-izlozenost-pojacana-20260702.webp",
+          "Mediteranski stol s Bitcoin kamenom, mehaničkom lećom i dvama razdvojenim kamenim putevima"
+        ),
       },
       {
         heading: "SATA i dnevne dividende",
@@ -3761,6 +3799,12 @@ const guideEntries: Guide[] = [
           "Stabilnija cijena oko nominalne vrijednosti nije isto što i uklanjanje rizika. Nominalna vrijednost je vrijednost zapisana u pravilima instrumenta. Tržišna cijena može se kretati oko nje, ali to ne znači da bilanca nema rizik.",
           "Zato se SATA ne smije gledati samo kroz prinos. Treba gledati izdavatelja, pričuvu za dividende, tržišnu likvidnost, kreditni rizik i ponašanje instrumenta pod stresom.",
         ],
+        visual: balanceExposureSectionImage(
+          "Dnevni ritam ne uklanja rizik.",
+          "Kraći ritam isplate može biti psihološki privlačan, ali sigurnost i dalje ovisi o izdavatelju, pravilima, pričuvi i tržišnoj likvidnosti.",
+          "bitcoin-bilanca-pojacana-izlozenost-dnevne-dividende-20260702.webp",
+          "Mediteranski stol s nizom praznih dnevnih kartica, kuvertom pričuve i odvojenim Bitcoin kamenom"
+        ),
       },
       {
         heading: "Stresno ispitivanje bilance",
@@ -3780,6 +3824,12 @@ const guideEntries: Guide[] = [
           "Založeni Bitcoin mora biti prodan.",
           "Dug dospijeva u najgorem trenutku.",
         ],
+        visual: balanceExposureSectionImage(
+          "Stres test je mirna priprema.",
+          "Pitanja o padu, dugu, dividendi, založenom Bitcoinu i likvidnosti treba proći dok je odluka još mirna.",
+          "bitcoin-bilanca-pojacana-izlozenost-stres-bilance-20260702.webp",
+          "Mediteranski stol s praznim checklistama, Bitcoin kamenom, mapom bilance i olujnim morem u pozadini"
+        ),
       },
       {
         heading: "Pojačana izloženost mora se mijenjati kroz cikluse",
@@ -3790,6 +3840,12 @@ const guideEntries: Guide[] = [
           "Nitko ne zna savršeno pogoditi ciklus. Zato je važan sustav, a ne osjećaj.",
           "U silaznom tržištu gradi se kapacitet. U uzlaznom tržištu smanjuje se krhkost.",
         ],
+        visual: balanceExposureSectionImage(
+          "Ciklus mijenja značenje iste izloženosti.",
+          "Ista pojačana izloženost ne znači isto nakon pada, u mirnom razdoblju i u euforiji.",
+          "bitcoin-bilanca-pojacana-izlozenost-ciklusi-20260702.webp",
+          "Mediteranski stol s kamenim ciklusom oko prazne bilježnice i Bitcoin kamenom"
+        ),
         link: {
           before: "Za osobna pravila kroz rast i pad pogledajte",
           label:
@@ -3806,6 +3862,12 @@ const guideEntries: Guide[] = [
           "Danas se pojavljuju instrumenti izgrađeni oko Bitcoin bilanci. To ne znači da su automatski dobri. To znači da se oko novog novca razvijaju novi oblici kapitala.",
           "Analogija pomaže samo ako ostane skromna. Povijest ne uklanja kreditni rizik, rizik uprave, rizik skrbništva, rizik regulacije ni oportunitetni trošak.",
         ],
+        visual: balanceExposureSectionImage(
+          "Digitalni kredit je sloj iznad Bitcoina.",
+          "Kada se oko Bitcoin bilance grade novi instrumenti, važno je vidjeti most između novca, ugovora i izdavatelja.",
+          "bitcoin-bilanca-pojacana-izlozenost-digitalni-kredit-20260702.webp",
+          "Mediteranski stol s Bitcoin kamenom, papirnatim mostom od praznih ugovora, kompasom i zatvorenom kuvertom"
+        ),
         link: {
           before: "Za osnovnu razliku između novca i ugovora pročitajte",
           label: "Digitalni kredit nije Bitcoin",
@@ -4628,1109 +4690,6 @@ const guideEntries: Guide[] = [
     },
   },
   {
-    slug: "obiteljski-bitcoin-trezor",
-    title: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
-    seoTitle: "Obiteljski Bitcoin trezor: sigurnost, oporavak i nasljeđivanje",
-    metaDescription:
-      "Vodič za obitelji koje žele složiti Bitcoin sigurnost tako da sredstva ne ovise o jednoj osobi, jednom uređaju ili jednoj lokaciji.",
-    excerpt:
-      "Bitcoin mora ostati pod vašom kontrolom, ali ne smije ovisiti samo o jednoj osobi, jednom uređaju ili jednom papiriću.",
-    category: "Sigurnost i obitelj",
-    difficulty: "Napredno",
-    freshness: "stabilno",
-    safetyNote: advancedSecuritySafetyNote,
-    order: 102,
-    featured: true,
-    publishedAt: "2026-05-12",
-    updatedAt: "2026-07-01",
-    practicalQuestion:
-      "Može li vaša obitelj razumjeti i oporaviti Bitcoin sustav bez panike, nagađanja i predaje kontrole pogrešnoj osobi?",
-    relatedSlugs: [
-      "sigurnost-ne-smije-ovisiti-samo-o-vama",
-      "obiteljski-pristup-bitcoinu",
-      "bitcoin-u-neto-imovini",
-    ],
-    visual: {
-      type: "safety",
-      title: "Obiteljski trezor",
-      zones: [
-        {
-          label: "ključevi",
-          description: "jedan ključ nije dovoljan za pomicanje sredstava",
-        },
-        {
-          label: "lokacije",
-          description: "jedna lokacija nije dovoljna za gubitak svega",
-        },
-        {
-          label: "upute",
-          description: "obitelj zna što ne smije napraviti u panici",
-        },
-      ],
-      caption:
-        "Nije univerzalni recept, nego primjer za razmišljanje o obiteljskoj sigurnosti.",
-    },
-    sections: [
-      {
-        heading: "Što obiteljski trezor treba riješiti",
-        body: [
-          "Obiteljski Bitcoin trezor nije naziv za jedan uređaj ni jednu aplikaciju. To je okvir kojim se odvajaju kontrola, oporavak, obiteljske upute i pomoć u izvanrednoj situaciji.",
-          "Cilj je smanjiti dvije suprotne opasnosti: da jedna pogreška omogući krađu i da jedna pogreška zauvijek onemogući pristup.",
-          "Prije tehnologije treba znati koliki je iznos, koliko se često koristi, tko mora moći reagirati i koje su posljedice požara, krađe, bolesti, smrti ili nestanka ključne osobe.",
-        ],
-        calloutTitle: "Trezor je sustav, ne proizvod",
-        callout:
-          "Ako cijeli plan možete opisati samo imenima uređaja i aplikacija, još niste objasnili tko kontrolira sustav i kako se on oporavlja.",
-      },
-      {
-        heading: "Počnite od modela prijetnji",
-        body: [
-          "Ne postoji univerzalna arhitektura za svaku obitelj. Isti broj ključeva može biti razuman u jednoj situaciji i previše složen u drugoj.",
-          "Model prijetnji treba obuhvatiti fizički gubitak, digitalni napad, prisilu, obiteljski sukob, nedostupnost osobe, pogrešku pri korištenju i dugoročnu zastarjelost alata.",
-          "Tek nakon toga ima smisla uspoređivati jednostavniju samostalnu pohranu, sustav s više potpisa ili djelomično skrbnički model.",
-        ],
-        table: {
-          columns: ["Pitanje", "Zašto je važno"],
-          rows: [
-            [
-              "Što jedna pogreška može otkriti?",
-              "Jedan pronađeni dio ne bi smio automatski dati cijelu kontrolu.",
-            ],
-            [
-              "Što jedan gubitak može blokirati?",
-              "Jedan kvar ili nedostupna osoba ne bi smjeli automatski značiti trajni gubitak.",
-            ],
-            [
-              "Tko razumije prvi korak?",
-              "Obitelj mora moći početi bez panike i bez dijeljenja tajni nepoznatoj osobi.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Modeli kontrole i njihovi kompromisi",
-        body: [
-          "Novčanik s jednim potpisom ima manje operativne složenosti, ali jednu snažnu točku kvara. Višepotpisni modeli raspodjeljuju ovlast, ali traže više dokumentacije, provjere i obiteljskog znanja.",
-          "Pragovi poput 2 od 3 korisni su kao model za razumijevanje: jedan ključ nije dovoljan za trošenje, a jedan gubitak ne mora blokirati oporavak. To nije početna preporuka ni gotova topologija.",
-          "Pravi kriterij nije najveći broj ključeva, nego može li sustav podnijeti stvarne kvarove bez stvaranja postupka koji obitelj ne može provesti.",
-        ],
-        table: {
-          columns: ["Model", "Moguća korist", "Glavni kompromis"],
-          rows: [
-            [
-              "Jedan potpis",
-              "Jednostavnije korištenje i oporavak.",
-              "Jedan kompromitirani ključ ili loša pričuvna kopija mogu biti presudni.",
-            ],
-            [
-              "Više potpisa",
-              "Ovlast i kvarovi mogu se raspodijeliti.",
-              "Konfiguracija, koordinacija i nasljeđivanje postaju složeniji.",
-            ],
-            [
-              "Djelomično skrbnički model",
-              "Jednostavniji oporavak i podrška.",
-              "Veća ovisnost o pružatelju usluge i njegovim pravilima.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Alati su primjeri, ne popis za kupnju",
-        body: [
-          "Bitcoin Core i Fulcrum primjeri su alata za neovisniju provjeru, Sparrow je primjer koordinacijskog novčanika, a COLDCARD Q, BitBox02 Bitcoin-only i Passport Core primjeri su hardverskih potpisnika s različitim načinima rada.",
-          "Ta imena ne čine preporučeni tehnički sklop. Svaki dodatni alat može smanjiti jednu prijetnju, ali uvodi održavanje, kompatibilnost, novu krivulju učenja i novi put kvara.",
-          "Usporedba treba pitati može li se konfiguracija izvesti, mogu li se podaci provjeriti na neovisnom zaslonu, postoji li zamjena i može li druga osoba obnoviti sustav ako izvorni postavljač nije dostupan.",
-        ],
-        cards: [
-          {
-            title: "Provjera",
-            text: "Koliko privatnosti i neovisnosti dobivate te tko održava infrastrukturu?",
-          },
-          {
-            title: "Koordinacija",
-            text: "Prikazuje li alat jasno politiku i može li se konfiguracija sigurno izvesti?",
-          },
-          {
-            title: "Potpisivanje",
-            text: "Može li korisnik provjeriti namjeru i hoće li obitelj razumjeti način rada?",
-          },
-        ],
-      },
-      {
-        heading: "Ključevi, pričuvne kopije i konfiguracija",
-        body: [
-          "Zapis početnih riječi ili druga pričuvna kopija ključa ne smije završiti u fotografiji, poruci, e-mailu ili nezaštićenoj mrežnoj pohrani. Izbor fizičkog medija ovisi o trajnosti, čitljivosti, provjerljivosti i stvarnim fizičkim prijetnjama.",
-          "Kod sustava s više ključeva pojedinačne pričuvne kopije nisu cijela mapa trezora. Potrebna je i provjerena konfiguracija novčanika, primjerice descriptor ili ekvivalentan izvoz politike.",
-          "Dokumentacija ne smije na jednom mjestu spojiti sve ključeve, sve lokacijske podatke i sve upute potrebne za trošenje. Istodobno mora biti dovoljno jasna da oporavak nije nagađanje.",
-        ],
-        calloutTitle: "Ključ nije isto što i mapa",
-        callout:
-          "Obitelj može imati valjane pričuvne kopije, a ipak izgubiti pristup ako ne zna kako su ključevi povezani u isti novčanik.",
-      },
-      {
-        heading: "Domene kvara umjesto javne karte lokacija",
-        body: [
-          "Javni vodič ne može odgovorno propisati gdje držati uređaje, pričuvne kopije ili upute. Takav raspored ovisi o obitelji, odnosima, pravnom pristupu, mogućnosti putovanja i lokalnim prijetnjama.",
-          "Važno je razmišljati o domenama kvara: mogu li isti požar, provala, pravni problem ili osoba istodobno ugroziti dovoljan broj dijelova za krađu ili trajni gubitak?",
-          "Naizgled odvojena mjesta nisu neovisna ako ih kontrolira ista osoba ili ako obitelj u izvanrednoj situaciji ne može do njih. Procjenjuje se stvarna kontrola, ne broj adresa.",
-        ],
-        calloutTitle: "Ne objavljujte raspored",
-        callout:
-          "Točne lokacije i raspodjela ključeva pripadaju privatnoj procjeni, ne javnom primjeru koji se može kopirati ili napasti.",
-      },
-      {
-        heading: "Primanje i slanje: kriteriji, ne slijed klikova",
-        body: [
-          "Kod primanja treba neovisno potvrditi da cijela adresa pripada očekivanom novčaniku i njegovoj potvrđenoj politici. Jedan prikaz na računalu nije dovoljan izvor istine za veći prijenos.",
-          "Kod slanja treba odvojiti pripremu, provjeru namjere, potpisivanje i emitiranje. Potpisnici moraju moći provjeriti primatelja, iznos, naknadu i sve relevantne izlaze.",
-          "Konkretan slijed ovisi o odabranim alatima i ne treba ga kopirati iz javnog vodiča. Mora biti dokumentiran i uvježban za konkretan sustav.",
-        ],
-        calloutTitle: "Ne potpisujte naslijepo",
-        callout:
-          "Potpis vrijedi samo ako osoba razumije što odobrava i može odbiti transakciju koja se ne podudara s dogovorenom namjerom.",
-      },
-      {
-        heading: "Oporavak i nasljeđivanje",
-        body: [
-          "Plan mora obuhvatiti gubitak jednog uređaja, fizičku štetu, kompromitaciju ključa, nedostupnost osobe i smrt. Za svaki scenarij treba biti jasno što se mora sačuvati i tko smije pokrenuti procjenu.",
-          "Obiteljska uputa treba objasniti da Bitcoin postoji, što se ne smije napraviti, kako pronaći provjerenu pomoć i zašto ne treba žuriti. Ne treba sadržavati sve tajne ni tehnički recept za trošenje.",
-          "Tehnički dodatak može opisati politiku i način provjere, ali sam ne smije davati potpunu kontrolu. Profesionalna pomoć ima smisla samo uz jasne granice: savjetnik može pomoći razumjeti i provjeriti sustav, ali ne treba preuzeti ključeve.",
-        ],
-        cards: [
-          {
-            title: "Obiteljska uputa",
-            text: "Daje miran prvi korak i zabrane bez okupljanja svih tajni.",
-          },
-          {
-            title: "Tehnički dodatak",
-            text: "Omogućuje prepoznavanje politike i provjeru oporavka.",
-          },
-          {
-            title: "Pomoć",
-            text: "Znanje bez dovoljne ovlasti za samostalno pomicanje sredstava.",
-          },
-        ],
-      },
-      {
-        heading: "Testiranje i održavanje",
-        body: [
-          "Test nije javno propisan redoslijed transakcija. Njegov je cilj dokazati da normalno korištenje, gubitak jednog dijela i oporavak iz dokumentacije rade bez improvizacije.",
-          "Provjera treba biti ograničena na testnu mrežu ili iznos čiji gubitak ne stvara problem, ovisno o alatu i znanju. Veliki iznos ne služi za prvi pokušaj.",
-          "Sustav treba periodično pregledati jer se mijenjaju ljudi, uređaji, podrška softvera, odnosi i mogućnost pristupa. Test koji zna provesti samo jedna osoba nije dovoljan obiteljski test.",
-        ],
-        table: {
-          columns: ["Provjera", "Što mora dokazati"],
-          rows: [
-            [
-              "Normalno korištenje",
-              "Namjera i politika mogu se neovisno provjeriti prije potpisa.",
-            ],
-            [
-              "Gubitak jednog dijela",
-              "Jedan kvar ne omogućuje krađu i ne blokira cijeli sustav.",
-            ],
-            [
-              "Obiteljski oporavak",
-              "Prava osoba može pronaći uputu i sigurno započeti bez improvizacije.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Kada je jednostavniji model sigurniji",
-        body: [
-          "Složeniji trezor nema smisla ako osoba još ne razumije osnovni novčanik, ako je iznos malen ili ako obitelj ne zna da plan postoji.",
-          "Više uređaja, lokacija i programa ne pomaže ako svi ovise o jednoj osobi, ako se ne održavaju ili ako se oporavak nikada nije provjerio.",
-          "Dobar sustav nije onaj koji izgleda najnaprednije, nego onaj koji smanjuje stvarne prijetnje i koji obitelj može razumjeti, održavati i oporaviti pod stresom.",
-        ],
-        calloutTitle: "Složenost mora imati razlog",
-        callout:
-          "Ako novi sloj ne smanjuje jasno imenovanu prijetnju ili nema provjerljiv put oporavka, vjerojatno ne pripada u sustav.",
-      },
-      {
-        heading: "Zaključak",
-        body: [
-          "Obiteljski Bitcoin trezor treba početi prijetnjama, ljudima i oporavkom, a ne proizvodima.",
-          "Višepotpisni modeli, vlastita infrastruktura i različiti potpisnici mogu imati smisla, ali samo kao svjesno odabrani kompromisi. Nijedan od njih nije automatska nadogradnja sigurnosti.",
-          "Najjednostavnije rečeno: Bitcoin treba ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
-        ],
-      },
-    ],
-    finalCta: "Dogovorite uvodni Bitcoin razgovor",
-    finalCtaPrompt:
-      "Ako imate značajniji iznos u Bitcoinu, sigurnost više nije samo pitanje uređaja. Pitanje je može li vaša obitelj razumjeti i oporaviti sustav bez panike.",
-  },
-  {
-    slug: "vremenski-oporavak-bitcoin-trezor",
-    title: "Vremenski oporavak u obiteljskom Bitcoin trezoru",
-    metaDescription:
-      "Napredni vodič o kriterijima i kompromisima vremenskog oporavka u obiteljskom Bitcoin trezoru, uz Miniscript, Nunchuk, Lianu i sigurnosne rizike.",
-    excerpt:
-      "Vremenski uvjet može dodati oporavni put obiteljskom Bitcoin trezoru, ali mijenja sigurnosni model. Važnije od gotove konfiguracije jest razumjeti prijetnje, kompromise, održavanje i sposobnost obitelji da provede oporavak.",
-    category: "Sigurnost i obitelj",
-    difficulty: "Napredno",
-    freshness: "često se mijenja",
-    safetyNote: advancedSecuritySafetyNote,
-    order: 102.5,
-    readingMinutes: 10,
-    publishedAt: "2026-05-29",
-    updatedAt: "2026-07-02",
-    practicalQuestion:
-      "Ako bi vam se nešto dogodilo danas, bi li osoba od povjerenja znala razliku između toga da Bitcoin postoji, da ima pravo na njega i da mu zna sigurno pristupiti?",
-    relatedSlugs: [
-      "obiteljski-bitcoin-trezor",
-      "sigurnost-ne-smije-ovisiti-samo-o-vama",
-      "obiteljski-pristup-bitcoinu",
-      "samostalna-pohrana-ili-skrbnik",
-    ],
-    visual: {
-      type: "split",
-      title: "Normalni put i vremenski oporavak",
-      leftLabel: "Osnovna politika",
-      leftItems: [
-        "jasan prag potpisa",
-        "poznate uloge ključeva",
-        "provjerljiv postupak",
-      ],
-      rightLabel: "Oporavni uvjet",
-      rightItems: [
-        "jasno definiran rok",
-        "odvojena odgovornost",
-        "redovito provjeren plan",
-      ],
-      caption:
-        "Vremenski oporavak ne uklanja potrebu za obiteljskim uputama. Samo dodaje drugi put koji treba razumjeti prije većeg iznosa.",
-    },
-    sections: [
-      {
-        heading: "Zašto vremenski oporavak postoji",
-        body: [
-          "Sustav s više potpisa može smanjiti ovisnost o jednom ključu, ali obitelj i dalje može zapeti ako dovoljan broj ključeva ili ljudi nije dostupan kada je pristup potreban.",
-          "Vremenski uvjet dodaje unaprijed definiran oporavni put koji postaje dostupan nakon datuma, bloka ili razdoblja neaktivnosti. To je pravilo Bitcoin skripte, ne podsjetnik u aplikaciji.",
-          "Takav mehanizam ima smisla samo ako rješava stvarni rizik nasljeđivanja ili dugotrajne nedostupnosti. Tehnička zanimljivost sama nije razlog za dodatnu složenost.",
-        ],
-        calloutTitle: "Oporavak mijenja sigurnosni model",
-        callout:
-          "Lakši pristup nakon vremena može pomoći obitelji, ali isti put može pomoći i napadaču koji dođe do oporavnog ključa.",
-      },
-      {
-        heading: "Dva načina gledanja na vrijeme",
-        body: [
-          "Apsolutni rok otvara oporavni put nakon unaprijed određenog datuma ili bloka. Jednostavnije ga je objasniti, ali se ne resetira sam i nakon isteka ostaje dio aktivne politike.",
-          "Relativni rok ovisi o tome koliko je konkretan UTXO mirovao. Fleksibilniji je za model neaktivnosti, ali traži razumijevanje UTXO-a, osvježavanja roka i redovitog održavanja.",
-          "CHECKLOCKTIMEVERIFY iz BIP-a 65 te relativni rokovi iz BIP-ova 68 i 112 tehnički su temelji tih modela. Njihovo poznavanje ne zamjenjuje obiteljsku sposobnost oporavka.",
-        ],
-        table: {
-          columns: ["Model vremena", "Moguća korist", "Glavni kompromis"],
-          rows: [
-            [
-              "Apsolutni rok",
-              "Jasan datum ili blok koji se lakše komunicira.",
-              "Oporavni put ostaje otvoren nakon roka dok se politika ne promijeni.",
-            ],
-            [
-              "Relativni rok",
-              "Oporavak se veže uz neaktivnost sredstava.",
-              "Različiti UTXO-i mogu imati različito stanje i traže održavanje.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Prag prije i nakon roka",
-        body: [
-          "Vremenski sustav ima najmanje dva puta: normalni put i oporavni put. Svaki ima svoj prag, ključeve i uvjet dostupnosti.",
-          "Primjer u kojem normalni put traži više potpisa, a oporavni put nakon roka manje potpisa, koristan je za razumijevanje. Nije gotova topologija za kopiranje.",
-          "Smanjenje praga nakon roka olakšava oporavak, ali povećava posljedice kompromitacije pojedinog ključa. Poseban oporavni ključ jasnije odvaja uloge, ali postaje osjetljiva točka kada se uvjet aktivira.",
-        ],
-        calloutTitle: "Broj potpisa nije samo tehnički detalj",
-        callout:
-          "Svaka promjena praga istodobno mijenja obiteljski put oporavka i napadačev put do sredstava.",
-      },
-      {
-        heading: "Kriteriji prije odabira modela",
-        body: [
-          "Prvo treba definirati problem: nasljeđivanje, dugotrajna nedostupnost, gubitak više ključeva ili nešto četvrto. Različiti problemi ne traže isti rok ni isti oporavni put.",
-          "Zatim treba procijeniti tko kontrolira oporavni ključ, što se događa ako je kompromitiran prije ili nakon roka, tko prati rok i kako se politika može promijeniti bez panike.",
-          "Ako obitelj ne može jednostavno objasniti normalni put, oporavni put i posljedice isteka, vremenski mehanizam još nije prikladan za značajan iznos.",
-        ],
-        cards: [
-          {
-            title: "Prijetnja",
-            text: "Koji konkretan gubitak ili nedostupnost vremenski uvjet treba ublažiti?",
-          },
-          {
-            title: "Kompromis",
-            text: "Kome oporavak nakon roka daje veću moć i koji novi rizik time nastaje?",
-          },
-          {
-            title: "Održavanje",
-            text: "Tko prati rok, kompatibilnost alata i spremnost obitelji?",
-          },
-        ],
-      },
-      {
-        heading: "Nunchuk, Liana i vlastiti Miniscript kao modeli",
-        body: [
-          "Nunchuk pokazuje model vođenog sučelja za Miniscript politike. Liana je usmjerena na oporavak nakon neaktivnosti. Vlastiti descriptor uz kompatibilne alate daje više ručne kontrole i neovisnosti.",
-          "To nisu koraci istog tehničkog sklopa ni rang-lista proizvoda. Svaki pristup drukčije raspoređuje složenost između korisnika, sučelja, održavanja i neovisnog oporavka.",
-          "Bitcoin Core može biti dio provjere ili tehničkog oporavka, ali veća otvorenost nije obiteljska prednost ako sustav zna rekonstruirati samo jedna osoba.",
-        ],
-        table: {
-          columns: ["Pristup", "Moguća korist", "Glavni kompromis"],
-          rows: [
-            [
-              "Nunchuk / vođeno sučelje",
-              "Politika je pristupačnija za pregled i upravljanje.",
-              "Veća ovisnost o proizvodu, podršci i načinu izvoza konfiguracije.",
-            ],
-            [
-              "Liana / oporavak nakon neaktivnosti",
-              "Model je usmjeren na dugoročni oporavak i nasljeđivanje.",
-              "Traži razumijevanje relativnih rokova i redovito održavanje.",
-            ],
-            [
-              "Vlastiti Miniscript",
-              "Najviše fleksibilnosti i neovisne provjerljivosti.",
-              "Najveći rizik operativne pogreške i ovisnosti o tehničkoj osobi.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Konfiguracija i dokumentacija",
-        body: [
-          "Kod Miniscripta zapisi početnih riječi nisu dovoljni za razumijevanje cijelog novčanika. Potrebna je provjerena konfiguracija politike, primjerice descriptor, BSMS ili ekvivalentan izvoz.",
-          "Obiteljska uputa treba objasniti da sustav postoji, što se ne smije napraviti, kako pronaći provjerenu pomoć i zašto ne treba žuriti. Ne treba sadržavati početne riječi ni sve podatke potrebne za trošenje.",
-          "Tehnički dodatak treba omogućiti prepoznavanje pravila, rokova i zadnje provjere bez okupljanja svih ključeva, lokacija i lozinki u jednom dokumentu.",
-        ],
-        calloutTitle: "Zapis početnih riječi nije cijela mapa trezora",
-        callout:
-          "Valjani ključevi bez ispravne politike mogu ostaviti obitelj bez načina da rekonstruira novčanik.",
-      },
-      {
-        heading: "Testiranje bez javnog recepta",
-        body: [
-          "Vremenski oporavak mora se dokazati prije većeg iznosa, ali javni vodič ne treba propisivati slijed postavljanja, slanja i potpisivanja.",
-          "Test treba biti ograničen na testnu mrežu ili iznos čiji gubitak ne stvara problem, ovisno o alatu. Mora zasebno potvrditi normalni put, vremenski put i rekonstrukciju iz dokumentacije.",
-          "Ako test zna provesti samo osoba koja je sustav postavila, nije dokazan obiteljski oporavak. Ako rezultat nije moguće objasniti, politika nije spremna.",
-        ],
-        table: {
-          columns: ["Ishod testa", "Što mora biti dokazano"],
-          rows: [
-            [
-              "Normalni put",
-              "Namjera, prag i potpisi mogu se provjeriti bez improvizacije.",
-            ],
-            [
-              "Vremenski put",
-              "Rok i ovlasti ponašaju se kako dokumentirana politika tvrdi.",
-            ],
-            [
-              "Oporavak",
-              "Druga pripremljena osoba može prepoznati sustav i sigurno započeti.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Što se mijenja kada rok istekne",
-        body: [
-          "Kod apsolutnog roka oporavni put može ostati dostupan nakon isteka. Kod relativnog roka stanje može ovisiti o starosti pojedinih UTXO-a.",
-          "Prije isteka ili približavanja pragu treba ponovno procijeniti treba li politika ostati, obnoviti se ili biti zamijenjena. Svaka opcija nosi transakcijski, sigurnosni i operativni rizik.",
-          "Plan zato treba odgovornu osobu, podsjetnik i kriterije za novu odluku. Ne treba javnu uputu s točnom transakcijom ili rasporedom ključeva.",
-        ],
-        calloutTitle: "Vremenski uvjet nije postavi i zaboravi",
-        callout:
-          "Rokovi, naknade, uređaji, kompatibilnost alata i obiteljske okolnosti mijenjaju se i traže periodičnu provjeru.",
-      },
-      {
-        heading: "Kada ovo ima smisla, a kada ne",
-        body: [
-          "Vremenski oporavak može imati smisla kada je gubitak pristupa ozbiljan obiteljski rizik, osnovna pohrana već je uređena, postoji dokumentacija i više od jedne osobe razumije cilj sustava.",
-          "Nema smisla kao prvi novčanik, za mali iznos koji ne opravdava složenost ili kada se ključevi, dokumentacija i održavanje ionako oslanjaju na jednu osobu.",
-          "Jednostavniji model može biti sigurniji ako obitelj ne može objasniti rok, promjenu ovlasti i put oporavka bez pomoći izvornog postavljača.",
-        ],
-      },
-      {
-        heading: "Izvori za tehničku provjeru",
-        body: [
-          "Ovi izvori služe za provjeru tehničkih temelja i pripremu pitanja. Nisu uputa da se velik trezor složi kopiranjem primjera.",
-        ],
-        links: [
-          {
-            label: "BIP 65 / CHECKLOCKTIMEVERIFY",
-            href: "https://bips.dev/65/",
-          },
-          {
-            label: "BIP 68 / relativni rok",
-            href: "https://bips.dev/68/",
-          },
-          {
-            label: "BIP 112 / CHECKSEQUENCEVERIFY",
-            href: "https://bips.dev/112/",
-          },
-          {
-            label: "Nunchuk: Miniscript 101",
-            href: "https://nunchuk.io/blog/miniscript101",
-          },
-          {
-            label: "Liana: podrška i oporavak",
-            href: "https://wizardsardine.com/liana/support/",
-          },
-        ],
-      },
-      {
-        heading: "Zaključak",
-        body: [
-          "Vremenski oporavak može smanjiti rizik trajnog gubitka, ali cijena je složeniji sigurnosni model, održavanje i veća odgovornost prema dokumentaciji.",
-          "Nunchuk, Liana i vlastiti Miniscript pokazuju različite načine upravljanja tim kompromisom. Nijedan alat ne uklanja potrebu da obitelj razumije prvi korak i da se oporavak provjeri prije značajnog iznosa.",
-          "Najvažnije pitanje nije može li se politika tehnički napraviti, nego smanjuje li stvarni obiteljski rizik bez stvaranja sustava koji nitko ne zna održavati.",
-        ],
-      },
-    ],
-    finalCta: PRIMARY_CTA,
-    finalCtaTitle:
-      "Želite provjeriti je li vaš obiteljski Bitcoin trezor stvarno razumljiv?",
-    finalCtaPrompt:
-      "Ako već imate Bitcoin, ali niste sigurni treba li vam obični 2 od 3 trezor, vremenski oporavak, skrbnički kompromis ili jednostavniji početak, krenite od razgovora.",
-  },
-  {
-    slug: "samostalna-pohrana-ili-skrbnik",
-    title:
-      "Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti",
-    seoTitle:
-      "Samostalna pohrana ili skrbnik: kako razmišljati o Bitcoin sigurnosti",
-    metaDescription:
-      "Vodič koji objašnjava kada ima smisla držati Bitcoin u vlastitoj pohrani, kada kod skrbnika i kako razmišljati o prijelaznom planu bez ideološkog pritiska.",
-    excerpt:
-      "Samostalna pohrana je važan cilj, ali nije uvijek najbolji prvi korak za svaku osobu, obitelj i iznos.",
-    category: "Sigurnost i obitelj",
-    difficulty: "Napredno",
-    freshness: "često se mijenja",
-    safetyNote: advancedSecuritySafetyNote,
-    order: 103,
-    publishedAt: "2026-05-12",
-    updatedAt: "2026-05-12",
-    practicalQuestion:
-      "Koji oblik čuvanja bitcoina ima smisla za vašu razinu znanja, obitelj, iznos i stvarne rizike?",
-    relatedSlugs: [
-      "obiteljski-bitcoin-trezor",
-      "bitkey-bitcoin-sigurnost",
-      "bitcoin-etfovi-i-riznicke-kompanije",
-    ],
-    summary: {
-      title: "Brza orijentacija",
-      items: [
-        "Samostalna pohrana daje izravnu kontrolu, ali i punu odgovornost za oporavak.",
-        "Pohrana kod skrbnika može biti prijelazni korak, ali nije isto što i Bitcoin pod vlastitim ključevima.",
-        "Dobar plan gleda osobu, obitelj, iznos, znanje i stvarne rizike, a ne samo slogan.",
-        "Za mnoge ljude najbolji put je hibridan: jasne uloge, manji očiti rizici i postupni prijelaz.",
-      ],
-    },
-    visual: {
-      type: "split",
-      title: "Dvije vrste rizika",
-      leftLabel: "samostalna pohrana",
-      leftItems: [
-        "izravna kontrola privatnih ključeva",
-        "veća osobna odgovornost",
-        "potreban obiteljski plan",
-      ],
-      rightLabel: "pohrana kod skrbnika",
-      rightItems: [
-        "jednostavniji početak",
-        "ovisnost o instituciji",
-        "izloženost bez punih Bitcoin svojstava",
-      ],
-      caption:
-        "Edukativni okvir za razmišljanje, bez investicijskog, poreznog ili pravnog savjeta.",
-    },
-    sections: [
-      {
-        heading: "Dobar Bitcoin plan ne počinje sloganom",
-        body: [
-          "U Bitcoinu se često čuje rečenica: ako nemate svoje ključeve, nemate svoj bitcoin.",
-          "Ta rečenica ima važnu ulogu. Ona podsjeća da Bitcoin nije isto što i stanje na računu kod burze, brokera ili druge institucije. Ako netko drugi drži ključeve, vi ne držite bitcoin izravno. Imate potraživanje, udio, izloženost ili obećanje da će vam netko drugi omogućiti pristup.",
-          "To treba razumjeti, ali iz toga ne slijedi da je samostalna pohrana uvijek najbolji prvi korak za svaku osobu, u svakoj fazi i za svaki iznos.",
-          "Bitcoin sigurnost nije ideološko pitanje, nego praktično.",
-          "Pitanje glasi: koji oblik čuvanja bitcoina ima smisla za ovu osobu, ovu obitelj, ovaj iznos, ovu razinu znanja i ovu životnu situaciju?",
-          "Za nekoga je najbolji prvi korak povući bitcoin u vlastiti novčanik. Za nekoga je bolji prvi korak smanjiti iznos na burzi, ali ne prelaziti odmah u složeni obiteljski sustav.",
-          "Za nekoga ima smisla dio držati samostalno, a dio kroz brokera, fond ili drugu skrbničku strukturu. Za nekoga je trenutačno bolje imati izloženost Bitcoinu kroz vrijednosni papir nego preuzeti tehničku odgovornost koju ne razumije.",
-          "Dobar Bitcoin plan ne počinje sloganom. Počinje procjenom stvarnosti.",
-        ],
-        calloutTitle: "Ključno pitanje",
-        callout:
-          "Koji oblik čuvanja bitcoina ima smisla za ovu osobu, ovu obitelj, ovaj iznos i ovu razinu znanja?",
-        visual: custodySectionImage(
-          "Plan počinje stvarnošću.",
-          "Prvi korak nije izabrati stranu, nego vidjeti što osoba i obitelj stvarno mogu razumjeti, provesti i održavati.",
-          "samostalna-pohrana-plan-stvarnosti-20260629.webp",
-          "Mediteranska radna scena s Bitcoin simbolom, kućnim ključem i praznim planom koji se račva u dva moguća smjera"
-        ),
-      },
-      {
-        heading: "Što znači samostalna pohrana?",
-        body: [
-          "Samostalna pohrana znači da vi kontrolirate privatne ključeve.",
-          "Bitcoin pritom ne stoji na uređaju. On je na Bitcoin mreži, a uređaj, početne riječi ili višepotpisni sustav omogućuju vam potpisivanje transakcije.",
-          "Prednost samostalne pohrane je velika: ne ovisite o burzi, brokeru, banci, fondu ili tome hoće li vam netko dopustiti isplatu. Imate otpornost na cenzuru, možete premjestiti bitcoin bez dopuštenja i možete ga čuvati izvan financijskog sustava.",
-          "Upravo su to posebna svojstva Bitcoina.",
-          "Ali samostalna pohrana nosi i odgovornost. Ako izgubite zapis početnih riječi, nema korisničke podrške koja vam može vratiti sredstva. Ako taj zapis spremite u oblak, napravili ste digitalni rizik. Ako sve ovisi o vama, obitelj možda neće moći doći do sredstava.",
-          "Ako je sustav presložen, nitko ga neće znati koristiti u stresu. Ako nemate plan nasljeđivanja, tehnički ispravna samostalna pohrana može postati obiteljski problem.",
-          "Zato samostalna pohrana nije samo pitanje uređaja, nego cijelog sustava.",
-        ],
-        cards: [
-          {
-            title: "Kontrola",
-            text: "Vi potpisujete transakciju i ne tražite dopuštenje burze, brokera ili banke.",
-          },
-          {
-            title: "Oporavak",
-            text: "Zapis početnih riječi, uređaj ili višepotpisni sustav moraju imati jasan i testiran put oporavka.",
-          },
-          {
-            title: "Obitelj",
-            text: "Ako sve ovisi o jednoj osobi, tehnički dobra pohrana može postati obiteljski problem.",
-          },
-        ],
-        visual: custodySectionImage(
-          "Vlastiti ključevi, vlastita odgovornost.",
-          "Samostalna pohrana nije samo uređaj na stolu, nego sustav ključeva, pričuvnih kopija i obiteljskih uputa.",
-          "samostalna-pohrana-vlastiti-kljucevi-20260629.webp",
-          "Mediteranska scena s hardverskim novčanikom, metalnom pričuvnom pločicom, ključem i kamenim Bitcoin simbolom"
-        ),
-      },
-      {
-        heading: "Što znači pohrana kod skrbnika?",
-        body: [
-          "Pohrana kod skrbnika znači da privatne ključeve ne držite vi.",
-          "U praksi to može biti burza ili mjenjačnica, brokerski račun, fond kojim se trguje na burzi, institucionalni skrbnik, financijski proizvod koji ima Bitcoin u pozadini ili kompanija koja drži Bitcoin u vlastitoj riznici.",
-          "Ti oblici nisu međusobno jednaki. Burza na kojoj kupujete bitcoin i ostavljate ga tamo nije isto što i regulirani fond kojim se trguje na burzi. Brokerski račun nije isto što i vlastiti novčanik. Bitcoin ETF nije isto što i bitcoin u vašem višepotpisnom trezoru.",
-          "Ali zajednička crta je ova: vi nemate izravnu kontrolu nad privatnim ključevima.",
-          "To je mana, premda u nekim situacijama takav oblik može imati i prednosti.",
-        ],
-        table: {
-          columns: ["Pitanje", "Samostalna pohrana", "Pohrana kod skrbnika"],
-          rows: [
-            [
-              "Tko kontrolira ključeve?",
-              "Vi ili vaš vlastiti višepotpisni sustav.",
-              "Burza, broker, fond, skrbnik ili izdavatelj proizvoda.",
-            ],
-            [
-              "Što dobivate?",
-              "Izravnu kontrolu i Bitcoin svojstva bez dopuštenja.",
-              "Jednostavniji početak, izvještavanje ili postojeću financijsku infrastrukturu.",
-            ],
-            [
-              "Glavni rizik",
-              "Pogreška korisnika, gubitak pristupa, loš backup ili nejasan obiteljski plan.",
-              "Povjerenje u instituciju, pravila računa, dostupnost sredstava i pravni okvir.",
-            ],
-            [
-              "Kada može imati smisla?",
-              "Kada osoba razumije oporavak i ima sustav koji ne ovisi samo o njoj.",
-              "Kada je cilj prijelaz, manji iznos, jednostavnost ili oblik koji obitelj već razumije.",
-            ],
-          ],
-        },
-        visual: custodySectionImage(
-          "Skrbnik znači posredovani pristup.",
-          "Kod skrbničkog rješenja možete imati izloženost Bitcoinu, ali privatni ključevi nisu pod vašom izravnom kontrolom.",
-          "samostalna-pohrana-skrbnik-20260629.webp",
-          "Mediteranska institucionalna scena s omotnicom, karticom, praznim dokumentima i Bitcoin simbolom iza stakla"
-        ),
-      },
-      {
-        heading: "Kada pohrana kod skrbnika ima smisla?",
-        body: [
-          "Pohrana kod skrbnika može imati smisla kada osoba još nije spremna za samostalnu pohranu.",
-          "Primjerice, osoba tek uči Bitcoin, ne razumije ulogu početnih riječi, nema sigurno mjesto za pričuvnu kopiju, nema jasan obiteljski plan, ima velik strah od tehničke pogreške ili već ima brokerski račun i portfelj vrijednosnih papira.",
-          "Možda želi izloženost Bitcoinu u postojećem investicijskom okviru, jednostavnije izvještavanje ili dio imovine u obliku koji obitelj već razumije.",
-          "Ne znači da je skrbnik bolji, nego da u određenoj fazi može biti razumniji.",
-          "Loše izvedena samostalna pohrana nije automatski bolja od dobrog skrbničkog rješenja.",
-          "Ako netko ima ozbiljan iznos bitcoina na hardverskom novčaniku, ali zapis početnih riječi drži u istoj ladici, obitelj ne zna ništa, nema upute i sve ovisi o jednoj osobi, taj sustav možda izgleda suvereno, ali nije dobro posložen.",
-          "S druge strane, osoba koja ima dio izloženosti kroz ozbiljnog brokera ili fond možda nema punu Bitcoin suverenost, ali ima sustav koji njezina obitelj razumije i zna naslijediti.",
-          "Cilj savjetovanja nije gurati svakoga u istu kutiju, nego razumjeti rizik.",
-        ],
-        cards: [
-          {
-            title: "Početnik",
-            text: "Osoba još uči osnovne pojmove i ne razumije dovoljno ulogu početnih riječi, pričuvne kopije ni oporavka.",
-          },
-          {
-            title: "Obiteljska jasnoća",
-            text: "Obitelj bolje razumije brokerski račun nego tehnički sustav koji još nije dokumentiran.",
-          },
-          {
-            title: "Prijelazni iznos",
-            text: "Dio imovine može ostati u jednostavnijem obliku dok se vlastiti sustav priprema i testira.",
-          },
-          {
-            title: "Strah od pogreške",
-            text: "Rizik brzog prijenosa u loše izvedenu samostalnu pohranu može biti veći od koristi.",
-          },
-        ],
-        visual: custodySectionImage(
-          "Prijelaz može biti razuman.",
-          "Skrbničko rješenje ponekad nije cilj, nego uredan prijelaz dok osoba uči i smanjuje očite rizike.",
-          "samostalna-pohrana-prijelazna-faza-20260629.webp",
-          "Mediteranska scena s praznom listom, institucionalnim simbolom, obiteljskim okvirom i Bitcoin kamenom"
-        ),
-      },
-      {
-        heading: "Kada pohrana kod skrbnika nije dovoljna?",
-        body: [
-          "Pohrana kod skrbnika nije dovoljna ako želite ona svojstva zbog kojih je Bitcoin poseban.",
-          "Primjerice, ovo su svojstva koja slabe ili nestaju kada privatne ključeve drži netko drugi.",
-          "Ako držite Bitcoin kroz skrbnika, nemate sve to.",
-          "Možda imate izloženost cijeni. Možda imate regulirani instrument. Možda imate jednostavnije porezno i administrativno okruženje.",
-          "Ali nemate potpuno isto svojstvo kao kada držite bitcoin u vlastitom posjedu.",
-          "Bitcoin u vlastitoj pohrani i izloženost Bitcoinu kroz vrijednosni papir nisu ista stvar. Mogu imati mjesto u istoj strategiji, ali nisu isto.",
-        ],
-        items: [
-          "otpornost na cenzuru",
-          "slanje bez dopuštenja",
-          "držanje novca izvan bankarskog sustava",
-          "zaštita od zamrzavanja računa",
-          "izravna kontrola privatnih ključeva",
-          "prijenos vrijednosti bez posrednika",
-          "dugoročna neovisnost o financijskim institucijama",
-        ],
-        visual: custodySectionImage(
-          "Izloženost nije isto što i kontrola.",
-          "Skrbnički sloj može biti koristan, ali ne daje sva svojstva Bitcoina koji je pod vlastitim ključevima.",
-          "samostalna-pohrana-skrbnik-nije-dovoljan-20260629.webp",
-          "Bitcoin kameni simbol izvan staklenog institucionalnog okvira s otvorenim mediteranskim putem u pozadini"
-        ),
-      },
-      {
-        heading: "Problem s ideološkim pristupom",
-        body: [
-          "Ideološki pristup kaže: svi moraju odmah u samostalnu pohranu.",
-          "To zvuči čisto, ali u praksi može biti neodgovorno.",
-          "Ako osoba ne zna što radi, može izgubiti sredstva. Ako obitelj ne zna da bitcoin postoji, nasljednici mogu izgubiti pristup. Ako se velik iznos prebaci u samostalnu pohranu bez plana, rizik se možda nije smanjio. Samo se promijenio.",
-          "Prije je rizik bio skrbnik. Sada je rizik korisnik.",
-          "Napredak postoji samo ako je korisnik spreman.",
-          "Bitcoin ne oprašta tehničku nepažnju.",
-          "Zato je moja pozicija drukčija: samostalna pohrana je cilj za ozbiljnu Bitcoin imovinu, ali prijelaz prema njoj mora biti promišljen.",
-          "Ne mora sve biti odmah. Ne mora sve biti u jednom obliku. Ne mora svaka osoba imati isti put.",
-        ],
-        calloutTitle: "Rizik se mora smanjiti",
-        callout:
-          "Ako se rizik samo premjesti sa skrbnika na nepripremljenog korisnika, plan nije postao sigurniji.",
-        visual: custodySectionImage(
-          "Rizik se ne rješava sloganom.",
-          "Prelazak u vlastitu pohranu vrijedi tek kada smanjuje stvarni rizik, a ne samo mijenja mjesto na kojem se rizik nalazi.",
-          "samostalna-pohrana-ideoloski-pristup-20260629.webp",
-          "Dvije kamene baze s institucionalnom mapom na jednoj strani i osobnim ključem na drugoj strani"
-        ),
-      },
-      {
-        heading: "Tri razine Bitcoina u osobnoj imovini",
-        body: [
-          "U praksi, korisno je razlikovati tri razine.",
-          "Prva razina je Bitcoin kao izloženost. Ovdje osoba želi sudjelovati u promjeni cijene Bitcoina, ali ne želi držati ključeve. To može biti ETF, brokerski proizvod, dionica kompanije s Bitcoin riznicom ili drugi vrijednosni papir. Prednost je jednostavnost. Mana je izostanak izravne kontrole.",
-          "Druga razina je Bitcoin kao osobni novac. Ovdje osoba drži bitcoin u vlastitom novčaniku. To može biti jednostavan hardverski novčanik ili napredniji višepotpisni sustav. Prednost je izravna kontrola. Mana je veća odgovornost.",
-          "Treća razina je Bitcoin kao obiteljski standard. Ovdje Bitcoin više nije samo investicija, nego značajan dio neto imovine i obiteljskog plana.",
-          "Tu se mora razmišljati o proračunu, dugu, davanju, ravnoteži neto imovine, sigurnosti, nasljeđivanju i ulozi Bitcoina u odnosu na kapitalna i potrošačka dobra.",
-          "Na toj razini pitanje više nije gdje kupiti bitcoin, nego kako bitcoin uklopiti u život tako da sustav bude razumljiv, održiv i prenosiv na obitelj.",
-        ],
-        cards: [
-          {
-            title: "1. Bitcoin kao izloženost",
-            text: "Cilj je sudjelovati u kretanju cijene, ali bez vlastitih ključeva.",
-          },
-          {
-            title: "2. Bitcoin kao osobni novac",
-            text: "Cilj je držati bitcoin pod vlastitom kontrolom i razumjeti oporavak.",
-          },
-          {
-            title: "3. Bitcoin kao obiteljski standard",
-            text: "Cilj je da sustav preživi stres, bolest, smrt i prijenos na obitelj.",
-          },
-        ],
-        visual: custodySectionImage(
-          "Tri različite razine.",
-          "Izloženost, osobni novac i obiteljski standard nisu ista odluka. Svaka razina traži drugačiji stupanj odgovornosti.",
-          "samostalna-pohrana-tri-razine-20260629.webp",
-          "Tri kamene razine s financijskom mapom, hardverskim novčanikom i obiteljskom omotnicom za Bitcoin plan"
-        ),
-      },
-      {
-        heading: "Hibridni pristup",
-        body: [
-          "Za mnoge ljude najbolji odgovor nije sve kod skrbnika ili sve u samostalnoj pohrani. Najbolji odgovor može biti hibrid.",
-          "Primjer: manji operativni iznos u mobilnom novčaniku, glavni dugoročni iznos u vlastitoj pohrani, dio izloženosti kroz ETF u brokerskom portfelju, dio kroz proizvodnu imovinu ili kapitalna dobra povezana s Bitcoinom i jasan plan prijelaza prema većoj samostalnoj pohrani.",
-          "To nije kontradikcija, nego priznanje da različiti dijelovi imovine mogu imati različite uloge.",
-          "Bitcoin koji držite u vlastitoj pohrani ima ulogu novca pod vašom kontrolom. Bitcoin ETF u brokerskom računu ima ulogu financijske izloženosti. Dionica Bitcoin rizničke kompanije ima ulogu kapitalnog dobra ili poslovnog rizika.",
-          "Nisu iste stvari, ali sve mogu biti dio šire slike.",
-        ],
-        cards: [
-          {
-            title: "Mobilni novčanik",
-            text: "Mali operativni iznos za učenje, testiranje i svakodnevnu praksu.",
-          },
-          {
-            title: "Vlastita pohrana",
-            text: "Dugoročni bitcoin koji treba biti pod osobnom ili obiteljskom kontrolom.",
-          },
-          {
-            title: "ETF ili broker",
-            text: "Financijska izloženost koja može imati administrativnu ili portfeljsku ulogu.",
-          },
-          {
-            title: "Kapitalna dobra",
-            text: "Imovina ili posao koji nose drukčiji rizik od samog bitcoina.",
-          },
-        ],
-        link: {
-          before: "Za razliku između tih slojeva korisno je pročitati i vodič",
-          label:
-            "Bitcoin ETF-ovi i rizničke kompanije: gdje prestaje Bitcoin, a počinje kapital",
-          href: "/vodici/bitcoin-etfovi-i-riznicke-kompanije/",
-          after:
-            "jer razdvaja bitcoin u vlastitoj pohrani od financijske izloženosti Bitcoinu.",
-        },
-        visual: custodySectionImage(
-          "Jedan portfelj, različite uloge.",
-          "Hibridni pristup ima smisla samo ako je jasno što je novac pod kontrolom, što je izloženost, a što kapitalni rizik.",
-          "samostalna-pohrana-hibridni-pristup-20260629.webp",
-          "Organizirana mediteranska scena s mobilnim novčanikom, hardverskim uređajem, financijskom mapom i radnim alatom"
-        ),
-      },
-      {
-        heading: "Plan prijelaza",
-        body: [
-          "U savjetovanju se može napraviti plan prijelaza. Ne mora se sve riješiti u jednom danu.",
-          "Dobar prijelaz obično ima četiri faze. Prvo se vidi stvarno stanje, zatim se smanjuju očiti rizici, potom se dijele uloge i tek onda se gradi konačni sustav.",
-          "To je sporiji i razumniji pristup od impulzivne kupnje uređaja. Poanta je složiti sustav, ne samo dodati još jedan komad opreme.",
-        ],
-        cards: [
-          {
-            title: "1. Razumjeti stanje",
-            text: "Gdje je bitcoin sada, tko ima pristup, tko zna da postoji i što bi se dogodilo u slučaju smrti ili gubitka uređaja?",
-          },
-          {
-            title: "2. Smanjiti očite rizike",
-            text: "Ne držati prevelik iznos na burzi bez razloga, ne držati zapis početnih riječi u digitalnom obliku i ne oslanjati se na jedno mjesto.",
-          },
-          {
-            title: "3. Podijeliti uloge",
-            text: "Razdvojiti novac, kapital, potrošnju, likvidnost, dugoročnu štednju, obiteljski trezor i prijelaznu izloženost.",
-          },
-          {
-            title: "4. Izgraditi sustav",
-            text: "Vlastita pohrana ondje gdje treba kontrola, skrbnička rješenja ondje gdje imaju jasnu ulogu, obiteljske upute i godišnja provjera.",
-          },
-        ],
-        visual: custodySectionImage(
-          "Prijelaz se radi u fazama.",
-          "Sigurnost se gradi postupno: prvo slika stanja, zatim uklanjanje slabih točaka, pa jasne uloge i tek onda konačni sustav.",
-          "samostalna-pohrana-plan-prijelaza-20260629.webp",
-          "Četiri prazne kartice na kamenim stepenicama koje vode prema Bitcoin planu i obiteljskoj omotnici"
-        ),
-      },
-      {
-        heading: "ETF, burza i vlastiti novčanik nisu neprijatelji",
-        body: [
-          "Često se o ovim opcijama govori kao da jedna mora isključiti drugu. Ali u stvarnom životu to nije tako.",
-          "Osoba može imati nešto bitcoina u vlastitom posjedu, nešto izloženosti kroz ETF, brokerski račun za vrijednosne papire, mali operativni novčanik i dugoročni obiteljski trezor.",
-          "Važno je da svaka stvar ima jasnu funkciju.",
-          "Problem nastaje kada ljudi ne znaju što imaju. Misle da imaju bitcoin, a zapravo imaju potraživanje prema burzi. Misle da imaju sigurnost, a zapravo imaju jedan zapis početnih riječi u ladici. Misle da imaju investiciju, a zapravo imaju visokorizični proizvod koji ne razumiju.",
-          "Misle da imaju obiteljski plan, a zapravo obitelj ne zna ništa.",
-          "Dobar plan počinje imenovanjem stvari pravim imenom.",
-        ],
-        table: {
-          columns: ["Oblik", "Što je", "Pitanje koje treba postaviti"],
-          rows: [
-            [
-              "Burza ili mjenjačnica",
-              "Račun kod posrednika, često dobar za kupnju, ali slab kao dugoročni trezor.",
-              "Postoji li razlog da veći iznos ostane tamo?",
-            ],
-            [
-              "ETF ili broker",
-              "Financijska izloženost Bitcoinu u postojećem investicijskom okviru.",
-              "Razumijem li izdavatelja, skrbnika, troškove i pravila proizvoda?",
-            ],
-            [
-              "Vlastiti novčanik",
-              "Bitcoin pod vlastitim ključevima, uz veću osobnu odgovornost.",
-              "Zna li netko što napraviti ako ja ne mogu?",
-            ],
-            [
-              "Obiteljski trezor",
-              "Dugoročni sustav za veće iznose i nasljeđivanje.",
-              "Je li dovoljno jednostavan da radi u stresu?",
-            ],
-          ],
-        },
-        link: {
-          before: "Za tehnički ozbiljniji model vlastite pohrane pročitajte",
-          label: "obiteljski Bitcoin trezor",
-          href: "/vodici/obiteljski-bitcoin-trezor/",
-          after: "kao primjer dugoročnog obiteljskog sustava.",
-        },
-        visual: custodySectionImage(
-          "Svaka opcija treba ime i funkciju.",
-          "Problem nije u tome što postoji više opcija, nego u tome što ljudi često ne znaju što točno drže i koji rizik preuzimaju.",
-          "samostalna-pohrana-opcije-nisu-neprijatelji-20260629.webp",
-          "Mediteranska scena s financijskom mapom, karticom, hardverskim novčanikom i Bitcoin simbolom u odvojenim zonama"
-        ),
-      },
-      {
-        heading: "Uloga savjetovanja",
-        body: [
-          "Moja uloga nije da svima kažem isto.",
-          "Moja uloga nije da nekoga ideološki guram prema samostalnoj pohrani prije nego je spreman.",
-          "Moja uloga nije dati investicijski, porezni ili pravni savjet o tome što točno kupiti, prodati ili prijaviti.",
-          "Moja uloga je pomoći osobi razumjeti koje opcije postoje, koji rizici dolaze s kojom opcijom, što je novac, a što kapital, što je stvarna kontrola, a što izloženost, što obitelj može razumjeti, gdje skrbnik ima mjesto, gdje je skrbnik rizik i kako postupno prijeći prema boljem sustavu.",
-          "Bitcoin savjetovanje nije samo pitanje uređaja, nego odluke.",
-          "I često je najbolja odluka ona koja ne izgleda ideološki najčišće, nego ona koju konkretna osoba i konkretna obitelj mogu stvarno provesti.",
-        ],
-        calloutTitle: "Granica razgovora",
-        callout:
-          "Cilj nije dati nalog što kupiti ili prodati, nego pomoći imenovati rizike, uloge i sljedeći razuman korak.",
-        visual: custodySectionImage(
-          "Savjetovanje razdvaja opcije.",
-          "Razgovor pomaže vidjeti što je stvarna kontrola, što je izloženost, gdje je skrbnik koristan i gdje postaje nepotreban rizik.",
-          "samostalna-pohrana-uloga-savjetovanja-20260629.webp",
-          "Radni stol za savjetovanje s praznim karticama, Bitcoin simbolom, hardverskim novčanikom i obiteljskom omotnicom"
-        ),
-      },
-      {
-        heading: "Zaključak",
-        body: [
-          "Samostalna pohrana je jedan od najvažnijih darova koje Bitcoin nudi.",
-          "Ali samostalna pohrana bez znanja, obiteljskog plana i pričuvne kopije ne donosi slobodu, nego novi rizik.",
-          "Pohrana kod skrbnika nije isto što i držanje bitcoina u vlastitom posjedu, ali može imati svoje mjesto.",
-          "ETF, broker, burza, hardverski novčanik i višepotpisni sustav nisu ista stvar. Svaki oblik ima drugačiju ulogu.",
-          "Umjesto pitanja je li skrbnik uvijek loš, važnije je pitati: koji rizik preuzimam, što dobivam zauzvrat i ima li to mjesto u mom Bitcoin standardu?",
-          "Takav razgovor vrijedi voditi prije nego se napravi veliki korak.",
-        ],
-        calloutTitle: "Najvažnije pitanje",
-        callout:
-          "Ne tražite ideološki najčišću opciju. Tražite sustav koji stvarno smanjuje rizik i koji vaša obitelj može razumjeti.",
-        visual: custodySectionImage(
-          "Dobar sustav ostaje razumljiv.",
-          "Samostalna pohrana je snažna tek kada uz ključeve postoje znanje, pričuvna kopija, obiteljske upute i plan oporavka.",
-          "samostalna-pohrana-zakljucak-20260629.webp",
-          "Topla mediteranska završna scena s Bitcoin simbolom, obiteljskom omotnicom, hardverskim novčanikom i metalnom pločicom"
-        ),
-      },
-    ],
-    finalCta: "Dogovorite uvodni Bitcoin razgovor",
-    finalCtaPrompt:
-      "Ako niste sigurni treba li vaš Bitcoin biti u samostalnoj pohrani, kod skrbnika ili u prijelaznom sustavu, prvo treba razumjeti vašu stvarnu situaciju, obitelj i rizike.",
-  },
-  {
-    slug: "bitkey-bitcoin-sigurnost",
-    title: "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
-    seoTitle: "Bitkey: jednostavniji put do obiteljske Bitcoin sigurnosti?",
-    metaDescription:
-      "Vodič koji objašnjava kada Bitkey ima smisla, gdje su njegovi kompromisi i kako ga usporediti s burzom, običnim hardverskim novčanikom i vlastitim obiteljskim Bitcoin trezorom.",
-    excerpt:
-      "Bitkey ne traži klasičan zapis početnih riječi i uvodi 2 od 3 sigurnosni model, ali nije isto što i korisnički upravljan obiteljski Bitcoin trezor. Usporedba počinje prijetnjama, oporavkom i ovisnostima, ne popisom uređaja.",
-    category: "Sigurnost i obitelj",
-    difficulty: "Napredno",
-    freshness: "često se mijenja",
-    safetyNote: advancedSecuritySafetyNote,
-    order: 104,
-    publishedAt: "2026-05-12",
-    updatedAt: "2026-05-12",
-    practicalQuestion:
-      "Je li Bitkey dovoljno dobar za vaš iznos, vašu obitelj i rizike koje stvarno pokušavate smanjiti?",
-    relatedSlugs: [
-      "obiteljski-bitcoin-trezor",
-      "sigurnost-ne-smije-ovisiti-samo-o-vama",
-      "obiteljski-pristup-bitcoinu",
-    ],
-    visual: {
-      type: "safety",
-      title: "Bitkey model",
-      zones: [
-        {
-          label: "mobitel",
-          description: "jedan ključ i svakodnevno korisničko iskustvo",
-        },
-        {
-          label: "uređaj",
-          description: "hardverski ključ za potvrdu transakcija",
-        },
-        {
-          label: "Bitkey",
-          description: "poslužiteljski ključ za oporavak i pomoćne funkcije",
-        },
-      ],
-      caption:
-        "Bitkey može biti odličan kompromis, ali nije isto što i potpuno vlastiti višepotpisni trezor.",
-    },
-    sections: [
-      {
-        heading: "Što je Bitkey",
-        body: [
-          "Bitkey je Bitcoin-only sustav koji spaja mobilnu aplikaciju, hardverski uređaj i poslužiteljski ključ u 2 od 3 model.",
-          "Jedan ključ je povezan s aplikacijom, jedan s uređajem, a jedan s Bitkey infrastrukturom. Jedan poslužiteljski ključ sam nije dovoljan za pomicanje sredstava, pa model nije isto što i držanje bitcoina na burzi.",
-          "Bitkey je integriran proizvod, ne popis za kupnju korisnički složenog sustava. Jednostavnost dobiva tako da dio koordinacije, oporavka i podrške ugrađuje u isti proizvodni sustav.",
-        ],
-        visual: {
-          type: "image-card",
-          title: "Bitkey kao integrirani proizvod",
-          caption:
-            "Aplikacija, uređaj i poslužiteljski ključ čine jedan sigurnosni model koji treba procjenjivati kao cjelinu.",
-          src: "/guide-assets/bitkey-device.png",
-          alt: "Bitkey hardverski uređaj",
-          href: "https://bitkey.world/",
-          credit: "Slika: Bitkey",
-        },
-      },
-      {
-        heading: "Koji problem pokušava riješiti",
-        body: [
-          "Mnogi korisnici nisu spremni desetljećima čuvati jedan moćan zapis početnih riječi, testirati oporavak i ostaviti jasne obiteljske upute. Loše izvedena samostalna pohrana zato može biti jednako opasna kao ovisnost o skrbniku.",
-          "Bitkey uklanja klasičan zapis početnih riječi iz korisničkog iskustva i nudi više putova oporavka za gubitak mobitela, uređaja ili oba dijela.",
-          "Snaga proizvoda nije u maksimalnoj tehničkoj neovisnosti, nego u pokušaju da tipične ljudske pogreške pretvori u razumljiviji i podržan proces.",
-        ],
-        calloutTitle:
-          "Jednostavnost je sigurnosna značajka samo ako je razumljiva",
-        callout:
-          "Korisnik mora znati koje dijelove kontrolira, kada ovisi o Bitkeyu i što može napraviti ako uobičajena aplikacija ili usluga nije dostupna.",
-      },
-      {
-        heading: "Model kontrole i oporavka",
-        body: [
-          "Normalno korištenje, gubitak jednog dijela i gubitak više dijelova nisu isti scenariji. Svaki može ovisiti o drukčijoj kombinaciji korisničkih ključeva, Bitkey infrastrukture, kontakata za oporavak i razdoblja čekanja.",
-          "Emergency Exit Kit zamišljen je kao izlaz iz ovisnosti o Bitkey poslužiteljima. Njegova stvarna vrijednost ovisi o sigurnom čuvanju, aktualnosti dokumentacije i sposobnosti korisnika ili obitelji da ga razumiju kada ga zatrebaju.",
-          "Vodič zato ne propisuje slijed oporavka. Kriterij je da korisnik unaprijed zna koje ovisnosti ostaju u svakom scenariju i može provjeriti službenu aktualnu dokumentaciju prije oslanjanja na značajan iznos.",
-        ],
-        table: {
-          columns: ["Scenarij", "Što treba razumjeti"],
-          rows: [
-            [
-              "Normalno korištenje",
-              "Koji dijelovi odobravaju transakciju i što korisnik provjerava.",
-            ],
-            [
-              "Gubitak jednog dijela",
-              "Koji drugi dio i koja usluga omogućuju oporavak te postoji li čekanje.",
-            ],
-            [
-              "Gubitak više dijelova",
-              "Koja vanjska pomoć, kontakti ili izlazni alat postaju potrebni.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Glavne prednosti",
-        body: [
-          "Bitkey može biti velik korak naprijed za osobu koja bi inače držala bitcoin na burzi, koristila samo mobilnu aplikaciju ili loše čuvala jedan zapis početnih riječi.",
-          "Integrirano korisničko iskustvo smanjuje broj alata koje osoba mora samostalno koordinirati. Hardverski zaslon, biometrija, ugrađeni oporavak, nasljeđivanje i Emergency Exit Kit pokušavaju pokriti česte ljudske pogreške.",
-          "Za obitelj je posebno važna mogućnost da plan bude lakše objasniti osobi koja ne želi učiti složen višepotpisni sustav.",
-        ],
-        cards: [
-          {
-            title: "Manje ručne koordinacije",
-            text: "Aplikacija, uređaj i oporavak dizajnirani su kao jedan proizvod.",
-          },
-          {
-            title: "Više putova nakon gubitka",
-            text: "Jedan izgubljeni dio ne bi trebao automatski značiti trajni gubitak.",
-          },
-          {
-            title: "Obiteljski kontekst",
-            text: "Nasljeđivanje i oporavak dio su modela, a ne samo privatna bilješka vlasnika.",
-          },
-        ],
-      },
-      {
-        heading: "Glavni kompromisi",
-        body: [
-          "Bitkeyev poslužiteljski ključ, aplikacija, oblak za pričuvne podatke, pravila oporavka i dugoročna dostupnost usluge stvaraju ovisnost o Bitkeyu i Block infrastrukturi.",
-          "To nije isto što i potpuno skrbništvo jer kompanija prema modelu nema dovoljan broj ključeva za samostalno trošenje. Ipak, proizvodna ovisnost može utjecati na privatnost, dostupnost oporavka i korisnički postupak.",
-          "Korisnički upravljan sustav može dati više kontrole nad infrastrukturom, ključevima i dokumentacijom, ali traži više znanja i održavanja. Bitkey taj kompromis pomiče prema jednostavnosti i podršci.",
-        ],
-        table: {
-          columns: ["Kriterij", "Bitkey", "Korisnički upravljan sustav"],
-          rows: [
-            [
-              "Jednostavnost",
-              "Integrirani proizvod s vođenim postupcima.",
-              "Više samostalno odabranih alata i odgovornosti.",
-            ],
-            [
-              "Neovisnost",
-              "Dio oporavka i koordinacije ovisi o pružatelju.",
-              "Manje ovisnosti o jednom pružatelju ako je sustav dobro izveden.",
-            ],
-            [
-              "Održavanje",
-              "Veći dio nosi proizvodni sustav.",
-              "Korisnik mora pratiti kompatibilnost, dokumentaciju i oporavak.",
-            ],
-            [
-              "Privatnost",
-              "Aplikacija koristi Bitkey infrastrukturu.",
-              "Može koristiti vlastitu provjeru, uz veći tehnički teret.",
-            ],
-          ],
-        },
-      },
-      {
-        heading: "Bitkey, burza i jednostavan hardverski novčanik",
-        body: [
-          "Na burzi korisnik nema ključeve i ima potraživanje prema skrbniku. Kod Bitkeya korisnik kontrolira dva dijela 2 od 3 modela, dok jedan poslužiteljski ključ nije dovoljan za samostalno trošenje.",
-          "Jednostavan hardverski novčanik može biti suvereniji i sasvim prikladan kada korisnik dobro čuva pričuvnu kopiju i ima jasan plan. Ako sve ovisi o jednom zapisu početnih riječi u jednoj ladici, njegova teorijska neovisnost ne znači i bolju stvarnu sigurnost.",
-          "Usporedba zato mora početi od stvarne alternative korisnika, a ne od apstraktno savršenog sustava.",
-        ],
-        calloutTitle: "U odnosu na što uspoređujete?",
-        callout:
-          "Bitkey može biti velik napredak u odnosu na burzu ili loše izvedenu pohranu, a istodobno manje neovisan od dobro održavanog korisničkog sustava.",
-      },
-      {
-        heading: "Nasljeđivanje i obitelj",
-        body: [
-          "Bitkey ima ugrađeni model nasljeđivanja s definiranim razdobljem i mogućnošću da vlasnik zaustavi neispravan zahtjev. To može smanjiti potrebu da obitelj sama rekonstruira tehnički trezor.",
-          "Ugrađena funkcija ne uklanja ljudski dio: obitelj mora znati da plan postoji, tko je uključen, kako prepoznati službeni postupak i kome se sigurno obratiti.",
-          "Promjene odnosa, nasljednika, kontakata, uređaja i pravnih okolnosti traže periodični pregled. Nasljedni plan koji nitko osim vlasnika ne razumije i dalje je nedovršen.",
-        ],
-      },
-      {
-        heading: "Za koga model može imati smisla",
-        body: [
-          "Bitkey može odgovarati osobi koja želi otići s burze, ne vjeruje si da će dobro čuvati klasični zapis početnih riječi, želi Bitcoin-only proizvod i prihvaća da dio oporavka ovisi o Bitkey sustavu.",
-          "Može biti razuman i za obitelj kojoj bi korisnički upravljan sustav s više ključeva ostao nerazumljiv ili neodržavan.",
-          "Manje je prikladan osobi kojoj je ključno da nijedan ključ, poslužitelj ni dio oporavka ne ovise o kompaniji i koja može dokazano održavati vlastiti sustav.",
-        ],
-      },
-      {
-        heading: "Što provjeriti prije značajnijeg iznosa",
-        body: [
-          "Treba provjeriti aktualnu arhitekturu proizvoda, dostupnost u Hrvatskoj, uvjete oporavka i nasljeđivanja, podatke koje usluga vidi te način korištenja Emergency Exit Kita.",
-          "Test treba dokazati da korisnik razumije normalnu potvrdu, gubitak pojedinog dijela i izlaz iz usluge. Ovaj vodič namjerno ne daje slijed klikova, lokacije ili recept za oporavak.",
-          "Ako obitelj ne može objasniti prvi korak bez dijeljenja tajni ili ako korisnik ne razumije što ostaje ovisno o Bitkeyu, sustav nije spreman za iznos čiji bi gubitak bio ozbiljan.",
-        ],
-        calloutTitle: "Proizvod se mijenja",
-        callout:
-          "Značajke, podrška i postupci oporavka mogu se promijeniti. Oslanjajte se na aktualnu službenu dokumentaciju i vlastiti provjereni plan.",
-      },
-      {
-        heading: "Zaključak",
-        body: [
-          "Bitkey je pokušaj da se osobna kontrola približi ljudima kojima bi burza ili loše čuvan zapis početnih riječi bili stvarna alternativa.",
-          "Njegov 2 od 3 model smanjuje neke jedine točke kvara, ali dio neovisnosti mijenja za integrirani proizvod, podršku i oporavak.",
-          "Dobar izbor ovisi o iznosu, prijetnjama, privatnosti, obitelji i sposobnosti održavanja. Bitkey nije univerzalno najbolji trezor, ali može biti razuman kompromis kada su njegove ovisnosti jasno shvaćene i prihvaćene.",
-        ],
-      },
-    ],
-    finalCta: "Dogovorite uvodni Bitcoin razgovor",
-    finalCtaPrompt:
-      "Ako niste sigurni je li Bitkey dovoljan za vaš iznos, obitelj i razinu rizika, prvo treba razjasniti što točno pokušavate zaštititi i od čega.",
-  },
-  {
     slug: "obiteljski-pristup-bitcoinu",
     title: "Kako obitelj može pristupiti Bitcoinu ako vam se nešto dogodi?",
     seoTitle: "Bitcoin nasljeđivanje i obitelj",
@@ -5743,10 +4702,11 @@ const guideEntries: Guide[] = [
     freshness: "stabilno",
     order: 105,
     publishedAt: "2026-04-30",
-    updatedAt: "2026-05-01",
+    updatedAt: "2026-08-04",
     practicalQuestion:
       "Bi li osoba od povjerenja znala što napraviti, a što nikada ne napraviti, ako vam se nešto dogodi?",
     relatedSlugs: [
+      "bitcoin-core-standard",
       "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "bitcoin-kao-novac",
       "bitcoin-u-neto-imovini",
@@ -5761,7 +4721,8 @@ const guideEntries: Guide[] = [
         },
         {
           label: "što ne dirati",
-          description: "početne riječi i privatni ključevi se ne dijele",
+          description:
+            "privatni ključevi, wallet backupi i passphraseovi se ne dijele",
         },
         {
           label: "kome se javiti",
@@ -5786,10 +4747,10 @@ const guideEntries: Guide[] = [
         ],
       },
       {
-        heading: "Početne se riječi nikada ne dijele",
+        heading: "Tajne i sigurnosne kopije nikada se ne dijele",
         body: [
-          "Početne riječi, privatni ključevi i lozinke ne dijele se olako. Ako se pošalju porukom, fotografiraju ili upišu na pogrešno mjesto, šteta može biti trajna.",
-          "Obitelj treba znati da nitko ozbiljan neće tražiti početne riječi u poruci, pozivu ili mrežnom obrascu. To pravilo mora biti kratko, jasno i zapisano.",
+          "Mnogi walleti koriste BIP39 početne riječi, dok opisani Bitcoin Core workflow kao primarni korisnički backup koristi Bitcoin Core wallet backup datoteku i odvojeno čuvanu wallet passphrase. Ni jedan od tih osjetljivih podataka ne šalje se porukom, ne fotografira i ne unosi u mrežni obrazac.",
+          "Obitelj treba znati da nitko ozbiljan neće tražiti privatni ključ, wallet backup datoteku, wallet passphrase ili početne riječi drugog walleta u poruci ili pozivu. To pravilo mora biti kratko, jasno i zapisano.",
         ],
       },
       {
@@ -5813,7 +4774,7 @@ const guideEntries: Guide[] = [
         ],
         items: [
           "Bitcoin postoji i dio je neto imovine.",
-          "Početne riječi, privatni ključevi i lozinke ne šalju se nikome.",
+          "Privatni ključevi, wallet backup datoteke, passphraseovi i početne riječi drugih walleta ne šalju se nikome.",
           "U izvanrednoj situaciji prvo se čitaju upute i kontaktira osoba od povjerenja.",
         ],
       },
@@ -5835,10 +4796,11 @@ const guideEntries: Guide[] = [
     order: 100,
     featured: true,
     publishedAt: "2026-05-01",
-    updatedAt: "2026-05-01",
+    updatedAt: "2026-08-04",
     practicalQuestion:
       "Bi li osoba od povjerenja znala što napraviti, a što nikada ne napraviti, ako vam se nešto dogodi?",
     relatedSlugs: [
+      "bitcoin-core-standard",
       "obiteljski-pristup-bitcoinu",
       "bitcoin-kao-novac",
       "bitcoin-u-neto-imovini",
@@ -5866,9 +4828,15 @@ const guideEntries: Guide[] = [
       {
         heading: "Kontrola ostaje kod vas",
         body: [
-          "Sigurnost u osobnom Bitcoin standardu počinje od jednostavne granice: kontrola ostaje kod vas. Nitko ne treba početne riječi, privatne ključeve, lozinke ili pristup računu da bi s vama razgovarao o sustavu.",
+          "Sigurnost u osobnom Bitcoin standardu počinje od jednostavne granice: kontrola ostaje kod vas. Nitko ne treba privatni ključ, Bitcoin Core wallet backup datoteku, wallet passphrase, početne riječi drugog walleta, lozinku ili pristup računu da bi s vama razgovarao o sustavu.",
           "Ali kontrola ne znači izolaciju. Ako nitko ne zna što postoji, gdje su opće upute i što nikada ne smije napraviti, sustav ovisi samo o vama. Za ozbiljnu neto imovinu to nije dovoljno.",
         ],
+        link: {
+          before: "Za preporučeni dugoročni sigurnosni smjer pročitajte",
+          label: "Bitcoin Core Standard za dugoročnu štednju",
+          href: "/vodici/bitcoin-core-standard/",
+          after: ".",
+        },
       },
       {
         heading: "Jedna osoba nije sustav",
@@ -5894,7 +4862,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Što nitko ne smije tražiti",
         body: [
-          "Nitko ne smije tražiti početne riječi, privatne ključeve, lozinke, pristup burzi, pristup novčaniku ili slanje Bitcoina na svoju adresu radi čuvanja. Ta pravila trebaju biti kratka i razumljiva.",
+          "Nitko ne smije tražiti privatni ključ, Bitcoin Core wallet backup datoteku, wallet passphrase, početne riječi drugog walleta, lozinku, pristup burzi, pristup novčaniku ili slanje Bitcoina na svoju adresu radi čuvanja. Ta pravila trebaju biti kratka i razumljiva.",
           "Ako osoba od povjerenja zapamti samo jedno, neka zapamti ovo: prvo stati, ne žuriti, ne slati osjetljive podatke i ne vjerovati nikome tko traži kontrolu. Sigurnost počinje jasnim ne.",
         ],
       },
@@ -6503,7 +5471,7 @@ const guideEntries: Guide[] = [
       {
         heading: "Što se nikada ne stavlja u pogrešne dokumente",
         body: [
-          "Početne riječi, privatni ključevi i lozinke nikada se ne stavljaju u dokumente koji prolaze kroz institucije ili osobe koje ne smiju imati pristup. Posao može imati evidenciju bez otkrivanja osjetljivih sigurnosnih podataka.",
+          "Privatni ključevi, Bitcoin Core wallet backup datoteke, wallet passphraseovi, početne riječi drugih walleta i lozinke nikada se ne stavljaju u dokumente koji prolaze kroz institucije ili osobe koje ne smiju imati pristup. Posao može imati evidenciju bez otkrivanja osjetljivih sigurnosnih podataka.",
           "U praksi to znači da dokumenti mogu objasniti postojanje, odgovornosti, kontaktne točke i zabrane. Kontrola nad Bitcoinom ostaje zaštićena od nepotrebnog širenja.",
         ],
       },
@@ -6521,7 +5489,12 @@ const guideEntries: Guide[] = [
   },
 ]
 
-export const guides = [...guideEntries].sort((first, second) => {
+export const guides = [
+  ...guideEntries,
+  bitcoinCoreStandardGuide,
+  selfCustodyOrCustodianGuide,
+  bip110Guide,
+].sort((first, second) => {
   if (first.order !== second.order) {
     return first.order - second.order
   }
@@ -6553,11 +5526,14 @@ export const foundationalGuideSlugs = [
   "pravilo-trecina",
   "uskladivanje-kupovne-moci-bitcoina",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
+  "bitcoin-core-standard",
+  "samostalna-pohrana-ili-skrbnik",
   "poslovni-bitcoin-nije-privatni-bitcoin",
   "obiteljski-pristup-bitcoinu",
 ] as const
 
 export const researchGuideSlugs = [
+  "zasto-ne-podrzavam-bip-110-prostor-u-bloku-i-buducnost-bitcoina-kao-novca",
   "digitalni-kredit-nije-bitcoin",
   "digitalni-kredit-bitcoin-saylor",
   "prihvacanje-bitcoina-u-poslovanju",
@@ -6567,10 +5543,6 @@ export const researchGuideSlugs = [
   "bitcoin-etfovi-i-riznicke-kompanije",
   "zaba-bitcoin-etf-certifikat",
   "bitcoin-bilanca-pojacana-izlozenost",
-  "obiteljski-bitcoin-trezor",
-  "vremenski-oporavak-bitcoin-trezor",
-  "samostalna-pohrana-ili-skrbnik",
-  "bitkey-bitcoin-sigurnost",
 ] as const
 
 export type GuidesIndexPrimaryItem = {
@@ -6645,11 +5617,11 @@ export const guidesIndexPrimaryItems: GuidesIndexPrimaryItem[] = [
       "Novac, potrošna dobra i proizvodna imovina imaju različite uloge.",
   },
   {
-    slug: "sigurnost-ne-smije-ovisiti-samo-o-vama",
-    title: "Sigurnost i obiteljski plan",
+    slug: "bitcoin-core-standard",
+    title: "Bitcoin Core Standard za dugoročnu štednju",
     category: "Sigurnost i obitelj",
     excerpt:
-      "Bitcoin mora ostati pod vašom kontrolom, ali sustav ne smije ovisiti samo o vama.",
+      "Offline potpisivanje, watch-only koordinacija, vlastiti node, PSBT i provjeren oporavak kao jedan razumljiv sustav.",
   },
 ]
 
@@ -6713,17 +5685,17 @@ export const guidesIndexAdditionalGroups = [
   {
     title: "Sigurnost i obitelj",
     slugs: [
+      "bitcoin-core-standard",
       "poslovni-bitcoin-nije-privatni-bitcoin",
-      "obiteljski-bitcoin-trezor",
-      "vremenski-oporavak-bitcoin-trezor",
       "samostalna-pohrana-ili-skrbnik",
-      "bitkey-bitcoin-sigurnost",
+      "sigurnost-ne-smije-ovisiti-samo-o-vama",
       "obiteljski-pristup-bitcoinu",
     ],
   },
 ] as const
 
 export const guidesIndexOrderedSlugs = [
+  "zasto-ne-podrzavam-bip-110-prostor-u-bloku-i-buducnost-bitcoina-kao-novca",
   "svaki-euro-ima-namjenu",
   "stvarni-visak",
   "prihod-nije-slobodan-novac",
@@ -6756,11 +5728,9 @@ export const guidesIndexOrderedSlugs = [
   "zaba-bitcoin-etf-certifikat",
   "bitcoin-bilanca-pojacana-izlozenost",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
-  "poslovni-bitcoin-nije-privatni-bitcoin",
-  "obiteljski-bitcoin-trezor",
-  "vremenski-oporavak-bitcoin-trezor",
+  "bitcoin-core-standard",
   "samostalna-pohrana-ili-skrbnik",
-  "bitkey-bitcoin-sigurnost",
+  "poslovni-bitcoin-nije-privatni-bitcoin",
   "obiteljski-pristup-bitcoinu",
 ]
 
@@ -6789,11 +5759,9 @@ export const recommendedGuideSlugs = [
   "zaba-bitcoin-etf-certifikat",
   "bitcoin-bilanca-pojacana-izlozenost",
   "sigurnost-ne-smije-ovisiti-samo-o-vama",
-  "poslovni-bitcoin-nije-privatni-bitcoin",
-  "obiteljski-bitcoin-trezor",
-  "vremenski-oporavak-bitcoin-trezor",
+  "bitcoin-core-standard",
   "samostalna-pohrana-ili-skrbnik",
-  "bitkey-bitcoin-sigurnost",
+  "poslovni-bitcoin-nije-privatni-bitcoin",
   "obiteljski-pristup-bitcoinu",
 ]
 

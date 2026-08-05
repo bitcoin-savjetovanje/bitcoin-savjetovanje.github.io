@@ -1,8 +1,8 @@
 import {
   BookOpen,
   Briefcase,
-  CalendarDays,
   CheckCircle2,
+  ListChecks,
   User,
   Users,
 } from "lucide-react"
@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import { budgetRoute } from "@/content/clientRoutes"
 import { findGuide, guideHref } from "@/content/guides"
 import {
+  BUDGET_ZERO_PATH,
   CONVERSATION_PATH,
   PRACTICAL_BITCOIN_STANDARD_URL,
 } from "@/content/site"
@@ -121,10 +122,10 @@ export function Budget() {
           }}
           actions={[
             {
-              label: "Dogovorite uvodni razgovor",
-              href: CONVERSATION_PATH,
-              dataCta: "budget-intro-call",
-              icon: <CalendarDays className="size-4" aria-hidden="true" />,
+              label: "Napravite proračun nulte razine",
+              href: BUDGET_ZERO_PATH,
+              dataCta: "budget-zero-start",
+              icon: <ListChecks className="size-4" aria-hidden="true" />,
             },
             {
               label: "Pregledajte vodiče",
@@ -218,7 +219,13 @@ export function Budget() {
 
         <section className="budget-principle-strip">
           <div className="budget-principle-strip__mark">
-            <img src="/bitcoin-logo.png" alt="" aria-hidden="true" />
+            <img
+              src="/bitcoin-logo.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div className="budget-principle-strip__copy">
             <h2>Proračun je prvi korak.</h2>

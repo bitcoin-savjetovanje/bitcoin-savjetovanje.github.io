@@ -5,25 +5,34 @@ import { Footer } from "@/components/layout/Footer"
 import { Header } from "@/components/layout/Header"
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta"
 import { Button } from "@/components/ui/button"
-import type { AudienceSlug } from "@/content/audiences"
+import { trackFirstPartyInteraction } from "@/lib/ctaEvents"
 
 export type RouteComponents = {
   Home: ComponentType
+  PavaoPahljina: ComponentType
   Budget: ComponentType
+  BudgetZero: ComponentType
   Debt: ComponentType
   Giving: ComponentType
   BitcoinMoney: ComponentType
   NetWorth: ComponentType
   TimeVolatility: ComponentType
+  LongTermTrend: ComponentType
+  BitcoinToday: ComponentType
   CustodySecurity: ComponentType
   BitcoinAdvice: ComponentType
+  MissedBitcoin: ComponentType
+  BusinessBitcoin: ComponentType
+  BusinessBitcoinOnePager: ComponentType
   GuidesIndex: ComponentType
   Conversation: ComponentType
   BitcoinConsultation: ComponentType
   PersonalBitcoinStandard: ComponentType
   SamplePersonalBitcoinStandard: ComponentType
   BitcoinStandardCheck: ComponentType
-  AudiencePage: ComponentType<{ slug: AudienceSlug }>
+  PersonalPage: ComponentType
+  FamilyPage: ComponentType
+  EntrepreneursPage: ComponentType
   Guide: ComponentType<{ slug: string }>
   Security: ComponentType
   Privacy: ComponentType
@@ -34,8 +43,18 @@ const lazyRouteComponents = {
   Home: lazy(() =>
     import("@/pages/Home").then((module) => ({ default: module.Home }))
   ),
+  PavaoPahljina: lazy(() =>
+    import("@/pages/PavaoPahljina").then((module) => ({
+      default: module.PavaoPahljina,
+    }))
+  ),
   Budget: lazy(() =>
     import("@/pages/Budget").then((module) => ({ default: module.Budget }))
+  ),
+  BudgetZero: lazy(() =>
+    import("@/pages/BudgetZero").then((module) => ({
+      default: module.BudgetZero,
+    }))
   ),
   Debt: lazy(() =>
     import("@/pages/Debt").then((module) => ({ default: module.Debt }))
@@ -58,6 +77,16 @@ const lazyRouteComponents = {
       default: module.TimeVolatility,
     }))
   ),
+  LongTermTrend: lazy(() =>
+    import("@/pages/LongTermTrend").then((module) => ({
+      default: module.LongTermTrend,
+    }))
+  ),
+  BitcoinToday: lazy(() =>
+    import("@/pages/BitcoinToday").then((module) => ({
+      default: module.BitcoinToday,
+    }))
+  ),
   CustodySecurity: lazy(() =>
     import("@/pages/CustodySecurity").then((module) => ({
       default: module.CustodySecurity,
@@ -66,6 +95,21 @@ const lazyRouteComponents = {
   BitcoinAdvice: lazy(() =>
     import("@/pages/BitcoinAdvice").then((module) => ({
       default: module.BitcoinAdvice,
+    }))
+  ),
+  MissedBitcoin: lazy(() =>
+    import("@/pages/MissedBitcoin").then((module) => ({
+      default: module.MissedBitcoin,
+    }))
+  ),
+  BusinessBitcoin: lazy(() =>
+    import("@/pages/BusinessBitcoin").then((module) => ({
+      default: module.BusinessBitcoin,
+    }))
+  ),
+  BusinessBitcoinOnePager: lazy(() =>
+    import("@/pages/BusinessBitcoinOnePager").then((module) => ({
+      default: module.BusinessBitcoinOnePager,
     }))
   ),
   GuidesIndex: lazy(() =>
@@ -98,9 +142,19 @@ const lazyRouteComponents = {
       default: module.BitcoinStandardCheck,
     }))
   ),
-  AudiencePage: lazy(() =>
-    import("@/pages/AudiencePage").then((module) => ({
-      default: module.AudiencePage,
+  PersonalPage: lazy(() =>
+    import("@/pages/PersonalPage").then((module) => ({
+      default: module.PersonalPage,
+    }))
+  ),
+  FamilyPage: lazy(() =>
+    import("@/pages/FamilyPage").then((module) => ({
+      default: module.FamilyPage,
+    }))
+  ),
+  EntrepreneursPage: lazy(() =>
+    import("@/pages/EntrepreneursPage").then((module) => ({
+      default: module.EntrepreneursPage,
     }))
   ),
   Guide: lazy(() =>
@@ -125,6 +179,114 @@ function normalizePath(pathname: string) {
   return pathname
 }
 
+// The client entry needs this loader before React starts hydrating the SSR tree.
+// eslint-disable-next-line react-refresh/only-export-components
+export async function loadHydrationRouteComponents(pathname: string) {
+  const path = normalizePath(pathname)
+  const routeComponents: RouteComponents = { ...lazyRouteComponents }
+
+  if (path === "/") {
+    routeComponents.Home = (await import("@/pages/Home")).Home
+  } else if (path === "/pavao-pahljina") {
+    routeComponents.PavaoPahljina = (
+      await import("@/pages/PavaoPahljina")
+    ).PavaoPahljina
+  } else if (path === "/vodici") {
+    routeComponents.GuidesIndex = (
+      await import("@/pages/GuidesIndex")
+    ).GuidesIndex
+  } else if (path === "/proracun") {
+    routeComponents.Budget = (await import("@/pages/Budget")).Budget
+  } else if (path === "/proracun/nulta-razina") {
+    routeComponents.BudgetZero = (await import("@/pages/BudgetZero")).BudgetZero
+  } else if (path === "/dug") {
+    routeComponents.Debt = (await import("@/pages/Debt")).Debt
+  } else if (path === "/davanje") {
+    routeComponents.Giving = (await import("@/pages/Giving")).Giving
+  } else if (path === "/bitcoin-kao-novac") {
+    routeComponents.BitcoinMoney = (
+      await import("@/pages/BitcoinMoney")
+    ).BitcoinMoney
+  } else if (path === "/bitcoin-i-neto-imovina") {
+    routeComponents.NetWorth = (await import("@/pages/NetWorth")).NetWorth
+  } else if (path === "/bitcoin-vrijeme-i-volatilnost") {
+    routeComponents.TimeVolatility = (
+      await import("@/pages/TimeVolatility")
+    ).TimeVolatility
+  } else if (path === "/dugorocni-trend") {
+    routeComponents.LongTermTrend = (
+      await import("@/pages/LongTermTrend")
+    ).LongTermTrend
+  } else if (path === "/bitcoin-danas") {
+    routeComponents.BitcoinToday = (
+      await import("@/pages/BitcoinToday")
+    ).BitcoinToday
+  } else if (path === "/skrbnistvo-i-sigurnost") {
+    routeComponents.CustodySecurity = (
+      await import("@/pages/CustodySecurity")
+    ).CustodySecurity
+  } else if (path === "/bitcoin-savjetovanje") {
+    routeComponents.BitcoinAdvice = (
+      await import("@/pages/BitcoinAdvice")
+    ).BitcoinAdvice
+  } else if (path === "/mogao-sam-kupiti-bitcoin-ranije") {
+    routeComponents.MissedBitcoin = (
+      await import("@/pages/MissedBitcoin")
+    ).MissedBitcoin
+  } else if (path === "/za-tvrtke") {
+    routeComponents.BusinessBitcoin = (
+      await import("@/pages/BusinessBitcoin")
+    ).BusinessBitcoin
+  } else if (path === "/za-tvrtke/one-pager") {
+    routeComponents.BusinessBitcoinOnePager = (
+      await import("@/pages/BusinessBitcoinOnePager")
+    ).BusinessBitcoinOnePager
+  } else if (path === "/razgovor") {
+    routeComponents.Conversation = (
+      await import("@/pages/Conversation")
+    ).Conversation
+  } else if (path === "/bitcoin-konzultacija") {
+    routeComponents.BitcoinConsultation = (
+      await import("@/pages/BitcoinConsultation")
+    ).BitcoinConsultation
+  } else if (path === "/osobni-bitcoin-standard") {
+    routeComponents.PersonalBitcoinStandard = (
+      await import("@/pages/PersonalBitcoinStandard")
+    ).PersonalBitcoinStandard
+  } else if (
+    path === "/primjer-osobnog-bitcoin-standarda" ||
+    path === "/osobni-bitcoin-standard/primjer"
+  ) {
+    routeComponents.SamplePersonalBitcoinStandard = (
+      await import("@/pages/SamplePersonalBitcoinStandard")
+    ).SamplePersonalBitcoinStandard
+  } else if (path === "/provjera-bitcoin-standarda") {
+    routeComponents.BitcoinStandardCheck = (
+      await import("@/pages/BitcoinStandardCheck")
+    ).BitcoinStandardCheck
+  } else if (path === "/osobno") {
+    routeComponents.PersonalPage = (
+      await import("@/pages/PersonalPage")
+    ).PersonalPage
+  } else if (path === "/obitelj") {
+    routeComponents.FamilyPage = (await import("@/pages/FamilyPage")).FamilyPage
+  } else if (path === "/poduzetnici") {
+    routeComponents.EntrepreneursPage = (
+      await import("@/pages/EntrepreneursPage")
+    ).EntrepreneursPage
+  } else if (path.startsWith("/vodici/")) {
+    routeComponents.Guide = (await import("@/pages/Guide")).Guide
+  } else if (path === "/sigurnost") {
+    routeComponents.Security = (await import("@/pages/Security")).Security
+  } else if (path === "/privatnost") {
+    routeComponents.Privacy = (await import("@/pages/Privacy")).Privacy
+  } else {
+    routeComponents.NotFound = (await import("@/pages/NotFound")).NotFound
+  }
+
+  return routeComponents
+}
+
 function getInitialPath(path?: string) {
   if (path) {
     return normalizePath(path)
@@ -146,21 +308,30 @@ function Route({
 }) {
   const {
     Home,
+    PavaoPahljina,
     Budget,
+    BudgetZero,
     Debt,
     Giving,
     BitcoinMoney,
     NetWorth,
     TimeVolatility,
+    LongTermTrend,
+    BitcoinToday,
     CustodySecurity,
     BitcoinAdvice,
+    MissedBitcoin,
+    BusinessBitcoin,
+    BusinessBitcoinOnePager,
     GuidesIndex,
     Conversation,
     BitcoinConsultation,
     PersonalBitcoinStandard,
     SamplePersonalBitcoinStandard,
     BitcoinStandardCheck,
-    AudiencePage,
+    PersonalPage,
+    FamilyPage,
+    EntrepreneursPage,
     Guide,
     Security,
     Privacy,
@@ -171,12 +342,20 @@ function Route({
     return <Home />
   }
 
+  if (path === "/pavao-pahljina") {
+    return <PavaoPahljina />
+  }
+
   if (path === "/vodici") {
     return <GuidesIndex />
   }
 
   if (path === "/proracun") {
     return <Budget />
+  }
+
+  if (path === "/proracun/nulta-razina") {
+    return <BudgetZero />
   }
 
   if (path === "/dug") {
@@ -199,12 +378,32 @@ function Route({
     return <TimeVolatility />
   }
 
+  if (path === "/dugorocni-trend") {
+    return <LongTermTrend />
+  }
+
+  if (path === "/bitcoin-danas") {
+    return <BitcoinToday />
+  }
+
   if (path === "/skrbnistvo-i-sigurnost") {
     return <CustodySecurity />
   }
 
   if (path === "/bitcoin-savjetovanje") {
     return <BitcoinAdvice />
+  }
+
+  if (path === "/mogao-sam-kupiti-bitcoin-ranije") {
+    return <MissedBitcoin />
+  }
+
+  if (path === "/za-tvrtke") {
+    return <BusinessBitcoin />
+  }
+
+  if (path === "/za-tvrtke/one-pager") {
+    return <BusinessBitcoinOnePager />
   }
 
   if (path === "/razgovor") {
@@ -219,7 +418,10 @@ function Route({
     return <PersonalBitcoinStandard />
   }
 
-  if (path === "/osobni-bitcoin-standard/primjer") {
+  if (
+    path === "/primjer-osobnog-bitcoin-standarda" ||
+    path === "/osobni-bitcoin-standard/primjer"
+  ) {
     return <SamplePersonalBitcoinStandard />
   }
 
@@ -228,15 +430,15 @@ function Route({
   }
 
   if (path === "/osobno") {
-    return <AudiencePage slug="osobno" />
+    return <PersonalPage />
   }
 
   if (path === "/obitelj") {
-    return <AudiencePage slug="obitelj" />
+    return <FamilyPage />
   }
 
   if (path === "/poduzetnici") {
-    return <AudiencePage slug="poduzetnici" />
+    return <EntrepreneursPage />
   }
 
   if (path.startsWith("/vodici/")) {
@@ -269,16 +471,36 @@ export function App({
 }) {
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [showStickyMobileCta, setShowStickyMobileCta] = useState(false)
+  const [familyCtaInView, setFamilyCtaInView] = useState(false)
+  const [homeStickyConversation, setHomeStickyConversation] = useState(false)
   const currentPath = getInitialPath(path)
-  const hasStickyMobileCta = currentPath !== "/razgovor"
-  const stickyMobileCtaVisible = hasStickyMobileCta && showStickyMobileCta
+  const hasStickyMobileCta =
+    currentPath !== "/razgovor" &&
+    currentPath !== "/provjera-bitcoin-standarda" &&
+    currentPath !== "/dugorocni-trend" &&
+    currentPath !== "/bitcoin-danas" &&
+    currentPath !== "/mogao-sam-kupiti-bitcoin-ranije" &&
+    currentPath !== "/poduzetnici" &&
+    currentPath !== "/proracun/nulta-razina"
+  const hasBackToTop = currentPath !== "/proracun/nulta-razina"
+  const stickyMobileCtaVisible =
+    hasStickyMobileCta && showStickyMobileCta && !familyCtaInView
 
   useEffect(() => {
     function handleScroll() {
       const scrollY = window.scrollY
+      const servicesSection =
+        currentPath === "/" ? document.getElementById("suradnja") : null
 
       setShowStickyMobileCta(scrollY > 320)
       setShowBackToTop(scrollY > 640)
+      setHomeStickyConversation(
+        Boolean(
+          servicesSection &&
+          servicesSection.getBoundingClientRect().top <=
+            window.innerHeight * 0.7
+        )
+      )
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -287,7 +509,90 @@ export function App({
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [])
+  }, [currentPath])
+
+  useEffect(() => {
+    if (currentPath !== "/obitelj") {
+      return
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      return
+    }
+
+    const visibility = new Map<Element, boolean>()
+    let intersectionObserver: IntersectionObserver | null = null
+    let mutationObserver: MutationObserver | null = null
+
+    const connectFamilyCtas = () => {
+      const familyCtas = Array.from(
+        document.querySelectorAll<HTMLElement>(
+          '[data-cta="family-hero-conversation"], [data-cta="family-final-conversation"]'
+        )
+      )
+
+      if (familyCtas.length === 0) {
+        return false
+      }
+
+      intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            visibility.set(entry.target, entry.isIntersecting)
+          }
+
+          setFamilyCtaInView([...visibility.values()].some(Boolean))
+        },
+        { threshold: 0.5 }
+      )
+
+      for (const cta of familyCtas) {
+        visibility.set(cta, false)
+        intersectionObserver.observe(cta)
+      }
+
+      return true
+    }
+
+    if (!connectFamilyCtas()) {
+      const body = document.body
+
+      if (!body) {
+        return
+      }
+
+      mutationObserver = new MutationObserver(() => {
+        if (connectFamilyCtas()) {
+          mutationObserver?.disconnect()
+          mutationObserver = null
+        }
+      })
+      mutationObserver.observe(body, {
+        childList: true,
+        subtree: true,
+      })
+    }
+
+    return () => {
+      intersectionObserver?.disconnect()
+      mutationObserver?.disconnect()
+      setFamilyCtaInView(false)
+    }
+  }, [currentPath])
+
+  useEffect(() => {
+    if (
+      currentPath !== "/" ||
+      !showStickyMobileCta ||
+      !homeStickyConversation
+    ) {
+      return
+    }
+
+    trackFirstPartyInteraction("home-sticky-cta-mode", {
+      mode: "conversation",
+    })
+  }, [currentPath, homeStickyConversation, showStickyMobileCta])
 
   useEffect(() => {
     const viewport = window.visualViewport
@@ -335,10 +640,29 @@ export function App({
       </main>
       <Footer />
       {hasStickyMobileCta ? (
-        <StickyMobileCta visible={stickyMobileCtaVisible} />
+        <StickyMobileCta
+          visible={stickyMobileCtaVisible}
+          variant={
+            currentPath === "/"
+              ? homeStickyConversation
+                ? "conversation"
+                : "assessment"
+              : currentPath === "/osobno"
+                ? "personal"
+                : currentPath === "/bitcoin-kao-novac"
+                  ? "bitcoin-money"
+                  : currentPath === "/skrbnistvo-i-sigurnost"
+                    ? "custody"
+                    : currentPath === "/obitelj"
+                      ? "family"
+                      : currentPath === "/sigurnost"
+                        ? "security"
+                        : "conversation"
+          }
+        />
       ) : null}
 
-      {showBackToTop ? (
+      {showBackToTop && hasBackToTop ? (
         <Button
           type="button"
           size="icon"

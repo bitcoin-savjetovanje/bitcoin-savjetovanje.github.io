@@ -20,6 +20,7 @@ import {
   type StandardAreaId,
   type StandardAssessmentThemeKey,
 } from "@/content/standardAssessment"
+import type { ConversationTopicId } from "@/content/conversation"
 import { CONVERSATION_PATH } from "@/content/site"
 import {
   scoreAssessment,
@@ -54,6 +55,17 @@ const recommendationCopy = {
   },
 } as const
 
+const conversationTopicByAssessmentTheme = {
+  proracun: "imovina",
+  dug: "dug",
+  davanje: "imovina",
+  "bitcoin-kao-novac": "imovina",
+  "neto-imovina": "imovina",
+  "vrijeme-volatilnost": "imovina",
+  "sigurnost-obitelj": "sigurnost",
+  "vise-podrucja": "imovina",
+} as const satisfies Record<StandardAssessmentThemeKey, ConversationTopicId>
+
 function areaById(areaId: StandardAreaId) {
   const area = standardAssessmentAreas.find(({ id }) => id === areaId)
 
@@ -83,7 +95,7 @@ function allStatementsAnswered(answers: AssessmentAnswers) {
 }
 
 function conversationHref(theme: StandardAssessmentThemeKey) {
-  return `${CONVERSATION_PATH}?tema=${encodeURIComponent(theme)}`
+  return `${CONVERSATION_PATH}?tema=${conversationTopicByAssessmentTheme[theme]}`
 }
 
 export function BitcoinStandardAssessment() {
@@ -213,8 +225,9 @@ export function BitcoinStandardAssessment() {
             </h2>
             <p>
               Procijenite koliko su vaša pravila jasna, zapisana i provedena. Ne
-              trebate unositi iznose, adrese novčanika, početne riječi ni druge
-              osjetljive podatke.
+              trebate unositi iznose, adrese novčanika, privatne ključeve,
+              Bitcoin Core wallet backup datoteke, wallet passphraseove, početne
+              riječi drugih walleta ni druge osjetljive podatke.
             </p>
             <div className="standard-assessment__intro-actions">
               <Button
@@ -579,8 +592,9 @@ export function BitcoinStandardAssessment() {
               <p>
                 Barem jedno temeljno pravilo u području sigurnosti i obitelji
                 još ne postoji. Rezultat ne određuje tehničko rješenje i nikada
-                ne traži unošenje početnih riječi, privatnih ključeva ili
-                osjetljivih lokacija.
+                ne traži unošenje privatnih ključeva, Bitcoin Core wallet backup
+                datoteka, wallet passphraseova, početnih riječi drugih walleta
+                ili osjetljivih lokacija.
               </p>
             </div>
           </aside>

@@ -15,7 +15,9 @@ export function FinalCta() {
             odluka.
           </p>
           <p className="mt-3 text-sm leading-6 text-background/72">
-            Ne upravljam vašim sredstvima i nikada ne tražim početne riječi.
+            Ne upravljam vašim sredstvima i nikada ne tražim privatne ključeve,
+            Bitcoin Core wallet backup datoteke, wallet passphraseove ni početne
+            riječi drugih walleta.
           </p>
         </div>
         <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center">

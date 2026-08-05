@@ -10,11 +10,15 @@ import {
   breadcrumbSchema,
   bitcoinConsultationPageSchema,
   bitcoinAdvicePageSchema,
+  businessBitcoinOnePagerPageSchema,
+  businessBitcoinPageSchema,
   bitcoinStandardCheckPageSchema,
   conversationPageSchema,
   guideSchema,
   guidesIndexSchema,
   homeSchema,
+  missedBitcoinPageSchema,
+  pavaoPahljinaProfileSchema,
   personalBitcoinStandardPageSchema,
   privacyPageSchema,
   samplePersonalBitcoinStandardPageSchema,
@@ -23,11 +27,17 @@ import {
 import {
   SITE_UPDATED_AT,
   SITE_URL,
+  BITCOIN_TODAY_PATH,
+  BUDGET_ZERO_PATH,
   budgetSeo,
+  budgetZeroSeo,
   bitcoinAdviceSeo,
   bitcoinConsultationSeo,
   bitcoinMoneySeo,
   bitcoinStandardCheckSeo,
+  bitcoinTodaySeo,
+  businessBitcoinSeo,
+  businessBitcoinOnePagerSeo,
   conversationSeo,
   custodySecuritySeo,
   debtSeo,
@@ -35,25 +45,37 @@ import {
   guidesIndexSeo,
   homeSeo,
   netWorthSeo,
+  MISSED_BITCOIN_PATH,
+  missedBitcoinSeo,
+  PAVAO_PAHLJINA_PATH,
   personalBitcoinStandardSeo,
+  pavaoPahljinaSeo,
   privacySeo,
   SAMPLE_PERSONAL_BITCOIN_STANDARD_PATH,
   samplePersonalBitcoinStandardSeo,
   securitySeo,
   timeVolatilitySeo,
+  longTermTrendSeo,
 } from "./site"
 import { guideCoverSocialImage, socialImages } from "./socialImages"
 
 export type RouteType =
   | "home"
+  | "pavao-pahljina"
   | "budget"
+  | "budget-zero"
   | "debt"
   | "giving"
   | "bitcoin-money"
   | "net-worth"
   | "time-volatility"
+  | "long-term-trend"
+  | "bitcoin-today"
   | "custody-security"
   | "bitcoin-advice"
+  | "missed-bitcoin"
+  | "business-bitcoin"
+  | "business-bitcoin-one-pager"
   | "conversation"
   | "bitcoin-consultation"
   | "personal-bitcoin-standard"
@@ -94,6 +116,18 @@ export const homeRoute: RouteMeta = {
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
   ...socialImages.home,
+}
+
+export const pavaoPahljinaRoute: RouteMeta = {
+  path: PAVAO_PAHLJINA_PATH,
+  title: pavaoPahljinaSeo.title,
+  description: pavaoPahljinaSeo.description,
+  canonical: pavaoPahljinaSeo.canonical,
+  schema: pavaoPahljinaProfileSchema(),
+  type: "pavao-pahljina",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ...socialImages.pavaoPahljina,
 }
 
 export const guidesIndexRoute: RouteMeta = {
@@ -143,6 +177,50 @@ export const budgetRoute: RouteMeta = {
   },
   type: "budget",
   lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ...socialImages.budget,
+}
+
+export const budgetZeroRoute: RouteMeta = {
+  path: BUDGET_ZERO_PATH,
+  title: budgetZeroSeo.title,
+  description: budgetZeroSeo.description,
+  canonical: budgetZeroSeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Proračun nulte razine",
+        description: budgetZeroSeo.description,
+        url: budgetZeroSeo.canonical,
+        inLanguage: "hr-HR",
+        isAccessibleForFree: true,
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "proračun nulte razine",
+          "raspodjela novca",
+          "osobni proračun",
+          "računi i stanja",
+          "stvarni višak",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Proračun", item: budgetSeo.canonical },
+        {
+          name: "Proračun nulte razine",
+          item: budgetZeroSeo.canonical,
+        },
+      ]),
+    ],
+  },
+  type: "budget-zero",
+  lastmod: "2026-07-17",
   ogType: "website",
   ...socialImages.budget,
 }
@@ -235,7 +313,7 @@ export const bitcoinMoneyRoute: RouteMeta = {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Bitcoin kao novac",
+        name: "Bitcoin kao primarni novac",
         description: bitcoinMoneySeo.description,
         url: bitcoinMoneySeo.canonical,
         inLanguage: "hr-HR",
@@ -245,10 +323,11 @@ export const bitcoinMoneyRoute: RouteMeta = {
           name: "Bitcoin Savjetovanje",
         },
         about: [
-          "Bitcoin kao novac",
+          "Bitcoin kao primarni novac",
           "osobni Bitcoin standard",
-          "državni novac",
-          "proračun",
+          "operativni saldo u eurima",
+          "proračun nulte osnove",
+          "potrošnja",
           "dug",
           "neto imovina",
         ],
@@ -346,6 +425,87 @@ export const timeVolatilityRoute: RouteMeta = {
   ...socialImages.timeVolatility,
 }
 
+export const longTermTrendRoute: RouteMeta = {
+  path: "/dugorocni-trend/",
+  title: longTermTrendSeo.title,
+  description: longTermTrendSeo.description,
+  canonical: longTermTrendSeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Dugoročni trend Bitcoina",
+        description: longTermTrendSeo.description,
+        url: longTermTrendSeo.canonical,
+        inLanguage: "hr-HR",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "dugoročni trend Bitcoina",
+          "power-law model",
+          "halving ciklusi",
+          "korijenska skala",
+          "povijesna cijena Bitcoina",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Dugoročni trend Bitcoina", item: longTermTrendSeo.canonical },
+      ]),
+    ],
+  },
+  type: "long-term-trend",
+  lastmod: "2026-07-17",
+  ogType: "website",
+  ...socialImages.timeVolatility,
+}
+
+export const bitcoinTodayRoute: RouteMeta = {
+  path: BITCOIN_TODAY_PATH,
+  title: bitcoinTodaySeo.title,
+  description: bitcoinTodaySeo.description,
+  canonical: bitcoinTodaySeo.canonical,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Bitcoin danas",
+        description: bitcoinTodaySeo.description,
+        url: bitcoinTodaySeo.canonical,
+        inLanguage: "hr-HR",
+        isAccessibleForFree: true,
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "Bitcoin Savjetovanje",
+        },
+        about: [
+          "cijena Bitcoina",
+          "Bitcoin blokovi",
+          "Bitcoin naknade",
+          "Bitcoin mempool",
+          "Bitcoin hash rate",
+          "Bitcoin težina mreže",
+          "Bitcoin halving",
+        ],
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        { name: "Bitcoin danas", item: bitcoinTodaySeo.canonical },
+      ]),
+    ],
+  },
+  type: "bitcoin-today",
+  lastmod: "2026-07-20",
+  ogType: "website",
+  ...socialImages.timeVolatility,
+}
+
 export const custodySecurityRoute: RouteMeta = {
   path: "/skrbnistvo-i-sigurnost/",
   title: custodySecuritySeo.title,
@@ -356,7 +516,7 @@ export const custodySecurityRoute: RouteMeta = {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Bitcoin skrbništvo i sigurnost",
+        name: "Bitcoin skrbništvo i oporavak",
         description: custodySecuritySeo.description,
         url: custodySecuritySeo.canonical,
         inLanguage: "hr-HR",
@@ -366,18 +526,22 @@ export const custodySecurityRoute: RouteMeta = {
           name: "Bitcoin Savjetovanje",
         },
         about: [
-          "Bitcoin skrbništvo i sigurnost",
+          "Bitcoin skrbništvo i oporavak",
+          "modeli skrbništva",
+          "samostalno skrbništvo",
+          "slojeviti model",
+          "suradnički model",
           "privatni ključevi",
-          "backup fraza",
-          "nasljeđivanje",
-          "obiteljski Bitcoin trezor",
-          "osobni Bitcoin standard",
+          "sigurnosna kopija",
+          "plan oporavka",
+          "sigurnosni kontinuitet",
+          "pravno nasljeđivanje",
         ],
       },
       breadcrumbSchema([
         { name: "Početna", item: `${SITE_URL}/` },
         {
-          name: "Bitcoin skrbništvo i sigurnost",
+          name: "Bitcoin skrbništvo i oporavak",
           item: custodySecuritySeo.canonical,
         },
       ]),
@@ -399,6 +563,42 @@ export const bitcoinAdviceRoute: RouteMeta = {
   lastmod: SITE_UPDATED_AT,
   ogType: "website",
   ...socialImages.bitcoinAdvice,
+}
+
+export const missedBitcoinRoute: RouteMeta = {
+  path: MISSED_BITCOIN_PATH,
+  title: missedBitcoinSeo.title,
+  description: missedBitcoinSeo.description,
+  canonical: missedBitcoinSeo.canonical,
+  schema: missedBitcoinPageSchema(),
+  type: "missed-bitcoin",
+  lastmod: "2026-07-22",
+  ogType: "website",
+  ...socialImages.missedBitcoin,
+}
+
+export const businessBitcoinRoute: RouteMeta = {
+  path: "/za-tvrtke/",
+  title: businessBitcoinSeo.title,
+  description: businessBitcoinSeo.description,
+  canonical: businessBitcoinSeo.canonical,
+  schema: businessBitcoinPageSchema(),
+  type: "business-bitcoin",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ...socialImages.businessBitcoin,
+}
+
+export const businessBitcoinOnePagerRoute: RouteMeta = {
+  path: "/za-tvrtke/one-pager/",
+  title: businessBitcoinOnePagerSeo.title,
+  description: businessBitcoinOnePagerSeo.description,
+  canonical: businessBitcoinOnePagerSeo.canonical,
+  schema: businessBitcoinOnePagerPageSchema(),
+  type: "business-bitcoin-one-pager",
+  lastmod: SITE_UPDATED_AT,
+  ogType: "website",
+  ...socialImages.businessBitcoin,
 }
 
 export const conversationRoute: RouteMeta = {
@@ -456,7 +656,7 @@ export const bitcoinStandardCheckRoute: RouteMeta = {
   canonical: bitcoinStandardCheckSeo.canonical,
   schema: bitcoinStandardCheckPageSchema(),
   type: "bitcoin-standard-check",
-  lastmod: SITE_UPDATED_AT,
+  lastmod: "2026-07-22",
   ogType: "website",
   ...socialImages.bitcoinStandardCheck,
 }
@@ -547,14 +747,21 @@ export const notFoundRoute: RouteMeta = {
 
 export const prerenderRoutes: RouteMeta[] = [
   homeRoute,
+  pavaoPahljinaRoute,
   budgetRoute,
+  budgetZeroRoute,
   debtRoute,
   givingRoute,
   bitcoinMoneyRoute,
   netWorthRoute,
   timeVolatilityRoute,
+  longTermTrendRoute,
+  bitcoinTodayRoute,
   custodySecurityRoute,
   bitcoinAdviceRoute,
+  missedBitcoinRoute,
+  businessBitcoinRoute,
+  businessBitcoinOnePagerRoute,
   conversationRoute,
   bitcoinConsultationRoute,
   personalBitcoinStandardRoute,

@@ -1,0 +1,845 @@
+Zašto ne podržavam BIP-110: prostor u bloku i budućnost Bitcoina kao novca
+Napredni vodič Bitcoin savjetovanja
+
+Stanje rasprave: 23. srpnja 2026.
+
+Ovaj vodič nije potreban da biste počeli koristiti Bitcoin kao novac.
+
+Prije nego što se počnete baviti prijedlozima promjene konsenzusa, pravilima prosljeđivanja transakcija, drugim slojevima i odnosom korisnika, rudara i razvojnih inženjera, mnogo je važnije urediti vlastiti novac: uspostaviti proračun nulte osnove, razriješiti dugove, odrediti mjesto davanja, razumjeti vlastitu neto imovinu, naučiti gledati Bitcoin kroz vrijeme te pravilno riješiti skrbništvo i sigurnost.
+
+Netko može savršeno razumjeti BIP-110, a istodobno imati neuredne financije, nesigurno pohranjene ključeve i nikakav plan za obitelj. To nije napredak.
+
+Ovaj vodič namijenjen je onima koji su osnovna pitanja već počeli rješavati i žele razumjeti jednu od važnijih rasprava o budućem smjeru Bitcoina:
+
+Treba li Bitcoinov prostor u blokovima služiti isključivo neposrednim monetarnim transakcijama ili može služiti i kao sloj za objavljivanje podataka koji omogućuju čitave nove monetarne sustave izgrađene iznad Bitcoina?
+
+Moj odgovor je da Bitcoin prije svega jest novac, ali upravo zato mislim da je dobro da njegov ograničeni prostor u blokovima mogu koristiti i protokoli koji omogućuju sigurnije, decentraliziranije i raznovrsnije korištenje tog novca.
+
+Zbog toga ne podržavam BIP-110.
+
+Ne odbacujem ga kao besmislen ili zlonamjeran prijedlog. Naprotiv, pokušat ću ovdje njegovim zagovornicima, uključujući Lukea Dashjra, dati maksimalnu razumnu interpretaciju. Mislim da oni postavljaju nekoliko važnih pitanja koja dio razvojnih inženjera Bitcoin Corea nije dovoljno ozbiljno razmotrio.
+
+Ali kada sve argumente stavim na jedno mjesto, smatram da BIP-110 pokušava zaštititi Bitcoin kao novac metodom koja bi mogla ograničiti upravo one tehnologije koje Bitcoin mogu učiniti boljim, dostupnijim i decentraliziranijim novcem.
+
+[VIZUAL 1 — NASLOVNA SLIKA]
+Prompt za ImageGen: Široka naslovna ilustracija za napredni članak o Bitcoinu. U središtu jednostavna čvrsta Bitcoinova baza poput kamenog temelja ili mediteranske tvrđave. Iznad nje više povezanih slojeva: Lightning kanali, banke, Ark, rollupovi, roboti i globalna plaćanja, svi povezani s istom bazom. Na jednoj strani mala zaštitna barijera s oznakom BIP-110, na drugoj otvorena mreža inovacija. Miran, ozbiljan urednički stil, mediteranska paleta, krem podloga, tamnoplava, terakota i zagasito zlatna, bez futurističkih kripto klišeja, bez lebdećih kovanica, format 16:9.
+
+Što je BIP-110?
+
+BIP-110 je prijedlog privremenog soft forka koji bi približno godinu dana uveo sedam novih konsenzusnih ograničenja. Među ostalim, ograničio bi veličinu izlaznih skripti, OP_RETURN vratio na najviše 83 bajta, ograničio pojedine elemente witness podataka na 256 bajtova, privremeno onemogućio trošenje još nedefiniranih witness verzija, zabranio Taproot annex i OP_SUCCESS konstrukcije te ograničio neke Taprootove skriptne putove. Postojeći UTXO-i bili bi izuzeti, a pravila bi nakon 52.416 blokova prestala vrijediti.
+
+Prijedlog koristi prag od 55 posto rudarske signalizacije. Ako se taj prag ne postigne dobrovoljno, tijekom unaprijed određenog razdoblja čvorovi koji provode BIP-110 odbacivali bi blokove koji ne signaliziraju podršku, čime bi pokušali prisiliti zaključavanje prijedloga najkasnije na visini 963.648 i aktivaciju na 965.664.
+
+Status prijedloga je Complete, što znači da autor specifikaciju smatra dovršenom. To ne znači da je BIP prihvaćen ili da oko njega postoji konsenzus.
+
+Na dan 24. srpnja 2026., u aktualnom razdoblju signalizacije 1,1 posto blokova signalizira BIP-110, u usporedbi s potrebnih 55 posto. Rudari ne odlučuju konačno o pravilima Bitcoina, ali tako niska signalizacija pokazuje da bi pokušaj aktivacije, bez bitne promjene u koordinaciji, uključivao ozbiljan rizik od manjinskog lanca.
+
+Zašto je BIP-110 uopće nastao?
+
+Bitcoin Core v30 promijenio je zadanu politiku prosljeđivanja OP_RETURN transakcija. Prethodni zadani limit od 83 bajta povećan je na 100.000 bajtova, što praktično uklanja poseban limit jer transakcija prije toga udara u opće ograničenje standardne transakcije. Dopušteno je i više OP_RETURN izlaza u istoj transakciji. Operator v30 čvora još uvijek može ručno vratiti limit na 83 bajta.
+
+To nije bila promjena konsenzusa. Veliki OP_RETURN bio je valjan i prije v30 ako bi ga rudar uključio u blok. Promijenilo se ono što zadani Bitcoin Core čvor prihvaća u svoj mempool i prosljeđuje drugim čvorovima prije potvrde.
+
+Skupina suradnika Bitcoin Corea potom je objavila zajednički tekst u kojem je obrazložila širu filozofiju te odluke. Njihov je stav da relejna politika treba što vjernije predviđati transakcije koje će rudari uvrstiti u blokove, pomagati procjeni i podizanju naknada, ubrzavati prijenos blokova te omogućiti malim rudarima da dobiju iste transakcije kao veliki rudari, bez privatnih kanala dostave. Kada postoji trajna gospodarska potražnja za nekom konsenzusno valjanom vrstom transakcija, pokušaji njezina filtriranja mogu korisnike samo preusmjeriti prema privatnim dogovorima s rudarima.
+
+BIP-110 predstavlja izravan odgovor na tu filozofiju.
+
+Njegovi zagovornici smatraju da Core v30 nije samo tehnički prihvatio stvarnost, nego je politički i simbolički normalizirao uporabu Bitcoinova lanca kao općeg prostora za pohranu podataka.
+
+[VIZUAL 2 — POLITIKA NASUPROT KONSENZUSU]
+Prompt za ImageGen: Edukativna horizontalna grafika s dva odvojena sloja. Gore: “Politika mempoola i prosljeđivanja” s čvorovima koji mogu prihvatiti ili odbiti nepotvrđenu transakciju. Dolje: “Konsenzus” s blokom koji svi čvorovi moraju provjeriti ako žele ostati na istom lancu. Prikazati promjenu Bitcoin Core v30 samo u gornjem sloju, a BIP-110 kao pokušaj prijenosa ograničenja u donji sloj. Mediteranski urednički stil, krem podloga, tamnoplava i terakota, jasne oznake na hrvatskom, format 16:9.
+
+Najjača moguća verzija argumenta za BIP-110
+1. Bitcoin nije zamišljen kao opća baza podataka
+
+Lukeova pozicija nije samo da mu se ne sviđaju slike, tokeni ili natpisi.
+
+Njegov je argument da je puni čvor pokrenuo kako bi provjeravao monetarna pravila Bitcoina: vlasništvo, potpise, dvostruku potrošnju, količinu novca i valjanost prijenosa vrijednosti.
+
+Kada treća strana koristi Bitcoinov lanac za distribuciju podataka nekog drugog sustava, Luke smatra da je trošak tog sustava djelomično prebačen na njegova računala i računala budućih operatora čvorova:
+
+rudar naknadu primi jednom;
+svi novi čvorovi moraju podatke preuzeti i provjeriti;
+arhivski čvorovi ih trajno pohranjuju;
+neki čvorovi ih dalje poslužuju;
+trošak početne sinkronizacije s vremenom raste;
+operator može snositi pravnu i reputacijsku neizvjesnost.
+
+BIP-110 taj problem izričito opisuje kao negativan vanjski učinak nametnut operatorima čvorova.
+
+2. Zadane postavke dominantne implementacije nisu neutralne
+
+Formalno svaki operator može odabrati softver i postavke.
+
+U praksi većina ljudi ne pregledava svaki redak koda. Nadograđuju Bitcoin Core jer mu vjeruju kao dominantnoj, pregledanoj implementaciji. Kada Core nešto prema zadanim postavkama proglasi standardnim i prosljeđuje ga kroz javnu mrežu, aplikacije mogu početi računati na to ponašanje.
+
+Iz te perspektive promjena v30 šalje tržištu poruku:
+
+Prostor u bloku za velike proizvoljne podatke više nije samo tehnički moguć; sada je to standardiziran i pouzdano prosljeđivan oblik uporabe.
+
+To može privući kapital, tvrtke i korisnike. Kada dovoljno poslovnih modela postane ovisno o toj uporabi, kasnije ograničavanje više neće izgledati kao uklanjanje neželjenog opterećenja, nego kao uništavanje proizvoda, ulaganja i korisničke imovine.
+
+BIP-110 zato pokušava djelovati prije nego što podatkovne aplikacije postanu „noseći” dio Bitcoinova gospodarstva. To je izričito navedeno u njegovoj motivaciji.
+
+3. Nemogućnost potpunog filtriranja ne znači da filtri nemaju vrijednost
+
+Coreova strana kaže da se ograničenje može zaobići izravnim slanjem transakcije rudaru ili skrivanjem podataka u drugim dijelovima transakcije.
+
+Lukeov najbolji odgovor bio bi:
+
+Brava koju je moguće obiti nije isto što i otvorena vrata.
+
+Postoji velika razlika između uporabe koja zahtijeva poseban odnos s rudarom, privatnu infrastrukturu ili složeno prikrivanje i uporabe koja jednostavno prolazi kroz zadanu Bitcoinovu P2P mrežu.
+
+Čak i nesavršen filtar može:
+
+povećati trošak;
+usporiti usvajanje;
+odbiti dati društvenu legitimnost;
+smanjiti broj tvrtki spremnih graditi na toj pretpostavci;
+očuvati normu da je Bitcoin prije svega novac.
+4. Podatkovne industrije mogu promijeniti političku koaliciju oko Bitcoina
+
+Ako se iznad Bitcoina izgradi niz protokola koji zahtijevaju sve veću količinu podataka, njihove će tvrtke, ulagači i korisnici imati interes za:
+
+više prostora;
+jeftiniju dostupnost podataka;
+nove operacijske kodove;
+šire skriptne mogućnosti;
+eventualno povećanje težine blokova.
+
+Luke bi rekao da Bitcoin tada više neće imati samo jednu jasnu političku bazu — ljude koji žele čvrst, provjerljiv novac — nego desetke industrija koje žele prilagoditi osnovni sloj vlastitim podatkovnim potrebama.
+
+Bitcoin bi mogao nastaviti proizvoditi blokove i zadržati visoku tržišnu cijenu, a ipak postupno prestati biti novac koji običan čovjek može neovisno provjeravati.
+
+5. Mineri ne određuju pravila
+
+Luke s pravom naglašava da rudari nisu zakonodavci Bitcoina.
+
+Čvor samostalno provjerava blok i odbacuje ga ako krši pravila koja je operator izabrao. Korisnici koji prihvaćaju bitcoin za robu, usluge, štednju i namirenje daju lancu gospodarsku vrijednost. Bitcoin Coreova vlastita dokumentacija naglašava da puni čvorovi omogućuju korisnicima provođenje pravila čak i protiv najmoćnijih rudara.
+
+U krajnjoj nuždi, ako bi cijela postojeća rudarska industrija odbila proizvoditi blokove prema pravilima koja gospodarski korisnici smatraju Bitcoinom, ti korisnici teoretski mogu promijeniti algoritam dokaza rada i „otpustiti” postojeće rudare.
+
+To je važna ustavna doktrina:
+
+Vlasništvo nad ASIC uređajima nije vlasništvo nad Bitcoinom.
+
+6. BIP-110 je pokušaj obrane društvenog ugovora
+
+Iz najbolje moguće interpretacije, BIP-110 nije napad na inovacije niti želja da mala skupina upravlja svim dopuštenim transakcijama.
+
+To je pokušaj da se kaže:
+
+Bitcoinov osnovni sloj ima usku monetarnu svrhu. Ako dopuštene tehničke mogućnosti počnu mijenjati tu svrhu, korisnici imaju pravo dodatno suziti pravila i zaštititi sposobnost budućih generacija da provjeravaju novac.
+
+To je koherentan argument.
+
+Mislim da zaslužuje više poštovanja nego što mu ga mnogi protivnici daju.
+
+[VIZUAL 3 — STEELMAN BIP-110]
+Prompt za ImageGen: Ozbiljna konceptualna ilustracija Lukeove najbolje argumentacije. Mali kućni puni čvor na jednoj strani prima beskonačan tok vanjskih podatkovnih sustava, dok rudar prima naknadu samo jednom. U pozadini rastu tvrtke i industrije ovisne o prostoru u bloku. Ispred čvora zaštitni zid označen “BIP-110: Bitcoin kao novac”. Bez karikature i bez prikaza Lukea kao osobe; maksimalno pošten i dostojanstven prikaz argumenta. Krem podloga, tamnoplava, terakota, format 16:9.
+
+Gdje se slažem sa zagovornicima BIP-110
+
+Slažem se da je Bitcoin prije svega novac.
+
+Slažem se da je sposobnost običnog čovjeka da pokrene puni čvor važnija od maksimalnog broja aplikacija koje se mogu ugurati u jedan blok.
+
+Slažem se da zadane postavke Bitcoin Corea imaju političku težinu, čak i ako korisnike formalno nitko ne prisiljava da nadograde softver.
+
+Slažem se da iz činjenice kako se filtar može zaobići ne slijedi automatski da ga treba ukloniti.
+
+Slažem se da prostor u bloku nije obična privatna roba između pošiljatelja i rudara. Blok moraju provjeravati i budući korisnici, pa postoje troškovi koje naknada rudaru ne raspodjeljuje izravno svim sudionicima.
+
+Slažem se da rudari ne odlučuju što je Bitcoin. Oni proizvode blokove unutar pravila koja su gospodarski korisnici spremni prihvatiti.
+
+Slažem se i da je Coreova javna izjava o relejnoj politici podcijenila dugoročni učinak normalizacije, stvaranja novih interesa i promjene Bitcoinove društvene Schellingove točke.
+
+Ali iz svega toga ne zaključujem da trebamo prihvatiti BIP-110.
+
+Bitcoin se ne može skalirati tako da svako plaćanje ide na osnovni sloj
+
+Bitcoinovi blokovi imaju najviše četiri milijuna jedinica težine. Virtualna veličina bloka zato je približno jedan milijun vB, ovisno o strukturi podataka i witnessu.
+
+Uzmimo pojednostavljenu transakciju od približno 141 vB, što je razumna ilustracija male SegWit transakcije s jednim ulazom i dva izlaza.
+
+Dobivamo:
+
+1.000.000 vB ÷ 141 vB ≈ 7.092 transakcije po bloku
+
+7.092 ÷ 600 sekundi ≈ 11,8 transakcija u sekundi
+
+7.092 × 144 bloka dnevno × 365 dana
+≈ 373 milijuna transakcija godišnje
+
+To nije malo. Bitcoinov osnovni sloj može godišnje namiriti stotine milijuna visokovrijednih transakcija.
+
+Ali na svijetu postoji približno osam milijardi ljudi. Kada bi svaka osoba napravila samo jednu takvu transakciju, trebalo bi više od 21 godine ukupnog prostora u svim blokovima — uz pretpostavku da se u međuvremenu ne odvija nijedna druga transakcija.
+
+Kada bi svaka osoba jednom otvorila i jednom zatvorila neki kanal ili drugi sloj, trebalo bi više od četiri desetljeća ukupnog kapaciteta.
+
+Naravno, stvarne transakcije mogu imati različite veličine, mogu grupirati mnogo primatelja i mogu se optimizirati. Upravo je to poanta: globalni monetarni sustav mora agregirati mnogo aktivnosti u mali broj konačnih namirenja.
+
+Lightning je izgrađen na toj logici. Mnoge promjene stanja odvijaju se izvan lanca, a Bitcoin služi kao konačni arbitar kada jedna strana ne surađuje.
+
+[VIZUAL 4 — MATEMATIKA SKALIRANJA]
+Prompt za ImageGen: Jasna infografika na hrvatskom. Lijevo jedan Bitcoin blok s oznakom približno 1.000.000 vB svakih 10 minuta. U sredini račun: oko 7.000 malih transakcija po bloku, oko 12 u sekundi, oko 370 milijuna godišnje. Desno osam milijardi ljudi i poruka: “Jedna on-chain transakcija po osobi = više od 21 godine ukupnog kapaciteta.” Čist, miran dizajn, krem podloga, tamnoplave brojke i terakota naglasci, format 16:9.
+
+Lekcija 2017. nije da se osnovni sloj ne smije koristiti, nego da se ne smije beskonačno povećavati
+
+Bitcoin Cash nastao je 1. kolovoza 2017. kao nekompatibilan hard fork koji je zahtijevao blok veći od jednog megabajta i podržavao najmanje osam megabajta kapaciteta.
+
+U mojem čitanju, njegova temeljna pogreška nije bila želja za jeftinim plaćanjima. Pogreška je bila procjena da će gospodarska većina prihvatiti skaliranje osnovnog sloja prvenstveno povećavanjem blokova, čak i kada to povećava trošak neovisne provjere.
+
+Gospodarska većina ostala je uz Bitcoinov lanac, SegWit i razvoj dodatnih slojeva. Bitcoin Coreov tadašnji plan skaliranja izričito je kombinirao ograničeni osnovni sloj s kanalima, učinkovitijim transakcijama i dodatnim slojevima iznad protokola.
+
+Ali iz 2017. ne bih izvukao zaključak:
+
+Samo jednostavna plaćanja smiju kupovati prostor u bloku.
+
+Izvukao bih ovaj zaključak:
+
+Potražnju treba sabijati u ograničeni prostor u bloku, umjesto povećavati blokove dok u njih ne stane sva potražnja.
+
+Ako jedan zapis od nekoliko kilobajta omogućuje neovisno provjerljiva stanja i izlaz za tisuće korisnika, to može biti učinkovitija monetarna uporaba prostora od tisuću zasebnih osnovnih transakcija.
+
+Pravo pitanje nije jesu li u bloku „podaci”.
+
+Svaka transakcija sastoji se od podataka.
+
+Pravo pitanje je:
+
+Koliko monetarne sigurnosti, samostalnosti i gospodarske aktivnosti dobivamo po jedinici oskudnog prostora u bloku?
+
+[VIZUAL 5 — LEKCIJA 2017.]
+Prompt za ImageGen: Raskrižje iz 2017. Jedan put označen “Veći blokovi za svaku transakciju” vodi prema sve većim poslužiteljskim centrima. Drugi put označen “Ograničen osnovni sloj + agregacija + drugi slojevi” vodi prema mnogim malim korisnicima koji i dalje mogu pokretati čvorove. Naglasiti da drugi put ne znači zabranu korištenja prostora, nego učinkovito sabijanje uporabe. Mediteranski urednički stil, bez logotipa Bitcoin Casha kao karikature, format 16:9.
+
+Hal Finney i Bitcoin kao novac visoke snage
+
+Hal Finney je još 2010. predvidio da Bitcoin neće moći staviti svaku financijsku transakciju svijeta u lanac blokova.
+
+Njegova vizija bila je da postoje Bitcoinom pokrivene banke koje izdaju vlastiti digitalni novac otkupljiv za bitcoin. Neke bi bile potpuno pokrivene rezervama, neke bi poslovale s djelomičnim rezervama, a većina osnovnih Bitcoinovih transakcija odvijala bi se između tih institucija radi neto namirenja. Bitcoin bi služio kao „novac visoke snage” ispod šireg financijskog sustava.
+
+To nije bila vizija Lightninga, Arka ili današnjih rollupova u tehničkom smislu. Hal je govorio o institucijama kojima korisnik mora vjerovati.
+
+Ali dobro je prepoznao osnovnu ekonomsku stvarnost:
+
+Neće svako plaćanje završiti kao zasebna transakcija u Bitcoinovu lancu. Bitcoin će biti konačni novac na temelju kojeg se veliki broj obveza grupira i međusobno namiruje.
+
+U budućnosti zato vjerojatno neće postojati samo jedan oblik korištenja Bitcoina.
+
+Postojat će cijeli spektar.
+
+Spektar mogućih slojeva Bitcoinova monetarnog sustava
+1. Izravna samoskrbnička uporaba osnovnog sloja
+
+Na jednom kraju ostaje puna samoskrbnička uporaba:
+
+korisnik drži vlastite ključeve;
+pokreće vlastiti čvor;
+sam stvara i provjerava transakcije;
+konačno se namiruje na Bitcoinovu osnovnom sloju.
+
+To je najčišći oblik monetarne suverenosti.
+
+Neće nužno biti prikladan za svaku kupnju kave, ali mora ostati dostupan svakome tko želi konačno namirenje bez dopuštenja.
+
+2. Skrbničke banke, mjenjačnice i procesori plaćanja
+
+Na drugom kraju imamo potpuno skrbničke sustave:
+
+mjenjačnica drži bitcoin za klijente;
+banka vodi interne račune;
+korisnici međusobno plaćaju promjenom stavki u internoj bazi;
+institucije povremeno grupiraju isplate i međusobno se namiruju na Bitcoinu.
+
+Ovdje korisnik vjeruje instituciji.
+
+To nije idealno za svakoga, ali nije nužno beskorisno ili protivno Bitcoinu. Neki će ljudi dobrovoljno odabrati banku zbog jednostavnosti, nasljeđivanja, osiguranja, kreditnih odnosa ili reguliranog poslovanja.
+
+Bitcoin donosi važnu razliku u odnosu na današnji sustav: konačna monetarna baza ostaje izvan kontrole banaka. Korisnik može, barem načelno, povući stvarni bitcoin i prijeći na samoskrbništvo.
+
+3. Lightning
+
+Lightning omogućuje velik broj plaćanja unutar kanala, dok Bitcoin služi kao konačni arbitar.
+
+Korisnici mogu mijenjati raspodjelu sredstava izvan lanca, a u slučaju nesuradnje zadnje valjano stanje mogu provesti na Bitcoinovu lancu. Lightning time omogućuje brza i jeftina plaćanja bez skrbnika, ali traži upravljanje kanalima, likvidnošću i vremenom reakcije.
+
+Lightning je važan, ali ne mora biti jedini odgovor na sva pitanja skaliranja.
+
+4. Ark
+
+Ark grupira velik broj korisničkih prava u jedan izlaz na osnovnom sloju. Korisnici dobivaju virtualne UTXO-e i unaprijed potpisane izlazne puteve kojima mogu povući sredstva na Bitcoin bez suradnje operatora.
+
+Operator koordinira prijenose i osigurava likvidnost, a pojedina prije potvrđena stanja imaju dodatne pretpostavke povjerenja. Potvrđeni VTXO-i imaju pravo unilateralnog izlaza, ali korisnici također moraju pratiti rokove isteka i pravodobno obnoviti ili povući svoje pozicije.
+
+Ark pokazuje da je moguće imati UTXO-sličan model izvan lanca koji nije istovjetan Lightningovoj mreži usmjeravanja.
+
+5. BitVM
+
+BitVM pokušava omogućiti provjeru složenih izračuna preko Bitcoina bez promjene konsenzusnih pravila. Umjesto da Bitcoin izvršava cijeli program, dokaziva tvrdnja prihvaća se optimistički, a netočnu tvrdnju moguće je osporiti i kazniti.
+
+BitVM2 omogućuje da bilo tko ospori netočnu tvrdnju, iako mostovi još imaju unaprijed određene operatore i pretpostavku da je barem jedan sudionik u određenim ulogama pošten.
+
+To može otvoriti prostor za sigurnije mostove, rollupove i druge sustave u kojima se BTC koristi izvan osnovnog sloja, a Bitcoin ostaje konačni sud.
+
+6. Rollupovi i Bitcoin kao sloj dostupnosti podataka
+
+Rollup grupira velik broj transakcija i objavljuje dokaz ili sažetak promjene stanja na osnovni sloj.
+
+Međutim, sam kriptografski hash nije dovoljan ako nitko osim operatora nema podatke potrebne za rekonstruiranje stanja. Operator može objaviti ispravan korijen stanja, a zatim uskratiti podatke iz kojih korisnici mogu dokazati vlastita prava ili nastaviti sustav.
+
+Zato je dostupnost podataka važna.
+
+Citrea, primjerice, objavljuje sažete razlike stanja na Bitcoin. Njezin je cilj da svaki Citrea čvor može rekonstruirati stanje čitajući Bitcoinove blokove, bez zasebnog odbora koji obećava čuvati podatke. To dolazi uz cijenu Bitcoinova ograničenog i skupog prostora u bloku.
+
+Citrea još uvijek ima sekvencer i most s određenim pretpostavkama povjerenja. Njihova vlastita dokumentacija priznaje da je potpuno nepovjerljivo namirenje dugoročan cilj i da sadašnji BitVM sustav smanjuje povjerenje na pretpostavku poštene manjine, a ne uklanja ga potpuno.
+
+To je važno: objavljivanje podataka na Bitcoin ne čini neki sustav automatski decentraliziranim.
+
+Ali može ukloniti jednu vrlo ozbiljnu točku povjerenja:
+
+operator više ne može jednostavno sakriti povijest stanja i učiniti sustav nemogućim za rekonstrukciju.
+
+[VIZUAL 6 — SPEKTAR SKRBNIŠTVA]
+Prompt za ImageGen: Horizontalni spektar od pune samoskrbi do punog povjerenja. Slijeva: vlastiti čvor i osnovni sloj. Zatim Lightning. Zatim Ark. Zatim rollup s Bitcoin dostupnošću podataka i BitVM mostom. Zatim skrbnička banka ili mjenjačnica. Ispod svakog modela tri male oznake: povjerenje, skalabilnost, mogućnost unilateralnog izlaza. Bez ocjene da je jedan model uvijek najbolji. Topla mediteranska paleta, jasna hrvatska tipografija, format 16:9.
+
+Zašto prostor za podatke može Bitcoin učiniti boljim novcem
+1. Jedan podatkovni zapis može predstavljati tisuće monetarnih promjena
+
+Nisu svi podatkovni bajtovi jednaki u gospodarskom smislu.
+
+Slika spremljena radi same slike i sažeta promjena stanja koja osigurava prava tisuća korisnika tehnički su obje podaci. Ali druga može predstavljati golemi broj monetarnih odnosa.
+
+Jedan zapis na Bitcoinovu osnovnom sloju može omogućiti:
+
+dokaz vlasništva za mnogo korisnika;
+rekonstruiranje stanja cijelog drugog sloja;
+dokaz prijevare;
+unilateralni izlaz;
+prisilno uključivanje transakcije;
+prijenos operatorove uloge drugom sudioniku;
+neto namirenje tisuća plaćanja.
+
+Ako isti rezultat pokušamo ostvariti zasebnim osnovnim transakcijama, potrošit ćemo mnogo više prostora.
+
+Zato monetarnost ne možemo mjeriti samo time izgleda li podatak kao obična uplata s jedne adrese na drugu.
+
+2. Dostupni podaci mogu smanjiti povjerenje u skrbnike
+
+Bez dovoljno podataka korisnik drugog sloja može ovisiti o:
+
+jednom operatoru;
+malom odboru;
+zasebnoj podatkovnoj mreži;
+poslužitelju proizvođača novčanika;
+skrbniku koji vodi internu evidenciju.
+
+Ako su podaci potrebni za rekonstruiranje sustava javno dostupni na Bitcoinu, novi operator može nastaviti tamo gdje je stari stao, a korisnici mogu sami provjeravati stanje.
+
+To nije potpuno uklanjanje povjerenja, ali može biti važan korak od:
+
+“vjerujem tvrtki da je moj saldo stvaran”
+
+prema:
+
+“mogu sam rekonstruirati stanje i dokazati svoje pravo”
+3. Više modela smanjuje ovisnost o jednom drugom sloju
+
+Lightning može s vremenom razviti velike pružatelje likvidnosti, čvorove za usmjeravanje i skrbničke novčanike.
+
+Ark može imati koncentraciju operatora.
+
+Rollup može imati jednog sekvencera.
+
+Banka može biti potpuno skrbnička.
+
+Nijedan sustav nije bez kompromisa.
+
+Ali ako korisnik može birati među više različitih modela i iz svakoga, pod različitim uvjetima, prijeći natrag na Bitcoin, tada neuspjeh ili cenzura jednog sustava ne znači neuspjeh cijelog Bitcoinova gospodarstva.
+
+Decentralizacija nije samo broj osnovnih čvorova.
+
+Decentralizacija je i broj neovisnih puteva kojima korisnik može:
+
+držati BTC;
+primati ga;
+slati ga;
+koristiti ga kao kolateral;
+dokazati svoje stanje;
+promijeniti pružatelja usluge;
+konačno se namiriti bez dopuštenja.
+4. Otvorena P2P distribucija može pomoći manjim rudarima
+
+Ako postoji stvarna gospodarska potražnja za transakcijama koje zadani čvorovi ne prosljeđuju, veliki projekti mogu ih slati izravno velikim rudarskim bazenima.
+
+Veliki bazeni lakše će održavati privatne veze, pregovarati o uvjetima i graditi posebnu infrastrukturu nego mali rudari.
+
+Coreovi suradnici zato tvrde da otvoreno prosljeđivanje transakcija koje će ionako ući u blokove:
+
+pomaže svim rudarima vidjeti iste naknade;
+smanjuje prednost privatnih kanala;
+poboljšava rekonstrukciju blokova;
+može smanjiti pritisak prema koncentraciji rudarenja.
+
+To nije konačan argument za svaki podatkovni protokol. Ali je stvarna decentralizacijska prednost otvorene relejne mreže.
+
+5. Tržište naknada dobiva više izvora potražnje
+
+Pod blokovskom subvencijom rudari danas dobivaju novoizdane bitcoine i transakcijske naknade. Prema trenutačnim pravilima subvencija se prepolovljuje svakih 210.000 blokova i nakon približno bloka 6.930.000 više nema novih jedinica subvencije.
+
+Dugoročno će rudari sve više ovisiti o naknadama.
+
+Ako potražnja dolazi samo iz pojedinačnih osnovnih plaćanja, tržište može biti vrlo promjenjivo. Drugi slojevi i sustavi koji redovito objavljuju grupirana namirenja ili podatke mogu stvarati trajniju potražnju.
+
+To ne znači da je svaka naknada automatski dobra. Ali protokol koji jednom transakcijom osigurava prava velikog broja korisnika može biti vrlo kvalitetan izvor naknada.
+
+Bitcoin trezorske kompanije kao drugi oblik monetarnog širenja
+
+Strategy nije drugi sloj plaćanja i ne objavljuje stanja korisnika na Bitcoinov lanac.
+
+Ali pokazuje drugi način na koji Bitcoin može rasti kao monetarna baza.
+
+Strategy koristi prihode, vlasnički kapital i različite dužničke instrumente kako bi akumulirala bitcoin i ponudila tržištima različite oblike izloženosti svojoj Bitcoinovoj bilanci. Tvrtka sama opisuje Bitcoin kao primarnu trezorsku pričuvu i izdaje vlasničke i kreditne instrumente koji povezuju tradicionalna tržišta kapitala s Bitcoinom.
+
+To znači da Bitcoin može služiti kao:
+
+kapitalna baza;
+pričuvna imovina;
+kolateral;
+osnova za kreditne instrumente;
+konačni novac ispod čitavog sloja tržišta kapitala.
+
+Ne mora svaki oblik Bitcoinova rasta izgledati kao plaćanje u trgovini.
+
+Ako kompanija može privući kapital iz obvezničkog, dioničkog ili kreditnog tržišta i dio tog kapitala pretvoriti u trajnu potražnju za bitcoinom, ona također širi Bitcoinovu monetarnu mrežu.
+
+Naravno, dioničar Strategyja ne drži isti instrument kao vlasnik bitcoina u samoskrbništvu. Ima korporativni, upravljački, kreditni i tržišni rizik.
+
+Ali to ne znači da je takva financijska konstrukcija štetna za Bitcoin.
+
+Bitcoin kao globalni novac vjerojatno neće imati samo jednu vrstu korisnika. Imat će:
+
+pojedince sa seed riječima;
+obitelji s višepotpisnim skrbništvom;
+banke;
+fondove;
+trezorske kompanije;
+platne kanale;
+rollupove;
+automatizirane agente;
+robote;
+kreditna tržišta;
+protokole koje danas još ne možemo predvidjeti.
+
+[VIZUAL 7 — STRATEGY I TRŽIŠTA KAPITALA]
+Prompt za ImageGen: Dijagram koji pokazuje tok kapitala iz tradicionalnih tržišta — dionice, obveznice, kreditni instrumenti — prema Bitcoin trezorskoj kompaniji, a zatim prema Bitcoinovoj monetarnoj bazi. Ne koristiti logotipe, nego generičku kompaniju inspiriranu modelom Strategyja. Prikazati da investitori imaju različite financijske instrumente, dok je Bitcoin temeljna pričuvna imovina. Ozbiljan financijski urednički stil, krem, tamnoplava i zagasito zlatna, format 16:9.
+
+Bitcoinova kupovna moć, rudari i energetski razvoj
+
+Kada Bitcoin raste u kupovnoj moći, raste i moguća vrijednost nagrade koju rudari primaju. To privlači više kapitala, opreme i energije u zaštitu mreže, sve dok konkurencija i rast težine ponovno ne smanje profitne marže.
+
+Rudari zato ne traže samo mnogo energije. Traže energiju koja je jeftinija od one koju mogu koristiti drugi potrošači.
+
+To ih može usmjeravati prema:
+
+udaljenim izvorima energije;
+višku proizvodnje;
+energiji koja bi inače bila ograničena ili odbačena;
+fleksibilnoj potrošnji koja se može brzo isključiti;
+plinu i metanu koji se inače spaljuju ili ispuštaju;
+novim elektranama koje još nemaju stabilnu lokalnu potražnju.
+
+ERCOT je, primjerice, uspostavio program dobrovoljnog smanjenja potrošnje za velike fleksibilne potrošače, izričito uključujući rudarske pogone, kako bi pomogao pouzdanosti mreže u trenucima vršne potražnje.
+
+Istraživanja pokazuju da rudarenje može funkcionirati kao brzo prilagodljiv potrošač, pomoći integraciji promjenjivih izvora i smanjiti odbacivanje viška energije, iako stvarna fleksibilnost ovisi o hashpriceu, cijeni energije, ugovorima i tržišnim uvjetima.
+
+Ne tvrdim da je svaki rudarski pogon automatski dobar za lokalnu mrežu ili okoliš. Rudarenje može stvarati buku, koristiti skupu energiju i biti loše integrirano.
+
+Tvrdnja je uža:
+
+Globalni, lokacijski neovisan kupac energije koji se može brzo uključiti i isključiti može stvoriti gospodarski poticaj za pronalaženje, razvoj i monetizaciju jeftinih izvora energije.
+
+Ako dodatni monetarni sustavi povećavaju potražnju za Bitcoinovim namirenjem i naknadama, oni mogu ojačati i tržište koje financira tu energetsku potragu.
+
+[VIZUAL 8 — BITCOIN I ENERGETSKI KRUG]
+Prompt za ImageGen: Kružno povezana infografika: veća monetarna uporaba Bitcoina → veća potražnja za sigurnošću i prostorom → više rudarskih prihoda → potraga za jeftinom i neiskorištenom energijom → razvoj energetskih izvora i mreža → snažnija Bitcoinova infrastruktura. Uključiti vjetar, sunce, hidroenergiju, plin koji bi se spalio i fleksibilan rudarski pogon koji se gasi pri vršnoj potražnji. Ne prikazivati kao zajamčenu ekološku utopiju, nego kao gospodarski poticaj. Mediteranski urednički stil, format 16:9.
+
+Kako bi mogao izgledati puni Bitcoin standard nakon 2140.
+
+Ne mislim da možemo govoriti o dovršenoj monetizaciji Bitcoina dok se nove jedinice još izdaju kroz blokovsku subvenciju.
+
+To ne znači da će se svijet odjednom 2140. probuditi na Bitcoin standardu. Monetizacija nije kalendarski događaj.
+
+Ali 2140. može poslužiti kao udaljeni misaoni horizont: razdoblje u kojem više nema novih subvencioniranih bitcoina, rudari žive od naknada, a Bitcoin je možda već desetljećima ili stoljećem globalna monetarna baza.
+
+U takvom svijetu ne očekujem da će svako plaćanje biti neposredna on-chain transakcija.
+
+Očekujem slojevitu monetarnu strukturu.
+
+Osnovni konsenzus ostaje jednostavan i tvrd
+
+U samoj jezgri i dalje bi postojala ista temeljna pravila:
+
+konačna i predvidljiva ponuda;
+približno 21 milijun jedinica;
+privatni ključevi određuju pravo potrošnje;
+zabrana dvostruke potrošnje;
+provjerljiv dokaz rada;
+otpor prema cenzuri;
+mogućnost slanja bez traženja dopuštenja;
+pravo svakog korisnika da samostalno provjerava pravila.
+
+To je gospodarski konsenzus koji mora biti iznimno teško promijeniti.
+
+Iznad njega postojat će različiti sustavi
+
+Vjerojatno će postojati:
+
+banke s različitim razinama rezervi i transparentnosti;
+privatni i javni platni kanali;
+Ark-slični grupirani UTXO sustavi;
+rollupovi;
+mostovi;
+višepotpisni skrbnici;
+trezorske kompanije;
+kreditni sustavi;
+automatizirani agenti;
+roboti koji obavljaju mikrouplate;
+protokoli trećeg, četvrtog i viših slojeva.
+
+Neki će biti potpuno skrbnički.
+
+Neki će biti gotovo bez povjerenja.
+
+Neki će imati unilateralni izlaz.
+
+Neki će korisniku davati samo ugovorno potraživanje prema instituciji.
+
+Bit će prijevara, propasti i loših modela. Bit će i iznimno korisnih inovacija.
+
+Bitcoinova vrijednost neće biti u tome da spriječi svaki rizični financijski odnos.
+
+Bit će u tome da ispod svih tih odnosa postoji otvoren i neutralan novac na koji se uvijek može vratiti.
+
+Umjetna inteligencija i roboti vjerojatno će koristiti Bitcoin u naše ime
+
+Velik dio budućih plaćanja možda neće ručno inicirati čovjek.
+
+Automatizirani sustavi mogli bi:
+
+kupovati energiju;
+plaćati računalne resurse;
+nabavljati podatke;
+sklapati male ugovore;
+plaćati cestarine;
+upravljati zalihama;
+međusobno namirivati obveze;
+djelovati u korist svojih vlasnika.
+
+Takva aktivnost ne može sva završiti na osnovnom sloju.
+
+Ali može završiti u sustavima čije se konačno stanje grupira i namiruje u Bitcoinu.
+
+[VIZUAL 9 — BITCOIN STANDARD 2140.]
+Prompt za ImageGen: Panoramski prikaz svijeta nakon 2140. U središtu mala, čvrsta Bitcoinova jezgra s nepromijenjenim pravilima. Oko nje koncentrični slojevi: obitelji, banke, Lightning, Ark, rollupovi, trezorske kompanije, industrija, energetske mreže, roboti i AI agenti koji obavljaju plaćanja. Sve se povremeno namiruje prema istoj bazi. Vizual treba biti civilizacijski i optimističan, ali ozbiljan, mediteranski renesansni motivi spojeni s diskretnom budućnošću, bez cyberpunk estetike, format 16:9.
+
+Zašto takav sustav može biti kulturno i civilizacijski dobar
+
+Dobar novac ne smije raditi samo za ljude čija uvjerenja odobrava njegov autor.
+
+Bitcoin treba raditi za sve, bez obzira na nacionalnost, religijsku pripadnost, boju kože ili bilo koju drugu osnovu po kojoj se ljudi razlikuju.
+
+Kao novac, Bitcoin treba funkcionirati za sve, bez obzira na uvjerenja, političke stavove, imovinsko stanje ili način na koji ga koriste — pojedinačno, kroz organizacije ili automatizirane sustave koji djeluju u njihovo ime.
+
+Bitcoin ne treba biti moralno neutralan u smislu da je svako ljudsko djelovanje dobro.
+
+Treba biti protokolarno neutralan u smislu da osnovna pravila ne diskriminiraju osobu prema identitetu, političkom položaju ili dopuštenju neke institucije.
+
+To je temelj na kojem može nastati kulturna i civilizacijska renesansa:
+
+štednja ponovno dobiva smisao;
+kapital se mjeri čvršćim novcem;
+dugoročno planiranje postaje racionalnije;
+politička moć teže razvodnjava novac;
+međunarodna suradnja ne treba zajedničkog monetarnog vladara;
+inovatori mogu graditi bez traženja licence od vlasnika osnovnog protokola.
+
+Ali otvorenost ne znači da moramo povećati veličinu blokova za svaku novu aplikaciju.
+
+Naprotiv, čvrsto ograničen prostor prisiljava svaku aplikaciju da dokaže koliko vrijednosti može sabiti u mali broj bajtova.
+
+Zašto ne podržavam BIP-110
+1. Konsenzus ne može pouzdano razlikovati novac od podataka
+
+Društveno razumijem razliku između monetarne transakcije i slike.
+
+Kod je ne razumije.
+
+Za njega su i javni ključ, potpis, dokaz, skripta, slika i sažetak rollupa nizovi bajtova.
+
+BIP-110 zato ne može zabraniti „nemonetarnu namjenu”. Može samo ograničiti određene veličine i strukture koje danas češće koriste podatkovni protokoli.
+
+Time neizbježno ograničava i neke legitimne konstrukcije koje izgledaju slično.
+
+2. Dostupnost podataka može biti monetarna funkcija
+
+Ako podaci omogućuju da tisuće korisnika:
+
+dokažu svoja prava;
+neovisno rekonstruiraju stanje;
+prisile uključivanje;
+promijene operatora;
+povuku BTC bez dopuštenja;
+
+onda ti podaci nisu nužno suprotni monetarnoj svrsi Bitcoina.
+
+Mogu biti upravo ono što omogućuje da BTC ostane novac, a ne samo pričuva u skrbničkoj bazi podataka.
+
+3. BIP-110 zahvaća više od velikog OP_RETURN prostora
+
+Prijedlog ne vraća samo politiku v30 na staru vrijednost.
+
+On privremeno ograničava Taproot annex, još nedefinirane witness verzije, OP_SUCCESS, OP_IF, OP_NOTIF, veličinu kontrolnih blokova i druge konstrukcije. Sam prijedlog priznaje da to može otežati BitVM, buduće soft forkove i neke Miniscript konstrukcije.
+
+To su područja koja bi mogla biti važna upravo za buduće samoskrbničke monetarne sustave.
+
+4. Privremenost ne uklanja tehnički rizik
+
+BIP-110 uvodi različita pravila:
+
+prije aktivacije;
+tijekom godine provođenja;
+za UTXO-e nastale prije aktivacije;
+za UTXO-e nastale nakon aktivacije;
+nakon isteka.
+
+To povećava kontekstualnu složenost konsenzusnog koda.
+
+BIP također priznaje da se ne može apsolutno dokazati kako nijedan korisnik neće doživjeti zamrzavanje ili gubitak sredstava u vrlo specifičnim unaprijed potpisanim konstrukcijama.
+
+Za ograničenu i djelomično simboličku korist to je velik kompromis.
+
+5. Ne vidim dokaz širokog ekonomskog konsenzusa
+
+Rudari ne odlučuju pravila. Jedan puni čvor također ne odlučuje pravila za cijelu mrežu.
+
+Konačno su važni gospodarski korisnici:
+
+oni koji drže bitcoin;
+prihvaćaju ga kao plaćanje;
+vode burze i novčanike;
+pružaju skrbništvo;
+vode kompanije;
+upravljaju kapitalom;
+odlučuju koji će lanac priznati kao BTC.
+
+Ne možemo ih savršeno prebrojiti.
+
+Ali trenutno imamo:
+
+1,1 posto rudarske signalizacije u aktualnom razdoblju na dan 24. srpnja 2026.;
+bez javno vidljive široke koordinacije velikih gospodarskih čvorova;
+prijedlog koji namjerava prijeći u obvezno signaliziranje;
+mogućnost da se mala skupina odvoji na spor manjinski lanac.
+
+Zato kažem da sam u onome što trenutačno izgleda kao ekonomska većina koja ne želi BIP-110.
+
+Ne tvrdim da miner ima pravo veta.
+
+Tvrdim da skupina koja želi odbacivati blokove ostatka mreže mora najprije pokazati da iza nje stoji dovoljno velika gospodarska koordinacija da njezin lanac doista može predstavljati Bitcoin.
+
+6. BIP-110 uvodi opasan presedan
+
+Ako uvedemo konsenzusno pravilo zato što današnju uporabu smatramo nedovoljno monetarnom, kako ćemo procjenjivati sljedeći slučaj?
+
+Hoće li biti dopušten:
+
+proof sustava drugog sloja;
+dokaz o vlasništvu neke imovine;
+sažetak bankovnog namirenja;
+BitVM osporavanje;
+šifrirana financijska obveza;
+protokol koji još nije izumljen?
+
+Kada se konsenzus počne temeljiti na društvenoj procjeni namjene, svaka buduća inovacija mora dokazivati da je dovoljno monetarna pred trenutnom političkom većinom.
+
+Mislim da je sigurniji princip:
+
+Osnovna pravila ostaju uska, teško promjenjiva i semantički neutralna. Prostor ostaje strogo ograničen. Unutar tog ograničenja korisnici plaćaju tržišnu cijenu, a inovacije se natječu prema tome koliko monetarne vrijednosti mogu ostvariti po bajtu.
+
+7. Pogrešno je brkati zaštitu malih blokova sa zabranom široke uporabe
+
+Branim ograničenu težinu bloka zato da bi puni čvor ostao dostupan.
+
+Ne mislim da iz toga slijedi da moram braniti određenu semantičku klasifikaciju svakog bajta u tom bloku.
+
+Moja pozicija je:
+
+Ne povećavati osnovni sloj kako bi zadovoljio svu potražnju.
+
+Ali dopustiti različitim monetarnim sustavima da se natječu
+za postojeći, ograničeni prostor.
+
+To je bitna razlika.
+
+[VIZUAL 10 — ZAŠTO NE PODRŽAVAM BIP-110]
+Prompt za ImageGen: Urednička ilustracija vage. Na lijevoj strani najbolji ciljevi BIP-110: mali čvorovi, Bitcoin kao novac, zaštita od misijskog širenja. Na desnoj strani troškovi: ograničavanje BitVM-a i budućih slojeva, nemogućnost razlikovanja monetarnih i nemonetarnih bajtova, složenost privremenog konsenzusa i rizik rascjepa. Vaga lagano preteže prema odbijanju BIP-110, ali obje strane prikazane ozbiljno i pošteno. Mediteranska paleta, format 16:9.
+
+Tko na kraju određuje pravila?
+
+Ne razvojni inženjeri sami.
+
+Ne rudari sami.
+
+Ne broj javno dostupnih čvorova sam po sebi.
+
+Pravila u konačnici određuju gospodarski korisnici koji su spremni:
+
+provoditi određena pravila;
+prihvaćati bitcoin pod tim pravilima;
+određivati vrijednost imovine na tom lancu;
+odbiti blokove i transakcije drugog lanca;
+snositi trošak eventualnog rascjepa.
+
+Rudari pružaju dokaz rada lancu koji ima gospodarsku vrijednost.
+
+Ako rudari pokušaju promijeniti ponudu ili konfiscirati tuđa sredstva, puni čvorovi to odbacuju.
+
+Ali ako mala skupina čvorova odluči uvesti novo pravilo koje ostatak gospodarstva ne prihvati, ta skupina ne može samim brojem svojih čvorova prisiliti cijelu mrežu da njezin lanac nazove Bitcoinom.
+
+Puni čvor svakome daje pravo da sam odluči što će prihvatiti.
+
+Ne daje nikome pravo da vlastitu odluku automatski proglasi voljom cijele ekonomije.
+
+Kako razmišljati o ovakvim raspravama
+
+Kod svake buduće rasprave o Bitcoinovu protokolu postavio bih sedam pitanja.
+
+1. Mijenja li se konsenzus ili samo lokalna politika?
+
+Promjena mempoola može utjecati na prosljeđivanje, ali ne čini blok nevaljanim.
+
+Konsenzusna promjena odlučuje koji lanac čvor uopće priznaje.
+
+Ta dva rizika nisu usporediva.
+
+2. Koji konkretan problem pokušavamo riješiti?
+
+Je li problem:
+
+procesorski napad;
+rast UTXO skupa;
+pravna prijetnja;
+povećanje početne sinkronizacije;
+gubitak privatnosti;
+kulturna promjena;
+konkurencija za prostor?
+
+Ne treba svaki problem isti lijek.
+
+3. Rješava li prijedlog problem ili ga samo poskupljuje?
+
+Ponekad je i poskupljivanje dovoljno.
+
+Ali tada korist treba usporediti s rizikom promjene konsenzusa.
+
+4. Koje legitimne buduće uporabe možemo slučajno ograničiti?
+
+Kod Bitcoina ne smijemo gledati samo što se koristi danas.
+
+Moramo čuvati prostor za tehnologije koje još nisu sazrele.
+
+5. Može li se cilj postići lokalnom politikom, rudarskim izborom ili novim protokolom bez promjene konsenzusa?
+
+Konsenzus je posljednje sredstvo, ne prvi alat.
+
+6. Postoji li stvarna gospodarska podrška?
+
+Ne samo anketa.
+
+Ne samo broj čvorova.
+
+Ne samo signalizacija rudara.
+
+Nego stvarna spremnost korisnika, burzi, skrbnika, novčanika, kompanija i rudara da provode pravilo čak i pod troškom rascjepa.
+
+7. Hoće li Bitcoin nakon promjene biti bolji neutralni novac?
+
+Ne samo čišći prema mojoj osobnoj definiciji.
+
+Nego:
+
+teže promjenjiv;
+lakše provjerljiv;
+otporniji na cenzuru;
+otvoreniji;
+sigurniji za štednju;
+korisniji ljudima koji se međusobno ne slažu.
+Zaključak
+
+BIP-110 postavlja važno pitanje:
+
+Može li Bitcoin izgubiti svoju monetarnu svrhu ako se prostor u bloku normalizira kao opća podatkovna platforma?
+
+Moj odgovor je da taj rizik postoji.
+
+Core v30 nije bio samo nevažna tehnička promjena. Zadane postavke dominantne implementacije imaju političku težinu. Mogu stvoriti nova očekivanja, kapital i industrije koje kasnije postaje teško ograničiti.
+
+Luke Dashjr i zagovornici BIP-110 u tome vide nešto stvarno.
+
+Ali moja je procjena drukčija.
+
+Ne mislim da Bitcoin najbolje štitimo tako da konsenzusom pokušamo odrediti koji su bajtovi dovoljno monetarni.
+
+Mislim da ga štitimo tako da:
+
+temeljni gospodarski konsenzus ostane gotovo nepromjenjiv;
+prostor u bloku ostane strogo ograničen;
+puni čvor ostane dostupan običnom čovjeku;
+svatko može bez dopuštenja koristiti Bitcoin;
+različiti sustavi budu prisiljeni učinkovito grupirati svoju aktivnost;
+korisnici mogu birati između skrbničkih i samoskrbničkih modela;
+inovacije ne mogu promijeniti ponudu, konfiscirati sredstva ili cenzurirati temeljni novac;
+konačno namirenje uvijek ostaje moguće na neutralnom Bitcoinovu sloju.
+
+Bitcoin kao novac ne postaje slabiji zato što na njemu postoje banke, Lightning, Ark, BitVM, rollupovi, trezorske kompanije i budući sustavi koje još ne poznajemo.
+
+Može postati snažniji ako ti sustavi:
+
+povećavaju broj ljudi koji koriste BTC;
+smanjuju potrebu za potpunim povjerenjem u skrbnike;
+omogućuju više načina izlaska prema osnovnom sloju;
+grupiraju velik broj aktivnosti u mali broj namirenja;
+jačaju tržište naknada;
+financiraju zaštitu mreže;
+ostavljaju osnovna monetarna pravila netaknutima.
+
+Zato danas ne podržavam BIP-110.
+
+Ne zato što mislim da svaka uporaba prostora u bloku zaslužuje pohvalu.
+
+Nego zato što mislim da je neutralan, ograničen i otvoren prostor u bloku važan dio načina na koji Bitcoin može postati novac cijeloga svijeta.
+
+Bitcoin ne treba izvršavati svaku transakciju svijeta.
+Treba biti konačni, otvoreni i nepromjenjivi temelj na kojem se sve te transakcije mogu, izravno ili neizravno, namiriti.
+
+[VIZUAL 11 — ZAVRŠNA SLIKA]
+Prompt za ImageGen: Završna civilizacijska ilustracija. U središtu jednostavna Bitcoinova jezgra s četiri riječi: “ograničen”, “neutralan”, “permissionless”, “provjerljiv”. Oko nje mnogi različiti putevi: samoskrbništvo, Lightning, Ark, rollupovi, banke, trezorske kompanije, energija, roboti i obitelji. Svi putevi dolaze prema istom konačnom namirenju, ali nijedan ne može promijeniti jezgru. Optimističan mediteranski renesansni stil, topla krem podloga, duboka plava, terakota i zlatni detalji, format 16:9.
+
+Napomena za čitatelja
+
+Ova rasprava može biti važna za budućnost Bitcoina, ali nije potrebno da o njoj imate konačan stav kako biste uredili vlastiti odnos prema novcu.
+
+Puno je važnije znati:
+
+kako vodite proračun;
+što ćete napraviti s dugovima;
+koliko dajete;
+kako je raspoređena vaša neto imovina;
+kako razumijete dugoročni trend Bitcoina;
+tko može pristupiti vašem bitcoinu ako se vama nešto dogodi.
+
+Protokolarne rasprave postaju korisne tek kada nam pomažu bolje razumjeti što zapravo štitimo.
+
+Za objašnjenje ove teme, procjenu vlastitog Bitcoin standarda ili postavljanje sigurnog dugoročnog okvira uvijek mi se možete javiti kroz Bitcoin savjetovanje.

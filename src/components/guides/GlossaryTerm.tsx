@@ -1,8 +1,25 @@
-import { useEffect, useId, useRef, useState } from "react"
+import {
+  type CSSProperties,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react"
+import { createPortal } from "react-dom"
 
 import type { GlossaryTerm } from "@/content/glossary"
 
 type TooltipPlacement = "center" | "start" | "end"
+type TooltipSide = "top" | "bottom"
+
+type TooltipPosition = {
+  left: number
+  top: number
+}
+
+const subscribeToClient = () => () => undefined
 
 export function InlineGlossaryTerm({
   children,
@@ -12,12 +29,23 @@ export function InlineGlossaryTerm({
   term: GlossaryTerm
 }) {
   const [open, setOpen] = useState(false)
+  const [hovered, setHovered] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const mounted = useSyncExternalStore(
+    subscribeToClient,
+    () => true,
+    () => false
+  )
   const [placement, setPlacement] = useState<TooltipPlacement>("center")
+  const [side, setSide] = useState<TooltipSide>("top")
+  const [position, setPosition] = useState<TooltipPosition>({ left: 0, top: 0 })
   const buttonRef = useRef<HTMLButtonElement>(null)
   const termRef = useRef<HTMLSpanElement>(null)
+  const tooltipRef = useRef<HTMLSpanElement>(null)
   const tooltipId = useId()
+  const visible = open || hovered || focused
 
-  function updateTooltipPlacement() {
+  const updateTooltipPlacement = useCallback(() => {
     const trigger = buttonRef.current
 
     if (!trigger) {
@@ -25,21 +53,65 @@ export function InlineGlossaryTerm({
     }
 
     const rect = trigger.getBoundingClientRect()
-    const safePadding = 24
-    const tooltipHalfWidth = 176
+    const safePadding = window.innerWidth < 768 ? 16 : 24
+    const gap = 10
+    const viewportWidth = document.documentElement.clientWidth
+    const viewportHeight = document.documentElement.clientHeight
+    const tooltipWidth =
+      tooltipRef.current?.offsetWidth ??
+      Math.min(320, viewportWidth - safePadding * 2)
+    const tooltipHeight = tooltipRef.current?.offsetHeight ?? 140
+    const triggerCenter = rect.left + rect.width / 2
+    const minimumLeft = safePadding
+    const maximumLeft = Math.max(
+      minimumLeft,
+      viewportWidth - safePadding - tooltipWidth
+    )
+    const centeredLeft = triggerCenter - tooltipWidth / 2
+    const left = Math.min(Math.max(centeredLeft, minimumLeft), maximumLeft)
+    let nextPlacement: TooltipPlacement = "center"
 
-    if (rect.left < tooltipHalfWidth + safePadding) {
-      setPlacement("start")
+    if (left <= minimumLeft) {
+      nextPlacement = "start"
+    } else if (left >= maximumLeft) {
+      nextPlacement = "end"
+    }
+
+    const aboveTop = rect.top - gap - tooltipHeight
+    const belowTop = rect.bottom + gap
+    const minimumTop = safePadding
+    const maximumTop = Math.max(
+      minimumTop,
+      viewportHeight - safePadding - tooltipHeight
+    )
+    const hasRoomAbove = aboveTop >= minimumTop
+    const hasRoomBelow = belowTop <= maximumTop
+    const nextSide: TooltipSide =
+      hasRoomAbove || !hasRoomBelow ? "top" : "bottom"
+    const requestedTop = nextSide === "top" ? aboveTop : belowTop
+    const top = Math.min(Math.max(requestedTop, minimumTop), maximumTop)
+
+    setPlacement(nextPlacement)
+    setSide(nextSide)
+    setPosition({ left, top })
+  }, [])
+
+  useEffect(() => {
+    if (!visible) {
       return
     }
 
-    if (window.innerWidth - rect.right < tooltipHalfWidth + safePadding) {
-      setPlacement("end")
-      return
-    }
+    const frame = window.requestAnimationFrame(updateTooltipPlacement)
 
-    setPlacement("center")
-  }
+    window.addEventListener("resize", updateTooltipPlacement)
+    window.addEventListener("scroll", updateTooltipPlacement, true)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener("resize", updateTooltipPlacement)
+      window.removeEventListener("scroll", updateTooltipPlacement, true)
+    }
+  }, [updateTooltipPlacement, visible])
 
   useEffect(() => {
     if (!open) {
@@ -73,6 +145,7 @@ export function InlineGlossaryTerm({
       className="glossary-term-wrap"
       data-open={open ? "true" : undefined}
       data-placement={placement}
+      onMouseLeave={() => setHovered(false)}
     >
       <button
         ref={buttonRef}
@@ -85,15 +158,43 @@ export function InlineGlossaryTerm({
           updateTooltipPlacement()
           setOpen((current) => !current)
         }}
-        onFocus={updateTooltipPlacement}
-        onMouseEnter={updateTooltipPlacement}
+        onBlur={() => setFocused(false)}
+        onFocus={() => {
+          setFocused(true)
+          updateTooltipPlacement()
+        }}
+        onMouseEnter={() => {
+          setHovered(true)
+          updateTooltipPlacement()
+        }}
       >
         {children}
       </button>
-      <span id={tooltipId} role="tooltip" className="glossary-term__tooltip">
-        <span className="glossary-term__title">{term.title}</span>
-        <span className="glossary-term__description">{term.description}</span>
-      </span>
+      {mounted
+        ? createPortal(
+            <span
+              ref={tooltipRef}
+              id={tooltipId}
+              role="tooltip"
+              className="glossary-term__tooltip"
+              data-placement={placement}
+              data-side={side}
+              data-visible={visible ? "true" : undefined}
+              style={
+                {
+                  "--glossary-tooltip-left": `${position.left}px`,
+                  "--glossary-tooltip-top": `${position.top}px`,
+                } as CSSProperties
+              }
+            >
+              <span className="glossary-term__title">{term.title}</span>
+              <span className="glossary-term__description">
+                {term.description}
+              </span>
+            </span>,
+            document.body
+          )
+        : null}
     </span>
   )
 }

@@ -292,3 +292,12 @@ export const credibilityLogos = [
     className: "credibility-logo-strip__logo--compact",
   },
 ]
+
+export const REAL_ESTATE_BITCOIN_PATH = "/nekretnina-ili-bitcoin/"
+export const realEstateBitcoinSeo = {
+  title:
+    "Nekretnina ili Bitcoin? Kalkulator oportunitetnog troška | Bitcoin Savjetovanje",
+  description:
+    "Usporedite vrijednost nekretnine, neto najam i očekivani rast s dugoročnim PL0 trendom Bitcoina kroz 1, 5, 10 i 30 godina.",
+  canonical: `${SITE_URL}${REAL_ESTATE_BITCOIN_PATH}`,
+}

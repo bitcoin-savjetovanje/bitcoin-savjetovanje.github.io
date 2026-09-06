@@ -1,3 +1,4 @@
+import { REAL_ESTATE_BITCOIN_PATH, realEstateBitcoinSeo } from "./site"
 import {
   BITCOIN_ADVICE_PATH,
   BITCOIN_CONSULTATION_PATH,
@@ -60,6 +61,7 @@ export type ClientRouteType =
   | "net-worth"
   | "time-volatility"
   | "long-term-trend"
+  | "real-estate-bitcoin"
   | "bitcoin-today"
   | "custody-security"
   | "bitcoin-advice"
@@ -343,4 +345,11 @@ export const notFoundRoute = clientRoute({
   canonical: `${SITE_URL}/404`,
   type: "not-found",
   ...socialImages.default,
+})
+
+export const realEstateBitcoinRoute = clientRoute({
+  path: REAL_ESTATE_BITCOIN_PATH,
+  ...realEstateBitcoinSeo,
+  type: "real-estate-bitcoin",
+  ...socialImages.timeVolatility,
 })

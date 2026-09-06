@@ -75,6 +75,7 @@ if (missingEntryImports.length > 0) {
 }
 
 const routeSelectors = new Map([
+  ["nekretnina-ili-bitcoin/index.html", [".oc-page", ".oc-chart"]],
   ["pavao-pahljina/index.html", [".founder-page"]],
   ["proracun/nulta-razina/index.html", [".budget-zero-page"]],
   ["mogao-sam-kupiti-bitcoin-ranije/index.html", [".missed-bitcoin-page"]],

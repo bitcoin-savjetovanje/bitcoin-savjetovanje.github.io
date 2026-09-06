@@ -17,6 +17,7 @@ export type RouteComponents = {
   BitcoinMoney: ComponentType
   NetWorth: ComponentType
   TimeVolatility: ComponentType
+  RealEstateBitcoin: ComponentType
   LongTermTrend: ComponentType
   BitcoinToday: ComponentType
   CustodySecurity: ComponentType
@@ -75,6 +76,11 @@ const lazyRouteComponents = {
   TimeVolatility: lazy(() =>
     import("@/pages/TimeVolatility").then((module) => ({
       default: module.TimeVolatility,
+    }))
+  ),
+  RealEstateBitcoin: lazy(() =>
+    import("@/pages/RealEstateBitcoin").then((module) => ({
+      default: module.RealEstateBitcoin,
     }))
   ),
   LongTermTrend: lazy(() =>
@@ -213,6 +219,10 @@ export async function loadHydrationRouteComponents(pathname: string) {
     routeComponents.TimeVolatility = (
       await import("@/pages/TimeVolatility")
     ).TimeVolatility
+  } else if (path === "/nekretnina-ili-bitcoin") {
+    routeComponents.RealEstateBitcoin = (
+      await import("@/pages/RealEstateBitcoin")
+    ).RealEstateBitcoin
   } else if (path === "/dugorocni-trend") {
     routeComponents.LongTermTrend = (
       await import("@/pages/LongTermTrend")
@@ -317,6 +327,7 @@ function Route({
     NetWorth,
     TimeVolatility,
     LongTermTrend,
+    RealEstateBitcoin,
     BitcoinToday,
     CustodySecurity,
     BitcoinAdvice,
@@ -376,6 +387,10 @@ function Route({
 
   if (path === "/bitcoin-vrijeme-i-volatilnost") {
     return <TimeVolatility />
+  }
+
+  if (path === "/nekretnina-ili-bitcoin") {
+    return <RealEstateBitcoin />
   }
 
   if (path === "/dugorocni-trend") {
@@ -478,6 +493,7 @@ export function App({
     currentPath !== "/razgovor" &&
     currentPath !== "/provjera-bitcoin-standarda" &&
     currentPath !== "/dugorocni-trend" &&
+    currentPath !== "/nekretnina-ili-bitcoin" &&
     currentPath !== "/bitcoin-danas" &&
     currentPath !== "/mogao-sam-kupiti-bitcoin-ranije" &&
     currentPath !== "/poduzetnici" &&

@@ -1,0 +1,561 @@
+.oc-page {
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.oc-container {
+  width: min(100% - 3rem, 1200px);
+  margin-inline: auto;
+}
+.oc-page h1,
+.oc-page h2,
+.oc-page h3,
+.oc-page h4 {
+  color: var(--foreground);
+  line-height: 1.2;
+  font-weight: 600;
+  text-wrap: balance;
+  letter-spacing: -0.025em;
+}
+.oc-page h1 {
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  max-width: 10ch;
+}
+.oc-page h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+.oc-page h3 {
+  font-size: 1.45rem;
+}
+.oc-page h4 {
+  font-size: 1.1rem;
+}
+.oc-page p {
+  color: var(--muted-foreground);
+}
+.oc-page p + p {
+  margin-top: 1rem;
+}
+.oc-page .oc-eyebrow {
+  color: var(--bitcoin-orange);
+  font-size: 0.875rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+.oc-hero {
+  border-bottom: 1px solid var(--border);
+  background: var(--linen);
+}
+.oc-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 4rem;
+  padding-block: 4rem;
+}
+.oc-hero img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 18px 50px -35px #30251780;
+}
+.oc-hero .oc-lead {
+  color: var(--foreground);
+  font-size: 1.2rem;
+  line-height: 1.65;
+  margin-top: 1.5rem;
+}
+.oc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.oc-link {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--stone);
+}
+.oc-link:hover {
+  text-decoration-color: currentColor;
+}
+.oc-page :focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+.oc-section {
+  padding-block: 4rem;
+  scroll-margin-top: 6rem;
+}
+.oc-section-intro {
+  max-width: 740px;
+  margin-bottom: 2rem;
+}
+.oc-section-intro > p:last-child {
+  margin-top: 1rem;
+}
+.oc-input-panel {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--card);
+}
+.oc-input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+}
+.oc-field {
+  min-width: 0;
+}
+.oc-field label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 550;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+.oc-field input {
+  display: block;
+  width: 100%;
+  height: 3.2rem;
+  border-radius: 10px;
+  border: 1px solid var(--input);
+  background: var(--background);
+  padding-inline: 1rem;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  color: var(--foreground);
+}
+.oc-field input:focus {
+  border-color: var(--ring);
+}
+.oc-field p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+.oc-field .oc-input-error {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.oc-field [aria-invalid="true"] {
+  border-style: dashed;
+  border-width: 2px;
+}
+.oc-details {
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+.oc-details summary {
+  cursor: pointer;
+  min-height: 48px;
+  padding-block: 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.oc-details summary::marker {
+  color: var(--bitcoin-orange);
+}
+.oc-advanced {
+  margin-block: 0.5rem 1.5rem;
+}
+.oc-input-footer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+.oc-input-footer p {
+  font-size: 0.875rem;
+}
+.oc-debt-note {
+  margin-block: 1.5rem 2rem;
+  max-width: 900px;
+}
+.oc-current-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  border-block: 1px solid var(--border);
+  padding-block: 1.5rem;
+}
+.oc-metric {
+  min-width: 0;
+}
+.oc-metric dt {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.oc-metric dd {
+  color: var(--foreground);
+  margin-top: 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.oc-metric-emphasis dd {
+  font-size: 1.6rem;
+  letter-spacing: -0.025em;
+}
+.oc-current-metrics .oc-metric-emphasis dd {
+  font-size: 1.25rem;
+}
+.oc-market-note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.oc-market-note p {
+  flex: 1;
+}
+.oc-results-section {
+  border-block: 1px solid var(--border);
+  background: var(--muted);
+}
+.oc-horizons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-block: 1.75rem;
+}
+.oc-horizons button {
+  min-height: 44px;
+  padding-inline: 1.25rem;
+}
+.oc-result-date {
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+.oc-scenarios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.oc-scenario {
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+}
+.oc-scenario-bitcoin {
+  border-top: 3px solid var(--bitcoin-orange);
+}
+.oc-scenario dl {
+  margin-top: 1.25rem;
+}
+.oc-scenario .oc-metric {
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.oc-scenario .oc-metric:last-child {
+  border: 0;
+  padding-bottom: 0;
+}
+.oc-scenario .oc-metric-emphasis dd {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+.oc-comparison {
+  padding-block: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.oc-comparison > p:first-child {
+  max-width: 1000px;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--foreground);
+  line-height: 1.6;
+}
+.oc-comparison dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-block: 1.5rem;
+}
+.oc-comparison .oc-metric-emphasis dd {
+  font-size: 2.5rem;
+}
+.oc-comparison strong {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.oc-rates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-block: 2rem;
+}
+.oc-break-even {
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 2rem;
+  margin-top: 1rem;
+}
+.oc-break-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.oc-break-grid h4 {
+  margin-bottom: 1rem;
+}
+.oc-break-grid .oc-big-number {
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: var(--foreground);
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+  line-height: 1.3;
+}
+.oc-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.oc-chart {
+  min-width: 0;
+  padding: 1.5rem;
+  background: var(--card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+.oc-chart figcaption p {
+  font-size: 0.875rem;
+  margin-top: 0.8rem;
+  line-height: 1.65;
+}
+.oc-chart-unit {
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+}
+.oc-chart-plot {
+  display: grid;
+  grid-template-columns: minmax(3rem, auto) minmax(0, 1fr);
+  gap: 0.5rem;
+}
+.oc-chart-plot svg {
+  width: 100%;
+  height: 260px;
+  overflow: visible;
+}
+.oc-chart-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 9px;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.oc-chart-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.oc-line-property {
+  stroke: var(--foreground);
+}
+.oc-line-bitcoin {
+  stroke: var(--bitcoin-orange);
+}
+.oc-chart-x {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-left: 3.5rem;
+}
+.oc-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-block: 1rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+.oc-chart-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.oc-key {
+  width: 1.5rem;
+  height: 0;
+  border-top: 2px solid var(--foreground);
+  flex-shrink: 0;
+}
+.oc-key-bitcoin {
+  border-color: var(--bitcoin-orange);
+  border-top-style: dashed;
+}
+.oc-chart > a {
+  font-size: 0.875rem;
+}
+.oc-page .oc-fine {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  margin-top: 1.5rem;
+}
+.oc-table-section {
+  margin-top: 3rem;
+  scroll-margin-top: 6rem;
+}
+.oc-table-section h3 {
+  margin-bottom: 1.5rem;
+}
+.oc-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+}
+.oc-table-scroll table {
+  width: 100%;
+  min-width: 1350px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+.oc-table-scroll caption {
+  text-align: left;
+  padding: 1rem;
+  color: var(--muted-foreground);
+}
+.oc-table-scroll th,
+.oc-table-scroll td {
+  padding: 1.1rem 1rem;
+  text-align: right;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+.oc-table-scroll th:first-child {
+  text-align: left;
+}
+.oc-table-scroll thead th {
+  font-weight: 550;
+  color: var(--muted-foreground);
+  min-width: 125px;
+}
+.oc-table-scroll tbody tr[data-selected="true"] {
+  background: var(--muted);
+}
+.oc-education,
+.oc-conclusion,
+.oc-assumptions {
+  max-width: 900px;
+}
+.oc-education > p:not(.oc-eyebrow),
+.oc-conclusion > p {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+.oc-personal {
+  margin-top: 2.5rem;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+}
+.oc-personal h3 {
+  margin-bottom: 1rem;
+}
+.oc-assumptions .oc-details {
+  border-bottom: 1px solid var(--border);
+  margin-top: 0;
+}
+.oc-assumptions summary {
+  font-size: 1.25rem;
+}
+.oc-assumptions-copy {
+  padding-bottom: 1.5rem;
+}
+.oc-conclusion h3 {
+  margin-block: 2rem 1.25rem;
+}
+.oc-page .oc-callout {
+  border-left: 3px solid var(--bitcoin-orange);
+  padding-left: 1rem;
+  color: var(--foreground);
+  margin-top: 1.5rem;
+}
+@media (max-width: 1000px) {
+  .oc-hero-grid {
+    gap: 2rem;
+  }
+  .oc-current-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .oc-charts {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .oc-container {
+    width: calc(100% - 2rem);
+  }
+  .oc-hero-grid,
+  .oc-input-grid,
+  .oc-scenarios,
+  .oc-break-grid,
+  .oc-comparison dl,
+  .oc-rates {
+    grid-template-columns: 1fr;
+  }
+  .oc-hero-grid {
+    padding-block: 2.5rem;
+  }
+  .oc-hero h1 {
+    max-width: 100%;
+  }
+  .oc-hero img {
+    max-height: 260px;
+  }
+  .oc-section {
+    padding-block: 2.5rem;
+  }
+  .oc-input-panel,
+  .oc-scenario,
+  .oc-break-even,
+  .oc-personal {
+    padding: 1.25rem;
+  }
+  .oc-current-metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1rem;
+  }
+  .oc-input-footer,
+  .oc-market-note {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .oc-break-grid,
+  .oc-rates {
+    gap: 1.5rem;
+  }
+  .oc-break-grid > div + div {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+  }
+  .oc-chart {
+    padding: 1rem;
+  }
+}

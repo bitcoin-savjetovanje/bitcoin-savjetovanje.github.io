@@ -1,3 +1,4 @@
+import { REAL_ESTATE_BITCOIN_PATH, realEstateBitcoinSeo } from "./site"
 import {
   audienceCanonical,
   audiencePages,
@@ -70,6 +71,7 @@ export type RouteType =
   | "net-worth"
   | "time-volatility"
   | "long-term-trend"
+  | "real-estate-bitcoin"
   | "bitcoin-today"
   | "custody-security"
   | "bitcoin-advice"
@@ -745,6 +747,35 @@ export const notFoundRoute: RouteMeta = {
   ...socialImages.default,
 }
 
+export const realEstateBitcoinRoute: RouteMeta = {
+  path: REAL_ESTATE_BITCOIN_PATH,
+  ...realEstateBitcoinSeo,
+  type: "real-estate-bitcoin",
+  lastmod: "2026-09-06",
+  ogType: "website",
+  ...socialImages.timeVolatility,
+  schema: {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: "Nekretnina ili Bitcoin?",
+        description: realEstateBitcoinSeo.description,
+        url: realEstateBitcoinSeo.canonical,
+        inLanguage: "hr-HR",
+        isAccessibleForFree: true,
+      },
+      breadcrumbSchema([
+        { name: "Početna", item: `${SITE_URL}/` },
+        {
+          name: "Nekretnina ili Bitcoin?",
+          item: realEstateBitcoinSeo.canonical,
+        },
+      ]),
+    ],
+  },
+}
+
 export const prerenderRoutes: RouteMeta[] = [
   homeRoute,
   pavaoPahljinaRoute,
@@ -756,6 +787,7 @@ export const prerenderRoutes: RouteMeta[] = [
   netWorthRoute,
   timeVolatilityRoute,
   longTermTrendRoute,
+  realEstateBitcoinRoute,
   bitcoinTodayRoute,
   custodySecurityRoute,
   bitcoinAdviceRoute,

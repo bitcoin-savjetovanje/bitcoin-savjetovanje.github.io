@@ -328,13 +328,21 @@ function apiErrorMessage(value: unknown) {
   return typeof value.error.message === "string" ? value.error.message : null
 }
 
+/** GitHub Pages has no Functions runtime; reuse the canonical site's public API. */
+export function bitcoinSnapshotEndpoint(hostname = "") {
+  return hostname === "bitcoin-savjetovanje.github.io"
+    ? "https://bitcoin-savjetovanje.com/api/bitcoin-snapshot"
+    : "/api/bitcoin-snapshot"
+}
+
 export async function fetchBitcoinSnapshot(
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  hostname = ""
 ): Promise<BitcoinSnapshot> {
   let response: Response
 
   try {
-    response = await fetch("/api/bitcoin-snapshot", {
+    response = await fetch(bitcoinSnapshotEndpoint(hostname), {
       headers: { Accept: "application/json" },
       signal,
     })

@@ -211,6 +211,24 @@ export function LongTermTrend() {
 
         <HTimeCalculator />
 
+        <section className="border-b border-border/70 bg-muted/25">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-semibold tracking-tight">
+              Primijenite trend na svoju imovinu
+            </h2>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
+              Imate nekretninu koju iznajmljujete ili držite kao dugoročnu
+              imovinu? Usporedite njezin rast i neto najam s Bitcoinovim
+              dugoročnim trendom.
+            </p>
+            <Button asChild size="lg" className="cta-primary mt-6">
+              <a href="/nekretnina-ili-bitcoin/">
+                Usporedite nekretninu i Bitcoin
+              </a>
+            </Button>
+          </div>
+        </section>
+
         <section className="bg-background">
           <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.88fr_1.12fr] lg:gap-20 lg:px-8 lg:py-24">
             <div>

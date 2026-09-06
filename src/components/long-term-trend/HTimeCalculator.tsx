@@ -27,7 +27,6 @@ import {
   createBitcoinWaveDateMapper,
   hClockTime,
   hForBlock,
-  isBitcoinWaveDataset,
   minedPercentage,
   powerLawMedianPrice,
   type BitcoinWaveDataset,
@@ -38,8 +37,7 @@ import {
   type BitcoinSnapshot,
 } from "@/lib/bitcoinSnapshot"
 
-const DATASET_PATH =
-  "/dugorocni-trend/graf/bitcoin-wave-rootchart-v1.json?v=20260715-h12"
+import { fetchBitcoinWaveDataset as fetchDataset } from "@/lib/bitcoinWaveData"
 const FALLBACK_DATE = "2026-07-17"
 const FALLBACK_BLOCK = 958_388
 const FALLBACK_PRICE = 62_885
@@ -143,16 +141,6 @@ function initialSelection(): Selection {
     h: hForBlock(FALLBACK_BLOCK),
     block: FALLBACK_BLOCK,
   }
-}
-
-async function fetchDataset(signal: AbortSignal) {
-  const response = await fetch(DATASET_PATH, { cache: "no-cache", signal })
-  if (!response.ok) throw new Error(`Podaci modela: HTTP ${response.status}`)
-  const value: unknown = await response.json()
-  if (!isBitcoinWaveDataset(value)) {
-    throw new Error("Podaci modela nisu u očekivanom formatu.")
-  }
-  return value
 }
 
 function snapshotDate(

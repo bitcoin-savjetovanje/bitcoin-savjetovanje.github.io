@@ -289,6 +289,16 @@ export function NetWorth() {
             </div>
           </div>
         </section>
+        <p className="mx-auto my-8 max-w-4xl px-4 text-lg leading-8 text-muted-foreground">
+          Imate nekretninu kao dio neto imovine?{" "}
+          <a
+            href="/nekretnina-ili-bitcoin/"
+            className="font-medium text-foreground underline underline-offset-4"
+          >
+            Usporedite njezinu vrijednost i neto najam s Bitcoinovim dugoročnim
+            trendom.
+          </a>
+        </p>
         <StandardCheckCta dataCta="net-worth-standard-check" />
       </div>
     </>

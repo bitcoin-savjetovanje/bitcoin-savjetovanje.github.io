@@ -456,7 +456,31 @@ for (const htmlPath of activeHtmlFiles) {
   }
 }
 
+const propertyPage = read("nekretnina-ili-bitcoin/index.html")
+check(
+  !/noindex/i.test(metaContent(propertyPage, "name", "robots")),
+  "Property calculator must be indexable"
+)
+check(
+  /<h1[^>]*>Nekretnina ili Bitcoin\?<\/h1>/.test(propertyPage),
+  "Property calculator H1 is missing"
+)
+
 const pageMarkers = new Map([
+  [
+    "nekretnina-ili-bitcoin/index.html",
+    [
+      "Kalkulator oportunitetnog troška",
+      'href="/dugorocni-trend/"',
+      'href="/dug/"',
+      'href="/razgovor/"',
+      'id="izracun"',
+      'id="usporedba-razdoblja"',
+      "Što ovaj model ne zna?",
+    ],
+  ],
+  ["dugorocni-trend/index.html", ['href="/nekretnina-ili-bitcoin/"']],
+  ["bitcoin-i-neto-imovina/index.html", ['href="/nekretnina-ili-bitcoin/"']],
   [
     "index.html",
     [

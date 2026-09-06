@@ -16,6 +16,11 @@ import {
 } from "../_shared/bitcoinSnapshotServer.ts"
 
 const CACHE_VERSION = "v1"
+// Only this site's static GitHub Pages origin needs cross-origin access.
+const SNAPSHOT_RESPONSE_HEADERS = {
+  "Cache-Control": "no-store",
+  "Access-Control-Allow-Origin": "https://bitcoin-savjetovanje.github.io",
+}
 
 function cacheKey(request: Request, group: string) {
   const url = new URL(request.url)
@@ -153,7 +158,7 @@ export const onRequestGet: PagesFunction = async (context) => {
 
     return Response.json(snapshot, {
       headers: {
-        "Cache-Control": "no-store",
+        ...SNAPSHOT_RESPONSE_HEADERS,
         "X-Bitcoin-Snapshot-State": state,
       },
     })
@@ -175,7 +180,7 @@ export const onRequestGet: PagesFunction = async (context) => {
       },
       {
         status: 500,
-        headers: { "Cache-Control": "no-store" },
+        headers: SNAPSHOT_RESPONSE_HEADERS,
       }
     )
   }

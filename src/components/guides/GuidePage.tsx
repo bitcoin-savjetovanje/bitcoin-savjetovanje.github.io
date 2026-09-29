@@ -907,9 +907,12 @@ export function GuidePage({ guide }: { guide: Guide }) {
                     className="cta-primary w-full rounded-full sm:w-auto"
                   >
                     <a
-                      href={CONVERSATION_PATH}
+                      href={guide.finalCtaTarget?.href ?? CONVERSATION_PATH}
                       className="justify-center text-center"
-                      data-cta="guide-final-intro-call"
+                      data-cta={
+                        guide.finalCtaTarget?.dataCta ??
+                        "guide-final-intro-call"
+                      }
                     >
                       <CalendarDays className="size-4" />
                       {guide.finalCta}
@@ -934,7 +937,10 @@ export function GuidePage({ guide }: { guide: Guide }) {
               </div>
             )}
           </div>
-          <GuideStickyCta readingProgress={readingProgress} />
+          <GuideStickyCta
+            readingProgress={readingProgress}
+            cta={guide.stickyCta}
+          />
         </div>
       </div>
     </article>

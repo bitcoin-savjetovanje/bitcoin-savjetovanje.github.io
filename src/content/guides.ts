@@ -4,7 +4,7 @@ import {
   selfCustodyOrCustodianGuide,
 } from "./bitcoinCoreStandard"
 import { guideHref } from "./guideLinks"
-import { PRIMARY_CTA } from "./site"
+import { BUSINESS_BITCOIN_PATH, PRIMARY_CTA } from "./site"
 
 export { guideHref } from "./guideLinks"
 
@@ -310,6 +310,19 @@ export type Guide = {
   finalCtaPrompt?: string
   finalCtaPromptStandalone?: boolean
   finalCtaNote?: string
+  finalCtaTarget?: {
+    href: string
+    dataCta: string
+  }
+  stickyCta?: {
+    title: string
+    prompt: string
+    detail: string
+    label: string
+    href: string
+    dataCta: string
+    note: string
+  }
   finalSecondaryCta?: {
     label: string
     href: string
@@ -5483,9 +5496,26 @@ const guideEntries: Guide[] = [
         ],
       },
     ],
-    finalCta: "Razgovarajmo o poslovnom Bitcoin okviru.",
+    finalCta: "Pogledajte Bitcoin briefing za upravu",
+    finalCtaTitle: "Treba li vašem poslu Bitcoin briefing?",
     finalCtaPrompt:
-      "Ako poslovni Bitcoin postoji ili ga razmatrate, a nije jasno tko smije što napraviti, uvodni razgovor može pomoći razdvojiti privatni, poslovni i sigurnosni sloj.",
+      "Ako poslovni Bitcoin postoji ili ga razmatrate, a nije jasno tko smije što napraviti, pogledajte što obuhvaća zatvoreni briefing za upravu. Na toj stranici možete dogovoriti kratki poslovni uvodni razgovor.",
+    finalCtaPromptStandalone: true,
+    finalCtaTarget: {
+      href: BUSINESS_BITCOIN_PATH,
+      dataCta: "guide-final-business-briefing",
+    },
+    stickyCta: {
+      title: "Bitcoin briefing za upravu",
+      prompt:
+        "Tko je odgovoran za poslovni Bitcoin i što ako ključna osoba nije dostupna?",
+      detail:
+        "Pogledajte format briefinga i zatim dogovorite poslovni uvodni razgovor ako odgovara vašem pitanju.",
+      label: "Pogledajte poslovni briefing",
+      href: BUSINESS_BITCOIN_PATH,
+      dataCta: "guide-sticky-business-briefing",
+      note: "Uvodni razgovor je bez naknade; opseg i cijena briefinga dogovaraju se zasebno.",
+    },
   },
 ]
 
